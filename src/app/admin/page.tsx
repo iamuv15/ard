@@ -4,6 +4,8 @@ import LogOutButton from '@/components/LogOutButton'
 import { ChapterList } from '@/components/admin/ChapterList'
 import { CreateChapterForm } from '@/components/admin/CreateChapterForm'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminDashboard() {
   const count = await prisma.question.count()
   

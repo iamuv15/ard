@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, BookOpen, FileQuestion } from 'lucide-react'
 import prisma from '@/lib/prisma'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ChapterPage(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const chapterId = parseInt(params.id, 10)

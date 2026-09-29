@@ -4,6 +4,8 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, PlayCircle, ShieldAlert, Clock } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 export default async function RedemptionLobby() {
   const session = await getUserSession()
   if (!session) {

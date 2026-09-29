@@ -2,6 +2,8 @@ import Link from 'next/link'
 import prisma from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
 export default async function InstructionsPage({ params }: { params: Promise<{ quizId: string }> }) {
   const { quizId } = await params
   const quiz = await prisma.quiz.findUnique({

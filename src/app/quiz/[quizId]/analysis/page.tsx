@@ -2,6 +2,8 @@ import prisma from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import AnalysisClient from '@/components/AnalysisClient'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AnalysisPage({ params }: { params: Promise<{ quizId: string }> }) {
   const { quizId } = await params
   const quiz = await prisma.quiz.findUnique({

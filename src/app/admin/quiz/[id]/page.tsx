@@ -5,6 +5,8 @@ import prisma from '@/lib/prisma'
 import { QuestionManager } from '@/components/admin/QuestionManager'
 import LogOutButton from '@/components/LogOutButton'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminQuizPage(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const quizId = parseInt(params.id, 10)

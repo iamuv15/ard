@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { getUserSession } from '@/lib/auth'
 import MockEngineClient from '@/components/MockEngineClient'
 
+export const dynamic = 'force-dynamic'
+
 export default async function MockExamPage({ params }: { params: Promise<{ quizId: string }> }) {
   const { quizId } = await params
   const session = await getUserSession()
