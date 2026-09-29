@@ -1,12 +1,10 @@
 import { PrismaClient } from '@prisma/client'
 import { PrismaLibSql } from '@prisma/adapter-libsql'
-import { createClient } from '@libsql/client'
 
 const prismaClientSingleton = () => {
-  const url = process.env.DATABASE_URL
+  const url = process.env.DATABASE_URL || 'file:./dev.db'
   console.log('[prisma.ts] DATABASE_URL:', url)
-  const libsql = createClient({ url: url || 'file:./dev.db' })
-  const adapter = new PrismaLibSql(libsql)
+  const adapter = new PrismaLibSql({ url })
   return new PrismaClient({ adapter })
 }
 
