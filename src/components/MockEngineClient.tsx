@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { X, Pause, Flag, Trash2, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, Pause, Flag, Trash2, ChevronLeft, ChevronRight, Bookmark } from 'lucide-react'
 
 type Question = {
   id: number
@@ -33,6 +33,18 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
   const [timeLeft, setTimeLeft] = useState(questions.length * 60)
   const [showSubmitModal, setShowSubmitModal] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [bookmarkedIds, setBookmarkedIds] = useState<Set<number>>(new Set())
+
+  useEffect(() => {
+    fetch('/api/bookmarks')
+      .then(res => res.json())
+      .then(data => {
+        if (data.questionIds) {
+          setBookmarkedIds(new Set(data.questionIds))
+        }
+      })
+      .catch(err => console.error('Failed to load bookmarks', err))
+  }, [])
 
   useEffect(() => {
     if (questions.length > 0 && !statuses[0]) {
@@ -94,6 +106,27 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
       ...prev,
       [currentIndex]: hasAnswer ? 'answered_marked' : 'marked'
     }))
+  }
+
+  const handleToggleBookmark = async (qId: number) => {
+    const isBookmarked = bookmarkedIds.has(qId)
+    const nextSet = new Set(bookmarkedIds)
+    if (isBookmarked) {
+      nextSet.delete(qId)
+    } else {
+      nextSet.add(qId)
+    }
+    setBookmarkedIds(nextSet)
+
+    try {
+      await fetch('/api/bookmarks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ questionId: qId })
+      })
+    } catch (e) {
+      console.error('Failed to update bookmark', e)
+    }
   }
 
   const navigateTo = (index: number) => {
@@ -205,10 +238,24 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
 
           {/* Question */}
           <div className="flex-1 overflow-y-auto px-8 py-6 space-y-6">
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-center">
               <h2 className="text-sm font-bold text-gray-500">Q. {currentIndex + 1} of {questions.length}</h2>
-              <button className="text-yellow-400 hover:text-yellow-500">
-                <Flag className="w-4 h-4" />
+              <button
+                type="button"
+                onClick={() => handleToggleBookmark(currentQ.id)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
+                  bookmarkedIds.has(currentQ.id)
+                    ? 'bg-amber-50 border-amber-300 text-amber-700 shadow-sm'
+                    : 'bg-white border-gray-200 text-gray-600 hover:border-amber-300 hover:text-amber-700 hover:bg-amber-50/50'
+                }`}
+                title={bookmarkedIds.has(currentQ.id) ? "Marked for exam revision - click to unmark" : "Mark to revise later (Important for Exam)"}
+              >
+                <Bookmark
+                  className={`w-3.5 h-3.5 transition-transform ${
+                    bookmarkedIds.has(currentQ.id) ? 'fill-amber-500 text-amber-500 scale-110' : 'text-gray-400'
+                  }`}
+                />
+                <span>{bookmarkedIds.has(currentQ.id) ? 'Marked to Revise' : 'Mark to Revise'}</span>
               </button>
             </div>
 
@@ -312,6 +359,14 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
                   `}
                 >
                   {i + 1}
+                  {bookmarkedIds.has(questions[i]?.id) && (
+                    <div
+                      className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-amber-400 text-white rounded-full border border-white flex items-center justify-center shadow-xs"
+                      title="Marked for exam revision"
+                    >
+                      <span className="text-[8px] font-black leading-none">★</span>
+                    </div>
+                  )}
                   {statuses[i] === 'answered_marked' && (
                     <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-green-400 rounded-full border border-white"></div>
                   )}
@@ -327,12 +382,16 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
               <div className="flex items-center gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-500"></div> Not Answered</div>
               <div className="flex items-center gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-purple-600"></div> Marked for Review</div>
               <div className="flex items-center gap-1.5"><div className="w-2.5 h-2.5 rounded-full bg-gray-200"></div> Not Visited</div>
-              <div className="flex items-center gap-1.5 col-span-2">
+              <div className="flex items-center gap-1.5">
+                <div className="w-3.5 h-3.5 rounded-full bg-amber-400 text-[8px] text-white flex items-center justify-center font-bold">★</div>
+                Marked to Revise
+              </div>
+              <div className="flex items-center gap-1.5">
                 <div className="relative">
                   <div className="w-2.5 h-2.5 rounded-full bg-purple-600"></div>
                   <div className="absolute -bottom-[1px] -right-[1px] w-1.5 h-1.5 bg-green-400 rounded-full"></div>
                 </div>
-                Answered & Marked for Review
+                Ans. & Review
               </div>
             </div>
             <div className="flex gap-2 text-[10px] font-bold text-gray-400 uppercase">

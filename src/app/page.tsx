@@ -28,11 +28,22 @@ export default async function Home() {
 
   // If logged in: Show the actual course dashboard with full quiz access
   let mistakeCount = 0
+  let bookmarkCount = 0
   if (session) {
-    mistakeCount = await prisma.userMistake.count({
-      where: { userId: session.id }
-    })
+    const [mCount, bCount] = await Promise.all([
+      prisma.userMistake.count({ where: { userId: session.id } }),
+      prisma.userBookmark.count({ where: { userId: session.id } })
+    ])
+    mistakeCount = mCount
+    bookmarkCount = bCount
   }
 
-  return <CourseDashboard chapters={chapters} mistakeCount={mistakeCount} userName={session.name || null} />
+  return (
+    <CourseDashboard 
+      chapters={chapters} 
+      mistakeCount={mistakeCount} 
+      bookmarkCount={bookmarkCount} 
+      userName={session.name || null} 
+    />
+  )
 }

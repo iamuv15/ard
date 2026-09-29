@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
-import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft } from 'lucide-react'
+import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, Bookmark } from 'lucide-react'
 
 type Question = {
   id: number
@@ -32,8 +32,20 @@ export default function QuizPage() {
   const [score, setScore] = useState(0)
   const [loading, setLoading] = useState(true)
   const [isFinished, setIsFinished] = useState(false)
+  const [bookmarkedIds, setBookmarkedIds] = useState<Set<number>>(new Set())
   const router = useRouter()
   const params = useParams()
+
+  useEffect(() => {
+    fetch('/api/bookmarks')
+      .then(res => res.json())
+      .then(data => {
+        if (data.questionIds) {
+          setBookmarkedIds(new Set(data.questionIds))
+        }
+      })
+      .catch(err => console.error('Failed to load bookmarks', err))
+  }, [])
 
   useEffect(() => {
     const quizId = params.quizId
@@ -135,6 +147,27 @@ export default function QuizPage() {
     }
   }
 
+  const handleToggleBookmark = async (qId: number) => {
+    const isBookmarked = bookmarkedIds.has(qId)
+    const nextSet = new Set(bookmarkedIds)
+    if (isBookmarked) {
+      nextSet.delete(qId)
+    } else {
+      nextSet.add(qId)
+    }
+    setBookmarkedIds(nextSet)
+
+    try {
+      await fetch('/api/bookmarks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ questionId: qId })
+      })
+    } catch (e) {
+      console.error('Failed to update bookmark', e)
+    }
+  }
+
   const handleNext = async () => {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(curr => curr + 1)
@@ -192,13 +225,31 @@ export default function QuizPage() {
           {/* Main Content (Question & Options) */}
           <div className="flex-1">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 lg:p-8 mb-6">
-              {currentQ.topic && (
-                <div className="mb-4">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                {currentQ.topic ? (
                   <span className="inline-block px-2.5 py-1 bg-gray-100 text-gray-600 text-[10px] font-black uppercase tracking-widest rounded">
                     {currentQ.topic}
                   </span>
-                </div>
-              )}
+                ) : <span />}
+
+                <button
+                  type="button"
+                  onClick={() => handleToggleBookmark(currentQ.id)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
+                    bookmarkedIds.has(currentQ.id)
+                      ? 'bg-amber-50 border-amber-300 text-amber-700 shadow-sm'
+                      : 'bg-white border-gray-200 text-gray-600 hover:border-amber-300 hover:text-amber-700 hover:bg-amber-50/50'
+                  }`}
+                  title={bookmarkedIds.has(currentQ.id) ? "Marked for exam revision - click to unmark" : "Mark to revise later (Important for Exam)"}
+                >
+                  <Bookmark
+                    className={`w-3.5 h-3.5 transition-transform ${
+                      bookmarkedIds.has(currentQ.id) ? 'fill-amber-500 text-amber-500 scale-110' : 'text-gray-400'
+                    }`}
+                  />
+                  <span>{bookmarkedIds.has(currentQ.id) ? 'Marked to Revise' : 'Mark to Revise'}</span>
+                </button>
+              </div>
               
               <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-relaxed mb-6">
                 {currentQ.questionText}

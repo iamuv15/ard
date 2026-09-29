@@ -20,10 +20,11 @@ type Chapter = {
 type CourseDashboardProps = {
   chapters: Chapter[]
   mistakeCount: number
+  bookmarkCount?: number
   userName: string | null
 }
 
-export default function CourseDashboard({ chapters, mistakeCount, userName }: CourseDashboardProps) {
+export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount = 0, userName }: CourseDashboardProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
   // Find first available quiz as default
@@ -200,6 +201,14 @@ export default function CourseDashboard({ chapters, mistakeCount, userName }: Co
             </button>
           </div>
           <div className="flex items-center gap-3">
+            <Link
+              href="/bookmarks"
+              className="flex items-center gap-1.5 text-[13px] font-bold text-amber-700 bg-amber-50 border border-amber-300 px-3 py-1.5 rounded-lg hover:bg-amber-100 transition-colors shadow-xs"
+              title="View & practice questions marked to revise"
+            >
+              <Bookmark className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+              <span>Revision ({bookmarkCount})</span>
+            </Link>
             {mistakeCount > 0 && (
               <Link
                 href="/redemption"
@@ -308,8 +317,14 @@ export default function CourseDashboard({ chapters, mistakeCount, userName }: Co
 
               {/* Tabs row */}
               <div className="flex items-center gap-6 border-b border-gray-200 text-sm font-medium text-gray-500">
-                <button className="pb-3 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">Overview</button>
-                <button className="pb-3 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">Bookmarks</button>
+                <button className="pb-3 border-b-2 border-blue-600 text-blue-600 font-bold">Overview</button>
+                <Link 
+                  href="/bookmarks" 
+                  className="pb-3 border-b-2 border-transparent hover:text-amber-700 hover:border-amber-400 flex items-center gap-1.5 transition-colors font-medium"
+                >
+                  <Bookmark className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Bookmarks ({bookmarkCount})</span>
+                </Link>
                 <button className="pb-3 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">Resources</button>
                 <button className="pb-3 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">Recently added</button>
                 <button className="pb-3 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">Discussions</button>

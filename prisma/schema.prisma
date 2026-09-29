@@ -48,6 +48,7 @@ model Question {
   quiz          Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
   createdAt     DateTime @default(now())
   mistakes      UserMistake[]
+  bookmarks     UserBookmark[]
 }
 
 model User {
@@ -60,6 +61,7 @@ model User {
 
   mistakes  UserMistake[]
   attempts  QuizAttempt[]
+  bookmarks UserBookmark[]
 }
 
 model UserMistake {
@@ -86,4 +88,16 @@ model QuizAttempt {
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   quiz      Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+}
+
+model UserBookmark {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  questionId Int
+  createdAt  DateTime @default(now())
+
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId])
 }

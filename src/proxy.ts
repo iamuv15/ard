@@ -6,7 +6,7 @@ export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Define paths that require authentication
-  const protectedPaths = ['/quiz', '/redemption', '/chapter']
+  const protectedPaths = ['/quiz', '/redemption', '/chapter', '/bookmarks']
   
   const isProtectedPath = protectedPaths.some(path => pathname.startsWith(path))
 

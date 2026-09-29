@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, CheckCircle2, XCircle, Clock, BarChart2, Target, Minus } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, XCircle, Clock, BarChart2, Target, Minus, Bookmark } from 'lucide-react'
 
 type Question = {
   id: number
@@ -29,6 +29,39 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
     total: number
     timeTaken: number
   } | null>(null)
+  const [bookmarkedIds, setBookmarkedIds] = useState<Set<number>>(new Set())
+
+  useEffect(() => {
+    fetch('/api/bookmarks')
+      .then(res => res.json())
+      .then(data => {
+        if (data.questionIds) {
+          setBookmarkedIds(new Set(data.questionIds))
+        }
+      })
+      .catch(err => console.error('Failed to load bookmarks', err))
+  }, [])
+
+  const handleToggleBookmark = async (qId: number) => {
+    const isBookmarked = bookmarkedIds.has(qId)
+    const nextSet = new Set(bookmarkedIds)
+    if (isBookmarked) {
+      nextSet.delete(qId)
+    } else {
+      nextSet.add(qId)
+    }
+    setBookmarkedIds(nextSet)
+
+    try {
+      await fetch('/api/bookmarks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ questionId: qId })
+      })
+    } catch (e) {
+      console.error('Failed to update bookmark', e)
+    }
+  }
 
   useEffect(() => {
     const data = localStorage.getItem(`mock_result_${quizId}`)
@@ -110,21 +143,41 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
               return (
                 <div key={q.id} className="bg-white rounded-xl p-6 border border-gray-200">
                   {/* Question header */}
-                  <div className="flex items-start justify-between mb-3">
-                    <span className="text-[11px] font-bold text-gray-400 uppercase">Q{idx + 1}</span>
-                    {isCorrect ? (
-                      <span className="inline-flex items-center gap-1 text-green-600 bg-green-50 border border-green-200 px-2 py-0.5 rounded text-[10px] font-bold">
-                        <CheckCircle2 className="w-3 h-3" /> CORRECT
-                      </span>
-                    ) : isSkipped ? (
-                      <span className="inline-flex items-center gap-1 text-gray-500 bg-gray-100 border border-gray-200 px-2 py-0.5 rounded text-[10px] font-bold">
-                        SKIPPED
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded text-[10px] font-bold">
-                        <XCircle className="w-3 h-3" /> INCORRECT
-                      </span>
-                    )}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold text-gray-400 uppercase">Q{idx + 1}</span>
+                      {isCorrect ? (
+                        <span className="inline-flex items-center gap-1 text-green-600 bg-green-50 border border-green-200 px-2 py-0.5 rounded text-[10px] font-bold">
+                          <CheckCircle2 className="w-3 h-3" /> CORRECT
+                        </span>
+                      ) : isSkipped ? (
+                        <span className="inline-flex items-center gap-1 text-gray-500 bg-gray-100 border border-gray-200 px-2 py-0.5 rounded text-[10px] font-bold">
+                          SKIPPED
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded text-[10px] font-bold">
+                          <XCircle className="w-3 h-3" /> INCORRECT
+                        </span>
+                      )}
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => handleToggleBookmark(q.id)}
+                      className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all border ${
+                        bookmarkedIds.has(q.id)
+                          ? 'bg-amber-50 border-amber-300 text-amber-700 shadow-sm'
+                          : 'bg-white border-gray-200 text-gray-500 hover:border-amber-300 hover:text-amber-700 hover:bg-amber-50/50'
+                      }`}
+                      title={bookmarkedIds.has(q.id) ? "Marked for exam revision - click to unmark" : "Mark to revise later (Important for Exam)"}
+                    >
+                      <Bookmark
+                        className={`w-3.5 h-3.5 transition-transform ${
+                          bookmarkedIds.has(q.id) ? 'fill-amber-500 text-amber-500 scale-110' : 'text-gray-400'
+                        }`}
+                      />
+                      <span>{bookmarkedIds.has(q.id) ? 'Marked' : 'Mark to Revise'}</span>
+                    </button>
                   </div>
 
                   <p className="text-[15px] font-medium mb-5 text-gray-800 leading-relaxed">{q.questionText}</p>
