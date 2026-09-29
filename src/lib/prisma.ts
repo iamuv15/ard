@@ -5,8 +5,18 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }
 
+// Check if we need to append sslmode for Supabase
+let connectionString = process.env.DATABASE_URL!
+if (connectionString && connectionString.includes('supabase') && !connectionString.includes('sslmode')) {
+  connectionString += (connectionString.includes('?') ? '&' : '?') + 'sslmode=require'
+}
+
 const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL!
+  connectionString,
+  // Serverless pooling configuration to prevent stale socket timeouts
+  max: 10,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 10000, // 10s connection timeout
 })
 
 const prisma = globalForPrisma.prisma ?? new PrismaClient({ adapter })
