@@ -1,0 +1,1477 @@
+{
+  "title": "NABARD ARD — Gold Standard Sample",
+  "version": "2.0-gold-sample",
+  "question_count": 50,
+  "source_material": {
+    "primary": "Agronomy 8th Edition — Agri Coaching Chandigarh",
+    "reference_purpose": "Knowledge source",
+    "pyq_files": [
+      "NABARD ARD Phase 1 PYQs",
+      "NABARD ARD Phase 2 PYQs"
+    ],
+    "pyq_purpose": "Exam-demand signal; not a claim that generated questions are NABARD PYQs"
+  },
+  "design_notes": [
+    "Distractors are built from related concepts, common confusions, neighboring facts, or plausible category errors.",
+    "Every option has a teaching explanation.",
+    "Question count is a sample size, not a mandated per-chapter production quota.",
+    "Relevance labels follow the provided preparation-system specification."
+  ],
+  "questions": [
+    {
+      "id": "AGR-001",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Irrigation Terminology",
+      "subtopic": "Acre-foot and Acre-inch",
+      "knowledge_unit": "Acre-foot vs acre-inch",
+      "question_type": "conceptual_distinction",
+      "relevance": "PYQ-EXT",
+      "difficulty": 2,
+      "question": "Which of the following correctly distinguishes an acre-foot of water from an acre-inch of water?",
+      "options": {
+        "a": "An acre-foot covers one acre to one inch depth, while an acre-inch covers one acre to one foot depth.",
+        "b": "An acre-foot covers one acre to one foot depth, while an acre-inch covers one acre to one inch depth.",
+        "c": "An acre-foot is a rate of flow, while an acre-inch is a soil-moisture measure.",
+        "d": "An acre-foot is water retained after drainage, while an acre-inch is irrigation efficiency.",
+        "e": "An acre-foot and acre-inch are two names for the same quantity of water."
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The depths are reversed. One acre-foot corresponds to a one-foot depth over one acre, while an acre-inch corresponds to a one-inch depth.",
+        "b": "Correct. The book defines acre-foot water as water covering one acre to a depth of one foot and acre-inch as water covering one acre to a depth of one inch.",
+        "c": "Incorrect. The book describes acre-inch day as a flow concept, but acre-foot and acre-inch themselves are measures of water quantity, not soil-moisture measures.",
+        "d": "Incorrect. Water retained after drainage relates to field capacity; irrigation efficiency is a ratio of water output to water input.",
+        "e": "Incorrect. They represent different depths and therefore different quantities of water."
+      },
+      "explanation": "The key distinction is the depth of water over one acre: one foot for acre-foot and one inch for acre-inch.",
+      "common_trap": "Reversing foot and inch in the two definitions.",
+      "pyq_connection": "Closely aligned with NABARD's tendency to test irrigation terminology and distinctions.",
+      "source_page": 4
+    },
+    {
+      "id": "AGR-002",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Soil Water",
+      "subtopic": "Available Water",
+      "knowledge_unit": "Available water = field capacity − permanent wilting percentage",
+      "question_type": "relationship",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "According to the reference book, available water in a soil represents which difference?",
+      "options": {
+        "a": "Field capacity minus permanent wilting percentage",
+        "b": "Permanent wilting percentage minus field capacity",
+        "c": "Saturation capacity minus field capacity",
+        "d": "Field capacity minus gravitational water",
+        "e": "Effective rainfall minus evapotranspiration"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The book defines available water as the difference between field capacity and permanent wilting percentage.",
+        "b": "Incorrect. Reversing the terms would not represent the definition given in the book.",
+        "c": "Incorrect. The book does not define available water as the difference between saturation and field capacity.",
+        "d": "Incorrect. Gravitational water is a separate category of soil water and is not used in the definition given here.",
+        "e": "Incorrect. Effective rainfall and evapotranspiration are water-balance concepts, not the two quantities specified for available water in the definition."
+      },
+      "explanation": "Available water is defined in the book as the water retained between field capacity and permanent wilting percentage.",
+      "common_trap": "Confusing available water with total soil water or effective rainfall.",
+      "source_page": 4
+    },
+    {
+      "id": "AGR-003",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Soil Water",
+      "subtopic": "Field Capacity",
+      "knowledge_unit": "Field capacity",
+      "question_type": "definition_distinction",
+      "relevance": "PYQ-EXT",
+      "difficulty": 2,
+      "question": "A soil has been saturated and then allowed to drain under gravitational force. Which condition described by the reference book has now been reached?",
+      "options": {
+        "a": "Permanent wilting percentage",
+        "b": "Field capacity",
+        "c": "Available water",
+        "d": "Hygroscopic water",
+        "e": "Crop water requirement"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Permanent wilting percentage is not the condition described immediately after gravitational drainage.",
+        "b": "Correct. Field capacity is the amount of water retained by soil after drainage of saturated soil by gravitational force.",
+        "c": "Incorrect. Available water is defined as the difference between field capacity and permanent wilting percentage.",
+        "d": "Incorrect. Hygroscopic water is a different form of soil water and is not the definition of the post-drainage condition given here.",
+        "e": "Incorrect. Crop water requirement refers to the amount of water required to raise a crop to maturity within a period."
+      },
+      "explanation": "Field capacity is the soil-water status remaining after gravitational drainage from a saturated soil.",
+      "common_trap": "Confusing field capacity with available water.",
+      "source_page": 7
+    },
+    {
+      "id": "AGR-004",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Water Management",
+      "subtopic": "Crop Water Requirement",
+      "knowledge_unit": "Crop water requirement",
+      "question_type": "definition",
+      "relevance": "PYQ-EXT",
+      "difficulty": 1,
+      "question": "Which statement best matches the reference book's definition of crop water requirement?",
+      "options": {
+        "a": "Water retained in soil between field capacity and permanent wilting percentage",
+        "b": "The amount of water required to raise a crop to maturity within a given period",
+        "c": "Water lost only through evaporation from the soil surface",
+        "d": "The percentage of irrigation water delivered from the source",
+        "e": "The depth of water stored in an aquifer"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. That describes available water.",
+        "b": "Correct. The reference book defines crop water requirement as the amount of water required to raise a crop to maturity within a given period of time.",
+        "c": "Incorrect. Evaporation is only one component of water loss and does not define crop water requirement.",
+        "d": "Incorrect. That relates to irrigation efficiency, which compares water output with water input.",
+        "e": "Incorrect. Aquifer storage is unrelated to the definition of crop water requirement."
+      },
+      "explanation": "Crop water requirement is a crop-level requirement over its growth period, not merely a measure of soil water or evaporation.",
+      "common_trap": "Confusing crop water requirement with consumptive use, field capacity, or irrigation efficiency.",
+      "source_page": 5
+    },
+    {
+      "id": "AGR-005",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Irrigation",
+      "subtopic": "Duty and Delta",
+      "knowledge_unit": "Duty vs delta of water",
+      "question_type": "conceptual_distinction",
+      "relevance": "CORE",
+      "difficulty": 3,
+      "question": "Which pairing is correctly matched according to the reference book?",
+      "options": {
+        "a": "Duty — depth of irrigation water required for the full crop period; Delta — area irrigated by unit volume",
+        "b": "Duty — area that can be irrigated with a unit volume of water across the base period; Delta — depth of irrigation water required for the full crop period",
+        "c": "Duty — first watering after sowing; Delta — water lost by runoff",
+        "d": "Duty — ratio of output to input water; Delta — soil water at field capacity",
+        "e": "Duty — water consumed by plant metabolism; Delta — irrigation channel loss"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The definitions are interchanged. The depth for the full crop period is delta, not duty.",
+        "b": "Correct. Duty refers to the area irrigated by a unit volume of water over the base period, while delta is the depth of irrigation water required for the full crop period.",
+        "c": "Incorrect. The first watering to a young crop is called korwatering in the book, not duty.",
+        "d": "Incorrect. Irrigation efficiency is the ratio of water output to water input; field capacity is a soil-water condition.",
+        "e": "Incorrect. These descriptions do not define either duty or delta."
+      },
+      "explanation": "Duty is expressed as area irrigated per unit volume of water, whereas delta is a depth of irrigation water over the crop period.",
+      "common_trap": "Swapping duty and delta definitions.",
+      "source_page": 6
+    },
+    {
+      "id": "AGR-006",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Irrigation",
+      "subtopic": "Base Period",
+      "knowledge_unit": "Base period",
+      "question_type": "application",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Irrigation water is first issued for preparing a field before planting and the final irrigation is given before harvest. The entire interval is called:",
+      "options": {
+        "a": "Critical period of competition",
+        "b": "Base period",
+        "c": "Crop water requirement",
+        "d": "Korwatering period",
+        "e": "Command period"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Critical period of competition refers to the period when crop plants are most sensitive to weed competition.",
+        "b": "Correct. The book defines the base period as the whole interval from the first issue of irrigation water for ground preparation to the last watering before harvest.",
+        "c": "Incorrect. Crop water requirement is the amount of water needed to raise the crop to maturity within a period.",
+        "d": "Incorrect. Korwatering is the first watering given when the crop is a few centimeters high.",
+        "e": "Incorrect. The reference does not define a 'command period' for this interval."
+      },
+      "explanation": "The base period spans from the first irrigation associated with field preparation to the last watering before harvesting.",
+      "common_trap": "Confusing base period with crop duration or critical irrigation stage.",
+      "source_page": 6
+    },
+    {
+      "id": "AGR-007",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Water Management",
+      "subtopic": "Irrigation Efficiency",
+      "knowledge_unit": "Irrigation efficiency = output/input",
+      "question_type": "relationship",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which expression represents irrigation efficiency in the reference book?",
+      "options": {
+        "a": "Water input ÷ water output × 100",
+        "b": "Water output ÷ water input × 100",
+        "c": "Crop water requirement ÷ rainfall × 100",
+        "d": "Field capacity ÷ permanent wilting percentage × 100",
+        "e": "Delta ÷ duty × 100"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The ratio is reversed. The book specifies output divided by input.",
+        "b": "Correct. Irrigation efficiency is defined as the ratio or percentage of irrigation water consumed by the crop to the water delivered from the source.",
+        "c": "Incorrect. The book does not define irrigation efficiency using crop water requirement and rainfall.",
+        "d": "Incorrect. Those terms are related to soil water, not irrigation efficiency.",
+        "e": "Incorrect. Duty and delta are irrigation terminology but are not the formula stated for irrigation efficiency."
+      },
+      "explanation": "The reference defines irrigation efficiency as water output divided by water input, expressed as a percentage.",
+      "common_trap": "Reversing numerator and denominator.",
+      "source_page": 6
+    },
+    {
+      "id": "AGR-008",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Water Management",
+      "subtopic": "Korwatering",
+      "knowledge_unit": "Korwatering",
+      "question_type": "identification",
+      "relevance": "CORE",
+      "difficulty": 1,
+      "question": "A crop is a few centimetres high and receives its first watering after emergence. According to the book, this irrigation is called:",
+      "options": {
+        "a": "Korwatering",
+        "b": "Palco irrigation",
+        "c": "Base period irrigation",
+        "d": "Effective rainfall",
+        "e": "Delta irrigation"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The book calls the first watering given when the crop is a few centimeters high 'Korwatering'.",
+        "b": "Incorrect. Palco irrigation refers to moistening very dry land before sowing to facilitate sowing.",
+        "c": "Incorrect. Base period describes an interval, not this particular irrigation event.",
+        "d": "Incorrect. Effective rainfall is the portion of rainfall that contributes to crop water requirement.",
+        "e": "Incorrect. Delta is the depth of irrigation water required for the full crop period; it is not the name of the first watering."
+      },
+      "explanation": "Korwatering is specifically the first watering given when the young crop is a few centimetres high.",
+      "common_trap": "Confusing korwatering with the pre-sowing moistening called palco irrigation.",
+      "source_page": 6
+    },
+    {
+      "id": "AGR-009",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Water Management",
+      "subtopic": "Palco irrigation",
+      "knowledge_unit": "Palco irrigation",
+      "question_type": "scenario",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Before sowing, a field is so dry that the soil is moistened specifically to make sowing possible. Which term from the reference book fits this practice?",
+      "options": {
+        "a": "Palco irrigation",
+        "b": "Korwatering",
+        "c": "Drainage",
+        "d": "Effective rainfall",
+        "e": "Consumptive use"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The book describes palco irrigation as moistening very dry soil before sowing to help sowing.",
+        "b": "Incorrect. Korwatering is the first watering given after emergence when the crop is a few centimetres high.",
+        "c": "Incorrect. Drainage is the removal of excess surface or ground water from the root zone.",
+        "d": "Incorrect. Effective rainfall is the portion of rainfall that contributes to crop water requirement.",
+        "e": "Incorrect. Consumptive use concerns evapotranspiration plus a very small amount of water assimilated in plant metabolism."
+      },
+      "explanation": "Palco irrigation is a pre-sowing wetting of very dry land to facilitate sowing.",
+      "common_trap": "Mixing palco irrigation with korwatering.",
+      "source_page": 6
+    },
+    {
+      "id": "AGR-010",
+      "chapter": "Terminology of Agriculture",
+      "topic": "Soil Origin",
+      "subtopic": "Alluvial vs Colluvial vs Eolian",
+      "knowledge_unit": "Soil transport agent",
+      "question_type": "classification",
+      "relevance": "CORE",
+      "difficulty": 3,
+      "question": "Which sequence correctly matches the dominant transport agent in the reference book?",
+      "options": {
+        "a": "Alluvial—wind; Colluvial—water; Eolian—gravity",
+        "b": "Alluvial—water; Colluvial—gravity; Eolian—wind",
+        "c": "Alluvial—gravity; Colluvial—wind; Eolian—water",
+        "d": "Alluvial—water; Colluvial—wind; Eolian—gravity",
+        "e": "Alluvial—wind; Colluvial—gravity; Eolian—water"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Alluvial soils are described as deposited by water, not wind.",
+        "b": "Correct. The book describes alluvial soil as transported and deposited by streams and rivers, colluvial soil as transported by gravity, and eolian soil as transported by wind.",
+        "c": "Incorrect. The three agents are incorrectly assigned.",
+        "d": "Incorrect. Colluvial and eolian agents are swapped.",
+        "e": "Incorrect. Alluvial and eolian agents are reversed."
+      },
+      "explanation": "The useful memory framework is water → alluvial, gravity → colluvial, wind → eolian.",
+      "common_trap": "Remembering the soil names but mixing up their transport agents.",
+      "source_page": 4
+    },
+    {
+      "id": "AGR-011",
+      "chapter": "Crop Classification",
+      "topic": "Growing Season",
+      "subtopic": "Kharif, Rabi, Zaid",
+      "knowledge_unit": "Season classification",
+      "question_type": "classification",
+      "relevance": "PYQ-EXT",
+      "difficulty": 2,
+      "question": "Which combination is entirely consistent with the reference book's growing-season classification?",
+      "options": {
+        "a": "Kharif—wheat, gram; Rabi—rice, cotton; Zaid—barley, safflower",
+        "b": "Kharif—rice, cotton; Rabi—wheat, gram; Zaid—groundnut, watermelon",
+        "c": "Kharif—groundnut, watermelon; Rabi—rice, maize; Zaid—wheat, gram",
+        "d": "Kharif—wheat, barley; Rabi—cotton, rice; Zaid—gram, safflower",
+        "e": "Kharif—mustard, wheat; Rabi—bajra, cotton; Zaid—barley, gram"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Wheat and gram are listed with Rabi; rice and cotton with Kharif.",
+        "b": "Correct. The book lists rice and cotton as Kharif examples, wheat and gram as Rabi examples, and groundnut and watermelon as Zaid examples.",
+        "c": "Incorrect. Groundnut and watermelon are Zaid examples, but rice and maize are not Rabi examples.",
+        "d": "Incorrect. Wheat and barley are listed under Rabi, while cotton and rice are Kharif.",
+        "e": "Incorrect. Mustard and wheat are Rabi, whereas bajra and cotton are Kharif."
+      },
+      "explanation": "The reference book groups rice/cotton under Kharif, wheat/gram under Rabi and groundnut/watermelon under Zaid.",
+      "common_trap": "Memorizing crop names without tying them to their season.",
+      "source_page": 30
+    },
+    {
+      "id": "AGR-012",
+      "chapter": "Crop Classification",
+      "topic": "Growing Season",
+      "subtopic": "Day length and season",
+      "knowledge_unit": "Kharif short-day vs Rabi longer-day",
+      "question_type": "conceptual",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "According to the reference book, which flowering response is associated with Kharif crops in its season-classification table?",
+      "options": {
+        "a": "They require short day length for flowering.",
+        "b": "They require only long day length for flowering.",
+        "c": "They flower only under polar conditions.",
+        "d": "They require no relation between day length and flowering.",
+        "e": "They require darkness throughout the growing period."
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The book states that Kharif crops require warm, wet weather during major growth and short day length for flowering.",
+        "b": "Incorrect. Longer day length is associated with the Rabi description in the same table.",
+        "c": "Incorrect. Polar crops are a separate climatic classification and are not the defining feature here.",
+        "d": "Incorrect. The book explicitly mentions day length in its seasonal classification.",
+        "e": "Incorrect. The statement is not part of the book's classification."
+      },
+      "explanation": "The season table links Kharif crops with short-day flowering, while Rabi crops are described as requiring longer day length for flowering.",
+      "common_trap": "Swapping the day-length descriptions of Kharif and Rabi.",
+      "source_page": 30
+    },
+    {
+      "id": "AGR-013",
+      "chapter": "Sowing Methods",
+      "topic": "Broadcasting",
+      "subtopic": "Characteristics and limitations",
+      "knowledge_unit": "Broadcasting",
+      "question_type": "application",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "A farmer chooses the cheapest sowing method but accepts random plant geometry, higher seed requirement and uneven placement depth. Which method is being described?",
+      "options": {
+        "a": "Dibbling",
+        "b": "Drilling",
+        "c": "Broadcasting",
+        "d": "Transplanting",
+        "e": "Planting of vegetative parts"
+      },
+      "correct_answer": "c",
+      "option_explanations": {
+        "a": "Incorrect. Dibbling places seeds through holes at a desired depth and is a line-sowing method.",
+        "b": "Incorrect. Drilling places seeds at a definite depth in rows and allows more uniform placement.",
+        "c": "Correct. Broadcasting is random sowing; the book describes it as easy and cheap but with higher seed requirement and poor control over depth.",
+        "d": "Incorrect. Transplanting involves nursery raising followed by establishment in the main field.",
+        "e": "Incorrect. Planting refers to placing vegetative parts such as tubers, cuttings or setts."
+      },
+      "explanation": "Broadcasting trades precision for simplicity and low cost, resulting in random geometry and poorer control over seed depth.",
+      "common_trap": "Confusing broadcasting with any general 'sowing' method.",
+      "source_page": 43
+    },
+    {
+      "id": "AGR-014",
+      "chapter": "Sowing Methods",
+      "topic": "Broadcasting",
+      "subtopic": "Criss-cross sowing",
+      "knowledge_unit": "Criss-cross broadcasting",
+      "question_type": "purpose",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Why does the reference book recommend broadcasting in two directions (criss-cross sowing) in some situations?",
+      "options": {
+        "a": "To reduce seed rate to zero",
+        "b": "To ensure a more good and uniform population",
+        "c": "To create skip rows",
+        "d": "To eliminate the need for germination",
+        "e": "To convert broadcasting into transplanting"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Criss-cross sowing does not eliminate seed use.",
+        "b": "Correct. The book states that broadcasting in either direction, called criss-cross sowing, helps ensure a good and uniform population.",
+        "c": "Incorrect. Skip rows are a separate planting arrangement.",
+        "d": "Incorrect. Germination remains necessary for seed establishment.",
+        "e": "Incorrect. Criss-cross sowing remains broadcasting."
+      },
+      "explanation": "Criss-cross broadcasting is used to improve the chance of obtaining a more uniform plant population.",
+      "common_trap": "Thinking it changes the basic sowing method; it only changes the broadcasting pattern.",
+      "source_page": 43
+    },
+    {
+      "id": "AGR-015",
+      "chapter": "Sowing Methods",
+      "topic": "Dibbling",
+      "subtopic": "Characteristics",
+      "knowledge_unit": "Dibbling",
+      "question_type": "identification",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which situation most strongly points to dibbling according to the reference book?",
+      "options": {
+        "a": "Very small seeds scattered randomly with no row arrangement",
+        "b": "Medium-to-large seeds of a wider-spaced crop placed in holes at a desired depth",
+        "c": "Seedlings raised in a nursery and later transplanted",
+        "d": "Vegetative cuttings placed in a laid-out field",
+        "e": "Seeds continuously dropped in rows and compacted by a seed drill"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. That describes broadcasting.",
+        "b": "Correct. The book describes dibbling as inserting seed through a hole at the desired depth and notes its use for wider-spaced crops with medium-to-large seeds.",
+        "c": "Incorrect. That is transplanting.",
+        "d": "Incorrect. That is planting of vegetative parts.",
+        "e": "Incorrect. Continuous or regular-row placement with sowing implements describes drilling."
+      },
+      "explanation": "Dibbling is line sowing through holes at desired depth and is suited to wider-spaced crops with relatively larger seeds.",
+      "common_trap": "Confusing dibbling with drilling because both can provide line arrangement.",
+      "source_page": 43
+    },
+    {
+      "id": "AGR-016",
+      "chapter": "Sowing Methods",
+      "topic": "Drilling",
+      "subtopic": "Features and inputs",
+      "knowledge_unit": "Drilling",
+      "question_type": "definition_application",
+      "relevance": "PYQ-EXT",
+      "difficulty": 2,
+      "question": "Which combination is a defining feature of drilling in the reference book?",
+      "options": {
+        "a": "Random seed placement and no soil covering",
+        "b": "Seedlings first raised in a nursery and then transplanted",
+        "c": "Seeds placed at a definite depth, covered with soil and compacted",
+        "d": "Only vegetative parts are inserted into the field",
+        "e": "A row is deliberately skipped to reduce population"
+      },
+      "correct_answer": "c",
+      "option_explanations": {
+        "a": "Incorrect. Random placement without control over depth is characteristic of broadcasting.",
+        "b": "Incorrect. That is transplanting.",
+        "c": "Correct. The book defines drilling as dropping seeds at a definite depth, covering them with soil and compacting them.",
+        "d": "Incorrect. Vegetative propagation by tubers, cuttings or setts is called planting.",
+        "e": "Incorrect. Deliberately skipping a row is skip-row planting."
+      },
+      "explanation": "Drilling is a precision-oriented seed placement method using sowing implements to create regular rows and more uniform depth.",
+      "common_trap": "Treating drilling and broadcasting as interchangeable forms of sowing.",
+      "pyq_connection": "The book itself flags drilling as an exam-tested fact (AFO 2021); the NABARD PYQ bank also shows repeated agronomy questions on sowing methods.",
+      "source_page": 44
+    },
+    {
+      "id": "AGR-017",
+      "chapter": "Sowing Methods",
+      "topic": "Transplanting",
+      "subtopic": "Nursery proportion and shock",
+      "knowledge_unit": "Transplanting",
+      "question_type": "conceptual",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which pair correctly describes two features of transplanting in the reference book?",
+      "options": {
+        "a": "Nursery area normally 1/2 of total area; transplanting shock lasts one day",
+        "b": "Nursery area normally 1/10 of total area; transplanting shock lasts about 5–7 days",
+        "c": "Nursery area normally equals total area; shock lasts 30–40 days",
+        "d": "Nursery area normally 1/100 of total area; no shock occurs",
+        "e": "Nursery area is unnecessary; only direct seeding is used"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The book gives 1/10 as the normal nursery area and about 5–7 days for transplanting shock.",
+        "b": "Correct. The reference gives nursery area as normally one-tenth of the total area and transplanting shock as roughly 5–7 days depending on conditions.",
+        "c": "Incorrect. Neither proportion nor duration matches the reference.",
+        "d": "Incorrect. The book explicitly states that a nursery is a component of transplanting.",
+        "e": "Incorrect. Transplanting specifically uses nursery-raised seedlings."
+      },
+      "explanation": "Transplanting is a two-stage system—nursery plus main-field establishment—with a relatively small nursery area and a short post-transplanting shock period.",
+      "common_trap": "Confusing the proportion of nursery area with the proportion of crop duration.",
+      "source_page": 44
+    },
+    {
+      "id": "AGR-018",
+      "chapter": "Sowing Methods",
+      "topic": "Crop Geometry",
+      "subtopic": "Triangular method",
+      "knowledge_unit": "Triangular geometry",
+      "question_type": "matching",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "The reference book recommends the triangular method of planting particularly for:",
+      "options": {
+        "a": "Wheat and barley",
+        "b": "Rice and wheat nursery beds",
+        "c": "Coconut and mango",
+        "d": "Maize and sorghum only",
+        "e": "Only densely broadcast crops"
+      },
+      "correct_answer": "c",
+      "option_explanations": {
+        "a": "Incorrect. Wheat is discussed under solid-row arrangement.",
+        "b": "Incorrect. Rice nursery establishment is part of transplanting, not the example given for triangular geometry.",
+        "c": "Correct. The book recommends triangular planting for wide-spaced crops such as coconut and mango.",
+        "d": "Incorrect. The reference specifically gives coconut and mango as examples.",
+        "e": "Incorrect. Triangular geometry is not described as a broadcasting arrangement."
+      },
+      "explanation": "Triangular geometry is presented as suitable for wide-spaced perennial/tree crops such as coconut and mango.",
+      "common_trap": "Assuming a wide-spaced method is intended for cereals.",
+      "source_page": 45
+    },
+    {
+      "id": "AGR-019",
+      "chapter": "Germination",
+      "topic": "Seed Placement",
+      "subtopic": "Sowing depth",
+      "knowledge_unit": "Optimum sowing depth",
+      "question_type": "direct_recall",
+      "relevance": "CORE",
+      "difficulty": 1,
+      "question": "What optimum sowing depth is given by the reference book for most field crops?",
+      "options": {
+        "a": "1–2 cm",
+        "b": "3–5 cm",
+        "c": "6–8 cm",
+        "d": "8–10 cm",
+        "e": "12–20 cm"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The reference gives a deeper range for most field crops.",
+        "b": "Correct. The book states that the optimum depth of sowing for most field crops ranges between 3–5 cm.",
+        "c": "Incorrect. This is deeper than the stated general range.",
+        "d": "Incorrect. The book specifically notes that 8–10 cm for wheat leads to poor germination and reduced yield.",
+        "e": "Incorrect. 12–20 cm is given as a desirable depth of ploughing, not seed sowing."
+      },
+      "explanation": "For most field crops, the reference gives 3–5 cm as the optimum sowing depth.",
+      "common_trap": "Mixing sowing depth with ploughing depth.",
+      "source_page": 45
+    },
+    {
+      "id": "AGR-020",
+      "chapter": "Germination",
+      "topic": "Light and Germination",
+      "subtopic": "Wavelength",
+      "knowledge_unit": "Red light and germination",
+      "question_type": "factual_distinction",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "According to the reference book, which wavelength is most effective for promoting germination?",
+      "options": {
+        "a": "450 nm",
+        "b": "550 nm",
+        "c": "662 nm",
+        "d": "730 nm",
+        "e": "1000 nm"
+      },
+      "correct_answer": "c",
+      "option_explanations": {
+        "a": "Incorrect. The book specifically identifies red light at 662 nm.",
+        "b": "Incorrect. This wavelength is not the value specified in the reference.",
+        "c": "Correct. The book states that red light at 662 nm is most effective for promoting germination.",
+        "d": "Incorrect. The book states that 730 nm inhibits germination.",
+        "e": "Incorrect. This value is not given as the promoting wavelength."
+      },
+      "explanation": "The reference associates 662 nm red light with promotion of germination and 730 nm with inhibition.",
+      "common_trap": "Remembering 'red light' but swapping the two numerical wavelengths.",
+      "source_page": 45
+    },
+    {
+      "id": "AGR-021",
+      "chapter": "Germination",
+      "topic": "Plant Population",
+      "subtopic": "Optimum population",
+      "knowledge_unit": "Optimum plant population",
+      "question_type": "conceptual",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "A crop reaches the plant population at which maximum biomass per unit area is obtained. According to the reference, this population is called:",
+      "options": {
+        "a": "Critical population",
+        "b": "Optimum plant population",
+        "c": "Economic threshold level",
+        "d": "Maximum seed rate",
+        "e": "Planting density ceiling"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The book does not use 'critical population' as the definition.",
+        "b": "Correct. Optimum plant population is the number of plants required to produce maximum output or biomass per unit area.",
+        "c": "Incorrect. Critical threshold level is used for weed or insect pest density capable of causing significant damage.",
+        "d": "Incorrect. Seed rate refers to the quantity of seed used, not the final plant population.",
+        "e": "Incorrect. This is not the term used by the reference."
+      },
+      "explanation": "The optimum plant population is the population associated with maximum output or biomass per unit area.",
+      "common_trap": "Confusing seed rate with final plant population.",
+      "source_page": 45
+    },
+    {
+      "id": "AGR-022",
+      "chapter": "Intercultural Operations",
+      "topic": "Earthing Up",
+      "subtopic": "Purpose and timing",
+      "knowledge_unit": "Earthing up",
+      "question_type": "scenario",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which situation best matches the book's description of earthing up?",
+      "options": {
+        "a": "Pulling soil from between crop rows toward plant bases to support plants and help uproot weeds",
+        "b": "Spreading seeds randomly over the whole field",
+        "c": "Removing all excess groundwater through drains",
+        "d": "Moistening a very dry field before sowing",
+        "e": "Turning seedling roots upward during transplanting"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. Earthing up is pulling soil from the centre of crop rows toward the plants; the book notes support and weed-uprooting benefits.",
+        "b": "Incorrect. That is broadcasting.",
+        "c": "Incorrect. That describes drainage.",
+        "d": "Incorrect. That is palco irrigation.",
+        "e": "Incorrect. The reference does not define earthing up this way."
+      },
+      "explanation": "Earthing up is a soil-manipulation operation around plant bases, helping support plants and control weeds.",
+      "common_trap": "Confusing earthing up with hilling for unrelated purposes or with drainage.",
+      "source_page": 6
+    },
+    {
+      "id": "AGR-023",
+      "chapter": "Intercultural Operations",
+      "topic": "Earthing Up",
+      "subtopic": "Timing in crops",
+      "knowledge_unit": "Earthing up at 6–8 weeks",
+      "question_type": "direct_recall",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "In which approximate period does the reference book recommend earthing up in crops such as sugarcane, tapioca and banana?",
+      "options": {
+        "a": "2–3 days after sowing",
+        "b": "1 week after sowing",
+        "c": "3–5 weeks",
+        "d": "6–8 weeks",
+        "e": "12–16 weeks"
+      },
+      "correct_answer": "d",
+      "option_explanations": {
+        "a": "Incorrect. The book gives a much later interval.",
+        "b": "Incorrect. One week is associated with blind/light hoeing in some contexts, not the earthing-up interval given here.",
+        "c": "Incorrect. This does not match the stated timing.",
+        "d": "Correct. The reference states earthing up is done around 6–8 weeks after sowing/planting in sugarcane, tapioca and banana.",
+        "e": "Incorrect. The book gives 6–8 weeks for this operation."
+      },
+      "explanation": "For the listed crops, the reference places earthing up at roughly 6–8 weeks after sowing or planting.",
+      "common_trap": "Confusing earthing-up timing with early hoeing.",
+      "source_page": 45
+    },
+    {
+      "id": "AGR-024",
+      "chapter": "Agronomy",
+      "topic": "Tillage",
+      "subtopic": "Ploughing depth",
+      "knowledge_unit": "Desirable ploughing depth",
+      "question_type": "factual_distinction",
+      "relevance": "PYQ-EXT",
+      "difficulty": 2,
+      "question": "Which statement is consistent with the reference book's general guideline for ploughing field crops?",
+      "options": {
+        "a": "12–20 cm is the desirable depth for field crops",
+        "b": "3–5 cm is the desirable ploughing depth for all field crops",
+        "c": "8–10 cm is universally optimal for both shallow- and deep-rooted crops",
+        "d": "20–30 cm is mandatory for every crop",
+        "e": "No relation exists between ploughing depth and root zone"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The reference states a desirable depth of ploughing of 12–20 cm for field crops.",
+        "b": "Incorrect. 3–5 cm is given as the optimum sowing depth for most field crops.",
+        "c": "Incorrect. The reference differentiates shallow- and deep-rooted crops and gives larger ranges for ploughing.",
+        "d": "Incorrect. The book does not make 20–30 cm mandatory for every crop.",
+        "e": "Incorrect. The reference explicitly says ploughing depth varies with the effective root zone of the crop."
+      },
+      "explanation": "Do not mix seed placement depth with tillage depth. The general field-crop ploughing range is 12–20 cm in the reference.",
+      "common_trap": "Confusing 3–5 cm sowing depth with 12–20 cm ploughing depth.",
+      "source_page": 45
+    },
+    {
+      "id": "AGR-025",
+      "chapter": "Agronomy",
+      "topic": "Tillage",
+      "subtopic": "Soil moisture for tillage",
+      "knowledge_unit": "60% field capacity",
+      "question_type": "direct_recall",
+      "relevance": "PYQ-EXT",
+      "difficulty": 2,
+      "question": "What soil-moisture condition is given as optimum for tillage in the reference book?",
+      "options": {
+        "a": "20% of field capacity",
+        "b": "40% of field capacity",
+        "c": "60% of field capacity",
+        "d": "80% of field capacity",
+        "e": "100% of field capacity"
+      },
+      "correct_answer": "c",
+      "option_explanations": {
+        "a": "Incorrect. The stated figure is higher.",
+        "b": "Incorrect. The reference specifies 60%.",
+        "c": "Correct. The book states that the optimum soil moisture content for tillage is 60% of field capacity.",
+        "d": "Incorrect. 80% is not the value specified.",
+        "e": "Incorrect. The book does not recommend fully saturated soil as the optimum value here."
+      },
+      "explanation": "The reference gives 60% of field capacity as the optimum soil moisture content for tillage.",
+      "common_trap": "Assuming wetter soil is always better for tillage.",
+      "source_page": 45
+    },
+    {
+      "id": "AGR-026",
+      "chapter": "Field Crops",
+      "topic": "Rice",
+      "subtopic": "Botany",
+      "knowledge_unit": "Rice botanical identity and structures",
+      "question_type": "integrated_recall",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which option correctly lists three facts about rice from the reference book?",
+      "options": {
+        "a": "Oryza sativa; panicle; caryopsis",
+        "b": "Zea mays; panicle; caryopsis",
+        "c": "Oryza sativa; spike; legume",
+        "d": "Triticum spp.; head; berry",
+        "e": "Pennisetum glaucum; panicle; caryopsis"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The book gives rice as Oryza sativa, its inflorescence as panicle and fruit type as caryopsis.",
+        "b": "Incorrect. Zea mays is maize, not rice.",
+        "c": "Incorrect. Rice has a panicle, not a spike, and its fruit type is caryopsis.",
+        "d": "Incorrect. Triticum refers to wheat and wheat is not rice.",
+        "e": "Incorrect. Pennisetum glaucum is pearl millet, not rice."
+      },
+      "explanation": "The reference identifies rice as Oryza sativa, with a panicle inflorescence and caryopsis fruit.",
+      "common_trap": "Mixing cereal botanical names and inflorescence types.",
+      "source_page": 92
+    },
+    {
+      "id": "AGR-027",
+      "chapter": "Field Crops",
+      "topic": "Rice",
+      "subtopic": "Plant biology",
+      "knowledge_unit": "Rice pollination and germination",
+      "question_type": "statement",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which combination correctly describes rice according to the reference book?",
+      "options": {
+        "a": "Cross-pollinated and epigeal",
+        "b": "Self-pollinated and hypogeal",
+        "c": "Cross-pollinated and hypogeal",
+        "d": "Self-pollinated and epigeal",
+        "e": "Asexual and hypogeal"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The book describes rice as self-pollinated, not cross-pollinated.",
+        "b": "Correct. Rice is listed as self-pollinated and hypogeal.",
+        "c": "Incorrect. The germination type is correct, but pollination is not.",
+        "d": "Incorrect. Pollination is correct, but the germination type is not.",
+        "e": "Incorrect. The reference does not classify rice as asexually propagated in this context."
+      },
+      "explanation": "Rice is described in the book as a self-pollinated crop with hypogeal germination.",
+      "common_trap": "Swapping the pollination and germination characteristics.",
+      "source_page": 92
+    },
+    {
+      "id": "AGR-028",
+      "chapter": "Field Crops",
+      "topic": "Rice",
+      "subtopic": "Water Management",
+      "knowledge_unit": "Rice water requirement",
+      "question_type": "PYQ_style",
+      "relevance": "PYQ",
+      "difficulty": 2,
+      "question": "The reference book gives a water requirement of approximately 1250 mm for rice. Which crop in its summarized water-requirement table is closest to this figure?",
+      "options": {
+        "a": "Sesame",
+        "b": "Rice",
+        "c": "Soybean",
+        "d": "Sorghum",
+        "e": "Black gram"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Sesame is listed at about 150 mm in the table.",
+        "b": "Correct. Rice is listed at about 1250 mm in the crop water-requirement table and is also described as 1100–1250 mm in another summary.",
+        "c": "Incorrect. Soybean is listed at about 320 mm.",
+        "d": "Incorrect. Sorghum is listed at about 350 mm.",
+        "e": "Incorrect. Black gram is listed at about 280 mm."
+      },
+      "explanation": "Rice has by far the largest listed water requirement in the table at about 1250 mm, compared with much lower values for the other options.",
+      "common_trap": "Confusing rice's water requirement with that of sugarcane or other major crops.",
+      "pyq_connection": "NABARD directly tested which crop has the maximum water requirement in 2018 (Q.175).",
+      "source_page": 84
+    },
+    {
+      "id": "AGR-029",
+      "chapter": "Field Crops",
+      "topic": "Rice",
+      "subtopic": "Irrigation Stages",
+      "knowledge_unit": "Panicle initiation and flowering",
+      "question_type": "PYQ_style",
+      "relevance": "PYQ",
+      "difficulty": 3,
+      "question": "Which stage is identified by the reference book as the most critical irrigation stage in rice?",
+      "options": {
+        "a": "Seed dormancy",
+        "b": "Panicle initiation",
+        "c": "Harvesting",
+        "d": "Storage",
+        "e": "Land preparation only"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Seed dormancy is unrelated to the critical irrigation-stage table.",
+        "b": "Correct. The reference identifies panicle initiation as the most critical irrigation stage, followed by heading and flowering.",
+        "c": "Incorrect. Harvesting is not listed as the most critical irrigation stage.",
+        "d": "Incorrect. Storage is a post-harvest activity.",
+        "e": "Incorrect. Land preparation has its own water requirement but is not identified as the most critical irrigation stage."
+      },
+      "explanation": "The rice section names panicle initiation as the most critical irrigation stage, with heading and flowering also important.",
+      "common_trap": "Remembering 'flowering' alone and overlooking the book's specific 'most critical' label.",
+      "source_page": 96
+    },
+    {
+      "id": "AGR-030",
+      "chapter": "Field Crops",
+      "topic": "Rice",
+      "subtopic": "Paddy Water Management",
+      "knowledge_unit": "5 cm submergence",
+      "question_type": "application",
+      "relevance": "PYQ-EXT",
+      "difficulty": 3,
+      "question": "During the reproductive and grain-formation period of rice, which water condition does the reference book state is beneficial?",
+      "options": {
+        "a": "No water should be present in the field",
+        "b": "About 5 cm standing water",
+        "c": "About 25 cm standing water",
+        "d": "Only saline water",
+        "e": "Only intermittent dry soil with no submergence"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The book explicitly states that 5 cm deep water during reproductive and grain-formation stages is beneficial.",
+        "b": "Correct. About 5 cm of standing water is described as beneficial during the specified stages.",
+        "c": "Incorrect. The book specifies about 5 cm, not 25 cm.",
+        "d": "Incorrect. Water quality is not described in the cited statement this way.",
+        "e": "Incorrect. Complete absence of water contradicts the stated benefit of 5 cm submergence."
+      },
+      "explanation": "The rice section explicitly mentions beneficial 5 cm submergence during reproductive and grain-formation stages.",
+      "common_trap": "Remembering rice as 'water-loving' but inventing an unnecessarily deep water depth.",
+      "source_page": 96
+    },
+    {
+      "id": "AGR-031",
+      "chapter": "Field Crops",
+      "topic": "Rice",
+      "subtopic": "Seed Rate",
+      "knowledge_unit": "Rice seed rate by method",
+      "question_type": "comparison",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which ordering of rice seed rate is correct according to the reference book?",
+      "options": {
+        "a": "Transplanting > line sowing > direct sowing",
+        "b": "Direct sowing > line sowing > transplanting",
+        "c": "Line sowing > direct sowing > transplanting",
+        "d": "Transplanting > direct sowing > line sowing",
+        "e": "All three methods use exactly the same seed rate"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The numerical seed rates show the reverse pattern.",
+        "b": "Correct. The book gives 100 kg/ha for direct sowing, 60 kg/ha for line sowing and 40 kg/ha for transplanting.",
+        "c": "Incorrect. Direct sowing has the highest of the three values.",
+        "d": "Incorrect. Transplanting has the lowest value of the three.",
+        "e": "Incorrect. The seed rates differ substantially."
+      },
+      "explanation": "The reference gives a descending sequence: direct sowing 100 kg/ha, line sowing 60 kg/ha, transplanting 40 kg/ha.",
+      "common_trap": "Assuming transplanting needs more seed because it involves extra handling.",
+      "source_page": 45
+    },
+    {
+      "id": "AGR-032",
+      "chapter": "Field Crops",
+      "topic": "Wheat",
+      "subtopic": "Critical irrigation stages",
+      "knowledge_unit": "Wheat CRI stage",
+      "question_type": "PYQ_style",
+      "relevance": "PYQ",
+      "difficulty": 2,
+      "question": "Which stage is identified as the most critical irrigation stage for wheat in the reference book?",
+      "options": {
+        "a": "Tillering-end stage",
+        "b": "Crown Root Initiation (CRI)",
+        "c": "Maturity only",
+        "d": "Harvesting",
+        "e": "Seed storage"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The reference names CRI specifically as the most critical stage.",
+        "b": "Correct. Crown Root Initiation (CRI), around 20–25 DAS, is identified as the most critical stage for irrigation.",
+        "c": "Incorrect. Maturity is not the most critical irrigation stage in the table.",
+        "d": "Incorrect. Harvesting is a post-growth operation.",
+        "e": "Incorrect. Seed storage is unrelated to crop-stage irrigation."
+      },
+      "explanation": "The wheat table identifies CRI at about 20–25 days after sowing as the most critical irrigation stage.",
+      "common_trap": "Confusing the second critical stage, flowering, with CRI.",
+      "pyq_connection": "The reference itself notes CRI as an exam-tested fact; NABARD commonly uses stage-based crop questions.",
+      "source_page": 100
+    },
+    {
+      "id": "AGR-033",
+      "chapter": "Field Crops",
+      "topic": "Wheat",
+      "subtopic": "Critical irrigation stages",
+      "knowledge_unit": "Wheat flowering and jointing/milk stages",
+      "question_type": "sequence",
+      "relevance": "CORE",
+      "difficulty": 3,
+      "question": "Which sequence correctly orders the three irrigation stages listed for wheat in the reference book from most critical to third important?",
+      "options": {
+        "a": "Flowering → CRI → jointing & milk",
+        "b": "CRI → flowering → jointing & milk",
+        "c": "Jointing & milk → flowering → CRI",
+        "d": "CRI → jointing & milk → flowering",
+        "e": "Flowering → jointing & milk → CRI"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Flowering is second, not first.",
+        "b": "Correct. The reference lists CRI as most critical, flowering as second most critical, and jointing & milk stage as third important.",
+        "c": "Incorrect. The order is reversed.",
+        "d": "Incorrect. Jointing and milk stage come after flowering in the stated sequence.",
+        "e": "Incorrect. CRI must come first."
+      },
+      "explanation": "The sequence is CRI (20–25 DAS), flowering (85–90 DAS), then jointing & milk stage (100–105 DAS).",
+      "common_trap": "Remembering the names but not the relative priority order.",
+      "source_page": 100
+    },
+    {
+      "id": "AGR-034",
+      "chapter": "Field Crops",
+      "topic": "Wheat",
+      "subtopic": "Sowing Depth",
+      "knowledge_unit": "Wheat seed depth",
+      "question_type": "scenario",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "A farmer sows dwarf wheat at 9 cm depth. Based strictly on the reference book, what is the likely concern?",
+      "options": {
+        "a": "The depth is ideal for dwarf wheat",
+        "b": "The depth is too deep and may result in poor germination and reduced yield",
+        "c": "The depth is too shallow because dwarf wheat must be at least 15 cm deep",
+        "d": "Depth has no effect on germination",
+        "e": "The depth converts wheat into a Rabi-only crop"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The reference says dwarf wheats should be sown at about 5–6 cm.",
+        "b": "Correct. The book warns that 8–10 cm seeding depth results in poor germination and reduced yield.",
+        "c": "Incorrect. The reference does not recommend 15 cm as the minimum for dwarf wheat.",
+        "d": "Incorrect. The book explicitly links excessive depth with poor germination and yield.",
+        "e": "Incorrect. Sowing depth does not determine seasonal classification."
+      },
+      "explanation": "For dwarf wheat, the reference recommends about 5–6 cm and warns against 8–10 cm because deeper placement can impair germination and yield.",
+      "common_trap": "Assuming deeper sowing always gives better anchorage.",
+      "source_page": 100
+    },
+    {
+      "id": "AGR-035",
+      "chapter": "Field Crops",
+      "topic": "Wheat",
+      "subtopic": "Sowing method and seed rate",
+      "knowledge_unit": "Wheat seed rate",
+      "question_type": "comparison",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which wheat seed-rate statement is correct according to the reference book?",
+      "options": {
+        "a": "Drilling always requires 150 kg/ha and broadcasting 25 kg/ha",
+        "b": "Broadcasting is listed at 150 kg/ha, while seed-drill sowing is listed at 80–100 kg/ha",
+        "c": "Broadcasting and seed-drill sowing both require exactly 100 kg/ha",
+        "d": "Seed-drill sowing requires more than late sowing in every case",
+        "e": "Dibbler requires 125–150 kg/ha in the listed table"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The values are reversed and do not match the book.",
+        "b": "Correct. The wheat table lists 150 kg for broadcasting and 80–100 kg per hectare by seed drill.",
+        "c": "Incorrect. The table gives different values.",
+        "d": "Incorrect. Late sowing is listed at 125–150 kg/ha, while seed-drill sowing is 80–100 kg/ha.",
+        "e": "Incorrect. Dibbler is listed at 25–30 kg/ha in the table."
+      },
+      "explanation": "The reference gives a substantially higher seed rate for broadcasting than for seed-drill sowing in its wheat table.",
+      "common_trap": "Mixing up seed rates by method with seed rates by sowing time.",
+      "source_page": 100
+    },
+    {
+      "id": "AGR-036",
+      "chapter": "Field Crops",
+      "topic": "Maize",
+      "subtopic": "Pollination and plant type",
+      "knowledge_unit": "Maize protandry and cross-pollination",
+      "question_type": "integrated_recall",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which combination correctly describes maize according to the reference book?",
+      "options": {
+        "a": "Dioecious, self-pollinated, C3",
+        "b": "Monoecious, protandrous, cross-pollinated",
+        "c": "Monoecious, cleistogamous, self-pollinated",
+        "d": "Dioecious, cross-pollinated, C3",
+        "e": "Monoecious, apomictic, C3"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The reference describes maize as monoecious and C4, not dioecious and C3.",
+        "b": "Correct. Maize is described as protandrous, monoecious and cross-pollinated.",
+        "c": "Incorrect. The reference identifies it as cross-pollinated.",
+        "d": "Incorrect. It is monoecious and C4, not dioecious and C3.",
+        "e": "Incorrect. The book does not describe maize as apomictic here."
+      },
+      "explanation": "The maize section groups three important exam facts together: monoecious plant, protandrous condition and cross-pollination.",
+      "common_trap": "Remembering maize as a cereal but mixing its reproductive biology with other crops.",
+      "source_page": 104
+    },
+    {
+      "id": "AGR-037",
+      "chapter": "Field Crops",
+      "topic": "Maize",
+      "subtopic": "Protein",
+      "knowledge_unit": "Maize protein = zein",
+      "question_type": "direct_recall",
+      "relevance": "CORE",
+      "difficulty": 1,
+      "question": "What is the name given to maize protein in the reference book?",
+      "options": {
+        "a": "Glutenin",
+        "b": "Zein",
+        "c": "Gliadin",
+        "d": "Albumin",
+        "e": "Casein"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The book identifies maize protein as zein.",
+        "b": "Correct. Zein is the maize protein named in the reference.",
+        "c": "Incorrect. This term is not the maize protein identified in the book.",
+        "d": "Incorrect. The reference specifically gives zein.",
+        "e": "Incorrect. Casein is associated with milk rather than maize grain."
+      },
+      "explanation": "The reference explicitly states that maize protein is called zein.",
+      "common_trap": "Confusing cereal proteins because several cereals have named storage proteins.",
+      "source_page": 104
+    },
+    {
+      "id": "AGR-038",
+      "chapter": "Field Crops",
+      "topic": "Maize",
+      "subtopic": "Quality Protein Maize",
+      "knowledge_unit": "Opaque-2",
+      "question_type": "cause_effect",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "According to the reference book, Quality Protein Maize varieties were released using which genetic material?",
+      "options": {
+        "a": "Opaque-2",
+        "b": "IR-8",
+        "c": "TN-1",
+        "d": "Pusa Basmati-1",
+        "e": "PBW-502"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The maize section states that quality protein maize varieties were released using Opaque 2.",
+        "b": "Incorrect. IR-8 is discussed under rice.",
+        "c": "Incorrect. TN-1 is a rice variety introduced from IRRI.",
+        "d": "Incorrect. Pusa Basmati-1 is a rice variety mentioned in the rice section.",
+        "e": "Incorrect. PBW-502 appears in the weed/rogue-weed example, not as the QPM genetic basis."
+      },
+      "explanation": "Opaque-2 is the key fact linked in the reference to quality protein maize varieties.",
+      "common_trap": "Mixing rice variety names with maize improvement facts.",
+      "source_page": 104
+    },
+    {
+      "id": "AGR-039",
+      "chapter": "Field Crops",
+      "topic": "Maize",
+      "subtopic": "Grain types",
+      "knowledge_unit": "Popcorn",
+      "question_type": "identification",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which maize grain type is described in the reference book as swelling and bursting when heated to about 170°C?",
+      "options": {
+        "a": "Flint corn",
+        "b": "Dent corn",
+        "c": "Sweet corn",
+        "d": "Popcorn",
+        "e": "Waxy corn"
+      },
+      "correct_answer": "d",
+      "option_explanations": {
+        "a": "Incorrect. Flint corn is characterized by a hard outer portion of the kernel.",
+        "b": "Incorrect. Dent corn is described mainly by its production prevalence in the USA in the reference.",
+        "c": "Incorrect. Sweet corn is described as the sweetest among the listed types.",
+        "d": "Correct. The reference states that popcorn swells and bursts at about 170°C, turning inside out.",
+        "e": "Incorrect. Waxy corn is identified by the waxy appearance of its kernel."
+      },
+      "explanation": "Popcorn has the distinctive expansion-and-bursting behaviour described in the grain-type table.",
+      "common_trap": "Confusing popcorn with flint corn because both have relatively hard kernels.",
+      "source_page": 104
+    },
+    {
+      "id": "AGR-040",
+      "chapter": "Field Crops",
+      "topic": "Cotton",
+      "subtopic": "Climate and temperature",
+      "knowledge_unit": "Cotton temperature requirements",
+      "question_type": "scenario",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "A cotton crop is at the germination stage. Which minimum temperature does the reference book state is required?",
+      "options": {
+        "a": "10°C",
+        "b": "12°C",
+        "c": "16°C",
+        "d": "21°C",
+        "e": "28°C"
+      },
+      "correct_answer": "c",
+      "option_explanations": {
+        "a": "Incorrect. The cotton section gives a higher minimum for germination.",
+        "b": "Incorrect. 12°C is not the stated minimum for cotton germination.",
+        "c": "Correct. The reference states that a minimum temperature of 16°C is required for cotton germination.",
+        "d": "Incorrect. 21–27°C is given for proper vegetative growth, not the minimum germination temperature.",
+        "e": "Incorrect. This is not the minimum germination value stated."
+      },
+      "explanation": "Cotton requires at least 16°C for germination according to the reference, while proper vegetative growth is given as 21–27°C.",
+      "common_trap": "Using the vegetative-growth temperature range as the germination minimum.",
+      "source_page": 116
+    },
+    {
+      "id": "AGR-041",
+      "chapter": "Field Crops",
+      "topic": "Cotton",
+      "subtopic": "Soil and water requirement",
+      "knowledge_unit": "Cotton suitable soil and water",
+      "question_type": "integrated_recall",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which combination is consistent with the cotton section of the reference book?",
+      "options": {
+        "a": "Black soil is most suitable; water requirement about 550 mm",
+        "b": "Waterlogged sandy soil is most suitable; water requirement about 150 mm",
+        "c": "Only saline soil is suitable; water requirement about 2000 mm",
+        "d": "Peaty soil is most suitable; water requirement about 1250 mm",
+        "e": "Only clay soil is suitable; water requirement about 280 mm"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The book states black soil is most suitable for cotton and gives water requirement as about 550 mm.",
+        "b": "Incorrect. The book says cotton can be grown on many soils except sandy, saline and waterlogged soils, and its water requirement is much higher than 150 mm.",
+        "c": "Incorrect. Saline soil is specifically excluded and 2000 mm is not the stated cotton value.",
+        "d": "Incorrect. Peaty soil and 1250 mm do not match the cotton section.",
+        "e": "Incorrect. Cotton is not restricted only to clay soil, and 280 mm corresponds to another crop in the summary table."
+      },
+      "explanation": "Black soil and roughly 550 mm of water are the key cotton values given in the reference.",
+      "common_trap": "Assuming cotton is exclusively a black-soil crop rather than noting the wider soil statement.",
+      "source_page": 116
+    },
+    {
+      "id": "AGR-042",
+      "chapter": "Field Crops",
+      "topic": "Sugarcane",
+      "subtopic": "Planting material",
+      "knowledge_unit": "3-budded setts",
+      "question_type": "direct_recall",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "According to the sugarcane section, what is the recommended age of planted setts that should have three buds?",
+      "options": {
+        "a": "1–2 months",
+        "b": "3–4 months",
+        "c": "6–8 months",
+        "d": "10–12 months",
+        "e": "18–24 months"
+      },
+      "correct_answer": "d",
+      "option_explanations": {
+        "a": "Incorrect. The reference gives a much older planting material.",
+        "b": "Incorrect. This does not match the stated age.",
+        "c": "Incorrect. The reference specifies 10–12 months.",
+        "d": "Correct. The book states that planted setts should have three buds and be 10–12 months old.",
+        "e": "Incorrect. The reference does not recommend such an old age for the listed planting material."
+      },
+      "explanation": "The sugarcane section gives 10–12 months as the age for planted setts having three buds.",
+      "common_trap": "Confusing sett age with the age of nursery seedlings in transplanting.",
+      "source_page": 140
+    },
+    {
+      "id": "AGR-043",
+      "chapter": "Field Crops",
+      "topic": "Sugarcane",
+      "subtopic": "Planting material",
+      "knowledge_unit": "Upper one-third cane",
+      "question_type": "reasoning",
+      "relevance": "CORE",
+      "difficulty": 3,
+      "question": "Why does the reference book recommend using the upper one-third of the sugarcane plant for sowing material?",
+      "options": {
+        "a": "It contains higher amounts of soluble nitrogen-rich substances, moisture and glucose",
+        "b": "It contains no buds and therefore cannot sprout",
+        "c": "It has the lowest moisture content",
+        "d": "It is always saline-resistant tissue",
+        "e": "It contains only structural fibre and no soluble substances"
+      },
+      "correct_answer": "a",
+      "option_explanations": {
+        "a": "Correct. The book states that the upper one-third contains high amounts of soluble nitrogen-rich substances, moisture and glucose, supporting germination.",
+        "b": "Incorrect. The recommendation is precisely because the region contains useful bud and soluble reserves.",
+        "c": "Incorrect. The reference states high moisture, not low moisture.",
+        "d": "Incorrect. Salinity resistance is not the reason given.",
+        "e": "Incorrect. The text specifically emphasizes soluble nitrogen-rich substances, moisture and glucose."
+      },
+      "explanation": "The stated reason is the concentration of useful soluble substances and moisture in the upper one-third, which supports germination.",
+      "common_trap": "Remembering 'upper one-third' without remembering the physiological reason.",
+      "source_page": 140
+    },
+    {
+      "id": "AGR-044",
+      "chapter": "Field Crops",
+      "topic": "Crop Water Requirement",
+      "subtopic": "Comparative crop water requirement",
+      "knowledge_unit": "Sugarcane water requirement",
+      "question_type": "comparison",
+      "relevance": "PYQ-EXT",
+      "difficulty": 2,
+      "question": "In the reference book's water-requirement table, which crop has the largest listed water requirement?",
+      "options": {
+        "a": "Rice",
+        "b": "Wheat",
+        "c": "Sugarcane",
+        "d": "Cotton",
+        "e": "Maize"
+      },
+      "correct_answer": "c",
+      "option_explanations": {
+        "a": "Incorrect. Rice is listed at about 1250 mm, but sugarcane is listed at about 2000 mm in the same table.",
+        "b": "Incorrect. Wheat is listed at about 500–650 mm.",
+        "c": "Correct. Sugarcane is listed at about 2000 mm, the largest of these options.",
+        "d": "Incorrect. Cotton is listed at about 550 mm.",
+        "e": "Incorrect. Maize is listed at about 500 mm."
+      },
+      "explanation": "The table lists sugarcane at about 2000 mm, exceeding rice and the other crops listed in the options.",
+      "common_trap": "Answering rice merely because it is commonly associated with high water demand.",
+      "source_page": 84
+    },
+    {
+      "id": "AGR-045",
+      "chapter": "Weed Science",
+      "topic": "Weed Characteristics",
+      "subtopic": "Seed production",
+      "knowledge_unit": "Wild amaranth seed production",
+      "question_type": "comparison",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which weed is reported in the reference book as producing nearly 11 million seeds per plant?",
+      "options": {
+        "a": "Wild oat (Avena fatua)",
+        "b": "Wild amaranth (Amaranthus viridis)",
+        "c": "Field bindweed (Convolvulus arvensis)",
+        "d": "Poa annua",
+        "e": "Cirsium arvense"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Wild oat is reported as producing about 250 seeds per plant in the book.",
+        "b": "Correct. Wild amaranth is reported to produce nearly 11 million seeds per plant.",
+        "c": "Incorrect. Field bindweed is cited for long seed viability, not the 11-million-seed figure.",
+        "d": "Incorrect. Poa annua is cited for about eight years of seed viability.",
+        "e": "Incorrect. Creeping thistle is cited for about 20 years of seed viability."
+      },
+      "explanation": "The book uses wild amaranth as a striking example of enormous seed production—nearly 11 million seeds per plant.",
+      "common_trap": "Confusing high seed production with long seed viability.",
+      "source_page": 172
+    },
+    {
+      "id": "AGR-046",
+      "chapter": "Weed Science",
+      "topic": "Weed Characteristics",
+      "subtopic": "Seed viability",
+      "knowledge_unit": "Field bindweed seed viability",
+      "question_type": "comparison",
+      "relevance": "CORE",
+      "difficulty": 2,
+      "question": "Which weed is reported in the reference book to have seeds remaining viable for about 50 years?",
+      "options": {
+        "a": "Poa annua",
+        "b": "Cirsium arvense",
+        "c": "Convolvulus arvensis",
+        "d": "Avena fatua",
+        "e": "Amaranthus viridis"
+      },
+      "correct_answer": "c",
+      "option_explanations": {
+        "a": "Incorrect. Poa annua is reported to remain viable for about 8 years.",
+        "b": "Incorrect. Cirsium arvense is given as about 20 years.",
+        "c": "Correct. Convolvulus arvensis (field bindweed) is reported at about 50 years.",
+        "d": "Incorrect. Avena fatua is used as a seed-production example and later as a dormancy example.",
+        "e": "Incorrect. Amaranthus viridis is used for the very high seed-production example."
+      },
+      "explanation": "The book gives approximate seed viability examples of 8 years for Poa annua, 20 for Cirsium arvense and 50 for field bindweed.",
+      "common_trap": "Mixing the 8-, 20- and 50-year examples.",
+      "source_page": 172
+    },
+    {
+      "id": "AGR-047",
+      "chapter": "Weed Science",
+      "topic": "Weed Classification",
+      "subtopic": "Life span",
+      "knowledge_unit": "Annual vs biennial vs perennial weeds",
+      "question_type": "classification",
+      "relevance": "CORE",
+      "difficulty": 3,
+      "question": "Which description correctly identifies a biennial weed according to the reference book?",
+      "options": {
+        "a": "Completes its entire life cycle in one season",
+        "b": "Completes vegetative growth in the first season, flowers and sets seeds in the next, then dies",
+        "c": "Lives indefinitely and always spreads only by rhizomes",
+        "d": "Lives only under water",
+        "e": "Is a crop plant growing in the wrong row"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. That is the definition of an annual weed.",
+        "b": "Correct. The book states that biennials complete vegetative growth in the first season and flower/set seed in the succeeding season before dying.",
+        "c": "Incorrect. That broadly resembles a perennial, but the book does not say all perennials spread only by rhizomes.",
+        "d": "Incorrect. Aquatic weeds are classified by habitat, not by biennial life span.",
+        "e": "Incorrect. A crop plant growing in the wrong crop field is treated as a relative weed, not the definition of biennial."
+      },
+      "explanation": "A biennial spans two growing seasons: vegetative growth first, reproduction in the next, followed by death.",
+      "common_trap": "Confusing biennial with perennial because both persist longer than one season.",
+      "source_page": 173
+    },
+    {
+      "id": "AGR-048",
+      "chapter": "Weed Science",
+      "topic": "Weed Classification",
+      "subtopic": "Morphology",
+      "knowledge_unit": "Grass vs sedge vs broad-leaved weed",
+      "question_type": "classification",
+      "relevance": "CORE",
+      "difficulty": 3,
+      "question": "A weed belongs to the family Cyperaceae and has leaves mostly arising from the base, sometimes with tubers. How does the reference book classify it?",
+      "options": {
+        "a": "Grass",
+        "b": "Sedge",
+        "c": "Broad-leaved weed",
+        "d": "Woody weed",
+        "e": "Aquatic weed by definition"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The book reserves 'grasses' for weeds in the Poaceae family.",
+        "b": "Correct. Cyperaceae weeds are classified as sedges in the morphology-based system.",
+        "c": "Incorrect. Broad-leaved weeds are the other major morphology group described in the book; Cyperaceae is specifically placed under sedges.",
+        "d": "Incorrect. Woody, semi-woody and herbaceous are classifications based on stem nature.",
+        "e": "Incorrect. Aquatic status depends on habitat, not simply on being in Cyperaceae."
+      },
+      "explanation": "Under morphology, Poaceae = grasses, Cyperaceae = sedges, and the remaining dicot weed group is treated as broad-leaved weeds.",
+      "common_trap": "Using cotyledon number alone to classify a weed that is being asked by family/morphology.",
+      "source_page": 174
+    },
+    {
+      "id": "AGR-049",
+      "chapter": "Weed Science",
+      "topic": "Parasitic Weeds",
+      "subtopic": "Types of parasitism",
+      "knowledge_unit": "Root vs stem and total vs partial parasites",
+      "question_type": "matching",
+      "relevance": "CORE",
+      "difficulty": 3,
+      "question": "Which pairing is correctly matched according to the reference book?",
+      "options": {
+        "a": "Striga lutea — total stem parasite",
+        "b": "Cuscuta chinensis — total stem parasite",
+        "c": "Orobanche cernua — partial root parasite",
+        "d": "Loranthus longiflorus — total root parasite",
+        "e": "Cuscuta chinensis — partial root parasite"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. Striga lutea is listed as a partial root parasite on sugarcane and sorghum.",
+        "b": "Correct. Cuscuta chinensis is given as a total stem parasite on lucerne and onion.",
+        "c": "Incorrect. Orobanche cernua is listed as a total root parasite on tobacco.",
+        "d": "Incorrect. Loranthus longiflorus is listed as a partial stem parasite on mango and other trees.",
+        "e": "Incorrect. The book classifies Cuscuta chinensis as a total stem parasite."
+      },
+      "explanation": "The reference distinguishes both location and degree of parasitism; Cuscuta chinensis is the example of a total stem parasite.",
+      "common_trap": "Remembering the weed name but mixing up root vs stem and total vs partial categories.",
+      "source_page": 175
+    },
+    {
+      "id": "AGR-050",
+      "chapter": "Weed Science",
+      "topic": "Weed Management",
+      "subtopic": "Control vs eradication",
+      "knowledge_unit": "Control and eradication distinction",
+      "question_type": "conceptual_distinction",
+      "relevance": "PYQ-EXT",
+      "difficulty": 3,
+      "question": "Which statement best distinguishes 'weed control' from 'weed eradication' according to the reference book?",
+      "options": {
+        "a": "Control always eliminates every weed; eradication only suppresses growth",
+        "b": "Control reduces infestations without necessarily eliminating them; eradication aims to kill or completely remove the weed and its propagules from an area",
+        "c": "Control is only chemical; eradication is only mechanical",
+        "d": "Control applies only to annual weeds; eradication only to aquatic weeds",
+        "e": "There is no practical distinction between the two terms"
+      },
+      "correct_answer": "b",
+      "option_explanations": {
+        "a": "Incorrect. The definitions are reversed.",
+        "b": "Correct. The book states that control reduces weed infestation but does not necessarily eliminate it, whereas eradication means killing or completely removing the weed, its seed and vegetative parts so it does not reappear unless reintroduced.",
+        "c": "Incorrect. The book describes multiple mechanical, cultural and other methods; neither term is restricted to a single method type.",
+        "d": "Incorrect. The distinction is about degree of elimination, not weed life form or habitat.",
+        "e": "Incorrect. The reference makes the distinction explicit and notes eradication is difficult and costly."
+      },
+      "explanation": "The key distinction is degree: control suppresses infestation, while eradication seeks complete removal so the weed does not reappear unless reintroduced.",
+      "common_trap": "Treating 'control' and 'eradication' as synonyms.",
+      "pyq_connection": "NABARD has tested weed classification and management concepts, including aquatic weeds; this question extends that demonstrated agronomy demand.",
+      "source_page": 179
+    }
+  ]
+}

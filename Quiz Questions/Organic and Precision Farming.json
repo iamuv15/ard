@@ -1,0 +1,509 @@
+{
+  "title": "Organic and Precision Farming Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following is/are the major problem in modern agriculture system in India?",
+      "options": {
+        "a": "Excess use of chemicals",
+        "b": "Loss of top fertile soil",
+        "c": "Less crop diversification",
+        "d": "Polluting water resources",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Problems in modern agriculture: Faulty agriculture practices lead to the adverse effects such as loss of fertile top soil through wind and water erosion. Due to improper management of irrigation water, salinization and alkalization of the soil takes place. Approx. 6 m ha of land is affected by water logging and another 7 m ha is salinized due to faulty irrigation practices. Monocropping or especially rice wheat cropping system led to the loss of fertility of the soil and impact the biodiversity of that region. Excessive use of chemical fertilizer, pesticide, weedicide causes pollution of water bodies and ground water resources. Excessive use of ground water for irrigation with faulty irrigation practices causes depletion of the ground water table.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "___ is a balanced management system of the renewable resources including soil, wildlife, forest, crops, fish, livestock, plant genetic resources and ecosystem without degradation",
+      "options": {
+        "a": "Organic farming",
+        "b": "Precision agriculture",
+        "c": "Sustainable agriculture",
+        "d": "Zero budget natural farming",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sustainable agriculture is a balanced management system of the renewable resources including soil, wildlife, forest, crops, fish, livestock, plant genetic resources and ecosystem without degradation and to provide food, livelihood for the current and the future generations maintaining or improving productivity and ecosystem services.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following is/are the important practices in the sustainable agriculture?",
+      "options": {
+        "a": "Preservation of land races",
+        "b": "Pest management",
+        "c": "Tillage practices up to 8cm of the top soil",
+        "d": "Use of green manure",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Conservation Of Genetic Resource-land races are to be preserved for future generations. Tillage-minimum tillage practices and maintenance of top 8 cm of soil is vital because most of the biological activities. Nutrient Management- use of green manure like sun hemp, dhaincha, are grown and incorporated in soil after 40 days, use of biofertilizer like azolla. Weed Management, Pest Management, Crop Rotation.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following is/are is not a practice under sustainable agriculture?",
+      "options": {
+        "a": "Maintenance of ecological balance",
+        "b": "Frequent tillage",
+        "c": "Integrated pest management",
+        "d": "Nutrient management",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Frequent tillage disrupts soil structure, leading to increased soil erosion, loss of organic matter, reduced water infiltration, and disruption of beneficial microbial activity, ultimately harming soil health and long-term crop productivity.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Under which of the following scheme government is promoting organic farming?",
+      "options": {
+        "a": "Prampragat Krishi Vikas yojana",
+        "b": "Mission Organic Value Chain Development for North Eastern Region",
+        "c": "Bhartiya Prakartik Krishi paddhati",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "The Government has been promoting organic farming: Paramparagat Krishi Vikas Yojana (PKVY), Mission Organic Value Chain Development for North Eastern Region, Bhartiya Prakratik Krishi Paddhati (BPKP).[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following is a principle of zero budget natural farming?",
+      "options": {
+        "a": "Beejamrit",
+        "b": "Jeevamrit",
+        "c": "Mulching",
+        "d": "Washppa",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Components Of Zero Budget Natural Farming: Beejamrit, Jivamrit, Mulching, Whapasa, Plant protection.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "What does wasp aims in zero budget natural farming?",
+      "options": {
+        "a": "Conserve moisture by reducing PET",
+        "b": "Reduce weed growth only",
+        "c": "Pest protection",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Means the mixture of 50% air and 50% water vapour in the cavity between two soil particles. It is the soil's microclimate on which soil organisms and roots depend for most of their moisture and some of their nutrients. It increases water availability, enhances water-use efficiency and builds resilience against drought.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Identify the incorrect statement about the zero-budget natural farming?",
+      "options": {
+        "a": "Jeevamrit \u2013 improve soil fertility",
+        "b": "Beejamrit \u2013 seed treatment",
+        "c": "Washppa \u2013 moisture conservation",
+        "d": "Plant protection \u2013 using artificial stimulants",
+        "e": "All of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Beejamrit - It is used for seeds, seedlings or any planting material. It is effective in protecting young roots from fungus. Jivamrit- Jivamrit acts as a bio stimulant by promoting the activity of microorganisms in the soil and also the activity of phyllo-spheric microorganisms when spayed on foliage. Mulching - Is defined as covering of soil surface using both live crops and straw (dead plant biomass) to conserve moisture, lower soil temperature around plant roots, prevent soil erosion, reduce runoff and reduce weed growth. Whapasa -Means the mixture of 50% air and 50% water vapour in the cavity between two soil particles. It is the soil's microclimate on which soil organisms and roots depend for most of their moisture and some of their nutrients. Plant protection-This is a natural insecticide prepared from leaves which have specific alkaloids to repel pests. It controls all sucking pests and hidden caterpillars that are present in pods and fruits.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following organization was set up by the govt of India for dealing with the production, export and certification of the organic products in India.",
+      "options": {
+        "a": "APEDA",
+        "b": "Ministry of agriculture",
+        "c": "CWC",
+        "d": "NAFED",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "APEDA- The Agricultural and Processed Food Products Export Development Authority (APEDA) was established by the Government of India under the Agricultural and Processed Food Products Export Development Authority Act passed by the Parliament in December, 1985. The Act (2 of 1986) came into effect from 13th February, 1986.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "APEDA comes under which ministry?",
+      "options": {
+        "a": "Ministry of agriculture",
+        "b": "Ministry of commerce and industry",
+        "c": "Ministry of finance",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "APEDA Comes under ministry of commerce and industry.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "___ body sets out the standards to be followed in the cultivation, harvest, production, processing and trading of organic products.",
+      "options": {
+        "a": "National Standards for Organic Production",
+        "b": "National Programme for Organic Production",
+        "c": "APEDA",
+        "d": "PGS India",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "National Standards for Organic Production: National Standards for Organic Production (NSOP) \u2014 This body sets out the standards to be followed in the cultivation, harvest, production, processing and trading of organic products.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "National Programme for Organic Production is the third-party certification for ___ oriented organic products.",
+      "options": {
+        "a": "Export oriented",
+        "b": "For local market",
+        "c": "Target both local and export market",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "India has two certification system for the organic products both the system is based on common standards but adopt different verification process. National Programme for organic products- for export related standards for organic products. Participatory Guarantee System (PGS)for India: for domestic and local market.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following statements is TRUE about the Participatory Guarantee System (PGS) for India?",
+      "options": {
+        "a": "PGS comes under ministry of commerce and industry",
+        "b": "PGS is meant only for international exports.",
+        "c": "PGS provide certification to organic products for domestic market",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "India has two certification system for the organic products both the system is based on common standards but adopt different verification process. National Programme for organic products- for export related standards for organic products. Participatory Guarantee System (PGS)for India: for domestic and local market.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "National Programme for organic production comes under which ministry",
+      "options": {
+        "a": "Ministry of agriculture",
+        "b": "Ministry of commerce and industry",
+        "c": "Ministry of tribal affairs",
+        "d": "Ministry of forestry and climate change",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "National Programme for Organic Products-it is a kind of third-party certification in which the farm and the processing of the agriculture produce is certified in accordance with national and international standards NPOP certification is facilitated by APEDA - The Agricultural and Processed Food Products Export Development Authority under ministry of commerce and industry. For export oriented Agri products.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "___ can be defined as the application of principles and technologies to manage spatial and temporal variability associated with all aspects of agricultural production for the purpose of improving crop performance and environment equally",
+      "options": {
+        "a": "Organic farming",
+        "b": "Precision agriculture",
+        "c": "AI agriculture",
+        "d": "Technological agriculture",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "It is the management approach to the cultivation of the crops by considering spatially and temporal variations in soils, rainfall, and adopting management techniques to reduce cost, efficient use of inputs and reduce environmental pollution.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following is/are the principles of Precision agriculture?",
+      "options": {
+        "a": "To understand the variability in both time & space",
+        "b": "Timely collection of data",
+        "c": "Managing the in time & space",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Principles of precision farming: First principle is to understand the basic principle of variability in both time and space. Second principle is the timely collection and analysis of the spatial and temporal variant information of crops, soil, and environment by using the relevant information technologies like remote sensing. Third principle underlies with precision agriculture is managing the variability with the site-specific agronomic recommendations.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "What is the primary goal of precision agriculture?",
+      "options": {
+        "a": "Maximizing labor costs",
+        "b": "Enhancing crop productivity while minimizing inputs",
+        "c": "Eliminating traditional farming methods",
+        "d": "Reducing the need for fertilizers altogether",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Precision agriculture aims to optimize farming efficiency by using advanced technologies to reduce input wastage (fertilizers, water, pesticides) while improving crop yield and sustainability.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following technologies is most commonly used in precision agriculture for mapping fields?",
+      "options": {
+        "a": "Blockchain",
+        "b": "GPS and GIS",
+        "c": "Hydraulic systems",
+        "d": "Virtual reality",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Global Positioning System (GPS) and Geographic Information System (GIS) help farmers analyze field variability, monitor crop health, and optimize input applications for precision farming.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which sensor type is primarily used to measure soil moisture levels in precision farming?",
+      "options": {
+        "a": "Infrared sensors",
+        "b": "pH sensors",
+        "c": "Capacitive and TDR sensors",
+        "d": "Thermal imaging sensors",
+        "e": "Ultrasonic sensors"
+      },
+      "correct_option": "c",
+      "explanation": "Time-Domain Reflectometry (TDR) and capacitive sensors measure soil moisture levels accurately, helping in efficient irrigation management and preventing overwatering or drought stress.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "What is the role of drones in precision agriculture?",
+      "options": {
+        "a": "Scaring away birds",
+        "b": "Spraying pesticides, monitoring crops, and gathering data",
+        "c": "Transporting harvested crops",
+        "d": "Plowing fields automatically",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Drones equipped with cameras and sensors help in aerial field surveillance, pest detection, disease monitoring, and precision pesticide or fertilizer spraying, improving farm efficiency.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Variable Rate Technology (VRT) in precision farming is used for",
+      "options": {
+        "a": "Adjusting the speed of tractors based on soil conditions",
+        "b": "Varying the application of inputs like water, fertilizers, and pesticides based on real-time data",
+        "c": "Changing crop types automatically in the field",
+        "d": "Automating the planting of genetically modified crops",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "VRT allows farmers to apply inputs (seeds, fertilizers, water, etc.) in varying amounts depending on field conditions, optimizing usage and reducing waste.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which data analysis technique is commonly used in precision agriculture to predict crop yields?",
+      "options": {
+        "a": "Machine learning and AI",
+        "b": "Cloud computing only",
+        "c": "Virtual reality modeling",
+        "d": "Satellite phone technology",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Machine learning algorithms analyze large datasets from satellite images, IoT sensors, and historical trends to forecast crop yields and improve decision-making.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "What is the main benefit of using IoT (Internet of Things) in precision agriculture?",
+      "options": {
+        "a": "Automating farm animal breeding",
+        "b": "Reducing the need for seeds",
+        "c": "farmers to remotely control field operations and collect real-time data",
+        "d": "Elimating the need for weather forecasting",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "IoT enables smart farming by connecting sensors, drones, and automated machinery to real-time data networks, allowing farmers to monitor soil health, weather, and crop conditions remotely.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Precision agriculture contributes to environmental sustainability by",
+      "options": {
+        "a": "Increasing the use of chemical fertilizers",
+        "b": "Encouraging over-irrigation",
+        "c": "Reducing waste and optimizing resource usage",
+        "d": "Replacing organic farming completely",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "By using data-driven decisions, precision farming minimizes water, fertilizer, and pesticide use, reducing environmental impact while maximizing productivity.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "What is a key challenge faced in the implementation of precision agriculture?",
+      "options": {
+        "a": "Lack of consumer demand for precision farming products",
+        "b": "High initial costs and need for technical expertise",
+        "c": "Unavailability of farm animals for precision monitoring",
+        "d": "Limited application in cereal crops",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Satellites provide real-time data on vegetation health, moisture levels, and soil conditions, allowing farmers to detect issues early and take corrective actions.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "How does satellite imagery help in precision farming?",
+      "options": {
+        "a": "By providing detailed insights into crop health and soil conditions",
+        "b": "By detecting pests at a microscopic level",
+        "c": "By automating crop harvesting",
+        "d": "By replacing traditional soil testing methods",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Satellites provide real-time data on vegetation health, moisture levels, and soil conditions, allowing farmers to detect issues early and take corrective actions.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following is a major principle of organic farming according to the International Federation of Organic Agriculture Movements (IFOAM)?",
+      "options": {
+        "a": "Maximizing synthetic inputs for better yield",
+        "b": "Enhancing soil fertility through synthetic fertilizers",
+        "c": "Use of genetically modified organisms (GMOs) to improve crops",
+        "d": "Maintaining ecological balance through natural methods",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Organic farming follows four key principles: health, ecology, fairness, and care. It avoids synthetic chemicals and GMOs, emphasizing biodiversity, soil health, and environmental sustainability.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following is NOT allowed in certified organic farming?",
+      "options": {
+        "a": "Crop rotation for pest control",
+        "b": "Green manure for soil fertility",
+        "c": "Genetically modified seeds",
+        "d": "Biological pest control methods",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Organic farming strictly prohibits the use of GMOs. Instead, it relies on traditional seed varieties and natural breeding methods to maintain genetic diversity and soil health.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "What is the main role of mycorrhizal fungi in organic farming?",
+      "options": {
+        "a": "Fixing atmospheric nitrogen directly",
+        "b": "Increasing phosphate availability to plants",
+        "c": "Producing natural pesticides",
+        "d": "Acting as a primary decomposer of organic matter",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Mycorrhizal fungi form symbiotic relationships with plant roots, helping them absorb nutrients like phosphorus more efficiently while improving soil structure and plant health.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which organic farming method involves planting specific crops together to enhance growth and pest control?",
+      "options": {
+        "a": "Hydroponics",
+        "b": "Companion planting",
+        "c": "Soil sterilization",
+        "d": "Monoculture farming",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Companion planting involves growing mutually beneficial plants together, such as marigolds with tomatoes to repel nematodes, promoting natural pest control and soil health.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Why is crop rotation important in organic farming?",
+      "options": {
+        "a": "It allows continuous use of the same fertilizers",
+        "b": "It helps prevent soil erosion by using deep-rooted crops",
+        "c": "It eliminates the need for manual weeding",
+        "d": "It maximizes pesticide application efficiency",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Crop rotation improves soil structure, prevents nutrient depletion, and reduces the buildup of pests and diseases, which commonly occur in monoculture farming systems.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "What is the main purpose of using neem-based pesticides in organic farming?",
+      "options": {
+        "a": "To kill all insects, including beneficial pollinators",
+        "b": "To provide synthetic growth hormones to crops",
+        "c": "To act as a natural insect repellent and growth regulator",
+        "d": "To increase nitrogen content in the soil",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Neem extracts contain azadirachtin, which disrupts insect growth cycles, acting as an eco-friendly pesticide while preserving beneficial insects like bees and ladybugs.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "In organic farming, what is the main advantage of using biofertilizers over synthetic fertilizers?",
+      "options": {
+        "a": "Biofertilizers improve soil fertility without environmental harm",
+        "b": "Biofertilizers release nutrients instantly like synthetic fertilizers",
+        "c": "Biofertilizers prevent all pests and diseases",
+        "d": "Biofertilizers eliminate the need for crop rotation",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Biofertilizers (e.g., Rhizobium, Azotobacter) provide essential nutrients naturally while improving soil microbial activity and reducing pollution from chemical fertilizers.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which of the following practices in organic farming helps in carbon sequestration and soil enrichment?",
+      "options": {
+        "a": "Slash-and-burn agriculture",
+        "b": "Application of synthetic herbicides",
+        "c": "Use of cover crops and green manure",
+        "d": "Exclusive dependence on chemical fertilizers",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Cover crops (e.g., clover, legumes) and green manure enhance soil organic matter, improve microbial diversity, and trap atmospheric carbon, reducing greenhouse gas emissions.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "How does vermicomposting benefit organic farming?",
+      "options": {
+        "a": "It sterilizes the soil, making it disease-free",
+        "b": "It converts organic waste into nutrient-rich compost using earthworms",
+        "c": "It eliminates the need for crop rotation",
+        "d": "It enhances soil acidity to improve plant growth",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Vermicomposting uses earthworms to break down organic matter into humus-rich compost, improving soil fertility and enhancing plant growth without synthetic additives.[cite: 3]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Organic and Precision Farming",
+      "question": "Which organic certification standard is globally recognized for ensuring organic product authenticity?",
+      "options": {
+        "a": "Good Agricultural Practices (GAP)",
+        "b": "ISO 9001",
+        "c": "USDA Organic",
+        "d": "Codex Alimentarius",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The USDA Organic certification ensures that agricultural products meet strict organic standards, including non-GMO seeds, sustainable farming practices, and no synthetic chemicals.[cite: 3]"
+    }
+  ]
+}

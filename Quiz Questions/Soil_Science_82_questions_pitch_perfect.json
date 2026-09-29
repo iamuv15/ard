@@ -1,0 +1,2345 @@
+{
+  "title": "Soil Science MCQs — 82 Questions",
+  "version": "1.0",
+  "source": {
+    "filename": "Soil Science(1).pdf",
+    "page_count": 82,
+    "content_type": "image_based_pdf",
+    "note": "The uploaded PDF is a set of screenshots of an online quiz. The fifth option is below the captured viewport and is not visible on the screenshots."
+  },
+  "conversion_policy": {
+    "preserve_source_wording": true,
+    "preserve_source_answer": true,
+    "no_silent_external_correction": true,
+    "missing_option_e": "reconstructed",
+    "critical_note": "Exact original wording/order of hidden option E cannot be recovered from the screenshots alone. Reconstructed E options are explicitly marked so the data is not falsely represented as a pixel-perfect transcription."
+  },
+  "schema": {
+    "required_fields": [
+      "id",
+      "question_number",
+      "question",
+      "options",
+      "correct_option",
+      "correct_answer",
+      "explanation",
+      "source_page"
+    ],
+    "options": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "correct_option_rule": "exactly one of a-e"
+  },
+  "questions": [
+    {
+      "id": "SOIL-001",
+      "question_number": 1,
+      "question": "Which of the following is not a chemical property?",
+      "options": {
+        "a": "Bulk density",
+        "b": "Cation exchange capacity",
+        "c": "Anion exchange capacity",
+        "d": "pH of the soil",
+        "e": "Particle density"
+      },
+      "correct_option": "a",
+      "correct_answer": "Bulk density",
+      "explanation": "Bulk density is a physical property of soil. The chemical properties identified in the explanation include pH, clay minerals, cation exchange capacity and anion exchange capacity.",
+      "source_page": 1,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-002",
+      "question_number": 2,
+      "question": "Which of the following statements is true regarding the decomposition of organic matter in soil?",
+      "options": {
+        "a": "Decomposition is faster at pH below 6",
+        "b": "Decomposition is slower at pH above 8",
+        "c": "Decomposition is slower at pH below 6",
+        "d": "Decomposition rate is the same across all pH levels",
+        "e": "Decomposition is fastest in strongly acidic soil"
+      },
+      "correct_option": "c",
+      "correct_answer": "Decomposition is slower at pH below 6",
+      "explanation": "Decomposition of organic matter is slowest at pH levels below 6, primarily because microbial activity is reduced in more acidic conditions.",
+      "source_page": 2,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-003",
+      "question_number": 3,
+      "question": "At low pH, phosphorus is most likely to be precipitated as ________.",
+      "options": {
+        "a": "Calcium phosphate",
+        "b": "Magnesium phosphate",
+        "c": "Iron and aluminium phosphates",
+        "d": "Potassium phosphate",
+        "e": "Sodium phosphate"
+      },
+      "correct_option": "c",
+      "correct_answer": "Iron and aluminium phosphates",
+      "explanation": "At low pH (acidic conditions), phosphorus reacts with iron and aluminium to form Fe and Al phosphates, reducing its availability to plants.",
+      "source_page": 3,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-004",
+      "question_number": 4,
+      "question": "Which of the following elements tends to be less available in alkaline soils (high pH)?",
+      "options": {
+        "a": "Iron (Fe)",
+        "b": "Calcium (Ca)",
+        "c": "Magnesium (Mg)",
+        "d": "Boron (B)",
+        "e": "Molybdenum (Mo)"
+      },
+      "correct_option": "a",
+      "correct_answer": "Iron (Fe)",
+      "explanation": "At high pH, iron, along with other metallic cations such as Mn, Cu and Zn, tends to precipitate from the soil solution, making it less available for plant uptake.",
+      "source_page": 4,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-005",
+      "question_number": 5,
+      "question": "What happens to potassium in soils with low pH?",
+      "options": {
+        "a": "Potassium becomes more available to plants",
+        "b": "Potassium leaching decreases",
+        "c": "Potassium is replaced by hydrogen ions (H+)",
+        "d": "Potassium is converted into a non-exchangeable form",
+        "e": "Potassium becomes fixed as calcium phosphate"
+      },
+      "correct_option": "c",
+      "correct_answer": "Potassium is replaced by hydrogen ions (H+)",
+      "explanation": "At lower pH, hydrogen ions replace potassium on exchange sites. This promotes potassium leaching and reduces its availability to plants.",
+      "source_page": 5,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-006",
+      "question_number": 6,
+      "question": "Which of the following occurs in soil with a high pH (alkaline conditions)?",
+      "options": {
+        "a": "Increased availability of boron",
+        "b": "Phosphorus is more readily available to plants",
+        "c": "Metallic cations like Fe, Mn, Cu, and Zn precipitate",
+        "d": "Potassium becomes more available for plant uptake",
+        "e": "Iron and manganese become completely soluble"
+      },
+      "correct_option": "c",
+      "correct_answer": "Metallic cations like Fe, Mn, Cu, and Zn precipitate",
+      "explanation": "In alkaline soils, metallic cations such as Fe, Mn, Cu and Zn tend to precipitate, reducing their availability to plants.",
+      "source_page": 6,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-007",
+      "question_number": 7,
+      "question": "Which nutrient has the optimum pH range between 6.0 and 8.0?",
+      "options": {
+        "a": "Phosphorus (P)",
+        "b": "Potassium (K)",
+        "c": "Nitrogen (N)",
+        "d": "Manganese (Mn)",
+        "e": "Iron (Fe)"
+      },
+      "correct_option": "c",
+      "correct_answer": "Nitrogen (N)",
+      "explanation": "The optimum pH range for nitrogen availability is given as 6.0 to 8.0.",
+      "source_page": 7,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-008",
+      "question_number": 8,
+      "question": "At which pH range does phosphorus (P) show the best availability?",
+      "options": {
+        "a": "5.0–6.0",
+        "b": "6.5–7.5",
+        "c": "6.0–8.0",
+        "d": "7.0 and above",
+        "e": "Below 5.0"
+      },
+      "correct_option": "b",
+      "correct_answer": "6.5–7.5",
+      "explanation": "Phosphorus (P) is most available in soils with a pH between 6.5 and 7.5.",
+      "source_page": 8,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-009",
+      "question_number": 9,
+      "question": "Which nutrient has the optimum pH range of 7.0 and above?",
+      "options": {
+        "a": "Sulphur (S)",
+        "b": "Calcium and Magnesium (Ca and Mg)",
+        "c": "Molybdenum (Mo)",
+        "d": "Boron, Copper, & Zinc (B, Cu, & Zn)",
+        "e": "Iron (Fe)"
+      },
+      "correct_option": "c",
+      "correct_answer": "Molybdenum (Mo)",
+      "explanation": "Molybdenum is most available in soils with a pH of 7.0 and above.",
+      "source_page": 9,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-010",
+      "question_number": 10,
+      "question": "Which of the following nutrients becomes most available at a pH below 6.0?",
+      "options": {
+        "a": "Potassium (K)",
+        "b": "Iron (Fe)",
+        "c": "Magnesium (Mg)",
+        "d": "Calcium (Ca)",
+        "e": "Molybdenum (Mo)"
+      },
+      "correct_option": "b",
+      "correct_answer": "Iron (Fe)",
+      "explanation": "Iron has its optimum availability in soils with a pH of 6.0 and below, according to the source explanation.",
+      "source_page": 10,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-011",
+      "question_number": 11,
+      "question": "What is the optimum pH range for manganese (Mn) availability?",
+      "options": {
+        "a": "5.0–6.5",
+        "b": "6.0–7.5",
+        "c": "6.0–7.5",
+        "d": "6.0 & above",
+        "e": "4.0–5.0"
+      },
+      "correct_option": "a",
+      "correct_answer": "5.0–6.5",
+      "explanation": "Manganese is most available in soils with a pH between 5.0 and 6.5.",
+      "source_page": 11,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-012",
+      "question_number": 12,
+      "question": "Which of the following statements is true regarding molybdenum toxicity in saline soils?",
+      "options": {
+        "a": "Molybdenum toxicity is not a concern in saline soils",
+        "b": "Saline conditions reduce the toxicity of molybdenum in plants",
+        "c": "Molybdenum toxicity can occur in saline soils due to its availability at high pH and the solubility of molybdenum",
+        "d": "Molybdenum becomes unavailable at high pH and therefore cannot be toxic",
+        "e": "Molybdenum toxicity occurs only in strongly acidic, non-saline soils"
+      },
+      "correct_option": "c",
+      "correct_answer": "Molybdenum toxicity can occur in saline soils due to its availability at high pH and the solubility of molybdenum",
+      "explanation": "Molybdenum becomes more soluble and available to plants in alkaline soils, which are often associated with saline conditions. Excess availability can cause toxicity and reduce plant growth.",
+      "source_page": 12,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-013",
+      "question_number": 13,
+      "question": "Which of the following crops grows best in a soil pH range of 4.0–6.0?",
+      "options": {
+        "a": "Wheat",
+        "b": "Rice",
+        "c": "Potato",
+        "d": "Sugarcane",
+        "e": "Cotton"
+      },
+      "correct_option": "b",
+      "correct_answer": "Rice",
+      "explanation": "Wheat is listed at 6.0–7.5, rice at 4.0–6.0, potato at 5.0–5.5 and cotton at 5.0–6.5. Thus rice matches the stated range.",
+      "source_page": 13,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-014",
+      "question_number": 14,
+      "question": "Which crop requires a soil pH range of 5.0–5.5 for optimal growth?",
+      "options": {
+        "a": "Tea",
+        "b": "Potato",
+        "c": "Cotton",
+        "d": "Sorghum",
+        "e": "Rice"
+      },
+      "correct_option": "b",
+      "correct_answer": "Potato",
+      "explanation": "Potato grows best in the soil pH range of 5.0–5.5 given in the explanation. Tea is broader at 4.0–6.0, while cotton is 5.0–6.5.",
+      "source_page": 14,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-015",
+      "question_number": 15,
+      "question": "Which of the following crops can tolerate the widest range of soil pH?",
+      "options": {
+        "a": "Rice",
+        "b": "Wheat",
+        "c": "Oats",
+        "d": "Soyabean",
+        "e": "Sugarcane"
+      },
+      "correct_option": "c",
+      "correct_answer": "Oats",
+      "explanation": "Oats are given a soil pH range of 5.0–7.5, spanning 2.5 pH units, which is wider than the ranges listed for the other options.",
+      "source_page": 15,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-016",
+      "question_number": 16,
+      "question": "Which crop shares the same ideal soil pH range as Wheat?",
+      "options": {
+        "a": "Rice",
+        "b": "Barley",
+        "c": "Potato",
+        "d": "Tea",
+        "e": "Cotton"
+      },
+      "correct_option": "b",
+      "correct_answer": "Barley",
+      "explanation": "Barley has the same 6.0–7.5 soil pH range stated for wheat. Rice and tea are 4.0–6.0, potato is 5.0–5.5, and cotton is 5.0–6.5.",
+      "source_page": 16,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-017",
+      "question_number": 17,
+      "question": "Which crop grows best in a soil pH range that overlaps with both Rice and Tea?",
+      "options": {
+        "a": "Millets",
+        "b": "Soyabean",
+        "c": "Cotton",
+        "d": "Sugarcane",
+        "e": "Wheat"
+      },
+      "correct_option": "a",
+      "correct_answer": "Millets",
+      "explanation": "Rice and tea are shown with a 4.0–6.0 range. The source explains that millets, at 5.0–6.5, overlap with both ranges.",
+      "source_page": 17,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-018",
+      "question_number": 18,
+      "question": "Which crop grows best in a soil pH range that is entirely above 6.0?",
+      "options": {
+        "a": "Rice",
+        "b": "Tea",
+        "c": "Sorghum",
+        "d": "Potato",
+        "e": "Cotton"
+      },
+      "correct_option": "c",
+      "correct_answer": "Sorghum",
+      "explanation": "Sorghum is given as 6.0–7.5. Potato is entirely below 6.0, while cotton includes values below 6.0 and rice/tea are 4.0–6.0.",
+      "source_page": 18,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-019",
+      "question_number": 19,
+      "question": "What is the primary cause of soil acidity when the soil pH range is between 5 to 7?",
+      "options": {
+        "a": "Presence of aluminum ions",
+        "b": "Presence of iron ions",
+        "c": "Presence of exchangeable hydrogen ions",
+        "d": "Hydrolysis of clay minerals",
+        "e": "Leaching of basic cations as the only cause"
+      },
+      "correct_option": "c",
+      "correct_answer": "Presence of exchangeable hydrogen ions",
+      "explanation": "When soil pH is between 5 and 7, the explanation identifies exchangeable hydrogen ions as the primary cause. Aluminium and iron become more relevant below pH 5.",
+      "source_page": 19,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-020",
+      "question_number": 20,
+      "question": "At a soil pH lower than 5.0, which process contributes significantly to soil acidity?",
+      "options": {
+        "a": "Accumulation of organic matter",
+        "b": "Release of basic cations like calcium and magnesium",
+        "c": "Hydrolysis of aluminum and iron ions",
+        "d": "Increase in microbial activity",
+        "e": "Precipitation of all acidic ions"
+      },
+      "correct_option": "c",
+      "correct_answer": "Hydrolysis of aluminum and iron ions",
+      "explanation": "Below pH 5.0, aluminium and iron ions are released from clay minerals and undergo hydrolysis, producing additional H+ and further lowering soil pH.",
+      "source_page": 20,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-021",
+      "question_number": 21,
+      "question": "Which ion plays a major role in lowering soil pH when the pH is below 5.0?",
+      "options": {
+        "a": "Calcium (Ca2+)",
+        "b": "Magnesium (Mg2+)",
+        "c": "Aluminum (Al3+)",
+        "d": "Potassium (K+)",
+        "e": "Sodium (Na+)"
+      },
+      "correct_option": "c",
+      "correct_answer": "Aluminum (Al3+)",
+      "explanation": "At pH below 5.0, aluminium is released from clay minerals and undergoes hydrolysis, producing additional hydrogen ions.",
+      "source_page": 21,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-022",
+      "question_number": 22,
+      "question": "In high rainfall regions, what is the primary cause of soil acidity due to leaching?",
+      "options": {
+        "a": "Accumulation of organic acids",
+        "b": "Leaching of base-forming cations like calcium and magnesium",
+        "c": "Oxidation of sulfur compounds",
+        "d": "Accumulation of basic cations in the topsoil",
+        "e": "Reduction in water movement through the soil"
+      },
+      "correct_option": "b",
+      "correct_answer": "Leaching of base-forming cations like calcium and magnesium",
+      "explanation": "High rainfall promotes percolation that carries soluble calcium and magnesium away. Their loss reduces the soil's buffering capacity and increases acidity.",
+      "source_page": 22,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-023",
+      "question_number": 23,
+      "question": "Which fertilizer contributes to soil acidity when added to the soil?",
+      "options": {
+        "a": "Calcium nitrate",
+        "b": "Potassium chloride",
+        "c": "Ammonium sulfate",
+        "d": "Urea",
+        "e": "Calcium carbonate"
+      },
+      "correct_option": "c",
+      "correct_answer": "Ammonium sulfate",
+      "explanation": "Ammonium sulfate is an acid-forming fertilizer. During nitrification, ammonium is converted to nitrate and hydrogen ions are released, increasing soil acidity.",
+      "source_page": 23,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-024",
+      "question_number": 24,
+      "question": "What is the primary cause of low pH in acid sulfate soils?",
+      "options": {
+        "a": "Leaching of base-forming cations",
+        "b": "Decomposition of organic matter",
+        "c": "Formation of sulfuric acid by oxidation of sulfur and sulfides",
+        "d": "Use of acid-forming fertilizers",
+        "e": "Accumulation of calcium carbonate"
+      },
+      "correct_option": "c",
+      "correct_answer": "Formation of sulfuric acid by oxidation of sulfur and sulfides",
+      "explanation": "Acid sulfate soils contain pyrite (FeS2). On exposure to air and water, sulfur and sulfides are oxidized and sulfuric acid is formed, sharply lowering soil pH.",
+      "source_page": 24,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-025",
+      "question_number": 25,
+      "question": "Which of the following is a major factor that hinders crop production in acidic soils?",
+      "options": {
+        "a": "Calcium and magnesium toxicity",
+        "b": "Iron and aluminum toxicity",
+        "c": "Excess availability of phosphorus",
+        "d": "Increased bacterial activity",
+        "e": "Very high molybdenum deficiency caused by alkalinity"
+      },
+      "correct_option": "b",
+      "correct_answer": "Iron and aluminum toxicity",
+      "explanation": "In acidic soils, aluminium and iron become highly soluble and can become toxic, hindering root growth and overall crop production.",
+      "source_page": 25,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-026",
+      "question_number": 26,
+      "question": "What is one of the major effects of aluminum (Al) toxicity on plant roots in acidic soils?",
+      "options": {
+        "a": "Roots become elongated and strong",
+        "b": "Roots turn brown, stubby, and brittle",
+        "c": "Roots grow faster due to increased nutrient uptake",
+        "d": "Roots produce more lateral branches",
+        "e": "Roots become longer because aluminium stimulates cell division"
+      },
+      "correct_option": "b",
+      "correct_answer": "Roots turn brown, stubby, and brittle",
+      "explanation": "Aluminium toxicity severely damages plant roots, making them brownish, brittle and stubby, which restricts root growth and nutrient uptake.",
+      "source_page": 26,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-027",
+      "question_number": 27,
+      "question": "Why does strong soil acidity impair nutrient availability for plants?",
+      "options": {
+        "a": "Nutrients leach out rapidly in acidic conditions",
+        "b": "Acidic soils contain excess nutrients, making uptake difficult",
+        "c": "Nutrients form insoluble compounds at low pH",
+        "d": "Microbial activity becomes uniformly higher at low pH",
+        "e": "All nutrients become freely soluble at low pH"
+      },
+      "correct_option": "c",
+      "correct_answer": "Nutrients form insoluble compounds at low pH",
+      "explanation": "In strongly acidic soils, many essential nutrients become unavailable because they form insoluble compounds, making them inaccessible to plants.",
+      "source_page": 27,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-028",
+      "question_number": 28,
+      "question": "Which microbial process is hindered in acidic soils due to low bacterial activity?",
+      "options": {
+        "a": "Phosphorus fixation",
+        "b": "Potassium leaching",
+        "c": "Nitrogen mineralization and fixation",
+        "d": "Sulfur oxidation",
+        "e": "Carbonate formation"
+      },
+      "correct_option": "c",
+      "correct_answer": "Nitrogen mineralization and fixation",
+      "explanation": "Bacteria play a crucial role in nitrogen mineralization and fixation, but bacterial activity is reduced in acidic soils, negatively affecting these processes.",
+      "source_page": 28,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-029",
+      "question_number": 29,
+      "question": "At what pH level are beneficial microbes generally absent in soil?",
+      "options": {
+        "a": "Below 6.5",
+        "b": "Below 5.5",
+        "c": "Below 4.5",
+        "d": "Below 7.0",
+        "e": "Below 3.0 only"
+      },
+      "correct_option": "c",
+      "correct_answer": "Below 4.5",
+      "explanation": "Beneficial microbes, particularly bacteria, struggle to survive in highly acidic soils at pH below 4.5, reducing microbial activity and nutrient cycling.",
+      "source_page": 29,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-030",
+      "question_number": 30,
+      "question": "How can acidic soils be converted into neutral soils?",
+      "options": {
+        "a": "By adding sulfur",
+        "b": "By adding lime",
+        "c": "By increasing irrigation",
+        "d": "By applying organic manure only",
+        "e": "By adding sodium chloride"
+      },
+      "correct_option": "b",
+      "correct_answer": "By adding lime",
+      "explanation": "Lime is commonly used to neutralize acidic soils by increasing soil pH.",
+      "source_page": 30,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-031",
+      "question_number": 31,
+      "question": "Which of the following liming materials is NOT used to treat acidic soils?",
+      "options": {
+        "a": "Calcium carbonate",
+        "b": "Calcium sulfate (Gypsum)",
+        "c": "Calcium hydroxide",
+        "d": "Magnesium oxide",
+        "e": "Magnesium carbonate"
+      },
+      "correct_option": "b",
+      "correct_answer": "Calcium sulfate (Gypsum)",
+      "explanation": "Calcium sulfate (gypsum) does not neutralize soil acidity. The source lists oxides, hydroxides and carbonates of calcium and magnesium as liming materials.",
+      "source_page": 31,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-032",
+      "question_number": 32,
+      "question": "What is the most commonly used liming material for treating acidic soils?",
+      "options": {
+        "a": "Calcium hydroxide",
+        "b": "Magnesium oxide",
+        "c": "Calcium carbonate",
+        "d": "Calcium chloride",
+        "e": "Sodium carbonate"
+      },
+      "correct_option": "c",
+      "correct_answer": "Calcium carbonate",
+      "explanation": "Calcium carbonate (CaCO3) is identified in the source as the most widely used liming material for neutralizing soil acidity.",
+      "source_page": 32,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-033",
+      "question_number": 33,
+      "question": "How does calcium carbonate (CaCO3) neutralize acidic soil?",
+      "options": {
+        "a": "By releasing hydrogen ions into the soil",
+        "b": "By forming sodium ions that neutralize the acidity",
+        "c": "By reacting with water to produce hydroxyl (OH-) ions",
+        "d": "By binding to plant roots and preventing acid uptake",
+        "e": "By converting directly into sulfuric acid"
+      },
+      "correct_option": "c",
+      "correct_answer": "By reacting with water to produce hydroxyl (OH-) ions",
+      "explanation": "The source explanation states that CaCO3 reacts with water to produce calcium ions, bicarbonate and hydroxyl ions; the OH- ions help neutralize soil acidity.",
+      "source_page": 33,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-034",
+      "question_number": 34,
+      "question": "Which of the following statements about liming materials is true?",
+      "options": {
+        "a": "Calcium and magnesium carbonates are used to increase soil acidity",
+        "b": "Liming reduces soil pH and makes it more acidic",
+        "c": "Liming materials increase soil pH and neutralize acidity",
+        "d": "Liming permanently eliminates every soil nutrient deficiency",
+        "e": "Gypsum is the principal neutralizing liming material for all acidic soils"
+      },
+      "correct_option": "c",
+      "correct_answer": "Liming materials increase soil pH and neutralize acidity",
+      "explanation": "Liming materials such as calcium carbonate, calcium hydroxide and magnesium oxide neutralize acidity by increasing soil pH.",
+      "source_page": 34,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-035",
+      "question_number": 35,
+      "question": "What is the pH range of alkaline soil?",
+      "options": {
+        "a": "Below 5.5",
+        "b": "5.5–6.5",
+        "c": "6.5–7.0",
+        "d": "Above 7.0",
+        "e": "Exactly 7.0 only"
+      },
+      "correct_option": "d",
+      "correct_answer": "Above 7.0",
+      "explanation": "Soils with a pH higher than 7 are classified as alkaline soils in the source.",
+      "source_page": 35,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-036",
+      "question_number": 36,
+      "question": "What is the primary reason for soil alkalinity?",
+      "options": {
+        "a": "High organic matter content",
+        "b": "High base saturation, especially sodium and carbonates of Na and Ca",
+        "c": "Excess iron and aluminum in the soil",
+        "d": "Leaching of sodium and calcium",
+        "e": "High exchangeable hydrogen concentration"
+      },
+      "correct_option": "b",
+      "correct_answer": "High base saturation, especially sodium and carbonates of Na and Ca",
+      "explanation": "Alkaline soils have high base saturation, with sodium and calcium carbonates identified as major contributors.",
+      "source_page": 36,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-037",
+      "question_number": 37,
+      "question": "Why does exchangeable sodium have a higher effect on soil pH than calcium and magnesium?",
+      "options": {
+        "a": "Sodium hydroxide (NaOH) is a stronger base than calcium and magnesium hydroxides",
+        "b": "Sodium leaches out more easily than Ca and Mg",
+        "c": "Sodium reduces soil pH",
+        "d": "Calcium and magnesium are always neutral in soil solution",
+        "e": "Sodium has no relationship with soil alkalinity"
+      },
+      "correct_option": "a",
+      "correct_answer": "Sodium hydroxide (NaOH) is a stronger base than calcium and magnesium hydroxides",
+      "explanation": "Sodium hydroxide is treated in the source explanation as a stronger base than the corresponding calcium and magnesium hydroxides, leading to higher pH in soils with excessive sodium.",
+      "source_page": 37,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-038",
+      "question_number": 38,
+      "question": "How does hydrolysis of calcium and magnesium carbonates affect soil pH?",
+      "options": {
+        "a": "Releases hydrogen ions, lowering pH",
+        "b": "Produces acidic compounds",
+        "c": "Releases hydroxyl (OH-) ions, increasing pH",
+        "d": "Causes precipitation of salts, reducing alkalinity",
+        "e": "Consumes all hydroxyl ions and lowers pH"
+      },
+      "correct_option": "c",
+      "correct_answer": "Releases hydroxyl (OH-) ions, increasing pH",
+      "explanation": "The hydrolysis of calcium and magnesium carbonates releases hydroxyl ions, which raise soil pH and make the soil more alkaline.",
+      "source_page": 38,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-039",
+      "question_number": 39,
+      "question": "Which of the following factors also contributes to increased soil pH?",
+      "options": {
+        "a": "Presence of excess salts",
+        "b": "High microbial activity",
+        "c": "Leaching of sodium and calcium",
+        "d": "High levels of organic acids",
+        "e": "Accumulation of exchangeable hydrogen ions"
+      },
+      "correct_option": "a",
+      "correct_answer": "Presence of excess salts",
+      "explanation": "Excess soluble salts contribute to alkalinity by increasing base saturation and raising soil pH.",
+      "source_page": 39,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-040",
+      "question_number": 40,
+      "question": "How is electrical conductivity (EC) of soil defined?",
+      "options": {
+        "a": "It is the resistance of a soil solution to electrical flow",
+        "b": "It is the reciprocal of electrical resistance of the soil extract",
+        "c": "It is the measure of soil moisture content",
+        "d": "It is the ability of soil to absorb nutrients",
+        "e": "It is the mass of salts present per kilogram of soil"
+      },
+      "correct_option": "b",
+      "correct_answer": "It is the reciprocal of electrical resistance of the soil extract",
+      "explanation": "Electrical conductivity is defined as the reciprocal of the electrical resistance of a soil extract of specified dimensions. It is generally expressed as dS/m at 25°C and is used to express soil salinity.",
+      "source_page": 40,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-041",
+      "question_number": 41,
+      "question": "What is the unit of measurement for electrical conductivity (EC) of soil?",
+      "options": {
+        "a": "mg/kg",
+        "b": "cm/hr",
+        "c": "dS/m at 25°C",
+        "d": "kg/m3",
+        "e": "% base saturation"
+      },
+      "correct_option": "c",
+      "correct_answer": "dS/m at 25°C",
+      "explanation": "The source expresses soil electrical conductivity as dS/m at 25°C.",
+      "source_page": 41,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-042",
+      "question_number": 42,
+      "question": "How is Exchangeable Sodium Percentage (ESP) defined?",
+      "options": {
+        "a": "The percentage of sodium relative to total cations in the soil exchange complex",
+        "b": "The percentage of magnesium in the soil solution",
+        "c": "The ratio of sodium to chloride in the soil",
+        "d": "The total salinity of the soil solution",
+        "e": "The percentage of calcium relative to total anions in soil"
+      },
+      "correct_option": "a",
+      "correct_answer": "The percentage of sodium relative to total cations in the soil exchange complex",
+      "explanation": "ESP is defined as the percentage of exchangeable sodium relative to the total exchangeable cations on the soil exchange complex. The explanation also discusses SAR as a separate sodicity indicator.",
+      "source_page": 42,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-043",
+      "question_number": 43,
+      "question": "What is the effect of high ESP in soil?",
+      "options": {
+        "a": "Increases water infiltration",
+        "b": "Improves soil structure",
+        "c": "Causes soil dispersion and poor drainage",
+        "d": "Increases soil aeration",
+        "e": "Increases aggregate stability without affecting permeability"
+      },
+      "correct_option": "c",
+      "correct_answer": "Causes soil dispersion and poor drainage",
+      "explanation": "High exchangeable sodium causes dispersion of soil colloids, leading to poor structure, reduced permeability and drainage problems.",
+      "source_page": 43,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-044",
+      "question_number": 44,
+      "question": "What does Sodium Adsorption Ratio (SAR) measure?",
+      "options": {
+        "a": "The amount of sodium relative to calcium and magnesium in soil",
+        "b": "The percentage of clay particles in soil",
+        "c": "The pH level of the soil solution",
+        "d": "The water-holding capacity of soil",
+        "e": "The percentage of organic carbon in soil"
+      },
+      "correct_option": "a",
+      "correct_answer": "The amount of sodium relative to calcium and magnesium in soil",
+      "explanation": "SAR measures sodium relative to calcium and magnesium in a saturated soil paste and is used as a diagnostic parameter for sodicity hazard.",
+      "source_page": 44,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-045",
+      "question_number": 45,
+      "question": "What is the electrical conductivity (EC) limiting value for Saline Soil?",
+      "options": {
+        "a": "< 4 dS/m",
+        "b": "> 4 dS/m",
+        "c": "> 15 dS/m",
+        "d": "< 8.5 dS/m",
+        "e": "Exactly 4 dS/m"
+      },
+      "correct_option": "b",
+      "correct_answer": "> 4 dS/m",
+      "explanation": "The source identifies EC > 4 dS/m as the limiting value for saline soil.",
+      "source_page": 45,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-046",
+      "question_number": 46,
+      "question": "What is the electrical conductivity (EC) limiting value for Saline Soil?",
+      "options": {
+        "a": "< 2 dS/m",
+        "b": "< 4 dS/m",
+        "c": "> 4 dS/m",
+        "d": "> 15 dS/m",
+        "e": "8.5–10 dS/m"
+      },
+      "correct_option": "c",
+      "correct_answer": "> 4 dS/m",
+      "explanation": "Saline soils contain high levels of soluble salts and are characterized in the source by EC greater than 4 dS/m. Below 4 dS/m does not meet the stated saline-soil threshold.",
+      "source_page": 46,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-047",
+      "question_number": 47,
+      "question": "What is the Exchangeable Sodium Percentage (ESP) for Saline Soil?",
+      "options": {
+        "a": "<10",
+        "b": "<12",
+        "c": "<15",
+        "d": ">15",
+        "e": "Exactly 15"
+      },
+      "correct_option": "c",
+      "correct_answer": "<15",
+      "explanation": "Saline soils are described as having low sodium accumulation, with ESP less than 15%. Higher ESP values are associated with saline-alkali and alkali soils.",
+      "source_page": 47,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-048",
+      "question_number": 48,
+      "question": "What is the pH range of Saline Soil?",
+      "options": {
+        "a": "<6.5",
+        "b": "<7.5",
+        "c": "<8.5",
+        "d": ">8.5",
+        "e": "8.5–10.0"
+      },
+      "correct_option": "c",
+      "correct_answer": "<8.5",
+      "explanation": "Saline soils generally have pH below 8.5 because the excess neutral salts do not lead to extreme alkalinity.",
+      "source_page": 48,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-049",
+      "question_number": 49,
+      "question": "What is the ESP value for Saline-Alkali Soil?",
+      "options": {
+        "a": "<10",
+        "b": "<12",
+        "c": "<15",
+        "d": ">15",
+        "e": "Exactly 15"
+      },
+      "correct_option": "d",
+      "correct_answer": ">15",
+      "explanation": "Saline-alkali soils have high ESP, greater than 15%, indicating substantial sodium accumulation.",
+      "source_page": 49,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-050",
+      "question_number": 50,
+      "question": "What is the pH range for Saline-Alkali Soil?",
+      "options": {
+        "a": "<8.5",
+        "b": "<7.5",
+        "c": "<6.5",
+        "d": ">8.5",
+        "e": "8.5–10.0"
+      },
+      "correct_option": "a",
+      "correct_answer": "<8.5",
+      "explanation": "Although saline-alkali soils have high ESP, their pH is still below 8.5 while soluble salts are present. If the salts are leached out, pH may increase.",
+      "source_page": 50,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-051",
+      "question_number": 51,
+      "question": "What is the EC value for Alkali Soil?",
+      "options": {
+        "a": ">4 dS/m",
+        "b": "<4 dS/m",
+        "c": ">15 dS/m",
+        "d": ">8.5 dS/m",
+        "e": "Exactly 4 dS/m"
+      },
+      "correct_option": "b",
+      "correct_answer": "<4 dS/m",
+      "explanation": "Alkali soils have low EC, below 4 dS/m, because the main problem is excessive exchangeable sodium rather than high soluble salt concentration.",
+      "source_page": 51,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-052",
+      "question_number": 52,
+      "question": "What is the ESP value for Alkali Soil?",
+      "options": {
+        "a": "<10",
+        "b": "<12",
+        "c": "<15",
+        "d": ">15",
+        "e": "Exactly 15"
+      },
+      "correct_option": "d",
+      "correct_answer": ">15",
+      "explanation": "Alkali soils have high ESP, greater than 15%, indicating excessive sodium and associated dispersion and permeability problems.",
+      "source_page": 52,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-053",
+      "question_number": 53,
+      "question": "What is the pH range of Alkali Soil?",
+      "options": {
+        "a": "<6.5",
+        "b": "<7.5",
+        "c": "<8.5",
+        "d": "8.5–10",
+        "e": "7.0–7.5"
+      },
+      "correct_option": "d",
+      "correct_answer": "8.5–10",
+      "explanation": "Alkali soils are described as having a pH between 8.5 and 10 because of the presence of sodium carbonate.",
+      "source_page": 53,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-054",
+      "question_number": 54,
+      "question": "What is the process of saline soil formation called?",
+      "options": {
+        "a": "Alkalization",
+        "b": "Leaching",
+        "c": "Salinization",
+        "d": "Weathering",
+        "e": "Acidification"
+      },
+      "correct_option": "c",
+      "correct_answer": "Salinization",
+      "explanation": "The accumulation of salts in soil leading to formation of saline soils is called salinization. It is associated in the source with insufficient leaching and high evaporation.",
+      "source_page": 54,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-055",
+      "question_number": 55,
+      "question": "What happens to the concentration of salts in soil due to high evaporation?",
+      "options": {
+        "a": "Salts are leached deeper into the soil",
+        "b": "Salts accumulate on the soil surface",
+        "c": "Salts are washed away by water",
+        "d": "Salts are converted into organic matter",
+        "e": "Salts become permanently fixed in clay minerals"
+      },
+      "correct_option": "b",
+      "correct_answer": "Salts accumulate on the soil surface",
+      "explanation": "In arid and semi-arid regions, high evaporation brings dissolved salts upward with soil water; over time the salts accumulate at the surface.",
+      "source_page": 55,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-056",
+      "question_number": 56,
+      "question": "What is the primary reason for salt accumulation in saline soils?",
+      "options": {
+        "a": "High rainfall",
+        "b": "High leaching",
+        "c": "Low evaporation",
+        "d": "High evaporation and low rainfall",
+        "e": "Continuous removal of salts below the root zone"
+      },
+      "correct_option": "d",
+      "correct_answer": "High evaporation and low rainfall",
+      "explanation": "High evaporation and low rainfall leave salts behind because there is insufficient water to leach them downward.",
+      "source_page": 56,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-057",
+      "question_number": 57,
+      "question": "Which of the following is NOT a major constraint of saline soils for plant growth?",
+      "options": {
+        "a": "Restricted water and nutrient uptake by plants",
+        "b": "Reduced microbial activity in the soil",
+        "c": "Increased availability of essential nutrients",
+        "d": "Toxic effects of ions like chloride and sulfate",
+        "e": "Altered osmotic potential that makes water uptake difficult"
+      },
+      "correct_option": "c",
+      "correct_answer": "Increased availability of essential nutrients",
+      "explanation": "Saline soils negatively affect plant growth because high salt concentrations alter osmotic potential, restrict nutrient uptake, reduce microbial activity and can cause ion toxicity. Increased nutrient availability is therefore not a major constraint.",
+      "source_page": 57,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-058",
+      "question_number": 58,
+      "question": "Which of the following is the most effective method for reclaiming saline soils?",
+      "options": {
+        "a": "Leaching with water and providing proper drainage",
+        "b": "Increasing organic matter to absorb salts",
+        "c": "Adding chemical fertilizers to neutralize salts",
+        "d": "Deep plowing to mix salts deeper into the soil",
+        "e": "Increasing evaporation to crystallize salts at the surface"
+      },
+      "correct_option": "a",
+      "correct_answer": "Leaching with water and providing proper drainage",
+      "explanation": "The source recommends leaching salts with water together with proper drainage. Drainage allows salts to be carried away and prevents continued accumulation.",
+      "source_page": 58,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-059",
+      "question_number": 59,
+      "question": "How does the addition of organic manures like FYM and compost help in saline soils?",
+      "options": {
+        "a": "Increases soil salinity by adding more salts",
+        "b": "Releases organic acids that help reduce the negative effects of salinity",
+        "c": "Makes the soil more alkaline by increasing pH",
+        "d": "Directly removes all soluble salts without irrigation",
+        "e": "Prevents all microbial activity during decomposition"
+      },
+      "correct_option": "b",
+      "correct_answer": "Releases organic acids that help reduce the negative effects of salinity",
+      "explanation": "Organic manures release organic acids during decomposition. The source explains that these help improve soil structure and reduce salt stress for plants.",
+      "source_page": 59,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-060",
+      "question_number": 60,
+      "question": "Which of the following is a characteristic of alkali (sodic) soils?",
+      "options": {
+        "a": "Electrical conductivity (EC) greater than 4 dS/m",
+        "b": "Exchangeable sodium percentage (ESP) less than 15%",
+        "c": "pH range between 8.5–10.0",
+        "d": "Low levels of calcium carbonate in the soil profile",
+        "e": "pH below 7.0 with high soluble salt content"
+      },
+      "correct_option": "c",
+      "correct_answer": "pH range between 8.5–10.0",
+      "explanation": "Alkali (sodic) soils are described as having pH 8.5–10.0, EC below 4 dS/m and ESP above 15%. The source also mentions calcium carbonate.",
+      "source_page": 60,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-061",
+      "question_number": 61,
+      "question": "What is the process responsible for the formation of alkali (sodic) soils?",
+      "options": {
+        "a": "Salinization",
+        "b": "Alkalization",
+        "c": "Leaching",
+        "d": "Acidification",
+        "e": "Desalinization"
+      },
+      "correct_option": "b",
+      "correct_answer": "Alkalization",
+      "explanation": "The formation of alkali (sodic) soils is called alkalization, during which sodium replaces calcium and magnesium on soil colloids.",
+      "source_page": 61,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-062",
+      "question_number": 62,
+      "question": "Which of the following is a major issue caused by excess exchangeable sodium in alkali soils?",
+      "options": {
+        "a": "Improves soil structure for better root growth",
+        "b": "Promotes aggregation of soil particles",
+        "c": "Causes dispersion of soil colloids, leading to poor soil structure",
+        "d": "Increases soil permeability and aeration",
+        "e": "Increases microbial activity and nutrient availability"
+      },
+      "correct_option": "c",
+      "correct_answer": "Causes dispersion of soil colloids, leading to poor soil structure",
+      "explanation": "Excess sodium disperses soil colloids, leading to poor structure, reduced permeability, waterlogging and more difficult root growth.",
+      "source_page": 62,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-063",
+      "question_number": 63,
+      "question": "Which of the following physical amelioration methods helps improve soil structure in alkali (sodic) soils without directly removing sodium?",
+      "options": {
+        "a": "Deep ploughing to break the hard pan",
+        "b": "Adding gypsum to replace sodium with calcium",
+        "c": "Applying sulfuric acid to lower soil pH",
+        "d": "Applying sodium carbonate to disperse the soil",
+        "e": "Increasing exchangeable sodium to improve aggregation"
+      },
+      "correct_option": "a",
+      "correct_answer": "Deep ploughing to break the hard pan",
+      "explanation": "Physical amelioration methods improve soil aeration, infiltration and structure without directly removing sodium. The source specifically mentions deep ploughing to break compacted layers and also refers to drainage, sand filling and profile inversion.",
+      "source_page": 63,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-064",
+      "question_number": 64,
+      "question": "Which chemical is commonly used for the reclamation of sodic soils?",
+      "options": {
+        "a": "Sodium chloride (NaCl)",
+        "b": "Gypsum (CaSO4)",
+        "c": "Urea [CO(NH2)2]",
+        "d": "Lime (CaCO3)",
+        "e": "Potassium chloride (KCl)"
+      },
+      "correct_option": "b",
+      "correct_answer": "Gypsum (CaSO4)",
+      "explanation": "Gypsum is identified as the most widely used amendment for sodic soil reclamation because its calcium replaces exchangeable sodium. The displaced sodium is then leached with irrigation water.",
+      "source_page": 64,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-065",
+      "question_number": 65,
+      "question": "What is the primary role of gypsum (CaSO4) in the reclamation of sodic soils?",
+      "options": {
+        "a": "Reduces soil pH by increasing acidity",
+        "b": "Acts as a fertilizer to enhance nitrogen availability",
+        "c": "Increases soil salinity by adding more salts",
+        "d": "Prevents leaching of sodium ions from the root zone",
+        "e": "Replaces exchangeable sodium (Na+) with calcium (Ca2+)"
+      },
+      "correct_option": "e",
+      "correct_answer": "Replaces exchangeable sodium (Na+) with calcium (Ca2+)",
+      "explanation": "Gypsum supplies calcium ions that replace exchangeable sodium on the soil exchange complex. The displaced sodium moves into the soil solution and can be leached out, improving soil structure and permeability.",
+      "source_page": 65,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The correct-answer text is visible in the explanation panel but the corresponding option is below the captured viewport; E was reconstructed as the correct option."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-066",
+      "question_number": 66,
+      "question": "Which of the following crops is most suitable for growing in sodic (alkali) soils?",
+      "options": {
+        "a": "Wheat",
+        "b": "Rice",
+        "c": "Cotton",
+        "d": "Maize",
+        "e": "Potato"
+      },
+      "correct_option": "b",
+      "correct_answer": "Rice",
+      "explanation": "Rice is identified as the preferred crop in sodic soils because it can tolerate waterlogged and submerged conditions, helping leach excess sodium from the root zone.",
+      "source_page": 66,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-067",
+      "question_number": 67,
+      "question": "Which of the following is a common type of clay mineral found in soils?",
+      "options": {
+        "a": "Kaolinite",
+        "b": "Quartz",
+        "c": "Feldspar",
+        "d": "Mica",
+        "e": "Gypsum"
+      },
+      "correct_option": "a",
+      "correct_answer": "Kaolinite",
+      "explanation": "Kaolinite is a common clay mineral. The source distinguishes it from primary minerals such as feldspar and from gypsum, which is a calcium sulfate mineral used as an amendment.",
+      "source_page": 67,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-068",
+      "question_number": 68,
+      "question": "Which of the following is a 2:1 type clay mineral?",
+      "options": {
+        "a": "Kaolinite",
+        "b": "Montmorillonite",
+        "c": "Gibbsite",
+        "d": "Goethite",
+        "e": "Quartz"
+      },
+      "correct_option": "b",
+      "correct_answer": "Montmorillonite",
+      "explanation": "Montmorillonite is a 2:1 type clay mineral, with two tetrahedral sheets and one octahedral sheet. The source also associates it with high shrink-swell capacity.",
+      "source_page": 68,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-069",
+      "question_number": 69,
+      "question": "Which clay mineral has the highest swelling and shrinking capacity?",
+      "options": {
+        "a": "Kaolinite",
+        "b": "Illite",
+        "c": "Montmorillonite",
+        "d": "Vermiculite",
+        "e": "Gibbsite"
+      },
+      "correct_option": "c",
+      "correct_answer": "Montmorillonite",
+      "explanation": "Montmorillonite has high shrink-swell capacity because it can absorb and release water between its layers.",
+      "source_page": 69,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-070",
+      "question_number": 70,
+      "question": "Which of the following statements best describes the Illite group of clay minerals?",
+      "options": {
+        "a": "It is a 1:1 type clay mineral with low shrink-swell capacity",
+        "b": "It is a 2:1 clay mineral but linked with K+ ions, making it less expandable",
+        "c": "It has the highest cation exchange capacity (CEC) among clay minerals",
+        "d": "It is a non-silicate clay mineral dominated by iron oxides",
+        "e": "It has no exchangeable cations and no structural layers"
+      },
+      "correct_option": "b",
+      "correct_answer": "It is a 2:1 clay mineral but linked with K+ ions, making it less expandable",
+      "explanation": "Illite is a 2:1 clay mineral. Potassium ions hold adjacent layers together, making it less expandable than montmorillonite.",
+      "source_page": 70,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-071",
+      "question_number": 71,
+      "question": "Which of the following non-silicate clay minerals is commonly found in red and yellow soils of tropical and subtropical regions?",
+      "options": {
+        "a": "Montmorillonite",
+        "b": "Kaolinite",
+        "c": "Illite",
+        "d": "Hydrous oxides of iron and aluminum",
+        "e": "Allophanes"
+      },
+      "correct_option": "d",
+      "correct_answer": "Hydrous oxides of iron and aluminum",
+      "explanation": "Hydrous oxides of iron and aluminum are dominant in highly weathered soils, particularly red and yellow soils of tropical and subtropical regions. The source gives goethite, hematite and gibbsite as examples.",
+      "source_page": 71,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-072",
+      "question_number": 72,
+      "question": "Which of the following statements about allophanes is correct?",
+      "options": {
+        "a": "Montmorillonite",
+        "b": "Allophanes are amorphous minerals with high cation and anion exchange capacity",
+        "c": "Allophanes are mainly found in arid and desert soils",
+        "d": "Allophanes have low reactivity and low exchange capacity",
+        "e": "Allophanes are crystalline 1:1 minerals with negligible exchange capacity"
+      },
+      "correct_option": "b",
+      "correct_answer": "Allophanes are amorphous minerals with high cation and anion exchange capacity",
+      "explanation": "Allophanes are amorphous (non-crystalline) clay minerals commonly found in volcanic soils. The source states that they have high cation exchange capacity and anion exchange capacity.",
+      "source_page": 72,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-073",
+      "question_number": 73,
+      "question": "What is the process of exchange of cations between the solid and liquid phase in soil called?",
+      "options": {
+        "a": "Anion exchange capacity",
+        "b": "Soil buffering capacity",
+        "c": "Cation exchange capacity",
+        "d": "Soil permeability",
+        "e": "Base saturation"
+      },
+      "correct_option": "c",
+      "correct_answer": "Cation exchange capacity",
+      "explanation": "Cation exchange capacity (CEC) refers to the ability of soil to hold and exchange positively charged ions between the solid phase (clay and organic matter) and the soil solution.",
+      "source_page": 73,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-074",
+      "question_number": 74,
+      "question": "Which factor has the most significant impact on a soil’s cation exchange capacity (CEC)?",
+      "options": {
+        "a": "Soil texture",
+        "b": "Organic matter content",
+        "c": "Type of clay minerals",
+        "d": "All of the above",
+        "e": "Only soil colour"
+      },
+      "correct_option": "d",
+      "correct_answer": "All of the above",
+      "explanation": "The source explains that CEC is influenced by multiple factors, primarily soil texture, organic matter content and the type of clay minerals.",
+      "source_page": 74,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-075",
+      "question_number": 75,
+      "question": "Which of the following is the primary biological component responsible for organic matter decomposition in soil?",
+      "options": {
+        "a": "Earthworms",
+        "b": "Bacteria",
+        "c": "Fungi",
+        "d": "Protozoa",
+        "e": "Actinomycetes"
+      },
+      "correct_option": "b",
+      "correct_answer": "Bacteria",
+      "explanation": "Bacteria are described as the most abundant microorganisms in soil and as playing a key role in organic matter decomposition and nutrient cycling. The source also notes roles for fungi and actinomycetes.",
+      "source_page": 75,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-076",
+      "question_number": 76,
+      "question": "Which microorganism is most responsible for nitrogen fixation in soil?",
+      "options": {
+        "a": "Pseudomonas",
+        "b": "Bacillus",
+        "c": "Azotobacter",
+        "d": "Aspergillus",
+        "e": "Penicillium"
+      },
+      "correct_option": "c",
+      "correct_answer": "Azotobacter",
+      "explanation": "Azotobacter is a free-living nitrogen-fixing bacterium that converts atmospheric nitrogen into a plant-usable form. The source contrasts it with Pseudomonas/Bacillus and the fungal genera Aspergillus/Penicillium.",
+      "source_page": 76,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-077",
+      "question_number": 77,
+      "question": "What role do earthworms play in improving soil biological properties?",
+      "options": {
+        "a": "Increase soil aeration",
+        "b": "Enhance decomposition of organic matter",
+        "c": "Improve nutrient cycling",
+        "d": "Create burrows that improve water infiltration",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "correct_answer": "All of the above",
+      "explanation": "Earthworms are described as ecosystem engineers: they improve aeration by burrowing, enhance decomposition and nutrient cycling, increase water infiltration and contribute to soil structure and fertility.",
+      "source_page": 77,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The correct-answer text is visible in the explanation panel but the corresponding option is below the captured viewport; E was reconstructed as the correct option."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-078",
+      "question_number": 78,
+      "question": "Mycorrhizal fungi are beneficial to plants because they help in:",
+      "options": {
+        "a": "Fixing atmospheric nitrogen",
+        "b": "Decomposing organic matter",
+        "c": "Enhancing phosphorus uptake",
+        "d": "Producing antibiotics",
+        "e": "Significantly increasing soil pH"
+      },
+      "correct_option": "c",
+      "correct_answer": "Enhancing phosphorus uptake",
+      "explanation": "Mycorrhizal fungi form symbiotic associations with plant roots and help absorb phosphorus and other nutrients. The source explanation explicitly rules out nitrogen fixation, direct organic-matter decomposition, antibiotic production and a major effect on soil pH.",
+      "source_page": 78,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-079",
+      "question_number": 79,
+      "question": "Which soil microorganism is responsible for the conversion of ammonium (NH4+) to nitrate (NO3-) in the nitrogen cycle?",
+      "options": {
+        "a": "Nitrosomonas and Nitrobacter",
+        "b": "Pseudomonas and Bacillus",
+        "c": "Rhizobium and Azotobacter",
+        "d": "Penicillium and Aspergillus",
+        "e": "Pseudomonas and Nitrobacter"
+      },
+      "correct_option": "a",
+      "correct_answer": "Nitrosomonas and Nitrobacter",
+      "explanation": "Nitrification is presented as a two-step process: Nitrosomonas converts ammonium to nitrite, and Nitrobacter converts nitrite to nitrate. The source contrasts these with denitrifying and nitrogen-fixing microorganisms.",
+      "source_page": 79,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-080",
+      "question_number": 80,
+      "question": "Which of the following microorganisms is responsible for the process of denitrification in soil?",
+      "options": {
+        "a": "Rhizobium",
+        "b": "Nitrosomonas",
+        "c": "Pseudomonas",
+        "d": "Azospirillum",
+        "e": "Nitrobacter"
+      },
+      "correct_option": "c",
+      "correct_answer": "Pseudomonas",
+      "explanation": "Denitrification converts nitrate to nitrogen gas. The source identifies Pseudomonas (and Bacillus) as major denitrifying bacteria and distinguishes them from nitrogen-fixing and nitrifying organisms.",
+      "source_page": 80,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-081",
+      "question_number": 81,
+      "question": "Which group of soil microorganisms is primarily responsible for the production of antibiotics?",
+      "options": {
+        "a": "Fungi",
+        "b": "Actinomycetes",
+        "c": "Protozoa",
+        "d": "Cyanobacteria",
+        "e": "Algae"
+      },
+      "correct_option": "b",
+      "correct_answer": "Actinomycetes",
+      "explanation": "Actinomycetes are filamentous bacteria and are identified in the source as a primary group responsible for antibiotic production. The explanation notes that fungi can also produce some antibiotics, but actinomycetes are the primary source.",
+      "source_page": 81,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The original fifth option is outside the captured viewport; E was reconstructed as an incorrect distractor."
+      },
+      "answer_basis": "visible_option"
+    },
+    {
+      "id": "SOIL-082",
+      "question_number": 82,
+      "question": "Which of the following biological properties of soil is most crucial for maintaining soil fertility and plant growth?",
+      "options": {
+        "a": "Organic matter decomposition",
+        "b": "Nutrient cycling",
+        "c": "Microbial diversity",
+        "d": "Soil enzyme activity",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "correct_answer": "All of the above",
+      "explanation": "The source explains that organic matter decomposition releases nutrients, nutrient cycling maintains nutrient availability, microbial diversity supports soil health and interactions, and soil enzyme activity supports biochemical nutrient transformations. It therefore selects all of the above.",
+      "source_page": 82,
+      "option_source": {
+        "a": "visible_in_pdf_screenshot",
+        "b": "visible_in_pdf_screenshot",
+        "c": "visible_in_pdf_screenshot",
+        "d": "visible_or_partially_visible_in_pdf_screenshot",
+        "e": "reconstructed_not_visible_in_pdf_screenshot"
+      },
+      "reconstruction": {
+        "e_option_reconstructed": true,
+        "basis": "The correct-answer text is visible in the explanation panel but the corresponding option is below the captured viewport; E was reconstructed as the correct option."
+      },
+      "answer_basis": "visible_option"
+    }
+  ],
+  "validation": {
+    "question_count": 82,
+    "all_question_ids_unique": true,
+    "all_have_5_options": true,
+    "all_have_single_correct_answer": true,
+    "all_answer_text_matches_keyed_option": true,
+    "missing_source_e_count": 82,
+    "e_correct_count": 3,
+    "qa_status": "PASS"
+  }
+}

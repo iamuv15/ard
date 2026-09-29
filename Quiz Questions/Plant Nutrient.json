@@ -1,0 +1,565 @@
+{
+  "title": "Plant Nutrient Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is NOT a criterion for essentiality of a nutrient in plants?",
+      "options": {
+        "a": "The nutrient must be directly involved in the metabolism of the plant.",
+        "b": "The plant should be able to complete its life cycle in the absence of the nutrient.",
+        "c": "The nutrient's role must be specific and cannot be replaced by another element.",
+        "d": "The nutrient must be necessary for normal growth and reproduction.",
+        "e": "The deficiency of the nutrient should lead to specific deficiency symptoms."
+      },
+      "correct_option": "b",
+      "explanation": "The essentiality of a nutrient is determined by three main criteria (proposed by Arnon and Stout in 1939): Necessary for Life Cycle - A nutrient is essential if the plant cannot complete its life cycle (i.e., grow, develop, and reproduce) without it. Irreplaceable Function - The function of the nutrient must be specific and cannot be substituted by another element. Direct Involvement in Metabolism - The nutrient must play a direct role in plant metabolism, such as enzyme activation, structural formation, or energy transfer.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which scientist(s) proposed the criteria for essentiality of nutrients in plants?",
+      "options": {
+        "a": "Liebig",
+        "b": "Arnon and Stout",
+        "c": "Mendel",
+        "d": "Darwin",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "In 1939, Arnon and Stout established three criteria to determine whether a nutrient is essential for plant growth and development.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "How many essential nutrients are required by plants for completing their life cycle?",
+      "options": {
+        "a": "14",
+        "b": "16",
+        "c": "17",
+        "d": "18",
+        "e": "19"
+      },
+      "correct_option": "c",
+      "explanation": "Earlier, only 16 essential elements were recognized. However, Nickel (Ni) was later added as an essential micronutrient, bringing the total count to 17 essential nutrients required by plants.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which element was recently added to the list of essential nutrients in plants, increasing the total count to 17?",
+      "options": {
+        "a": "Cobalt (Co)",
+        "b": "Selenium (Se)",
+        "c": "Nickel (Ni)",
+        "d": "Aluminium (Al)",
+        "e": "Silicon (Si)"
+      },
+      "correct_option": "c",
+      "explanation": "Essential nutrient- plant need 17 essential nutrients for completion of their life cycle. Earlier there were only 16 essential elements now Nickle is added so the total count of essential nutrient is 17 now[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is NOT classified as a functional nutrient in plants?",
+      "options": {
+        "a": "Sodium (Na)",
+        "b": "Cobalt (Co)",
+        "c": "Vanadium (V)",
+        "d": "Silicon (Si)",
+        "e": "Phosphorus (P)"
+      },
+      "correct_option": "e",
+      "explanation": "Phosphorus (P) is an essential macronutrient, not a functional nutrient. Functional nutrients (Sodium, Cobalt, Vanadium, and Silicon) are not essential but help in metabolism and plant growth.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Identify which of the following is a basic nutrient required for the plant growth.",
+      "options": {
+        "a": "Nitrogen",
+        "b": "Phosphorus",
+        "c": "Carbon",
+        "d": "Sodium",
+        "e": "Vanadium"
+      },
+      "correct_option": "c",
+      "explanation": "Basic nutrient- Carbon, hydrogen and oxygen which constitute 96% of the total dry matter of plants are basic nutrients. Of a plant are basic nutrients. Among them carbon and oxygen constitute 45% each.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Macronutrients are those nutrients that are required by plants in quantities greater than -",
+      "options": {
+        "a": "500 mg/kg of dry matter",
+        "b": "100 mg/kg of dry matter",
+        "c": "50 mg/kg of dry matter",
+        "d": "5 mg/kg of dry matter",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Macronutrients are required by plants in large quantities, specifically more than 500 mg/kg of dry matter. They play vital roles in plant structure, metabolism, and growth.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is NOT a macronutrient required by plants?",
+      "options": {
+        "a": "Nitrogen (N)",
+        "b": "Phosphorus (P)",
+        "c": "Potassium (K)",
+        "d": "Zinc (Zn)",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Macronutrients include Nitrogen (N), Phosphorus (P), Potassium (K), Calcium (Ca), Magnesium (Mg), and Sulfur (S). Zinc (Zn) is a micronutrient, required in much smaller amounts.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which macronutrient is absorbed by plants in the largest quantity?",
+      "options": {
+        "a": "Phosphorus (P)",
+        "b": "Magnesium (Mg)",
+        "c": "Potassium (K)",
+        "d": "Nitrogen (N)",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Nitrogen (N) is absorbed by plants in the highest quantity because it is essential for chlorophyll, amino acids, proteins, and nucleic acids.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following macronutrients is an essential component of ATP (Adenosine Triphosphate)?",
+      "options": {
+        "a": "Nitrogen (N)",
+        "b": "Phosphorus (P)",
+        "c": "Potassium (K)",
+        "d": "Calcium (Ca)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Phosphorus (P) is a key component of ATP (energy carrier in cells), DNA, and RNA, making it vital for energy transfer and metabolism.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is a primary nutrient required for the plant growth?",
+      "options": {
+        "a": "Zinc",
+        "b": "Sulphur",
+        "c": "Potassium",
+        "d": "Calcium",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Macronutrients are- Nitrogen (N), Phosphorus (P), K (potassium), Ca (calcium), Mg (magnesium), and Sulphur (S). Primary nutrient- Nitrogen (N), Phosphorus (P) & K (potassium) Secondary nutrient- Ca (calcium), Mg (magnesium), and Sulphur (S)[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Identify which of the following is a Secondary nutrient required by plants.",
+      "options": {
+        "a": "Boron",
+        "b": "Sulphur",
+        "c": "Iron",
+        "d": "Manganese",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Secondary nutrient- Ca (calcium), Mg (magnesium), and Sulphur (S). Micronutrients are- Iron (Fe), Manganese (Mn), Zinc (Zn), copper (Cu), Boron (B), Molybdenum (Mo), chlorine (CI), and nickel (Ni).[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "How macro nutrient are required by the plants?",
+      "options": {
+        "a": "16",
+        "b": "17",
+        "c": "6",
+        "d": "7",
+        "e": "8"
+      },
+      "correct_option": "c",
+      "explanation": "Macronutrients are- Total 6 macro nutrients required by the plants. Nitrogen (N), Phosphorus (P), K (potassium), Ca (calcium), Mg (magnesium), and Sulphur (S).[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "How many basic nutrients are required by the plants?",
+      "options": {
+        "a": "5",
+        "b": "6",
+        "c": "7",
+        "d": "3",
+        "e": "2"
+      },
+      "correct_option": "d",
+      "explanation": "Basic nutrients - (Carbon, Hydrogen, Oxygen). Macronutrients are- Nitrogen (N), Phosphorus (P), K (potassium), Ca (calcium), Mg (magnesium), and Sulphur (S). Micronutrients are- Iron (Fe), Manganese (Mn), Zinc (Zn), copper (Cu), Boron (B), Molybdenum (Mo), chlorine (CI), and nickel (Ni).[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following nutrient is highly mobile in plants?",
+      "options": {
+        "a": "Calcium",
+        "b": "S, Fe, Mn",
+        "c": "Cu, and Cl.",
+        "d": "N, P, and K",
+        "e": "Ca and B"
+      },
+      "correct_option": "d",
+      "explanation": "a. Highly mobile-N, P, and K b. Moderately mobile-Zn c. Less mobile-S, Fe, Mn, Cu, and Cl. d. Immobile-Ca and B are immobile.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is an essential function of nitrogen in plants?",
+      "options": {
+        "a": "Constituent of genetic material",
+        "b": "Constituent of chlorophyll",
+        "c": "Improves protein content of grains, fruit and vegetable",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Essential constituent of various metabolically active compound. Constituent of RNA, DNA-transfer genetic information and regulate cellular metabolism. Constituent of chlorophyll and help in absorption of solar radiation. Major component of amino acids and proteins which help in growth and development of plant, formation of cell organelles, structure of plant etc. It improves the protein content of food grains and quality of fodders and vegetables.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "The deficiency symptom of this nutrient is visible in older leaves in which a pale-yellow chlorosis in V shaped pattern which starts from the tip of the leaf and moves towards the base of the leaf and as the deficiency proceeds the leaf turns brown.",
+      "options": {
+        "a": "Phosphorus",
+        "b": "Nitrogen",
+        "c": "Sulphur",
+        "d": "Potassium",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Deficiency symptom first appear in older leaves which then advance to the upper leaves as it is mobile in plants. New leaves remain green. A pale-yellow chlorosis develop near tip of the leaf blade and advances towards the base in V-shape pattern along the margins until the whole blade turns yellow and then brown. This yellowing of leaf is followed by the necrosis near the tip.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following nutrient is an essential for the energy production in plants?",
+      "options": {
+        "a": "Nitrogen",
+        "b": "Calcium",
+        "c": "Phosphorus",
+        "d": "Sulphur",
+        "e": "Magnesium"
+      },
+      "correct_option": "c",
+      "explanation": "Form important constituent of structural components like cell, chloroplast and the mitochondria. Essential constituent of RNA and DNA, nucleoproteins, amino acids, proteins and phospholipids Important source of energy to plants in the form of ATP and ADP[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "The Symptom of ___ nutrient first appears on older leave (as it is mobile in plants) which develop characteristic symptom of dark to blue green colouration starting from tips towards the base which latter turn to reddish brown.",
+      "options": {
+        "a": "Phosphorus",
+        "b": "Nitrogen",
+        "c": "Sulphur",
+        "d": "Magnesium",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Symptom first appears on older leave (as it is mobile in plants) which develop characteristic symptom of dark to blue green colouration starting from tips towards the base which latter turn to reddish brown. Under severe deficiency the plant develops spindly growth, reddish purple colouration in the nodes and internodes due to increase in sugar content and formation of anthocyanin.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "The toxicity of phosphorus causes the deficiency of ___ nutrient in plants",
+      "options": {
+        "a": "Boron & Calcium",
+        "b": "Iron & Zinc",
+        "c": "Manganese & Potassium",
+        "d": "Sulphur & Nitrogen",
+        "e": "Iron & Boron"
+      },
+      "correct_option": "b",
+      "explanation": "Toxicity of phosphorus Cause deficiency of iron and zinc, maize develop purple colouration and in cotton dark green leaves develop, delayed maturity of leaves and stem turn red.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following nutrient is essential for inducing disease resistance in plants and reduces the chances of crop lodging?",
+      "options": {
+        "a": "Nitrogen",
+        "b": "Phosphorus",
+        "c": "Potassium",
+        "d": "Calcium",
+        "e": "Magnesium"
+      },
+      "correct_option": "c",
+      "explanation": "Potassium helps in maintaining cytoplasmic pH to 7 to 8 for ideal enzyme reaction. Potassium reduces crop lodging and induce disease resistance in plants.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is a characteristic deficiency symptom of potassium (K) in plants?",
+      "options": {
+        "a": "Purple discoloration of leaves and stunted root growth",
+        "b": "Interveinal chlorosis in young leaves and reduced flower formation",
+        "c": "Marginal scorching or browning of older leaves, starting from the tips",
+        "d": "Leaf curling, cupping, and excessive branching",
+        "e": "Pale yellowing of entire plant, affecting lower leaves first"
+      },
+      "correct_option": "c",
+      "explanation": "Potassium (K) deficiency in plants primarily causes: Marginal scorching (browning and drying) of older leaves. Leaf edge necrosis, beginning at the tips and margins. Weak stems and lodging due to reduced cell wall strength. Increased disease susceptibility and poor drought resistance.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "What is the primary function of Calcium (Ca) in plants?",
+      "options": {
+        "a": "Activates photosynthesis and enhances protein synthesis",
+        "b": "Strengthens cell walls and regulates membrane permeability",
+        "c": "Aids in nitrogen fixation and chlorophyll formation",
+        "d": "Regulates stomatal movement and enhances drought resistance",
+        "e": "Acts as an energy carrier in ATP molecules"
+      },
+      "correct_option": "b",
+      "explanation": "Ca forms Ca pectate which is essential constituent of cell wall and maintain integrity of cell wall. Regulate growth of meristem, and functioning of root tips and protect the root against ion imbalance. Regulate activities of various enzymes-like amylase, ATPase etc.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is a characteristic symptom of Calcium (Ca) deficiency in plants?",
+      "options": {
+        "a": "Older leaves turn yellow, and plant growth slows down",
+        "b": "New leaves become very small, crowded, and form a rosette-like appearance in cereals",
+        "c": "Leaf margins turn brown and scorched, starting from older leaves",
+        "d": "Purpling of leaves and poor root development",
+        "e": "Interveinal chlorosis in mature leaves, leading to premature leaf drop"
+      },
+      "correct_option": "b",
+      "explanation": "Its deficiency symptom visible on younger leaves. Plant growth is retarded and younger leaves are short, distorted or torn. In cereal its deficiency makes new leaves very small and leaves get crowded which gives the appearance of a rosette like. In severe deficiency apical meristem dies. Young leaves of primary shoot fail to unroll, from whirl or bend down and break off. Root growth is stunt, delayed maturity, and flowering occurs.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following functions is performed by Magnesium (Mg) in plants?",
+      "options": {
+        "a": "Plays a key role in stomatal regulation and water uptake",
+        "b": "Essential for cell wall strengthening and disease resistance",
+        "c": "Acts as a central component of chlorophyll and aids in carbohydrate metabolism",
+        "d": "Improves oil synthesis and enhances sulfur-containing compounds",
+        "e": "Regulates nitrogen fixation and protein synthesis"
+      },
+      "correct_option": "c",
+      "explanation": "Magnesium (Mg) is a vital macronutrient with multiple essential roles. Chlorophyll formation: Mg is the central atom in the chlorophyll molecule, making it critical for photosynthesis. Nucleic acid synthesis: It is involved in the formation of DNA & RNA, necessary for plant growth. Carbohydrate metabolism: Activates enzymes for sugar movement and energy transfer. Phosphorus (P) translocation: Helps in the efficient transport and utilization of phosphorus. A Magnesium deficiency causes interveinal chlorosis in older leaves, weak growth, and poor photosynthesis efficiency.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following symptoms indicate Magnesium (Mg) deficiency in plants?",
+      "options": {
+        "a": "Chlorosis starting in younger leaves, leading to stunted growth",
+        "b": "Leaf curling and excessive branching, affecting overall plant structure",
+        "c": "Marginal scorching of older leaves, progressing to tip burn and necrosis",
+        "d": "Rosette-like appearance due to compact growth in new leaves",
+        "e": "Interveinal chlorosis in older leaves, followed by purple lesions and eventual tissue death"
+      },
+      "correct_option": "e",
+      "explanation": "Plant shows less vigour and stunt growth. Deficiency symptom first occur in older leaves than move towards younger leaves as interveinal chlorosis, followed by development of purple lesions with in chlorotic tissues. As deficiency proceeds the veins become chlorotic and leaves develop uniform pale colour and purple lesions turn brown, orange or red ultimately tissue dry up and then dies. Cattle grazing on Mg deficient pastures suffer from grass tetany.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "What is the primary function of Sulphur (S) in plants?",
+      "options": {
+        "a": "Acts as a central component of chlorophyll and aids in photosynthesis",
+        "b": "Plays a key role in cell wall formation and root elongation",
+        "c": "Essential for sulphur-containing amino acids and enhances oil content in oilseeds",
+        "d": "Regulates water uptake and improves drought resistance",
+        "e": "Aids in phosphorus translocation and sugar movement"
+      },
+      "correct_option": "c",
+      "explanation": "Essential compound of sulphur containing amino acid like cystine, cysteine and methionine. Responsible for synthesis of glucosides in mustard oil and help in increasing the oil quantity of oilseed crops.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following symptoms indicate Sulphur (S) deficiency in plants?",
+      "options": {
+        "a": "Interveinal chlorosis starting in older leaves, followed by necrosis",
+        "b": "Uniform pale green color in younger leaves, progressing to chlorosis",
+        "c": "Leaf margin scorching and curling in older leaves",
+        "d": "Purple discoloration of leaves with poor root development",
+        "e": "Wilting and drooping of leaves due to impaired water uptake"
+      },
+      "correct_option": "b",
+      "explanation": "Sulfur is immobile, so deficiency symptoms first appear in younger leaves. Leaves develop a uniform pale green color, followed by chlorosis (yellowing). Oilseeds and pulses require higher sulfur levels, so they are more prone to deficiency.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is a characteristic symptom of Iron (Fe) deficiency in plants?",
+      "options": {
+        "a": "Interveinal chlorosis in young leaves, while veins remain green",
+        "b": "Marginal scorching and browning of older leaves",
+        "c": "Purple discoloration of leaves with stunted root growth",
+        "d": "Necrosis of shoot tips and rosette-like leaf arrangement",
+        "e": "Wilting and curling of leaves due to impaired water uptake"
+      },
+      "correct_option": "a",
+      "explanation": "As iron is immobile in plants its deficiency symptom is visible on younger leaves as a pale-yellow interveinal chlorosis of tissue whereas veins remain green. In severe deficiency veins turn pale yellow and the chlorotic tissue develop with necrotic areas. Development of brown lesions, and pale red streaks in some species ex sugarcane, sorghum etc.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "The deficiency of manganese in sugarcane is called as",
+      "options": {
+        "a": "Phala blight",
+        "b": "Grey speck",
+        "c": "Kharia",
+        "d": "Speckled yellow",
+        "e": "Marsh spot"
+      },
+      "correct_option": "a",
+      "explanation": "Grey speck in oats Causes chlorotic spots that turn greyish-brown. Phala blight in sugarcane - Leaves show blotchy chlorosis and necrotic patches. Speckled yellow in sugar beet - Produces yellow spots and interveinal chlorosis. Marsh spot in peas - Leads to brown spots in pea seeds, reducing quality.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following symptoms indicate Zinc (Zn) deficiency in plants?",
+      "options": {
+        "a": "Interveinal chlorosis in older leaves followed by necrosis",
+        "b": "White to pale yellow chlorosis between the midrib and leaf margin, first appearing on younger leaves",
+        "c": "Marginal leaf scorching and tip burning in mature leaves",
+        "d": "Purpling of leaves with poor phosphorus translocation",
+        "e": "Water-soaked lesions on leaves and stems. leading to rot"
+      },
+      "correct_option": "b",
+      "explanation": "Zinc (Zn) deficiency symptoms are distinct and crop-specific Zinc is immobile, so deficiency symptoms appear first on younger leaves. White to pale yellow chlorosis develops between the midrib and leaf margins, moving towards the tip. Severe deficiency leads to brown necrosis, purple pigmentation, and rosette-like growth due to shortened internodes. Common Zn deficiency disorders include: White bud in maize and sorghum Kharia disease in rice (pale-yellow spots turning brown on older leaves) Mottle leaf (Frenching) in citrus Zinc deficiency results in stunted plant growth, delayed flowering, and poor yield[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Kharia disease in rice develop due to deficiency of ___ element.",
+      "options": {
+        "a": "Zinc",
+        "b": "Copper",
+        "c": "Sodium",
+        "d": "Magnesium",
+        "e": "Calcium"
+      },
+      "correct_option": "a",
+      "explanation": "Zinc Deficiency - In rice its deficiency is known as Kharia disease in which older leaves develop light pale-yellow spots that enlarge and turn deep brown.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following deficiency-related disorders is caused by Copper (Cu) deficiency in plants?",
+      "options": {
+        "a": "White bud in maize and sorghum",
+        "b": "Kharia disease in rice",
+        "c": "White tip or reclamation disease in cereals",
+        "d": "Mottle leaf (Frenching) in citrus",
+        "e": "Grey speck in oats"
+      },
+      "correct_option": "c",
+      "explanation": "Copper (Cu) deficiency leads to various plant disorders, with specific symptoms in cereals: White tip or reclamation disease in cereals: Tips of young leaves turn white and dry out. Growth is stunted, and plants may show delayed flowering[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is NOT a symptom of Copper (Cu) deficiency in plants?",
+      "options": {
+        "a": "Senescence, male sterility, and delayed flowering",
+        "b": "White tip or reclamation disease in cereals",
+        "c": "Exanthema in citrus, leading to gum pockets between bark and wood",
+        "d": "Interveinal chlorosis in older leaves, followed by necrosis",
+        "e": "Loss of grain yield due to impaired enzyme activity"
+      },
+      "correct_option": "d",
+      "explanation": "Cu deficiency causes senescence, male sterility, delay in flowering and, loss of grain yield. In citrus dieback of new growth results in development of gum pockets between bark and the wood known as Exanthema.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is NOT a function of Boron (B) in plants?",
+      "options": {
+        "a": "Transport of sugars and carbohydrate metabolism",
+        "b": "Lignification and strengthening of cell walls",
+        "c": "Regulation of stomatal opening and drought resistance",
+        "d": "Activation of photosynthetic enzymes for ATP production",
+        "e": "Pollen germination and pollen tube elongation"
+      },
+      "correct_option": "d",
+      "explanation": "Functions of boron Transport of sugars Synthesis of cell wall and its structure Lignification Pollen germination and development of pollen tubes. Regulates opening of stomata. Imparts drought resistance in plants.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which essential mineral is required for the providing disease resistance in plants?",
+      "options": {
+        "a": "Potassium",
+        "b": "Copper",
+        "c": "Calcium",
+        "d": "Magnesium",
+        "e": "Boron"
+      },
+      "correct_option": "a",
+      "explanation": "The essential mineral required for providing disease resistance in plants is Potassium (K). Explanation: Potassium plays a vital role in strengthening plant cell walls, improving overall plant vigor, and enhancing resistance to pests and diseases. It helps regulate various physiological processes like enzyme activation, water regulation, and stress tolerance, which collectively contribute to disease resistance.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following symptoms are characteristic of Boron (B) deficiency in plants?",
+      "options": {
+        "a": "Interveinal chlorosis in older leaves, followed by necrosis",
+        "b": "White or transparent lesions in young leaves, starting in interveinal mid-areas",
+        "c": "Purpling of leaves and poor phosphorus translocation",
+        "d": "Marginal leaf scorching and tip burning in mature leaves",
+        "e": "Wilting and root elongation with excessive branching"
+      },
+      "correct_option": "b",
+      "explanation": "Deficiency visible in high calcareous soils, sandy and leached soils, limed soils or reclaimed yellow or lateritic soils. Immobile in plants hence its deficiency symptom will be visible in young leaves as a white or transparent lesions in the interveinal mid areas of the leaf. Severe deficiency- lesions join together and extend beyond the mid-section while the veins remain green[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following is a characteristic symptom of Molybdenum (Mo) deficiency in plants?",
+      "options": {
+        "a": "Interveinal chlorosis in older leaves, followed by necrosis",
+        "b": "Marginal scorching and tip burn in older leaves",
+        "c": "Whiptail disease in cauliflower, leading to narrow, distorted leaves",
+        "d": "Purple pigmentation and poor phosphorus translocation",
+        "e": "Shortened internodes and clustered rosette-like appearance"
+      },
+      "correct_option": "c",
+      "explanation": "Molybdenum deficiency Symptom appear on old or middle leaves as a interveinal chlorotic mottling, followed by marginal necrosis and in folding of leaves. Severe deficiency- mottled area become necrotic, causing leaf tissue wither forms margins towards the lamina and midrib leaving only the midrib and few small pieces of leaf blade In cauliflower and broccoli its deficiency disease is called as whip tail disease.[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "Which of the following deficiency symptoms are associated with Chlorine (CI) deficiency in plants?",
+      "options": {
+        "a": "Interveinal chlorosis in older leaves, progressing to necrosis",
+        "b": "Irregular yellow to necrotic spotting of leaves, premature wilting, and reduced shoot and root growth",
+        "c": "Purple pigmentation and poor phosphorus translocation",
+        "d": "Shortened internodes and rosette-like appearance",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Deficiency of chlorine Symptom appears as an irregular yellow to necrotic spotting of leaves, Premature wilting, chlorosis of newly emerging leaves and reduced shoot and root growth[cite: 13]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plant Nutrient",
+      "question": "The deficiency of which nutrient decrease the amino acid content in barley.",
+      "options": {
+        "a": "Boron",
+        "b": "Copper",
+        "c": "Sulphur",
+        "d": "Nickel",
+        "e": "Nitrogen"
+      },
+      "correct_option": "d",
+      "explanation": "Nickel deficiency Visual deficiency symptom of nickel has not been identified till now But its deficiency causes accumulations of nitrates and decrease in amino acids content in barley.[cite: 13]"
+    }
+  ]
+}

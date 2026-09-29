@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Chapter {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  quizzes   Quiz[]
+  createdAt DateTime @default(now())
+}
+
+model Quiz {
+  id        Int      @id @default(autoincrement())
+  name      String
+  chapterId Int
+  chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  questions Question[]
+  attempts  QuizAttempt[]
+  createdAt DateTime @default(now())
+}
+
+model Question {
+  id            Int      @id @default(autoincrement())
+  questionText  String
+  optionA       String
+  optionB       String
+  optionC       String
+  optionD       String
+  optionE       String?
+  explanationA  String?
+  explanationB  String?
+  explanationC  String?
+  explanationD  String?
+  explanationE  String?
+  topic         String?
+  explanation   String?
+  correctAnswer String
+  quizId        Int
+  quiz          Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  createdAt     DateTime @default(now())
+  mistakes      UserMistake[]
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  name      String
+  role      String    @default("USER")
+  createdAt DateTime  @default(now())
+
+  mistakes  UserMistake[]
+  attempts  QuizAttempt[]
+}
+
+model UserMistake {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  questionId Int
+  createdAt    DateTime @default(now())
+  nextReviewAt DateTime @default(now())
+  reviewLevel  Int      @default(0)
+
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId])
+}
+
+model QuizAttempt {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  quizId    Int
+  score     Int
+  total     Int
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quiz      Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+}

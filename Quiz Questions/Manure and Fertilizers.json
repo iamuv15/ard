@@ -1,0 +1,1321 @@
+{
+  "title": "Manure and Fertilizers Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of bulky organic manure?",
+      "options": {
+        "a": "Urea",
+        "b": "Farmyard manure (FYM)",
+        "c": "Ammonium sulphate",
+        "d": "Superphosphate",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Bulky organic manures include FYM, compost, and green manure, which add organic matter and nutrients to the soil. Urea, ammonium sulphate, superphosphate, and potassium chloride are inorganic fertilizers, not manures.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following manures is prepared by decomposing cow dung, urine, and farm waste?",
+      "options": {
+        "a": "Vermicompost",
+        "b": "Green manure",
+        "c": "Farmyard manure (FYM)",
+        "d": "Bone meal",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "FYM is made by decomposing cow dung, urine, and agricultural waste over time. Vermicompost is prepared using earthworms. Green manure is made by plowing leguminous crops back into the soil. Bone meal and oil cakes are by-products of the animal and oil industries.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is a nitrogen-rich organic manure?",
+      "options": {
+        "a": "Superphosphate",
+        "b": "Rock phosphate",
+        "c": "Bone meal",
+        "d": "Neem cake",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Neem cake is an organic manure rich in nitrogen, phosphorus, and potassium (NPK). Superphosphate and rock phosphate are phosphorus fertilizers, not organic manures. Bone meal provides phosphorus but is not rich in nitrogen. Gypsum is used to improve soil structure, not as a nitrogen source.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Green manure crops improve soil fertility mainly by",
+      "options": {
+        "a": "Adding organic matter",
+        "b": "Fixing atmospheric nitrogen",
+        "c": "Improving soil structure",
+        "d": "Enhancing microbial activity",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Green manure crops, such as legumes, improve soil fertility in multiple ways - Adding organic matter when plowed into the soil. Fixing atmospheric nitrogen (e.g., Sesbania, Crotalaria). Enhancing soil structure and microbial diversity.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the approximate nitrogen (N) content in Farm Yard Manure (FYM)?",
+      "options": {
+        "a": "0.2%",
+        "b": "0.5%",
+        "c": "1.0%",
+        "d": "1.5%",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The nitrogen content in FYM is approximately 0.5%. It also contains 0.2% phosphorus (P2O5) and 0.5% potassium (K2O).[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the main difference between FYM and cattle urine in terms of nutrient composition?",
+      "options": {
+        "a": "Cattle urine contains more phosphorus than FYM",
+        "b": "FYM has more nitrogen than cattle urine",
+        "c": "Cattle urine has higher nitrogen and potassium content than FYM",
+        "d": "FYM has more potassium than cattle urine",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Cattle urine contains 1.0% nitrogen and 1.35% potassium, which is higher than the nitrogen (0.5%) and potassium (0.5%) content in FYM. However, FYM contains phosphorus (0.2%), while cattle urine has very little phosphorus.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is compost?",
+      "options": {
+        "a": "A chemical fertilizer",
+        "b": "A mass of rotten organic matter made from organic waste",
+        "c": "A type of pesticide",
+        "d": "A soil mineral",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Compost is decomposed organic matter made from plant residues, farm waste, and kitchen waste. It improves soil fertility by adding organic matter and nutrients.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following conditions is required for proper composting?",
+      "options": {
+        "a": "Low temperature",
+        "b": "Lack of oxygen",
+        "c": "Proper moisture and aeration",
+        "d": "Direct exposure to sunlight",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Composting requires moisture, oxygen, and microbial activity for efficient decomposition. Anaerobic conditions slow down decomposition and cause bad odors.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the approximate nitrogen (N) content in compost?",
+      "options": {
+        "a": "0.2%",
+        "b": "0.5%",
+        "c": "1.0%",
+        "d": "1.5%",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Compost contains approximately 0.5% nitrogen (N), 0.15% phosphorus (P2O5), and 0.5% potassium (K2O).[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Among the following, which nutrient is present in the lowest quantity in compost?",
+      "options": {
+        "a": "Nitrogen (N)",
+        "b": "Phosphorus (P2O5)",
+        "c": "Potassium (K2O)",
+        "d": "Calcium (Ca)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Phosphorus content in compost is only 0.15%, which is lower compared to nitrogen (0.5%) and potassium (0.5%).[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following statements is true about compost?",
+      "options": {
+        "a": "It has high phosphorus content",
+        "b": "It provides only macronutrients",
+        "c": "It has equal amounts of nitrogen and potassium",
+        "d": "It contains synthetic fertilizers",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Compost has 0.5% nitrogen (N) and 0.5% potassium (K2O), while phosphorus (P2O5) is lower (0.15%). It contains organic matter and enhances soil fertility.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is night soil?",
+      "options": {
+        "a": "Decomposed farmyard manure",
+        "b": "Human excreta used as fertilizer",
+        "c": "A type of compost made from food waste",
+        "d": "A chemical fertilizer",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Night soil refers to human excreta (both solid and liquid) used as organic manure. It is richer in nitrogen, phosphorus, and potassium than farmyard manure (FYM) and compost.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which nutrient is present in the highest percentage in night soil?",
+      "options": {
+        "a": "Nitrogen (N)",
+        "b": "Phosphorus (P)",
+        "c": "Potassium (K)",
+        "d": "Calcium (Ca)",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Night soil contains approximately 5.5% nitrogen (N), 0.4% phosphorus (P), and 2.0% potassium (K). Nitrogen is the most abundant nutrient in night soil, essential for vegetative growth in plants.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "How does night soil compare to farmyard manure (FYM) in terms of nutrient content?",
+      "options": {
+        "a": "Night soil has lower nutrients than FYM",
+        "b": "Night soil has higher nitrogen, phosphorus, and potassium than FYM",
+        "c": "FYM contains more nitrogen than night soil",
+        "d": "Night soil is only used for acidic soils",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Night soil is richer in N (5.5%), P (0.4%), and K (2.0%) compared to farmyard manure, which has lower nutrient concentrations.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is vermicompost?",
+      "options": {
+        "a": "Compost made using fungi",
+        "b": "Compost prepared with the help of earthworms",
+        "c": "Decomposed cow dung",
+        "d": "A synthetic organic fertilizer",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Vermicompost is a nutrient-rich organic fertilizer created using earthworms, which consume organic matter and excrete nutrient-rich castings.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the approximate nitrogen (N) content in vermicompost?",
+      "options": {
+        "a": "0.5%",
+        "b": "1%",
+        "c": "2%",
+        "d": "3%",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Vermicompost contains about 3% nitrogen (N), 1% phosphorus (P), and 1.5% potassium (K), making it a balanced organic fertilizer.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the role of earthworm castings in vermicompost?",
+      "options": {
+        "a": "Contain plant nutrients and beneficial microbes",
+        "b": "Reduce soil fertility",
+        "c": "Increase soil toxicity",
+        "d": "Contain harmful pathogens",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Earthworm castings are rich in essential nutrients (NPK), enzymes, and beneficial microbes like bacteria and mycorrhizae, which enhance soil health and crop productivity.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following statements about vermicompost is TRUE?",
+      "options": {
+        "a": "Vermicompost is only a source of nitrogen and does not provide other nutrients.",
+        "b": "It contains both major and minor plant nutrients, making it a balanced organic fertilizer.",
+        "c": "It reduces the microbial population in the soil.",
+        "d": "It provides a quick response to the crop but lacks minor nutrients.",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Vermicompost is a rich mixture of major and minor plants nutrients. It is an excellent base for establishment of beneficial free living and symbiotic microbes.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "How does vermicompost contribute to soil microbial activity?",
+      "options": {
+        "a": "It inhibits the growth of beneficial bacteria.",
+        "b": "It increases the population of nitrogen-fixing bacteria, actinomycetes, and VAM (vesicular arbuscular mycorrhiza).",
+        "c": "It eliminates all microorganisms from the soil.",
+        "d": "It promotes only harmful pathogens.",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Vermicompost is a rich mixture of major and minor plants nutrients. It is an excellent base for establishment of beneficial free living and symbiotic microbes. Vermicompost increase the nitrogen fixing bacteria, actinomycetes, and VAM (vesicular arbuscular mycorrhizal) population in soil.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an important green manure crop?",
+      "options": {
+        "a": "Sunhemp",
+        "b": "Dhaincha",
+        "c": "Cluster beans",
+        "d": "Sesbania rostrata",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Common green manure crops include sunhemp, dhaincha, pillipesara, cluster beans, and sesbania rostrata, which help in nitrogen fixation and soil enrichment.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What makes Sesbania rostrata unique among green manure crops?",
+      "options": {
+        "a": "It is native to South America",
+        "b": "It forms stem nodules for nitrogen fixation",
+        "c": "It does not contribute to nitrogen fixation",
+        "d": "It reduces soil fertility",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Unlike other legumes, Sesbania rostrata can fix nitrogen through stem nodules in addition to root nodules, making it highly efficient for soil fertility improvement.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "How can nitrogen fixation in green manure crops be increased?",
+      "options": {
+        "a": "By applying phosphatic fertilizers",
+        "b": "By increasing pesticide use",
+        "c": "By reducing irrigation",
+        "d": "By growing crops in dry, barren soil",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Phosphorus is essential for root development and helps enhance the nitrogen-fixing ability of leguminous crops by supporting rhizobia activity.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which green manure crop is most effective for improving sodic soils?",
+      "options": {
+        "a": "Sunhemp",
+        "b": "Dhaincha",
+        "c": "Gliricidia",
+        "d": "Sesbania rostrata",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Gliricidia is particularly effective in reclaiming sodic soils due to its deep-root system and ability to enhance organic matter.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "How does green manure contribute to weed management?",
+      "options": {
+        "a": "By releasing allelopathic chemicals",
+        "b": "By suppressing weed growth through dense canopy cover",
+        "c": "By competing with weeds for nutrients",
+        "d": "By occupying the soil space in the off-season",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Green manure crops suppress weed growth through competition, shading, and release of natural chemicals that inhibit weed germination.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following green manure crop contains the highest amount of nitrogen?",
+      "options": {
+        "a": "Dhaincha",
+        "b": "Sesibenia",
+        "c": "Neem",
+        "d": "Sunhemp",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Dhaincha contains - 3.50% of nitrogen. Compared to Sunhemp (1.30%), Sesibenia speciosa (2.71%), Gliricidia sepium (2.76%), and Neem (2.83%).[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following statements about sheep and goat manure is TRUE?",
+      "options": {
+        "a": "It has lower nutrient content than farmyard manure.",
+        "b": "It contains higher nutrients than farmyard manure and compost.",
+        "c": "It does not contribute to soil fertility.",
+        "d": "It has no nitrogen content.",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sheep and goat manure is richer in nitrogen (3%), phosphorus (1%), and potassium (2%) compared to farmyard manure and compost.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the nitrogen content of sheep and goat manure?",
+      "options": {
+        "a": "0.5%",
+        "b": "1.5%",
+        "c": "2%",
+        "d": "3%",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Sheep and goat manure is particularly rich in nitrogen (3%), which promotes plant growth and soil fertility.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is Sheep Penning in soil fertility management?",
+      "options": {
+        "a": "A method of composting sheep manure.",
+        "b": "Keeping sheep and goats overnight in the field to improve soil fertility through urine and faecal deposition.",
+        "c": "A technique for reducing manure usage in farming.",
+        "d": "A practice of confining sheep in a barn to collect manure.",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sheep penning is an organic soil enrichment technique where sheep and goats are allowed to graze and rest overnight in the field, adding nutrients through their urine and droppings.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which bulky organic manure contains the highest amount of nitrogen and phosphorus?",
+      "options": {
+        "a": "Farmyard manure (FYM)",
+        "b": "Compost",
+        "c": "Sheep and goat manure",
+        "d": "Poultry manure",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Poultry manure has the highest nitrogen (3.30%) and phosphorus (2.63%) content compared to other bulky manures.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What happens when poultry manure is left exposed for 30 days?",
+      "options": {
+        "a": "It decomposes faster.",
+        "b": "It loses 50% of its nitrogen.",
+        "c": "Its phosphorus content increases.",
+        "d": "It becomes more effective as fertilizer.",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "If poultry manure is left exposed, nitrogen is lost through volatilization, reducing its effectiveness as a fertilizer by 50%.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the phosphorus (P2O5) content in poultry manure?",
+      "options": {
+        "a": "0.5%",
+        "b": "1.2%",
+        "c": "2.63%",
+        "d": "3.5%",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Poultry manure contains approximately 2.63% phosphorus, making it one of the richest organic sources of phosphorus.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following manures has the highest nitrogen (N) content?",
+      "options": {
+        "a": "Farmyard manure (FYM)",
+        "b": "Compost",
+        "c": "Night soil",
+        "d": "Vermicompost",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Night soil contains the highest nitrogen content (5.5%) compared to other bulky manures.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which manure contains the highest phosphorus (P2O5) content?",
+      "options": {
+        "a": "Compost",
+        "b": "Vermicompost",
+        "c": "Poultry manure",
+        "d": "Sheep and goat manure",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Poultry manure has the highest phosphorus content (2.63%), making it a rich source of this nutrient.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which manure has the most balanced composition of nitrogen, phosphorus, and potassium (NPK)?",
+      "options": {
+        "a": "Farmyard manure (FYM)",
+        "b": "Compost",
+        "c": "Poultry manure",
+        "d": "Vermicompost",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Compost contains nitrogen (1.4%), phosphorus (1.0%), and potassium (1.4%), making it a well-balanced manure.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which manure has the lowest nitrogen content among the listed options?",
+      "options": {
+        "a": "Poultry manure",
+        "b": "Night soil",
+        "c": "Compost",
+        "d": "Farmyard manure (FYM)",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Farmyard manure has the lowest nitrogen content (0.5%) compared to other bulky manures.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which manure is known to have the highest potassium (K2O) content?",
+      "options": {
+        "a": "Farmyard manure (FYM)",
+        "b": "Sheep and goat manure",
+        "c": "Vermicompost",
+        "d": "Poultry manure",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sheep and goat manure contains the highest potassium content (2.0%), making it beneficial for potassium-deficient soils.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the main characteristic of concentrated organic manures?",
+      "options": {
+        "a": "They have lower nutrient content than bulky manures.",
+        "b": "They are required in large quantities in the field.",
+        "c": "They have higher nutrient content and are used in smaller quantities.",
+        "d": "They contain no organic nitrogen.",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Concentrated organic manures have a higher nutrient content than bulky organic manures and are applied in smaller amounts.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Why are concentrated organic manures also called organic nitrogen fertilizers?",
+      "options": {
+        "a": "They contain no nitrogen.",
+        "b": "They provide nitrogen directly in an inorganic form.",
+        "c": "Their organic nitrogen is converted into ammoniacal and nitrate nitrogen by bacterial action.",
+        "d": "They are synthetic nitrogen fertilizers.",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Before crops can use the nitrogen in concentrated organic manures, it must be broken down by bacteria into ammoniacal and nitrate nitrogen.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of a concentrated organic manure?",
+      "options": {
+        "a": "Farmyard manure (FYM)",
+        "b": "Compost",
+        "c": "Vermicompost",
+        "d": "Oil cakes",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Oil cakes, blood meal, and fish meal are examples of concentrated organic manures due to their high nutrient content.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of an edible oilcake?",
+      "options": {
+        "a": "Neem cake",
+        "b": "Castor cake",
+        "c": "Groundnut cake",
+        "d": "Mahua cake",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Edible oilcakes- are those which can be safely fed to the livestock ex groundnut cake, coconut cake, etc. Non edible oilcakes- which are not fit for feeding livestock ex-castor cake, neem cake, mahua cake.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following non-edible oilcakes has the highest nitrogen content?",
+      "options": {
+        "a": "Castor cake",
+        "b": "Mahua cake",
+        "c": "Safflower cake",
+        "d": "Cotton seed cake (Undecorticated)",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Safflower cake contains 4.9% nitrogen, which is the highest among the listed non-edible oilcakes.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which non-edible oilcake has the highest phosphorus (P2O5) content?",
+      "options": {
+        "a": "Mahua cake",
+        "b": "Castor cake",
+        "c": "Safflower cake",
+        "d": "Cotton seed cake (Undecorticated)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Castor cake has 1.8% phosphorus (P2O5), which is the highest among Mahua Cake, Safflower Cake, and Cotton Seed Cake.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which edible oilcake has the highest nitrogen (N) content?",
+      "options": {
+        "a": "Coconut cake",
+        "b": "Cotton seed cake (decorticated)",
+        "c": "Groundnut cake",
+        "d": "Rapeseed (mustard) cake",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Groundnut cake has the highest nitrogen (N) content (7.3%) among common edible oilcakes.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which edible oilcake has the highest phosphorus (P2O5) content?",
+      "options": {
+        "a": "Coconut cake",
+        "b": "Cotton seed cake (decorticated)",
+        "c": "Groundnut cake",
+        "d": "Rapeseed (mustard) cake",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cotton seed cake (decorticated) has the highest phosphorus (P2O5) content at 2.8%.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which edible oilcake has the highest potassium (K2O) content?",
+      "options": {
+        "a": "Coconut cake",
+        "b": "Cotton seed cake (decorticated)",
+        "c": "Groundnut cake",
+        "d": "Rapeseed (mustard) cake",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cotton seed cake (decorticated) has the highest potassium (K2O) content at 1.8%.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which organic manure has the highest nitrogen (N) content?",
+      "options": {
+        "a": "Fish meal",
+        "b": "Blood meal",
+        "c": "Meat meal",
+        "d": "Bone meal",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Blood meal contains 10-12% nitrogen, which is the highest among the listed organic manures.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which organic manure has the highest phosphorus (P2O5) content?",
+      "options": {
+        "a": "Blood meal",
+        "b": "Meat meal",
+        "c": "Fish meal",
+        "d": "Poultry manure",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Fish meal has a phosphorus (P2O5) content ranging from 3-9%, which is the highest among the listed organic manures.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which organic manure has the lowest potassium (K2O) content?",
+      "options": {
+        "a": "Blood meal",
+        "b": "Meat meal",
+        "c": "Fish meal",
+        "d": "Compost",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Meat meal has 0.5% potassium (K2O), which is on the lower end compared to others like blood meal.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the primary function of soil amendments?",
+      "options": {
+        "a": "To increase pest resistance in crops",
+        "b": "To influence plant growth by improving soil conditions",
+        "c": "To act as a direct source of plant nutrients",
+        "d": "To replace chemical fertilizers entirely",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Soil amendments improve soil reactions, alter nutrient availability, and enhance physical conditions, thereby promoting plant growth.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of a soil amendment that improves soil structure?",
+      "options": {
+        "a": "Gypsum",
+        "b": "Urea",
+        "c": "Ammonium sulfate",
+        "d": "Muriate of potash",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Gypsum helps improve soil structure by reducing soil compaction and enhancing water infiltration, especially in sodic soils.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which soil amendment is commonly used to lower soil pH in alkaline soils?",
+      "options": {
+        "a": "Lime",
+        "b": "Gypsum",
+        "c": "Sulfur",
+        "d": "Dolomite",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sulfur is used as a soil amendment to reduce soil pH in alkaline soils by increasing acidity.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "How are fertilizers classified based on the number of nutrients they supply?",
+      "options": {
+        "a": "Straight, compound, and organic fertilizers",
+        "b": "Organic, inorganic, and biofertilizers",
+        "c": "Straight, complex, and mixed fertilizers",
+        "d": "Primary, secondary, and micronutrient fertilizers",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Straight fertilizers contain only one primary nutrient (e.g., urea - N only). Complex fertilizers contain two or more essential nutrients chemically combined (e.g., DAP-N & P). Mixed fertilizers are physical mixtures of two or more fertilizers (e.g., NPK 10:26:26).[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of a straight fertilizer?",
+      "options": {
+        "a": "NPK (15:15:15)",
+        "b": "Diammonium phosphate (DAP)",
+        "c": "Urea",
+        "d": "Ammonium phosphate sulfate",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Urea (46% N) contains only nitrogen, making it a straight fertilizer.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which fertilizer is considered a complex fertilizer?",
+      "options": {
+        "a": "Single superphosphate",
+        "b": "Ammonium sulfate",
+        "c": "Muriate of potash",
+        "d": "Diammonium phosphate (DAP)",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "DAP contains nitrogen (N) and phosphorus (P2O5) in a chemically combined form, making it a complex fertilizer.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "How are fertilizers classified as low analysis or high analysis?",
+      "options": {
+        "a": "Based on the price of the fertilizer",
+        "b": "Based on the solubility of nutrients in water",
+        "c": "Based on the total percentage of primary nutrients",
+        "d": "Based on whether they are organic or inorganic",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "They are classified based on the total percentage of primary nutrients they contain.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the primary difference between low-analysis and high-analysis fertilizers?",
+      "options": {
+        "a": "Low-analysis fertilizers contain more than 25% nutrients",
+        "b": "High-analysis fertilizers contain less than 25% nutrients",
+        "c": "Low-analysis fertilizers contain less than 25% nutrients, while high-analysis fertilizers contain more than 25% nutrients",
+        "d": "Low-analysis fertilizers are always organic, while high-analysis fertilizers are inorganic",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Low-analysis fertilizers contain less than 25% total primary nutrients (N, P2O5, K2O). High-analysis fertilizers contain more than 25% total primary nutrients.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of a low-analysis fertilizer?",
+      "options": {
+        "a": "Urea",
+        "b": "Single Super Phosphate (SSP)",
+        "c": "Diammonium Phosphate (DAP)",
+        "d": "Ammonium Nitrate",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "SSP contains only 16% P2O5 making it a low-analysis fertilizer.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which fertilizer is classified as a high-analysis fertilizer?",
+      "options": {
+        "a": "Sodium Nitrate",
+        "b": "Chilean Nitrate",
+        "c": "Urea",
+        "d": "Single Super Phosphate",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Urea contains 46% nitrogen (N), making it a high-analysis fertilizer.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which fertilizer contains the highest percentage of nitrogen (N)?",
+      "options": {
+        "a": "Urea",
+        "b": "Anhydrous Ammonia",
+        "c": "Ammonium Phosphates",
+        "d": "Diammonium Phosphate (DAP)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Anhydrous Ammonia contains 82.2% nitrogen (N), which is the highest among the given fertilizers. Urea contains 46% N, which is lower than anhydrous ammonia. DAP and Ammonium Phosphates have lower nitrogen content.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Diammonium Phosphate (DAP) contains how much phosphorus (P2O5)?",
+      "options": {
+        "a": "20%",
+        "b": "30%",
+        "c": "46%",
+        "d": "50%",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "DAP (Diammonium Phosphate) contains 18% nitrogen (N) and 46% phosphorus (P2O5). It is a widely used high-analysis fertilizer that provides both nitrogen and phosphorus for plant growth.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which fertilizer provides both nitrogen (N) and phosphorus (P2O5) in equal amounts?",
+      "options": {
+        "a": "Urea",
+        "b": "Anhydrous Ammonia",
+        "c": "DAP",
+        "d": "Ammonium Phosphates",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Ammonium Phosphates contain 20% nitrogen (N) and 20% phosphorus (P2O5), making the ratio 1:1.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is NOT a characteristic of nitrate fertilizers?",
+      "options": {
+        "a": "Highly mobile in soil",
+        "b": "Highly soluble and prone to leaching",
+        "c": "Ammonium Phosphates",
+        "d": "Used as top dressing",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Nitrate fertilizers increase soil alkalinity as their residual effect is basic in nature. They are highly mobile and soluble, making them prone to leaching. They are used as top dressing due to their quick availability to plants. In waterlogged conditions, they undergo denitrification, leading to nitrogen loss.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of a nitrate fertilizer?",
+      "options": {
+        "a": "Urea",
+        "b": "Ammonium sulfate",
+        "c": "Calcium nitrate",
+        "d": "Diammonium phosphate (DAP)",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Calcium nitrate (Ca(NO3)2) and Sodium nitrate (NaNO3) are nitrate fertilizers. Urea and Ammonium sulfate contain nitrogen in ammonium form (NH4+), not nitrate (NO3-). DAP and Superphosphate primarily supply phosphorus, not nitrate nitrogen.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of an ammoniacal fertilizer?",
+      "options": {
+        "a": "Urea",
+        "b": "Ammonium sulfate",
+        "c": "Potassium nitrate",
+        "d": "Superphosphate",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Ammoniacal fertilizers contain nitrogen in the form of ammonium (NH4+). Ammonium sulfate (NH4)2SO4 is a well-known ammoniacal fertilizer, containing about 20% nitrogen.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is a characteristic of ammoniacal fertilizers?",
+      "options": {
+        "a": "Poor solubility in water",
+        "b": "High leaching losses",
+        "c": "Well-suited for submerged soils",
+        "d": "Contains the lowest nitrogen percentage among fertilizers",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Ammoniacal fertilisers- Fertiliser contains nitrogen in the form of ammonium. Characteristics - Radially soluble hence easily available to plants. Adsorb on clay complex hence fewer leaching losses. Well suited for submerged soils.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following ammoniacal fertilizers contains the highest percentage of nitrogen?",
+      "options": {
+        "a": "Ammonium sulfate (NH4)2SO4",
+        "b": "Ammonium chloride (NH4Cl)",
+        "c": "Anhydrous ammonia (NH3)",
+        "d": "Calcium ammonium nitrate (CAN)",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Anhydrous ammonium contains highest amount of Nitrogen among any fertiliser that is 82%.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is an example of an amide fertilizer?",
+      "options": {
+        "a": "Ammonium sulfate (NH4)2SO4",
+        "b": "Urea CO(NH2)2",
+        "c": "Ammonium chloride (NH4Cl)",
+        "d": "Calcium nitrate (Ca(NO3)2)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Amide fertilizers contain nitrogen in the form of amide (-CONH2), making them organic fertilizers. Urea (CO(NH2)2) is an amide fertilizer containing 46%.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following fertilizers contains nitrogen in both nitrate and ammonium forms?",
+      "options": {
+        "a": "Urea (CO(NH2)2)",
+        "b": "Ammonium sulfate ((NH4)2SO4)",
+        "c": "Ammonium nitrate (NH4NO3)",
+        "d": "Superphosphate (Ca(H2PO4)2)",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Nitrate and ammoniacal fertilizers contain nitrogen in both nitrate (NO3-) and ammonium (NH4+) forms, ensuring quick and sustained nitrogen release. Ammonium nitrate (NH4NO3) has both NH4+ (ammonium) and NO3- (nitrate), making it a perfect example of this category.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following statements is TRUE regarding slow-release nitrogenous fertilizers?",
+      "options": {
+        "a": "They release nitrogen quickly and are prone to leaching.",
+        "b": "Urea is the most effective slow-release nitrogen fertilizer without any modification.",
+        "c": "Slow-release fertilizers reduce the frequency of nitrogen application but may have limited availability in early growth stages.",
+        "d": "They have the highest availability in the first few days of application.",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Slow-release fertilizers provide nitrogen gradually, reducing the need for frequent applications and minimizing losses. They may have limited nitrogen availability in the early growth stages because the nutrients take time to become plant-available.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which nitrogen fertilizer is most prone to volatilization if left on the soil surface?",
+      "options": {
+        "a": "Urea (CO(NH2)2)",
+        "b": "Ammonium sulfate ((NH4)2SO4)",
+        "c": "Calcium ammonium nitrate (CAN)",
+        "d": "Ammonium nitrate (NH4NO3)",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Urea hydrolyzes to ammonium, increasing pH near the soil surface, which promotes ammonia gas loss.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the primary form of nitrogen lost during volatilization?",
+      "options": {
+        "a": "Nitrate (NO3-)",
+        "b": "Nitrite (NO2-)",
+        "c": "Ammonia (NH3)",
+        "d": "Dinitrogen gas (N2)",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Ammonia (NH3) is the gaseous form lost due to volatilization.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "In which type of soil is nitrogen leaching most severe?",
+      "options": {
+        "a": "Clay soil with high cation exchange capacity",
+        "b": "Loamy soil with balanced drainage",
+        "c": "Sandy soil with low organic matter",
+        "d": "Waterlogged heavy clay soil",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sandy soils drain quickly and have low nutrient-holding capacity, leading to high leaching.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following phosphatic fertilizers is water-soluble?",
+      "options": {
+        "a": "Rock phosphate",
+        "b": "Single superphosphate (SSP)",
+        "c": "Dicalcium phosphate",
+        "d": "Basic slag",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Water-soluble phosphatic fertilizers readily dissolve in water, making phosphorus immediately available to plants. SSP (Single Superphosphate) contains water-soluble P2O5.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which phosphatic fertilizer belongs to the \"citric acid-soluble\" category?",
+      "options": {
+        "a": "Triple superphosphate (TSP)",
+        "b": "Dicalcium phosphate",
+        "c": "Monoammonium phosphate (MAP)",
+        "d": "Diammonium phosphate (DAP)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Citric acid-soluble fertilizers are not fully water-soluble but dissolve in weak acids, making phosphorus slowly available to plants. Dicalcium phosphate (CaHPO4) falls into this category.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which phosphatic fertilizer is the least available to crops due to poor solubility?",
+      "options": {
+        "a": "Single superphosphate (SSP)",
+        "b": "Basic slag",
+        "c": "Monoammonium phosphate (MAP)",
+        "d": "Triple superphosphate (TSP)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Phosphoric acid not soluble in water or citric acid is the least available to plants. Basic slag, containing tricalcium phosphate, is an example of a poorly soluble phosphatic fertilizer.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "How does soil pH affect phosphatic fertilizer efficiency?",
+      "options": {
+        "a": "Phosphorus availability is highest in strongly acidic soils (pH < 5.5)",
+        "b": "Alkaline soils (pH > 8) increase phosphorus availability",
+        "c": "Neutral to slightly acidic soils (pH 6-7) provide optimal phosphorus availability",
+        "d": "Phosphorus does not react with soil pH",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Phosphorus availability is highest in neutral to slightly acidic soils (pH 6-7).[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following phosphatic fertilizers has the highest phosphorus content?",
+      "options": {
+        "a": "Single superphosphate (SSP)",
+        "b": "Double superphosphate (DSP)",
+        "c": "Triple superphosphate (TSP)",
+        "d": "Monoammonium phosphate (MAP)",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Monoammonium phosphate (MAP) contains 48% P2O5, the highest.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which phosphatic fertilizer provides both nitrogen and phosphorus in equal amounts?",
+      "options": {
+        "a": "Ammonium phosphate",
+        "b": "Monoammonium phosphate (MAP)",
+        "c": "Triple superphosphate (TSP)",
+        "d": "Single superphosphate (SSP)",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Ammonium phosphate contains 20% phosphorus and 20% nitrogen, making it a balanced N-P fertilizer.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following fertilizers is most suitable for acidic soils due to its sulfur content?",
+      "options": {
+        "a": "Triple superphosphate (TSP)",
+        "b": "Ammonium phosphate sulfate (APS)",
+        "c": "Monoammonium phosphate (MAP)",
+        "d": "Double superphosphate (DSP)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "APS contains sulfur (from sulfate), which helps neutralize soil alkalinity and is beneficial for sulfur-deficient soils.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which phosphatic fertilizer is most commonly used for direct soil application due to its high solubility?",
+      "options": {
+        "a": "Rock phosphate",
+        "b": "Single superphosphate (SSP)",
+        "c": "Triple superphosphate (TSP)",
+        "d": "Double superphosphate (DSP)",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "TSP (46-48% P2O5) is highly water-soluble and widely used for direct application.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which fertilizer provides the highest phosphorus efficiency for crops with high phosphorus demand?",
+      "options": {
+        "a": "Single superphosphate (SSP)",
+        "b": "Ammonium phosphate sulfate (APS)",
+        "c": "Double superphosphate (DSP)",
+        "d": "Monoammonium phosphate (MAP)",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "MAP (48% P2O5) provides the highest phosphorus content and has good solubility, making it ideal for phosphorus-demanding crops.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following phosphatic fertilizers is primarily citric acid-soluble?",
+      "options": {
+        "a": "Single superphosphate (SSP)",
+        "b": "Triple superphosphate (TSP)",
+        "c": "Dicalcium phosphate (DCP)",
+        "d": "Rock phosphate",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Dicalcium phosphate (CaHPO4) is citric acid-soluble, meaning it is not immediately available but dissolves in weak acids over time.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "In which type of soil are citric acid-soluble phosphatic fertilizers most effective?",
+      "options": {
+        "a": "Strongly acidic soils (pH < 5.5)",
+        "b": "Neutral soils (pH 6-7)",
+        "c": "Strongly alkaline soils (pH > 8)",
+        "d": "Waterlogged soils",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Citric acid-soluble fertilizers release phosphorus efficiently in neutral soils where weak acids from roots enhance solubility.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following is a major disadvantage of citric acid-soluble phosphatic fertilizers?",
+      "options": {
+        "a": "They release phosphorus too quickly",
+        "b": "They are highly water-soluble and prone to leaching",
+        "c": "Their phosphorus availability depends on soil acidity and microbial activity",
+        "d": "They contain high levels of nitrogen",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Citric acid-soluble fertilizers depend on soil acidity and microbial action to break down phosphorus into an available form, making their efficiency variable.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which citric acid-soluble phosphatic fertilizer is commonly used as an animal feed supplement?",
+      "options": {
+        "a": "Single superphosphate (SSP)",
+        "b": "Triple superphosphate (TSP)",
+        "c": "Dicalcium phosphate (DCP)",
+        "d": "Rock phosphate",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Dicalcium phosphate (DCP) is not only a fertilizer but also used in animal feed due to its moderate solubility and bioavailability.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following potassic fertilizers is NOT suitable for sugarcane cultivation?",
+      "options": {
+        "a": "Potassium sulfate (SOP)",
+        "b": "Potassium chloride (MOP)",
+        "c": "Dicalcium phosphate (DCP)",
+        "d": "Potassium magnesium sulfate",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "MOP (Potassium chloride) is not suitable for sugarcane because chloride ions reduce sugar accumulation.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Why is potassium chloride (MOP) not recommended for tobacco crops?",
+      "options": {
+        "a": "It increases plant water loss",
+        "b": "It reduces burning quality of the leaf",
+        "c": "It promotes excessive vegetative growth",
+        "d": "It delays flowering",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "MOP reduces the burning quality of tobacco leaves, making them less desirable for commercial use.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which non-chloride potassic fertilizer contains both nitrogen and potassium?",
+      "options": {
+        "a": "Potassium sulfate",
+        "b": "Potassium chloride",
+        "c": "Potassium nitrate",
+        "d": "Potassium magnesium sulfate",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Potassium nitrate (KNO3), also called saltpeter, contains 13% nitrogen and 44% K2O, making it a dual-purpose fertilizer.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which potassic fertilizer is best suited for fruit trees and vegetables?",
+      "options": {
+        "a": "Muriate of potash (MOP)",
+        "b": "Potassium nitrate",
+        "c": "Single superphosphate (SSP)",
+        "d": "Ammonium sulfate",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Potassium nitrate is an excellent fertilizer for fruit trees and vegetables because it provides both potassium and nitrogen without chloride toxicity.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "At which growth stages should fertilizers be applied in wheat for maximum nutrient efficiency?",
+      "options": {
+        "a": "Basal and tillering",
+        "b": "Basal and flowering",
+        "c": "Basal, crown root initiation, and panicle initiation",
+        "d": "Basal and grain filling",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Wheat requires fertilizer application at three key stages: Basal (before sowing) for early growth, Crown root initiation (CRI) to support root development, and Panicle initiation for better grain formation.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which of the following crops typically requires fertilizer application at 60, 90, and 120 days after planting?",
+      "options": {
+        "a": "Rice",
+        "b": "Sugarcane",
+        "c": "Sorghum",
+        "d": "Wheat",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sugarcane is a long-duration crop that requires multiple split applications at 60, 90, and 120 days after planting to sustain its high nutrient demand.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Why is basal fertilizer application essential for pulses and groundnut?",
+      "options": {
+        "a": "To promote excessive vegetative growth",
+        "b": "To increase nitrogen fixation in soil directly",
+        "c": "To improve flowering and pod formation",
+        "d": "To delay maturity",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Leguminous crops like pulses and groundnut rely on early nutrient availability to develop strong roots and nodules for nitrogen fixation.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "Which cereal crop requires fertilizer application at both basal and panicle initiation but NOT at tillering?",
+      "options": {
+        "a": "Rice",
+        "b": "Finger millet",
+        "c": "Wheat",
+        "d": "Sorghum",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Sorghum requires fertilizer application at basal and panicle initiation stages but does not need an additional dose at tillering.[cite: 5]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Manure and Fertilizers",
+      "question": "What is the main reason for applying fertilizers at the panicle initiation stage in cereal crops?",
+      "options": {
+        "a": "To enhance vegetative growth",
+        "b": "To support grain filling and increase yield",
+        "c": "To prevent lodging of plants",
+        "d": "To improve root development",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Panicle initiation is a crucial stage where plants transition from vegetative to reproductive growth. Applying fertilizer at this stage enhances grain filling and final yield.[cite: 5]"
+    }
+  ]
+}

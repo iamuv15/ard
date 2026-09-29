@@ -1,0 +1,845 @@
+{
+  "title": "Fruit and Vegetables Part - 1 Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following is a common physiological disorder in mango?",
+      "options": {
+        "a": "Black tip",
+        "b": "Powdery mildew",
+        "c": "Malformation",
+        "d": "Both A and C",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Black tip and malformation are major physiological disorders in mango. Black tip is caused by air pollution, particularly fluoride, while malformation results from hormonal imbalance or pathogen attack.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which mango variety is known for its distinct aroma and sweetness?",
+      "options": {
+        "a": "Dashehari",
+        "b": "Langra",
+        "c": "Alphonso",
+        "d": "Totapuri",
+        "e": "Neelum"
+      },
+      "correct_option": "c",
+      "explanation": "Alphonso is one of the most famous mango varieties, known for its rich aroma, smooth texture, and sweet taste. It is widely grown in Maharashtra, India.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which state in India is the largest producer of mangoes?",
+      "options": {
+        "a": "Maharashtra",
+        "b": "Uttar Pradesh",
+        "c": "Karnataka",
+        "d": "Tamil Nadu",
+        "e": "West Bengal"
+      },
+      "correct_option": "b",
+      "explanation": "Uttar Pradesh is the largest producer of mangoes in India, contributing significantly to the country's mango production.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "The physiological disorder 'Spongy Tissue' is commonly found in which mango variety?",
+      "options": {
+        "a": "Kesar",
+        "b": "Alphonso",
+        "c": "Langra",
+        "d": "Himsagar",
+        "e": "Banganapalli"
+      },
+      "correct_option": "b",
+      "explanation": "Spongy tissue is a post-harvest disorder in Alphonso mangoes caused by improper ripening and temperature variations during storage.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following mango varieties is fiberless and suitable for making pulp and juice?",
+      "options": {
+        "a": "Totapuri",
+        "b": "Langra",
+        "c": "Alphonso",
+        "d": "Amrapali",
+        "e": "Dashehari"
+      },
+      "correct_option": "a",
+      "explanation": "Totapuri mango is fiberless, making it ideal for processing into pulp, juice, and mango-based products.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following is a dwarf hybrid mango variety?",
+      "options": {
+        "a": "Amrapali",
+        "b": "Banganapalli",
+        "c": "Neelum",
+        "d": "Langra",
+        "e": "Chausa"
+      },
+      "correct_option": "a",
+      "explanation": "Amrapali is a dwarf hybrid mango variety developed by crossing Dashehari and Neelum. It is known for its high yield and deep orange pulp.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "'Jhumka' is a physiological disorder in mango caused by",
+      "options": {
+        "a": "Nutrient deficiency",
+        "b": "Frost injury",
+        "c": "Boron toxicity",
+        "d": "Flower malformation",
+        "e": "Water stress"
+      },
+      "correct_option": "d",
+      "explanation": "Jhumka is a mango disorder where the fruitlets remain small and fail to develop properly, often caused by hormonal imbalances or environmental factors.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which mango variety is most commonly exported from India?",
+      "options": {
+        "a": "Alphonso",
+        "b": "Langra",
+        "c": "Himsagar",
+        "d": "Banganapalli",
+        "e": "Malgova"
+      },
+      "correct_option": "a",
+      "explanation": "Alphonso mango, grown mainly in Maharashtra, is the most exported Indian mango due to its superior taste, aroma, and texture.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following physiological disorders in mango is associated with poor calcium translocation?",
+      "options": {
+        "a": "Spongy tissue",
+        "b": "Black tip",
+        "c": "Jhumka",
+        "d": "Powdery mildew",
+        "e": "Leaf scorching"
+      },
+      "correct_option": "a",
+      "explanation": "Spongy tissue in mango is a physiological disorder caused by poor calcium translocation, leading to internal tissue breakdown in ripe fruits.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which hybrid mango variety was developed by crossing Rumani and Neelum?",
+      "options": {
+        "a": "Mallika",
+        "b": "Sindhu",
+        "c": "Amrapali",
+        "d": "Ratna",
+        "e": "Arka Puneet"
+      },
+      "correct_option": "e",
+      "explanation": "Arka Puneet is a hybrid mango variety developed by crossing Rumani and Neelum. It is known for its attractive color and excellent taste.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following mango varieties is known for its naturally long shelf life?",
+      "options": {
+        "a": "Himsagar",
+        "b": "Ratna",
+        "c": "Neelum",
+        "d": "Langra",
+        "e": "Dashehari"
+      },
+      "correct_option": "c",
+      "explanation": "Neelum mango is known for its long shelf life, making it suitable for storage and transport over long distances.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which hybrid mango variety was developed by crossing Dashehari and Neelum?",
+      "options": {
+        "a": "Ratna",
+        "b": "Amrapali",
+        "c": "Mallika",
+        "d": "Sindhu",
+        "e": "Arka Puneet"
+      },
+      "correct_option": "b",
+      "explanation": "Amrapali is a dwarf hybrid variety developed by crossing Dashehari and Neelum. It is known for its high yield and deep orange pulp.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "The hybrid mango variety 'Arka Puneet' is a cross of which two parent varieties?",
+      "options": {
+        "a": "Alphonso x Neelum",
+        "b": "Rumani x Neelum",
+        "c": "Alphonso x Janardhan Pasand",
+        "d": "Dashehari x Langra",
+        "e": "Banganapalli x Alphonso"
+      },
+      "correct_option": "b",
+      "explanation": "Arka Puneet is a hybrid developed from Rumani and Neelum, known for its attractive color and disease resistance.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which hybrid mango variety is known for being semi-dwarf and has a seedless tendency?",
+      "options": {
+        "a": "Amrapali",
+        "b": "Mallika",
+        "c": "Sindhu",
+        "d": "Ratna",
+        "e": "Arka Aruna"
+      },
+      "correct_option": "c",
+      "explanation": "Sindhu is a hybrid mango variety derived from Ratna (Neelum x Alphonso) x Alphonso and is known for its seedless tendency.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "The hybrid variety 'PKM-1' is a cross of which mango varieties?",
+      "options": {
+        "a": "Neelum x Alphonso",
+        "b": "Chinnasuvarnarekha x Neelum",
+        "c": "Banganapalli x Alphonso",
+        "d": "Dashehari x Rumani",
+        "e": "Ratna x Sindhu"
+      },
+      "correct_option": "b",
+      "explanation": "PKM-1 is a hybrid variety developed by crossing Chinnasuvarnarekha x Neelum, known for its good yield and medium-sized fruits.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following banana varieties is best suited for processing into banana powder and baby food?",
+      "options": {
+        "a": "Rasthali",
+        "b": "Poovan",
+        "c": "Grand Naine",
+        "d": "Nendran",
+        "e": "Robusta"
+      },
+      "correct_option": "a",
+      "explanation": "Rasthali is a highly preferred variety for making banana powder and baby food due to its sweet taste, fine texture, and high nutrient content.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the scientific reason why the \"Grand Nain\" variety is preferred for commercial cultivation worldwide?",
+      "options": {
+        "a": "It has a long shelf life and high productivity",
+        "b": "It is the sweetest banana variety",
+        "c": "It requires less water for growth",
+        "d": "It has a unique red color",
+        "e": "It is a wild banana variety"
+      },
+      "correct_option": "a",
+      "explanation": "The Grand Nain variety is widely cultivated because of its high yield, disease resistance, uniform fruit size, and longer shelf life, making it ideal for export.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "In which banana variety is \"Natural Parthenocarpy\" (fruit development without fertilization) commonly observed?",
+      "options": {
+        "a": "Robusta",
+        "b": "Poovan",
+        "c": "Grand Nain",
+        "d": "Dwarf Cavendish",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Banana plants exhibit natural parthenocarpy, meaning their fruits develop without fertilization. This characteristic is found in various commercial varieties like Robusta, Poovan, Grand Nain, and Dwarf Cavendish.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "During which months is banana planting generally done in hilly areas?",
+      "options": {
+        "a": "January - February",
+        "b": "August - September",
+        "c": "November - December",
+        "d": "March - April",
+        "e": "May - June"
+      },
+      "correct_option": "b",
+      "explanation": "In hilly regions, banana planting is best suited during August - September, as the moderate climate and adequate moisture help in better establishment and growth.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "In which of the following months is banana commonly planted in plains?",
+      "options": {
+        "a": "May - June",
+        "b": "August - September",
+        "c": "January - February & November - December",
+        "d": "March - April",
+        "e": "July - August"
+      },
+      "correct_option": "c",
+      "explanation": "In plain areas, banana planting is usually done in January - February and November - December to take advantage of optimal soil moisture and temperature conditions for proper root establishment.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following pests affects the banana plant by damaging the banana plant's corm?",
+      "options": {
+        "a": "Thrips",
+        "b": "Pseudo stem borer",
+        "c": "Banana aphid",
+        "d": "Rhizome weevil",
+        "e": "Lace wing bugs"
+      },
+      "correct_option": "d",
+      "explanation": "The rhizome corm weevil, also known as the banana corm weevil, is a major pest of bananas. The adult female weevil lays eggs on the banana plant corm or pseudostem. These eggs hatch into grubs, which bore into the plant and feed on the internal tissues, causing significant damage.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following diseases in bananas is caused by a fungus and leads to yellowing and wilting of leaves?",
+      "options": {
+        "a": "Sigatoka leaf spot",
+        "b": "Panama Disease (Fusarium wilt)",
+        "c": "Bunchy-top",
+        "d": "Cigar end rot",
+        "e": "Thrips infestation"
+      },
+      "correct_option": "b",
+      "explanation": "Panama Disease, caused by Fusarium oxysporum, is a soil-borne fungal disease that causes yellowing, wilting, and eventual death of banana plants.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "The banana aphid is a vector for which serious viral disease in banana plants?",
+      "options": {
+        "a": "Sigatoka leaf spot",
+        "b": "Cigar end rot",
+        "c": "Bunchy-top",
+        "d": "Panama Disease",
+        "e": "Thrips infestation"
+      },
+      "correct_option": "c",
+      "explanation": "Banana aphids (Pentalonia nigronervos) transmit Banana Bunchy Top Virus (BBTV), which causes stunted growth, bunched leaves, and severe yield loss.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Sigatoka leaf spot in banana plants is caused by which pathogen?",
+      "options": {
+        "a": "Bacteria",
+        "b": "Virus",
+        "c": "Fungus",
+        "d": "Nematode",
+        "e": "Insect"
+      },
+      "correct_option": "c",
+      "explanation": "Sigatoka leaf spot is a fungal disease caused by Mycosphaerella musicola (Yellow Sigatoka) and Mycosphaerella fijiensis (Black Sigatoka), leading to leaf necrosis and reduced photosynthesis.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the major symptom of Cigar End Rot disease in bananas?",
+      "options": {
+        "a": "Yellowing and wilting of leaves",
+        "b": "Small, distorted fruits",
+        "c": "Dark brown to black lesions on fruit tips",
+        "d": "Pseudostem splitting",
+        "e": "Curling of leaves"
+      },
+      "correct_option": "c",
+      "explanation": "Cigar End Rot is caused by Verticillium theobromae and Trachysphaera fructigena, leading to blackening and shriveling of the banana fruit tip, resembling a burned cigar.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the scientific name of Acid Lime?",
+      "options": {
+        "a": "Citrus sinensis",
+        "b": "Citrus aurantium",
+        "c": "Citrus aurantifolia",
+        "d": "Citrus limon",
+        "e": "Citrus reticulata"
+      },
+      "correct_option": "c",
+      "explanation": "The scientific name of Acid Lime is Citrus aurantifolia, whereas Citrus sinensis is for sweet orange, Citrus limon for lemon, and Citrus reticulata for mandarins.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following is a recommended variety of Acid Lime?",
+      "options": {
+        "a": "Kinnow",
+        "b": "Kagzi Lime",
+        "c": "Alphonso",
+        "d": "Valencia",
+        "e": "Totapuri"
+      },
+      "correct_option": "b",
+      "explanation": "Kagzi Lime is one of the most widely grown varieties of Acid Lime in India, known for its thin skin and juicy pulp. The other options refer to different citrus fruits or mango varieties.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "The variety \"Phule Sharbati\" is associated with which fruit?",
+      "options": {
+        "a": "Sweet Orange",
+        "b": "Acid Lime",
+        "c": "Mandarin Orange",
+        "d": "Lemon",
+        "e": "Grapefruit"
+      },
+      "correct_option": "b",
+      "explanation": "Phule Sharbati is a variety of Acid Lime developed for its superior juice content and adaptability to Indian climatic conditions.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following varieties of Acid Lime is developed by Tamil Nadu Agricultural University (TNAU)?",
+      "options": {
+        "a": "PKM 1",
+        "b": "NRCC-7",
+        "c": "Tahiti Lime",
+        "d": "Balaji",
+        "e": "Vikram"
+      },
+      "correct_option": "a",
+      "explanation": "PKM 1 (Periyakulam 1) is an improved variety of Acid Lime developed by TNAU, known for its high yield and disease resistance.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "The variety \"Phule Sharbati\" was developed in which Indian state?",
+      "options": {
+        "a": "Tamil Nadu",
+        "b": "Maharashtra",
+        "c": "Gujarat",
+        "d": "Karnataka",
+        "e": "Madhya Pradesh"
+      },
+      "correct_option": "b",
+      "explanation": "Phule Sharbati is an Acid Lime variety developed by Mahatma Phule Krishi Vidyapeeth (MPKV), Maharashtra, known for its improved yield and better fruit quality.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "The Acid Lime variety \"Vikram\" is mainly grown in which Indian region?",
+      "options": {
+        "a": "Maharashtra",
+        "b": "Tamil Nadu",
+        "c": "Gujarat",
+        "d": "Rajasthan",
+        "e": "Telangana"
+      },
+      "correct_option": "c",
+      "explanation": "Vikram is a variety of Acid Lime popular in Gujarat, known for its resistance to pests and diseases, along with high productivity.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the optimum soil pH range for growing Acid Lime?",
+      "options": {
+        "a": "4.5-5.5",
+        "b": "5.0-6.0",
+        "c": "6.5-7.0",
+        "d": "7.5-8.5",
+        "e": "8.0-9.0"
+      },
+      "correct_option": "c",
+      "explanation": "Acid Lime grows best in a neutral to slightly acidic soil with a pH range of 6.5-7.0. Highly alkaline or saline soils can negatively affect plant growth and fruit quality.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which type of soil is best suited for Acid Lime cultivation?",
+      "options": {
+        "a": "Sandy soil with high drainage",
+        "b": "Deep, well-drained medium black or loamy soil",
+        "c": "Waterlogged clay soil",
+        "d": "Saline-alkaline soil with high calcium carbonate",
+        "e": "Peaty soil with high organic matter"
+      },
+      "correct_option": "b",
+      "explanation": "Acid Lime grows well in deep, well-drained medium black, loamy, or alluvial soils rich in organic matter. Soils with high calcium carbonate content should be avoided.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "During which months is Acid Lime typically planted?",
+      "options": {
+        "a": "January - March",
+        "b": "April - May",
+        "c": "December - February & June - September",
+        "d": "October - November",
+        "e": "March - April"
+      },
+      "correct_option": "c",
+      "explanation": "December - February & June - September are the recommended planting seasons for Acid Lime to ensure optimal root establishment and fruit development.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the approximate yield of Acid Lime per hectare per year?",
+      "options": {
+        "a": "10 t/ha/year",
+        "b": "15 t/ha/year",
+        "c": "20 t/ha/year",
+        "d": "25 t/ha/year",
+        "e": "30 t/ha/year"
+      },
+      "correct_option": "d",
+      "explanation": "With good management practices, Acid Lime yields approximately 25 tonnes per hectare per year under optimal growing conditions.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following is NOT a major pest of Acid Lime?",
+      "options": {
+        "a": "Fruit Sucking Moth",
+        "b": "Shoot Borer",
+        "c": "Citrus Root Nematode",
+        "d": "Powdery Mildew",
+        "e": "Fruit Fly"
+      },
+      "correct_option": "d",
+      "explanation": "Powdery Mildew is a fungal disease, not a pest. The main pests of Acid Lime include Fruit Sucking Moth, Shoot Borer, Fruit Fly, and Citrus Root Nematode.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which disease causes small cankers (corky lesions) on the leaves, twigs, and fruits of Acid Lime?",
+      "options": {
+        "a": "Tristeza Virus",
+        "b": "Twig Blight",
+        "c": "Citrus Canker",
+        "d": "Fusarium Wilt",
+        "e": "Anthracnose"
+      },
+      "correct_option": "c",
+      "explanation": "Citrus Canker, caused by Xanthomonas axonopodis, leads to corky, raised lesions on leaves, twigs, and fruits, reducing market quality.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the scientific name of Sweet Orange?",
+      "options": {
+        "a": "Citrus aurantifolia",
+        "b": "Citrus aurantium",
+        "c": "Citrus sinensis",
+        "d": "Citrus reticulata",
+        "e": "Citrus limon"
+      },
+      "correct_option": "c",
+      "explanation": "The scientific name of Sweet Orange is Citrus sinensis, while Citrus aurantifolia refers to Acid Lime, Citrus aurantium to Bitter Orange, Citrus reticulata to Mandarin, and Citrus limon to Lemon.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "\"Sathgudi\" is a famous variety of Sweet Orange grown in which Indian state?",
+      "options": {
+        "a": "Gujarat",
+        "b": "Maharashtra",
+        "c": "Tamil Nadu",
+        "d": "Andhra Pradesh",
+        "e": "Rajasthan"
+      },
+      "correct_option": "d",
+      "explanation": "Sathgudi is a popular variety of Sweet Orange grown mainly in Andhra Pradesh, known for its excellent juice quality and sweetness.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which variety of Sweet Orange is commonly known as \"Mosambi\" in India?",
+      "options": {
+        "a": "Sathgudi",
+        "b": "Valencia",
+        "c": "Batavian",
+        "d": "Malta Blood Red",
+        "e": "Nagpur Orange"
+      },
+      "correct_option": "c",
+      "explanation": "Batavian Sweet Orange is commonly referred to as Mosambi in India, known for its low acid content and mild sweetness.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "The \"Malta Blood Red\" variety of Sweet Orange is popular for which unique characteristic?",
+      "options": {
+        "a": "High seed content",
+        "b": "Dark red pulp color",
+        "c": "High acidity",
+        "d": "Thick peel",
+        "e": "Small fruit size"
+      },
+      "correct_option": "b",
+      "explanation": "Malta Blood Red is known for its red-colored pulp, caused by the presence of anthocyanins, which gives the fruit a distinct appearance and higher antioxidant content.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the ideal soil pH range for Sweet Orange cultivation?",
+      "options": {
+        "a": "4.5-5.5",
+        "b": "5.0-6.0",
+        "c": "6.5-7.5",
+        "d": "7.5-8.5",
+        "e": "8.0-9.0"
+      },
+      "correct_option": "c",
+      "explanation": "Sweet Orange grows best in slightly acidic to neutral soils, with an optimal pH range of 6.5-7.5. Alkaline or highly acidic soils can affect nutrient availability and tree health.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the ideal climatic condition for growing Sweet Orange?",
+      "options": {
+        "a": "High humidity with heavy rainfall",
+        "b": "Dry climate with moderate rainfall (50-75 cm) and well-defined summer & winter",
+        "c": "Cold and frosty climate with low temperatures",
+        "d": "Continuous rainfall throughout the year",
+        "e": "Desert conditions with extreme heat"
+      },
+      "correct_option": "b",
+      "explanation": "Sweet Orange requires a dry climate with moderate rainfall (50-75 cm) from June to September, along with well-defined summer and winter seasons for proper fruit development.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following is a major pest of Sweet Orange that causes serpentine tunnels on young leaves?",
+      "options": {
+        "a": "Citrus Root Nematode",
+        "b": "Leaf Miner",
+        "c": "Citrus Psyllid",
+        "d": "Thrips",
+        "e": "Fruit Fly"
+      },
+      "correct_option": "b",
+      "explanation": "Leaf Miner (Phyllocnistis citrella) is a major pest that creates serpentine tunnels on young leaves, leading to reduced photosynthesis and weak plant growth.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the scientific name of Grapes?",
+      "options": {
+        "a": "Vitis vinifera",
+        "b": "Citrus sinensis",
+        "c": "Musa paradisiaca",
+        "d": "Mangifera indica",
+        "e": "Psidium guajava"
+      },
+      "correct_option": "a",
+      "explanation": "Vitis vinifera is the scientific name of Grapes, whereas Citrus sinensis is for Sweet Orange, Musa paradisiaca for Banana, Mangifera indica for Mango, and Psidium guajava for Guava.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "\"Tas-A-Ganesh\" is an improved variety developed from which grape cultivar?",
+      "options": {
+        "a": "Flame Seedless",
+        "b": "Thompson Seedless",
+        "c": "Red Globe",
+        "d": "Crimson Seedless",
+        "e": "Manik Chaman"
+      },
+      "correct_option": "b",
+      "explanation": "Tas-A-Ganesh is an improved variety of Thompson Seedless with larger berry size and better sweetness.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which grape variety is known for its deep red color and large berry size?",
+      "options": {
+        "a": "Red Globe",
+        "b": "Sonaka",
+        "c": "Pachadraksha",
+        "d": "Anab-e-Shahi",
+        "e": "Italia"
+      },
+      "correct_option": "a",
+      "explanation": "Red Globe is a famous table grape variety known for its large, deep red berries and sweet taste.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following is a seedless variety of Grapes?",
+      "options": {
+        "a": "Anab-e-Shahi",
+        "b": "Thompson Seedless",
+        "c": "Muscat Hamburg",
+        "d": "Pachadraksha",
+        "e": "Dil Kush"
+      },
+      "correct_option": "b",
+      "explanation": "Thompson Seedless is one of the most popular seedless grape varieties used for fresh consumption and raisin production.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What type of climate is most suitable for grape cultivation?",
+      "options": {
+        "a": "Cold and frosty climate",
+        "b": "Humid tropical climate with high rainfall",
+        "c": "Dry and humid climate with moderate rainfall",
+        "d": "Desert climate with extreme heat",
+        "e": "Heavy rainfall throughout the year"
+      },
+      "correct_option": "c",
+      "explanation": "Grapes thrive best in a dry and humid climate with moderate rainfall (500-900 mm), as excessive moisture can lead to fungal diseases.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the ideal temperature range for grape cultivation?",
+      "options": {
+        "a": "5-20\u00b0C",
+        "b": "10-25\u00b0C",
+        "c": "15-40\u00b0C",
+        "d": "35-50\u00b0C",
+        "e": "Below 5\u00b0C"
+      },
+      "correct_option": "c",
+      "explanation": "The ideal temperature range for grape cultivation is 15\u00b0C to 40\u00b0C, as extreme cold or heat can negatively impact growth, flowering, and fruit development.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which type of soil is best suited for grape cultivation?",
+      "options": {
+        "a": "Heavy clay soil with poor drainage",
+        "b": "Deep, well-drained sandy loam soil",
+        "c": "Saline-alkaline soil with high pH",
+        "d": "Waterlogged soil with high organic matter",
+        "e": "Peaty soil with high moisture retention"
+      },
+      "correct_option": "b",
+      "explanation": "Grapes grow best in deep, well-drained sandy loam soils, which provide good aeration and prevent root diseases caused by waterlogging.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Excessive rainfall (>900 mm) in grape cultivation can lead to which major problem?",
+      "options": {
+        "a": "Increased fruit size and sweetness",
+        "b": "Higher resistance to pests",
+        "c": "Fungal diseases like powdery mildew and anthracnose",
+        "d": "Early maturity of the crop",
+        "e": "Better grapevine growth"
+      },
+      "correct_option": "c",
+      "explanation": "Excessive rainfall (>900 mm) increases humidity, which promotes fungal diseases like powdery mildew, anthracnose, and downy mildew in grapevines.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the best-suited pH range for grape cultivation?",
+      "options": {
+        "a": "4.0-5.5",
+        "b": "5.5-6.5",
+        "c": "6.5-7.5",
+        "d": "7.5-8.5",
+        "e": "Above 9.0"
+      },
+      "correct_option": "c",
+      "explanation": "Grapes prefer a soil pH of 6.5-7.5, which ensures optimal nutrient availability and healthy root development.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the best time for planting grape rootstocks?",
+      "options": {
+        "a": "March - April",
+        "b": "May - June",
+        "c": "January - February",
+        "d": "July - August",
+        "e": "September - October"
+      },
+      "correct_option": "c",
+      "explanation": "The best time for planting grape rootstocks is January - February, as the favorable climate conditions support early root establishment and healthy vine growth.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following is commonly used as a planting material in grape cultivation?",
+      "options": {
+        "a": "Seeds",
+        "b": "Rootstocks",
+        "c": "Tuber cuttings",
+        "d": "Air layering",
+        "e": "Grafting on banana plants"
+      },
+      "correct_option": "b",
+      "explanation": "Grapes are propagated using rootstocks, which provide disease resistance, better growth, and higher productivity compared to direct seed planting.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which training system is commonly used in grapevine cultivation?",
+      "options": {
+        "a": "Espalier training",
+        "b": "Pandal system",
+        "c": "Pinching method",
+        "d": "Hard pruning",
+        "e": "Dwarfing system"
+      },
+      "correct_option": "b",
+      "explanation": "The Pandal system (overhead trellis) is a traditional training system used in grape cultivation to support vine growth and improve sunlight exposure.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which modern grapevine training system improves yield and quality?",
+      "options": {
+        "a": "Y-trellis training system",
+        "b": "Single-stake system",
+        "c": "Open-field bush system",
+        "d": "Raised-bed method",
+        "e": "Vertical farming system"
+      },
+      "correct_option": "a",
+      "explanation": "The Y-trellis system is an improved training method that provides better sunlight penetration, air circulation, and higher yield potential in grape cultivation.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "Which of the following system is used to train the grape vine in grape cultivation?",
+      "options": {
+        "a": "Trellis System",
+        "b": "Open center system",
+        "c": "Vase system",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "The Y-trellis system is an improved training method that provides better sunlight penetration, air circulation, and higher yield potential in grape cultivation.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "What is the primary advantage of using rootstocks in grapevine cultivation?",
+      "options": {
+        "a": "Increases leaf size",
+        "b": "Enhances disease resistance and soil adaptability",
+        "c": "Reduces water requirement by 90%",
+        "d": "Ensures higher production without pruning",
+        "e": "Eliminates the need for fertilizers"
+      },
+      "correct_option": "b",
+      "explanation": "Rootstocks are selected for their resistance to soil-borne diseases (like nematodes and root rot) and their ability to adapt to different soil types, leading to better vine health and yield.[cite: 21]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Fruit and Vegetables Part - 1",
+      "question": "When is pruning done for the summer crop of grapes?",
+      "options": {
+        "a": "February - March",
+        "b": "April - May",
+        "c": "December - January",
+        "d": "June - July",
+        "e": "September - October"
+      },
+      "correct_option": "c",
+      "explanation": "In grape cultivation, pruning for the summer crop is done in December - January to ensure better vegetative growth and fruit development for harvesting in April - May.[cite: 21]"
+    }
+  ]
+}

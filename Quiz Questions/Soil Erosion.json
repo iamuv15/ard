@@ -1,0 +1,453 @@
+{
+  "title": "Soil Erosion Mock Test",
+  "questions": [
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "___ is the process of detachment of soil particles from the parent body and transportation of the detached soil particles by wind and water.",
+      "options": {
+        "a": "Soil erosion",
+        "b": "Weathering",
+        "c": "Detachment",
+        "d": "Paedology",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Soil erosion is the process of detachment of soil particles from the parent body and transportation of the detached soil particles by wind and water."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following is a detaching agent of soil particle to initiate the process of erosion?",
+      "options": {
+        "a": "Wind",
+        "b": "Water",
+        "c": "All of the these",
+        "d": "Falling rain drop",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "The agents of erosion are- water and wind. Detaching agents- falling raindrops, channel flow and wind. The transporting agents- flowing water, rain splash and wind."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following is one of the types of erosion caused by water?",
+      "options": {
+        "a": "Rill erosion",
+        "b": "Saltation",
+        "c": "Surface creep",
+        "d": "Suspension",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Water Erosion - Sheet erosion, Rill erosion, gully erosion, Ravine erosion, & Landslide. Wind erosion - Saltation, surface creep and suspension."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following erosion remains unnoticed to the farmer and is the most dangerous form of soil erosion?",
+      "options": {
+        "a": "Rill erosion",
+        "b": "Sheet erosion",
+        "c": "Splash erosion",
+        "d": "Gully erosion",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sheet erosion: It is the initial stage of soil erosion. In this type of soil erosion rain drop churns the top soil and along with the runoff the muddy water moves away from the field. It is the uniform removal of the top soil in thin layer from the field. It is the mostly unnoticed dangerous form of the soil erosion."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Identify which of the following statement is correct regarding sheet erosion.",
+      "options": {
+        "a": "It is the initial stage of erosion",
+        "b": "Remain unnoticed",
+        "c": "It is the uniform removal of top fertile soil",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Sheet erosion: It is the initial stage of soil erosion. In this type of soil erosion rain drop churns the top soil and along with the runoff the muddy water moves away from the field. It is the uniform removal of the top soil in thin layer from the field. It is the mostly unnoticed dangerous form of the soil erosion."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Identify the correct statement regarding rill erosion.",
+      "options": {
+        "a": "It is the uniform removal of top fertile soil",
+        "b": "Erosion is no longer uniform with formation of channel",
+        "c": "Channel formation become wider",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Rill erosion is characterized by the formation of small, narrow channels or rills on the soil surface as water flow concentrates. This concentration of water leads to a non-uniform removal of soil along these channels, differentiating it from sheet erosion where soil is removed uniformly. Over time, rills can deepen and widen, potentially evolving into gullies."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Identify the incorrect statement about the gully erosion.",
+      "options": {
+        "a": "Unchecked ravines result in gully erosion",
+        "b": "Unchecked rills result in gully erosion",
+        "c": "Cultivation become so difficult in such type of region",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Unchecked rills result in increased channelization of runoff. Gullies are formed when channelised runoff from vast sloping land is sufficient in volume and velocity to cut deep and wide channels."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following is the 4th stage of soil erosion caused by water?",
+      "options": {
+        "a": "Splash erosion",
+        "b": "Rill erosion",
+        "c": "Ravine erosion",
+        "d": "Sheet erosion",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Ravine erosion: It is 4th stage of water erosion. Result of prolonged process or advanced stage of gully erosion. Typically found in the large expanses of deep alluvial soils. They are deep and wide gullies and their formation indicates very advanced stage of gully erosion."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Identify the correct statement regarding the mechanism of soil erosion.",
+      "options": {
+        "a": "The rain drops falls on the soil it breaks the soil aggregates by beating action",
+        "b": "Flowing water helps in transportation of the detached soil particle",
+        "c": "More the intensity of the rainfall more will be the erosion",
+        "d": "Vegetation reduces the impact of falling raindrop on the soil aggregates",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "The process of water erosion is divided into two subprocess that is detachment and transport. Detachment needs energy which is mainly supplied by the failing rain drops. Transportation of the detached soil particles is carried out by the flowing water which is caused by the slope of the soil."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following factors has the greatest long-term impact on crop production?",
+      "options": {
+        "a": "Soil fertility and nutrient availability",
+        "b": "Climatic factors such as temperature, rainfall, and sunlight",
+        "c": "Use of fertilizers and pesticides",
+        "d": "Availability of skilled labor",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Climatic factors directly determine crop growth, yield, and survival. Temperature, rainfall, sunlight, and humidity influence photosynthesis, germination, and plant metabolism. Extreme conditions like droughts, floods, frosts, and heatwaves can severely damage crops, making climate the most uncontrollable and long-term factor affecting production."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "___ is the susceptibility of the soil to the erosion causing agents",
+      "options": {
+        "a": "Erodibility",
+        "b": "Erosivity",
+        "c": "Soil erosion",
+        "d": "Detachability",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Erosivity- it is the capacity of the erosion causing agent to erode the soil. Erodibility- it is the susceptibility of the soil to the erosion causing agents."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following factors have impact on the soil erosion?",
+      "options": {
+        "a": "Topography",
+        "b": "Degree of slope",
+        "c": "Slope length",
+        "d": "% of sand, silt and clay in soil",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Factors like topography, degree of slope, length of slope, physical, chemical and biological properties influence soil erosion."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Identify the correct statement regarding soil erosion.",
+      "options": {
+        "a": "Light soils are difficult to detach but easy to transport",
+        "b": "Heavy soil is difficult to detach but easy to transport",
+        "c": "Soil with higher organic matter is easy to erode",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Light soils like sandy soils and sandy loam are easy to detach but difficult to transport and the infiltration rate is high in light soil and runoff is less. Heavy soil has higher clay content which makes it difficult to detach but they can be easily transportable, Due to smaller size. Finer soil is easily erodible and erosion increases the sand content in the soil and decreases the clay content, organic matter, minerals etc which over a longer duration of times a makes a soil infertile."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following is/ are the methods of conserving soil?",
+      "options": {
+        "a": "Agronomic measure",
+        "b": "Agroforestry",
+        "c": "Agrostological measure",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Measures to prevent soil erosion is grouped into- agronomic measures, mechanical measure, forestry and agrostological measures."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Identify the correct statement regarding agronomic measure to conserve soil erosion.",
+      "options": {
+        "a": "Agronomic measures are adopted on the slope less than 2%.",
+        "b": "Graded bunding is an agronomic measure to conserve soil erosion.",
+        "c": "Contour bunding is a mode agronomic measure",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Agronomic measures can be used to control the soil erosion where the slope is gentle that is less than 2%. On slope of more than 2% these measures are less applicable but a combination of these measures can be adopted there."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following is an agronomic measure to control water erosion?",
+      "options": {
+        "a": "Contour bunding",
+        "b": "Gabian structure",
+        "c": "Strip cropping",
+        "d": "Bench terracing",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Agronomic measures include contour cultivation, tillage, mulching, strip cropping and other improved measures."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Contour bunding is adopted on land having ___ % of slope with rain less then ___ mm",
+      "options": {
+        "a": "More than 6%, 1000mm",
+        "b": "Less than 6% 700mm",
+        "c": "More than 2%, 1500 mm",
+        "d": "Less than 6%, 1500 mm",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Contour bunding ensures uniform distribution of water along the bund hence offer better cultivation practices. Bunds at regular interval intercept the runoff from attaining erosive velocity and causing erosion. Contour bunds are generally made in areas with rainfall less than 1500 mm and up to a 6% slope of land."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following method is generally adopted in black or heavy soil to control soil erosion?",
+      "options": {
+        "a": "Broad bench Terrace",
+        "b": "Zing terrace",
+        "c": "Bench terracing",
+        "d": "Zing terracing",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Used in black soil or heavy soils. A terrace is a combination of ridge and channel which is built across the slope on a controlled grade. These terraces have wide base and low height usually formed using machinery."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Bench terracing is usually adopted on land of having slope of ___ %",
+      "options": {
+        "a": "16 to 33%",
+        "b": "10%",
+        "c": "16%",
+        "d": "10-16%",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Bench Terracing: Practiced on steeply sloping and undulating lands, there intensive farming is only possible along with the bench tracing. It is usually practiced on slopes ranging from 16 to 33% slope of land."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which mechanical measure is adopted on the land having slope of 3-10%?",
+      "options": {
+        "a": "Bench terracing",
+        "b": "Gabian structure",
+        "c": "Broad base terrace",
+        "d": "Zing terracing",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "It is adopted in lands with 3 to 10% slopes. It is constructed in medium to deep soils in moderate to high rainfall areas. It is adopted to cut down in length of slope, to harvest runoff from upper area for benefit of crop grown in lower side and adequate drainage period of heavy downpours."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following are the methods of soil erosion caused by wind?",
+      "options": {
+        "a": "Saltation",
+        "b": "Surface creep",
+        "c": "Suspension",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Wind erosion is a major problem in area devoid of vegetation and land is bare. It is a natural phenomenon in arid and semi-arid zones. Winds picks up the lighter particles, lifts them bodily from the surface and transport them to the long distances. The movement of soil particles takes place in three stages - Saltation, surface creep and suspension."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "This is the first stage of wind erosion where Soil particles of size 0.1 to 0.5 mm moved by this method.",
+      "options": {
+        "a": "Surface creep",
+        "b": "Saltation",
+        "c": "Wind",
+        "d": "Suspension",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Saltation: It is the first stage of movement of soil particles in series of jumps. The soil particles moved by saltation are between 0.1 to 0.5mm in diameter. Sand sized particles rolling along the surface starts this movement."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Rolling of coarse grains, larger than 0.5 to 3 mm in diameter and too heavy to lifted by the wind along the surface of the ground is called as",
+      "options": {
+        "a": "Saltation",
+        "b": "Surface creep",
+        "c": "Suspension",
+        "d": "Wind erosion",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "No Explanation added"
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Identify the Incorrect statement about the suspension stage of wind erosion.",
+      "options": {
+        "a": "The particle of size more than 0.1mm in diameter are removed by this process",
+        "b": "Fine dust particle float in the air",
+        "c": "3 to 4% of the soil is lost by the wind erosion",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Suspension: Floating of fine dust particles through the air is known as suspension. The particle is smaller than 0.1mm in diameter. The smaller particles are kicked into the air, they stay in suspension and carried very long distances even several thousands of kilometres. The dust comes down to earth only with rain or when wind velocity is decreased. 3 to 4% of weight of soil is lost by the wind erosion is carried in suspension."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following factors affect wind erosion?",
+      "options": {
+        "a": "All of these - B, C, and D",
+        "b": "Less bulk density of soil increases soil erosion",
+        "c": "Less is the organic matter in soil more will be the erosion",
+        "d": "Depletion and destruction of vegetation",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Factors Affecting Wind Erosion: The important factors that influence the wind erosion are climate, soil and vegetation. Climate- Climatic factor like temperature, rainfall and wind velocity influence wind erosion... Soil-Soil texture, structure, cohesiveness, bulk density, organic matter, moisture content and surface roughness these soil factor influence soil erosion... Vegetation- Depletion and destruction of vegetation or vegetative cover on land. The height, density of the vegetation affect erosion."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "What is the primary cause of accelerated soil erosion in agricultural lands?",
+      "options": {
+        "a": "Excessive use of fertilizers",
+        "b": "Overgrazing and deforestation",
+        "c": "Increased soil porosity",
+        "d": "High organic matter content",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Overgrazing and deforestation: Overgrazing removes protective vegetation, and deforestation exposes soil to wind and water erosion, making them primary causes of soil degradation."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "In which type of soil erosion do water droplets dislodge soil particles, making them more susceptible to further erosion?",
+      "options": {
+        "a": "Rill erosion",
+        "b": "Splash erosion",
+        "c": "Gully erosion",
+        "d": "Sheet erosion",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Splash erosion occurs when raindrops hit the soil surface with force, dislodging soil particles and leading to further erosion."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which of the following soil conservation techniques is most effective in controlling wind erosion?",
+      "options": {
+        "a": "Contour plowing",
+        "b": "Terracing",
+        "c": "Strip cropping",
+        "d": "Shelterbelts",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Shelterbelts (rows of trees or shrubs) reduce wind speed and protect soil from erosion, making them the most effective method against wind erosion."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Which land capability class is best suited for regular cultivation with minimal restrictions?",
+      "options": {
+        "a": "Class I",
+        "b": "Class III",
+        "c": "Class V",
+        "d": "Class VII",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Class I lands have no significant limitations for agriculture, making them the most suitable for sustained crop production with minimal soil conservation practices."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Land classified under Class VII is generally recommended for which type of land use?",
+      "options": {
+        "a": "Intensive farming",
+        "b": "Pasture, forestry, and wildlife conservation",
+        "c": "Urban development",
+        "d": "Horticulture and fruit cultivation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Class VII lands have severe limitations such as steep slopes, poor soil, or high erosion risk, making them unsuitable for cultivation but suitable for forestry, grazing, or wildlife conservation."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "Land Capability Classification (LCC) primarily evaluates land based on which of the following factors?",
+      "options": {
+        "a": "Market value of crops grown on the land",
+        "b": "Soil erosion susceptibility, drainage, and fertility",
+        "c": "Proximity to urban centers",
+        "d": "Availability of modern farming equipment",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "LCC categorizes land based on its physical and chemical properties, including erosion risk, drainage, slope, fertility, and climate to determine its suitability for agriculture."
+    },
+    {
+      "chapter": "Soil Science",
+      "topic": "Soil Erosion",
+      "question": "How many main land capability classes are there in the USDA Land Capability Classification system?",
+      "options": {
+        "a": "4",
+        "b": "6",
+        "c": "8",
+        "d": "10",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The USDA Land Capability Classification divides land into eight classes (I to VIII) based on its suitability for cultivation, ranging from Class I (best suited for crops) to Class VIII (unsuitable for agriculture)."
+    }
+  ]
+}

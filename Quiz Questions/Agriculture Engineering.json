@@ -1,0 +1,1181 @@
+{
+  "title": "AGRI Engineering Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following correctly describes the relationship between horsepower (HP) and kilowatts (kW)?",
+      "options": {
+        "a": "1 HP = 0.736 kW",
+        "b": "1 HP = 1.341 kW",
+        "c": "1 HP = 0.850 kW",
+        "d": "1 HP = 2.204 kW",
+        "e": "1 HP = 0.500 kW"
+      },
+      "correct_option": "a",
+      "explanation": "1 mechanical horsepower is equivalent to approximately 0.7355 kW.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "In a four-stroke diesel engine used in tractors, the power stroke occurs every:",
+      "options": {
+        "a": "90 degrees of crankshaft rotation",
+        "b": "180 degrees of crankshaft rotation",
+        "c": "360 degrees of crankshaft rotation",
+        "d": "540 degrees of crankshaft rotation",
+        "e": "720 degrees of crankshaft rotation"
+      },
+      "correct_option": "e",
+      "explanation": "In a four-stroke engine, a power stroke happens once every 720\u00b0 (two full revolutions) of crankshaft rotation.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which type of power source is most suitable for small and fragmented land holdings in hilly regions?",
+      "options": {
+        "a": "Four-wheel tractor",
+        "b": "Power tiller",
+        "c": "Combine harvester",
+        "d": "Diesel generator",
+        "e": "Electric motor"
+      },
+      "correct_option": "b",
+      "explanation": "Power tillers are compact, maneuverable, and cost-effective, making them ideal for small, terraced, or fragmented farms.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the main advantage of using a diesel engine over a petrol engine in farm machinery?",
+      "options": {
+        "a": "Higher RPM",
+        "b": "Lower initial cost",
+        "c": "Higher thermal efficiency",
+        "d": "Less weight",
+        "e": "Easier starting in cold weather"
+      },
+      "correct_option": "c",
+      "explanation": "Diesel engines are more fuel-efficient than petrol engines because they operate at higher compression ratios, converting more heat into useful work. This makes them ideal for farm machinery, which requires long hours of heavy-duty operation.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "In farm power budgeting, the term \"drawbar horsepower\" refers to",
+      "options": {
+        "a": "Power available at the crankshaft",
+        "b": "Power consumed by PTO-driven equipment",
+        "c": "Power available for pulling loads",
+        "d": "Power lost in transmission",
+        "e": "Maximum rated engine power"
+      },
+      "correct_option": "c",
+      "explanation": "Drawbar HP is the usable power at the tractor's drawbar, used for pulling implements or trailers.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which unit is used to measure torque in farm machinery applications?",
+      "options": {
+        "a": "Watt",
+        "b": "Newton",
+        "c": "Joule",
+        "d": "Newton-meter",
+        "e": "Kilogram-force"
+      },
+      "correct_option": "d",
+      "explanation": "Torque is a rotational force, measured in Newton-meters (Nm).[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The Brake Horsepower (BHP) of a tractor is measured at which part of the engine?",
+      "options": {
+        "a": "Flywheel",
+        "b": "Crankshaft",
+        "c": "Drawbar",
+        "d": "PTO shaft",
+        "e": "Axle"
+      },
+      "correct_option": "b",
+      "explanation": "Brake Horsepower (BHP) of a tractor is measured at the engines output shaft, which is the crankshaft.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The most efficient and clean source of stationary power for irrigation pumps is:",
+      "options": {
+        "a": "Petrol engine",
+        "b": "Diesel engine",
+        "c": "Electric motor",
+        "d": "Power tiller",
+        "e": "Solar pump"
+      },
+      "correct_option": "c",
+      "explanation": "Explanation: Electric motors are efficient, low maintenance, and pollution-free, making them ideal for stationary use like irrigation pumps.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is the correct sequence of power sources in terms of increasing efficiency?",
+      "options": {
+        "a": "Human < Animal < Mechanical < Electrical",
+        "b": "Animal < Human < Electrical < Mechanical",
+        "c": "Mechanical < Animal < Human < Electrical",
+        "d": "Human < Electrical < Animal < Mechanical",
+        "e": "Electrical < Mechanical < Animal < Human"
+      },
+      "correct_option": "a",
+      "explanation": "Efficiency improves from manual labor to animal, mechanical, and finally electrical power, which has the highest conversion efficiency.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "A tractor pulls a plow with a force of 2000 N and moves at a speed of 2 m/s. What is the power required to pull the plow?",
+      "options": {
+        "a": "4000 W",
+        "b": "500 W",
+        "c": "2000 W",
+        "d": "1000 W",
+        "e": "8000 W"
+      },
+      "correct_option": "a",
+      "explanation": "Power = Force \u00d7 Velocity = 2000 N \u00d7 2 m/s = 4000 W.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following factors affects the fuel consumption of a tractor?",
+      "options": {
+        "a": "Soil texture",
+        "b": "Engine design",
+        "c": "Speed of operation",
+        "d": "Implement size",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "All of these factors-soil, engine design, speed, and implement size-affect fuel consumption.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "A tractor pulls a plow with a force of 1500 N and moves at a speed of 1.5 m/s. What is the work done by the tractor in 10 seconds?",
+      "options": {
+        "a": "2250 J",
+        "b": "2000 J",
+        "c": "1500 J",
+        "d": "2500 J",
+        "e": "3000 J"
+      },
+      "correct_option": "a",
+      "explanation": "Work = Force \u00d7 Displacement. First, find displacement: Displacement = Speed \u00d7 Time = 1.5 m/s \u00d7 10 s = 15 meters. Now, Work = 1500 N \u00d7 15 m = 2250 J.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "A tractor pulls a plow with a drawbar pull of 1600 N and moves at a speed of 2.5 m/s. Calculate the drawbar horsepower (DBHP) of the tractor. (1 HP = 746 W)",
+      "options": {
+        "a": "3.4 HP",
+        "b": "5.4 HP",
+        "c": "4.3 HP",
+        "d": "2.5 HP",
+        "e": "3.8 HP"
+      },
+      "correct_option": "b",
+      "explanation": "Power (in Watts) = Force \u00d7 Speed = 1600 N \u00d7 2.5 m/s = 4000 W. Convert to HP: DBHP = 4000 W / 746 \u2248 5.36 HP.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is the main advantage of farm mechanization?",
+      "options": {
+        "a": "Increased labor costs",
+        "b": "Decreased productivity",
+        "c": "Reduced input costs",
+        "d": "Increased soil erosion",
+        "e": "Decreased efficiency"
+      },
+      "correct_option": "c",
+      "explanation": "Farm mechanization improves efficiency, reduces manual labor, and lowers input costs by optimizing operations such as planting, irrigation, and harvesting.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is the primary function of a tractor's differential?",
+      "options": {
+        "a": "To increase engine power",
+        "b": "To control the steering",
+        "c": "To allow wheels to rotate at different speeds",
+        "d": "To improve fuel efficiency",
+        "e": "To regulate exhaust gases"
+      },
+      "correct_option": "c",
+      "explanation": "The differential allows the left and right wheels of the tractor to rotate at different speeds, which is essential while turning.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The purpose of a tractor's PTO (Power Take-Off) is to",
+      "options": {
+        "a": "Transfer power to the tractor's engine",
+        "b": "Provide power to external implements",
+        "c": "Increase engine efficiency",
+        "d": "Control the steering system",
+        "e": "Manage the braking system"
+      },
+      "correct_option": "b",
+      "explanation": "The PTO allows the tractor to transfer power from its engine to external implements like mowers, plows, and generators.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the typical fuel used by most modern tractors?",
+      "options": {
+        "a": "Gasoline",
+        "b": "CNG (Compressed Natural Gas)",
+        "c": "Diesel",
+        "d": "Propane",
+        "e": "Ethanol"
+      },
+      "correct_option": "c",
+      "explanation": "Most modern tractors use diesel as fuel because it provides more torque and better fuel efficiency, especially for heavy-duty tasks.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is a common type of transmission used in tractors?",
+      "options": {
+        "a": "Automatic transmission",
+        "b": "Continuous variable transmission (CVT)",
+        "c": "Hydrostatic transmission",
+        "d": "Manual transmission only",
+        "e": "Dual-clutch transmission"
+      },
+      "correct_option": "c",
+      "explanation": "Hydrostatic transmission is commonly used in tractors because it provides smooth control of speed and direction, particularly in variable conditions.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the primary purpose of the radiator in a tractor?",
+      "options": {
+        "a": "To store fuel",
+        "b": "To charge the battery",
+        "c": "To cool the engine",
+        "d": "To filter the exhaust gases",
+        "e": "To lubricate the engine"
+      },
+      "correct_option": "c",
+      "explanation": "The radiator helps maintain the engine's operating temperature by circulating coolant to absorb excess heat.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The main advantage of a 4-wheel drive (4WD) tractor over a 2-wheel drive (2WD) tractor is:",
+      "options": {
+        "a": "Higher fuel efficiency",
+        "b": "Better traction on rough terrain",
+        "c": "Lower cost",
+        "d": "Less maintenance",
+        "e": "Higher speed"
+      },
+      "correct_option": "b",
+      "explanation": "A 4WD tractor provides better traction and stability on rough or uneven ground, which is especially useful in fields with challenging conditions.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the function of a tractor's clutch?",
+      "options": {
+        "a": "To start the engine",
+        "b": "To regulate the exhaust system",
+        "c": "To engage or disengage the power between the engine and the wheels",
+        "d": "To increase fuel efficiency",
+        "e": "To lubricate the gearbox"
+      },
+      "correct_option": "c",
+      "explanation": "The clutch is used to temporarily disconnect the engine from the wheels, allowing the operator to change gears or stop without stalling the engine.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is a typical feature of a tractor's braking system?",
+      "options": {
+        "a": "Hydraulic brakes",
+        "b": "Pneumatic brakes",
+        "c": "Drum brakes",
+        "d": "Disc brakes",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Tractors may use a combination of hydraulic, pneumatic, drum, or disc brakes depending on the model and purpose of the vehicle.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is used to control the speed of a tractor?",
+      "options": {
+        "a": "Clutch",
+        "b": "Gearbox",
+        "c": "PTO",
+        "d": "Fuel pump",
+        "e": "Exhaust valve"
+      },
+      "correct_option": "b",
+      "explanation": "The gearbox allows the operator to control the speed by shifting between different gears.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which implement is commonly used for sowing seeds in rows at uniform depth and spacing?",
+      "options": {
+        "a": "Plow",
+        "b": "Harrow",
+        "c": "Cultivator",
+        "d": "Seed drill",
+        "e": "Leveler"
+      },
+      "correct_option": "d",
+      "explanation": "A seed drill sows the seeds at a uniform depth and spacing, improving germination and crop yield.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The use of seed cum fertilizer drill allows",
+      "options": {
+        "a": "Plowing and irrigation simultaneously",
+        "b": "Sowing and harvesting together",
+        "c": "Application of fertilizer only",
+        "d": "Simultaneous sowing and fertilizer application",
+        "e": "Removing weeds mechanically"
+      },
+      "correct_option": "d",
+      "explanation": "A seed cum fertilizer drill places seed and fertilizer in one operation, saving time and improving efficiency.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Knapsack sprayers are commonly used for",
+      "options": {
+        "a": "Fertilizer application",
+        "b": "Sowing",
+        "c": "Water lifting",
+        "d": "Applying pesticides manually",
+        "e": "Weeding"
+      },
+      "correct_option": "d",
+      "explanation": "Knapsack sprayers are portable and used for manual pesticide application in small fields or garden crops.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following types of threshers provides the highest threshing efficiency for paddy with minimal grain damage?",
+      "options": {
+        "a": "Hammer mill type thresher",
+        "b": "Axial flow thresher",
+        "c": "Rasp bar cylinder thresher",
+        "d": "Peg tooth cylinder thresher",
+        "e": "Syndicator type thresher"
+      },
+      "correct_option": "b",
+      "explanation": "Axial flow threshers are specially designed for paddy and similar crops, offering high output, low grain damage, and efficient separation.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the main cause of excessive grain breakage during mechanical threshing?",
+      "options": {
+        "a": "Low cylinder speed",
+        "b": "Low moisture content of grain",
+        "c": "Use of sieve instead of concave",
+        "d": "High feed rate",
+        "e": "Improper winnowing"
+      },
+      "correct_option": "b",
+      "explanation": "Very dry grains (moisture content below safe threshold) become brittle and are more prone to breakage during threshing operations.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The optimum grain moisture content for threshing of wheat using a mechanical thresher is",
+      "options": {
+        "a": "8-10%",
+        "b": "10-12%",
+        "c": "13-15%",
+        "d": "16-18%",
+        "e": "20-20%"
+      },
+      "correct_option": "c",
+      "explanation": "For efficient threshing with minimal grain loss and damage, wheat is best threshed at a moisture content of 13-15%.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which parameter is used to evaluate the effectiveness of a thresher?",
+      "options": {
+        "a": "Grain size",
+        "b": "Grain color",
+        "c": "Cleaning efficiency",
+        "d": "Cylinder diameter",
+        "e": "Number of workers"
+      },
+      "correct_option": "c",
+      "explanation": "Cleaning efficiency is one of the key performance indicators of threshers-it refers to how well the machine separates grain from other materials (chaff, straw, etc.).[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "If a thresher has a cylinder speed set too high, what is the likely result?",
+      "options": {
+        "a": "Under-threshing of grain",
+        "b": "Reduced cleaning efficiency",
+        "c": "High fuel consumption with no impact",
+        "d": "Excessive grain breakage and seed coat damage",
+        "e": "Increase in straw length"
+      },
+      "correct_option": "d",
+      "explanation": "Too high cylinder speed leads to aggressive impact, damaging grains and reducing seed viability.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the primary objective of intercultural operations in crop production?",
+      "options": {
+        "a": "Harvesting the crop",
+        "b": "Reducing post-harvest losses",
+        "c": "Removing weeds and aerating soil",
+        "d": "Increasing seed depth",
+        "e": "Controlling pests through spraying"
+      },
+      "correct_option": "c",
+      "explanation": "Intercultural operations like weeding and hoeing are performed between rows of crops to remove weeds, loosen soil, and enhance aeration.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following tools is most suitable for weeding in closely spaced row crops like groundnut or soybean?",
+      "options": {
+        "a": "Animal-drawn plow",
+        "b": "Disc harrow",
+        "c": "Wheel hoe",
+        "d": "Tractor-mounted rotavator",
+        "e": "Seed drill"
+      },
+      "correct_option": "c",
+      "explanation": "A wheel hoe is a manually operated tool ideal for weeding between rows in row crops like soybean, groundnut, etc.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the typical recommended time for first weeding in most cereal crops?",
+      "options": {
+        "a": "Immediately after sowing",
+        "b": "3-5 days after sowing",
+        "c": "15-20 days after sowing",
+        "d": "45-60 days after sowing",
+        "e": "Just before harvesting"
+      },
+      "correct_option": "c",
+      "explanation": "The first weeding is ideally done 15-20 DAS when weed competition becomes significant in young crops.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following intercultural implements is most effective for mechanical weeding in wetland paddy fields?",
+      "options": {
+        "a": "Rotavator",
+        "b": "Finger-type weeders",
+        "c": "Power tiller",
+        "d": "Disc plow",
+        "e": "Shovel hoe"
+      },
+      "correct_option": "b",
+      "explanation": "In wetland paddy, finger weeders are effective for manually operated mechanical weeding between rows.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which weeding tool is most suitable for wetland paddy fields?",
+      "options": {
+        "a": "Cono weeder",
+        "b": "Khurpi",
+        "c": "Wheel hoe",
+        "d": "Blade hoe",
+        "e": "Rotary tiller"
+      },
+      "correct_option": "a",
+      "explanation": "Cono weeders are specially designed for mechanical weeding in wetland rice fields.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The wheel hoe is best suited for which type of crops?",
+      "options": {
+        "a": "Sugarcane",
+        "b": "Broadcast wheat",
+        "c": "Maize under zero tillage",
+        "d": "Paddy",
+        "e": "Row crops like groundnut and soybean"
+      },
+      "correct_option": "e",
+      "explanation": "Wheel hoe works effectively between rows for shallow-rooted weed removal.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is a power-operated machine used for weeding on large farms?",
+      "options": {
+        "a": "Finger weeder",
+        "b": "Khurpi",
+        "c": "Hand hoe",
+        "d": "Power weeder",
+        "e": "Tine harrow"
+      },
+      "correct_option": "d",
+      "explanation": "Power weeders are engine-driven, used in commercial farming for crops with wide row spacing.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "In SRI (System of Rice Intensification), which tool is used for mechanical weeding?",
+      "options": {
+        "a": "Harrow",
+        "b": "Rotary hoe",
+        "c": "Cono weeder",
+        "d": "Power tiller",
+        "e": "Cultivator"
+      },
+      "correct_option": "c",
+      "explanation": "Cono weeder is ideal for weeding between rows in SRI, improving soil aeration and weed control.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following weeding tools is bullock-drawn and used in medium-sized farms?",
+      "options": {
+        "a": "Blade hoe",
+        "b": "Wheel hoe",
+        "c": "Khurpi",
+        "d": "Rotary tiller",
+        "e": "Laser leveler"
+      },
+      "correct_option": "a",
+      "explanation": "The blade hoe, drawn by animals, is used for inter-row weeding in crops like pulses, maize.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following irrigation systems is most water-efficient?",
+      "options": {
+        "a": "Border irrigation",
+        "b": "Furrow irrigation",
+        "c": "Sprinkler irrigation",
+        "d": "Drip irrigation",
+        "e": "Basin irrigation"
+      },
+      "correct_option": "d",
+      "explanation": "Drip irrigation supplies water directly at the root zone, reducing losses due to evaporation or runoff.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The equipment used to lift water using the energy of falling water without any electricity is",
+      "options": {
+        "a": "Centrifugal pump",
+        "b": "Hydraulic ram",
+        "c": "Submersible pump",
+        "d": "Jet pump",
+        "e": "Diaphragm pump"
+      },
+      "correct_option": "b",
+      "explanation": "A hydraulic ram uses the kinetic energy of water flow to lift a portion of that water to a higher elevation.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The efficiency of drip irrigation is generally in the range of:",
+      "options": {
+        "a": "20-30%",
+        "b": "40-50%",
+        "c": "60-70%",
+        "d": "80-90%",
+        "e": "90-95%"
+      },
+      "correct_option": "e",
+      "explanation": "Drip irrigation offers the highest application efficiency among irrigation systems, often exceeding 90% in ideal conditions.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which type of pump is most suitable for lifting water from deep tube wells exceeding 30 meters?",
+      "options": {
+        "a": "Centrifugal pump",
+        "b": "Submersible pump",
+        "c": "Reciprocating pump",
+        "d": "Hydraulic ram",
+        "e": "Jet pump"
+      },
+      "correct_option": "b",
+      "explanation": "Submersible pumps are placed below the water level in deep tube wells and are ideal for high head and deep well irrigation.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the main function of a foot valve in a centrifugal pump?",
+      "options": {
+        "a": "Increase pressure",
+        "b": "Remove impurities",
+        "c": "Prevent backflow of water",
+        "d": "Filter water",
+        "e": "Equalize pressure"
+      },
+      "correct_option": "c",
+      "explanation": "The foot valve is a non-return valve installed at the suction side of a pump to retain priming by stopping water from draining back.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "In sprinkler irrigation systems, pressure loss is primarily caused by",
+      "options": {
+        "a": "Valve friction",
+        "b": "Wind speed",
+        "c": "Pipe diameter variation",
+        "d": "Friction in pipes and fittings",
+        "e": "Sprinkler height"
+      },
+      "correct_option": "d",
+      "explanation": "Frictional losses in pipes, joints, and elbows are a major cause of pressure drop in sprinkler systems.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which material is most commonly used for portable irrigation pipelines due to its lightweight and corrosion resistance?",
+      "options": {
+        "a": "Cast iron",
+        "b": "Asbestos cement",
+        "c": "Galvanized steel",
+        "d": "HDPE",
+        "e": "Brass"
+      },
+      "correct_option": "d",
+      "explanation": "High-Density Polyethylene (HDPE) is favored for portable pipelines because it's flexible, durable, and resistant to corrosion.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the purpose of a sand filter in a drip irrigation system?",
+      "options": {
+        "a": "Reduce pressure",
+        "b": "Filter suspended particles",
+        "c": "Add nutrients",
+        "d": "Control flow rate",
+        "e": "Prevent leaks"
+      },
+      "correct_option": "b",
+      "explanation": "Sand filters are used in drip irrigation systems to remove suspended solids, preventing emitter clogging.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which type of pump is most suitable for low discharge and high head requirements?",
+      "options": {
+        "a": "Axial flow pump",
+        "b": "Centrifugal pump",
+        "c": "Jet pump",
+        "d": "Reciprocating pump",
+        "e": "Mixed flow pump"
+      },
+      "correct_option": "d",
+      "explanation": "Reciprocating pumps are positive displacement pumps, ideal for high head, low flow applications like micro-irrigation or chemical injection.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the function of a tracer blade in a seed drill?",
+      "options": {
+        "a": "To cut weeds during sowing",
+        "b": "To cover seeds with soil",
+        "c": "To maintain equal spacing between sowing rows",
+        "d": "To press the soil after seed placement",
+        "e": "To supply fertilizer during sowing"
+      },
+      "correct_option": "c",
+      "explanation": "A tracer blade creates a reference line for the next pass, helping maintain uniform row spacing in line sowing.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the primary use of an excavator in agricultural engineering?",
+      "options": {
+        "a": "Harvesting crops",
+        "b": "Spraying pesticides",
+        "c": "Earthmoving for land shaping or irrigation",
+        "d": "Sowing seeds",
+        "e": "Threshing grains"
+      },
+      "correct_option": "c",
+      "explanation": "Excavators are used for digging, leveling, and construction of water management structures like canals, ponds, and bunds.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the primary function of a hydraulic scraper in agricultural engineering?",
+      "options": {
+        "a": "Harvesting crops",
+        "b": "Spraying fertilizers",
+        "c": "Scraping and leveling soil",
+        "d": "Weeding between rows",
+        "e": "Seedbed preparation"
+      },
+      "correct_option": "c",
+      "explanation": "Hydraulic scrapers are specifically used for earthwork and land leveling in large fields.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which mechanism is used in a hydraulic scraper to raise or lower the bowl?",
+      "options": {
+        "a": "Mechanical lever",
+        "b": "Pneumatic piston",
+        "c": "Hydraulic cylinder",
+        "d": "Cable system",
+        "e": "Chain and pulley"
+      },
+      "correct_option": "c",
+      "explanation": "As the name suggests, hydraulic power is used for lifting and operating various parts of the scraper.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the main benefit of using a laser-guided land leveler in agriculture?",
+      "options": {
+        "a": "Increased seed depth",
+        "b": "Uniform seed spacing",
+        "c": "Accurate and uniform land leveling",
+        "d": "Decreased seed rate",
+        "e": "Enhanced threshing capacity"
+      },
+      "correct_option": "c",
+      "explanation": "The laser system helps maintain a precise reference level, ensuring uniform soil elevation across the field.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The component that emits a reference beam in a laser land leveling system is called",
+      "options": {
+        "a": "Laser receiver",
+        "b": "Laser controller",
+        "c": "Laser transmitter",
+        "d": "Gyroscope",
+        "e": "Leveling mast"
+      },
+      "correct_option": "c",
+      "explanation": "The laser transmitter emits a rotating horizontal laser beam which the receiver detects to guide blade movement.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is not a component of a laser land leveling system?",
+      "options": {
+        "a": "Laser transmitter",
+        "b": "Leveling blade",
+        "c": "Pneumatic jack",
+        "d": "Hydraulic control system",
+        "e": "Laser receiver"
+      },
+      "correct_option": "c",
+      "explanation": "Laser levelers use hydraulic systems, not pneumatic (air-based) systems, for blade control.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "___ consists of breaking the compact surface of earth to a certain depth and to loosen the soil mass so as to enable the roots of the crops to penetrate and spread into the soil.",
+      "options": {
+        "a": "Soil levelling",
+        "b": "Soil tillage",
+        "c": "Subsurface soiling",
+        "d": "Soil scrapping",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Soil tillage refers to the mechanical manipulation of soil using tools or implements to achieve favorable soil conditions for seed germination, root growth, and crop development. It involves operations such as cutting, lifting, turning, and breaking of soil to improve its physical structure, aeration, moisture retention, and to facilitate nutrient availability.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is conventional or clean tillage in agriculture?",
+      "options": {
+        "a": "Tillage that avoids any soil disturbance",
+        "b": "Minimal tillage used to conserve moisture",
+        "c": "Tillage involving ploughing the entire field multiple times to prepare the seedbed",
+        "d": "Tillage done only in the root zone",
+        "e": "No tillage before sowing"
+      },
+      "correct_option": "c",
+      "explanation": "Conventional or clean tillage refers to a traditional method where the entire soil surface is repeatedly ploughed and harrowed, leaving no crop residue. This helps in proper seedbed preparation but may lead to soil erosion and moisture loss.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is meant by conservation tillage in agriculture?",
+      "options": {
+        "a": "Tillage that uses ploughs made from recycled materials",
+        "b": "Ploughing the entire field repeatedly for uniform soil mixing",
+        "c": "Sowing seeds without any soil preparation",
+        "d": "Ploughing the field with fewer passes or only in specific areas to minimize soil disturbance",
+        "e": "Tillage that is only done during the monsoon season"
+      },
+      "correct_option": "d",
+      "explanation": "Conservation tillage involves reduced soil disturbance, either by minimizing the number of tillages passes or by disturbing only specific parts of the land (e.g., row zones), helping in moisture conservation, reduction of erosion, and retention of crop residues.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the primary objective of minimum tillage in agriculture?",
+      "options": {
+        "a": "To completely eliminate weeds",
+        "b": "To increase the number of tillage operations",
+        "c": "To reduce soil disturbance while preparing a suitable seedbed",
+        "d": "To remove crop residues",
+        "e": "To ensure deep ploughing every season"
+      },
+      "correct_option": "c",
+      "explanation": "Minimum tillage aims to perform only essential operations needed to establish the crop, thereby conserving soil structure, reducing erosion, and lowering costs.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Tillage operations that use the rotary action of tools to cut, break, and mix the soil are called",
+      "options": {
+        "a": "Primary tillage",
+        "b": "Secondary tillage",
+        "c": "Minimum tillage",
+        "d": "Rotary tillage",
+        "e": "Zero tillage"
+      },
+      "correct_option": "d",
+      "explanation": "Rotary tillage uses tools like rotavators or rotary ploughs that rotate to cut, pulverize, and mix the soil. It is efficient for quick seedbed preparation and is commonly used in both dry and wet land farming.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which type of tillage involves deep opening and loosening of the soil to create desirable tilth and remove weeds and stubble before sowing?",
+      "options": {
+        "a": "Intercultural tillage",
+        "b": "Conservation tillage",
+        "c": "Preparatory tillage",
+        "d": "Zero tillage",
+        "e": "Blind tillage"
+      },
+      "correct_option": "c",
+      "explanation": "Preparatory tillage is carried out before sowing to loosen soil, improve tilth, and incorporate or remove crop residues and weeds. It includes both primary and secondary tillage and is done when the soil is workable.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "The initial major operation designed to plough the soil deeply to reduce soil strength, cover plant materials and rearrange aggregates is called",
+      "options": {
+        "a": "Conservation tillage",
+        "b": "Conventional tillage",
+        "c": "After cultivation",
+        "d": "Primary tillage",
+        "e": "Secondary tillage"
+      },
+      "correct_option": "d",
+      "explanation": "Primary tillage involves operations that loosely break up the soil at a greater depth. Ploughing is the main operation in primary tillage, where the soil is turned, loosened, and broken up. Other operations like harrowing and cultivating are part of secondary tillage.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is a part of primary tillage?",
+      "options": {
+        "a": "Harrowing",
+        "b": "Ploughing",
+        "c": "Cultivating",
+        "d": "Weeding",
+        "e": "Levelling"
+      },
+      "correct_option": "b",
+      "explanation": "Primary tillage involves operations that loosely break up the soil at a greater depth. Ploughing is the main operation in primary tillage, where the soil is turned, loosened, and broken up. Other operations like harrowing and cultivating are part of secondary tillage.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following operation comes under primary tillage?",
+      "options": {
+        "a": "Sub soiling",
+        "b": "Harrowing",
+        "c": "Cultivation",
+        "d": "Zero tillage",
+        "e": "All of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Primary Tillage: Deep Tillage, Sub Soiling, Year-Round Tillage. Harrowing and cultivation comes under secondary cultivation[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the main purpose of the earthing up operation in crop cultivation?",
+      "options": {
+        "a": "To control soil erosion",
+        "b": "To form ridges around the base of the plant for support",
+        "c": "To harvest the crop",
+        "d": "To apply fertilizers to the soil",
+        "e": "To remove weeds from the field"
+      },
+      "correct_option": "b",
+      "explanation": "Earthing up is a mechanical intercultural operation where soil is drawn up around the base of crop plants. Its primary objectives are: Support the plant to prevent lodging (falling over), Promote better root development, especially for crops like potato, sugarcane, and maize, Improve moisture retention around the root zone, Suppress weeds near the base of the plant, Facilitate formation of tubers or stolons (in crops like potatoes)[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following equipment is primarily used for earthing up crops like potatoes and sugarcane?",
+      "options": {
+        "a": "Harrow",
+        "b": "Cultivator",
+        "c": "Country plough",
+        "d": "Rotary hoe",
+        "e": "Ridger"
+      },
+      "correct_option": "e",
+      "explanation": "A ridger (Ridge plough) is specifically designed to form ridges around crops like potatoes and sugarcane, making it ideal for earthing up operations. Earthing up is used to heap soil around the plant base with implements like a country plough or ridge plough, which helps in supporting the plant and promoting better growth by improving soil structure.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "which of the following accurately describes the comprehensive objectives of primary tillage in agriculture?",
+      "options": {
+        "a": "Primary tillage focuses solely on breaking down surface soil aggregates while leaving deeper soil layers intact for future tillage operations.",
+        "b": "It aims to loosen compacted soil to enhance water infiltration, improve aeration, expose and control pest populations, bury weeds, and prepare the soil structure for secondary tillage.",
+        "c": "Primary tillage is a comprehensive operation that focuses on deep soil loosening to break compacted layers and create conditions for root growth and water movement. It also aids in aerating the soil, burying crop residues and weeds, and exposing pests to environmental factors, which helps in pest control. Contrary to the other options, primary tillage does not aim to increase soil compaction or shallowly till the soil, and herbicide application is not its primary function.",
+        "d": "The primary goal of primary tillage is to increase soil compaction, making it less prone to erosion, while also reducing the presence of beneficial microorganisms.",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Primary tillage is a comprehensive operation that focuses on deep soil loosening to break compacted layers and create conditions for root growth and water movement. It also aids in aerating the soil, burying crop residues and weeds, and exposing pests to environmental factors, which helps in pest control. Contrary to the other options, primary tillage does not aim to increase soil compaction or shallowly till the soil, and herbicide application is not its primary function.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "A deep tillage of ___ depth is necessary for deep rooted crop like pigeon pea while moderate deep tillage of 15-20 cm is required for maize.",
+      "options": {
+        "a": "5-10 cm",
+        "b": "15-20 cm",
+        "c": "25-30 cm",
+        "d": "35-40 cm",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "For deep-rooted crops, such as pigeon pea or sugarcane, a tillage depth of 25-30 cm is generally recommended. This depth allows the roots to penetrate deeper into the soil for better water and nutrient access.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is the main objective of deep tillage in agricultural practices?",
+      "options": {
+        "a": "To loosen compacted soil layers and improve root penetration for deep-rooted crops.",
+        "b": "To prevent surface erosion by leaving soil undisturbed at the surface.",
+        "c": "To increase soil compaction and reduce root growth for shallow-rooted crops.",
+        "d": "To prepare the seedbed by only working at the soil surface without affecting the deeper soil layers.",
+        "e": "To control weed growth by disturbing only the upper soil lavers and not affecting deener"
+      },
+      "correct_option": "a",
+      "explanation": "The primary objective of deep tillage is to loosen compacted soil layers to allow deep-rooted crops, such as pigeon pea, sugarcane, and maize, to penetrate the soil more easily. This process improves soil aeration, water infiltration, and nutrient availability, promoting healthy crop growth.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is not a primary function performed by a mouldboard plough?",
+      "options": {
+        "a": "Cutting the furrow slice",
+        "b": "Lifting the furrow slice",
+        "c": "Inverting the furrow slice",
+        "d": "Pulverizing the furrow slice",
+        "e": "Leveling the soil surface"
+      },
+      "correct_option": "e",
+      "explanation": "While a mouldboard plough cuts, lifts, inverts, and pulverizes soil, leveling is not its primary function. Leveling is usually done using tools like land levelers or harrows after ploughing.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following are used as primary tillage equipment?",
+      "options": {
+        "a": "Disc harrow, Cultivator, Laser land leveler",
+        "b": "Mouldboard plough, Sub-soil plough, Rotary tiller",
+        "c": "Sprayer, Seed drill, Reaper",
+        "d": "Bund former, Cage wheel, Water pump",
+        "e": "Spike tooth harrow, Puddler, Marker"
+      },
+      "correct_option": "b",
+      "explanation": "Equipment's used for primary tillage - Indigenous Plough, Mould board plough, Disc plough, Reversible disc plough, Rotary tiller, Chisel plough, Sub-Soil Plough[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following statements best describes the function of a disc plough in primary tillage?",
+      "options": {
+        "a": "It levels the soil surface for precision planting.",
+        "b": "It is primarily used for shallow cultivation and seedbed preparation.",
+        "c": "It cuts, lifts, and inverts the soil using curved steel discs, making it effective in hard, dry, and trashy soils.",
+        "d": "It pulverizes soil into a fine tilth for transplanting.",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The disc plough is a primary tillage implement equipped with concave discs that rotate and penetrate the soil. It's especially useful in: Hard, dry, stony, or root-infested soils, Soils with heavy crop residue (trash), Areas where a mouldboard plough would clog[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Why is the Reversible Disc Plough particularly suited for contour ploughing in hilly or undulating terrains?",
+      "options": {
+        "a": "It pulverizes soil more finely than any other plough.",
+        "b": "It requires less horsepower due to lightweight construction.",
+        "c": "It allows ploughing in one direction only, reducing soil erosion.",
+        "d": "It enables ploughing both ways along contour lines, reducing idle runs and conserving soil.",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "The Reversible Disc Plough is ideal for contour ploughing because it can work in both directions without needing to turn the implement around. This minimizes non-working travel, saves time, and helps maintain the integrity of contour lines, which is essential for erosion control and water conservation on slopes.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Why is the rotary cultivator considered one of the most effective tillage tools in modern agriculture?",
+      "options": {
+        "a": "It only levels the soil and removes water stagnation.",
+        "b": "It reduces fuel consumption by eliminating the need for soil inversion.",
+        "c": "It provides fine pulverization and efficient mixing of soil, while also offering forward thrust that reduces traction demand on tractor wheels.",
+        "d": "It is limited to shallow tillage and cannot mix residues or organic matter into the soil.",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The rotary cultivator (or rotavator) is a secondary tillage implement that uses rotating blades to pulverize soil finely, mix it thoroughly, and incorporate residues. One unique advantage is that its rotating blades generate forward thrust, which assists tractor movement, thereby reducing the load on the driving wheels. This makes it ideal for seedbed preparation with fewer passes and greater efficiency.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the primary purpose of using a chisel plough in agricultural fields?",
+      "options": {
+        "a": "To finely pulverize the topsoil for seedbed preparation",
+        "b": "To invert the furrow slice for weed control",
+        "c": "To break and shatter hardpan or compacted subsoil layers without turning the soil",
+        "d": "To level and smooth the surface for irrigation",
+        "e": "To cut crop residues and incorporate them into the topsoil"
+      },
+      "correct_option": "c",
+      "explanation": "A Chisel Plough is a primary tillage implement designed for deep tillage without soil inversion. It is especially effective in breaking up hardpan layers or compacted zones (often caused by repeated shallow tillage or machinery traffic), thereby improving root penetration, water infiltration, and aeration. Unlike mouldboard or disc ploughs, it leaves crop residues on the surface, promoting conservation tillage.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What is the main function of a sub-soil plough in tillage operations?",
+      "options": {
+        "a": "To invert soil for seedbed preparation",
+        "b": "To cultivate shallow surface weeds",
+        "c": "To break hardpan below the root zone without disturbing the topsoil",
+        "d": "To mix fertilizers evenly in the topsoil",
+        "e": "To prepare raised beds for horticultural crops"
+      },
+      "correct_option": "c",
+      "explanation": "A Sub-Soil Plough is a deep tillage implement used to fracture hardpan or compacted soil layers located below the normal plough depth (usually 30-60 cm). This helps improve root penetration, drainage, and aeration, particularly in soils prone to compaction due to repeated machinery use. It operates without turning over or disturbing the upper soil layer, making it ideal for conservation tillage.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "What are the lighter and tiner tillage operations carried mainly to create suitable soil tilth and surface conditions for seeding called?",
+      "options": {
+        "a": "Zero tillage operations",
+        "b": "Primary tillage operations",
+        "c": "Conservation tillage",
+        "d": "Secondary tillage operations",
+        "e": "Intercultural operations"
+      },
+      "correct_option": "d",
+      "explanation": "Secondary tillage refers to lighter soil working done after primary tillage to break soil clods, level the land, remove weeds, and prepare a fine seedbed. Common tools include harrows, cultivators, and rollers.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following implements are used in secondary tillage operations?",
+      "options": {
+        "a": "Sub soiler",
+        "b": "Harrow",
+        "c": "Cultivator",
+        "d": "Planter",
+        "e": "Ridger"
+      },
+      "correct_option": "b",
+      "explanation": "The implements used for secondary tillage operations are called secondary tillage implements. They include different types of harrows, cultivators, sweeps, clod crushers, leveler's, bund formers, ridge ploughs etc.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "___ is a secondary tillage implement that cuts the soil to a shallow depth for smoothening and pulverizing the soil as well as to cut the weeds and to mix the materials with the soil.",
+      "options": {
+        "a": "Sub soiler",
+        "b": "Harrow",
+        "c": "Cultivator",
+        "d": "Planter",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Harrow is a secondary tillage implement that cuts the soil to a shallow depth for smoothening and pulverizing the soil as well as to cut the weeds and to mix the materials with the soil. There are several types of harrows used in India such as disc harrow, spike tooth harrow, spring tooth harrow, acme harrow, patela, triangular harrow, bade harrow, guntaka and reciprocating power harrow.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "___ is an implement for inter cultivation with laterally adjustable tines or discs to work between crop rows.",
+      "options": {
+        "a": "Sub soiler",
+        "b": "Harrow",
+        "c": "Ridger",
+        "d": "Planter",
+        "e": "Cultivator"
+      },
+      "correct_option": "e",
+      "explanation": "A cultivator is a secondary tillage implement used to stir, loosen, and aerate the soil after primary tillage. It is primarily designed for weed control, breaking soil crust, and enhancing soil conditions for crop growth. The frame is the central structure that supports all other parts and is typically made of strong steel. Attached to the frame are tines or shanks, which are the parts that dig into and stir the soil; these can be rigid or spring-loaded depending on the design.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following is not a typical function of a cultivator in agricultural operations?",
+      "options": {
+        "a": "Destroying weeds between crop rows",
+        "b": "Aerating the soil to promote root growth",
+        "c": "Inverting soil for primary seedbed preparation",
+        "d": "Conserving soil moisture by creating surface mulch",
+        "e": "Sowing seeds when attachments are provided"
+      },
+      "correct_option": "c",
+      "explanation": "A cultivator is a secondary tillage tool primarily used for intercultural operations such as: Weed control, Soil aeration, Moisture conservation, Assisting in seed sowing (with attachments)[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following implements is most commonly used in rice fields for puddling operations before transplanting?",
+      "options": {
+        "a": "Disc Harrow",
+        "b": "Mouldboard Plough",
+        "c": "Puddler",
+        "d": "Sub-Soiler",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A puddler is a specialized implement used in wetland rice cultivation to mix soil and water, creating a muddy layer that reduces water percolation and facilitates transplanting of paddy seedlings. It is not typically used in dryland conditions, unlike disc harrows or ploughs.[cite: 23]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "AGRI Engineering",
+      "question": "Which of the following best describes the operational principle of a Zero-Till Drill-cum-Bed Planter in relation to soil disturbance and seed placement?",
+      "options": {
+        "a": "It disturbs the soil completely to incorporate crop residues and improve tilth before seeding",
+        "b": "It eliminates the need for irrigation by creating moisture-conserving ridges",
+        "c": "It minimizes soil disturbance while placing seed and fertilizer simultaneously in a defined bed-row pattern",
+        "d": "It performs puddling and transplanting simultaneously in rice fields",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Zero-till drill-cum-bed planter is a prototype which has been developed by combing a zero-till seed-cum-fertilizer drill with a bed planter. Efforts have been made to incorporate the functions of these two separate machines in one combined unit.[cite: 23]"
+    }
+  ]
+}

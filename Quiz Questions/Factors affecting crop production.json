@@ -1,0 +1,173 @@
+{
+  "title": "Factors Affecting Crop Production Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "Edaphic factor which impacts the crop production are related to which of the following?",
+      "options": {
+        "a": "Water",
+        "b": "Pest & disease",
+        "c": "Soil",
+        "d": "Genetic factor",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Edaphic factors are those factors which are related to the soil like soil ph, soil temperature, soil microorganism, soil organic matter, soil aeration, soil moisture.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "Physiographic factor are those factors which are related to the",
+      "options": {
+        "a": "Physiological function",
+        "b": "Altitude and Topography of a region",
+        "c": "Internal features of the plants",
+        "d": "None of the above",
+        "e": "All of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Physiographic factors are those associated with the physical nature of the area. The main physiographic factors we will look at are slopes, aspect and altitude. Slope: is the gradient or steepness of a particular surface of the earth. The slope affects the rate of water run-off.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "Soil moisture is essential for the growth of the plants because",
+      "options": {
+        "a": "Increase the availability of the nutrient",
+        "b": "Decreases the mineralisation in the soil.",
+        "c": "Reduces the chemical & biological activity in the soil",
+        "d": "None of the above",
+        "e": "All of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Water is a principal constituent of growing plant which it extracts from soil. Water is essential for photosynthesis. Soil water helps in chemical and biological activities of soil including mineralization. It influences the soil environment e.g. It moderates the soil temperature from extremes. Nutrient availability and mobility increase with increase in soil moisture content.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "Which type of soil has very high concentration of calcium carbonate & phosphate?",
+      "options": {
+        "a": "Clayey soil",
+        "b": "Alluvial soil",
+        "c": "Sandy soil/desert soil",
+        "d": "Loamy soil",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Desert soil is mostly sandy soil (90-95%) found in low-rainfall regions. It has a low content of nitrogen and organic matter with very high calcium carbonate & phosphate, thus making it infertile. The amount of calcium is 10 times higher in the lower layer than in the topsoil.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "Soil aeration is an essential feature of the soil which impact the",
+      "options": {
+        "a": "Germination of seed",
+        "b": "Microbial activity",
+        "c": "Root growth",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Aeration of soil is absolutely essential for the absorption of water by roots. Germination is inhibited in the absence of oxygen. O2 is required for respiration of roots and microorganisms. Soil air is essential for nutrient availability of the soil by breaking down insoluble mineral to soluble salts. For proper decomposition of organic matter. Potato, tobacco, cotton linseed, tea and legumes need higher o2 in soil air. Rice requires low level of o2 and can tolerate water logged (absence of o2) condition.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "What is the role of organic matter in the soil?",
+      "options": {
+        "a": "It increases the immobilization of nutrients",
+        "b": "It increases the water holding capacity of the soil",
+        "c": "Organic matter reduces the microbial count in the soil",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Soil organic matter. It supplies all the major, minor and micro nutrients to crops, it improves the texture of the soil, it increases the water holding capacity of the soil, it is a source of food for most microorganisms, organic acids released during decomposition of organic matter enables mineralisation process thus releasing unavailable plant nutrients.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "Which one of the following bacteria found in symbiotic association of most of the legume plants & help them in nitrogen fixation?",
+      "options": {
+        "a": "Azospirillum",
+        "b": "Blue green algae",
+        "c": "Rhizobium",
+        "d": "Azolla anabaena",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Rhizobium is the bacteria found in soil that helps in fixing nitrogen in leguminous plants. It attaches to the roots of the leguminous plant and produces nodules. These nodules fix atmospheric nitrogen and convert it into ammonia that can be used by the plant for its growth and development.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "Identify the most suitable pH range at which most of the minerals are available to the plants",
+      "options": {
+        "a": "From 6 to 7.5 (neutral or close to neutral)",
+        "b": "Below 7 pH",
+        "c": "Above 7pH",
+        "d": "Ph does not impact the availability of minerals",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Generally, soil ph 6.0-7.5 is acceptable for most plants as most nutrients become available in this ph range. Soil ph is important because it affects the availability of nutrients to plants.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "If these crops are sown together these crops complement each other's growth identify such pair of crops",
+      "options": {
+        "a": "Tomato + celery",
+        "b": "Sorghum + maize",
+        "c": "Cereal + legume",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "grain legumes and cereals improve the use of soil n resources and reduces the requirement for synthetic fertilizer n. When different crops of cereals and legumes are grown together, mutual benefit results in higher yield (synergistic effect,).[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "What is the cardinal temperature for a crop?",
+      "options": {
+        "a": "It is the maximum temperature range which a crop can tolerate",
+        "b": "It is the minimum, optimum & maximum temp required for the growth & development of the crop.",
+        "c": "It is the combination of maximum & minimum temperature a crop can tolerate.",
+        "d": "None of the above",
+        "e": "All of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cardinal temperature -the minimum, maximum & optimum temperature of a crop are known as a cardinal temperature. Most of the crops grows best in temp range of 15 c to 30 c & many of crop plant will die at a temperature of above 45 to 55 c.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "What is the optimum temperature for the uptake of the CO2 for wheat & barley?",
+      "options": {
+        "a": "25 c",
+        "b": "24 c",
+        "c": "10 c",
+        "d": "Below 15 c",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Optimum temperature for co2 uptake is 240c for wheat & barley. As the temperature increases above the optimum temperature co2 uptake decreases due to increase in stomatal & mesophyll resistance.[cite: 8]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Factors Affecting Crop Production",
+      "question": "What is the major impact of high wind velocity on the rice crop?",
+      "options": {
+        "a": "Breakdown stem of rice plants",
+        "b": "Crop lodging",
+        "c": "Tearing of leaves",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "High wind velocity causes tearing of the leaves in a rice crop plant as the rice plants leaves are very delicate in nature prone to impacts of wind velocity this will reduce the rate of photosynthesis in rice crop which causes less yield due to disbalance in source to sink ration.[cite: 8]"
+    }
+  ]
+}

@@ -1,0 +1,1363 @@
+{
+  "title": "Animal Husbandry Part 2 Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "The Jhakrana goat breed is native to which Indian state?",
+      "options": {
+        "a": "Uttar Pradesh",
+        "b": "Rajasthan",
+        "c": "Gujarat",
+        "d": "Madhya Pradesh",
+        "e": "Punjab"
+      },
+      "correct_option": "b",
+      "explanation": "Jhakrana goats originate from the Jhakrana village in Alwar, Rajasthan. They are primarily milch goats, producing good-quality milk with high-fat content.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which of the following breeds is known as the \"Dairy Goat of India\" due to its high milk production?",
+      "options": {
+        "a": "Beetle",
+        "b": "Jamunapari",
+        "c": "Sirohi",
+        "d": "Marwari",
+        "e": "Kutchi"
+      },
+      "correct_option": "b",
+      "explanation": "Jamunapari goats are excellent milk producers, often yielding 3-4 liters of milk per day, making them ideal for dairy farming.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which goat breed is mainly found in Punjab and is similar to the Jamunapari breed?",
+      "options": {
+        "a": "Sirohi",
+        "b": "Barbari",
+        "c": "Beetle",
+        "d": "Kutchi",
+        "e": "Marwari"
+      },
+      "correct_option": "c",
+      "explanation": "Beetle goats, found in Punjab, resemble Jamunapari and are famous for both milk and meat production. They have a roman nose and drooping ears.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "The Sirohi goat breed is well adapted to which type of climate?",
+      "options": {
+        "a": "Hot and humid",
+        "b": "Cold and wet",
+        "c": "Hot and arid",
+        "d": "Snow-covered regions",
+        "e": "Coastal areas"
+      },
+      "correct_option": "c",
+      "explanation": "Sirohi goats, native to Rajasthan, are highly drought-resistant and thrive in hot and arid climates with limited water availability.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which breed is known for its strong adaptability to desert conditions?",
+      "options": {
+        "a": "Jhakrana",
+        "b": "Kutchi",
+        "c": "Barbari",
+        "d": "Marwari",
+        "e": "Beetle"
+      },
+      "correct_option": "d",
+      "explanation": "Marwari goats, found in the desert regions of Rajasthan, are highly adaptable to harsh climatic conditions and are primarily raised for meat production.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "The Kutchi goat breed is mainly found in which Indian state?",
+      "options": {
+        "a": "Maharashtra",
+        "b": "Gujarat",
+        "c": "Rajasthan",
+        "d": "Uttar Pradesh",
+        "e": "Madhya Pradesh"
+      },
+      "correct_option": "b",
+      "explanation": "The Kutchi goat is native to Gujarat, especially in the Kutch region. It is medium-sized, hardy, and suitable for both milk and meat production.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which goat breed from Kerala is known for its high twinning ability and adaptability?",
+      "options": {
+        "a": "Osmanabadi",
+        "b": "Malabari",
+        "c": "Sangamneri",
+        "d": "Ganjam",
+        "e": "Black Bengal"
+      },
+      "correct_option": "b",
+      "explanation": "Malabari goats, originating from Kerala, are highly prolific and known for their high twinning and triplet birth rates, making them excellent for meat and milk production.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "The Black Bengal goat is famous for which characteristic?",
+      "options": {
+        "a": "High milk yield",
+        "b": "High meat quality",
+        "c": "Long ears",
+        "d": "Resistance to cold weather",
+        "e": "Large body size"
+      },
+      "correct_option": "b",
+      "explanation": "Black Bengal goats, primarily found in West Bengal, Bihar, and Odisha, are small-sized but known for their excellent meat quality and high fertility rates.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which goat breed is widely found in Maharashtra and is known for both meat and milk production?",
+      "options": {
+        "a": "Ganjam",
+        "b": "Osmanabadi",
+        "c": "Sangamneri",
+        "d": "Black Bengal",
+        "e": "Malabari"
+      },
+      "correct_option": "b",
+      "explanation": "Osmanabadi goats, native to Maharashtra, are dual-purpose breeds known for their good milk yield and superior meat quality[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Ganjam goats are predominantly found in which Indian state?",
+      "options": {
+        "a": "Maharashtra",
+        "b": "Odisha",
+        "c": "Gujarat",
+        "d": "Karnataka",
+        "e": "Rajasthan"
+      },
+      "correct_option": "b",
+      "explanation": "Ganjam goats, native to Odisha, are medium-sized, hardy, and primarily reared for meat production.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which goat breed from Maharashtra is mainly reared for meat production and is well adapted to dry conditions?",
+      "options": {
+        "a": "Malabari",
+        "b": "Sangamneri",
+        "c": "Black Bengal",
+        "d": "Ganjam",
+        "e": "Osmanabadi"
+      },
+      "correct_option": "b",
+      "explanation": "Sangamneri goats, found in Maharashtra, are medium-sized, hardy, and mainly reared for meat production, making them ideal for dry and semi-arid regions.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "At what age can a doe be first mated for optimal reproductive performance?",
+      "options": {
+        "a": "6-8 months",
+        "b": "10-15 months",
+        "c": "18-20 months",
+        "d": "24 months",
+        "e": "5-7 years"
+      },
+      "correct_option": "b",
+      "explanation": "A doe can be mated at 10 to 15 months, ensuring that it kids between 15 to 20 months of age, which optimizes reproductive efficiency.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the average gestation period of a goat?",
+      "options": {
+        "a": "120 \u00b1 3 days",
+        "b": "135 \u00b1 3 days",
+        "c": "151 \u00b1 3 days",
+        "d": "175 \u00b1 3 days",
+        "e": "190 \u00b1 3 days"
+      },
+      "correct_option": "c",
+      "explanation": "The average gestation period of goats is 151 days, though it can vary by \u00b1 3 days depending on the breed and environmental conditions.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How many times can some goats be made to kid in an 18-month period?",
+      "options": {
+        "a": "Once",
+        "b": "Twice",
+        "c": "Thrice",
+        "d": "Four times",
+        "e": "Every 3 months"
+      },
+      "correct_option": "b",
+      "explanation": "Some goats can kid twice in an 18-month period, depending on their breed and reproductive management practices.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "At what age do goats reach their maximum reproductive efficiency?",
+      "options": {
+        "a": "2-3 years",
+        "b": "3-5 years",
+        "c": "5-7 years",
+        "d": "7-10 years",
+        "e": "10-12 years"
+      },
+      "correct_option": "c",
+      "explanation": "Goats reach their maximum reproductive efficiency at 5 to 7 years of age, making it their prime breeding period.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Until when can a well-maintained doe be milked?",
+      "options": {
+        "a": "Until the day of kidding",
+        "b": "Until 3 months before kidding",
+        "c": "Until 1 month before kidding",
+        "d": "Until 6 months after mating",
+        "e": "Until weaning of the kids"
+      },
+      "correct_option": "c",
+      "explanation": "A well-maintained doe can continue to be milked until a month before she is expected to kid again, ensuring good udder health and proper lactation.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How many times can a sow farrow in a year under optimal management?",
+      "options": {
+        "a": "Once",
+        "b": "Twice",
+        "c": "Three times",
+        "d": "Four times",
+        "e": "Six times"
+      },
+      "correct_option": "b",
+      "explanation": "Pigs are highly prolific, and under proper management, a sow can farrow twice a year, producing 6-12 piglets per farrowing.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "At what age can a sow be first bred?",
+      "options": {
+        "a": "4-5 months",
+        "b": "6-7 months",
+        "c": "8-9 months",
+        "d": "10-12 months",
+        "e": "12-15 months"
+      },
+      "correct_option": "c",
+      "explanation": "A sow can be bred as early as 8-9 months of age to ensure early reproduction and high productivity.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the ideal age to castrate male piglets not selected for breeding?",
+      "options": {
+        "a": "1-2 weeks",
+        "b": "3-4 weeks",
+        "c": "6-8 weeks",
+        "d": "10-12 weeks",
+        "e": "After reaching sexual maturity"
+      },
+      "correct_option": "b",
+      "explanation": "Male piglets should be castrated at 3-4 weeks to prevent boar odor in the meat, ensuring better quality pork.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How many sows should be maintained per boar for maximum fertility?",
+      "options": {
+        "a": "5 Sows",
+        "b": "7 sows",
+        "c": "10 sows",
+        "d": "15 sows",
+        "e": "20 sows"
+      },
+      "correct_option": "c",
+      "explanation": "For every 10 sows, one boar should be maintained to ensure maximum fertility and efficient breeding.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the estrus cycle length in sows?",
+      "options": {
+        "a": "14 days",
+        "b": "17 days",
+        "c": "21 days",
+        "d": "25 days",
+        "e": "30 days"
+      },
+      "correct_option": "c",
+      "explanation": "A sow comes into heat approximately every 21 days, making it easy to plan breeding schedules.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "When is the best time to breed a sow for maximum conception?",
+      "options": {
+        "a": "During early heat",
+        "b": "At the end of heat",
+        "c": "12-24 hours after heat onset",
+        "d": "Any time during the heat cycle",
+        "e": "After the first farrowing"
+      },
+      "correct_option": "c",
+      "explanation": "The ideal time to breed a sow is 12 to 24 hours after the onset of heat, which ensures maximum fertility and conception rates.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the gestation period of a pig?",
+      "options": {
+        "a": "100 days",
+        "b": "110 days",
+        "c": "115 days",
+        "d": "120 days",
+        "e": "130 days"
+      },
+      "correct_option": "c",
+      "explanation": "The gestation period of a pig is three months, three weeks, and three days or approximately 115 days, with a range of 111 to 120 days.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What does the term \"farrowing\" refer to?",
+      "options": {
+        "a": "Mating of pigs",
+        "b": "Weaning of piglets",
+        "c": "Pregnancy of a sow",
+        "d": "Giving birth in pigs",
+        "e": "Castration of piglets"
+      },
+      "correct_option": "d",
+      "explanation": "Farrowing is the act of a sow giving birth to a litter of piglets. It can also refer to the litter itself.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How many times should a sow farrow in a year under proper management?",
+      "options": {
+        "a": "Once",
+        "b": "Twice",
+        "c": "Three times",
+        "d": "Four times",
+        "e": "Five times"
+      },
+      "correct_option": "b",
+      "explanation": "Under optimal management, a sow should farrow twice a year to maintain productivity and prevent excessive stress on the animal.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "After how many farrowings should old pigs be culled?",
+      "options": {
+        "a": "5-6 farrowings",
+        "b": "7-8 farrowings",
+        "c": "10-12 farrowings",
+        "d": "15-16 farrowings",
+        "e": "20 farrowings"
+      },
+      "correct_option": "c",
+      "explanation": "Old sows should be culled after 10-12 farrowings as their reproductive efficiency declines with age.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the ideal weaning period for piglets (separation from the mother)?",
+      "options": {
+        "a": "15 days",
+        "b": "30 days",
+        "c": "45 days",
+        "d": "60 days",
+        "e": "90 days"
+      },
+      "correct_option": "d",
+      "explanation": "Piglets are typically weaned after 2 months (60 days) to ensure proper development and growth before separation from the mother.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "At what age should uncastrated males and females be separated to prevent unwanted mating?",
+      "options": {
+        "a": "2 months",
+        "b": "3 months",
+        "c": "4 months",
+        "d": "6 months",
+        "e": "8 months"
+      },
+      "correct_option": "c",
+      "explanation": "Uncastrated males and females should not be housed together beyond four months to avoid accidental mating and maintain controlled breeding.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the recommended covered area for housing a boar (male pig)?",
+      "options": {
+        "a": "2-3 m\u00b2",
+        "b": "4-5 m\u00b2",
+        "c": "6-7 m\u00b2",
+        "d": "8-10 m\u00b2",
+        "e": "10-12 m\u00b2"
+      },
+      "correct_option": "c",
+      "explanation": "A boar pen should have a covered area of 6-7 m\u00b2 and an open area of 8-12 m\u00b2 for exercise.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the minimum height of walls required for a boar pen?",
+      "options": {
+        "a": "1.0 m",
+        "b": "1.2 m",
+        "c": "1.5 m",
+        "d": "1.8 m",
+        "e": "2.0 m"
+      },
+      "correct_option": "c",
+      "explanation": "The walls of a boar pen should have a minimum height of 1.5 m to prevent the boar from escaping and to ensure safety.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How many female pigs (sows) can be housed in a single pen under group housing?",
+      "options": {
+        "a": "5-10",
+        "b": "10-15",
+        "c": "15-20",
+        "d": "20-25",
+        "e": "25-30"
+      },
+      "correct_option": "b",
+      "explanation": "Sows can be housed in group pens with an area of 2 m\u00b2 per animal, accommodating 10-15 females per pen.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the recommended area for a farrowing pen (for sows giving birth)?",
+      "options": {
+        "a": "7.5 m\u00b2",
+        "b": "8.75 m\u00b2",
+        "c": "10.0 m\u00b2",
+        "d": "13.5 m\u00b2",
+        "e": "17.5 m\u00b2"
+      },
+      "correct_option": "c",
+      "explanation": "Farrowing sows (pregnant sows ready to give birth) should be housed in a farrowing pen of 2.5 x 4.0 m = 10.0 m\u00b2 which includes guard rails, creep area, and feeding/water troughs.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the recommended space requirement per growing or finishing pig?",
+      "options": {
+        "a": "1.0 m\u00b2",
+        "b": "1.5 m\u00b2",
+        "c": "2.0 m\u00b2",
+        "d": "2.5 m\u00b2",
+        "e": "3.0 m\u00b2"
+      },
+      "correct_option": "c",
+      "explanation": "Growing and finishing pigs should be housed in pens providing 2.0 m\u00b2 per pig, including a covered concrete yard for feeding/resting and an open yard for movement.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How much open area should be provided per buffalo in a well-managed housing system?",
+      "options": {
+        "a": "60-80 sq. feet",
+        "b": "70-90 sq. feet",
+        "c": "80-100 sq. feet",
+        "d": "100-120 sq. feet",
+        "e": "120-140 sq. feet"
+      },
+      "correct_option": "c",
+      "explanation": "Buffaloes need 25-35 sq. feet of covered space and 80-100 sq. feet of open space to ensure adequate movement and comfort.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the minimum recommended covered space for a pregnant cow?",
+      "options": {
+        "a": "60 sq. feet",
+        "b": "80 sq. feet",
+        "c": "100 sq. feet",
+        "d": "120 sq. feet",
+        "e": "140 sq. feet"
+      },
+      "correct_option": "c",
+      "explanation": "Pregnant cows require 100-120 sq. feet of covered space and 180-200 sq. feet of open space for comfort and ease during late pregnancy.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How much open area is required per cow for comfortable housing?",
+      "options": {
+        "a": "60-80 sq. feet",
+        "b": "70-90 sq. feet",
+        "c": "80-100 sq. feet",
+        "d": "100-120 sq. feet",
+        "e": "120-140 sq. feet"
+      },
+      "correct_option": "c",
+      "explanation": "Cows need 20-30 sq. feet of covered space and 80-100 sq. feet of open space to ensure proper movement and comfort.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the recommended floor space for young stock in the covered area?",
+      "options": {
+        "a": "10-15 sq. feet",
+        "b": "15-20 sq. feet",
+        "c": "20-25 sq. feet",
+        "d": "25-30 sq. feet",
+        "e": "30-35 sq. feet"
+      },
+      "correct_option": "b",
+      "explanation": "Young stock requires 15-20 sq. feet of covered space and 50-60 sq. feet of open space for proper growth and movement.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the minimum floor space required per ram or buck when housed in groups?",
+      "options": {
+        "a": "0.8 m\u00b2",
+        "b": "1.0 m\u00b2",
+        "c": "1.8 m\u00b2",
+        "d": "3.2 m\u00b2",
+        "e": "4.0 m\u00b2"
+      },
+      "correct_option": "c",
+      "explanation": "Rams or bucks housed in groups require a minimum of 1.8 m\u00b2 per animal to ensure proper movement, feeding space, and reduced aggression.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How much individual floor space is required for a single ram or buck?",
+      "options": {
+        "a": "0.9 m\u00b2",
+        "b": "1.5 m\u00b2",
+        "c": "1.8 m\u00b2",
+        "d": "3.2 m\u00b2",
+        "e": "4.5 m\u00b2"
+      },
+      "correct_option": "d",
+      "explanation": "When kept individually, a ram or buck requires 3.2 m\u00b2 of floor space to provide enough room for resting, feeding, and movement.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the minimum space requirement per lamb or kid when housed in groups?",
+      "options": {
+        "a": "0.2 m\u00b2",
+        "b": "0.4 m\u00b2",
+        "c": "0.8 m\u00b2",
+        "d": "1.0 m\u00b2",
+        "e": "1.5 m\u00b2"
+      },
+      "correct_option": "b",
+      "explanation": "Lambs or kids housed in groups require at least 0.4 m\u00b2 per animal to allow proper growth and movement.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the minimum floor space required for a weaner (young sheep/goat) housed in groups?",
+      "options": {
+        "a": "0.4 m\u00b2",
+        "b": "0.6 m\u00b2",
+        "c": "0.8 m\u00b2",
+        "d": "1.0 m\u00b2",
+        "e": "1.2 m\u00b2"
+      },
+      "correct_option": "c",
+      "explanation": "Weaners (young sheep or goats separated from their mothers) require 0.8 m\u00b2 per animal when housed in groups to ensure healthy growth and feeding space.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "How much floor space should be provided for an ewe or doe housed in groups?",
+      "options": {
+        "a": "0.8 m\u00b2",
+        "b": "1.0 m\u00b2",
+        "c": "1.5 m\u00b2",
+        "d": "2.0 m\u00b2",
+        "e": "3.2 m\u00b2"
+      },
+      "correct_option": "b",
+      "explanation": "Ewes or does housed in groups require 1.0 m\u00b2 of space per animal for proper movement and comfort.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the recommended floor space for an ewe with a lamb?",
+      "options": {
+        "a": "0.8 m\u00b2",
+        "b": "1.0 m\u00b2",
+        "c": "1.2 m\u00b2",
+        "d": "1.5 m\u00b2",
+        "e": "2.0 m\u00b2"
+      },
+      "correct_option": "d",
+      "explanation": "An ewe with a lamb requires at least 1.5 m\u00b2 of floor space to ensure both the mother and lamb have adequate room for resting and nursing.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the definition of castration?",
+      "options": {
+        "a": "The removal of reproductive organs to prevent reproduction",
+        "b": "The separation of young ones from their mother",
+        "c": "The process of assisting a female animal during parturition",
+        "d": "The practice of selective breeding in livestock",
+        "e": "The removal of horns in cattle and goats"
+      },
+      "correct_option": "a",
+      "explanation": "Castration is the process of removing or inactivating the testicles in male animals to prevent reproduction and improve meat quality.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the purpose of castration in farm animals?",
+      "options": {
+        "a": "To increase reproductive efficiency",
+        "b": "To reduce aggression and improve meat quality",
+        "c": "To enhance milk production in females",
+        "d": "To increase the growth rate of animals",
+        "e": "To improve disease resistance"
+      },
+      "correct_option": "b",
+      "explanation": "Castrated males (such as steers, wethers, or barrows) are less aggressive and produce better-quality meat with improved tenderness.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is weaning in livestock management?",
+      "options": {
+        "a": "The removal of testicles in male animals",
+        "b": "The process of removing young ones from their mother's milk",
+        "c": "The act of assisting in animal birth",
+        "d": "The practice of artificial insemination",
+        "e": "The selection of animals for breeding"
+      },
+      "correct_option": "b",
+      "explanation": "Weaning is the process of transitioning young animals from their mother's milk to solid food, usually done at a specific age to ensure proper growth and development.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the benefit of early weaning in farm animals?",
+      "options": {
+        "a": "Faster weight gain and efficient feed conversion",
+        "b": "Increased milk yield in mothers",
+        "c": "Reduced chances of disease transmission from mother to offspring",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Early weaning helps in better weight gain, improved feed efficiency, and reduces stress on the mother, leading to higher milk yield.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is dehorning in livestock management?",
+      "options": {
+        "a": "The removal of reproductive organs in male animals",
+        "b": "The process of removing or preventing horn growth in animals",
+        "c": "The process of assisting an animal during birth",
+        "d": "The removal of tails in sheep to prevent infections",
+        "e": "The practice of selective breeding"
+      },
+      "correct_option": "b",
+      "explanation": "Dehorning is the process of removing horns or preventing their growth in young animals to reduce injuries and make handling easier.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which of the following is NOT a common method of dehorning?",
+      "options": {
+        "a": "Chemical dehorning",
+        "b": "Hot iron dehorning",
+        "c": "Surgical dehorning",
+        "d": "Vaccination method",
+        "e": "Saw dehorning"
+      },
+      "correct_option": "d",
+      "explanation": "Vaccination does not prevent or remove horns. Dehorning is typically done using chemicals, hot iron, or surgical methods.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the best method to prevent horn growth in newborn calves?",
+      "options": {
+        "a": "Using a dehorning saw",
+        "b": "Using a hot iron dehorner",
+        "c": "Applying caustic chemicals to horn buds",
+        "d": "Cutting the horns at 1 year of age",
+        "e": "Genetic selection for polled breeds"
+      },
+      "correct_option": "c",
+      "explanation": "Caustic chemicals (like potassium hydroxide applied to horn buds in newborns) prevent horn growth by killing horn-producing cells.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the term used for removing testicles from male animals to prevent reproduction?",
+      "options": {
+        "a": "Dehorning",
+        "b": "Tupping",
+        "c": "Castration",
+        "d": "Weaning",
+        "e": "Branding"
+      },
+      "correct_option": "c",
+      "explanation": "Castration is the removal of testicles in male animals to prevent breeding, reduce aggression, and improve meat quality.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "At what age are calves typically castrated?",
+      "options": {
+        "a": "At birth",
+        "b": "8-10 weeks",
+        "c": "4-5 months",
+        "d": "1 year",
+        "e": "After weaning"
+      },
+      "correct_option": "b",
+      "explanation": "Calves are usually castrated at 8-10 weeks of age to reduce stress and improve meat quality.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the ideal age for weaning a calf?",
+      "options": {
+        "a": "30 days",
+        "b": "45 days",
+        "c": "60 days",
+        "d": "90 days (8-12 weeks)",
+        "e": "6 months"
+      },
+      "correct_option": "d",
+      "explanation": "Calves are weaned at around 90 days (8-12 weeks) to transition them from milk to solid feed for proper growth.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "At what age are lambs typically castrated?",
+      "options": {
+        "a": "2 weeks",
+        "b": "4 weeks",
+        "c": "6 weeks",
+        "d": "2 months",
+        "e": "After weaning"
+      },
+      "correct_option": "a",
+      "explanation": "Lambs are castrated at 2 weeks of age to minimize stress and complications.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the usual weaning age for lambs?",
+      "options": {
+        "a": "6 weeks",
+        "b": "8 weeks",
+        "c": "10 weeks",
+        "d": "12 weeks",
+        "e": "14 weeks"
+      },
+      "correct_option": "e",
+      "explanation": "Lambs are weaned at around 14 weeks, allowing them to develop properly before full independence from their mother's milk.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "At what age are kids (young goats) usually castrated?",
+      "options": {
+        "a": "At birth",
+        "b": "2-4 weeks",
+        "c": "6 weeks",
+        "d": "10 weeks",
+        "e": "After weaning"
+      },
+      "correct_option": "b",
+      "explanation": "Castration of kids is done at 2-4 weeks of age to prevent breeding and aggression in males.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the weaning age of a kid (young goat)?",
+      "options": {
+        "a": "8 weeks",
+        "b": "12 weeks",
+        "c": "16 weeks",
+        "d": "20 weeks",
+        "e": "24 weeks"
+      },
+      "correct_option": "c",
+      "explanation": "Goat kids are weaned at 16 weeks to ensure proper nutritional transition from milk to solid feed.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "At what age are piglets commonly castrated?",
+      "options": {
+        "a": "1 day",
+        "b": "1 week",
+        "c": "4 weeks",
+        "d": "6 weeks",
+        "e": "8 weeks"
+      },
+      "correct_option": "b",
+      "explanation": "Piglets are castrated at 1 week of age to reduce aggression and improve meat quality.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the typical weaning age for piglets?",
+      "options": {
+        "a": "4 weeks",
+        "b": "6 weeks",
+        "c": "8 weeks",
+        "d": "10 weeks",
+        "e": "12 weeks"
+      },
+      "correct_option": "c",
+      "explanation": "Piglets are weaned at around 8 weeks of age to ensure they can consume solid feed efficiently.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which type of milk has the lowest fat content?",
+      "options": {
+        "a": "Toned milk",
+        "b": "Skim milk",
+        "c": "Buffalo milk",
+        "d": "Standard milk",
+        "e": "Cow milk"
+      },
+      "correct_option": "b",
+      "explanation": "Skim milk has only 0.5% fat, making it the lowest in fat content.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the fat percentage in double-toned milk?",
+      "options": {
+        "a": "0.5%",
+        "b": "1.5%",
+        "c": "3.0%",
+        "d": "4.5%",
+        "e": "5.0%"
+      },
+      "correct_option": "b",
+      "explanation": "Double-toned milk contains 1.5% fat and is commonly consumed as a low-fat option.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which of the following has a fat percentage of 3.0%?",
+      "options": {
+        "a": "Buffalo milk",
+        "b": "Sheep milk",
+        "c": "Toned milk",
+        "d": "Skim milk",
+        "e": "Cow milk"
+      },
+      "correct_option": "c",
+      "explanation": "Toned milk, sheep milk, goat milk, and recombined milk all contain around 3.0% fat.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the fat content of standard milk?",
+      "options": {
+        "a": "3.0%",
+        "b": "3.5%",
+        "c": "4.5%",
+        "d": "5.0%",
+        "e": "1.5%"
+      },
+      "correct_option": "c",
+      "explanation": "Standard milk contains 4.5% fat and is richer compared to toned and cow milk.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which animal's milk has the highest fat content among the following?",
+      "options": {
+        "a": "Cow",
+        "b": "Goat",
+        "c": "Sheep",
+        "d": "Buffalo",
+        "e": "Skim milk"
+      },
+      "correct_option": "d",
+      "explanation": "Buffalo milk has 5.0% fat, making it one of the richest in fat content.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the fat percentage in cow milk?",
+      "options": {
+        "a": "2.5%",
+        "b": "3.5%",
+        "c": "4.5%",
+        "d": "5.0%",
+        "e": "1.5%"
+      },
+      "correct_option": "b",
+      "explanation": "Cow milk has a standard fat percentage of 3.5%, making it a balanced dairy choice.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which of the following is the temperature-time combination for Low-Temperature Long-Time (LTLT) pasteurization?",
+      "options": {
+        "a": "63\u00b0C for 30 minutes",
+        "b": "72\u00b0C for 15 seconds",
+        "c": "135\u00b0C for 2-5 seconds",
+        "d": "85\u00b0C for 5 seconds",
+        "e": "90\u00b0C for 1 second"
+      },
+      "correct_option": "a",
+      "explanation": "LTLT (Batch Pasteurization) involves heating milk at 63\u00b0C for 30 minutes to eliminate harmful microbes while preserving milk quality.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "High-Temperature Short-Time (HTST) pasteurization is also known as?",
+      "options": {
+        "a": "Ultra-pasteurization",
+        "b": "Flash pasteurization",
+        "c": "Batch pasteurization",
+        "d": "Sterilization",
+        "e": "Homogenization"
+      },
+      "correct_option": "b",
+      "explanation": "HTST (Flash Pasteurization) rapidly heats milk to 72\u00b0C for 15 seconds, effectively killing pathogens while maintaining quality.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the temperature and time combination for Ultra-High Temperature (UHT) pasteurization?",
+      "options": {
+        "a": "63\u00b0C for 30 minutes",
+        "b": "72\u00b0C for 15 seconds",
+        "c": "100\u00b0C for 10 minutes",
+        "d": "135\u00b0C for 2-5 seconds",
+        "e": "121\u00b0C for 15 minutes"
+      },
+      "correct_option": "d",
+      "explanation": "UHT pasteurization sterilizes milk by heating it to 135\u00b0C for 2-5 seconds, extending shelf life without refrigeration.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which type of pasteurization is used for making long-shelf-life milk that does not require refrigeration?",
+      "options": {
+        "a": "LTLT",
+        "b": "HTST",
+        "c": "UHT",
+        "d": "Vat pasteurization",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "UHT pasteurization extends the shelf life of milk for months without refrigeration.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the purpose of pasteurization?",
+      "options": {
+        "a": "To increase the fat content of milk",
+        "b": "To improve the taste of milk",
+        "c": "To kill pathogenic microorganisms",
+        "d": "To separate cream from milk",
+        "e": "To add nutrients to milk"
+      },
+      "correct_option": "c",
+      "explanation": "Pasteurization is a heat treatment process that eliminates harmful bacteria like Salmonella and E. coli, making milk safe for consumption.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which pasteurization method is commonly used in dairy farms for small-scale processing?",
+      "options": {
+        "a": "HTST",
+        "b": "LTLT",
+        "c": "UHT",
+        "d": "Sterilization",
+        "e": "Microwave heating"
+      },
+      "correct_option": "b",
+      "explanation": "LTLT pasteurization is widely used in small dairy farms and household-level milk processing.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which of the following pasteurization methods best preserves the taste and nutritional quality of milk?",
+      "options": {
+        "a": "LTLT",
+        "b": "HTST",
+        "c": "UHT",
+        "d": "Sterilization",
+        "e": "Homogenization"
+      },
+      "correct_option": "b",
+      "explanation": "HTST pasteurization kills bacteria quickly while preserving the taste and nutritional value of milk better than UHT.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the primary pigment responsible for the bright red color of fresh meat?",
+      "options": {
+        "a": "Hemoglobin",
+        "b": "Myoglobin",
+        "c": "Oxymyoglobin",
+        "d": "Metmyoglobin",
+        "e": "Hemochromogen"
+      },
+      "correct_option": "c",
+      "explanation": "Oxymyoglobin is responsible for the bright red color of fresh meat when exposed to oxygen.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What causes meat to turn brown due to oxidation?",
+      "options": {
+        "a": "Oxymyoglobin",
+        "b": "Myoglobin",
+        "c": "Hemoglobin",
+        "d": "Metmyoglobin",
+        "e": "Hemochromogen"
+      },
+      "correct_option": "d",
+      "explanation": "Metmyoglobin forms when myoglobin is oxidized, giving the meat a brownish color.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "The pink color of cured meat is due to which pigment?",
+      "options": {
+        "a": "Oxymyoglobin",
+        "b": "Metmyoglobin",
+        "c": "Nitro-haemochromogen",
+        "d": "Myoglobin",
+        "e": "Hemoglobin"
+      },
+      "correct_option": "c",
+      "explanation": "Nitro-haemochromogen is formed in cured meat due to the reaction between myoglobin and nitrites, resulting in a pink color.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is \"variety meat\" also known as?",
+      "options": {
+        "a": "Red meat",
+        "b": "White meat",
+        "c": "Processed meat",
+        "d": "Organ meat",
+        "e": "Poultry meat"
+      },
+      "correct_option": "d",
+      "explanation": "Variety meat refers to edible animal organs like liver, kidney, heart, tongue, brain, and thymus.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which type of meat contains the highest amount of vitamin B12 and folic acid?",
+      "options": {
+        "a": "Pork",
+        "b": "Beef & Mutton",
+        "c": "Poultry",
+        "d": "Fish",
+        "e": "Buffalo meat"
+      },
+      "correct_option": "b",
+      "explanation": "Beef and mutton are rich sources of vitamin B12 and folic acid, which are essential for red blood cell formation.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which meat contains 5-10 times more vitamin B1 (Thiamine) than beef and mutton?",
+      "options": {
+        "a": "Poultry",
+        "b": "Fish",
+        "c": "Pork",
+        "d": "Buffalo meat",
+        "e": "Goat meat"
+      },
+      "correct_option": "c",
+      "explanation": "Pork is significantly rich in vitamin B1 (Thiamine), an essential nutrient for energy metabolism.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the correct definition of bacon?",
+      "options": {
+        "a": "Meat from the thigh of a pig",
+        "b": "Meat from the sides and back of a pig",
+        "c": "Meat from the ribs of a pig",
+        "d": "Meat from the shoulders of a pig",
+        "e": "Meat from the belly of a pig"
+      },
+      "correct_option": "b",
+      "explanation": "Bacon is a cured meat product made from the sides and back of a pig.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the correct definition of ham?",
+      "options": {
+        "a": "Meat from the ribs of a pig",
+        "b": "Meat from the belly of a pig",
+        "c": "Meat from the thigh or buttocks of a pig",
+        "d": "Meat from the back of a pig",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Ham is taken from the hind leg of a pig and is commonly cured or smoked.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is \"prime pork\"?",
+      "options": {
+        "a": "Meat from an old pig",
+        "b": "Meat from wild pigs",
+        "c": "Meat from a castrated male or virgin female pig",
+        "d": "Meat from the head of a pig",
+        "e": "Meat from piglets"
+      },
+      "correct_option": "c",
+      "explanation": "Prime pork comes from young, castrated males or virgin female pigs for better meat quality.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which of the following is considered \"white meat\"?",
+      "options": {
+        "a": "Beef",
+        "b": "Mutton",
+        "c": "Pork",
+        "d": "Poultry",
+        "e": "Buffalo meat"
+      },
+      "correct_option": "d",
+      "explanation": "Poultry (chicken and turkey) is classified as white meat due to its lower myoglobin content compared to red meat.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which vitamin is found in the highest amount in animal meat?",
+      "options": {
+        "a": "Vitamin C",
+        "b": "Vitamin B12",
+        "c": "Vitamin A",
+        "d": "Vitamin E",
+        "e": "Vitamin K"
+      },
+      "correct_option": "b",
+      "explanation": "Vitamin B12 is found abundantly in animal meat and is essential for neurological function and red blood cell formation.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which vitamin is found in the highest amount in poultry meat?",
+      "options": {
+        "a": "Vitamin A",
+        "b": "Vitamin C",
+        "c": "Niacin",
+        "d": "Vitamin B12",
+        "e": "Vitamin D"
+      },
+      "correct_option": "c",
+      "explanation": "Poultry meat is rich in niacin (vitamin B3), which is important for metabolism and skin health.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which meat lacks Vitamin A?",
+      "options": {
+        "a": "Beef",
+        "b": "Mutton",
+        "c": "Buffalo meat, Chevon, and Pork",
+        "d": "Poultry",
+        "e": "Fish"
+      },
+      "correct_option": "c",
+      "explanation": "Vitamin A is absent in buffalo meat, goat meat (chevon), and pork, but it is found in beef and mutton.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What type of meat is obtained from cattle?",
+      "options": {
+        "a": "Mutton",
+        "b": "Chevon",
+        "c": "Pork",
+        "d": "Beef",
+        "e": "Venison"
+      },
+      "correct_option": "d",
+      "explanation": "Beef is the meat obtained from cattle (cows, bulls, and steers).[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the meat of a goat called?",
+      "options": {
+        "a": "Mutton",
+        "b": "Pork",
+        "c": "Chevon",
+        "d": "Veal",
+        "e": "Lamb"
+      },
+      "correct_option": "c",
+      "explanation": "Chevon is the term for goat meat, commonly consumed in many parts of the world.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Mutton is the meat of which animal?",
+      "options": {
+        "a": "Goat",
+        "b": "Sheep",
+        "c": "Pig",
+        "d": "Buffalo",
+        "e": "Deer"
+      },
+      "correct_option": "b",
+      "explanation": "Mutton is the meat of an adult sheep, usually over one year old.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the term for the meat obtained from a young calf?",
+      "options": {
+        "a": "Mutton",
+        "b": "Pork",
+        "c": "Veal",
+        "d": "Chevon",
+        "e": "Beef"
+      },
+      "correct_option": "c",
+      "explanation": "Veal is the tender meat obtained from young calves, usually less than six months old.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Pork is the meat of which animal?",
+      "options": {
+        "a": "Goat",
+        "b": "Sheep",
+        "c": "Pig",
+        "d": "Buffalo",
+        "e": "Cow"
+      },
+      "correct_option": "c",
+      "explanation": "Pork refers to the meat obtained from pigs and is widely consumed worldwide.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What type of meat is obtained from a rabbit?",
+      "options": {
+        "a": "Pork",
+        "b": "Venison",
+        "c": "Lapin",
+        "d": "Mutton",
+        "e": "Chevon"
+      },
+      "correct_option": "c",
+      "explanation": "Rabbit meat is called \"Lapin\" and is a lean source of protein.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "The meat obtained from a young sheep (less than one year old) is called?",
+      "options": {
+        "a": "Mutton",
+        "b": "Lamb",
+        "c": "Chevon",
+        "d": "Pork",
+        "e": "Venison"
+      },
+      "correct_option": "b",
+      "explanation": "Lamb is the meat from young sheep under one year of age, which is more tender than mutton.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the meat of a wild boar called?",
+      "options": {
+        "a": "Pork",
+        "b": "Game meat",
+        "c": "Wild pork",
+        "d": "Venison",
+        "e": "Boar meat"
+      },
+      "correct_option": "e",
+      "explanation": "Wild boar meat is called \"boar meat\" and is a game meat that has a stronger flavor than regular pork.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the name of the meat obtained from a buffalo?",
+      "options": {
+        "a": "Beef",
+        "b": "Buffalo meat",
+        "c": "Mutton",
+        "d": "Chevon",
+        "e": "Pork"
+      },
+      "correct_option": "b",
+      "explanation": "Buffalo meat is called \"Buff\" and is similar to beef but leaner.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Poultry meat refers to the meat obtained from which of the following?",
+      "options": {
+        "a": "Fish",
+        "b": "Cattle",
+        "c": "Goat",
+        "d": "Chicken",
+        "e": "Buffalo"
+      },
+      "correct_option": "d",
+      "explanation": "Poultry meat includes chicken, turkey, duck, and other domesticated birds.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "Which of the following is known as \"white meat\"?",
+      "options": {
+        "a": "Beef",
+        "b": "Mutton",
+        "c": "Pork",
+        "d": "Poultry",
+        "e": "Venison"
+      },
+      "correct_option": "d",
+      "explanation": "Poultry (chicken, turkey, etc.) is considered white meat due to its low myoglobin content.[cite: 20]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 2",
+      "question": "What is the name of the meat obtained from a duck?",
+      "options": {
+        "a": "Poultry",
+        "b": "Duck meat",
+        "c": "Game meat",
+        "d": "Venison",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Duck meat is a type of poultry, but it has a darker and richer flavor than chicken.[cite: 20]"
+    }
+  ]
+}

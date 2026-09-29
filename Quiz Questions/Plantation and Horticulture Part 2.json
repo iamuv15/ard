@@ -1,0 +1,1405 @@
+{
+  "title": "Plantation and Horticulture Part 2 Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary purpose of cold storage in post-harvest handling?",
+      "options": {
+        "a": "To completely stop the respiration of fruits and vegetables",
+        "b": "To maintain low temperatures and slow down spoilage",
+        "c": "To dry the produce for long-term storage",
+        "d": "To increase the sugar content in fruits",
+        "e": "To accelerate the ripening process"
+      },
+      "correct_option": "b",
+      "explanation": "Cold storage helps preserve the freshness of fruits and vegetables by reducing respiration rates, microbial activity, and enzymatic processes.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which type of banana sucker is best for propagation?",
+      "options": {
+        "a": "Water sucker",
+        "b": "Sword sucker",
+        "c": "Both water and sword suckers",
+        "d": "Tissue culture",
+        "e": "Seeds"
+      },
+      "correct_option": "b",
+      "explanation": "Sword suckers have a strong root system, grow vigorously, and ensure high-yielding banana plants, making them ideal for commercial cultivation.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is the most common method of propagating pineapple (Ananas comosus)?",
+      "options": {
+        "a": "Seeds",
+        "b": "Cuttings",
+        "c": "Suckers, Slips, and Crowns",
+        "d": "Air layering",
+        "e": "Grafting"
+      },
+      "correct_option": "c",
+      "explanation": "Pineapple is propagated vegetatively using suckers, slips, and crowns because seeds are not commonly used due to their long germination period and genetic variability.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the structure at the top of the pineapple fruit that can be used for propagation?",
+      "options": {
+        "a": "Rhizome",
+        "b": "Crown",
+        "c": "Runner",
+        "d": "Offset",
+        "e": "Water sucker"
+      },
+      "correct_option": "b",
+      "explanation": "The crown (leafy top of the fruit) can be removed and planted to grow a new pineapple plant.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "How long does it take for a pineapple plant to produce fruit after planting a sucker?",
+      "options": {
+        "a": "6-8 months",
+        "b": "10-12 months",
+        "c": "16-18 months",
+        "d": "20-24 months",
+        "e": "30-36 months"
+      },
+      "correct_option": "c",
+      "explanation": "Pineapple plants grown from suckers take approximately 16-18 months to bear fruit, while crowns take longer (up to 24 months).[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is a rhizome?",
+      "options": {
+        "a": "A type of root that stores food",
+        "b": "An underground stem that grows horizontally",
+        "c": "A seed structure used for reproduction",
+        "d": "A type of flower that produces seeds",
+        "e": "A stem that climbs and produces aerial roots"
+      },
+      "correct_option": "b",
+      "explanation": "A rhizome is a specialized underground stem that grows horizontally, giving rise to new shoots and roots.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is propagated through rhizomes?",
+      "options": {
+        "a": "Mango",
+        "b": "Banana",
+        "c": "Tomato",
+        "d": "Guava",
+        "e": "Rose"
+      },
+      "correct_option": "b",
+      "explanation": "Banana is propagated through rhizomes (sword suckers), as it does not produce viable seeds.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary advantage of propagating plants through rhizomes?",
+      "options": {
+        "a": "It allows for genetic variation",
+        "b": "It is a slow method of propagation",
+        "c": "It produces identical plants quickly",
+        "d": "It requires seeds for growth",
+        "e": "It depends on pollination for reproduction"
+      },
+      "correct_option": "c",
+      "explanation": "Rhizomes enable rapid vegetative reproduction, ensuring that new plants are genetically identical to the parent plant.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which part of the turmeric plant (Curcuma longa) is used for propagation?",
+      "options": {
+        "a": "Seeds",
+        "b": "Stem cuttings",
+        "c": "Rhizome",
+        "d": "Leaf cuttings",
+        "e": "Bulbs"
+      },
+      "correct_option": "c",
+      "explanation": "Turmeric is propagated by dividing rhizomes, which store food and contain buds that sprout into new plants.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is NOT a rhizome-propagated plant?",
+      "options": {
+        "a": "Ginger",
+        "b": "Lotus",
+        "c": "Potato",
+        "d": "Turmeric",
+        "e": "Canna lily"
+      },
+      "correct_option": "c",
+      "explanation": "Potato is propagated by tubers, not rhizomes. Rhizomes are underground stems, while tubers are swollen underground stems with stored nutrients.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "How is Amorphophallus (Elephant Foot Yam) primarily propagated?",
+      "options": {
+        "a": "Seeds",
+        "b": "Stem Cuttings",
+        "c": "Corms",
+        "d": "Leaf Cuttings",
+        "e": "Grafting"
+      },
+      "correct_option": "c",
+      "explanation": "Amorphophallus is propagated by corms, which are underground swollen stems that store food and develop into new plants.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which underground structure is used for propagating Colocasia (Taro)?",
+      "options": {
+        "a": "Rhizome",
+        "b": "Tuber",
+        "c": "Corm",
+        "d": "Bulb",
+        "e": "Root Sucker"
+      },
+      "correct_option": "c",
+      "explanation": "Colocasia is propagated using corms, which are thickened underground stems with buds that sprout into new plants.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is NOT propagated by corms?",
+      "options": {
+        "a": "Gladiolus",
+        "b": "Colocasia",
+        "c": "Amorphophallus",
+        "d": "Potato",
+        "e": "Taro"
+      },
+      "correct_option": "d",
+      "explanation": "Potato is propagated by tubers, while Gladiolus, Colocasia, and Amorphophallus are propagated by corms.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is a stolon?",
+      "options": {
+        "a": "A vertical underground stem",
+        "b": "A horizontal stem that grows above or just below the soil",
+        "c": "A swollen underground stem for food storage",
+        "d": "A type of root that stores nutrients",
+        "e": "A modified leaf used for reproduction"
+      },
+      "correct_option": "b",
+      "explanation": "A stolon is a specialized stem that spreads horizontally, producing new plants at nodes when they touch the soil.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is propagated by stolons?",
+      "options": {
+        "a": "Mango",
+        "b": "Rose",
+        "c": "Strawberry",
+        "d": "Coconut",
+        "e": "Guava"
+      },
+      "correct_option": "c",
+      "explanation": "Strawberry propagates through stolons, which are horizontal stems that spread along the ground and form new plants at nodes.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is a stem tuber?",
+      "options": {
+        "a": "A modified root that stores food",
+        "b": "A swollen underground stem that stores nutrients",
+        "c": "A horizontal stem that spreads above ground",
+        "d": "A seed-bearing structure used for reproduction",
+        "e": "A climbing stem used for support"
+      },
+      "correct_option": "b",
+      "explanation": "A stem tuber is an underground storage organ formed from a swollen stem that contains buds (eyes) capable of sprouting into new plants.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What are the small buds on a potato tuber called?",
+      "options": {
+        "a": "Roots",
+        "b": "Nodes",
+        "c": "Eyes",
+        "d": "Shoots",
+        "e": "Petioles"
+      },
+      "correct_option": "c",
+      "explanation": "The \"eyes\" of a potato tuber are small buds that sprout into new shoots, helping in vegetative propagation.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the main function of a stem tuber?",
+      "options": {
+        "a": "Water absorption",
+        "b": "Support for the plant",
+        "c": "Food storage and vegetative propagation",
+        "d": "Photosynthesis",
+        "e": "Seed dispersal"
+      },
+      "correct_option": "c",
+      "explanation": "Stem tubers store nutrients that help the plant survive unfavorable conditions and enable vegetative propagation through buds (eyes).[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following flowering plants is propagated by tuberous roots?",
+      "options": {
+        "a": "Rose (Rosa spp.)",
+        "b": "Dahlia (Dahlia spp.)",
+        "c": "Jasmine (Jasminum spp.)",
+        "d": "Sunflower (Helianthus annuus)",
+        "e": "Tulip (Tulipa spp.)"
+      },
+      "correct_option": "b",
+      "explanation": "Dahlia is propagated using tuberous roots, which store food and develop adventitious buds to grow into new plants.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following flowers is NOT propagated by tuberous roots?",
+      "options": {
+        "a": "Dahlia",
+        "b": "Sweet Potato Vine (Ipomoea batatas)",
+        "c": "Cassava (Manihot esculenta)",
+        "d": "Gladiolus (Gladiolus spp.)",
+        "e": "Begonia (Begonia spp.)"
+      },
+      "correct_option": "d",
+      "explanation": "Gladiolus propagates using corms, not tuberous roots, whereas Dahlia and Begonia use tuberous roots.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which vegetative propagation method is used for Dahlia?",
+      "options": {
+        "a": "Stem cuttings",
+        "b": "Leaf cuttings",
+        "c": "Tuberous root division",
+        "d": "Grafting",
+        "e": "Seed propagation"
+      },
+      "correct_option": "c",
+      "explanation": "Dahlia is propagated by dividing its tuberous roots, which develop new shoots from adventitious buds.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "In which planting system are trees planted at equal distances in rows and columns?",
+      "options": {
+        "a": "Square System",
+        "b": "Hexagonal System",
+        "c": "Contour System",
+        "d": "Triangular System",
+        "e": "Quincunx System"
+      },
+      "correct_option": "a",
+      "explanation": "The square system arranges trees at equal distances in both directions, forming a grid-like pattern.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which planting system provides the highest number of plants per unit area?",
+      "options": {
+        "a": "Square System",
+        "b": "Rectangular System",
+        "c": "Hexagonal System",
+        "d": "Contour System",
+        "e": "Triangular System"
+      },
+      "correct_option": "c",
+      "explanation": "The hexagonal system accommodates more trees per unit area compared to other systems.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "In which planting system is an extra tree planted in the center of each square?",
+      "options": {
+        "a": "Square System",
+        "b": "Quincunx System",
+        "c": "Triangular System",
+        "d": "Rectangular System",
+        "e": "Hexagonal System"
+      },
+      "correct_option": "b",
+      "explanation": "The quincunx system places a filler tree in the center of each square, maximizing land utilization.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which planting system is most suitable for sloped and hilly areas?",
+      "options": {
+        "a": "Hexagonal System",
+        "b": "Square System",
+        "c": "Rectangular System",
+        "d": "Contour System",
+        "e": "Quincunx System"
+      },
+      "correct_option": "d",
+      "explanation": "The contour system follows natural land slopes to prevent soil erosion and water runoff, making it ideal for hilly areas.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "In which planting system are trees arranged in a way that each tree is surrounded by six other trees?",
+      "options": {
+        "a": "Square System",
+        "b": "Triangular System",
+        "c": "Rectangular System",
+        "d": "Hexagonal System",
+        "e": "Quincunx System"
+      },
+      "correct_option": "d",
+      "explanation": "The hexagonal system arranges trees in a honeycomb pattern, ensuring maximum land use and better light distribution.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary purpose of training in horticultural plants?",
+      "options": {
+        "a": "To increase soil fertility",
+        "b": "To control the shape, size, and direction of plant growth",
+        "c": "To remove diseased plant parts",
+        "d": "To improve fruit color",
+        "e": "To increase root growth"
+      },
+      "correct_option": "b",
+      "explanation": "Training is a technique used to guide plant growth in a specific direction to improve structure and productivity.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What does pruning primarily involve?",
+      "options": {
+        "a": "Physical shaping of a plant",
+        "b": "Selective removal of plant parts",
+        "c": "Increasing the plant's height",
+        "d": "Protecting plants from insects",
+        "e": "Enhancing the plant's root system"
+      },
+      "correct_option": "b",
+      "explanation": "Pruning is the careful removal of branches, leaves, or other parts to improve plant health, flowering, and fruit production.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "How does pruning benefit plants?",
+      "options": {
+        "a": "Increases plant size",
+        "b": "Improves flowering, fruitfulness, and fruit quality",
+        "c": "Eliminates the need for fertilizers",
+        "d": "Reduces water requirements",
+        "e": "Prevents all plant diseases"
+      },
+      "correct_option": "b",
+      "explanation": "Pruning helps direct energy to fruiting and flowering, improving yield and overall plant health.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following statements is TRUE about training?",
+      "options": {
+        "a": "It reduces the need for irrigation",
+        "b": "It controls the shape, size, and direction of plant growth",
+        "c": "It is only done on herbaceous plants",
+        "d": "It prevents all pest attacks",
+        "e": "It increases the number of leaves"
+      },
+      "correct_option": "b",
+      "explanation": "Training guides plant growth for better structural strength, ease of management, and improved productivity.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the main difference between training and pruning?",
+      "options": {
+        "a": "Training is a growth technique, while pruning is a removal technique",
+        "b": "Training removes plant parts, while pruning controls growth",
+        "c": "Training prevents disease, while pruning promotes disease",
+        "d": "Training increases plant stress, while pruning reduces stress",
+        "e": "Training is only for flowers, while pruning is only for fruits"
+      },
+      "correct_option": "a",
+      "explanation": "Training helps shape the plant's growth, while pruning removes unwanted parts to improve health and productivity.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary purpose of nipping (pinching) in plants?",
+      "options": {
+        "a": "To remove diseased parts",
+        "b": "To promote lateral branching and bushy growth",
+        "c": "To increase root length",
+        "d": "To reduce the need for irrigation",
+        "e": "To improve soil fertility"
+      },
+      "correct_option": "b",
+      "explanation": "Nipping removes the apical dominance, encouraging the plant to develop more side branches, resulting in a bushier structure.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Nipping is mainly performed on which part of the plant?",
+      "options": {
+        "a": "Roots",
+        "b": "Flowers",
+        "c": "Leaves",
+        "d": "Growing tips of shoots",
+        "e": "Trunk"
+      },
+      "correct_option": "d",
+      "explanation": "Nipping involves pinching off the soft growing tips to stimulate lateral bud growth and branching.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following crops commonly benefits from nipping?",
+      "options": {
+        "a": "Wheat",
+        "b": "Cotton",
+        "c": "Mango",
+        "d": "Banana",
+        "e": "Rice"
+      },
+      "correct_option": "b",
+      "explanation": "Nipping in cotton promotes more branches, increasing flowering and yield.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is de-shooting in plants?",
+      "options": {
+        "a": "Removing diseased leaves",
+        "b": "Removing flowers to promote vegetative growth",
+        "c": "Cutting the roots to control plant height",
+        "d": "Removing lateral buds to encourage a single main stem",
+        "e": "Spraying chemicals to regulate growth"
+      },
+      "correct_option": "d",
+      "explanation": "De-shooting is the practice of removing lateral buds to direct plant energy into a single strong stem, producing larger flowers.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "De-shooting is most effective in which type of plant growth?",
+      "options": {
+        "a": "Climbing plants",
+        "b": "Single-stem flowering plants",
+        "c": "Root crops",
+        "d": "Fruit trees",
+        "e": "Creepers"
+      },
+      "correct_option": "b",
+      "explanation": "De-shooting is used in flowering plants grown for large blooms, such as Chrysanthemum and Dahlia.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is topiary?",
+      "options": {
+        "a": "A method of pruning plants into decorative shapes",
+        "b": "A technique for increasing plant height",
+        "c": "A method of soil preparation",
+        "d": "A technique for grafting fruit trees",
+        "e": "A way to improve plant nutrition"
+      },
+      "correct_option": "a",
+      "explanation": "Topiary is the art of training and pruning plants into ornamental shapes such as animals, geometric figures, or objects.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the Open Center (Vase Shape) system in plant training?",
+      "options": {
+        "a": "A method of planting trees in rows",
+        "b": "A technique of allowing multiple main branches from a short trunk",
+        "c": "A system of grafting plants for better yield",
+        "d": "A method of pruning to increase plant height",
+        "e": "A method of planting in a circular pattern"
+      },
+      "correct_option": "b",
+      "explanation": "In the Open Center system, the central leader is removed, and 3-5 main branches grow outward, creating a vase-like shape.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruit crops is commonly trained using the Open Center system?",
+      "options": {
+        "a": "Mango",
+        "b": "Peach",
+        "c": "Coconut",
+        "d": "Banana",
+        "e": "Pineapple"
+      },
+      "correct_option": "b",
+      "explanation": "Peach, Plum, Apricot, and other stone fruits are commonly trained in the Open Center system to allow sunlight penetration and air circulation.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the Central Leader System in plant training?",
+      "options": {
+        "a": "A method where the central stem is removed for bushy growth",
+        "b": "A technique where a single dominant trunk is maintained with lateral branches",
+        "c": "A method of planting trees in rows for high density",
+        "d": "A system of pruning used only for shrubs",
+        "e": "A method of training climbing plants"
+      },
+      "correct_option": "b",
+      "explanation": "In the Central Leader System, a single strong trunk (leader) is maintained, and lateral branches grow around it, creating a conical or pyramidal shape.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruit trees is commonly trained using the Central Leader System?",
+      "options": {
+        "a": "Peach",
+        "b": "Apple",
+        "c": "Mango",
+        "d": "Banana",
+        "e": "Grapevine"
+      },
+      "correct_option": "b",
+      "explanation": "Apple, Pear, and other pome fruits are commonly trained using the Central Leader System to promote strong vertical growth.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What shape does a tree trained in the Central Leader System typically have?",
+      "options": {
+        "a": "Vase-shaped",
+        "b": "Pyramid or conical-shaped",
+        "c": "Bush-like",
+        "d": "Horizontal spreading",
+        "e": "Circular canopy"
+      },
+      "correct_option": "b",
+      "explanation": "Trees trained using the Central Leader System have a conical or pyramid-like structure, with a dominant central trunk and evenly spaced lateral branches.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the Modified Leader System in plant training?",
+      "options": {
+        "a": "A system where a single trunk is maintained throughout the tree's life",
+        "b": "A combination of the Central Leader and Open Center systems",
+        "c": "A method used only for vines and creepers",
+        "d": "A system that does not involve pruning",
+        "e": "A planting method used for root vegetables"
+      },
+      "correct_option": "b",
+      "explanation": "The Modified Leader System starts with a strong central trunk, but after a few years, the central leader is pruned, allowing multiple scaffold branches to develop, similar to the Open Center system.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruits is NOT typically grown using the Cordon or Trellis System?",
+      "options": {
+        "a": "Passion fruit",
+        "b": "Grapes",
+        "c": "Tomato",
+        "d": "Mango",
+        "e": "Kiwi"
+      },
+      "correct_option": "d",
+      "explanation": "Mango trees are large and not suitable for the Cordon System, which is mostly used for vines and small fruiting plants.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following crops is most commonly trained using the Cordon or Trellis System?",
+      "options": {
+        "a": "Apple",
+        "b": "Grapes",
+        "c": "Mango",
+        "d": "Coconut",
+        "e": "Papaya"
+      },
+      "correct_option": "b",
+      "explanation": "Grapevines are commonly trained using the Cordon System to maximize fruit exposure to sunlight and improve yield.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the Cordon System in plant training?",
+      "options": {
+        "a": "A method where trees are allowed to grow naturally without pruning",
+        "b": "A training system where plants are grown with a single or multiple stems supported by a structure",
+        "c": "A planting technique used for tuber crops",
+        "d": "A method of irrigation for fruit trees",
+        "e": "A technique used for soil improvement"
+      },
+      "correct_option": "b",
+      "explanation": "The Cordon System is used to train plants in a controlled manner along a support system like a trellis, fence, or wires.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What type of structure is commonly used in the Cordon or Trellis System?",
+      "options": {
+        "a": "Deep underground pits",
+        "b": "Horizontal trellises, wires, or fences",
+        "c": "Large canopy covers",
+        "d": "Open field trenches",
+        "e": "Raised soil beds"
+      },
+      "correct_option": "b",
+      "explanation": "Plants in the Cordon or Trellis System are trained along horizontal supports like wires, stakes, or fences for better management and yield.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is pruning in horticulture?",
+      "options": {
+        "a": "A method of planting trees in rows",
+        "b": "The judicious removal of plant parts to influence growth and improve quality",
+        "c": "A technique used only for flowering plants",
+        "d": "A system of irrigation used in fruit orchards",
+        "e": "The removal of soil around the roots to enhance growth"
+      },
+      "correct_option": "b",
+      "explanation": "Pruning is done to remove unwanted plant parts, improve air circulation, increase fruit quality, and shape the plant.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary objective of pruning fruit trees?",
+      "options": {
+        "a": "Increase fruit size and quality",
+        "b": "Reduce water consumption",
+        "c": "Prevent root growth",
+        "d": "Eliminate the need for fertilizers",
+        "e": "Stop flowering completely"
+      },
+      "correct_option": "a",
+      "explanation": "Pruning helps remove excess branches, allowing more energy to be directed toward fruit production, improving size and quality.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the best time for pruning most deciduous fruit trees?",
+      "options": {
+        "a": "During active fruiting",
+        "b": "Immediately after flowering",
+        "c": "During the dormant season (late winter or early spring)",
+        "d": "In the middle of summer",
+        "e": "Anytime throughout the year"
+      },
+      "correct_option": "c",
+      "explanation": "Pruning in the dormant season allows plants to heal before the growing season begins, reducing stress and improving growth.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which type of pruning involves the removal of an entire branch from its point of origin?",
+      "options": {
+        "a": "Heading back",
+        "b": "Thinning out",
+        "c": "Pinching",
+        "d": "Topping",
+        "e": "Nipping"
+      },
+      "correct_option": "b",
+      "explanation": "Thinning out removes an entire branch from its base, improving air circulation and reducing overcrowding.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the term for the removal of young shoot tips to encourage bushy growth?",
+      "options": {
+        "a": "Pinching",
+        "b": "Stooling",
+        "c": "Trenching",
+        "d": "Coppicing",
+        "e": "Ringing"
+      },
+      "correct_option": "a",
+      "explanation": "Pinching removes the shoot tip, encouraging lateral branching and a bushier appearance in plants.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which fruit crop benefits the most from heavy pruning?",
+      "options": {
+        "a": "Mango",
+        "b": "Apple",
+        "c": "Grape",
+        "d": "Coconut",
+        "e": "Papaya"
+      },
+      "correct_option": "c",
+      "explanation": "Grapevines require heavy annual pruning to maintain fruiting wood and control excessive vegetative growth.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is an example of a plant that benefits from heading back pruning?",
+      "options": {
+        "a": "Mango",
+        "b": "Rose",
+        "c": "Coconut",
+        "d": "Banana",
+        "e": "Cactus"
+      },
+      "correct_option": "b",
+      "explanation": "Roses are commonly pruned using heading back to promote bushy growth and more flowering.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is heading back in pruning?",
+      "options": {
+        "a": "Removing an entire branch from its point of origin",
+        "b": "Cutting back a part of a branch to a bud or lateral shoot",
+        "c": "Removing only dried leaves from a plant",
+        "d": "Trimming roots instead of branches",
+        "e": "A method of harvesting fruit"
+      },
+      "correct_option": "b",
+      "explanation": "Heading back is a pruning technique that shortens branches to promote bushier growth and encourage lateral shoots.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is dehorning in pruning?",
+      "options": {
+        "a": "The removal of small twigs and leaves from a tree",
+        "b": "The drastic removal of large, mature branches to rejuvenate an old tree",
+        "c": "The cutting of flowers before they bloom",
+        "d": "A method of preventing plant diseases",
+        "e": "A process used only in vegetable crops"
+      },
+      "correct_option": "b",
+      "explanation": "Dehorning is a severe pruning method used to rejuvenate old or unproductive trees by cutting back large branches.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which type of pruning is used for rejuvenating old, unproductive fruit trees?",
+      "options": {
+        "a": "Heading back",
+        "b": "Disbudding",
+        "c": "Dehorning",
+        "d": "Root pruning",
+        "e": "Nipping"
+      },
+      "correct_option": "c",
+      "explanation": "Dehorning is a drastic pruning method where large branches are removed to stimulate new growth in old fruit trees.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which type of pruning involves cutting back a portion of a branch to a bud or lateral shoot to encourage bushy growth?",
+      "options": {
+        "a": "Thinning out",
+        "b": "Heading back",
+        "c": "Dehorning",
+        "d": "Root pruning",
+        "e": "Topiary"
+      },
+      "correct_option": "b",
+      "explanation": "Heading back stimulates lateral growth and makes plants bushier, commonly used in fruit trees and ornamental shrubs.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which type of pruning is commonly practiced in bonsai plants?",
+      "options": {
+        "a": "Thinning out",
+        "b": "Disbudding",
+        "c": "Root pruning",
+        "d": "Heading back",
+        "e": "Dehorning"
+      },
+      "correct_option": "c",
+      "explanation": "Root pruning helps maintain small plant size, making it essential in bonsai cultivation.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary purpose of frame pruning?",
+      "options": {
+        "a": "To shape the plant by removing weak and unproductive branches",
+        "b": "To remove excess flower buds for better fruit quality",
+        "c": "To cut the roots and limit plant growth",
+        "d": "To remove large, mature branches for rejuvenation",
+        "e": "To control pests and diseases"
+      },
+      "correct_option": "a",
+      "explanation": "Frame pruning is used to develop a strong framework in plants by removing weak branches, ensuring better structure and productivity.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the main objective of maintenance pruning?",
+      "options": {
+        "a": "To drastically reduce the height of the plant",
+        "b": "To remove diseased, dead, or weak branches and maintain the plant's shape",
+        "c": "To encourage excessive vegetative growth",
+        "d": "To completely stop flowering and fruiting",
+        "e": "To cut off all side branches for a single-stem structure"
+      },
+      "correct_option": "b",
+      "explanation": "Maintenance pruning helps in keeping plants healthy by removing damaged parts and ensuring proper structure and air circulation.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary purpose of ringing or girdling in plants?",
+      "options": {
+        "a": "To remove excess leaves and branches",
+        "b": "To stimulate flowering and fruiting by disrupting the downward flow of food (phloem)",
+        "c": "To completely kill the plant for replanting",
+        "d": "To increase vegetative growth by cutting roots",
+        "e": "To prevent water loss during drought conditions"
+      },
+      "correct_option": "b",
+      "explanation": "Ringing (girdling) involves removing a strip of bark from a branch or trunk, temporarily blocking the downward movement of carbohydrates, which helps in improving flowering and fruiting.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the best season for notching in fig plants?",
+      "options": {
+        "a": "January-February",
+        "b": "March-April",
+        "c": "June-July",
+        "d": "August-September",
+        "e": "November-December"
+      },
+      "correct_option": "d",
+      "explanation": "Notching in fig is best done during August-September, as this helps in stimulating lateral bud growth and improving fruit production.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the main objective of notching in horticultural crops?",
+      "options": {
+        "a": "To remove infected branches",
+        "b": "To increase water absorption by roots",
+        "c": "To stimulate lateral bud development and improve branching",
+        "d": "To reduce fruit size for better quality",
+        "e": "To prevent pest infestation"
+      },
+      "correct_option": "c",
+      "explanation": "Notching helps break apical dominance by making small cuts above a bud, encouraging new shoot formation.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following practices are done to induce flowering and fruiting in horticulture plants?",
+      "options": {
+        "a": "Notching",
+        "b": "Gridling",
+        "c": "Root pruning",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Pruning, root pruning, ringing, girdling, notching, bending, smudging are some of the specialized horticultural practices followed for regulation of fruiting.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "___ is the common practice in Maharashtra to induce flowering in guava",
+      "options": {
+        "a": "Bending",
+        "b": "Notching",
+        "c": "Tipping",
+        "d": "Root pruning",
+        "e": "All of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Bending a branch downward, sometimes checks growth and causes accumulation of starch in the branch with greater flowering. This tends to increase carbohydrate concentration. This is usually practiced with local guava variety in the Maharashtra state (Deccan area).[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What happens physiologically when a notch is made above a bud in a plant?",
+      "options": {
+        "a": "It enhances the downward movement of auxins",
+        "b": "It restricts auxin flow, promoting lateral bud growth",
+        "c": "It increases root formation",
+        "d": "It prevents photosynthesis in the leaves",
+        "e": "It decreases transpiration"
+      },
+      "correct_option": "b",
+      "explanation": "Notching blocks auxin movement, reducing apical dominance and stimulating lateral shoot growth.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Smudging is most commonly used in which fruit crop?",
+      "options": {
+        "a": "Guava",
+        "b": "Mango",
+        "c": "Grapes",
+        "d": "Citrus",
+        "e": "Apple"
+      },
+      "correct_option": "b",
+      "explanation": "Smudging is widely used in mango orchards to induce flowering, especially in regions where natural flowering is delayed due to low temperatures.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary purpose of smudging in horticulture?",
+      "options": {
+        "a": "To control pests and diseases",
+        "b": "To increase soil fertility",
+        "c": "To induce early flowering and fruiting by producing smoke",
+        "d": "To reduce water loss from leaves",
+        "e": "To remove unwanted branches from trees"
+      },
+      "correct_option": "c",
+      "explanation": "Smudging is a technique where smoke is generated around trees, primarily in mango orchards, to create a warmer microclimate and stimulate flowering.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Root pruning is generally practiced in which horticulture plants to induce flowering and fruiting?",
+      "options": {
+        "a": "Mango",
+        "b": "Banana",
+        "c": "Citrus",
+        "d": "Grapes",
+        "e": "All of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Root pruning results in less carbohydrate utilization of the top growth through there is a little more utilization of carbohydrate for root functions. The trees burst into flowering in about 2-3 weeks of root pruning. Practice very widely adopted by citrus growers in western and central India (in santra).[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the purpose of Bahar treatment in horticulture?",
+      "options": {
+        "a": "To increase leaf production",
+        "b": "To control pest infestations",
+        "c": "To regulate flowering and fruiting according to market demand",
+        "d": "To enhance root growth",
+        "e": "To stop excessive vegetative growth"
+      },
+      "correct_option": "c",
+      "explanation": "Bahar treatment is a horticultural practice used in fruit crops like pomegranate and citrus to control the timing of flowering and fruiting for better yield and market availability.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "In Bahar treatment, which of the following seasons corresponds to flowering in June-July?",
+      "options": {
+        "a": "Ambe Bahar",
+        "b": "Hasta Bahar",
+        "c": "Mrig Bahar",
+        "d": "Sharad Bahar",
+        "e": "Vasant Bahar"
+      },
+      "correct_option": "c",
+      "explanation": "Mrig Bahar flowering occurs in June-July, leading to fruit harvest in winter. It is commonly practiced in areas with sufficient monsoon rains.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Hasta Bahar flowering occurs in which months?",
+      "options": {
+        "a": "June-July",
+        "b": "October-November",
+        "c": "December-February",
+        "d": "March-April",
+        "e": "August-September"
+      },
+      "correct_option": "b",
+      "explanation": "Hasta Bahar flowering occurs in October-November, with fruit harvesting in summer. This is useful in areas where water availability is sufficient during fruit development.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Ambe Bahar flowering is induced during which season?",
+      "options": {
+        "a": "Winter (December-February)",
+        "b": "Monsoon (June-July)",
+        "c": "Post-monsoon (October-November)",
+        "d": "Summer (April-May)",
+        "e": "Early spring (March)"
+      },
+      "correct_option": "a",
+      "explanation": "Ambe Bahar flowering occurs in winter (December-February), with fruits maturing in monsoon (June-July). This is the most preferred season in areas with assured irrigation.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Bahar treatment is commonly practiced in which of the following fruit crops?",
+      "options": {
+        "a": "Banana and Coconut",
+        "b": "Mango and Jackfruit",
+        "c": "Pomegranate and Citrus",
+        "d": "Grapes and Strawberry",
+        "e": "Papaya and Pineapple"
+      },
+      "correct_option": "c",
+      "explanation": "Bahar treatment is mainly used in fruit crops like pomegranate and citrus to regulate flowering and fruiting cycles according to seasonal and market requirements.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary objective of Bahar treatment in fruit crops?",
+      "options": {
+        "a": "To improve root development",
+        "b": "To regulate flowering and fruiting according to season and market demand",
+        "c": "To promote excessive vegetative growth",
+        "d": "To reduce fruit drop in all seasons",
+        "e": "To prevent pest infestations"
+      },
+      "correct_option": "b",
+      "explanation": "Bahar treatment is used to control the flowering season in fruit crops like pomegranate and citrus to ensure better yield and market availability.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following growth retardants is commonly used in mango to regulate growth?",
+      "options": {
+        "a": "Gibberellic Acid (GA3)",
+        "b": "Indole-3-Acetic Acid (IAA)",
+        "c": "Cycocel (CCC)",
+        "d": "Ethylene",
+        "e": "Abscisic Acid (ABA)"
+      },
+      "correct_option": "c",
+      "explanation": "Cycocel (CCC) at 1000 ppm is used in mango to control excessive vegetative growth and promote flowering by reducing gibberellin activity.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "In mango, Cycocel (CCC)is applied at what concentration to regulate vegetative growth?",
+      "options": {
+        "a": "100 ppm",
+        "b": "500 ppm",
+        "c": "1000 ppm",
+        "d": "1500 ppm",
+        "e": "2000 ppm"
+      },
+      "correct_option": "c",
+      "explanation": "In mango, Cycocel (CCC) at 1000 ppm is used to control vegetative growth and induce flowering.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The disappearance of angularity is used as a maturity index in which fruit?",
+      "options": {
+        "a": "Guava",
+        "b": "Banana",
+        "c": "Mango",
+        "d": "Grapes",
+        "e": "Watermelon"
+      },
+      "correct_option": "b",
+      "explanation": "In bananas, the disappearance of angularity (rounding of fingers) indicates maturity and readiness for harvest.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The minimum TSS requirement for grapes at maturity is",
+      "options": {
+        "a": "10%",
+        "b": "12%",
+        "c": "14-17.5%",
+        "d": "20%",
+        "e": "8%"
+      },
+      "correct_option": "c",
+      "explanation": "Grapes are considered mature when they have a TSS of 14-17.5%, depending on the cultivar, with a TSS/TA ratio of 20 or higher.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The maturity index of guava is determined by:",
+      "options": {
+        "a": "Flesh firmness",
+        "b": "TSS/Acid ratio",
+        "c": "Color break stage (from dark green to light green)",
+        "d": "Development of seeds",
+        "e": "Disappearance of fuzz on fruit skin"
+      },
+      "correct_option": "c",
+      "explanation": "Guava is harvested at the color break stage when the skin changes from dark green to light green.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the maturity index for brinjal (eggplant)?",
+      "options": {
+        "a": "Hard seeds inside the fruit",
+        "b": "Skin turning from green to yellow",
+        "c": "Immature, glossy skin, harvested 40 days from flowering",
+        "d": "Development of black streaks on fruit surface",
+        "e": "Appearance of a woody texture"
+      },
+      "correct_option": "c",
+      "explanation": "Brinjal is harvested when it has an immature, glossy skin and is about 40 days from flowering.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The recommended maturity index for harvesting potatoes is",
+      "options": {
+        "a": "When the tubers reach full size",
+        "b": "Before vines die completely, followed by curing",
+        "c": "When the skin starts turning soft",
+        "d": "At the flowering stage of the plant",
+        "e": "When the leaves begin to curl"
+      },
+      "correct_option": "b",
+      "explanation": "Potatoes are harvested before the vines die completely, and curing is done to heal surface wounds.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The maturity index for tomatoes is",
+      "options": {
+        "a": "When the fruit reaches full size",
+        "b": "Seeds fully developed and gel formation advanced in at least one locule",
+        "c": "When the fruit turns completely red",
+        "d": "When the outer skin develops wrinkles",
+        "e": "When the fruit detaches easily from the plant"
+      },
+      "correct_option": "b",
+      "explanation": "Tomatoes are harvested when the seeds are fully developed and gel formation is advanced in at least one locule.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which post-harvest operation is performed to remove dirt, pesticide residues, and microbial contaminants from produce?",
+      "options": {
+        "a": "Curing",
+        "b": "Washing",
+        "c": "Waxing",
+        "d": "Irradiation",
+        "e": "Packaging"
+      },
+      "correct_option": "b",
+      "explanation": "Washing helps remove soil, chemicals, and pathogens from fruits and vegetables to maintain hygiene and quality.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is the primary objective of post-harvest handling operations?",
+      "options": {
+        "a": "To increase the weight of produce",
+        "b": "To reduce water content in fruits",
+        "c": "To maintain quality, extend shelf life, and minimize losses",
+        "d": "To enhance plant growth after harvesting",
+        "e": "To make fruits and vegetables look attractive only"
+      },
+      "correct_option": "c",
+      "explanation": "Post-harvest handling operations aim to preserve freshness, minimize spoilage, and extend the marketability of fruits and vegetables.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the purpose of grading in post-harvest handling?",
+      "options": {
+        "a": "To increase fruit weight artificially",
+        "b": "To sort produce based on size, shape, color, and quality",
+        "c": "To dry the produce for longer storage",
+        "d": "To sterilize fruits and vegetables",
+        "e": "To remove moisture from fruits"
+      },
+      "correct_option": "b",
+      "explanation": "Grading ensures uniformity in quality and appearance, making it easier for consumers and markets to accept the produce.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which method is commonly used to extend the shelf life of fruits by reducing water loss and respiration?",
+      "options": {
+        "a": "Blanching",
+        "b": "Waxing",
+        "c": "Fermentation",
+        "d": "Pasteurization",
+        "e": "Sun drying"
+      },
+      "correct_option": "b",
+      "explanation": "Waxing forms a protective layer on the surface of fruits like apples, citrus, and cucumbers to reduce water loss and delay aging.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the main purpose of pre-cooling in post-harvest handling?",
+      "options": {
+        "a": "To increase the temperature of harvested produce",
+        "b": "To remove field heat and slow down respiration",
+        "c": "To kill pathogens in fruits and vegetables",
+        "d": "To enhance fruit ripening",
+        "e": "To improve the color of vegetables"
+      },
+      "correct_option": "b",
+      "explanation": "Pre-cooling helps in maintaining quality by reducing temperature and slowing down respiration rates.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is a common storage method for perishable fruits and vegetables?",
+      "options": {
+        "a": "Cold storage",
+        "b": "Open field storage",
+        "c": "Direct sun drying",
+        "d": "Keeping under high humidity conditions",
+        "e": "Vacuum packing"
+      },
+      "correct_option": "a",
+      "explanation": "Cold storage slows down ripening, reduces microbial growth, and extends the shelf life of perishable produce.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Modified Atmosphere Packaging (MAP) is used in post-harvest handling to",
+      "options": {
+        "a": "Increase oxygen concentration",
+        "b": "Reduce the rate of respiration and delay ripening",
+        "c": "Remove ethylene gas from storage rooms",
+        "d": "Increase temperature of stored produce",
+        "e": "Absorb moisture from fruits"
+      },
+      "correct_option": "b",
+      "explanation": "MAP alters oxygen and carbon dioxide levels to slow down respiration and extend the freshness of produce.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is NOT a post-harvest treatment used for extending the shelf life of fruits?",
+      "options": {
+        "a": "Hot water treatment",
+        "b": "Irradiation",
+        "c": "Ethylene treatment",
+        "d": "Artificial coloring",
+        "e": "Waxing"
+      },
+      "correct_option": "d",
+      "explanation": "Artificial coloring is not a recommended post-harvest treatment for fresh produce as it does not help in preserving quality[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which storage technique is used for climacteric fruits like bananas and mangoes to control ripening?",
+      "options": {
+        "a": "Cold storage",
+        "b": "Controlled Atmosphere Storage (CAS)",
+        "c": "Sun drying",
+        "d": "Canning",
+        "e": "Osmotic dehydration"
+      },
+      "correct_option": "b",
+      "explanation": "CAS adjusts oxygen, carbon dioxide, and ethylene levels to control ripening and extend the storage life of climacteric fruits.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary purpose of removing field heat from harvested produce?",
+      "options": {
+        "a": "To enhance the color of fruits",
+        "b": "To remove excess moisture",
+        "c": "To slow down respiration and reduce spoilage",
+        "d": "To increase the weight of produce",
+        "e": "To make the produce softer for packing"
+      },
+      "correct_option": "c",
+      "explanation": "Field heat removal helps in preserving freshness, delaying ripening, and reducing microbial growth.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following methods is commonly used for removing field heat from freshly harvested fruits and vegetables?",
+      "options": {
+        "a": "Hot air drying",
+        "b": "Pre-cooling",
+        "c": "Blanching",
+        "d": "Waxing",
+        "e": "Fermentation"
+      },
+      "correct_option": "b",
+      "explanation": "Pre-cooling rapidly removes heat from produce, reducing respiration and maintaining quality.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "In which pre-cooling method is freshly harvested produce immersed in cold water to remove field heat?",
+      "options": {
+        "a": "Forced-air cooling",
+        "b": "Room cooling",
+        "c": "Hydro-cooling",
+        "d": "Vacuum cooling",
+        "e": "Ethylene treatment"
+      },
+      "correct_option": "c",
+      "explanation": "Hydro-cooling involves submerging or spraying produce with chilled water to quickly reduce its temperature.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary purpose of grading in post-harvest handling of fruits and vegetables?",
+      "options": {
+        "a": "To increase the weight of produce artificially",
+        "b": "To sort produce based on size, shape, color, and quality",
+        "c": "To speed up the ripening process",
+        "d": "To remove moisture content from produce",
+        "e": "To sterilize fruits and vegetables."
+      },
+      "correct_option": "b",
+      "explanation": "Grading ensures uniformity, enhances market value, and improves consumer acceptance by categorizing produce based on quality parameters.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following pre-cooling methods is most effective for leafy vegetables?",
+      "options": {
+        "a": "Hydro-cooling",
+        "b": "Room cooling",
+        "c": "Forced-air cooling",
+        "d": "Vacuum cooling",
+        "e": "Ice packing"
+      },
+      "correct_option": "d",
+      "explanation": "Vacuum cooling is ideal for leafy greens as it rapidly cools the produce by evaporating moisture under low pressure.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which pre-cooling method involves placing harvested produce in a cold storage room to gradually lower its temperature?",
+      "options": {
+        "a": "Hydro-cooling",
+        "b": "Vacuum cooling",
+        "c": "Room cooling",
+        "d": "Forced-air cooling",
+        "e": "Ice packing"
+      },
+      "correct_option": "c",
+      "explanation": "Room cooling is a slow but effective method where produce is kept in a cold storage room to gradually reduce its temperature.[cite: 18]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the main advantage of using Modified Atmosphere Packaging (MAP) for fruits and vegetables?",
+      "options": {
+        "a": "It increases oxygen levels to accelerate ripening",
+        "b": "It reduces respiration rate and extends shelf life",
+        "c": "It adds artificial flavors to improve taste",
+        "d": "It removes all moisture from the produce",
+        "e": "It exposes produce to direct sunlight for preservation"
+      },
+      "correct_option": "b",
+      "explanation": "Modified Atmosphere Packaging (MAP) alters the levels of gases (O2, CO2 and N2 around the produce, slowing down respiration and spoilage.[cite: 18]"
+    }
+  ]
+}

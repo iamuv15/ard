@@ -1,0 +1,1489 @@
+{
+  "title": "Agroforestry Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "___ is a sustainable management system for land that increases overall production, combines agricultural crops, tree crops, and forest plants and animals simultaneously.",
+      "options": {
+        "a": "Sustainable agriculture",
+        "b": "Organic farming",
+        "c": "Agroforestry",
+        "d": "Social forestry",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Agroforestry is a sustainable management system for land that increases overall production, combines agricultural crops, tree crops, and forest plants and animals simultaneously or sequentially and applies management practices that are compatible with cultural patterns of the local population.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Consider the following statements about the agroforestry system: a. Should involve 2 or more species, and one must be a tree. b. Tree species should have no interference or be noncompetitive. c. System should have multiple uses and higher returns. Identify the correct statement.",
+      "options": {
+        "a": "Only A",
+        "b": "Only B",
+        "c": "B & C",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "- Agroforestry normally involves two or more species of plants, with at least one being a woody perennial. - Agroforestry systems should always have two or more outputs. The selected tree species should have no interference or noncompetitive behavior with the crop. Use of fast-growing trees that are adaptable to the region is recommended.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following best defines agroforestry?",
+      "options": {
+        "a": "The practice of growing only trees for timber production.",
+        "b": "The combination of agriculture and forestry practices to create a sustainable land-use system.",
+        "c": "Cultivating crops in forested areas without planting trees.",
+        "d": "A farming system that excludes livestock integration.",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Agroforestry integrates trees, crops, and livestock into a single system to improve biodiversity, enhance soil fertility, and increase economic benefits. Unlike monoculture farming, agroforestry promotes sustainable land use by combining agriculture and forestry.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following is NOT a major benefit of agroforestry?",
+      "options": {
+        "a": "Soil conservation",
+        "b": "Carbon sequestration",
+        "c": "Increased biodiversity",
+        "d": "Rapid depletion of groundwater",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Agroforestry improves soil conservation, promotes carbon sequestration, supports biodiversity, and increases farm income. However, it does not lead to rapid groundwater depletion; rather, it helps retain soil moisture and prevent water loss.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which agroforestry system involves the deliberate integration of trees and livestock on the same land?",
+      "options": {
+        "a": "Silvopastoral system",
+        "b": "Alley cropping",
+        "c": "Windbreak system",
+        "d": "Taungya system",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "A silvopastoral system integrates trees, forage plants, and livestock in the same area, providing shelter for animals and improving land productivity. It is widely used to enhance soil fertility and prevent erosion.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "In an alley cropping system, what is the primary purpose of planting trees in rows with crops grown between them?",
+      "options": {
+        "a": "To reduce the land available for crops",
+        "b": "To compete with crops for nutrients",
+        "c": "To provide shade that reduces crop yield",
+        "d": "To enhance soil fertility and protect crops from wind and water erosion",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Alley cropping involves growing crops between rows of trees, which help in reducing wind and water erosion, fixing nitrogen (in the case of leguminous trees), and enhancing soil fertility. This practice improves overall land productivity.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which tree species is commonly used in agroforestry due to its nitrogen-fixing ability?",
+      "options": {
+        "a": "Eucalyptus",
+        "b": "Acacia",
+        "c": "Teak",
+        "d": "Bamboo",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Acacia is a nitrogen-fixing tree that enhances soil fertility by adding nitrogen to the soil. Nitrogen-fixing trees are crucial in agroforestry because they improve crop yields and reduce the need for synthetic fertilizers.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary role of windbreaks in agroforestry?",
+      "options": {
+        "a": "To prevent farmers from planting crops too close together",
+        "b": "To act as a barrier against strong winds, protecting soil and crops from erosion",
+        "c": "To increase land temperature and decrease humidity",
+        "d": "To reduce crop yields by blocking sunlight",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Windbreaks are rows of trees or shrubs planted to reduce wind speed, protect crops, and minimize soil erosion. They help maintain soil moisture and prevent damage to agricultural fields.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following is a disadvantage of agroforestry?",
+      "options": {
+        "a": "Improved biodiversity",
+        "b": "Increased income for farmers",
+        "c": "Higher initial investment and longer time for returns",
+        "d": "Better soil conservation",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "While agroforestry has numerous benefits, one challenge is the higher initial investment and longer wait time for trees to mature before financial returns are realized. However, once established, agroforestry systems become highly productive and sustainable.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main objective of the Taungya system in agroforestry?",
+      "options": {
+        "a": "To combine forestry and shifting cultivation for better land management",
+        "b": "To focus solely on timber production",
+        "c": "To prevent farmers from using forest lands",
+        "d": "To replace natural forests with crop plantations",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "The Taungya system is a traditional agroforestry method where farmers grow crops between newly planted trees. Over time, as the trees mature, the land transitions into a forested area, making it a sustainable system that integrates forestry and agriculture.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following is a key principle of sustainable agroforestry?",
+      "options": {
+        "a": "Relying solely on chemical fertilizers",
+        "b": "Encouraging monoculture cropping",
+        "c": "Integrating trees, crops, and/or livestock to optimize land productivity",
+        "d": "Eliminating tree planting to maximize crop yields",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sustainable agroforestry combines trees, crops, and livestock in a way that enhances biodiversity, improves soil health, and increases long-term productivity without depleting natural resources.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following is NOT a major classification criterion for agroforestry systems?",
+      "options": {
+        "a": "Structure of components",
+        "b": "Functional basis",
+        "c": "Socioeconomic and ecological aspects",
+        "d": "Genetic modification of plants",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Agroforestry systems are classified based on structural composition (trees, crops, livestock), functional roles, socioeconomic impact, and ecological zones. Genetic modification is not a basis for classification in agroforestry.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which classification of agroforestry is based on the nature of components involved?",
+      "options": {
+        "a": "Functional classification",
+        "b": "Ecological classification",
+        "c": "Structural classification",
+        "d": "Socioeconomic classification",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Structural classification categorizes agroforestry systems based on the components used, such as trees, crops, and livestock. This classification helps in understanding system design and species interactions.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following agroforestry systems involves the deliberate combination of trees and agricultural crops?",
+      "options": {
+        "a": "Agrosilvicultural system",
+        "b": "Agronomic system",
+        "c": "Silvopastoral system",
+        "d": "None of the above",
+        "e": "All of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Agrosilvicultural systems integrate trees and crops on the same land to enhance biodiversity, soil conservation, and productivity. It is one of the three main agroforestry classifications.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "A system where trees, crops, and livestock are integrated together is classified as",
+      "options": {
+        "a": "Alley cropping system",
+        "b": "Silvopastoral system",
+        "c": "Agrosilvopastoral system",
+        "d": "Monoculture system",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The Agrosilvopastoral system combines trees, crops, and livestock, creating a diversified land-use system that maximizes resource efficiency and sustainability.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following agroforestry systems primarily focuses on integrating trees and livestock?",
+      "options": {
+        "a": "Agrosilvicultural system",
+        "b": "Alley cropping system",
+        "c": "Silvopastoral system",
+        "d": "Taungya system",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Silvopastoral systems integrate trees and livestock, providing benefits like fodder production, shade, and improved soil quality. Examples include grazing under tree plantations.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which classification of agroforestry focuses on its contribution to soil conservation, climate regulation, and biodiversity enhancement?",
+      "options": {
+        "a": "Structural classification",
+        "b": "Socioeconomic classification",
+        "c": "Functional classification",
+        "d": "Ecological classification",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Functional classification of agroforestry categorizes systems based on their role, such as soil conservation, carbon sequestration, wind protection, and biodiversity improvement.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "The Taungya system is an example of which type of agroforestry classification?",
+      "options": {
+        "a": "Socioeconomic classification",
+        "b": "Agrosilvicultural system",
+        "c": "Temporal classification",
+        "d": "Silvopastoral system",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Taungya is an agrosilvicultural system where farmers grow crops alongside young trees until the trees mature and form a forest. It is commonly practiced in Southeast Asia and Africa.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which agroforestry system is classified based on the time sequence of tree and crop establishment?",
+      "options": {
+        "a": "Ecological classification",
+        "b": "Functional classification",
+        "c": "Socioeconomic classification",
+        "d": "Structural classification",
+        "e": "Temporal classification"
+      },
+      "correct_option": "e",
+      "explanation": "Temporal classification considers the time factor in agroforestry, such as sequential planting, rotational cropping, and long-term or short-term integration of trees with crops.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the key difference between socioeconomic and ecological classification in agroforestry?",
+      "options": {
+        "a": "Ecological classification depends on climatic conditions, while socioeconomic classification considers the livelihood benefits for farmers.",
+        "b": "Socioeconomic classification is based on plant species, while ecological classification is based on land area.",
+        "c": "Ecological classification focuses only on commercial farming, while socioeconomic classification considers traditional systems.",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Ecological classification is based on environmental factors like climate and soil, while socioeconomic classification considers the role of agroforestry in rural livelihoods, income generation, and subsistence farming.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following agroforestry systems involves the combination of trees and crops only?",
+      "options": {
+        "a": "Agri-Silviculture",
+        "b": "Agri-Silvi-Horticulture",
+        "c": "Horti-Pasture",
+        "d": "Agri-Silvi-Pasture",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Agri-Silviculture is a system that integrates trees and crops without including livestock or fruit trees, making it a fundamental agroforestry model.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "In which agroforestry system are trees planted along the edges of fields while crops grow in the center?",
+      "options": {
+        "a": "Block Plantation",
+        "b": "Alley Cropping",
+        "c": "Boundary Plantation",
+        "d": "Agri-Silvi-Pasture",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Boundary Plantation involves planting trees along field boundaries to act as windbreaks or protective barriers while allowing crops to grow in the center of the land.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which agroforestry system consists of separate blocks of trees and separate blocks of crops?",
+      "options": {
+        "a": "Silvi-Olericulture",
+        "b": "Agri-Silvi-Horticulture",
+        "c": "Alley Cropping",
+        "d": "Block Plantation",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Block Plantation features distinct areas (blocks) for trees and crops, rather than mixing them in the same space. This allows better management of trees and crops separately.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which system is characterized by planting perennial hedges or grasses in rows with crops grown in between?",
+      "options": {
+        "a": "Agri-Horticulture",
+        "b": "Silvi-Olericulture",
+        "c": "Horti-Pasture",
+        "d": "Agri-Silviculture",
+        "e": "Alley Cropping"
+      },
+      "correct_option": "e",
+      "explanation": "Alley Cropping involves planting perennial hedges or grasses in rows, with crops growing between them. This helps in soil conservation, moisture retention, and erosion control.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "The system that integrates fruit trees with crops is known as",
+      "options": {
+        "a": "Agri-Horticulture",
+        "b": "Silvi-Olericulture",
+        "c": "Block Plantation",
+        "d": "Agri-Silvi-Pasture",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Agri-Horticulture is an agroforestry system where fruit trees (horticultural species) are grown along with crops to maximize land productivity and diversify farm output.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "If a farmer combines trees, fruit trees, and crops on the same land, what agroforestry system is being practiced?",
+      "options": {
+        "a": "Agri-Horticulture",
+        "b": "Agri-Silviculture",
+        "c": "Block Plantation",
+        "d": "Silvi-Olericulture",
+        "e": "Agri-Silvi-Horticulture"
+      },
+      "correct_option": "e",
+      "explanation": "Agri-Silvi-Horticulture is a system that incorporates trees, fruit trees, and crops, allowing for diversified farm income and sustainable land use.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "If trees and vegetables are grown together in an agroforestry system, what is it called?",
+      "options": {
+        "a": "Silvi-Olericulture",
+        "b": "Alley Cropping",
+        "c": "Agri-Silviculture",
+        "d": "Agri-Horticulture",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Silvi-Olericulture is an agroforestry system that combines trees with vegetable cultivation, improving microclimate conditions and soil productivity.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main difference between Agri-Horticulture and Horti-Pasture?",
+      "options": {
+        "a": "Agri-Horticulture involves livestock, while Horti-Pasture does not",
+        "b": "Agri-Horticulture integrates crops with fruit trees, while Horti-Pasture integrates pasture with fruit trees",
+        "c": "Horti-Pasture involves trees and vegetables, while Agri-Horticulture involves trees and livestock",
+        "d": "Horti-Pasture focuses only on cash crops, while Agri-Horticulture focuses on",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Agri-Horticulture involves the integration of fruit trees and crops, whereas Horti-Pasture combines fruit trees with pasture, making it suitable for supporting livestock grazing.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following best describes an agroforestry system where trees, crops, and livestock are combined?",
+      "options": {
+        "a": "Agri-Silvi-Horticulture",
+        "b": "Silvi-Olericulture",
+        "c": "Agri-Silvi-Pasture",
+        "d": "Block Plantation",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Agri-Silvi-Pasture is an integrated agroforestry system where trees, crops, and livestock are managed together to improve sustainability and land productivity.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which agroforestry system integrates trees with pasture and animals?",
+      "options": {
+        "a": "Horti-Olericulture",
+        "b": "Silvi-Pasture",
+        "c": "Aqua Forestry",
+        "d": "Wind Breaks",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Silvi-Pasture is a system that combines trees with pasture and livestock, providing benefits like improved soil fertility, shade, and fodder for animals.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "In which system are fruit trees combined with honey bee farming?",
+      "options": {
+        "a": "Horti-Olericulture",
+        "b": "Aqua Forestry",
+        "c": "Forage Forestry",
+        "d": "Horti-Apiculture",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Horti-Apiculture integrates fruit trees with honey bee farming, improving pollination efficiency and increasing fruit yield.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the purpose of Shelter Belts in agroforestry?",
+      "options": {
+        "a": "To provide forage for animals",
+        "b": "To serve as a boundary protection method",
+        "c": "To reduce wind speed and protect crops",
+        "d": "To promote fish farming",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Shelter belts are rows of trees planted to protect crops from strong winds, reduce soil erosion, and improve microclimatic conditions.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which agroforestry system involves trees along with fishes?",
+      "options": {
+        "a": "Silvi-Pasture",
+        "b": "Forage Forestry",
+        "c": "Aqua Forestry",
+        "d": "Home Stead",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Aqua Forestry integrates trees with fish farming, providing shade, improving water quality, and offering additional economic benefits from tree products.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What does the Live Fence system primarily include?",
+      "options": {
+        "a": "Shrubs and under trees on boundaries",
+        "b": "Trees and pasture",
+        "c": "Trees and fish farming",
+        "d": "Trees and crops",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Live Fences use shrubs and trees on farm boundaries, serving as protective barriers against animals, wind, and soil erosion while also providing additional fodder and firewood.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary purpose of improved fallow in agroforestry?",
+      "options": {
+        "a": "To allow land to recover naturally without intervention",
+        "b": "To enhance soil fertility using selected fast-growing trees or plants",
+        "c": "To permanently abandon degraded land",
+        "d": "To replace traditional agriculture with forest plantations",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Improved fallow involves planting fast-growing trees or nitrogen-fixing plants during fallow periods to restore soil fertility more quickly than natural fallow.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the Taungya system?",
+      "options": {
+        "a": "Growing trees and crops together with livestock grazing",
+        "b": "Raising only commercial timber plantations",
+        "c": "Cultivating agricultural crops alongside forest trees in early stages of tree growth",
+        "d": "Practicing hydroponic agriculture with tree saplings",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The Taungya system integrates agriculture with forestry, allowing farmers to grow crops between young tree plantations before the canopy closes.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main benefit of the Taungya system?",
+      "options": {
+        "a": "It eliminates the need for tree planting",
+        "b": "It provides short-term agricultural benefits while establishing forests",
+        "c": "It replaces traditional farming with urban forestry",
+        "d": "It focuses only on livestock production",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Farmers can grow crops in the early years of tree plantation, benefiting from food production while the trees mature.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "In the Taungya system, why are agricultural crops discontinued after a few years?",
+      "options": {
+        "a": "Because trees begin to compete with crops for light and nutrients",
+        "b": "Because farmers prefer to abandon the land",
+        "c": "Because the government enforces a crop ban",
+        "d": "Because it leads to complete deforestation",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "As trees grow and their canopy closes, they reduce sunlight availability, making it difficult for crops to thrive, leading to the end of agricultural cultivation.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main characteristic of alley cropping?",
+      "options": {
+        "a": "Planting only fruit trees in rows",
+        "b": "Growing crops between rows of trees or shrubs",
+        "c": "Raising livestock alongside trees",
+        "d": "Growing aquatic plants with trees",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Alley cropping is an agroforestry practice where agricultural crops are grown between rows of trees or shrubs, improving soil fertility and reducing erosion.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is a potential challenge of alley cropping?",
+      "options": {
+        "a": "It cannot be practiced on fertile land",
+        "b": "It requires a high amount of synthetic fertilizers",
+        "c": "It leads to permanent deforestation",
+        "d": "Trees may compete with crops for water, nutrients, and sunlight",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "If not managed properly, trees can outcompete crops for resources like sunlight, water, and nutrients, affecting crop yields.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is a home garden in agroforestry?",
+      "options": {
+        "a": "A large-scale commercial plantation",
+        "b": "A combination of trees, crops, and livestock around a household",
+        "c": "A forest with only timber trees",
+        "d": "A garden that grows only ornamental plants",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "A home garden is a small-scale agroforestry system where trees, crops, and sometimes livestock are grown near homes for food, fuel, medicine, and income.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following is a key benefit of home gardens?",
+      "options": {
+        "a": "They require no labor or maintenance",
+        "b": "They do not contribute to biodiversity",
+        "c": "They focus only on cash crops for export",
+        "d": "They provide diverse food sources for household consumption",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Home gardens support food security by growing vegetables, fruits, and medicinal plants for household use and local markets.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is a protein bank in agroforestry?",
+      "options": {
+        "a": "A storage system for commercial protein supplements",
+        "b": "A system that replaces all traditional grazing lands with synthetic protein sources",
+        "c": "A genetic database of protein-rich crops",
+        "d": "A soil improvement technique using synthetic fertilizers",
+        "e": "A plantation of nitrogen-fixing trees and shrubs to provide high-protein fodder for livestock"
+      },
+      "correct_option": "e",
+      "explanation": "A protein bank is a system where high-protein fodder trees and shrubs (such as Leucaena, Gliricidia, and Sesbania) are planted to supplement livestock feed.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main purpose of a protein bank?",
+      "options": {
+        "a": "To provide high-protein feed for animals, especially during dry seasons",
+        "b": "To replace livestock farming",
+        "c": "To grow only commercial crops",
+        "d": "To produce timber and paper products",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Protein banks help ensure continuous availability of nutritious fodder for livestock, particularly when natural grazing is limited.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is Aqua Forestry?",
+      "options": {
+        "a": "The practice of growing crops and trees on drylands",
+        "b": "The removal of trees for commercial fisheries",
+        "c": "The exclusive use of forests for timber production",
+        "d": "The cultivation of algae for biofuel production",
+        "e": "The integration of trees and aquatic systems like fish farming"
+      },
+      "correct_option": "e",
+      "explanation": "Aqua Forestry is an agroforestry system that combines trees with aquatic environments, such as ponds, rivers, or coastal areas, to support fish farming and improve water quality.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following trees is commonly used in Aqua Forestry?",
+      "options": {
+        "a": "Mangroves (Rhizophora spp.)",
+        "b": "Coconut (Cocos nucifera)",
+        "c": "Mango (Mangifera indica)",
+        "d": "Pine (Pinus spp.)",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Mangroves play a crucial role in coastal Aqua Forestry, protecting shorelines from erosion and providing breeding grounds for fish and other aquatic species.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What are Multipurpose Woodlots?",
+      "options": {
+        "a": "Forest plantations grown only for timber production",
+        "b": "Industrial wood processing units",
+        "c": "Small plots of land planted with trees that provide multiple benefits, such as fuelwood, fodder, and soil conservation",
+        "d": "Monoculture tree plantations for paper production",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Multipurpose woodlots are designed to provide fuelwood, fodder, timber, soil conservation, and ecological benefits, making them essential in sustainable agroforestry.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is a key challenge associated with Multipurpose Woodlots?",
+      "options": {
+        "a": "Some fast-growing species can become invasive",
+        "b": "They reduce agricultural productivity permanently",
+        "c": "They do not provide any economic benefits",
+        "d": "They cannot be established in degraded lands",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Certain species, such as Leucaena and Prosopis, can become invasive, spreading rapidly and outcompeting native vegetation if not managed properly.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is shifting cultivation?",
+      "options": {
+        "a": "A permanent farming system that uses irrigation",
+        "b": "A system where crops and livestock are raised together on the same land",
+        "c": "A high-input commercial farming method",
+        "d": "A method that relies only on chemical fertilizers for soil fertility",
+        "e": "A form of agriculture where land is cleared, cultivated for a few years, and then abandoned for regeneration"
+      },
+      "correct_option": "e",
+      "explanation": "Shifting cultivation is a traditional agricultural system where farmers clear a piece of land, grow crops for a few years, and then leave it to regenerate naturally while moving to a new area.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is another common name for shifting cultivation?",
+      "options": {
+        "a": "Hydroponic farming",
+        "b": "Jhum cultivation",
+        "c": "Intensive agriculture",
+        "d": "Greenhouse farming",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "In India and Southeast Asia, shifting cultivation is known as Jhum cultivation, especially in Northeast India. Different regions have other names for it, such as \"Milpa\" in Central America and \"Ladang\" in Indonesia.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main problem associated with shifting cultivation?",
+      "options": {
+        "a": "It leads to permanent soil degradation",
+        "b": "It increases forest cover",
+        "c": "It supports sustainable large-scale agriculture",
+        "d": "It requires excessive use of pesticides",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Repeated shifting cultivation in the same area over time can lead to deforestation, soil erosion, and reduced soil fertility, making land less productive.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "In shifting cultivation, how is land typically cleared for farming?",
+      "options": {
+        "a": "By natural reforestation",
+        "b": "By using heavy machinery",
+        "c": "By slash-and-burn techniques",
+        "d": "By covering the land with plastic sheets",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Slash-and-burn is the most common method in shifting cultivation, where vegetation is cut and burned to clear land and temporarily enrich the soil with ash-based nutrients.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is apiculture?",
+      "options": {
+        "a": "The cultivation of fruit-bearing trees",
+        "b": "A method of soil conservation using trees",
+        "c": "The production of silk from silkworms",
+        "d": "The practice of beekeeping for honey and other bee products",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Apiculture refers to the keeping of bees to produce honey, beeswax, propolis, royal jelly, and for pollination services in agriculture.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the Alder-Based Agriculture System?",
+      "options": {
+        "a": "A farming system that relies only on synthetic fertilizers",
+        "b": "A traditional agroforestry practice using Alder trees for soil fertility improvement",
+        "c": "A modern hydroponic farming method",
+        "d": "A system where all trees are removed for shifting cultivation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The Alder-based agriculture system is a traditional agroforestry practice in Northeast India, especially in Nagaland, where Alder trees (Alnus nepalensis) are used to enhance soil fertility and improve crop production.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "How do Alder trees improve soil fertility in this system?",
+      "options": {
+        "a": "By absorbing excess water from the soil",
+        "b": "By fixing atmospheric nitrogen through symbiotic bacteria in root nodules",
+        "c": "By shading the land and reducing photosynthesis",
+        "d": "By increasing soil acidity",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Alder trees (Alnus nepalensis) form a symbiotic relationship with Frankia bacteria, which helps fix nitrogen in the soil, making it more fertile for crops.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Subabul?",
+      "options": {
+        "a": "Albizia lebbeck",
+        "b": "Leucaena leucocephala",
+        "c": "Acacia nilotica",
+        "d": "Azadirachta indica",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The scientific name of Subabul is Leucaena leucocephala, a fast-growing leguminous tree widely used in agroforestry.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Subabul is mainly used for which of the following purposes?",
+      "options": {
+        "a": "Timber production",
+        "b": "Fuelwood and fodder",
+        "c": "Oil extraction",
+        "d": "Fruit production",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Subabul is widely used for fuelwood, fodder for livestock, green manure, and soil conservation due to its fast growth and nitrogen-fixing ability.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is a major drawback of Eucalyptus cultivation?",
+      "options": {
+        "a": "It fixes nitrogen in the soil",
+        "b": "It consumes a large amount of groundwater and can cause soil degradation",
+        "c": "It is highly resistant to fire",
+        "d": "It supports high biodiversity in forests",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Eucalyptus trees absorb a lot of water, which can lower the water table and lead to soil degradation, making them unsuitable for dry regions.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Eucalyptus?",
+      "options": {
+        "a": "Eucalyptus globulus",
+        "b": "Leucaena leucocephala",
+        "c": "Azadirachta indica",
+        "d": "Acacia nilotica",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "There are many species of Eucalyptus, but Eucalyptus globulus is one of the most common and widely cultivated species.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is Eucalyptus mainly cultivated for?",
+      "options": {
+        "a": "Timber and pulpwood",
+        "b": "Fruit production",
+        "c": "Oilseed extraction",
+        "d": "Rubber production",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Eucalyptus is mainly used for timber, pulpwood (paper production), fuelwood, and essential oil extraction.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following is a major benefit of growing Eucalyptus?",
+      "options": {
+        "a": "It enhances groundwater recharge",
+        "b": "It grows rapidly and provides high economic returns",
+        "c": "It supports high biodiversity",
+        "d": "It is highly suitable for intercropping",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Eucalyptus is a fast-growing tree, making it highly profitable for timber and pulpwood industries.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Neem?",
+      "options": {
+        "a": "Leucaena leucocephala",
+        "b": "Eucalyptus globulus",
+        "c": "Azadirachta indica",
+        "d": "Acacia nilotica",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Neem is scientifically known as Azadirachta indica, and it is widely used for its medicinal, agricultural, and industrial benefits.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is Neem primarily used for?",
+      "options": {
+        "a": "Paper production",
+        "b": "Essential oil extraction and natural pesticide",
+        "c": "Timber and construction",
+        "d": "Edible fruit production",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Neem is well known for its antibacterial, antifungal, and insecticidal properties. Neem oil is used in pesticides, cosmetics, and medicines.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Babul?",
+      "options": {
+        "a": "Azadirachta indica",
+        "b": "Leucaena leucocephala",
+        "c": "Acacia nilotica",
+        "d": "Eucalyptus globulus",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Babul is scientifically known as Acacia nilotica, a drought-resistant tree known for its timber, fodder, and medicinal uses.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary use of Babul in agriculture and forestry?",
+      "options": {
+        "a": "Paper pulp production",
+        "b": "Timber, fodder, and gum extraction",
+        "c": "Latex extraction",
+        "d": "Edible fruit production",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Babul wood is used for timber and fuelwood, while its pods and leaves serve as fodder for livestock. It also produces gum arabic, used in industries.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following is a major benefit of Babul in agroforestry?",
+      "options": {
+        "a": "Improves soil fertility by nitrogen fixation",
+        "b": "Increases soil salinity",
+        "c": "Requires high amounts of water",
+        "d": "Supports heavy shade-loving crops",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Babul belongs to the legume family and has root nodules with nitrogen-fixing bacteria, which help improve soil fertility.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Teak?",
+      "options": {
+        "a": "Acacia nilotica",
+        "b": "Tectona grandis",
+        "c": "Azadirachta indica",
+        "d": "Dalbergia sissoo",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Teak is scientifically known as Tectona grandis, a high-quality hardwood tree widely used for timber and furniture.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary use of Teak wood?",
+      "options": {
+        "a": "Paper pulp production",
+        "b": "Furniture, shipbuilding, and construction",
+        "c": "Essential oil extraction",
+        "d": "Edible fruit production",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Teak wood is highly durable, resistant to termites and water, making it ideal for furniture, flooring, boat building, and outdoor structures.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Bamboo?",
+      "options": {
+        "a": "Acacia nilotica",
+        "b": "Tectona grandis",
+        "c": "Bambusoideae",
+        "d": "Azadirachta indica",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Bamboo belongs to the subfamily Bambusoideae, which is part of the grass family (Poaceae), making it one of the fastest-growing plants.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What makes Bamboo unique compared to other trees?",
+      "options": {
+        "a": "It belongs to the grass family",
+        "b": "It takes hundreds of years to grow",
+        "c": "It produces toxic chemicals",
+        "d": "It is a hardwood species",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Bamboo is a type of grass, not a tree, and it has a fast growth rate, making it an eco-friendly alternative to timber.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Tamarind?",
+      "options": {
+        "a": "Acacia nilotica",
+        "b": "Tamarindus indica",
+        "c": "Tectona grandis",
+        "d": "Azadirachta indica",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Tamarind is scientifically known as Tamarindus indica, and it is a tropical fruit-bearing tree known for its sour pulp used in cooking and medicine.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What part of the Tamarind tree is primarily used for culinary purposes?",
+      "options": {
+        "a": "Leaves",
+        "b": "Seeds",
+        "c": "Fruit pulp",
+        "d": "Bark",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Tamarind fruit pulp is widely used in cooking as a souring agent in dishes, sauces, and beverages.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Shisham?",
+      "options": {
+        "a": "Acacia nilotica",
+        "b": "Tectona grandis",
+        "c": "Dalbergia sissoo",
+        "d": "Azadirachta indica",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Shisham is scientifically known as Dalbergia sissoo, a valuable hardwood tree known for its high-quality timber and medicinal properties.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary use of Shisham wood?",
+      "options": {
+        "a": "Latex production",
+        "b": "Fuelwood and timber",
+        "c": "Paper pulp production",
+        "d": "Edible fruit production",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Shisham wood is widely used for furniture, construction, and flooring due to its strength, durability, and resistance to termites.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is a major advantage of growing Shisham in agroforestry?",
+      "options": {
+        "a": "It is a nitrogen-fixing tree",
+        "b": "It requires very high-water supply",
+        "c": "It has edible fruits",
+        "d": "It grows only in coastal regions",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Shisham is a leguminous tree that forms symbiotic relationships with nitrogen-fixing bacteria, improving soil fertility.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Mahua?",
+      "options": {
+        "a": "Dalbergia sissoo",
+        "b": "Madhuca indica / Madhuca longifolia",
+        "c": "Acacia nilotica",
+        "d": "Tamarindus indica",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Mahua is scientifically known as Madhuca indica or Madhuca longifolia, a tropical tree known for its economic, medicinal, and nutritional value.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary use of Mahua flowers?",
+      "options": {
+        "a": "Timber production",
+        "b": "Oil extraction",
+        "c": "Alcoholic beverage production",
+        "d": "Paper pulp manufacturing",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Mahua flowers are rich in sugar and are traditionally fermented to produce country liquor in many parts of India.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "How does Mahua contribute to agroforestry?",
+      "options": {
+        "a": "Acts as a nitrogen-fixing tree",
+        "b": "Provides non-timber forest products",
+        "c": "Requires excessive irrigation",
+        "d": "Produces edible fruits",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Mahua is an important agroforestry species, providing flowers, seeds, oil, and fodder, which benefit rural and tribal economies.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Karanj?",
+      "options": {
+        "a": "Dalbergia sissoo",
+        "b": "Pongamia pinnata",
+        "c": "Tectona grandis",
+        "d": "Tamarindus indica",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Karanj is scientifically known as Pongamia pinnata, a tree widely known for its oil, which is used in biodiesel production and medicinal applications.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary use of Karanj seed oil?",
+      "options": {
+        "a": "Cooking oil",
+        "b": "Biodiesel production",
+        "c": "Perfume manufacturing",
+        "d": "Edible fruit production",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Karanj seed oil is non-edible but is highly valuable in biodiesel production and also used for soap making and medicinal purposes.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Poplar?",
+      "options": {
+        "a": "Azadirachta indica",
+        "b": "Populus deltoides",
+        "c": "Madhuca indica",
+        "d": "Ziziphus mauritiana",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Poplar is scientifically known as Populus deltoides, and it is a fast-growing tree mainly used in plywood and paper industries.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary commercial use of Poplar wood?",
+      "options": {
+        "a": "Furniture making",
+        "b": "Paper and plywood production",
+        "c": "Fuelwood",
+        "d": "Rubber extraction",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Poplar wood is soft and lightweight, making it ideal for plywood, matchsticks, and pulpwood for paper industries.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Ber?",
+      "options": {
+        "a": "Pongamia pinnata",
+        "b": "Tectona grandis",
+        "c": "Ziziphus mauritiana",
+        "d": "Syzygium cuminii",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Ber is scientifically known as Ziziphus mauritiana, a fruit-bearing tree commonly grown in arid and semi-arid regions.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the scientific name of Jamun?",
+      "options": {
+        "a": "Syzygium cuminii",
+        "b": "Ziziphus mauritiana",
+        "c": "Pongamia pinnata",
+        "d": "Populus deltoides",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Jamun is scientifically known as Syzygium cuminii, a fruit-bearing tree known for its dark purple fruits with medicinal properties.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which health benefit is associated with Jamun fruit?",
+      "options": {
+        "a": "Improves digestion",
+        "b": "Controls diabetes",
+        "c": "Increases cholesterol",
+        "d": "Causes dehydration",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Jamun fruit and seeds help regulate blood sugar levels, making it beneficial for diabetes management.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary benefit of integrating trees with crops in agroforestry?",
+      "options": {
+        "a": "Reduces soil fertility",
+        "b": "Increases soil erosion",
+        "c": "Improves soil fertility and moisture retention",
+        "d": "Increases pest attacks",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Trees in agroforestry systems contribute to soil fertility by adding organic matter, fixing nitrogen (if leguminous), and improving moisture retention through canopy cover.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following is a negative interaction between trees and crops?",
+      "options": {
+        "a": "Nitrogen fixation",
+        "b": "Shade tolerance",
+        "c": "Allelopathy",
+        "d": "Wind protection",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Allelopathy refers to the release of chemicals by trees that inhibit the growth of crops, such as eucalyptus releasing toxic compounds into the soil.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the effect of deep-rooted trees in an agroforestry system?",
+      "options": {
+        "a": "They compete with crops for surface nutrients",
+        "b": "They extract nutrients and moisture from deeper layers, benefiting crops",
+        "c": "They reduce soil organic matter",
+        "d": "They prevent crop pollination",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Deep-rooted trees (e.g., Acacia, Dalbergia) access nutrients and water from deeper soil layers, reducing competition with shallow-rooted crops and improving nutrient cycling.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which tree-crop interaction reduces wind damage to crops?",
+      "options": {
+        "a": "Allelopathy",
+        "b": "Competition for nutrients",
+        "c": "Shelterbelt effect",
+        "d": "Increased transpiration",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Trees planted as shelterbelts protect crops from strong winds, reducing damage and improving microclimatic conditions.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "How do leguminous trees benefit intercropped crops?",
+      "options": {
+        "a": "By releasing harmful chemicals",
+        "b": "By increasing soil compaction",
+        "c": "By fixing atmospheric nitrogen",
+        "d": "By reducing biodiversity",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Leguminous trees (e.g., Leucaena, Albizia, Gliricidia) fix atmospheric nitrogen through symbiotic bacteria, enriching soil fertility and benefiting crops.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which tree species is commonly used in agroforestry to improve soil fertility through nitrogen fixation?",
+      "options": {
+        "a": "Eucalyptus",
+        "b": "Teak",
+        "c": "Acacia",
+        "d": "Bamboo",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Acacia species (e.g., Acacia nilotica, Acacia auriculiformis) are nitrogen-fixing trees, making them beneficial for improving soil fertility in agroforestry systems.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What type of competition occurs between trees and crops in an agroforestry system?",
+      "options": {
+        "a": "Light, water, and nutrient competition",
+        "b": "Only light competition",
+        "c": "Only nutrient competition",
+        "d": "Only water competition",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Trees and crops may compete for sunlight, water, and nutrients, especially when trees are not properly managed through pruning or spacing adjustments.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "How can farmers reduce competition between trees and crops in agroforestry?",
+      "options": {
+        "a": "Planting trees with deep roots and crops with shallow roots",
+        "b": "Avoiding pruning trees",
+        "c": "Growing trees very close to crops",
+        "d": "Eliminating organic matter from the soil",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Selecting deep-rooted trees and shallow-rooted crops minimizes competition for water and nutrients, ensuring better productivity in agroforestry systems.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following tree species is known for its negative allelopathic effects on crops?",
+      "options": {
+        "a": "Neem (Azadirachta indica)",
+        "b": "Eucalyptus (Eucalyptus spp.)",
+        "c": "Leucaena (Leucaena leucocephala)",
+        "d": "Gliricidia (Gliricidia sepium)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Eucalyptus species release allelochemicals (chemicals involved in allelopathy) that can negatively affect the growth of nearby crops. Eucalyptus camaldulensis has been shown to restrict the growth of crops like maize, barely, bean sorghum, millet, and tomato. Gliricidia leaf leachates or extracts can inhibit the germination and growth of certain crops, including maize and sorghum but it have very minute allelopathic only on some crops impact as compared to Eucalyptus which reduces the growth of most of the crop which are grown near by it.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary function of trees acting as windbreaks in agroforestry?",
+      "options": {
+        "a": "Increasing soil erosion",
+        "b": "Reducing crop productivity",
+        "c": "Protecting crops from wind damage and soil erosion",
+        "d": "Competing for nutrients",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Windbreaks (e.g., Casuarina, Poplar) reduce wind speed, protecting crops from mechanical damage and preventing soil erosion.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary objective of social forestry?",
+      "options": {
+        "a": "Industrial wood production",
+        "b": "Environmental conservation and community benefits",
+        "c": "Large-scale commercial logging",
+        "d": "Only timber production",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Social forestry aims to involve local communities in afforestation programs for environmental protection, resource generation, and livelihood improvement.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Which of the following best defines social forestry?",
+      "options": {
+        "a": "Growing trees only for industrial purposes",
+        "b": "Raising forests only on government-owned lands",
+        "c": "Managing forests for the benefit of local communities",
+        "d": "Growing trees exclusively in protected forests",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Social forestry involves planting trees on community lands, roadsides, farmlands, and degraded lands to provide fuel, fodder, and ecological benefits to local people.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "Who plays the most important role in social forestry programs?",
+      "options": {
+        "a": "Large corporations",
+        "b": "Local communities and farmers",
+        "c": "Only government officials",
+        "d": "Private timber companies",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Social forestry programs are community-driven, aiming to empower local people by involving them in tree planting, conservation, and resource management.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main environmental benefit of social forestry?",
+      "options": {
+        "a": "Reduces biodiversity",
+        "b": "Increases soil erosion",
+        "c": "Helps in carbon sequestration and prevents deforestation",
+        "d": "Increases dependency on fossil fuels",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Social forestry helps in carbon sequestration, reduces deforestation, and restores degraded lands through afforestation.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary objective of community forestry?",
+      "options": {
+        "a": "Maximizing industrial timber production",
+        "b": "Privatizing forest lands for commercial use",
+        "c": "Empowering local communities to manage and benefit from forests",
+        "d": "Restricting access to forests for rural people",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Community forestry involves local people in the planting, management, harvesting, and marketing of forest products, ensuring that the benefits go to the community rather than individuals or industries.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main feature of farm forestry?",
+      "options": {
+        "a": "Large-scale government-managed plantations",
+        "b": "Planting trees on farm lands by individual landowners",
+        "c": "Restricting farmers from growing trees on their land",
+        "d": "Growing trees only in protected forest reserves",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Farm forestry encourages farmers to grow trees on their own lands, including along field boundaries, in farm woodlots, or as shelterbelts and windbreaks, providing benefits like timber, fuelwood, and soil conservation.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main objective of extension forestry?",
+      "options": {
+        "a": "Growing trees only in reserved forests",
+        "b": "Establishing forests on marginal and non-agricultural lands",
+        "c": "Restricting tree planting along roads and canals",
+        "d": "Promoting deforestation for urban expansion",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Extension forestry focuses on planting trees outside farmlands and reserve forests, such as along roads, canals, railway lines, and wastelands, to improve green cover and environmental benefits.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary goal of recreation and amenity forestry?",
+      "options": {
+        "a": "Large-scale commercial timber production",
+        "b": "Promoting deforestation for urban development",
+        "c": "Creating and maintaining green spaces for public recreation and environmental improvement",
+        "d": "Growing trees only for industrial use",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Recreation and amenity forestry involves planting and maintaining trees in parks, gardens, and urban areas to enhance aesthetic value, provide shade, and offer recreational spaces for the public.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the main purpose of rehabilitation forestry?",
+      "options": {
+        "a": "Converting forest land into agricultural land",
+        "b": "Restoring degraded and deforested lands by planting trees",
+        "c": "Promoting large-scale logging operations",
+        "d": "Preventing natural regeneration of forests",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Rehabilitation forestry focuses on replanting trees in areas that have been degraded due to deforestation, mining, or soil erosion, aiming to restore ecological balance and improve land productivity.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary objective of compensatory plantations?",
+      "options": {
+        "a": "Clearing forests for urban expansion",
+        "b": "Replacing natural forests with monoculture plantations",
+        "c": "Creating forests to compensate for deforestation and conserve biodiversity",
+        "d": "Promoting deforestation for industrial purposes",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Compensatory plantations are established to replace forests lost due to developmental activities, ensuring ecological balance, gene conservation, and the supply of medicinal plants and forest products.[cite: 6]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agroforestry",
+      "question": "What is the primary purpose of urban forestry?",
+      "options": {
+        "a": "Promoting large-scale timber production in cities",
+        "b": "Growing trees in urban areas for aesthetic and environmental benefits",
+        "c": "Converting urban parks into commercial farmlands",
+        "d": "Encouraging deforestation in urban regions",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Urban forestry involves planting and maintaining trees in cities, parks, and along roads to improve air quality, reduce the urban heat island effect, and enhance the beauty of urban spaces.[cite: 6]"
+    }
+  ]
+}

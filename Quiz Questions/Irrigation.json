@@ -1,0 +1,1559 @@
+{
+  "title": "Irrigation Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Arrange the following water resources in decreasing order of their percentage on Earth: A) Groundwater & Soil Moisture B) Oceans C) Lakes & Rivers D) Polar Ice & Glaciers E) Atmospheric Moisture",
+      "options": {
+        "a": "2->4->1->3->5",
+        "b": "2->1->4->3->5",
+        "c": "4->2->1->3->5",
+        "d": "2->4->3->1->5",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Oceans (97.39%) have the highest percentage of water. Polar Ice & Glaciers (2.01%) come next. Groundwater & Soil Moisture (0.58%) follows. Lakes & Rivers (0.02%) contribute a small fraction. Atmospheric Moisture (0.0001%) is the least[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following statements about saturated flow of water in soil is correct?",
+      "options": {
+        "a": "Saturated flow occurs when soil pores are partially filled with water.",
+        "b": "The movement of water is from lower matric potential to higher matric potential.",
+        "c": "The primary driving force for saturated flow is gravity.",
+        "d": "Saturated flow occurs only in dry soil conditions.",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Saturated flow- Saturated flow of water occurs when all pores are filled with water either due to rain or irrigation or water-logged condition. The flow of liquid here is due to gradient in metric potential from one region to another and the direction of flow is from higher potential to lower potential. The major force in driving water is gravity in and the movement is generally downward.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which type of water movement in soil is primarily driven by gravitational force?",
+      "options": {
+        "a": "Saturated flow",
+        "b": "Unsaturated flow",
+        "c": "Vapour movement",
+        "d": "Capillary rise",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Saturated flow occurs when all soil pores are filled with water, and movement is driven by gravitational force, causing downward water movement.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the main driving force for unsaturated flow in soil?",
+      "options": {
+        "a": "Gravitational force",
+        "b": "Vapour pressure",
+        "c": "Matric potential",
+        "d": "Osmotic potential",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Unsaturated flow occurs when only micropores are filled with water, and movement is controlled by matric potential, which causes water to move laterally or upward.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "In vapour movement, water exists in which form?",
+      "options": {
+        "a": "Liquid",
+        "b": "Ice",
+        "c": "Vapour",
+        "d": "Colloidal state",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Vapour movement occurs when water exists in gaseous form (vapour) and moves due to vapour pressure differences in the soil.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the direction of water movement in saturated flow?",
+      "options": {
+        "a": "Upward",
+        "b": "Lateral",
+        "c": "Downward",
+        "d": "Random",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "In saturated flow, all pores are filled with water, and movement occurs downward due to gravity.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which type of soil water movement occurs in all directions?",
+      "options": {
+        "a": "Saturated flow",
+        "b": "Unsaturated flow",
+        "c": "Vapour movement",
+        "d": "Surface runoff",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Vapour movement occurs in all directions, depending on temperature gradients and vapour pressure differences within the soil.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "In which type of flow are all soil pores completely filled with water?",
+      "options": {
+        "a": "Saturated flow",
+        "b": "Unsaturated flow",
+        "c": "Vapour movement",
+        "d": "Capillary rise",
+        "e": "Diffusive flow"
+      },
+      "correct_option": "a",
+      "explanation": "In saturated flow, all soil pores (both macro and micro) are filled with water, allowing rapid gravitational movement.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How does water move in unsaturated flow?",
+      "options": {
+        "a": "Rapid downward movement",
+        "b": "Slow lateral movement",
+        "c": "Convection currents",
+        "d": "Hydrostatic pressure",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Unsaturated flow occurs slowly and mostly in a lateral direction, as water moves through micropores under matric potential.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which type of water movement has the slowest rate?",
+      "options": {
+        "a": "Saturated flow",
+        "b": "Unsaturated flow",
+        "c": "Vapour movement",
+        "d": "Infiltration",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Vapour movement occurs at a negligible rate compared to liquid water movement, as it depends on vapour pressure gradients and temperature differences.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following best describes unsaturated flow in soil?",
+      "options": {
+        "a": "Occurs only in large pores",
+        "b": "Controlled by gravitational force",
+        "c": "Faster than saturated flow",
+        "d": "Occurs when micropores are filled with water",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Unsaturated flow occurs when micropores are filled with water, and movement is controlled by matric potential, rather than gravity.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "When soil pores are empty, which type of water movement occurs?",
+      "options": {
+        "a": "Saturated flow",
+        "b": "Unsaturated flow",
+        "c": "Vapour movement",
+        "d": "Capillary flow",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "When all pores are empty, vapour movement occurs due to vapour pressure gradients, rather than liquid water movement.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following is the major driving force for passive absorption of water in plants?",
+      "options": {
+        "a": "Root pressure",
+        "b": "Transpiration pull",
+        "c": "ATP hydrolysis",
+        "d": "Osmotic potential of root cells",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Passive absorption occurs due to transpiration pull, which creates a negative pressure gradient, drawing water upward from the roots to the leaves.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the main difference between active and passive absorption of water?",
+      "options": {
+        "a": "Active absorption requires ATP, while passive absorption does not",
+        "b": "Passive absorption occurs at night, while active absorption occurs during the day",
+        "c": "Active absorption is faster than passive absorption",
+        "d": "Passive absorption only occurs in desert plants",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Active absorption requires ATP for water uptake by root cells, whereas passive absorption depends on transpiration pull and does not require energy.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which type of absorption is dominant when transpiration rate is high?",
+      "options": {
+        "a": "Active absorption",
+        "b": "Passive absorption",
+        "c": "Facilitated diffusion",
+        "d": "Root pressure-driven absorption",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Passive absorption is dominant when transpiration is high, as water is pulled upward due to a pressure gradient between the roots and leaves.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Active absorption of water in plants mainly occurs due to",
+      "options": {
+        "a": "ATP-driven ion transport in root cells",
+        "b": "Transpiration pull",
+        "c": "Atmospheric humidity",
+        "d": "Soil water diffusion",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Active absorption involves ATP-powered ion transport, creating a low water potential in root cells, which drives water uptake from the soil.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Active absorption is more dominant under which conditions?",
+      "options": {
+        "a": "High transpiration and high humidity",
+        "b": "Low transpiration and high soil moisture",
+        "c": "High transpiration and dry soil",
+        "d": "Low humidity and high wind speed",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Active absorption dominates when transpiration is low and soil moisture is high, as water uptake occurs through root pressure and metabolic energy use.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following factors has the greatest influence on evapotranspiration rates?",
+      "options": {
+        "a": "Soil nutrient content",
+        "b": "Wind speed and temperature",
+        "c": "Root depth of plants",
+        "d": "Soil pH",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Evapotranspiration is significantly influenced by wind speed and temperature, as higher temperatures increase evaporation, and wind enhances moisture loss from plant surfaces.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Why is evapotranspiration important in agricultural water management?",
+      "options": {
+        "a": "It increases soil fertility",
+        "b": "It helps determine irrigation requirements",
+        "c": "It reduces plant disease incidence",
+        "d": "It prevents nutrient leaching",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Evapotranspiration (ET) is crucial in agriculture as it helps estimate crop water requirements, ensuring efficient irrigation scheduling to avoid over- or under-watering.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which factor most significantly affects crop evapotranspiration rates?",
+      "options": {
+        "a": "Soil texture",
+        "b": "Plant root depth",
+        "c": "Air temperature and solar radiation",
+        "d": "Soil pH levels",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Air temperature and solar radiation play a key role in evapotranspiration, as higher temperatures and sunlight increase water loss from soil and plants, affecting crop water demand.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following best describes evapotranspiration in an agricultural field?",
+      "options": {
+        "a": "Water lost only through soil evaporation",
+        "b": "Water lost only through plant transpiration",
+        "c": "Combined water loss from soil evaporation and plant transpiration",
+        "d": "Water absorbed by plant roots for growth",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Evapotranspiration (ET) = Evaporation from soil + Transpiration from plants. It represents the total water loss from an agricultural system and is crucial for irrigation planning.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How can farmers reduce evapotranspiration to improve water efficiency in agriculture?",
+      "options": {
+        "a": "Increase tillage frequency",
+        "b": "Use mulching and cover crops",
+        "c": "Remove windbreaks around fields",
+        "d": "Apply excess fertilizers",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Mulching and cover crops help reduce soil evaporation and maintain moisture, leading to lower evapotranspiration rates, improving water use efficiency in farming.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following forces is responsible for water molecules sticking to soil particles?",
+      "options": {
+        "a": "Cohesion",
+        "b": "Gravity",
+        "c": "Capillary action",
+        "d": "Adhesion",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Adhesion is the force that causes water molecules to attach to soil particles, helping retain moisture in the soil.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the primary role of cohesion in soil water retention?",
+      "options": {
+        "a": "It helps water molecules stick to soil particles",
+        "b": "It allows water to drain quickly through large pores",
+        "c": "It increases soil aeration",
+        "d": "It prevents water from moving through plant roots",
+        "e": "It holds water molecules together, enabling movement through the soil"
+      },
+      "correct_option": "e",
+      "explanation": "Cohesion is the force that holds water molecules together, allowing the formation of water films and enabling movement through capillary action in soil pores.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What does consumptive use (CU) of water in plants include?",
+      "options": {
+        "a": "Only transpiration",
+        "b": "Only evaporation",
+        "c": "Evaporation, transpiration, and plant metabolic needs",
+        "d": "Water lost through surface runoff",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Consumptive use (CU) = Evaporation (E) + Transpiration (T) + Water used for plant metabolism. It represents the total water requirement of a plant.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which factor has the greatest influence on the consumptive use of water in crops?",
+      "options": {
+        "a": "Soil pH",
+        "b": "Soil microbial activity",
+        "c": "Root hair density",
+        "d": "Leaf color",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Higher solar radiation and temperature increase evaporation and transpiration, leading to higher consumptive water use in crops.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following best defines irrigation requirement (IR) in agriculture?",
+      "options": {
+        "a": "The total amount of water received from rainfall",
+        "b": "The amount of water required by crops, excluding effective rainfall and soil contribution",
+        "c": "The water applied in excess to prevent drought",
+        "d": "The sum of surface runoff and deep percolation losses",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Irrigation Requirement (IR) = Total crop water demand - Effective rainfall (ER) - Soil profile contribution (S). It is the amount of additional water needed for optimal crop growth.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which factor does NOT directly influence irrigation requirement?",
+      "options": {
+        "a": "Effective rainfall",
+        "b": "Soil moisture contribution",
+        "c": "Transpiration rate",
+        "d": "Crop variety",
+        "e": "Atmospheric nitrogen levels"
+      },
+      "correct_option": "e",
+      "explanation": "Atmospheric nitrogen levels do not affect irrigation requirements, whereas factors like effective rainfall, soil moisture, and transpiration determine how much irrigation is needed.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What does the term \"irrigation interval\" refer to in agriculture?",
+      "options": {
+        "a": "The time gap between two consecutive irrigations",
+        "b": "The total water applied per irrigation cycle",
+        "c": "The amount of water lost due to percolation",
+        "d": "The duration of water flow in an irrigation canal",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Irrigation interval is the time gap between two successive irrigations, depending on crop water needs, soil moisture, and climate conditions.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which factor has the greatest influence on determining the irrigation interval for a crop?",
+      "options": {
+        "a": "Soil pH",
+        "b": "Crop root zone depth and evapotranspiration rate",
+        "c": "Wind speed alone",
+        "d": "The color of the crop leaves",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Root zone depth and evapotranspiration rate determine how quickly water is used by the crop, affecting how frequently irrigation is needed.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the definition of effective rainfall in agriculture?",
+      "options": {
+        "a": "The total amount of rainfall in a region",
+        "b": "The portion of rainfall that is lost as surface runoff",
+        "c": "The portion of rainfall available to crops after losses like runoff and deep percolation",
+        "d": "Rainfall that causes soil erosion",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Effective rainfall is the portion of total rainfall that is available for crop use, after accounting for losses due to runoff and deep percolation.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which factor has the greatest impact on the effectiveness of rainfall for crop production?",
+      "options": {
+        "a": "Soil texture and water-holding capacity",
+        "b": "Atmospheric carbon dioxide levels",
+        "c": "Plant leaf size and color",
+        "d": "The presence of earthworms in the soil",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Soil texture and water-holding capacity determine how much rainwater is retained in the root zone for plant use, affecting effective rainfall.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the recommended moisture depletion level before scheduling irrigation for millet and pulse crops?",
+      "options": {
+        "a": "10%",
+        "b": "25%",
+        "c": "50%",
+        "d": "75%",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Millet and pulse crops like sorghum, pearl millet, and finger millet should be irrigated when 50% of the available soil moisture is depleted to optimize water use and yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "For cereal crops like maize and wheat, at what percentage of available soil moisture depletion should irrigation be scheduled?",
+      "options": {
+        "a": "10%",
+        "b": "25%",
+        "c": "50%",
+        "d": "75%",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cereal crops like maize and wheat require irrigation when 25% of the available soil moisture is depleted to maintain optimal growth and yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which is the most critical stage of irrigation for wheat?",
+      "options": {
+        "a": "Germination stage",
+        "b": "Tillering stage",
+        "c": "Crown root initiation (CRI) stage",
+        "d": "Maturity stage",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The Crown Root Initiation (CRI) stage is the most critical stage for wheat, as a lack of water at this stage can significantly reduce yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "At which stage does maize require the most critical irrigation?",
+      "options": {
+        "a": "Vegetative stage",
+        "b": "Tasseling and silking stage",
+        "c": "Germination stage",
+        "d": "Maturity stage",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Tasseling and silking stage is the most critical irrigation stage for maize because water stress during this period can cause poor pollination and kernel development, reducing yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which is the most critical stage of irrigation for rice?",
+      "options": {
+        "a": "Tillering stage",
+        "b": "Panicle initiation stage",
+        "c": "Dough stage",
+        "d": "Maturity stage",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The panicle initiation stage is the most critical for rice, as water stress at this stage can lead to reduced grain formation and lower yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the most critical irrigation stage for groundnut?",
+      "options": {
+        "a": "Flowering and peg formation stage",
+        "b": "Seedling stage",
+        "c": "Leaf expansion stage",
+        "d": "Maturity stage",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Flowering and peg formation stage is critical for groundnut because water stress at this stage reduces pod formation and ultimately yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "At which stage does sugarcane require the highest irrigation demand?",
+      "options": {
+        "a": "Germination and formative stage",
+        "b": "Maturity stage",
+        "c": "Ripening stage",
+        "d": "Tillering stage",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Sugarcane requires the highest irrigation during the germination and formative stage, as proper moisture is essential for root and tiller development.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which stage of irrigation is most critical for cotton?",
+      "options": {
+        "a": "Flowering and boll development stage",
+        "b": "Leaf expansion stage",
+        "c": "Vegetative stage",
+        "d": "Germination stage",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Flowering and boll development stage is the most critical stage for cotton because water stress at this stage leads to boll shedding and poor fiber quality.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "At what stage does mustard require the most critical irrigation?",
+      "options": {
+        "a": "Flowering and pod formation stage",
+        "b": "Germination stage",
+        "c": "Leaf expansion stage",
+        "d": "Maturity stage",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Flowering and pod formation stage is critical for mustard, as water deficiency at this stage reduces seed formation and oil content.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which irrigation stage is most critical for potato cultivation?",
+      "options": {
+        "a": "Tuber initiation and tuber enlargement stage",
+        "b": "Vegetative growth stage",
+        "c": "Germination stage",
+        "d": "Maturity stage",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Tuber initiation and enlargement stage is critical for potatoes because water stress reduces tuber size, leading to lower yields.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the most critical stage of irrigation for sunflower?",
+      "options": {
+        "a": "Bud initiation and flowering stage",
+        "b": "Germination stage",
+        "c": "Ripening stage",
+        "d": "Vegetative stage",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Bud initiation and flowering stage is the most critical for sunflower, as water stress at this stage can cause poor seed development and reduced oil content.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which stage is considered most critical for irrigation in chickpea?",
+      "options": {
+        "a": "Flowering and pod filling stage",
+        "b": "Germination stage",
+        "c": "Tillering stage",
+        "d": "Leaf expansion stage",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Flowering and pod filling stage is critical for chickpea because water deficiency at this stage reduces pod formation and grain yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "At which stage does tomato require the most critical irrigation?",
+      "options": {
+        "a": "Flowering and fruit development stage",
+        "b": "Vegetative growth stage",
+        "c": "Ripening stage",
+        "d": "Maturity stage",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Flowering and fruit development stage is critical for tomatoes, as water stress at this stage can lead to fruit cracking and reduced yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following best describes the flooding method of irrigation?",
+      "options": {
+        "a": "Water is applied directly to plant roots using pipes",
+        "b": "Water is supplied to crops through drip emitters",
+        "c": "A large quantity of water is allowed to flow freely over the field",
+        "d": "Water is sprayed over crops in the form of fine droplets",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Flooding irrigation involves distributing a large amount of water over the entire field, allowing it to infiltrate the soil by gravity.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which is a major disadvantage of the flooding method of irrigation?",
+      "options": {
+        "a": "High labor requirement",
+        "b": "Inefficient use of water due to runoff and deep percolation losses",
+        "c": "Inability to irrigate large areas",
+        "d": "High cost of installation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Flooding irrigation leads to high water losses due to runoff, deep percolation, and evaporation, making it less water-efficient than modern methods.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How does border irrigation differ from free flooding irrigation?",
+      "options": {
+        "a": "Border irrigation is random, while free flooding is controlled",
+        "b": "Free flooding is more efficient than border irrigation",
+        "c": "Border irrigation involves water flowing between raised ridges, while free flooding covers the entire field",
+        "d": "Border irrigation is used for rice, while free flooding is used for wheat",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Border irrigation controls water flow between parallel ridges, while free flooding distributes water randomly across the entire field.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following crops is best suited for the check and basin method of irrigation?",
+      "options": {
+        "a": "Rice",
+        "b": "Finger millet",
+        "c": "Sugarcane",
+        "d": "Cotton",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The check and basin method is ideal for close-growing crops like finger millet, wheat, pearl millet, and groundnut, as it provides uniform moisture across the field.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is a major advantage of the check and basin irrigation method?",
+      "options": {
+        "a": "Highly efficient in conserving water",
+        "b": "Prevents over-irrigation and waterlogging completely",
+        "c": "Suitable for uneven lands without modification",
+        "d": "Ensures uniform distribution of water in leveled fields",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "The check and basin method ensures uniform water distribution in leveled fields, making it effective for crops that require consistent moisture.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the main characteristic of basin irrigation?",
+      "options": {
+        "a": "Water is applied through underground pipes",
+        "b": "Water is applied in narrow channels between crop rows",
+        "c": "Water is ponded in a level, enclosed area around plants or trees",
+        "d": "Water is sprayed over crops using nozzles",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Basin irrigation involves ponding water in a level, enclosed area, ensuring uniform water distribution and better moisture retention.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "For which type of crops is basin irrigation most commonly used?",
+      "options": {
+        "a": "Orchards and fruit trees",
+        "b": "Rice and wheat",
+        "c": "Cotton and sunflower",
+        "d": "Legumes and pulses",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Basin irrigation is most suitable for orchards and fruit trees, where water is pooled around the base of the trees to ensure deep soil penetration.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is a major limitation of basin irrigation?",
+      "options": {
+        "a": "Not suitable for deep-rooted trees",
+        "b": "Cannot be used for water-intensive crops",
+        "c": "Increases soil erosion in level lands",
+        "d": "Not effective for clayey soils",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Basin irrigation requires proper land leveling to prevent uneven water distribution and ensure uniform crop growth.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the key feature of the border strip method of irrigation?",
+      "options": {
+        "a": "Water is applied through underground pipes",
+        "b": "Water is applied in long, narrow strips separated by ridges",
+        "c": "Water is ponded in enclosed basins around trees",
+        "d": "Water is sprayed over crops using high-pressure nozzles",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Border strip irrigation involves applying water in long, narrow strips separated by ridges, allowing controlled water flow and better infiltration.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "For which type of crops is the border strip method most commonly used?",
+      "options": {
+        "a": "Orchards and fruit trees",
+        "b": "Rice and water-intensive crops",
+        "c": "Close-growing crops like wheat and barley",
+        "d": "Vegetables and pulses",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Border strip irrigation is commonly used for close-growing crops like wheat, barley, and fodder crops, ensuring uniform water distribution.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is an advantage of the border strip method?",
+      "options": {
+        "a": "Requires no land levelling",
+        "b": "Reduces water wastage compared to flood irrigation",
+        "c": "Suitable for highly undulating terrain",
+        "d": "Can be used in all types of soil without modification",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Border strip irrigation reduces water wastage by controlling water flow within strips, ensuring better infiltration and minimizing runoff losses.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the key characteristic of furrow irrigation?",
+      "options": {
+        "a": "Water is applied through underground pipes",
+        "b": "Water is sprayed over crops using high-pressure sprinklers",
+        "c": "Water is applied over the entire field without control",
+        "d": "Water is ponded in enclosed basins around trees",
+        "e": "Water is supplied in small channels between crop rows"
+      },
+      "correct_option": "e",
+      "explanation": "Furrow irrigation involves applying water through small channels (furrows) between crop rows, allowing it to infiltrate the root zone gradually.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "For which type of crops is furrow irrigation most suitable?",
+      "options": {
+        "a": "Rice and water-intensive crops",
+        "b": "Close-growing crops like wheat and barley",
+        "c": "Row crops like maize, cotton, and sugarcane",
+        "d": "Orchards and fruit trees",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Furrow irrigation is ideal for row crops like maize, cotton, and sugarcane, as it allows water to flow along furrows while keeping the crop rows dry.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is an advantage of furrow irrigation?",
+      "options": {
+        "a": "It eliminates the need for field levelling",
+        "b": "It ensures uniform water distribution across all soil types",
+        "c": "It reduces evaporation and runoff compared to flood irrigation",
+        "d": "It can be used effectively on steeply sloping lands without erosion control",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Furrow irrigation reduces evaporation and runoff by directing water flow into furrows, ensuring better water efficiency compared to flooding methods.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the key characteristic of the corrugation method of irrigation?",
+      "options": {
+        "a": "Water is applied in small furrows or channels running across the field",
+        "b": "Water is sprayed over crops using high-pressure sprinklers",
+        "c": "Water is ponded in enclosed basins around plants",
+        "d": "Water is supplied through underground pipes directly to the roots",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Corrugation irrigation involves applying water in small furrows or shallow channels across the field, allowing water to flow slowly and uniformly to moisten the soil.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Why is the corrugation method mainly used for rainfed crops?",
+      "options": {
+        "a": "It prevents crops from receiving excessive rainfall",
+        "b": "It allows controlled application of irrigation water when needed",
+        "c": "It is the only irrigation method that can be used on rainfed crops",
+        "d": "It replaces natural rainfall with artificial irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Corrugation irrigation is used for rainfed crops to provide supplemental irrigation when natural rainfall is insufficient, ensuring crop survival and yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the primary advantage of alternate furrow irrigation?",
+      "options": {
+        "a": "Increases water usage by 25-35%",
+        "b": "Ensures uniform irrigation across all furrows",
+        "c": "Saves water and reduces crop moisture stress",
+        "d": "Completely eliminates the need for irrigation in dry seasons",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Alternate furrow irrigation helps in saving water by irrigating every other furrow, reducing moisture stress on crops while using 25-35% less water than traditional furrow irrigation. However, it may slightly reduce yield by 2-16%.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is a key feature of within-row irrigation?",
+      "options": {
+        "a": "Seeds are planted on flat land with uniform water distribution",
+        "b": "Seeds are planted on the sides of ridges, and irrigation is applied in furrows",
+        "c": "Water is applied to every furrow, ensuring maximum crop yield",
+        "d": "No pre-sowing irrigation is required in this method",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Within-row irrigation involves planting seeds on the sides of ridges and applying water in furrows, reducing water use by 40% compared to traditional furrow irrigation. A pre-sowing irrigation is also given to aid seed germination.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is a major benefit of within-row irrigation?",
+      "options": {
+        "a": "It improves seed germination by planting seeds in furrows after pre-sowing irrigation",
+        "b": "It increases water usage by 40% compared to other furrow irrigation methods",
+        "c": "It requires no pre-sowing irrigation",
+        "d": "It ensures every furrow is irrigated for maximum moisture retention",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Within-row irrigation improves seed germination by providing pre-sowing irrigation and planting seeds in furrows, ensuring efficient water use and better crop establishment. It also reduces water use by 40% compared to conventional furrow irrigation.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How is water applied in surge irrigation?",
+      "options": {
+        "a": "Continuously in a steady flow across the field",
+        "b": "Through underground pipes directly to plant roots",
+        "c": "In intermittent on-and-off cycles under gravity flow",
+        "d": "By flooding the entire field at once",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Surge irrigation is a method where water is applied in intermittent (on-and-off) cycles under gravity flow, improving water infiltration efficiency and reducing deep percolation losses.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How is water distributed in surge irrigation?",
+      "options": {
+        "a": "Water is continuously applied to all furrows at the same time",
+        "b": "Water is switched alternately between sets of furrows using a valve and automatic timer",
+        "c": "Water is applied manually to each furrow without automation",
+        "d": "Water is stored in a basin before being released to the field",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Surge irrigation alternates water flow between different sets of furrows using a valve and automatic time controller, allowing better water distribution while reducing runoff and percolation losses. The cycle time can range from 30 minutes to several hours.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the key feature of cablegation irrigation?",
+      "options": {
+        "a": "Water is applied through high-pressure sprinklers",
+        "b": "A gated pipe with a moving plug is controlled by a cable to regulate water flow",
+        "c": "Water is delivered using underground drip emitters",
+        "d": "The entire field is flooded uniformly without control",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cablegation is a surface irrigation method where a gated pipe with a moving plug is pulled along a cable, controlling the release of water at different points in the field. This ensures controlled, uniform irrigation while minimizing water wastage.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the main characteristic of subsurface irrigation?",
+      "options": {
+        "a": "Water is applied above the soil surface using furrows",
+        "b": "Water is delivered below the soil surface directly to the root zone",
+        "c": "Water is sprayed over crops using high-pressure sprinklers",
+        "d": "Water is stored in small basins and allowed to percolate slowly",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Subsurface irrigation involves delivering water below the soil surface, directly to the root zone through pipes or underground channels, reducing evaporation losses and improving water use efficiency.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which irrigation method is most commonly compared to subsurface irrigation for efficiency?",
+      "options": {
+        "a": "Sprinkler irrigation",
+        "b": "Furrow irrigation",
+        "c": "Drip irrigation",
+        "d": "Basin irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Subsurface irrigation is often compared to drip irrigation because both methods efficiently deliver water to the root zone, reducing wastage and improving water use efficiency.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How does subsurface irrigation help control weed growth?",
+      "options": {
+        "a": "By supplying water only to the root zone, reducing moisture on the surface",
+        "b": "By keeping the soil surface constantly wet",
+        "c": "By applying herbicides along with irrigation water",
+        "d": "By increasing competition between weeds and crops",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Subsurface irrigation helps control weeds because water is delivered below the surface, reducing moisture availability for weed seeds on the soil surface, preventing germination.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the primary goal of subsurface irrigation?",
+      "options": {
+        "a": "To flood the entire field with water",
+        "b": "To deliver water directly to the plant root zone with minimal loss",
+        "c": "To spray water over crops like in sprinkler irrigation",
+        "d": "To store water in surface reservoirs before irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Subsurface irrigation is designed to supply water directly to plant roots, minimizing evaporation and runoff, making it a highly water-efficient irrigation method.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Subsurface irrigation is most effective in which type of farming system?",
+      "options": {
+        "a": "Paddy cultivation requiring standing water",
+        "b": "Orchards and deep-rooted crops",
+        "c": "Flood irrigation for sugarcane fields",
+        "d": "Large-scale open field vegetable farming",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Subsurface irrigation is well-suited for orchards and deep-rooted crops because it ensures consistent water availability at the root zone without wetting the soil surface.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the main advantage of sprinkler irrigation?",
+      "options": {
+        "a": "It requires a completely flat field",
+        "b": "It minimizes water loss due to deep percolation and runoff",
+        "c": "It is only suitable for clayey soils",
+        "d": "It requires large amounts of water for effective irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sprinkler irrigation efficiently distributes water like rainfall, reducing deep percolation and runoff, making it ideal for water conservation and irrigating uneven terrains.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which component is essential for a sprinkler irrigation system?",
+      "options": {
+        "a": "Furrows and ridges",
+        "b": "Gated pipes and cables",
+        "c": "Sprinkler nozzles and pipelines",
+        "d": "Large flood basins",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sprinkler irrigation uses sprinkler nozzles attached to pipelines, which distribute water under pressure, simulating natural rainfall.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Sprinkler irrigation is most suitable for which type of land?",
+      "options": {
+        "a": "Steeply sloped lands",
+        "b": "Highly saline soils",
+        "c": "Sandy or uneven land",
+        "d": "Waterlogged fields",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sprinkler irrigation is effective on sandy or uneven lands where surface irrigation is inefficient due to high infiltration rates or irregular topography.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How does the adoption of sprinkler irrigation impact irrigable area?",
+      "options": {
+        "a": "Decreases irrigable area by 50%",
+        "b": "Makes irrigation less efficient",
+        "c": "Has no effect on irrigable area",
+        "d": "Reduces water use but does not change irrigable area",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sprinkler irrigation increases irrigable area by 1.5 to 2 times due to better water distribution and efficient water use, allowing more land to be covered with the same water supply.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "By how much water can be saved using the sprinkler method compared to conventional irrigation?",
+      "options": {
+        "a": "25-50%",
+        "b": "10-20%",
+        "c": "5-10%",
+        "d": "60-80%",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "The sprinkler irrigation method helps save approximately 25-50% of water compared to traditional surface irrigation, reducing runoff and evaporation losses.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following is a major limitation of the sprinkler irrigation method?",
+      "options": {
+        "a": "It is highly efficient in areas with strong winds",
+        "b": "It is the most cost-effective irrigation method with low initial investment",
+        "c": "It requires high power and has high initial installation costs",
+        "d": "It works best in saline soil regions without any clogging issues",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sprinkler irrigation requires high power for operation and has a high initial installation cost, making it expensive for small-scale farmers. It is also affected by wind and evaporation losses in hot, dry areas.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is micro irrigation?",
+      "options": {
+        "a": "A method of irrigation where water is applied through large canals and flooded fields",
+        "b": "A high-pressure irrigation method that sprays water over large areas",
+        "c": "A low-volume, high-frequency irrigation system that delivers water directly to the root zone",
+        "d": "A traditional method of irrigation using open-field furrows",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Micro irrigation is a low-volume, high-frequency irrigation technique that delivers water directly to the root zone of plants, reducing evaporation losses and improving water efficiency.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following is NOT a type of micro irrigation?",
+      "options": {
+        "a": "Drip irrigation",
+        "b": "Sprinkler irrigation",
+        "c": "Bubbler irrigation",
+        "d": "Micro-sprinkler irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sprinkler irrigation is not considered micro irrigation, as it operates at higher water pressure and covers larger areas, unlike drip, bubbler, and micro-sprinkler irrigation, which deliver precise amounts of water to the plant roots.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which micro irrigation system delivers water drop by drop directly to the root zone?",
+      "options": {
+        "a": "Drip irrigation",
+        "b": "Bubbler irrigation",
+        "c": "Furrow irrigation",
+        "d": "Surge irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Drip irrigation delivers water drop by drop to the root zone, minimizing evaporation and runoff losses, making it one of the most efficient irrigation methods.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the main advantage of drip irrigation?",
+      "options": {
+        "a": "It requires high water pressure for operation",
+        "b": "It is most effective for flood irrigation",
+        "c": "It is the cheapest irrigation method to install",
+        "d": "It delivers water directly to the root zone, minimizing water loss",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Drip irrigation applies water directly to the root zone of plants, reducing evaporation and runoff losses, making it a highly efficient irrigation method.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which component is essential in a drip irrigation system?",
+      "options": {
+        "a": "Large sprinkler heads",
+        "b": "Drippers or emitters",
+        "c": "Open canals",
+        "d": "Flooded basins",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Drippers (emitters) are key components in drip irrigation, as they control water flow and ensure precise water application to plants.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Drip irrigation is most suitable for which type of crops?",
+      "options": {
+        "a": "Paddy and wheat",
+        "b": "Sugarcane and jute",
+        "c": "Vegetables, orchards, and high-value crops",
+        "d": "Deep-rooted trees only",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Drip irrigation is ideal for vegetables, orchards, and high-value crops, as it provides precise water delivery, reducing water wastage and improving crop yield.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following is a disadvantage of drip irrigation?",
+      "options": {
+        "a": "It promotes excessive weed growth",
+        "b": "It leads to high water evaporation losses",
+        "c": "Emitters can clog due to sediment or mineral deposits",
+        "d": "It is ineffective for water conservation",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Drip irrigation emitters can clog due to sediments, algae, or mineral deposits in water, requiring regular maintenance to ensure proper functioning.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the most common cause of emitter clogging in a drip irrigation system?",
+      "options": {
+        "a": "Excessive air pressure in the system",
+        "b": "Excessive spacing between drippers",
+        "c": "Overwatering of crops",
+        "d": "Use of large-sized emitters",
+        "e": "Blockage due to sediment, algae, or mineral deposits"
+      },
+      "correct_option": "e",
+      "explanation": "Emitters in a drip irrigation system can get clogged due to sediment, algae, or mineral deposits (such as calcium and iron), which restrict water flow and reduce efficiency.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How can clogging of drip irrigation emitters be prevented?",
+      "options": {
+        "a": "Using filtration systems to remove impurities",
+        "b": "By increasing water pressure beyond system limits",
+        "c": "Increasing the size of water droplets",
+        "d": "Applying more fertilizers through the system",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Filtration systems (such as sand filters, screen filters, and disc filters) help remove sediments and impurities from water, preventing clogging of emitters.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following maintenance practices helps to minimize clogging in drip irrigation systems?",
+      "options": {
+        "a": "Increasing emitter size to allow larger particles to pass through",
+        "b": "Applying acidic treatments to dissolve mineral deposits",
+        "c": "Running the system without a filter to reduce pressure losses",
+        "d": "Avoiding chlorination of water",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Acidic treatments (such as phosphoric acid or sulfuric acid) help dissolve mineral deposits like calcium and iron, preventing clogging in emitters.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What type of emitter is most resistant to clogging in a drip irrigation system?",
+      "options": {
+        "a": "Non-pressure compensating emitters",
+        "b": "Conventional drip emitters without self-cleaning",
+        "c": "Pressure-compensating emitters with self-flushing mechanisms",
+        "d": "Micro-sprinklers without filtration",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Pressure-compensating emitters with self-flushing mechanisms are designed to prevent clogging by flushing out small particles, ensuring consistent water flow.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the typical operating pressure of microjet irrigation systems?",
+      "options": {
+        "a": "0.2 bar",
+        "b": "0.5 bar",
+        "c": "1.0 bar",
+        "d": "2.5 bar",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Microjet irrigation operates at a pressure of nearly 1 bar, allowing water to be distributed over a small area through fine jets.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the typical throw distance of water from microjet irrigation systems?",
+      "options": {
+        "a": "0.5 to 1 m",
+        "b": "1 to 4 m",
+        "c": "5 to 8 m",
+        "d": "10 to 15 m",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Microjet irrigation has a throw distance of 1 to 4 meters, covering a small localized area compared to conventional sprinkler irrigation.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What type of crops is microjet irrigation best suited for?",
+      "options": {
+        "a": "Paddy and wheat",
+        "b": "Large fruit trees with deep roots",
+        "c": "Lawns, flowers, and shallow-rooted plants",
+        "d": "Crops requiring flood irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Microjet irrigation is most effective for lawns, flowers, and shallow-rooted plants, as it provides moderate water coverage without excessive deep percolation losses.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the primary disadvantage of microjet irrigation compared to drip irrigation?",
+      "options": {
+        "a": "Lower water discharge rate",
+        "b": "More risk of deep percolation loss",
+        "c": "More water loss due to evaporation and wind drift",
+        "d": "Requires higher pressure than sprinkler systems",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Microjet irrigation has a higher water loss due to evaporation and wind drift compared to drip irrigation, which delivers water directly to the root zone.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "How does water distribution in micro-sprinkler irrigation differ from microjet irrigation?",
+      "options": {
+        "a": "Micro-sprinklers use a rotating jet of water, while microjets do not",
+        "b": "Micro-sprinklers have higher pressure requirements than microjets",
+        "c": "Microjets have moving parts, whereas micro-sprinklers do not",
+        "d": "Micro-sprinklers have a lower discharge rate than microjets",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Micro-sprinklers distribute water using moving or rotating parts that create a rotating jet of water, whereas microjets emit water through fixed nozzles.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the typical operating pressure range of micro-sprinkler irrigation?",
+      "options": {
+        "a": "0.2 to 0.6 bar",
+        "b": "0.8 to 4.0 bar",
+        "c": "1.0 to 5.0 bar",
+        "d": "5.0 to 10.0 bar",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sprinkler discharge 28 to 223 lt of water per hour and operates at 0.8 to 4.0 bar with throw distance of 0.9 to 4m[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the typical discharge rate of micro-sprinklers?",
+      "options": {
+        "a": "5 to 50 litters per hour",
+        "b": "500 to 1000 litters per hour",
+        "c": "250 to 500 litters per hour",
+        "d": "28 to 223 litters per hour",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Micro-sprinklers discharge between 28 to 223 liters per hour, which is higher than drip irrigation but lower than conventional sprinklers.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the primary advantage of micro-sprinkler irrigation compared to microjet irrigation?",
+      "options": {
+        "a": "Micro-sprinklers require less maintenance",
+        "b": "Micro-sprinklers provide better uniformity due to rotating water jets",
+        "c": "Micro-sprinklers consume less water than microjets",
+        "d": "Micro-sprinklers are cheaper to install",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Micro-sprinklers provide better uniformity because their rotating jets distribute water evenly over a larger area compared to fixed-position microjets.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the primary purpose of bubbler irrigation?",
+      "options": {
+        "a": "To distribute water through rotating jets over a large area",
+        "b": "To flood a basin around each tree for deep root zone wetting",
+        "c": "To spray fine droplets of water for uniform soil moisture",
+        "d": "To provide water through underground pipes without surface wetting",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Bubbler irrigation is a localized irrigation system where each tree has a basin that gets flooded with water, allowing deep infiltration into the root zone.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the typical discharge rate of bubbler irrigation?",
+      "options": {
+        "a": "10-50 liters per hour",
+        "b": "50-100 liters per hour",
+        "c": "100-250 liters per hour",
+        "d": "300-500 liters per hour",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Bubbler irrigation systems discharge water at a flow rate of 100-250 liters per hour, making them ideal for deep watering of trees and large plants.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What does Water Use Efficiency (WUE) refer to in agriculture?",
+      "options": {
+        "a": "The total amount of water stored in the soil",
+        "b": "The total volume of rainfall received during a crop cycle",
+        "c": "The efficiency of water transport in irrigation pipelines",
+        "d": "The amount of water lost due to evaporation and runoff",
+        "e": "The ability of a crop to produce yield per unit of water used"
+      },
+      "correct_option": "e",
+      "explanation": "Water Use Efficiency (WUE) refers to the crop yield produced per unit of water consumed, including both transpiration and evaporation losses.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following irrigation methods generally improves Water Use Efficiency?",
+      "options": {
+        "a": "Flood irrigation",
+        "b": "Furrow irrigation",
+        "c": "Sprinkler irrigation",
+        "d": "Drip irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Drip irrigation delivers water directly to the root zone, reducing evaporation losses and improving WUE compared to surface irrigation methods.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the formula for Water Use Efficiency (WUE)?",
+      "options": {
+        "a": "WUE = Total water applied / Yield produced",
+        "b": "WUE = Rainfall received / Water lost through transpiration",
+        "c": "WUE = Evaporation losses / Total irrigation water",
+        "d": "WUE = Water stored in soil / Crop yield",
+        "e": "WUE = Crop yield / Total water used (ET)"
+      },
+      "correct_option": "e",
+      "explanation": "The Water Use Efficiency (WUE) formula is: WUE = Crop yield / Total water used (ET).[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which factor negatively affects Water Use Efficiency?",
+      "options": {
+        "a": "High evaporation and deep percolation losses",
+        "b": "Proper scheduling of irrigation",
+        "c": "Use of drought-resistant crop varieties",
+        "d": "Adoption of micro-irrigation techniques",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "High evaporation and deep percolation losses reduce the amount of water available for crop growth, thereby decreasing WUE.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following crops requires the highest amount of water per unit of yield produced?",
+      "options": {
+        "a": "Maize",
+        "b": "Wheat",
+        "c": "Rice",
+        "d": "Sorghum",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Rice requires a large quantity of water for proper growth and development, especially in paddy cultivation, making it one of the least water-efficient crops.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which crop has the highest Water Use Efficiency among cereals?",
+      "options": {
+        "a": "Rice",
+        "b": "Sorghum",
+        "c": "Wheat",
+        "d": "Barley",
+        "e": "Pearl Millet"
+      },
+      "correct_option": "e",
+      "explanation": "Pearl millet is a drought-resistant crop with high Water Use Efficiency (WUE), requiring much less water compared to other cereals.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Among the following, which crop is considered the least water-efficient in terms of biomass production?",
+      "options": {
+        "a": "Soybean",
+        "b": "Groundnut",
+        "c": "Sugarcane",
+        "d": "Chickpea",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sugarcane is one of the highest water-consuming crops, requiring 1500-2500 mm of water per season, making it least water-efficient in terms of biomass production.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which crop is known for its high-water efficiency and is suitable for arid and semi-arid regions?",
+      "options": {
+        "a": "Sugarcane",
+        "b": "Wheat",
+        "c": "Maize",
+        "d": "Sorghum",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Sorghum is a drought-tolerant crop with high Water Use Efficiency (WUE), making it suitable for arid and semi-arid regions.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following irrigation methods can improve Water Use Efficiency (WUE) in sugarcane farming?",
+      "options": {
+        "a": "Flood irrigation",
+        "b": "Drip irrigation",
+        "c": "Sprinkler irrigation",
+        "d": "Border strip irrigation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Drip irrigation helps reduce water loss and delivers water directly to the root zone, significantly improving WUE in high-water-consuming crops like sugarcane.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "What is the command area covered under a Major Irrigation Project?",
+      "options": {
+        "a": "Less than 2,000 hectares",
+        "b": "2,000 to 5,000 hectares",
+        "c": "2,000 to 10,000 hectares",
+        "d": "More than 10,000 hectares",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Major irrigation projects cover a command area greater than 10,000 hectares, typically involving large dams and canal systems for extensive irrigation.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Which of the following falls under a Minor Irrigation Project?",
+      "options": {
+        "a": "A canal system irrigating 15,000 hectares",
+        "b": "A reservoir supplying water to 8,000 hectares",
+        "c": "A tank irrigation system covering 1,500 hectares",
+        "d": "A river basin project covering 20,000 hectares",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Minor irrigation projects cover less than 2,000 hectares, often using small tanks, wells, and lift irrigation systems.[cite: 9]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Irrigation",
+      "question": "Medium Irrigation Projects are classified based on a command area between ___",
+      "options": {
+        "a": "500 to 2,000 hectares",
+        "b": "1,000 to 5,000 hectares",
+        "c": "More than 15,000 hectares",
+        "d": "10,000 to 15,000 hectares",
+        "e": "2,000 to 10,000 hectares"
+      },
+      "correct_option": "e",
+      "explanation": "Medium irrigation projects have a command area ranging between 2,000 to 10,000 hectares, often involving reservoirs and medium-sized canal systems.[cite: 9]"
+    }
+  ]
+}

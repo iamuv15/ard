@@ -1,0 +1,1671 @@
+{
+  "title": "Poultry Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the term used for a mature female chicken, generally above 21 weeks of age?",
+      "options": {
+        "a": "Pullet",
+        "b": "Hen",
+        "c": "Cockerel",
+        "d": "Chick",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "A hen is a mature female chicken above 21 weeks of age, while a pullet is a young female chicken.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What do you call a young male chicken?",
+      "options": {
+        "a": "Pullet",
+        "b": "Hen",
+        "c": "Cockerel",
+        "d": "Chick",
+        "e": "Grower"
+      },
+      "correct_option": "c",
+      "explanation": "A cockerel is a young male chicken, whereas a cock is a fully mature male chicken.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "At what age is a fowl considered a chick?",
+      "options": {
+        "a": "Below 8 weeks",
+        "b": "Below 5 weeks",
+        "c": "Between 10 to 15 weeks",
+        "d": "Above 20 weeks",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "A chick is a young bird (male or female) that is less than 8 weeks old.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the term used for a group of chicks of the same age raised together in one batch?",
+      "options": {
+        "a": "Flock",
+        "b": "Grower",
+        "c": "Brood",
+        "d": "Poultry batch",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A brood refers to a group of chicks of the same age that are raised together in a batch.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is a grower in poultry farming?",
+      "options": {
+        "a": "A chicken older than 21 weeks",
+        "b": "A newly hatched chick",
+        "c": "A young chick between 9 to 20 weeks of age",
+        "d": "A male chicken used for breeding",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A grower is a young chick, either male or female, that is between 9 to 20 weeks old.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the minimum age of a chicken to be classified as a hen?",
+      "options": {
+        "a": "8 weeks",
+        "b": "12 weeks",
+        "c": "16 weeks",
+        "d": "21 weeks",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "A hen is a mature female chicken generally above 21 weeks of age.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the correct term for a mature male chicken that is above 21 weeks of age?",
+      "options": {
+        "a": "Pullet",
+        "b": "Cockerel",
+        "c": "Cock",
+        "d": "Chick",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A cock (or rooster) is a mature male chicken that is above 21 weeks old.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the term for a young female chicken that has not yet matured into a hen?",
+      "options": {
+        "a": "Chick",
+        "b": "Pullet",
+        "c": "Cockerel",
+        "d": "Grower",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "A pullet is a young female chicken that has not yet reached maturity.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "A young male chicken that has not yet matured into a cock is called?",
+      "options": {
+        "a": "Hen",
+        "b": "Pullet",
+        "c": "Cockerel",
+        "d": "Chick",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A cockerel is a young male chicken that is yet to mature into a cock.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the term used for a baby chicken that is less than 8 weeks old?",
+      "options": {
+        "a": "Pullet",
+        "b": "Chick",
+        "c": "Grower",
+        "d": "Brood",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "A chick is a young male or female fowl below 8 weeks of age.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "At what age is a chicken considered a grower?",
+      "options": {
+        "a": "1 to 8 weeks",
+        "b": "9 to 20 weeks",
+        "c": "21 to 30 weeks",
+        "d": "After 30 weeks",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "A grower is a young chick between 9 to 20 weeks of age.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What does the term \"brood\" refer to in poultry farming?",
+      "options": {
+        "a": "A group of chicks of the same age raised together",
+        "b": "A mother hen with her chicks",
+        "c": "A newly hatched chick",
+        "d": "A hen sitting on eggs",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "A brood refers to a batch of chicks of the same age raised together.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the primary purpose of broiler chickens?",
+      "options": {
+        "a": "Egg production",
+        "b": "Ornamental display",
+        "c": "Meat production",
+        "d": "Breeding",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Broilers are hybrid chickens that grow quickly and are raised specifically for meat production.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "At what age range are layer hens typically used for commercial egg production?",
+      "options": {
+        "a": "6-18 weeks",
+        "b": "10-30 weeks",
+        "c": "20-72 weeks",
+        "d": "40-100 weeks",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Layers are mature female chickens reared for egg production, usually from 20 to 72 weeks of age.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is a \"broody hen\" in poultry farming?",
+      "options": {
+        "a": "A hen that lays eggs daily",
+        "b": "A hen capable of hatching eggs and raising chicks",
+        "c": "A young female chicken",
+        "d": "A chicken raised for meat",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "A broody hen is one that has the natural instinct to sit on eggs for hatching and rear the chicks after they hatch.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What does \"broodiness\" refer to in poultry?",
+      "options": {
+        "a": "The process of egg formation",
+        "b": "The tendency of a hen to stop laying eggs",
+        "c": "The desire in a hen to sit on eggs and hatch them",
+        "d": "The feeding behaviour of young chicks",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Broodiness is the natural instinct of a hen to sit on eggs for incubation and hatching.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What does \"culling\" refer to in poultry farming?",
+      "options": {
+        "a": "Selecting the best birds for breeding",
+        "b": "Removing unwanted, sick, or unproductive birds",
+        "c": "Feeding birds a specialized diet",
+        "d": "Training birds to lay more eggs",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Culling is the process of removing diseased, unproductive, or undesirable birds from a flock to maintain flock health and efficiency.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "In poultry farming, what does the term \"pause\" mean?",
+      "options": {
+        "a": "The time taken for an egg to hatch",
+        "b": "A period between two clutches when a hen stops laying eggs",
+        "c": "The time between feeding intervals",
+        "d": "The incubation period of an egg",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "pause is the period between two clutches during which a hen temporarily stops laying eggs.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is a \"capon\" in poultry farming?",
+      "options": {
+        "a": "A hen raised for egg production",
+        "b": "A young chick",
+        "c": "A castrated male chicken",
+        "d": "A broody hen",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A capon is a male chicken that has been surgically castrated to improve meat quality.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the main purpose of debeaking in poultry farming?",
+      "options": {
+        "a": "To prevent disease spread",
+        "b": "To reduce feather pecking and feed wastage",
+        "c": "To increase egg production",
+        "d": "To help birds eat faster",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Debeaking involves trimming the upper half of the beak to prevent cannibalism, feather picking, and excessive feed wastage.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is \"hatching\" in poultry?",
+      "options": {
+        "a": "The process of laying an egg",
+        "b": "The period when birds start molting",
+        "c": "The release of a chick from an egg after incubation",
+        "d": "A method of egg preservation",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Hatching is the process in which a chick emerges from an egg after completing the incubation period.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the incubation period of chicken eggs?",
+      "options": {
+        "a": "14 days",
+        "b": "18 days",
+        "c": "21 days",
+        "d": "28 days",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The incubation period for chicken eggs is 21 days, during which they require optimal temperature and humidity for successful hatching.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the economic life span of a layer in poultry farming?",
+      "options": {
+        "a": "10-50 weeks",
+        "b": "20-72 weeks",
+        "c": "15-60 weeks",
+        "d": "25-80 weeks",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The economic life of a layer starts at 20 weeks (when it begins laying eggs) and continues until around 72 weeks, after which egg production declines significantly.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "At what age do layer hens typically start laying eggs?",
+      "options": {
+        "a": "10-15 weeks",
+        "b": "16-18 weeks",
+        "c": "20-22 weeks",
+        "d": "25-30 weeks",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Layer hens usually start laying eggs at around 20-22 weeks of age, which marks the beginning of their economic life in poultry farming.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the primary purpose of rearing broiler chickens?",
+      "options": {
+        "a": "Egg production",
+        "b": "Meat production",
+        "c": "Feather production",
+        "d": "Breeding",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Broilers are young chickens raised mainly for meat production and are marketed at 6-8 weeks of age[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What does the term \"grower\" refer to in poultry farming?",
+      "options": {
+        "a": "Birds between 1-8 weeks of age",
+        "b": "Birds in the 9-20 weeks age range",
+        "c": "Birds that have started laying eggs",
+        "d": "Birds kept only for breeding",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The grower period is from 9 to 20 weeks, during which birds are managed before they reach the laying stage.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "At what age do layer birds typically start laying eggs?",
+      "options": {
+        "a": "10-15 weeks",
+        "b": "16-18 weeks",
+        "c": "21-72 weeks",
+        "d": "25-35 weeks",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Layers start laying eggs at around 20-22 weeks and continue egg production until about 72 weeks.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following is an egg-type poultry breed?",
+      "options": {
+        "a": "Rhode Island Red",
+        "b": "White Leghorn",
+        "c": "Plymouth Rock",
+        "d": "Cornish",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "White Leghorn, Minorca, and Ancona are well-known egg-laying breeds, primarily reared for commercial egg production.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following poultry breeds is classified as a dual-purpose breed (used for both meat and egg production)?",
+      "options": {
+        "a": "White Leghorn",
+        "b": "Cornish",
+        "c": "Rhode Island Red",
+        "d": "Minorca",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Rhode Island Red and New Hampshire are dual-purpose breeds, meaning they are raised for both egg production and meat. They are popular among small and commercial poultry farmers.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following is an exotic poultry breed known for high egg production?",
+      "options": {
+        "a": "Kadaknath",
+        "b": "White Leghorn",
+        "c": "Aseel",
+        "d": "Rhode Island Red",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "White Leghorn is an exotic breed from Italy, well-known for its high egg-laying capacity.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following is an exotic poultry breed known for high egg production?",
+      "options": {
+        "a": "Cornish",
+        "b": "Minorca",
+        "c": "Ancona",
+        "d": "Aseel",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Cornish is a popular exotic breed developed in England, mainly used for meat production due to its fast growth and broad breast.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "The Minorca poultry breed is primarily raised for which purpose?",
+      "options": {
+        "a": "Egg production",
+        "b": "Meat production",
+        "c": "Dual-purpose",
+        "d": "Ornamental",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Minorca is an exotic breed from Spain, known for laying large white eggs.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following exotic poultry breeds is famous for its unique feather structure and is often kept for ornamental purposes?",
+      "options": {
+        "a": "Cornish",
+        "b": "Silkie",
+        "c": "Rhode Island Red",
+        "d": "Plymouth Rock",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Silkie is an exotic ornamental breed known for its soft, fluffy feathers and friendly nature.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following breeds is known for its black meat and high medicinal value?",
+      "options": {
+        "a": "Rhode Island Red",
+        "b": "Kadaknath",
+        "c": "Cornish",
+        "d": "New Hampshire",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Kadaknath is an indigenous Indian poultry breed known for its black meat, which is rich in protein and has medicinal benefits.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which dual-purpose poultry breed is widely used for both egg and meat production?",
+      "options": {
+        "a": "White Leghorn",
+        "b": "Aseel",
+        "c": "Rhode Island Red",
+        "d": "Silkie",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Rhode Island Red is a popular dual-purpose breed that is raised for both egg production and meat.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which exotic breed is considered one of the best for commercial egg production?",
+      "options": {
+        "a": "Cornish",
+        "b": "White Leghorn",
+        "c": "Kadaknath",
+        "d": "New Hampshire",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "White Leghorn is an exotic breed from Italy, widely used in commercial poultry farming for egg production.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which poultry breed is famous for its aggressive nature and fighting ability?",
+      "options": {
+        "a": "White Leghorn",
+        "b": "Aseel",
+        "c": "Cornish",
+        "d": "Brahma",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Aseel is an Indian breed known for its strong fighting ability, muscular body, and high stamina.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following is a heavy breed used mainly for meat production?",
+      "options": {
+        "a": "White Leghorn",
+        "b": "Minorca",
+        "c": "Brahma",
+        "d": "Ancona",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Brahma is a large-sized poultry breed known for its meat production and cold-resistant characteristics.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following desi poultry breeds is known for its black meat with high protein and medicinal value?",
+      "options": {
+        "a": "Aseel",
+        "b": "Chittagong",
+        "c": "Kadaknath",
+        "d": "Punjab Brown",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Kadaknath, native to Madhya Pradesh, is famous for its black-colored meat, which is rich in protein and has medicinal benefits.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which indigenous Indian poultry breed is well-known for its aggressive nature and cockfighting ability?",
+      "options": {
+        "a": "Kadaknath",
+        "b": "Aseel",
+        "c": "Chittagong",
+        "d": "Danky",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Aseel is a strong and aggressive breed primarily used for cockfighting and meat production.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "The Naked Neck breed, known for its heat resistance, is commonly found in which Indian states?",
+      "options": {
+        "a": "Kerala and Tamil Nadu",
+        "b": "Punjab and Haryana",
+        "c": "Gujarat and Rajasthan",
+        "d": "Uttar Pradesh and Bihar",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The Naked Neck breed, also called \"Turkish,\" is popular in Punjab and Haryana due to its adaptability to hot climates.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which desi poultry breed originates from Gujarat and is known for its moderate egg production?",
+      "options": {
+        "a": "Punjab Brown",
+        "b": "Busra",
+        "c": "Chittagong",
+        "d": "Aseel",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Busra is an indigenous poultry breed from Gujarat, known for being hardy and moderately good in egg production.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which indigenous poultry breed from West Bengal is known for its large body and good meat quality?",
+      "options": {
+        "a": "Kadaknath",
+        "b": "Aseel",
+        "c": "Chittagong",
+        "d": "Danky",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Chittagong is a dual-purpose breed found in West Bengal and Bangladesh, primarily known for its meat quality[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the main purpose of the Mewari poultry breed?",
+      "options": {
+        "a": "Only for meat production",
+        "b": "Only for egg production",
+        "c": "Dual-purpose (Meat & Eggs)",
+        "d": "Primarily for cockfighting",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Mewari is a heat-resistant, dual-purpose poultry breed found in Rajasthan.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following is an exotic breed of poultry primarily used for egg production?",
+      "options": {
+        "a": "Aseel",
+        "b": "Kadaknath",
+        "c": "White Leghorn",
+        "d": "Rhode Island Red",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "White Leghorn is an exotic poultry breed known for high egg production and is widely used in commercial layer farming.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which breed is a dual-purpose (meat and egg) exotic poultry breed?",
+      "options": {
+        "a": "White Leghorn",
+        "b": "Rhode Island Red",
+        "c": "Kadaknath",
+        "d": "Aseel",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Rhode Island Red is an exotic dual-purpose breed that is excellent for both egg and meat production.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "The indigenous poultry breed 'Kadaknath' is mainly found in which Indian state?",
+      "options": {
+        "a": "Uttar Pradesh",
+        "b": "Madhya Pradesh",
+        "c": "Tamil Nadu",
+        "d": "Gujarat",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Kadaknath is a black-colored desi poultry breed mainly found in Madhya Pradesh, known for its high-protein black meat.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following exotic poultry breeds is known for both meat and egg production?",
+      "options": {
+        "a": "Cornish",
+        "b": "White Plymouth Rock",
+        "c": "Sussex",
+        "d": "New Hampshire",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Cornish, White Plymouth Rock, Sussex, and New Hampshire are all dual-purpose exotic poultry breeds.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "The Aseel poultry breed is primarily reared for which purpose?",
+      "options": {
+        "a": "Egg production",
+        "b": "Meat production",
+        "c": "Ornamental purposes",
+        "d": "Cockfighting",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Aseel is known for its aggressive nature and is primarily reared for cockfighting, although it also has good meat quality.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which exotic poultry breed is commonly used for broiler production?",
+      "options": {
+        "a": "White Leghorn",
+        "b": "Cornish",
+        "c": "Rhode Island Red",
+        "d": "Sussex",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cornish is an exotic breed widely used in broiler production due to its fast growth and high meat yield.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the most common poultry breed used in commercial layer farming in India?",
+      "options": {
+        "a": "Aseel",
+        "b": "Kadaknath",
+        "c": "White Leghorn",
+        "d": "Rhode Island Red",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "White Leghorn is the most common breed used in commercial egg farming because of its high egg-laying capacity.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which indigenous poultry breed is commonly found in Rajasthan?",
+      "options": {
+        "a": "Kadaknath",
+        "b": "Mewari",
+        "c": "Chittagong",
+        "d": "Danky",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Mewari is a desi poultry breed native to Rajasthan, known for its heat resistance and dual-purpose nature.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Giriraja poultry breed was developed in which Indian state?",
+      "options": {
+        "a": "Tamil Nadu",
+        "b": "Maharashtra",
+        "c": "Karnataka",
+        "d": "Kerala",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Giriraja is a famous breed of chicken developed in India, known for its dual purpose of providing both eggs and meat, and is particularly suited for backyard farming[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the average annual egg production of a Giriraja hen?",
+      "options": {
+        "a": "50-80 eggs",
+        "b": "100-120 eggs",
+        "c": "140-150 eggs",
+        "d": "200-250 eggs",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Giriraja are good for free range and can be fed with locally available materials. The annual egg production is about 140-150 eggs.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the annual egg production of Grampriya poultry breed in intensive framing?",
+      "options": {
+        "a": "50-80 eggs",
+        "b": "100-120 eggs",
+        "c": "140-150 eggs",
+        "d": "230-240 eggs",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "The annual egg production is about 230-240 eggs in intensive and 150-160 egg under backyard condition.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Giriraja is a crossbreed of which poultry breeds?",
+      "options": {
+        "a": "White Leghorn x Rhode Island Red",
+        "b": "Desi breed x White Leghorn",
+        "c": "White Leghorn \u00d7 Australorp",
+        "d": "Kadaknath \u00d7 White Leghorn",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Giriraja is a breed of chicken developed by Karnataka veterinary, animal and fishery science university in Bengali well, India. It is a cross breed of desi breed poultry and white leghorn.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Swarnadhara is a crossbreed of which poultry breeds?",
+      "options": {
+        "a": "Kadaknath x White Leghorn",
+        "b": "Rhode Island Red \u00d7 Desi breeds \u00d7 White Leghorn",
+        "c": "Giriraja x White Leghorn",
+        "d": "Aseel x Rhode Island Red",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Swarnadhara is a dual-purpose poultry breed developed by the KVAFSU (Karnataka Veterinary, Animal and Fisheries Sciences University). It is known for its high egg production and good meat quality.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following is a viral disease in poultry?",
+      "options": {
+        "a": "Coccidiosis",
+        "b": "Newcastle disease",
+        "c": "Fowl cholera",
+        "d": "Aspergillosis",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Newcastle disease is a highly contagious viral disease in poultry caused by Paramyxovirus. It affects the respiratory, nervous, and digestive systems of birds, leading to symptoms such as respiratory distress, twisted necks, and diarrhea.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Infectious Bursal Disease (IBD) is also known as",
+      "options": {
+        "a": "Marek's disease",
+        "b": "Gumboro disease",
+        "c": "Ranikhet disease",
+        "d": "Avian influenza",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Infectious Bursal Disease (IBD), commonly known as Gumboro disease, is caused by the Birnavirus. It mainly affects young birds and damages the bursa of Fabricius, weakening the immune system and making the birds more susceptible to other infections.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "The causative agent of Fowl Pox in poultry is",
+      "options": {
+        "a": "Bacteria",
+        "b": "Virus",
+        "c": "Fungus",
+        "d": "Protozoa",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Fowl Pox is a viral disease caused by the Avipoxvirus. It leads to wart-like lesions on the skin, mouth, and sometimes the respiratory tract. The disease spreads through direct contact and mosquitoes.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following poultry diseases is caused by a protozoan parasite?",
+      "options": {
+        "a": "Coccidiosis",
+        "b": "Avian Influenza",
+        "c": "Newcastle Disease",
+        "d": "Fowl Cholera",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Coccidiosis is caused by Eimeria species (protozoa) and affects the intestines of poultry. It leads to bloody diarrhea, weight loss, and dehydration, often occurring in overcrowded or poorly sanitized environments.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "The bacterial disease in poultry that causes severe respiratory infection and swollen wattles is",
+      "options": {
+        "a": "Fowl Cholera",
+        "b": "Marek's Disease",
+        "c": "Infectious Bronchitis",
+        "d": "Ranikhet Disease",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Fowl Cholera is caused by Pasteurella multocida (a bacterium). It affects the respiratory system, causing swollen wattles, nasal discharge, and difficulty breathing. It can spread through contaminated feed, water, and infected birds.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the main cause of Mycoplasmosis in poultry?",
+      "options": {
+        "a": "Virus",
+        "b": "Bacteria",
+        "c": "Mycoplasma",
+        "d": "Fungus",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Mycoplasmosis in poultry is caused by Mycoplasma gallisepticum. It leads to respiratory issues like coughing, nasal discharge, and reduced egg production. The infection spreads through direct contact, contaminated feed, or water.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Avian Influenza (Bird Flu) in poultry is caused by",
+      "options": {
+        "a": "Bacteria",
+        "b": "Virus",
+        "c": "Protozoa",
+        "d": "Fungus",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Avian Influenza (Bird Flu) is caused by the Influenza A virus of the Orthomyxoviridae family. It can be highly pathogenic (HPAI) or low pathogenic (LPAI) and spreads through direct contact with infected birds, contaminated feed, and water.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Ranikhet disease in poultry is also known as",
+      "options": {
+        "a": "Gumboro Disease",
+        "b": "Newcastle Disease",
+        "c": "Fowl Pox",
+        "d": "Coccidiosis",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Ranikhet disease is another name for Newcastle Disease. It is caused by Paramyxovirus and affects both commercial and backyard poultry, leading to respiratory distress, neurological symptoms, and sudden death in severe cases.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following poultry disorders is caused by a deficiency of calcium?",
+      "options": {
+        "a": "Rickets",
+        "b": "Fatty Liver Syndrome",
+        "c": "Coccidiosis",
+        "d": "Marek's Disease",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Rickets is a metabolic disorder in poultry caused by calcium, phosphorus, or vitamin D3 deficiency. It leads to weak and deformed bones, lameness, and poor eggshell quality in layers.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Sudden death syndrome (SDS) in broilers is also known as",
+      "options": {
+        "a": "Flip-over disease",
+        "b": "White diarrhea",
+        "c": "Bumblefoot",
+        "d": "Egg drop syndrome",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Sudden Death Syndrome (SDS), commonly called \"Flip-over disease,\" affects fast-growing broiler chickens. It occurs due to metabolic disorders, mainly affecting the heart, causing sudden collapse and death.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which disorder in poultry is related to excess fat deposition in the liver, leading to rupture and hemorrhage?",
+      "options": {
+        "a": "Fatty Liver Hemorrhagic Syndrome (FLHS)",
+        "b": "Newcastle Disease",
+        "c": "Ascites",
+        "d": "Rickets",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "FLHS is common in high-producing layers and overweight birds due to excessive energy intake. It results in fat accumulation in the liver, making it fragile and prone to rupture, causing internal bleeding.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which metabolic disorder in poultry is associated with the accumulation of fluid in the abdominal cavity due to heart failure?",
+      "options": {
+        "a": "Ascites",
+        "b": "Crop Bound",
+        "c": "Egg Binding",
+        "d": "Prolapse",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Ascites, or \"Water Belly,\" is caused by right-sided heart failure, leading to fluid buildup in the abdomen. It commonly affects fast-growing broilers due to low oxygen levels and poor ventilation.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "In poultry, which disorder is caused by the obstruction of the reproductive tract, preventing egg-laying?",
+      "options": {
+        "a": "Egg Binding",
+        "b": "Coccidiosis",
+        "c": "Rickets",
+        "d": "Omphalitis",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Egg Binding occurs when a hen is unable to pass an egg due to oversized eggs, calcium deficiency, or reproductive tract issues. It can be life-threatening if not treated promptly.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "The condition where a hen's reproductive organs are pushed out due to excessive straining is called",
+      "options": {
+        "a": "Prolapse",
+        "b": "Ascites",
+        "c": "Omphalitis",
+        "d": "Egg Drop Syndrome",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Prolapse occurs when the cloaca and part of the oviduct are expelled from the vent, often due to laying oversized eggs, excessive fat, or poor nutrition. It increases the risk of cannibalism in poultry.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "A condition in poultry caused by the infection of the navel area in young chicks is",
+      "options": {
+        "a": "Omphalitis",
+        "b": "Marek's Disease",
+        "c": "Crop Impaction",
+        "d": "Egg Binding",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Omphalitis, also known as \"Mushy Chick Disease,\" is an infection of the navel in newly hatched chicks caused by bacteria like E. coli and Staphylococcus. It results from poor hatchery hygiene.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which disorder occurs due to the accumulation of undigested food in the crop, leading to swelling and discomfort?",
+      "options": {
+        "a": "Crop Bound",
+        "b": "Egg Drop Syndrome",
+        "c": "Omphalitis",
+        "d": "Fatty Liver Syndrome",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Crop Bound occurs when food or foreign materials get stuck in the crop, preventing normal digestion. It often results from feeding large, dry grains without adequate water.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the primary cause of Gout in poultry?",
+      "options": {
+        "a": "High protein diet and kidney dysfunction",
+        "b": "Calcium deficiency",
+        "c": "Viral infection",
+        "d": "Bacterial infection",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Gout occurs when excessive uric acid accumulates in the body due to kidney failure, dehydration, or excessive dietary protein, leading to white deposits on joints and organs.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "A disorder in poultry that leads to a sudden drop in egg production without any obvious clinical signs is called",
+      "options": {
+        "a": "Egg Drop Syndrome (EDS)",
+        "b": "Marek's Disease",
+        "c": "Infectious Coryza",
+        "d": "Prolapse",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Egg Drop Syndrome (EDS) is caused by the Duck Adenovirus and leads to a sudden reduction in egg production, thin-shelled or shell-less eggs, and poor hatchability, even though hens appear healthy.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Infectious Bursal Disease (Gumboro Disease) primarily affects which organ in poultry?",
+      "options": {
+        "a": "Liver",
+        "b": "Bursa of Fabricius",
+        "c": "Lungs",
+        "d": "Prolapse",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Infectious Bursal Disease (IBD) is a viral infection that affects young chickens, leading to immunosuppression by damaging the Bursa of Fabricius, making birds more susceptible to secondary infections.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which bacterial disease in poultry causes swollen wattles and facial swelling?",
+      "options": {
+        "a": "Marek's Disease",
+        "b": "Fowl Cholera",
+        "c": "Coccidiosis",
+        "d": "Aspergillosis",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Fowl Cholera, caused by Pasteurella multocida, leads to respiratory distress, swollen wattles, joint infections, and sudden death in poultry.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which parasitic disease in poultry is characterized by bloody diarrhea?",
+      "options": {
+        "a": "Coccidiosis",
+        "b": "Fowl Cholera",
+        "c": "Marek's Disease",
+        "d": "Infectious Bronchitis",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Coccidiosis is caused by Eimeria protozoa, which damage the intestinal lining, leading to bloody droppings, weight loss, and reduced feed efficiency.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the main advantage of the cage system in poultry farming?",
+      "options": {
+        "a": "Higher egg production",
+        "b": "Increased feed wastage",
+        "c": "Higher disease transmission",
+        "d": "More space for bird movement",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "The cage system provides a controlled environment, allowing birds to focus on egg production without expending energy on movement, leading to higher egg yields.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which type of poultry housing involves stacking cages in multiple layers?",
+      "options": {
+        "a": "Deep Litter System",
+        "b": "Single-Tier Cage System",
+        "c": "Multi-Tier Cage System",
+        "d": "Free-Range System",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The Multi-Tier Cage System consists of cages arranged in layers, maximizing space and increasing stocking density.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is a major disadvantage of the cage system?",
+      "options": {
+        "a": "Requires less labor",
+        "b": "Lower disease risk",
+        "c": "Higher initial investment",
+        "d": "Provides natural foraging behavior",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The cage system requires a significant financial investment in cage structures, automated feeding, and waste disposal systems.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Why is wire mesh flooring used in cage systems?",
+      "options": {
+        "a": "To increase feed efficiency",
+        "b": "To improve bird movement",
+        "c": "To allow easy waste removal",
+        "d": "To keep the temperature warm",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Wire mesh flooring ensures droppings fall through, maintaining cleanliness and reducing disease risk.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following is NOT a characteristic of the cage system?",
+      "options": {
+        "a": "Birds are kept in small compartments",
+        "b": "Eggs are cleaner compared to other systems",
+        "c": "Birds have more freedom to move and forage",
+        "d": "It helps in controlling feed wastage",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Unlike free-range or deep litter systems, the cage system restricts movement, limiting birds' ability to forage.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "How much floor area is provided per bird in the cage system of poultry farming?",
+      "options": {
+        "a": "200-300 sq. cm (0.3-0.45 sq. ft)",
+        "b": "450-525 sq. cm (0.6-0.75 sq. ft)",
+        "c": "600-750 sq. cm (0.9-1.2 sq. ft)",
+        "d": "1000-1200 sq. cm (1.5-1.8 sq. ft)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The cage system is a super intensive poultry rearing method that provides limited space per bird, ensuring efficient utilization of resources while maintaining productivity.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is a common problem faced by poultry birds in the cage system?",
+      "options": {
+        "a": "Increased feather pecking and cannibalism",
+        "b": "Higher feed wastage",
+        "c": "Reduced egg production due to excess space",
+        "d": "Increased risk of predator attacks",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "In the cage system, birds are confined to a small space, leading to stress and aggressive behavior, such as feather pecking and cannibalism. Limited movement can also cause issues like weaker bones (osteoporosis) and foot problems due to constant contact with the cage floor.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Cage fatigue in poultry is primarily caused by a deficiency of which mineral?",
+      "options": {
+        "a": "Calcium",
+        "b": "Iron",
+        "c": "Phosphorus",
+        "d": "Zinc",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Cage fatigue is a common issue in caged laying hens, especially in high-producing birds. It is caused by calcium and phosphorus deficiency, leading to weak bones, fractures, and paralysis. The condition is worsened by limited movement in cages.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the most common symptom of cage layer fatigue in poultry?",
+      "options": {
+        "a": "Feather loss",
+        "b": "Leg weakness and paralysis",
+        "c": "Diarrhea",
+        "d": "Respiratory distress",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Birds with cage layer fatigue show weak legs, paralysis, and fractures due to depletion of calcium from bones. The condition can be prevented by providing adequate calcium, phosphorus, and vitamin D3 in the diet.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "How can cage fatigue in laying hens be prevented?",
+      "options": {
+        "a": "Reducing protein levels in feed",
+        "b": "Providing adequate calcium and phosphorus supplementation",
+        "c": "Increasing stocking density in cages",
+        "d": "Keeping birds in complete darkness",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Proper calcium (3.5-4.5%) and phosphorus (0.3-0.5%) levels in feed, along with vitamin D3, are essential for strong bones and eggshell formation, reducing the risk of cage fatigue.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Fatty liver syndrome (FLS) in poultry is most commonly seen in which type of birds?",
+      "options": {
+        "a": "Broilers",
+        "b": "Caged laying hens",
+        "c": "Ducks",
+        "d": "Quails",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Fatty Liver Syndrome (FLS) is common in caged layers due to excess fat deposition in the liver, leading to enlarged, fragile, and hemorrhagic liver. It is associated with high-energy diets, lack of exercise, and hormonal imbalances.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "How can fatty liver syndrome be prevented in poultry?",
+      "options": {
+        "a": "Reducing energy-rich feed and increasing fiber",
+        "b": "Supplementing with choline and methionine",
+        "c": "Encouraging more movement in birds",
+        "d": "Providing vitamin E and selenium to reduce oxidative stress",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Prevention of fatty liver syndrome includes reducing high-energy diets, supplementing essential nutrients like choline and methionine, increasing activity levels, and adding antioxidants like vitamin E and selenium.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the minimum recommended depth of litter in the deep litter system?",
+      "options": {
+        "a": "2 cm",
+        "b": "5 cm",
+        "c": "10 cm",
+        "d": "15 cm",
+        "e": "20 cm"
+      },
+      "correct_option": "c",
+      "explanation": "The litter depth should be at least 10 cm for proper moisture absorption and microbial activity. As the litter decomposes, it provides warmth and helps control pathogens.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following materials is commonly used as bedding in the deep litter system?",
+      "options": {
+        "a": "Sand",
+        "b": "Cement flooring",
+        "c": "Sawdust",
+        "d": "Plastic sheets",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sawdust, rice husk, wood shavings, or straw are commonly used because they absorb moisture, provide warmth, and decompose over time to create a healthy environment for poultry.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which of the following is an advantage of the deep litter system?",
+      "options": {
+        "a": "Reduces feed consumption significantly",
+        "b": "Completely eliminates disease risk",
+        "c": "Provides natural warmth and insulation",
+        "d": "Requires no management after initial setup",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "As the litter decomposes, microbial activity generates heat, keeping the poultry warm, especially in cold climates. However, regular turning and management are needed to control ammonia buildup and disease risks.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which major disease is commonly associated with poor management of the deep litter system?",
+      "options": {
+        "a": "Newcastle Disease",
+        "b": "Coccidiosis",
+        "c": "Fowl Pox",
+        "d": "Marek's Disease",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Coccidiosis is caused by the protozoan parasite Eimeria spp., which thrives in wet, poorly managed litter. Regular drying and stirring of the litter help control its spread.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "How frequently should litter be stirred in the deep litter system to prevent ammonia buildup?",
+      "options": {
+        "a": "Daily",
+        "b": "Once a week",
+        "c": "Every two weeks",
+        "d": "Once a month",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Stirring the litter weekly helps aerate the bedding, prevent compaction, and control ammonia buildup, which can cause respiratory issues in poultry.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the ideal stocking density for broilers in the deep litter system?",
+      "options": {
+        "a": "1 bird per 2 sq. ft.",
+        "b": "1 bird per 4 sq. ft.",
+        "c": "10 birds per sq. ft.",
+        "d": "1 bird per 1 sq. ft.",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Each broiler needs around 2 sq. ft. of floor space to grow comfortably and reduce stress-related issues. Overcrowding increases disease risk.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the main disadvantage of the deep litter system?",
+      "options": {
+        "a": "Requires high investment in cages",
+        "b": "Birds do not get enough exercise",
+        "c": "Higher risk of ammonia buildup and disease if not managed properly",
+        "d": "Cannot be used for layers",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "If the litter is not stirred and replaced regularly, it accumulates moisture, ammonia, and harmful pathogens, leading to diseases like coccidiosis and respiratory infections.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the recommended space requirement for chicks between 0-8 weeks in cm\u00b2?",
+      "options": {
+        "a": "500 cm\u00b2",
+        "b": "700 cm\u00b2",
+        "c": "950 cm\u00b2",
+        "d": "1000 cm\u00b2",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Chicks from 0 to 8 weeks require 700 cm\u00b2 per bird for proper growth, movement, and health management.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "At what age do birds require the highest space per bird?",
+      "options": {
+        "a": "0-8 weeks",
+        "b": "9-12 weeks",
+        "c": "13-20 weeks",
+        "d": "Above 20 weeks",
+        "e": "5-8 weeks"
+      },
+      "correct_option": "d",
+      "explanation": "Birds above 20 weeks require 2300-3700 cm\u00b2 per bird, as they grow larger and need more space for movement and egg-laying (in layers).[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the ideal floor space for growers (13-20 weeks old)?",
+      "options": {
+        "a": "750 cm\u00b2",
+        "b": "1000 cm\u00b2",
+        "c": "1900-2300 cm\u00b2",
+        "d": "2300-3700 cm\u00b2",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Growers (13-20 weeks old) require 1900-2300 cm\u00b2 per bird to accommodate their growth and movement needs.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the recommended space for a pullet aged 9-12 weeks?",
+      "options": {
+        "a": "500 cm\u00b2",
+        "b": "700 cm\u00b2",
+        "c": "950 cm\u00b2",
+        "d": "1900 cm\u00b2",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Birds aged 9-12 weeks need 950 cm\u00b2 per bird for proper growth before transitioning to the next stage.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the ideal age range for a broiler to be marketed?",
+      "options": {
+        "a": "4-6 weeks",
+        "b": "6-8 weeks",
+        "c": "8-10 weeks",
+        "d": "10-12 weeks",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Broilers or fryers are young chickens below 8-10 weeks of age, raised specifically for meat production.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the typical weight of a market-ready broiler?",
+      "options": {
+        "a": "0.5-1.0 kg",
+        "b": "1.0-1.5 kg",
+        "c": "1.5-2.0 kg",
+        "d": "2.5-3.0 kg",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A broiler is marketed at 1.5-2.0 kg, as this is the optimal weight for tender meat with good texture.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is a fryer in poultry farming?",
+      "options": {
+        "a": "A chicken raised for egg production",
+        "b": "A young meat-type chicken slaughtered at 8-10 weeks",
+        "c": "A matured layer hen used for meat",
+        "d": "A chicken used for breeding purposes",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "A fryer is another name for a broiler, which is a young chicken raised for meat and slaughtered at 8-10 weeks when it reaches a weight of 1.5-2.0 kg.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the typical weight of a fryer at slaughter?",
+      "options": {
+        "a": "0.5-1.0 kg",
+        "b": "1.0-1.5 kg",
+        "c": "1.5-2.0 kg",
+        "d": "2.5-3.0 kg",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Fryers (broilers) are slaughtered when they weigh 1.5-2.0 kg, ensuring tender meat with good flavor and texture.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the main difference between a fryer and a roaster?",
+      "options": {
+        "a": "Fryers are older than roasters.",
+        "b": "Fryers are heavier than roasters.",
+        "c": "Fryers are younger and lighter than roasters.",
+        "d": "Fryers have tougher meat than roasters.",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A fryer is slaughtered at 8-10 weeks and weighs 1.5-2.0 kg, while a roaster is older (12-15 weeks) and weighs 2-4 kg.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the ideal temperature required in a broiler house during the first week?",
+      "options": {
+        "a": "80\u00b0F",
+        "b": "85\u00b0F",
+        "c": "90\u00b0F",
+        "d": "95\u00b0F",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Broiler chicks need a high temperature of 95\u00b0F during their first week to maintain body warmth, as they cannot regulate their body temperature efficiently.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "At what rate should the broiler house temperature be reduced per week?",
+      "options": {
+        "a": "2\u00b0F per week",
+        "b": "3\u00b0F per week",
+        "c": "5\u00b0F per week",
+        "d": "7\u00b0F per week",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The temperature should be gradually reduced by 5\u00b0F per week until it reaches 70\u00b0F, ensuring proper growth and adaptation.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "If the temperature is reduced too quickly, what is a possible consequence for broiler chicks?",
+      "options": {
+        "a": "Rapid growth",
+        "b": "Increased egg production",
+        "c": "Weak immunity and high mortality",
+        "d": "Faster feathering",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Sudden drops in temperature can lead to stress, weak immunity, and higher mortality in broiler chicks, as they struggle to maintain body warmth.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the recommended protein percentage in broiler starter feed?",
+      "options": {
+        "a": "12-14%",
+        "b": "16-18%",
+        "c": "20-22%",
+        "d": "24-26%",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Broiler starter feed (0-4 weeks) contains 20-22% crude protein, essential for early muscle development and rapid growth.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which mineral is essential for eggshell formation in layers?",
+      "options": {
+        "a": "Phosphorus",
+        "b": "Calcium",
+        "c": "Iron",
+        "d": "Potassium",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Calcium is necessary for strong eggshell formation in layers. Limestone and oyster shells are common calcium supplements in layer feed.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the ideal calcium-to-phosphorus ratio in poultry feed?",
+      "options": {
+        "a": "1:1",
+        "b": "1.5:1",
+        "c": "2:1",
+        "d": "3:1",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A 2:1 ratio of calcium to phosphorus is crucial for bone health and eggshell formation in poultry. Excess phosphorus can interfere with calcium absorption.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the function of Vitamin D in poultry feed?",
+      "options": {
+        "a": "Feather growth",
+        "b": "Egg yolk color",
+        "c": "Calcium absorption",
+        "d": "Disease resistance",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Vitamin D helps in the absorption of calcium, which is essential for bone development and eggshell formation in poultry.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the main ingredient in poultry feed that improves yolk color?",
+      "options": {
+        "a": "Vitamin B12",
+        "b": "Beta-carotene",
+        "c": "Zinc",
+        "d": "Iron",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Beta-carotene from corn, marigold petals, and alfalfa gives the yellow-orange color to egg yolks.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the recommended crude protein content in layer feed?",
+      "options": {
+        "a": "12-14%",
+        "b": "14-16%",
+        "c": "16-18%",
+        "d": "18-20%",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Layers require 14-16% crude protein in their feed to maintain good egg production and health without excess weight gain.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Which protein-rich ingredient is commonly used in poultry feed?",
+      "options": {
+        "a": "Fish meal",
+        "b": "Groundnut cake",
+        "c": "Soybean meal",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Poultry require high protein for growth and egg production. Fish meal, soybean meal, and groundnut cake are major sources of protein in poultry diets.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What type of pathogen causes Ranikhet Disease (Newcastle Disease) in poultry?",
+      "options": {
+        "a": "Bacteria",
+        "b": "Virus",
+        "c": "Fungi",
+        "d": "Protozoa",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Ranikhet Disease (Newcastle Disease) is caused by a virus belonging to the Paramyxoviridae family. It is highly contagious and affects chickens, causing respiratory, nervous, and digestive issues.[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "What is the most common symptom of Ranikhet Disease in poultry?",
+      "options": {
+        "a": "Swollen eyes and nasal discharge",
+        "b": "Twisting of the neck and paralysis",
+        "c": "Greenish diarrhea",
+        "d": "Sudden drop in egg production",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Symptoms of Ranikhet Disease include: Respiratory signs (nasal discharge, sneezing, difficulty breathing) Nervous signs (twisted neck, paralysis, tremors) Digestive issues (greenish diarrhea) Reproductive issues (drop in egg production, soft-shelled eggs)[cite: 12]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Poultry",
+      "question": "Marek's Disease in poultry is caused by which type of pathogen?",
+      "options": {
+        "a": "Bacteria",
+        "b": "Virus",
+        "c": "Fungus",
+        "d": "Protozoa",
+        "e": "Parasite"
+      },
+      "correct_option": "b",
+      "explanation": "Marek's Disease (MD) is caused by a herpesvirus known as Gallid alphaherpesvirus 2. It primarily affects young chickens and causes tumors in nerves, organs, and tissues, leading to paralysis and immunosuppression.[cite: 12]"
+    }
+  ]
+}

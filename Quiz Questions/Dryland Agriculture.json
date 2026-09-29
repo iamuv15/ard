@@ -1,0 +1,299 @@
+{
+  "title": "Dryland Agriculture Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "A region is characterized under dry farming if the annual rainfall in that region less then",
+      "options": {
+        "a": "Less than 550 mm per annum",
+        "b": "Less than 1150 mm per annum",
+        "c": "Less than 750 mm per annum",
+        "d": "Less than 250 mm per annum",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Cultivation of crops where rainfall is less than 750 mm per annum is called as a dry farming. Dry farming regions are arid regions of the country[cite: 15]."
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Identify which of the following is a characteristic of region under dry farming?",
+      "options": {
+        "a": "Frequent crop failure",
+        "b": "Less socio-economic development",
+        "c": "Problem of saline soil",
+        "d": "Frequent dry spell",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Main features of this region i. Prolonged dry spells are very common during crop period. ii. More frequent crop failures. iii. High Evo transpiration (moisture loss) iv. Very low moisture presents in soil. v. Less socio-economic development. vi. High saline soil vii. Cropping period is highly dependent on the rainfall[cite: 15]."
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Western Rajasthan and Bundelkhand region come under ___ type farming based on amount of rainfall that region.",
+      "options": {
+        "a": "Dry farming",
+        "b": "Dryland agriculture",
+        "c": "Dryland Farming",
+        "d": "Rainfed farming",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Dry Farming: Cultivation of crops where rainfall is less than 750 mm per annum is called as a dry farming. Dry farming regions are arid regions of the country. Major regions of dry farming in India - western Rajasthan, Bundelkhand region, Gujarat & all the arid regions.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Dryland farming is a region which receives ___ amount of rainfall per annum.",
+      "options": {
+        "a": "More than 750 mm",
+        "b": "Between 750-1150 mm",
+        "c": "More then 1150 mm",
+        "d": "Less then 1500 mm",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cultivation of crops in area receiving rainfall above 750-1150 mm per annum is called as dryland farming. Dryland farming is practiced in all the semiarid regions of the country.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Madhya Pradesh, Tamil Nadu and Andhra Pradesh come under ___ farming region based on the amount of rainfall they receive per annum.",
+      "options": {
+        "a": "Dryland agriculture",
+        "b": "Dryland farming",
+        "c": "Rainfed farming",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Major regions where dryland farming is practiced- Rajasthan, Madhya Pradesh, Gujarat, Tamil nandu, Andhra Pradesh and all the semi-arid regions of the country.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Cultivation of crops in region receiving ___ mm per annum rainfall is called as rainfed farming.",
+      "options": {
+        "a": "Less then 1500 mm",
+        "b": "More then 1150 mm",
+        "c": "Between 1150-1500 mm",
+        "d": "More than 1000 mm",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cultivation of crops in regions receiving more than 1150 mm annually is known as rainfed farming.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Which of the following is not a characteristic of rainfed farming?",
+      "options": {
+        "a": "Acidic soil is the major constrain",
+        "b": "Dry spells are very common",
+        "c": "Rare chances of crop failure",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Main features of this region: Crop failure is very rare. Very rare or no dry spell. Waterlogging/ drainage is major problem. Acidic soil is a constrain.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Which of the following is the major constrain of dryland agriculture?",
+      "options": {
+        "a": "Less crop diversification",
+        "b": "Low water table",
+        "c": "High evapotranspiration rates",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Problems & Constrains in Dryland Agriculture: Less or lack of proper moisture for cultivating crops is the major constrain in dryland agriculture. High temperature with Very low or erratic rainfall. Low water table so very less irrigation facility like tubewell, canals etc. Degraded soil due to very less organic matter in the soil. Less fertile soil, less nutrient present in soil. High PET (potential evo transpiration rate) means high water[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "According to the Indian Meteorological Department (IMD), a meteorological drought is defined as a condition when the rainfall in a region decreases by ___",
+      "options": {
+        "a": "10%",
+        "b": "15%",
+        "c": "25%",
+        "d": "50%",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "It refers to the substantial deficit or rainfall relative to the average of that region. According to the IMD meteorological drought is a condition when there is 25% decrease in the rainfall for a given period of time in a region.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "___ refers to the extended dry period in which lack of rainfall results in insufficient moisture in the root zone causing crop loss",
+      "options": {
+        "a": "Hydrological drought",
+        "b": "Metrological drought",
+        "c": "Dry spell",
+        "d": "Agriculture drought",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Agriculture drought- It refers to the extended dry period in which lack of rainfall results in insufficient moisture in the root zone of the soil causing adverse effects on crop.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Rainless period of less then ___ days in heavy soil is called dry spell.",
+      "options": {
+        "a": "5 days",
+        "b": "10 days",
+        "c": "15 days",
+        "d": "25 days",
+        "e": "30 days"
+      },
+      "correct_option": "c",
+      "explanation": "Dry spell - rainless period more than 10 days in light soil (sandy) areas and 15 days in heavy soil (clay) areas. Drought- it is prolonged dry spell resulting wilting or drying of crops[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "___ when the soil moisture reaches to -15 bar, plants show wilting symptom during the day but not die is called as",
+      "options": {
+        "a": "Permanent wilting point",
+        "b": "Mid-day depression",
+        "c": "Wilting point",
+        "d": "Ultimate wilting point",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Permanent wilting point - when the soil moisture reaches to -15 bar, plants show wilting symptom during the day but not die. Ultimate wilting point- when the soil moisture reaches -6 MPa or -60 bar plant will die due to moisture stress.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Which of the following method are used to conserve soil moisture in dry land agriculture?",
+      "options": {
+        "a": "Reducing runoff",
+        "b": "Application of FYM",
+        "c": "Use of mulches",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Reducing runoff- water runoff increases when there is high intensity of rainfall due to low infiltration, so more opportunity time should be provided to the runoff water to increase the rate of infiltration. Application of farm yard manure increase the soil moisture by increasing soil water holding capacity. Disc ploughing during summer and contour bunding enhances the soil moisture storage in the soil. Increase rate of infiltration by maintaining mulches and addition of crop residue in fields.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Which of the following measure is not adopted to conserve the soil moisture in dry land agriculture?",
+      "options": {
+        "a": "Reduction in PET",
+        "b": "Tillage",
+        "c": "Use of Mulches",
+        "d": "Use of anti- transpirant",
+        "e": "All of the above are used"
+      },
+      "correct_option": "e",
+      "explanation": "All of the above are used to conserve the soil moisture in dry land agriculture Tillage increases the water holding capacity, reduces runoff, increases infiltration & conserve soil moisture.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Phenyl mercuric acetate is a ___ type of anti-transpirant?",
+      "options": {
+        "a": "Stomata closing",
+        "b": "Reflecting type",
+        "c": "Film forming type",
+        "d": "Growth retardants",
+        "e": "All of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Stomata Closing- Stomata closing anti-transpirant function by closing the stomatal pores present on the leaves surface from which maximum transpiration occurs Examples-phenyl mercuric acetate and atrazine[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Identify which of the following is a film forming type of Anti-transpirants?",
+      "options": {
+        "a": "Mobileaf",
+        "b": "Atrazine",
+        "c": "Phenyl mercuric acetate",
+        "d": "Kaolin spray",
+        "e": "Cycocel"
+      },
+      "correct_option": "a",
+      "explanation": "Film Forming Type- The mode of action of film forming antitranspirant is that they form a thin waxy layer on the leaf surface and retard the escape of water from the leaves by formation of a physical barrier. Examples- mobileaf, hexadecanol, silicone etc. Reflectant type - 5 per cent kaolin spray, diatomaceous earth product (celite) etc Growth retardants - Cycocel is one such chemical useful for improving water status of the plant.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "What is the major disadvantage of using anti transpirant?",
+      "options": {
+        "a": "Reduce the rate of photosynthesis",
+        "b": "Reduction in transpiration rate",
+        "c": "Reduce moisture loss",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Antitranspirants generally reduce photosynthesis. Therefore, their use is limited to save the crop from death under severe moisture stress. If crop survives, it can utilize the rainfall that is received subsequently.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Which of the following crops can be grown in arid and semi-arid region effectively?",
+      "options": {
+        "a": "Sorghum",
+        "b": "Rice",
+        "c": "Sugarcane",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Major Crops Cultivated in Dryland Conditions Millets- such as bajra, ragi, sorghum etc. Oilseeds- mustard, rapeseed, groundnut etc. Pulse crops- pigeon pea, gram and lentil, soyabean, moong, chick pea etc. Almost 80% of maize and Jowar, 90 per cent of Bajra and approximately 95% of pulses and 75% of oilseeds are obtained from dryland agriculture.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "What is the approximate total area under the rainfed agricultural system in India?",
+      "options": {
+        "a": "45 mha",
+        "b": "65.5 mha",
+        "c": "145 mha",
+        "d": "80 mha",
+        "e": "90 mha"
+      },
+      "correct_option": "b",
+      "explanation": "Area under irrigated and rainfed conditions in India Class Area (m ha) Total arable = 143.8 Dryland = 34.5 Rainfed = 65.5 Irrigated = 43.8[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "What were the twin initiative of the national watershed development plan for the rainfed area which was launched in 1990-91?",
+      "options": {
+        "a": "Integrated watershed management and sustainable farming systems.",
+        "b": "Rain water harvesting and watershed management",
+        "c": "Promotion of Micro irrigation and sustainable farming system",
+        "d": "Promotion of rain water harvesting and sustainable farming system",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "National Watershed Development Project for Rainfed Areas (NWDPRA)- The scheme of National Watershed Development Project for Rainfed Areas (NWDPRA) was launched in 1990-91 based on twin concepts of integrated watershed management and sustainable farming systems.[cite: 15]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Dryland Agriculture",
+      "question": "Which of the following crops are suitable to grow in dryland regions of India?",
+      "options": {
+        "a": "Pulses",
+        "b": "Bajra",
+        "c": "Ground nut",
+        "d": "Mustard",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Major Crops Cultivated in Dryland Conditions Millets- such as bajra, ragi, sorghum etc. Oilseeds- mustard, rapeseed, groundnut etc. Pulse crops- pigeon pea, gram and lentil, soyabean, moong, chick pea etc. Almost 80% of maize and Jowar, 90 per cent of Bajra and approximately 95% of pulses and 75% of oilseeds are obtained from dryland agriculture.[cite: 15]"
+    }
+  ]
+}

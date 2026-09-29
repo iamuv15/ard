@@ -1,0 +1,551 @@
+{
+  "title": "Seed Production Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which of the following statements best defines a seed in agriculture?",
+      "options": {
+        "a": "A seed is the only method of plant propagation.",
+        "b": "A seed is a unit of propagation that can be either a zygotic seed or a vegetative propagule.",
+        "c": "A seed is any part of the plant that can regenerate into a new plant.",
+        "d": "A seed is a storage organ that does not contribute to plant propagation.",
+        "e": "A seed is a reproductive structure that only develops through asexual propagation."
+      },
+      "correct_option": "b",
+      "explanation": "Agriculturally seed is the unit of propagation and can be any part of the plant (zygotic seed or vegetative propagules) which has the capability to regenerate into a new plant.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which of the following crops is propagated by seeds?",
+      "options": {
+        "a": "Sugarcane",
+        "b": "Potato",
+        "c": "Napier grass",
+        "d": "Cereals",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "By seeds- cereals, millets, pulses etc. Stem cutting- sugarcane & the stem cuttings of sugarcane is called as setts. Rooted slips- Napier grass, para grass, guinea grass. Tubers- potato. Chromes- onion, garlic.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "The stem cuttings of sugarcane used for propagation are called",
+      "options": {
+        "a": "Rhizomes",
+        "b": "Setts",
+        "c": "Tubers",
+        "d": "Corms",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Stem cutting- sugarcane & the stem cuttings of sugarcane is called as setts.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which of the following is propagated through rooted slips?",
+      "options": {
+        "a": "Onion",
+        "b": "Potato",
+        "c": "Napier grass",
+        "d": "Sugarcane",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Rooted slips (rooted slips are basal two or three internodes of the stem with a few roots)- Napier grass, para grass, guinea grass.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Potato is propagated through which plant part?",
+      "options": {
+        "a": "Seeds",
+        "b": "Tubers",
+        "c": "Stem cuttings",
+        "d": "Corms",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Tubers- potato. Grafting, budding, & layering are used to propagated horticultural crops.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What does seed vigour refer to?",
+      "options": {
+        "a": "The ability of a seed to germinate under laboratory conditions",
+        "b": "The total attributes that contribute to an effective plant stand in the field",
+        "c": "The genetic purity of a seed",
+        "d": "The size and weight of a seed",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The seed vigour refers to the sum total of all the attributes that gives effective plant stand in the field.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What should be the following attributes for selecting seeds for the maintaining optimum seed population?",
+      "options": {
+        "a": "Seed should be free from mixture of any seed",
+        "b": "Seed should have high germination rate",
+        "c": "Seed should be free from any infestation",
+        "d": "Seed should have good seed vigour",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "They should belong to the proper variety or strain... free from mixtures... mature and well developed... high germinating capacity... free from pest and diseases... germinate rapidly and uniformly... emergence should be prompt and early vegetative growth should be vigorous.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the primary purpose of nucleus seed in seed production?",
+      "options": {
+        "a": "To produce hybrid seeds directly for commercial farming",
+        "b": "To serve as the initial seed for purifying and maintaining a variety",
+        "c": "To be directly sold to farmers for cultivation",
+        "d": "To improve soil fertility through nitrogen fixation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Nucleus seed is the initial seed obtained from the selected individual plant of a particular variety or a parental line for the purpose of purifying and maintaining that variety or parental line by the breeder for further multiplication.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the purity percentage of nucleus seed?",
+      "options": {
+        "a": "90%",
+        "b": "95%",
+        "c": "99%",
+        "d": "100%",
+        "e": "98%"
+      },
+      "correct_option": "d",
+      "explanation": "Nucleus seeds have 100% purity percentage.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Nucleus seeds are used to produce ___ seeds",
+      "options": {
+        "a": "Certified seed",
+        "b": "Breeder seed",
+        "c": "Foundation seed",
+        "d": "Registered seed",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Nucleus seed are used to produce breeder seed and forms the basis of total seed production.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "A seed is considered to have good vigour if its germination percentage is at least ___",
+      "options": {
+        "a": "50%",
+        "b": "60%",
+        "c": "75%",
+        "d": "85%",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Low vigour seed may not be able to with stand unfavourable conditions. more the 85% seed germination is considered as good seed vigour.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the colour tag used for Truthfully Labelled Seeds?",
+      "options": {
+        "a": "Blue",
+        "b": "Opal Green",
+        "c": "Golden Yellow",
+        "d": "White",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Truthfully labelled seed is also a type of seed that is not certified but the labelling is done to indicate its quality or standard in a truthful manner. The colour tag of this type of seed is opal green with size of colour tag 15x10 cm.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the colour tag used for the breeder's seed?",
+      "options": {
+        "a": "Blue",
+        "b": "Opal Green",
+        "c": "Golden Yellow",
+        "d": "White",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Breeder seed tags in buff colour or Golden Yellow and are signed by the concerned plant breeder and tagged to the breeder seed bags and size of tag is 12x6 cm.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Breeder seed is the progeny of which type of seed?",
+      "options": {
+        "a": "Foundation seed",
+        "b": "Certified seed",
+        "c": "Nucleus seed",
+        "d": "Hybrid seed",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Nucleus seed are used to produce breeder seed and forms the basis of total seed production.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the genetic purity percentage of breeder seed?",
+      "options": {
+        "a": "90%",
+        "b": "95.9%",
+        "c": "99.5%",
+        "d": "99.9%",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Breeder seed produced should meet all prescribed standards viz. genetic purity (99.9% or more), physical purity (98% or more) Germination (as per crop) moisture content (less than 12%).[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "The progeny of breeder's seed is ___?",
+      "options": {
+        "a": "Foundation seed",
+        "b": "Certified seed",
+        "c": "Nucleus seed",
+        "d": "Hybrid seed",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Breeders seed serves as a source for the production of foundation seed.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the genetic purity percentage of foundation seed?",
+      "options": {
+        "a": "90%",
+        "b": "99.5%",
+        "c": "95.5%",
+        "d": "98%",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Foundation seed: It is 99.5% genetically pure seed. Colour tag of foundation seed is white.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the Colour tag used for the foundation seed?",
+      "options": {
+        "a": "Blue",
+        "b": "Yellow",
+        "c": "Opal green",
+        "d": "White",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Foundation seed: It is 99.5% genetically pure seed. Colour tag of foundation seed is white.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Foundation seed is the progeny of which seed?",
+      "options": {
+        "a": "Nucleus seed",
+        "b": "Certified seed",
+        "c": "Breeders seed",
+        "d": "Truthfully labeled seed",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Foundation seed: It is the progeny of breeder seed produced on the farms of State Agriculture Universities/Other government farms and State Seed Corporations.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which of the following is the progeny of foundation seed?",
+      "options": {
+        "a": "Nucleus seed",
+        "b": "Certified seed",
+        "c": "Breeders seed",
+        "d": "Truthfully labeled seed",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Certified seed: It is the progeny of foundation seed produced by registered seed growers under the supervision of seed certification agencies to maintain the seed quality as per minimum seed certification standards.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the genetic purity percentage of certified seed?",
+      "options": {
+        "a": "97%",
+        "b": "99%",
+        "c": "99.5%",
+        "d": "99.9%",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Certified seed: It is 99% genetically pure seed. Colour tag of certified seed is blue, azar blue.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the colour tag for the certified seed?",
+      "options": {
+        "a": "Azar Blue",
+        "b": "Yellow",
+        "c": "Opal green",
+        "d": "White",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Certified seed: It is 99% genetically pure seed. Colour tag of certified seed is blue, azar blue.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the primary source for producing registered seeds?",
+      "options": {
+        "a": "Breeder seed",
+        "b": "Certified seed",
+        "c": "Foundation seed",
+        "d": "Registered seed",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Registered seed shall be the progeny of foundation seed that is so handled as to maintain its genetic identity and purity according to standard specified for the particular crop being certified.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the tag color used for registered seeds in seed certification programs?",
+      "options": {
+        "a": "White",
+        "b": "Blue",
+        "c": "Purple",
+        "d": "Green",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Registered seed: A purple colour certificate is issued for this category of seed. These seed do not form the parts of further seed production as these seeds are only maintained for their genetic purity.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Why may early or delayed sowing of crops not be advantageous?",
+      "options": {
+        "a": "It leads to lower yield",
+        "b": "It causes inefficient utilization of resources",
+        "c": "It increases pest and weed incidence",
+        "d": "It results in reduced flowering",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Early sowing and delayed sowing of crops may not be advantageous because of the following reasons: Gives lower yield, No efficient utilization of resources, More pest and weed incidence, Reduced flowering.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What should be the optimum depth of sowing for very small seeds like tobacco?",
+      "options": {
+        "a": "1 cm",
+        "b": "2 cm",
+        "c": "4 cm",
+        "d": "5 cm",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Depth of sowing is very important aspect for establishing a good crop stand... Thumb rule for seed sow depth is the depth should be 3 to 4 times of seed diameter. Optimum depth for most of the field crop is 3 to 5 cm. Small seeds like pearl millet, gingerly, or millets sown at 2 to 3cm depth. Very small seed like tobacco sown at 1 cm depth.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What should be the optimum depth of sowing for most of field crops?",
+      "options": {
+        "a": "5-7 cm",
+        "b": "4-5 cm",
+        "c": "8-10 cm",
+        "d": "3-5 cm",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Optimum depth for most of the field crop is 3 to 5 cm.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which of the following is are the methods of sowing seeds?",
+      "options": {
+        "a": "Broadcasting",
+        "b": "Drilling",
+        "c": "Planting",
+        "d": "Transplanting",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Methods of Sowing a Seed: Broadcasting, Drilling, Planting, Transplanting.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Dry sowing is adopted in clayey soil where seeds are sown in dry soil before ___ days of onset of rainfall.",
+      "options": {
+        "a": "7-10 days",
+        "b": "15 days",
+        "c": "5 days",
+        "d": "20 days",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Dry sowing- Adopted in clayey soil where sowing operations are difficult to carry out after rainfall or irrigation so seeds are sown is dry soil before 7 to 10 days of anticipation of rainfall.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which of the following methods is least effective in breaking dormancy caused by physiological inhibitors within the seed?",
+      "options": {
+        "a": "Cold Stratification",
+        "b": "Scarification",
+        "c": "Gibberellic Acid (GA3) Treatment",
+        "d": "Leaching",
+        "e": "Smoke Treatment"
+      },
+      "correct_option": "b",
+      "explanation": "Scarification - Involves physically damaging the seed coat (e.g., using sandpaper, acid, or hot water). It is effective for hard-seeded species but does not address physiological inhibitors inside the seed.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which chemical is most commonly used for breaking physiological dormancy by mimicking plant hormones?",
+      "options": {
+        "a": "Auxin",
+        "b": "Cytokinin",
+        "c": "Abscisic acid (ABA)",
+        "d": "Gibberellic acid (GA3)",
+        "e": "Ethylene"
+      },
+      "correct_option": "d",
+      "explanation": "GA3 is a plant hormone that promotes seed germination by stimulating enzyme production, breaking dormancy, and promoting cell elongation.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which of the following method is/ are used to break the dormancy in seeds?",
+      "options": {
+        "a": "Hot water treatment",
+        "b": "Acid treatment",
+        "c": "Scarification",
+        "d": "Leaching",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "Methods to break seed dormancy: a. Scarification b. Hot Water Treatment c. Acid Treatment d. Leaching- e. Hormonal Treatment f. Priming- g. Improvement in nutrition h. Chemical Treatment.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "Which of the following chemicals are used to treat seed for better germination?",
+      "options": {
+        "a": "Thiourea",
+        "b": "Potassium Nitrate",
+        "c": "Sodium Hypochlorite",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Chemical Treatment- Thiourea is used to stimulate germination in some kinds of dormant seeds... Similarly, potassium nitrate and sodium hypochlorite also stimulate seed germination in many plants species.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the maximum financial assistance provided to SC/ST farmers for procuring a 20 qtl. seed storage bin?",
+      "options": {
+        "a": "₹2,000",
+        "b": "₹3,000",
+        "c": "₹1,500",
+        "d": "₹1,000",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Assistance @ 33% subject to a maximum of Rs.3000/- for SC/ST farmers and @ 25% subject to maximum of Rs.2000 for other farmers for procuring seeds storage bin of 20 qtl. capacity.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What percentage of assistance is provided to SC/ST farmers for procuring a 20 qtl. seed storage bin?",
+      "options": {
+        "a": "25%",
+        "b": "30%",
+        "c": "33%",
+        "d": "50%",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Assistance @ 33% subject to a maximum of Rs.3000/- for SC/ST farmers and @ 25% subject to maximum of Rs.2000 for other farmers for procuring seeds storage bin of 20 qtl. capacity.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the maximum financial assistance provided to other farmers for procuring a 20 qtl. seed storage bin?",
+      "options": {
+        "a": "₹2,500",
+        "b": "₹3,000",
+        "c": "₹2,000",
+        "d": "₹1500",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Assistance @ 33% subject to a maximum of Rs.3000/- for SC/ST farmers and @ 25% subject to maximum of Rs.2000 for other farmers for procuring seeds storage bin of 20 qtl. capacity.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What percentage of assistance is provided to other farmers for making a 10 qtl. seed storage bin under the Seed Village Scheme?",
+      "options": {
+        "a": "20%",
+        "b": "25%",
+        "c": "33%",
+        "d": "50%",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Assistance @ 33% subject to maximum of Rs.1500/- to SC/ST farmers and @ 25% subject to maximum of Rs.1000/- for other farmers for making seeds storage bin of 10 qtl. capacity in the seed villages where seed village scheme is being implemented.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "What is the main purpose of the Seed Village Programme (Beej Gram Yojana)?",
+      "options": {
+        "a": "Providing free seeds to farmers",
+        "b": "Upgrading the quality of farmer's saved seeds",
+        "c": "Promoting organic farming",
+        "d": "Encouraging contract farming",
+        "e": "Reducing the cost of fertilizers"
+      },
+      "correct_option": "b",
+      "explanation": "Seed Village Programme (Beej Gram Yojana) Launched: 2014-15 Purpose: To upgrade the quality of farmer's saved seeds.[cite: 11]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Seed Production",
+      "question": "In which year was the Seed Village Programme (Beej Gram Yojana) launched?",
+      "options": {
+        "a": "2010-11",
+        "b": "2012-13",
+        "c": "2014-15",
+        "d": "2016-17",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Seed Village Programme (Beej Gram Yojana) Launched: 2014-15 Purpose: To upgrade the quality of farmer's saved seeds.[cite: 11]"
+    }
+  ]
+}

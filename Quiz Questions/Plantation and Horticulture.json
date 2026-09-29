@@ -1,0 +1,1391 @@
+{
+  "title": "Plantation and Horticulture Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which branch of horticulture deals with the cultivation of fruits?",
+      "options": {
+        "a": "Olericulture",
+        "b": "Pomology",
+        "c": "Floriculture",
+        "d": "Viticulture",
+        "e": "Landscaping"
+      },
+      "correct_option": "b",
+      "explanation": "Pomology is the branch of horticulture that focuses on the study and cultivation of fruits.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The branch of horticulture that deals with the cultivation of vegetables is called?",
+      "options": {
+        "a": "Olericulture",
+        "b": "Pomology",
+        "c": "Floriculture",
+        "d": "Arboriculture",
+        "e": "Viticulture"
+      },
+      "correct_option": "a",
+      "explanation": "Olericulture is the study and practice of growing vegetables.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The cultivation and management of flowers and ornamental plants is called?",
+      "options": {
+        "a": "Pomology",
+        "b": "Floriculture",
+        "c": "Arboriculture",
+        "d": "Sericulture",
+        "e": "Forestry"
+      },
+      "correct_option": "b",
+      "explanation": "Floriculture deals with the production of flowers and ornamental plants for decorative purposes.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which branch of horticulture is concerned with the cultivation of grapes?",
+      "options": {
+        "a": "Viticulture",
+        "b": "Pomology",
+        "c": "Olericulture",
+        "d": "Floriculture",
+        "e": "Arboriculture"
+      },
+      "correct_option": "a",
+      "explanation": "Viticulture is the study and cultivation of grapes, primarily for winemaking.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The scientific study of trees and their management is known as?",
+      "options": {
+        "a": "Arboriculture",
+        "b": "Silviculture",
+        "c": "Pomology",
+        "d": "Olericulture",
+        "e": "Floriculture"
+      },
+      "correct_option": "a",
+      "explanation": "Arboriculture deals with the care and maintenance of individual trees.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The branch of horticulture that focuses on nursery production and landscape gardening is?",
+      "options": {
+        "a": "Floriculture",
+        "b": "Pomology",
+        "c": "Landscaping",
+        "d": "Olericulture",
+        "e": "Arboriculture"
+      },
+      "correct_option": "c",
+      "explanation": "Landscaping involves designing and maintaining gardens, parks, and green spaces.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The cultivation of medicinal and aromatic plants falls under which branch of horticulture?",
+      "options": {
+        "a": "Floriculture",
+        "b": "Olericulture",
+        "c": "Plantation Horticulture",
+        "d": "Aromatic Horticulture",
+        "e": "Pomology"
+      },
+      "correct_option": "d",
+      "explanation": "Aromatic horticulture deals with the cultivation of plants used for medicinal and fragrance purposes.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which branch of horticulture is associated with large-scale cultivation of crops like tea, coffee, and rubber?",
+      "options": {
+        "a": "Floriculture",
+        "b": "Plantation Horticulture",
+        "c": "Pomology",
+        "d": "Olericulture",
+        "e": "Aromatic Horticulture"
+      },
+      "correct_option": "b",
+      "explanation": "Plantation horticulture focuses on the cultivation of perennial crops like tea, coffee, rubber, and coconut.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The science of greenhouse farming and growing plants in controlled environments is known as?",
+      "options": {
+        "a": "Hydroponics",
+        "b": "Floriculture",
+        "c": "Olericulture",
+        "d": "Pomology",
+        "e": "Greenhouse Horticulture"
+      },
+      "correct_option": "e",
+      "explanation": "Greenhouse horticulture involves growing plants under controlled conditions for better yield and quality.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The practice of growing plants without soil, using a nutrient solution, is called?",
+      "options": {
+        "a": "Hydroponics",
+        "b": "Pomology",
+        "c": "Olericulture",
+        "d": "Floriculture",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Hydroponics is a technique where plants are grown in water-based nutrient solutions instead of soil.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The cultivation of cactus and succulents falls under which branch of horticulture?",
+      "options": {
+        "a": "Olericulture",
+        "b": "Floriculture",
+        "c": "Pomology",
+        "d": "Xeriscaping",
+        "e": "Plantation Horticulture"
+      },
+      "correct_option": "d",
+      "explanation": "No Explanation added[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which branch of horticulture involves the cultivation of bonsai and decorative small trees?",
+      "options": {
+        "a": "Pomology",
+        "b": "Arboriculture",
+        "c": "Topiary",
+        "d": "Floriculture",
+        "e": "Plantation Horticulture"
+      },
+      "correct_option": "c",
+      "explanation": "Topiary is the art of training and pruning plants into decorative shapes, often used in landscaping.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The cultivation of mushrooms falls under which category of horticulture?",
+      "options": {
+        "a": "Mycology",
+        "b": "Olericulture",
+        "c": "Pomology",
+        "d": "Floriculture",
+        "e": "Topiary"
+      },
+      "correct_option": "a",
+      "explanation": "Mycology is the study of fungi, including edible mushrooms.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is an example of a temperate fruit?",
+      "options": {
+        "a": "Mango",
+        "b": "Apple",
+        "c": "Banana",
+        "d": "Pineapple",
+        "e": "Papaya"
+      },
+      "correct_option": "b",
+      "explanation": "Temperate fruits grow in regions with distinct seasons, including cold winters and warm summers. Apple is a classic temperate fruit, while mango, banana, pineapple, and papaya are tropical or subtropical.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which climatic condition is most suitable for the growth of tropical fruits?",
+      "options": {
+        "a": "Cold winters and warm summers",
+        "b": "Moderate temperature with occasional frost",
+        "c": "High temperatures with abundant rainfall",
+        "d": "Low humidity with strong winds",
+        "e": "Dry, desert-like conditions"
+      },
+      "correct_option": "c",
+      "explanation": "Tropical fruits thrive in warm, humid environments with consistent rainfall. These conditions are found in tropical regions near the equator.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruits is correctly categorized as subtropical?",
+      "options": {
+        "a": "Coconut",
+        "b": "Cherry",
+        "c": "Lychee",
+        "d": "Strawberry",
+        "e": "Blueberry"
+      },
+      "correct_option": "c",
+      "explanation": "Subtropical fruits grow in areas with mild winters and warm summers. Lychee is a subtropical fruit, whereas coconut is tropical, and cherry, strawberry, and blueberry are temperate fruits.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which factor primarily distinguishes temperate fruits from tropical and subtropical fruits?",
+      "options": {
+        "a": "Soil type",
+        "b": "Sunlight availability",
+        "c": "Chilling requirement for dormancy",
+        "d": "High water requirement",
+        "e": "Ability to grow in sandy soil"
+      },
+      "correct_option": "c",
+      "explanation": "Temperate fruits require a period of cold dormancy (chilling hours) to break bud dormancy and produce fruit. This factor is not necessary for tropical and subtropical fruits.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Among the following, which fruit is considered tropical?",
+      "options": {
+        "a": "Grapes",
+        "b": "Peach",
+        "c": "Apricot",
+        "d": "Durian",
+        "e": "Plum"
+      },
+      "correct_option": "d",
+      "explanation": "Durian is a tropical fruit found in Southeast Asia. Grapes, peach, apricot, and plum are temperate fruits that require cooler climates.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which among the following is an example of a non-climacteric fruit?",
+      "options": {
+        "a": "Mango",
+        "b": "Banana",
+        "c": "Tomato",
+        "d": "Strawberry",
+        "e": "Apple"
+      },
+      "correct_option": "d",
+      "explanation": "Non-climacteric fruits do not ripen further after harvest and have minimal ethylene production. Strawberry, along with citrus fruits and grapes, falls into this category.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the primary difference between climacteric and non-climacteric fruits?",
+      "options": {
+        "a": "Sugar content",
+        "b": "Water requirement",
+        "c": "Ethylene production and post-harvest ripening",
+        "d": "Nutritional value",
+        "e": "Presence of seeds"
+      },
+      "correct_option": "c",
+      "explanation": "Climacteric fruits produce ethylene gas and continue to ripen after harvest, whereas non-climacteric fruits do not ripen further once picked.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is a climacteric fruit?",
+      "options": {
+        "a": "Orange",
+        "b": "Pineapple",
+        "c": "Cherry",
+        "d": "Papaya",
+        "e": "Grape"
+      },
+      "correct_option": "d",
+      "explanation": "Papaya is a climacteric fruit that continues to ripen after harvest due to ethylene production. Oranges, pineapples, cherries, and grapes are non-climacteric fruits.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Why are non-climacteric fruits usually harvested when fully ripe?",
+      "options": {
+        "a": "They become toxic if eaten unripe",
+        "b": "They stop producing oxygen after harvest",
+        "c": "They do not ripen further after being picked",
+        "d": "They produce too much ethylene if stored for long",
+        "e": "They contain high water content and spoil faster"
+      },
+      "correct_option": "c",
+      "explanation": "Non-climacteric fruits do not undergo post-harvest ripening, so they must be harvested at full maturity to ensure the best taste and texture.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruits is classified as non-climacteric?",
+      "options": {
+        "a": "Guava",
+        "b": "Watermelon",
+        "c": "Pear",
+        "d": "Peach",
+        "e": "Avocado"
+      },
+      "correct_option": "b",
+      "explanation": "Watermelon is a non-climacteric fruit, meaning it does not continue to ripen after being harvested. Guava, pear, peach, and avocado are climacteric fruits.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which gas is responsible for the ripening of climacteric fruits?",
+      "options": {
+        "a": "Oxygen",
+        "b": "Carbon dioxide",
+        "c": "Ethylene",
+        "d": "Nitrogen",
+        "e": "Hydrogen"
+      },
+      "correct_option": "c",
+      "explanation": "Ethylene is a natural plant hormone that triggers and accelerates the ripening process in climacteric fruits.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Why do bananas turn soft and sweet after being stored for a few days?",
+      "options": {
+        "a": "They absorb moisture from the air",
+        "b": "They release ethylene gas, which accelerates ripening",
+        "c": "They lose water and become dehydrated",
+        "d": "Their skin gets thinner, making them taste sweeter",
+        "e": "They produce more chlorophyll, increasing sugar content"
+      },
+      "correct_option": "b",
+      "explanation": "Bananas are climacteric fruits that continue to ripen after harvest due to ethylene gas production, which converts starch into sugars.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is the best storage method for non-climacteric fruits to maintain freshness?",
+      "options": {
+        "a": "Storing at room temperature with other ripening fruits",
+        "b": "Exposing to ethylene gas",
+        "c": "Keeping in a cool, dry place or refrigeration",
+        "d": "Wrapping in a paper bag",
+        "e": "Placing in an airtight plastic bag"
+      },
+      "correct_option": "c",
+      "explanation": "Since non-climacteric fruits do not ripen further, refrigeration helps slow down spoilage and maintain freshness.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "If you want to speed up the ripening of a climacteric fruit, what should you do?",
+      "options": {
+        "a": "Store it in the refrigerator",
+        "b": "Keep it in a paper bag with an apple or banana",
+        "c": "Place it in direct sunlight for hours",
+        "d": "Wash it with warm water",
+        "e": "Cut it into pieces and leave it open"
+      },
+      "correct_option": "b",
+      "explanation": "Apples and bananas release ethylene gas, which promotes ripening in other climacteric fruits when stored together in a closed environment.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following pairs consists entirely of climacteric fruits?",
+      "options": {
+        "a": "Mango and orange",
+        "b": "Banana and apple",
+        "c": "Grape and watermelon",
+        "d": "Cherry and lemon",
+        "e": "Pineapple and fig"
+      },
+      "correct_option": "b",
+      "explanation": "Both bananas and apples are climacteric fruits that continue ripening after harvest due to ethylene production.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which non-climacteric fruit is known for having an extended shelf life after harvest?",
+      "options": {
+        "a": "Mango",
+        "b": "Kiwi",
+        "c": "Blueberry",
+        "d": "Fig",
+        "e": "Apricot"
+      },
+      "correct_option": "c",
+      "explanation": "Blueberries are non-climacteric and have a longer shelf life if properly stored because they do not ripen further after harvest.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is the primary method of sexual propagation in horticultural plants?",
+      "options": {
+        "a": "Cuttings",
+        "b": "Budding",
+        "c": "Grafting",
+        "d": "Seed propagation",
+        "e": "Layering"
+      },
+      "correct_option": "d",
+      "explanation": "Sexual propagation in horticultural plants primarily occurs through seeds, which develop after fertilization.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following is an advantage of sexual propagation in horticultural plants?",
+      "options": {
+        "a": "Produces genetically identical plants",
+        "b": "Ensures rapid multiplication",
+        "c": "Introduces genetic variation",
+        "d": "Guarantees uniform fruit quality",
+        "e": "Bypasses the need for pollination"
+      },
+      "correct_option": "c",
+      "explanation": "Sexual propagation creates genetic diversity, which helps plants adapt to changing environments and resist diseases.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the main disadvantage of propagating horticultural plants sexually?",
+      "options": {
+        "a": "No genetic variation",
+        "b": "Slow growth and maturity",
+        "c": "Produces disease-prone plants",
+        "d": "Requires specific temperature conditions",
+        "e": "Does not work for fruit crops"
+      },
+      "correct_option": "b",
+      "explanation": "Plants grown from seeds take longer to mature compared to those propagated vegetatively.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following horticultural crops is commonly propagated by seeds?",
+      "options": {
+        "a": "Apple",
+        "b": "Mango",
+        "c": "Tomato",
+        "d": "Banana",
+        "e": "Sugarcane"
+      },
+      "correct_option": "c",
+      "explanation": "Tomato is commonly grown from seeds, while apple and mango are usually propagated vegetatively for uniform fruit quality.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which type of horticultural plants are typically propagated sexually?",
+      "options": {
+        "a": "Perennial fruit trees",
+        "b": "Ornamental flowering plants",
+        "c": "Root crops",
+        "d": "Vegetatively propagated crops like potato",
+        "e": "Tissue culture plants"
+      },
+      "correct_option": "b",
+      "explanation": "Many ornamental flowering plants, such as marigolds and petunias, are propagated through seeds due to their diversity and adaptability.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is propagated vegetatively through suckers?",
+      "options": {
+        "a": "Mango",
+        "b": "Banana",
+        "c": "Tomato",
+        "d": "Marigold",
+        "e": "Neem"
+      },
+      "correct_option": "b",
+      "explanation": "Banana is propagated vegetatively through suckers since seeds are rarely used in commercial production.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which method of propagation is commonly used for sugarcane?",
+      "options": {
+        "a": "Seeds",
+        "b": "Grafting",
+        "c": "Stem cuttings",
+        "d": "Layering",
+        "e": "Budding"
+      },
+      "correct_option": "c",
+      "explanation": "Sugarcane is propagated using stem cuttings (setts) that contain buds capable of sprouting.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is propagated vegetatively using bulbs?",
+      "options": {
+        "a": "Potato",
+        "b": "Garlic",
+        "c": "Banana",
+        "d": "Mango",
+        "e": "Papaya"
+      },
+      "correct_option": "b",
+      "explanation": "Garlic is propagated vegetatively through bulbs, not seeds.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following statements best describes plant propagation by cutting?",
+      "options": {
+        "a": "Growing plants from seeds to ensure genetic diversity",
+        "b": "Using a portion of a stem, root, or leaf to develop a new plant under favorable conditions",
+        "c": "Grafting two different plant parts together to form a new plant",
+        "d": "Using underground stems like tubers for propagation",
+        "e": "Sprouting new plants from the flowers of the parent plant"
+      },
+      "correct_option": "b",
+      "explanation": "In plant propagation by cutting, a piece of stem, root, or leaf is removed from the parent plant and placed in suitable conditions to grow into a new plant. This method produces genetically identical offspring (clones)[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "When is the best time to collect hardwood stem cuttings for propagation?",
+      "options": {
+        "a": "March-June",
+        "b": "July - September",
+        "c": "January - April",
+        "d": "May-August",
+        "e": "November - February"
+      },
+      "correct_option": "e",
+      "explanation": "Hardwood stem cuttings are typically taken from one-year-old mature shoots during the dormant season, which falls between November and February in most regions. This ensures better rooting and successful propagation[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using hardwood stem cuttings?",
+      "options": {
+        "a": "Mango",
+        "b": "Grape",
+        "c": "Banana",
+        "d": "Tomato",
+        "e": "Papaya"
+      },
+      "correct_option": "b",
+      "explanation": "Grape, along with fig, pomegranate, currant, gooseberry, some plums, and apple, is propagated using hardwood cuttings, which are taken from mature, dormant woody stems.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the characteristic of softwood cuttings used for plant propagation?",
+      "options": {
+        "a": "They are taken from mature, dormant woody stems",
+        "b": "They are collected from young, flexible, actively growing shoots",
+        "c": "They are obtained from underground stems like tubers",
+        "d": "They require grafting to grow into a new plant",
+        "e": "They are always taken during the winter season"
+      },
+      "correct_option": "b",
+      "explanation": "Softwood cuttings are taken from the young, tender, and actively growing shoots of plants. These cuttings root quickly and are commonly used for propagating various ornamental and fruit plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants can be propagated using softwood cuttings?",
+      "options": {
+        "a": "Mango",
+        "b": "Nerium",
+        "c": "Pomegranate",
+        "d": "Coconut",
+        "e": "Apple"
+      },
+      "correct_option": "b",
+      "explanation": "Softwood cuttings are taken from young, actively growing shoots. Plants like Nerium, Crotons, Magnolia, Forsythia, French Lilacs, Spiraea, Eranthemum, and Graftophyllum can be propagated using this method.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following ornamental plants is commonly propagated using softwood cuttings?",
+      "options": {
+        "a": "Coconut",
+        "b": "Crotons",
+        "c": "Jackfruit",
+        "d": "Papaya",
+        "e": "Pomegranate"
+      },
+      "correct_option": "b",
+      "explanation": "Crotons, along with plants like Nerium, Eranthemum, Magnolia, Spiraea, and French Lilacs, are commonly propagated using softwood cuttings, as they root easily from young, actively growing shoots.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which type of cuttings is taken from succulent, herbaceous greenhouse plants and up to 2- 3-month-old tender shoots are taken?",
+      "options": {
+        "a": "Hardwood Cuttings",
+        "b": "Softwood Cuttings",
+        "c": "Herbaceous Cuttings",
+        "d": "Semi-Hardwood Cuttings",
+        "e": "Root Cuttings"
+      },
+      "correct_option": "c",
+      "explanation": "Herbaceous cuttings are taken from succulent, non-woody plants that grow in greenhouses. These cuttings use young, tender shoots (2-3 months old and are commonly used for propagating indoor and ornamental plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using herbaceous cuttings?",
+      "options": {
+        "a": "Mango",
+        "b": "Pomegranate",
+        "c": "Chrysanthemum",
+        "d": "Guava",
+        "e": "Jackfruit"
+      },
+      "correct_option": "c",
+      "explanation": "Chrysanthemum, Coleus, Carnations, Geraniums, Cactus, and many foliage plants are propagated using herbaceous cuttings, which are taken from young, succulent, non-woody shoots of greenhouse plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using leaf cuttings?",
+      "options": {
+        "a": "Mango",
+        "b": "Bryophyllum",
+        "c": "Guava",
+        "d": "Coconut",
+        "e": "Rose"
+      },
+      "correct_option": "b",
+      "explanation": "Bryophyllum, Begonia, African Violets, and Peperomia are propagated using leaf cuttings, where a leaf or a portion of a leaf develops roots and grows into a new plant. This method is commonly used for succulent and foliage plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using root cuttings?",
+      "options": {
+        "a": "Rose",
+        "b": "Guava",
+        "c": "Sweet Potato",
+        "d": "Papaya",
+        "e": "Coconut"
+      },
+      "correct_option": "c",
+      "explanation": "Sweet potato, blackberry, raspberry, horseradish, and some perennial plants are propagated using root cuttings, where root segments develop into new plants under favorable conditions.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "In temperate fruit plants, when are root cuttings typically prepared and stored for callusing?",
+      "options": {
+        "a": "June - July",
+        "b": "September - October",
+        "c": "December and kept in a warm place",
+        "d": "April - May",
+        "e": "August September"
+      },
+      "correct_option": "c",
+      "explanation": "In temperate fruit plants, root cuttings are prepared in December and stored in a warm place with moss grass or wet sand for callusing. They are then transplanted in February-March in open beds for further growth.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is propagation by layering?",
+      "options": {
+        "a": "Growing new plants from seeds to maintain genetic diversity",
+        "b": "Rooting a part of the parent plant while still attached before separating it as an independent plant",
+        "c": "Using root cuttings to propagate plants",
+        "d": "Grafting two plant parts together for hybrid vigor",
+        "e": "Propagating plants through tissue culture in a lab"
+      },
+      "correct_option": "b",
+      "explanation": "Propagation by layering is a vegetative propagation method in which a stem or branch of the parent plant develops roots while still attached. Once rooted, it is separated and grown as a new plant. Common examples include jasmine, strawberry, guava, and blackberry.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is tip layering in plant propagation?",
+      "options": {
+        "a": "Bending a branch and covering a part of it with soil while keeping the tip exposed",
+        "b": "Inserting a cutting into soil for root development",
+        "c": "Grafting a scion onto a rootstock",
+        "d": "Using leaf cuttings to propagate plants",
+        "e": "Growing plants from seeds for genetic diversity"
+      },
+      "correct_option": "a",
+      "explanation": "Tip layering is a propagation method where the tip of a flexible stem is bent and buried in the soil, allowing it to develop roots. Once the new roots form, the stem is separated from the parent plant. Blackberry, raspberry, and trailing roses are commonly propagated using this method.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the key characteristic of serpentine layering?",
+      "options": {
+        "a": "The entire stem is buried underground",
+        "b": "A flexible branch is alternately covered with soil and exposed at intervals",
+        "c": "Only the tip of the branch is buried while the rest remains exposed",
+        "d": "The stem is cut and placed in water before planting",
+        "e": "It is used only for woody trees"
+      },
+      "correct_option": "b",
+      "explanation": "In serpentine layering, a one-year-old flexible branch is bent in a zigzag manner, with some parts covered with soil for rooting and others left exposed for shoot development. This method is commonly used for vining plants like grape, clematis, and money plant.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is air layering in plant propagation?",
+      "options": {
+        "a": "A method where a stem is bent and buried in soil for rooting",
+        "b": "A technique in which a stem is wounded, covered with moist material, and allowed to root while still attached to the parent plant",
+        "c": "A process of growing plants from seeds for genetic diversity",
+        "d": "A method of cutting a branch and directly planting it in soil",
+        "e": "A grafting technique used for fruit trees"
+      },
+      "correct_option": "b",
+      "explanation": "Air layering involves making a small cut or removing bark from a branch, then wrapping it with moist sphagnum moss or another rooting medium and covering it with plastic or foil to retain moisture. Once roots develop, the branch is cut and planted as an independent plant. This method is commonly used for mango, guava, litchi, and citrus plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is another name for air layering?",
+      "options": {
+        "a": "Serpentine Layering",
+        "b": "Mound Layering",
+        "c": "Gootee Method",
+        "d": "Hard Cutting Propagation",
+        "e": "Stolon Propagation"
+      },
+      "correct_option": "c",
+      "explanation": "Air layering is also known as the Gootee Method. This technique involves removing a ring of bark (girdling), covering it with moist moss or another rooting medium, and wrapping it to encourage root formation while still attached to the parent plant. It is commonly used for propagating mango, guava, litchi, citrus, and pomegranate.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following months are considered ideal for air layering?",
+      "options": {
+        "a": "April - May",
+        "b": "August - September",
+        "c": "February - March and June - July",
+        "d": "October - November",
+        "e": "December - January"
+      },
+      "correct_option": "c",
+      "explanation": "The best time for air layering is during periods of active plant growth and favorable humidity levels. February - March (spring) and June - July (monsoon) provide optimal conditions for root formation in air-layered plants like mango, guava, litchi, and citrus.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using air layering?",
+      "options": {
+        "a": "Wheat",
+        "b": "Guava",
+        "c": "Tomato",
+        "d": "Coconut",
+        "e": "Carrot"
+      },
+      "correct_option": "b",
+      "explanation": "Guava (Psidium guajava) is commonly propagated using air layering because its stem cuttings do not root easily. Air layering helps develop roots while the branch is still attached to the parent plant, ensuring better survival and faster growth.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is mound layering (stooling) in plant propagation?",
+      "options": {
+        "a": "A method where a flexible branch is buried in the soil at multiple points",
+        "b": "A technique where a stem is girdled, covered with moist material, and allowed to root while still attached",
+        "c": "A method where shoots emerging from a plant base are covered with soil to encourage rooting",
+        "d": "A process of grafting two plants together",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Mound layering (stooling) involves gradually covering the shoots (suckers) emerging from the base of a plant with soil. Over time, these covered shoots develop roots and can be separated as independent plants. This method is commonly used for apple, pear, quince, gooseberry, and rootstock plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commercially propagated using mound layering (stooling)?",
+      "options": {
+        "a": "Mango",
+        "b": "Banana",
+        "c": "Apple",
+        "d": "Coconut",
+        "e": "Papaya"
+      },
+      "correct_option": "c",
+      "explanation": "Mound layering (stooling) is a common propagation method for apple rootstocks, where new shoots emerging from the base are gradually covered with soil to encourage root formation. Once rooted, they are separated and planted as independent trees, ensuring strong and healthy growth.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is trench layering in plant propagation?",
+      "options": {
+        "a": "A method where seeds are directly sown in trenches for better germination",
+        "b": "A method used exclusively for aquatic plants",
+        "c": "A method of covering the plant base with soil to encourage root growth",
+        "d": "A propagation technique where cuttings are planted in deep trenches for rapid root formation",
+        "e": "A technique where a long shoot is laid horizontally in a trench, covered partially with soil, and allowed to produce multiple rooted shoots"
+      },
+      "correct_option": "e",
+      "explanation": "Trench layering is used to propagate plants with long, flexible branches, such as apple rootstocks, walnut, and some ornamental plants. A branch is laid flat in a trench, partially covered with soil, and as new shoots develop, they produce roots and can be separated as new plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using trench layering?",
+      "options": {
+        "a": "Apple rootstocks",
+        "b": "Mango",
+        "c": "Tomato",
+        "d": "Coconut",
+        "e": "Papaya"
+      },
+      "correct_option": "a",
+      "explanation": "Trench layering is commonly used for propagating apple rootstocks, walnut, linden, and some ornamental plants. In this method, a long shoot is laid horizontally in a trench and partially covered with soil. Over time, multiple shoots emerge, each developing roots and growing into a new independent plant.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is grafting in plant propagation?",
+      "options": {
+        "a": "A method where seeds are sown directly into the soil for plant growth",
+        "b": "A method of propagating plants by covering the base with soil to encourage rooting",
+        "c": "A process where cuttings are planted directly in the soil to develop roots",
+        "d": "A technique in which a part of one plant (scion) is joined with another plant (rootstock) to grow as a single plant",
+        "e": "A technique used exclusively for herbaceous plants"
+      },
+      "correct_option": "d",
+      "explanation": "Grafting is a vegetative propagation method where a scion (upper part of the plant) is attached to a rootstock (lower part with roots). The two parts fuse and grow as a single plant, combining desirable traits such as disease resistance and high fruit yield. This method is widely used in mango, apple, citrus, and rose plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is inarching in plant propagation?",
+      "options": {
+        "a": "A method where a detached cutting is inserted into the rootstock",
+        "b": "A technique where two rooted plants are joined together without detaching the scion until it forms a union",
+        "c": "A method where a branch is bent and buried in the soil for rooting",
+        "d": "A propagation technique using only seeds",
+        "e": "A technique used for propagating herbaceous plants only"
+      },
+      "correct_option": "b",
+      "explanation": "Inarching (also called approach grafting) is a grafting method where the scion and rootstock remain attached to their parent plants until a strong union forms. After successful grafting, the scion is cut from its original plant and continues growing on the rootstock. It is commonly used for mango, guava, citrus, and sapota.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using inarching?",
+      "options": {
+        "a": "Wheat",
+        "b": "Carrot",
+        "c": "Tomato",
+        "d": "Coconut",
+        "e": "Mango"
+      },
+      "correct_option": "e",
+      "explanation": "Inarching (approach grafting) is commonly used for mango, guava, citrus, and sapota. In this method, the scion and rootstock remain attached to their parent plants until they form a union, after which the scion is cut from its original base and continues growing on the rootstock.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is another name for inarching?",
+      "options": {
+        "a": "Veneer grafting",
+        "b": "Approach grafting",
+        "c": "Budding",
+        "d": "Side grafting",
+        "e": "Whip grafting"
+      },
+      "correct_option": "b",
+      "explanation": "Inarching is also known as approach grafting. In this method, the scion and rootstock remain attached to their parent plants until a strong union forms. Once grafted successfully, the scion is separated from its original base. This technique is commonly used in mango, guava, citrus, and sapota.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using veneer grafting?",
+      "options": {
+        "a": "Rice",
+        "b": "Mango",
+        "c": "Tomato",
+        "d": "Banana",
+        "e": "Carrot"
+      },
+      "correct_option": "b",
+      "explanation": "Veneer grafting is commonly used for mango, cashew, walnut, and citrus. In this method, a thin slice of bark and wood is removed from the rootstock, and a scion is inserted into the cut. The graft is then tied and sealed to promote healing and growth.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is NOT commonly propagated using veneer grafting?",
+      "options": {
+        "a": "Mango",
+        "b": "Cashew",
+        "c": "Walnut",
+        "d": "Coconut",
+        "e": "Citrus"
+      },
+      "correct_option": "d",
+      "explanation": "Veneer grafting is used for mango, cashew, walnut, and citrus, where a thin slice of bark and wood is removed from the rootstock to insert the scion. Coconut, being a monocot, is not propagated by grafting techniques like veneer grafting.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is tongue grafting in plant propagation?",
+      "options": {
+        "a": "A method where the scion is inserted into a simple vertical cut on the rootstock",
+        "b": "A technique where both the scion and rootstock are given matching slanting cuts with an additional tongue-like notch to interlock them",
+        "c": "A propagation method that involves the fusion of two growing plants without cutting either",
+        "d": "A technique where the scion is completely inserted under the bark of the rootstock",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Tongue grafting is a modification of whip grafting, where a tongue-like notch is made in both the scion and rootstock to ensure a stronger union and better vascular connectivity. This method is commonly used for apple, pear, and walnut trees.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the best time for tongue grafting in temperate fruit trees?",
+      "options": {
+        "a": "March \u2013 May",
+        "b": "June - August",
+        "c": "December - February",
+        "d": "September - November",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The best time for tongue grafting in temperate fruits is December to February, as this is the dormant season when the trees are not actively growing. During this period, the grafted union has a higher success rate due to reduced water loss and better callus formation. This technique is commonly used for apple, pear, and walnut trees.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is epicotyl (stone) grafting in plant propagation?",
+      "options": {
+        "a": "A grafting technique performed on mature trees for rejuvenation",
+        "b": "A method of grafting done on young seedlings at the epicotyl stage before the first leaves fully develop",
+        "c": "A technique where a scion is inserted under the bark of an older rootstock",
+        "d": "A grafting method used only for herbaceous plants",
+        "e": "A process where cuttings are directly planted in soil for root formation"
+      },
+      "correct_option": "b",
+      "explanation": "Epicotyl (stone) grafting is performed on young seedlings at the epicotyl stage, usually 7-10 days after germination, before the first leaves fully develop. This method is commonly used for mango, where seedlings grown from stones (seeds) serve as rootstocks for grafting. It is a rapid and economical technique used in commercial nurseries.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is cleft grafting in plant propagation?",
+      "options": {
+        "a": "A technique where the scion is inserted into a small T-shaped incision on the rootstock",
+        "b": "A method where a vertical cut is made in the rootstock, and a wedge-shaped scion is inserted",
+        "c": "A propagation technique where a scion is fused with the rootstock without making any cuts",
+        "d": "A method where the scion is wrapped around the rootstock like a vine",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cleft grafting is commonly used for rejuvenating old or damaged trees or for changing the variety of fruit trees. In this method, a vertical slit is made in the rootstock, and a wedge-shaped scion is inserted to ensure close contact between the vascular tissues. It is widely used in apple, pear, and cherry trees.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is budding in plant propagation?",
+      "options": {
+        "a": "A method of plant propagation where a single bud from the scion is inserted into the rootstock",
+        "b": "A technique where the entire branch of a plant is used for propagation",
+        "c": "A method where seeds are directly planted for new plant growth",
+        "d": "A type of grafting where the rootstock is completely removed",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "No Explanation added[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is T-budding in plant propagation?",
+      "options": {
+        "a": "A grafting method where a scion with multiple buds is inserted into a rootstock",
+        "b": "A technique where a single bud is inserted into a T-shaped incision made on the rootstock",
+        "c": "A propagation method where two rooted plants are fused together",
+        "d": "A method where seeds are directly sown into a T-shaped trench for better growth",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "T-budding is a common budding technique where a T-shaped incision is made on the rootstock's bark, and a single bud (scion) is inserted under the bark. The bud then fuses with the rootstock and grows into a new plant. This method is widely used for fruit trees like citrus, roses, peaches, and plums.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using T-budding?",
+      "options": {
+        "a": "Mango",
+        "b": "Citrus",
+        "c": "Tomato",
+        "d": "Coconut",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "T-budding is widely used for citrus fruits (orange, lemon, lime), roses, peaches, plums, and apples. In this method, a T-shaped incision is made on the rootstock, and a single bud from the scion is inserted under the bark. This allows for efficient propagation and variety improvement in horticultural crops.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using Inverted T-budding?",
+      "options": {
+        "a": "Citrus",
+        "b": "Mango",
+        "c": "Coconut",
+        "d": "Wheat",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Inverted T-budding is a modification of T-budding, where the T-shaped incision is made in an inverted position \"n\" shape on the rootstock. This method is preferred in areas with high rainfall to prevent water accumulation in the cut. It is commonly used for citrus (orange, lemon, lime), apple, and roses to ensure successful bud development.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using patch budding?",
+      "options": {
+        "a": "Rubber",
+        "b": "Mango",
+        "c": "Tomato",
+        "d": "Coconut",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Patch budding is commonly used for plants with thick bark, such as rubber, walnut, pecan, and citrus. In this method, a rectangular piece of bark with a bud is removed from the scion and placed onto a similarly shaped cut on the rootstock. This technique is widely used in commercial plant nurseries to ensure uniformity and high-yielding varieties.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following plants is commonly propagated using ring budding?",
+      "options": {
+        "a": "Ber (Ziziphus mauritiana)",
+        "b": "Mango",
+        "c": "Tomato",
+        "d": "Coconut",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Ring budding is commonly used for ber (Ziziphus Mauritian) and some other fruit trees with thick bark. In this method, a circular ring of bark with a bud is removed from the scion and placed onto a matching cut on the rootstock, allowing successful graft union formation. This method is popular in commercial ber orchards to improve fruit quality and yield.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following propagation methods is commonly used for litchi?",
+      "options": {
+        "a": "Seed propagation",
+        "b": "Air layering (Gootee)",
+        "c": "Grafting",
+        "d": "Cutting",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Litchi (Litchi chinensis) is commonly propagated by air layering (Gootee method) because it has difficulty rooting from cuttings or growing true to type from seeds. In this method, a branch is girdled, wrapped with moist rooting medium, and covered until roots develop, after which it is cut and planted separately. This ensures true-to-type plants and quicker fruiting.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruits is propagated using seed propagation?",
+      "options": {
+        "a": "Aonla",
+        "b": "Ber",
+        "c": "Acid lime",
+        "d": "Grapefruit",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Acid lime (Citrus aurantifolia) is commonly propagated by seeds, although vegetative propagation methods can also be used.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruits is propagated using patch budding?",
+      "options": {
+        "a": "Grapes",
+        "b": "Aonla",
+        "c": "Jamun",
+        "d": "Ber",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Aonla (Emblica officinalis) is propagated using patch budding, which is an efficient method for plants with thick bark.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "How is ber (Ziziphus Mauritian) propagated?",
+      "options": {
+        "a": "Softwood cuttings",
+        "b": "T-budding and ring budding",
+        "c": "Hardwood cuttings",
+        "d": "Stooling",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Ber is commercially propagated using T-budding and ring budding, as these methods ensure high success rates and true-to-type plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the common method of propagation for guava (Psidium guajava)?",
+      "options": {
+        "a": "Shield budding",
+        "b": "Air layering",
+        "c": "Stooling and inarching",
+        "d": "Root cuttings",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Guava is commonly propagated by stooling (mound layering) and inarching, which ensure high survival rates and true-to-type plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which propagation method is used for grapes (Vitis vinifera)?",
+      "options": {
+        "a": "Hardwood stem cuttings",
+        "b": "Air layering",
+        "c": "Patch budding",
+        "d": "Inarching",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Grapes are propagated using hardwood stem cuttings, which are easy to root and provide high success rates.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "How is jamun (Syzygium cumini) commonly propagated?",
+      "options": {
+        "a": "Hardwood stem cuttings",
+        "b": "Patch budding and shield budding",
+        "c": "Softwood cuttings",
+        "d": "Seed propagation",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Jamun is propagated using patch budding and shield budding, which help maintain the genetic characteristics of superior varieties.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What are the main propagation methods for lemon (Citrus limon)?",
+      "options": {
+        "a": "Seeds and air layering",
+        "b": "T-budding and inarching",
+        "c": "Air layering and hardwood stem cuttings",
+        "d": "Patch budding and veneer grafting",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Lemon is propagated using air layering and hardwood stem cuttings, which help in the rapid multiplication of superior plants.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the scientific name of Acid Lime?",
+      "options": {
+        "a": "Citrus limon",
+        "b": "Citrus aurantifolia",
+        "c": "Citrus x paradisi",
+        "d": "Citrus reticulata",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Acid lime (Citrus aurantifolia) is commonly propagated through seeds.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which propagation method is commonly used for Bael (Aegle marmelos)?",
+      "options": {
+        "a": "Air layering",
+        "b": "Softwood cuttings",
+        "c": "Patch budding",
+        "d": "Serpentine layering",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Bael is propagated using patch budding, which ensures uniform plant growth and high success rates.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which fruit is propagated using both T-budding and ring budding?",
+      "options": {
+        "a": "Grape",
+        "b": "Guava",
+        "c": "Ber (Ziziphus mauritiana)",
+        "d": "Lemon",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Ber is commonly propagated using T-budding and ring budding for effective multiplication of superior varieties.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the common propagation method for grapes (Vitis vinifera)?",
+      "options": {
+        "a": "Hardwood stem cuttings",
+        "b": "Softwood cuttings",
+        "c": "Patch budding",
+        "d": "Inarching",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Grapes are propagated using hardwood stem cuttings, as this method ensures high success rates and quick multiplication[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruits is propagated by shield budding and patch budding?",
+      "options": {
+        "a": "Guava",
+        "b": "Jamun (Syzygium cumini)",
+        "c": "Lemon",
+        "d": "Karonda",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Jamun is propagated through shield budding and patch budding, which help maintain the genetic characteristics of high-quality varieties.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the scientific name of Guava?",
+      "options": {
+        "a": "Citrus aurantifolia",
+        "b": "Vitis vinifera",
+        "c": "Syzygium cumini",
+        "d": "Psidium guajava",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Guava (Psidium guajava) is propagated using stooling (mound layering) and inarching for better plant quality.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which propagation method is commonly used for Lemon (Citrus limon)?",
+      "options": {
+        "a": "Seed propagation",
+        "b": "Hardwood stem cuttings and Air layering",
+        "c": "Patch budding",
+        "d": "Grafting",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Lemon is propagated through air layering and hardwood stem cuttings, ensuring high survival and good fruit quality.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the scientific name of Mango?",
+      "options": {
+        "a": "Psidium guajava",
+        "b": "Mangifera indica",
+        "c": "Citrus sinensis",
+        "d": "Vitis vinifera",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Mango is scientifically known as Mangifera indica, a tropical fruit widely cultivated in India and other tropical regions.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following fruits has the scientific name Citrus sinensis?",
+      "options": {
+        "a": "Grapefruit",
+        "b": "Sweet orange",
+        "c": "Lemon",
+        "d": "Guava",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Sweet orange is scientifically known as Citrus sinensis, a widely grown citrus fruit known for its juicy and sweet flavor.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the scientific name of Pomegranate?",
+      "options": {
+        "a": "Punica granatum",
+        "b": "Citrus paradisi",
+        "c": "Musa paradisiaca",
+        "d": "Aegle marmelos",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Pomegranate is scientifically known as Punica granatum, a fruit rich in antioxidants and widely cultivated in arid and semi-arid regions.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The scientific name Carica papaya refers to which fruit?",
+      "options": {
+        "a": "Banana",
+        "b": "Papaya",
+        "c": "Pineapple",
+        "d": "Apple",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Explanation: Papaya is scientifically called Carica papaya, a tropical fruit known for its high vitamin C content and digestive enzymes.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which fruit has the scientific name Ziziphus mauritiana?",
+      "options": {
+        "a": "Ber (Indian Jujube)",
+        "b": "Jamun",
+        "c": "Amla",
+        "d": "Bael",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Ber (Indian Jujube) is scientifically known as Ziziphus mauritiana, a drought-resistant fruit tree widely cultivated in India.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "The fruit Jamun is scientifically called",
+      "options": {
+        "a": "Syzygium cumini",
+        "b": "Emblica officinalis",
+        "c": "Citrus aurantifolia",
+        "d": "Musa paradisiaca",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Jamun (Black Plum) is scientifically known as Syzygium cumini, a fruit known for its medicinal properties, especially for diabetes management.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "What is the scientific name of Grapes?",
+      "options": {
+        "a": "Citrus reticulata",
+        "b": "Psidium guajava",
+        "c": "Punica granatum",
+        "d": "Vitis vinifera",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Grapes are scientifically called Vitis vinifera, a fruit used for fresh consumption, winemaking, and dried fruits like raisins.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Which of the following propagation methods is commonly used for strawberry (Fragaria x ananassa)?",
+      "options": {
+        "a": "Seed propagation",
+        "b": "Grafting",
+        "c": "Runners",
+        "d": "Air layering",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Strawberries are primarily propagated vegetatively through runners. Runners are horizontal stems that grow from the base of the plant and develop new plants at nodes when they come in contact with the soil. This ensures uniformity and maintains the characteristics of the parent plant.[cite: 17]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Plantation and Horticulture",
+      "question": "Consider the following statements regarding climacteric fruits: 1. Climacteric fruits exhibit a rise in respiration rate and ethylene production during ripening. 2. They can ripen after being harvested at the mature but unripe stage. 3. Mango, banana, and papaya are examples of climacteric fruits. 4. Ethylene is a plant hormone that accelerates the ripening process in climacteric fruits. 5. Citrus fruits and grapes are classic examples of climacteric fruits. Which of the above statements are correct?",
+      "options": {
+        "a": "1, 2, 3 and 4 only",
+        "b": "1, 3, 4 and 5 only",
+        "c": "2, 3 and 5 only",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Climacteric fruits are those that continue to ripen after harvest due to a natural increase in respiration rate and ethylene production. These physiological changes are key markers of the ripening process in such fruits. Citrus fruits (like oranges and lemons) and grapes are non-climacteric fruits. They do not ripen once harvested and must be picked when fully ripe.[cite: 17]"
+    }
+  ]
+}

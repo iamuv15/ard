@@ -1,0 +1,425 @@
+{
+  "title": "Soil Types Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following characteristics is TRUE for Aridisols?",
+      "options": {
+        "a": "They develop in humid tropical environments",
+        "b": "They experience significant leaching due to high rainfall",
+        "c": "They remain dry for most of the year and have slow soil formation",
+        "d": "They contain high levels of organic matter accumulation",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Aridisols form in desert conditions, experience little to no leaching, and have low organic matter accumulation due to minimal vegetation.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following is a characteristic feature of Entisols?",
+      "options": {
+        "a": "They are ancient soils with well-developed horizons",
+        "b": "They are commonly found on highly weathered parent material",
+        "c": "They lack well-developed horizons and are found on recent sediments",
+        "d": "They have a significant accumulation of organic matter in the B horizon",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Entisols are young soils that lack well-defined horizons. They are commonly found on recently deposited materials like river sediments, beach sands, or volcanic ash.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following is a defining feature of Gelisols?",
+      "options": {
+        "a": "They are rich in iron and aluminum oxides",
+        "b": "They are commonly found on highly weathered parent material",
+        "c": "They are found in tropical climates with high temperatures",
+        "d": "They are formed primarily in grasslands",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Gelisols are characterized by permafrost within 2 meters of the surface or gelic materials (frozen ground) within 1 meter, typically found in cold climates.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following best describes Oxisols?",
+      "options": {
+        "a": "They are fertile soils with high levels of silica",
+        "b": "They are rich in iron, aluminum oxides, and kaolin, but low in silica",
+        "c": "They are young soils found in temperate forests",
+        "d": "They are soils with abundant trace nutrients due to minimal rainfall",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Oxisols are highly weathered soils found in tropical regions, rich in iron, aluminum oxides, and kaolin, but low in silica due to heavy rainfall and high temperatures.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following is a defining characteristic of Spodosols?",
+      "options": {
+        "a": "They are found in desert regions with minimal rainfall",
+        "b": "They have an organic colloid layer complexed with iron and aluminum",
+        "c": "They are highly fertile and support dense vegetation",
+        "d": "They form in tropical rainforests with high temperature",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Spodosols are acidic soils with an organic colloid layer that is complexed with iron and aluminum, typically found in coniferous and deciduous forests in cooler climates.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following is a key characteristic of Alluvial Soils?",
+      "options": {
+        "a": "They have very high acidity and are mostly infertile",
+        "b": "They are found in areas where the parent material is primarily volcanic ash",
+        "c": "They are typically found in river valleys, floodplains, and deltas",
+        "d": "They are rich in iron and aluminum oxides",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Alluvial soils are deposited by rivers and are typically found in river valleys, floodplains, and deltas, where the water flow carries fine sediments that enrich the soil.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Alluvial soils are generally considered to be fertile because of",
+      "options": {
+        "a": "They are high in organic matter",
+        "b": "They are rich in essential nutrients like nitrogen, phosphorus, and potassium",
+        "c": "They have a thick layer of clay that traps nutrients",
+        "d": "They are always acidic and low in nutrients",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Alluvial soils are typically fertile because they are enriched with essential nutrients such as nitrogen, phosphorus, and potassium, which are deposited by the river water during flooding.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following is NOT a type of Alluvial Soil?",
+      "options": {
+        "a": "Khadar",
+        "b": "Bhangar",
+        "c": "Laterite",
+        "d": "Kankar",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Khadar and Bhangar are the two main types of alluvial soil found in river floodplains. Laterite is a different type of soil that forms in tropical climates with heavy rainfall and is rich in iron oxides.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Why are Alluvial Soils particularly important for agriculture?",
+      "options": {
+        "a": "None of these",
+        "b": "They are resistant to erosion and support only sparse vegetation",
+        "c": "They form in regions with minimal rainfall and high temperatures",
+        "d": "They have high levels of salinity that support salt-tolerant crops",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Alluvial soils have a loose texture, are well-drained, and are rich in essential nutrients, which make them ideal for agriculture. They are easy to work with and support a wide variety of crops.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "What is a major environmental concern regarding Alluvial Soils in river floodplains?",
+      "options": {
+        "a": "Soil erosion caused by water runoff and flooding",
+        "b": "Accumulation of excess salt due to irrigation",
+        "c": "Soil compaction from heavy machinery",
+        "d": "Overfertilization from agricultural runoff",
+        "e": "Soil acidification due to volcanic ash deposition"
+      },
+      "correct_option": "a",
+      "explanation": "Soil erosion is a significant concern in alluvial soils found in floodplains. These soils can be washed away by heavy flooding or water runoff, leading to a loss of fertile topsoil.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which one of the following is a primary mineral?",
+      "options": {
+        "a": "Kaolinite",
+        "b": "Montmorillonite",
+        "c": "Gypsum",
+        "d": "Feldspar",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Primary minerals are those minerals which are formed from the original rocks and crystalline at high temperature Examples- quartz, feldspar, orthoclase, albite, micas, biotite, hornblende, and olivine.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which one of the following is a secondary mineral?",
+      "options": {
+        "a": "Quartz",
+        "b": "Feldspar",
+        "c": "Montmorillonite",
+        "d": "Olivine",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Secondary Minerals- secondary minerals are formed by soluble substances from primary minerals and are precipitated and recrystallized. Examples- goethite, hematite, gibbsite, kaolinite, montmorillonite, chlorite, calcite and gypsum[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "___ is defined as the process of disintegration and decomposition of rocks and minerals.",
+      "options": {
+        "a": "Soil erosion",
+        "b": "Weathering",
+        "c": "Stream erosion",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Weathering is defined as the process of disintegration and decomposition of rocks and minerals. Weathering is an integrated process of physical, chemical and biological processes[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following is/ are the most important agent of physical weathering?",
+      "options": {
+        "a": "Wind",
+        "b": "Hydrogen",
+        "c": "Temperature and Moisture",
+        "d": "Carbon dioxide",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Temperature and Moisture. It is the first stage in the transformation of the parent materials into soil. Agents of physical weathering- temperature and water[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Identify which of the following is/are the process of chemical weathering?",
+      "options": {
+        "a": "Hydrolysis",
+        "b": "Carbonation",
+        "c": "Reduction",
+        "d": "None of the above",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "It mainly occurs due to solubility of minerals and formation of new substances takes place in chemical weathering. Chemical weathering takes place mainly by 6 process - solution, hydrolysis, hydration, oxidation, reduction, and carbonation.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Feldspar, amphiboles and mica are generally weathered by ___ process.",
+      "options": {
+        "a": "Reduction",
+        "b": "Hydration",
+        "c": "Carbonation",
+        "d": "Solution",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Hydration- Inclusion of the water in a mineral structure, cause it to swell and leaving it more stressed and easily decomposed. Hydration reduce bonding and hardness of minerals which makes them susceptible to weathering. Ex-Feldspar, amphiboles and mica are weathered by hydration.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following chemical weathering processes occurs when oxygen reacts with minerals in rocks?",
+      "options": {
+        "a": "Carbonation",
+        "b": "Hydration",
+        "c": "Oxidation",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Oxidation occurs when oxygen reacts with minerals, especially those containing iron, forming oxides like rust.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "The process of leaching in chemical weathering involves",
+      "options": {
+        "a": "Expansion of water upon freezing",
+        "b": "Dissolution and removal of soluble minerals by water",
+        "c": "Breaking of rocks due to pressure release",
+        "d": "Crystallization of salts in rock cracks",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Leaching occurs when water dissolves minerals and carries them away, altering soil composition.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Hydrolysis is an important chemical weathering process where minerals react with",
+      "options": {
+        "a": "Carbon dioxide",
+        "b": "Oxygen",
+        "c": "Sulfuric acid",
+        "d": "Water",
+        "e": "Nitrogen gas"
+      },
+      "correct_option": "d",
+      "explanation": "In hydrolysis, water reacts with minerals, breaking them down into clay minerals and soluble ions.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following is a major agent of chemical weathering that forms carbonic acid when dissolved in water?",
+      "options": {
+        "a": "Carbon dioxide",
+        "b": "Oxygen",
+        "c": "Sulphur dioxide",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Carbon dioxide dissolves in water to form carbonic acid, which reacts with minerals like limestone, leading to their dissolution.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following best describes the B-horizon in a well-developed soil profile?",
+      "options": {
+        "a": "It is rich in organic matter and humus",
+        "b": "It is composed mainly of unweathered parent material",
+        "c": "It accumulates minerals leached from the upper layers (illuviation)",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The B-horizon, also known as the subsoil, is the zone where minerals such as iron, aluminum, and clay accumulate from the upper layers due to leaching (illuviation).[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following factors is most responsible for the development of distinct soil horizons over time?",
+      "options": {
+        "a": "Presence of microbial life",
+        "b": "Wind erosion and sediment deposition",
+        "c": "Vertical movement of water and dissolved substances",
+        "d": "Seismic activity and tectonic forces",
+        "e": "Seasonal variations in temperature"
+      },
+      "correct_option": "c",
+      "explanation": "The primary driver of soil horizon formation is eluviation and illuviation, where water moves materials like clay, iron, and organic compounds downward, creating distinct layers.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "In an extremely weathered tropical soil, the Oxisol, which horizon is typically absent or poorly developed?",
+      "options": {
+        "a": "O-horizon",
+        "b": "A-horizon",
+        "c": "B-horizon",
+        "d": "C-horizon",
+        "e": "E-horizon"
+      },
+      "correct_option": "e",
+      "explanation": "Oxisols form in warm, humid climates where intense leaching removes soluble materials, leaving behind a deep, highly weathered profile with weak or absent E-horizons.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which horizon is commonly referred to as the zone of eluviation, where leaching is most intense?",
+      "options": {
+        "a": "A-horizon",
+        "b": "B-horizon",
+        "c": "C-horizon",
+        "d": "O-horizon",
+        "e": "E-horizon"
+      },
+      "correct_option": "e",
+      "explanation": "The E-horizon (Eluvial Horizon) is characterized by loss of silicate clays, iron, and aluminum oxides, leaving behind a pale, leached layer.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following statements about the C-horizon is FALSE?",
+      "options": {
+        "a": "It consists of partially weathered parent material",
+        "b": "It is located beneath the B-horizon in the soil profile",
+        "c": "It contains significant amounts of organic matter and humus",
+        "d": "It can eventually transform into soil through further weathering",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "The C-horizon consists mostly of weathered rock and lacks significant organic content. Unlike the A or O horizons, it does not contain much humus.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "In which type of climate would you expect to find the most well-developed soil profile with clearly distinct horizons?",
+      "options": {
+        "a": "Cold desert with minimal precipitation",
+        "b": "Arctic tundra with permafrost",
+        "c": "Tropical rainforest with high temperature and rainfall",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Warm and wet climates accelerate chemical weathering and soil formation, leading to deep, well-developed profiles with distinct horizons, like in Oxisols.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "What is the primary reason for the presence of a thick O-horizon in forested soils?",
+      "options": {
+        "a": "Intense weathering of parent material",
+        "b": "High accumulation of plant litter and organic matter",
+        "c": "Slow movement of groundwater through soil",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Forested soils have a thick O-horizon due to continuous leaf litter and decomposition, enriching the soil with organic matter.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which horizon in a soil profile is most important for supporting plant life due to its high nutrient content?",
+      "options": {
+        "a": "O-horizon",
+        "b": "A-horizon",
+        "c": "E-horizon",
+        "d": "R horizon",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The A-horizon (topsoil) is rich in organic material and minerals, making it the most fertile and essential for plant growth.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following characteristics is NOT true for Alfisols?",
+      "options": {
+        "a": "They contain accumulations of aluminum and iron",
+        "b": "They have horizons with significant clay accumulation",
+        "c": "They require warm and moist conditions for at least three months of plant growth",
+        "d": "They are the most abundant soil order worldwide",
+        "e": "They constitute approximately 10.1% of global soils"
+      },
+      "correct_option": "d",
+      "explanation": "While Alfisols are an important soil order, they are not the most abundant globally. Entisols cover the largest area worldwide.[cite: 10]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Types",
+      "question": "Which of the following statements about Andisols is FALSE?",
+      "options": {
+        "a": "They are derived from volcanic ash",
+        "b": "They are typically young soils",
+        "c": "They are highly fertile due to volcanic minerals",
+        "d": "They cover approximately 10% of the world's ice-free land surface",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Andisols actually cover only about 1% of the world's ice-free land surface, not 10%.[cite: 10]"
+    }
+  ]
+}

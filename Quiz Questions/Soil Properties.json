@@ -1,0 +1,705 @@
+{
+  "title": "Soil Properties Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following is not a soil physical property?",
+      "options": {
+        "a": "Soil moisture",
+        "b": "Soil aeration",
+        "c": "Buffer capacity",
+        "d": "Soil depth",
+        "e": "Soil texture"
+      },
+      "correct_option": "c",
+      "explanation": "Soil physical environment is controlled by soil characters like texture, structure, aeration, water, mechanical resistance and depth of soil. Buffer capacity comes under the chemical properties of soil[cite: 16]."
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following statements about the physical properties of soil is most accurate?",
+      "options": {
+        "a": "The permeability of soil increases as the clay content increases.",
+        "b": "Soil with high organic matter content typically has higher bulk density.",
+        "c": "Soil porosity is unaffected by soil texture and structure.",
+        "d": "The cohesion of soil particles is higher in sandy soils than in clay soils.",
+        "e": "The presence of organic matter in soil generally improves its water-holding capacity."
+      },
+      "correct_option": "e",
+      "explanation": "The presence of organic matter in soil generally improves its water-holding capacity. This is because organic matter helps to retain water by improving the soil's ability to absorb and hold moisture.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following statements best describes a loamy soil texture?",
+      "options": {
+        "a": "Loamy soil contains over 60% sand and has excellent water retention but poor drainage.",
+        "b": "Loamy soil is a balanced mixture of sand, silt, and clay, providing good water retention and drainage.",
+        "c": "Loamy soil consists of over 40% clay and drains very quickly.",
+        "d": "Loamy soil has more than 70% silt, making it prone to waterlogging.",
+        "e": "Loamy soil is primarily sand, making it ideal for growing water-loving plants."
+      },
+      "correct_option": "b",
+      "explanation": "Loamy soil is a balanced mixture of sand, silt, and clay, providing good water retention and drainage. Loam is considered the ideal soil texture for most plants, as it combines the best features of sand (good drainage), silt (water retention), and clay (nutrient-holding capacity).[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following best defines soil texture?",
+      "options": {
+        "a": "The ability of soil to retain moisture and nutrients.",
+        "b": "The proportion of different-sized soil particles (sand, silt, and clay) that affect its physical properties.",
+        "c": "The color and appearance of soil, which indicate its fertility.",
+        "d": "The capacity of soil to filter water and air through its surface.",
+        "e": "The interaction of soil with plant roots to support growth."
+      },
+      "correct_option": "b",
+      "explanation": "The proportion of different-sized soil particles (sand, silt, and clay) that affect its physical properties. Soil texture specifically refers to the relative amounts of sand, silt, and clay in the soil, which determine its structure, water retention, drainage, and nutrient-holding capacity.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the typical diameter range of sand particles?",
+      "options": {
+        "a": "0.05 to 0.2 mm",
+        "b": "0.2 to 2 mm",
+        "c": "2 to 1 mm",
+        "d": "0.02 to 0.2 mm",
+        "e": "50 to 100 mm"
+      },
+      "correct_option": "b",
+      "explanation": "Sand particles are typically within this size range, which distinguishes them from smaller silt and larger gravel particles.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "The large macropores between sand particles primarily facilitate:",
+      "options": {
+        "a": "Nutrient retention",
+        "b": "The movement of water and air",
+        "c": "Water retention",
+        "d": "Soil compaction",
+        "e": "Soil erosion"
+      },
+      "correct_option": "b",
+      "explanation": "The large macropores in sandy soils allow for easy movement of air and water, making them well-drained.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following is the primary reason why sand particles do not exhibit properties like plasticity and stickiness?",
+      "options": {
+        "a": "Sand particles are coated with organic matter.",
+        "b": "Sand particles are larger and have fewer surface area interactions.",
+        "c": "Sand particles have high clay content, which promotes cohesion.",
+        "d": "Sand particles are highly compacted, reducing water movement.",
+        "e": "Sand particles contain high amounts of silt which improves nutrient retention"
+      },
+      "correct_option": "b",
+      "explanation": "Sand particles are larger and have fewer surface area interactions. The large size of sand particles leads to less surface area for interactions, which means they don't exhibit plasticity, stickiness, or cohesion. These properties are typically found in finer particles like clay.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following statements correctly describes the properties of silt particles?",
+      "options": {
+        "a": "Silt particles are larger than sand and exhibit no plasticity or cohesion.",
+        "b": "Silt particles have a diameter between 0.02 to 0.002 mm and exhibit plasticity, cohesion, and adhesion but hold more water than sand and clay.",
+        "c": "Silt particles are the largest in size and cannot retain any water.",
+        "d": "Silt particles do not have any ability to adsorb water or nutrients.",
+        "e": "Silt particles are smaller than sand but larger than clay, and their size allows them to hold more water than sand but less than clay, with properties like plasticity and cohesion due to an adhering film of clay."
+      },
+      "correct_option": "e",
+      "explanation": "Silt particles, due to their small size and film of clay, exhibit plasticity, cohesion, and the ability to hold more water than clay.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following is true about the properties of clay particles?",
+      "options": {
+        "a": "Clay particles have a diameter range between 0.2 to 2 mm and are known for their high permeability.",
+        "b": "Clay particles are the largest among the soil particles and do not hold moisture.",
+        "c": "Clay particles are very small in size (less than 0.002 mm), and they exhibit high cohesion, plasticity, and excellent water-holding capacity.",
+        "d": "Clay particles are easily compacted but do not retain nutrients due to their large size.",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Clay particles are very small in size (less than 0.002 mm), and they exhibit high cohesion, plasticity, and excellent water-holding capacity. Clay particles are the smallest soil particles and have high cohesion and plasticity. Their tiny size allows them to retain moisture and nutrients, making them important for soil fertility but poor at drainage.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following properties is most associated with clay particles?",
+      "options": {
+        "a": "Clay particles have a low cohesion and do not retain moisture.",
+        "b": "Clay particles are the largest in size and drain water quickly.",
+        "c": "Clay particles exhibit high cohesion, plasticity, and have a high water-holding capacity.",
+        "d": "Clay particles have large pores, which allow for fast air circulation and water movement.",
+        "e": "Clay particles are chemically inert and do not interact with water."
+      },
+      "correct_option": "c",
+      "explanation": "Clay particles exhibit high cohesion, plasticity, and have a high water-holding capacity. Due to their small size and high surface area, clay particles are highly cohesive, which gives them plasticity. This also makes them capable of retaining water and nutrients very effectively. However, their small size limits water drainage, leading to slower movement through the soil.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following statements correctly compares sand, silt, and clay particles?",
+      "options": {
+        "a": "Sand particles are the smallest, retain the least amount of water, and have the highest cohesion, while clay particles are the largest.",
+        "b": "Clay particles are the largest, have the highest permeability, and retain the least amount of water, while sand particles are the smallest.",
+        "c": "Silt particles are larger than clay but smaller than sand, hold more water than sand but less than clay, and exhibit properties like cohesion and plasticity.",
+        "d": "Sand particles are the largest, retain the most water, and are highly cohesive, while clay",
+        "e": "Sand is the largest particle, with poor cohesion and low water retention, while clay is the smallest, with high cohesion, plasticity, and excellent water-holding capacity. Silt falls in between, holding more water than sand but less than clay and exhibiting some cohesion and plasticity."
+      },
+      "correct_option": "c",
+      "explanation": "Silt particles are larger than clay but smaller than sand, hold more water than sand but less than clay, and exhibit properties like cohesion and plasticity.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following soil textures would likely have the best drainage, the least moisture retention, and the largest particles?",
+      "options": {
+        "a": "Clay",
+        "b": "Silt",
+        "c": "Loam",
+        "d": "Sand",
+        "e": "Silty Clay"
+      },
+      "correct_option": "d",
+      "explanation": "Sand has the largest particles, allowing water to drain quickly, which results in low moisture retention and high permeability.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following properties is most likely to be found in clay soil compared to sand and silt?",
+      "options": {
+        "a": "High permeability and low nutrient retention.",
+        "b": "Small particle size, high plasticity, high nutrient and water retention.",
+        "c": "Large particle size, quick water drainage, and low nutrient retention.",
+        "d": "Low plasticity, high permeability, and high aeration.",
+        "e": "Large macropores and excellent root penetration."
+      },
+      "correct_option": "b",
+      "explanation": "Small particle size, high plasticity, high nutrient and water retention. Clay particles are the smallest, which gives them high cohesion and plasticity, allowing them to retain moisture and nutrients effectively, but they drain water poorly.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is soil structure?",
+      "options": {
+        "a": "The arrangement of soil particles into aggregates or peds",
+        "b": "The chemical composition of soil",
+        "c": "The texture of the soil",
+        "d": "The color of the soil",
+        "e": "Arrangement of sand and clay particles"
+      },
+      "correct_option": "a",
+      "explanation": "Soil structure refers to how individual soil particles (sand, silt, and clay) are grouped together into larger units called aggregates or peds. These aggregates are held together by organic matter, clay particles, and other binding agents like roots or fungal hyphae. Soil structure influences water movement, aeration, root penetration, and overall soil health.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following is NOT a type of soil structure?",
+      "options": {
+        "a": "Granular",
+        "b": "Platy",
+        "c": "Prismatic",
+        "d": "Spherical",
+        "e": "Blocky"
+      },
+      "correct_option": "d",
+      "explanation": "The common types of soil structures include granular, platy, prismatic, blocky, and columnar. \"Spherical\" is not a recognized type of soil structure. Each type of structure has distinct shapes and arrangements that influence soil properties like drainage and root growth.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which soil structure is commonly found in the surface layer of well-aggregated soils and is beneficial for plant growth?",
+      "options": {
+        "a": "Blocky",
+        "b": "Granular",
+        "c": "Columnar",
+        "d": "Platy",
+        "e": "Prismatic"
+      },
+      "correct_option": "b",
+      "explanation": "Granular soil structure consists of small, rounded aggregates that are loosely packed. This structure is typically found in the surface layer of healthy soils, especially those rich in organic matter. It promotes good aeration, water infiltration, and root growth, making it ideal for plant development.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "A soil with a platy structure is likely to have which of the following characteristics?",
+      "options": {
+        "a": "Good water infiltration",
+        "b": "Poor drainage due to horizontal layers",
+        "c": "High porosity",
+        "d": "Loose and crumbly texture",
+        "e": "Excellent root penetration"
+      },
+      "correct_option": "b",
+      "explanation": "Platy soil structure consists of flat, horizontal layers that can restrict water movement and root penetration. This structure often leads to poor drainage and compaction, particularly if the layers are dense. It is commonly found in compacted or eroded soils.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which soil structure is characterized by vertically oriented, pillar-like aggregates?",
+      "options": {
+        "a": "Granular",
+        "b": "Prismatic",
+        "c": "Blocky",
+        "d": "Platy",
+        "e": "Columnar"
+      },
+      "correct_option": "b",
+      "explanation": "Prismatic soil structure consists of vertically oriented, pillar-like aggregates. These structures are often found in subsoil horizons and can indicate clay-rich soils. While they allow some vertical water movement, they may restrict lateral water flow and root growth.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What factor primarily influences the formation of soil structure?",
+      "options": {
+        "a": "Soil pH",
+        "b": "Soil organisms and organic matter",
+        "c": "Soil temperature",
+        "d": "Soil color",
+        "e": "Soil minerology"
+      },
+      "correct_option": "b",
+      "explanation": "Soil structure is heavily influenced by biological factors such as the activity of soil organisms (e.g., earthworms, fungi, bacteria) and the presence of organic matter. Organic matter acts as a binding agent, helping soil particles stick together to form aggregates. Physical and chemical factors also play a role, but biological activity is the primary driver.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which type of soil structure is often associated with subsoil horizons and has a block-like appearance?",
+      "options": {
+        "a": "Granular",
+        "b": "Platy",
+        "c": "Blocky",
+        "d": "Columnar",
+        "e": "Prismatic"
+      },
+      "correct_option": "c",
+      "explanation": "Blocky soil structure consists of roughly cube-shaped aggregates with angular edges. This structure is commonly found in subsoil horizons and can vary in size (small or large blocks). It provides moderate aeration and drainage compared to other structures.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the impact of compaction on soil structure?",
+      "options": {
+        "a": "Improves aeration and root penetration",
+        "b": "Reduces pore space and restricts root growth",
+        "c": "Increases water infiltration",
+        "d": "Enhances soil aggregation",
+        "e": "Promotes granular structure"
+      },
+      "correct_option": "b",
+      "explanation": "Soil compaction occurs when soil particles are pressed together, reducing pore space. This negatively impacts aeration, water infiltration, and root penetration, leading to poor plant growth. Compacted soils often have a dense, platy structure.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which soil structure is most prone to erosion?",
+      "options": {
+        "a": "Granular",
+        "b": "Platy",
+        "c": "Prismatic",
+        "d": "Blocky",
+        "e": "Spherical"
+      },
+      "correct_option": "b",
+      "explanation": "Platy soil structure, with its horizontal layers, is highly susceptible to erosion because water tends to flow along the flat planes rather than infiltrating the soil. This structure is often found in degraded or compacted soils, making them more vulnerable to surface runoff and erosion.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "In which type of soil structure do aggregates form distinct columns with rounded tops?",
+      "options": {
+        "a": "Platy",
+        "b": "Columnar",
+        "c": "Prismatic",
+        "d": "Blocky",
+        "e": "Spherical"
+      },
+      "correct_option": "b",
+      "explanation": "Columnar soil structure is similar to prismatic but differs in that the aggregates have rounded tops. This structure is often found in soils with high sodium content, which causes dispersion of clay particles and the formation of these distinctive columns. Columnar structure can restrict root growth and water movement.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following factors is most important for aggregate formation in soil?",
+      "options": {
+        "a": "The amount and nature of colloidal clay",
+        "b": "The presence of large sand particles",
+        "c": "The temperature of the soil",
+        "d": "The color of the soil",
+        "e": "The pH level of the soil"
+      },
+      "correct_option": "a",
+      "explanation": "The paragraph explicitly states that the amount and nature of colloidal clay influence aggregate formation. Colloidal clay particles have a high surface area and can bind with other soil components, making them critical for forming stable aggregates.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which ions are better at promoting soil aggregation?",
+      "options": {
+        "a": "Magnesium and potassium ions",
+        "b": "Calcium and hydrogen ions",
+        "c": "Sodium and chloride ions",
+        "d": "Iron and aluminum ions",
+        "e": "Nitrate and sulfate ions"
+      },
+      "correct_option": "b",
+      "explanation": "The paragraph mentions that calcium and hydrogen ions bring about better aggregation compared to magnesium and potassium ions. This is because calcium ions, in particular, help flocculate clay particles, leading to stronger aggregates.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Why is water essential for wetting clay to form aggregates?",
+      "options": {
+        "a": "Because water increases soil temperature",
+        "b": "Because water has a dipolar nature that helps bind clay particles",
+        "c": "Because water reduces soil pH",
+        "d": "Because water dissolves organic matter",
+        "e": "Because water increases soil porosity"
+      },
+      "correct_option": "b",
+      "explanation": "Water's dipolar nature allows it to interact with clay particles, facilitating their wetting and binding. This interaction is crucial for the formation of soil aggregates.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which compounds act as cementing agents between sand and silt particles to form aggregates?",
+      "options": {
+        "a": "Organic acids",
+        "b": "Sesquioxides like iron and aluminum",
+        "c": "Calcium carbonate",
+        "d": "Potassium chloride",
+        "e": "Sodium bicarbonate"
+      },
+      "correct_option": "b",
+      "explanation": "The paragraph highlights that sesquioxides, such as iron and aluminum oxides, act as cementing agents between sand and silt particles, helping to form stable aggregates.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What role do organic compounds like cellulose play in aggregate formation?",
+      "options": {
+        "a": "They increase soil pH",
+        "b": "They release sticky materials resembling mucilage upon decomposition",
+        "c": "They dissolve clay particles",
+        "d": "They reduce soil porosity",
+        "e": "They increase soil temperature"
+      },
+      "correct_option": "b",
+      "explanation": "Organic compounds like cellulose decompose to release sticky substances (mucilage), which help bind soil particles together, contributing to aggregate stability.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is formed when clay combines with humus?",
+      "options": {
+        "a": "A clay-sand complex",
+        "b": "A clay-humus complex",
+        "c": "A clay-silt complex",
+        "d": "A clay-iron complex",
+        "e": "A clay-aluminum complex"
+      },
+      "correct_option": "b",
+      "explanation": "The paragraph states that clay forms aggregate with humus to create a clay-humus complex, which is a stable aggregate. This complex is vital for maintaining soil structure and fertility.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following is NOT a factor influencing aggregate formation?",
+      "options": {
+        "a": "The dipolar nature of water",
+        "b": "The presence of sesquioxides",
+        "c": "The decomposition of organic compounds",
+        "d": "The size of gravel particles",
+        "e": "The type of cations present"
+      },
+      "correct_option": "d",
+      "explanation": "While gravel particles may influence soil texture, they are not directly involved in aggregate formation. Factors like water, sesquioxides, organic compounds, and cations play a more significant role in forming stable aggregates.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following ions is least effective in promoting soil aggregation?",
+      "options": {
+        "a": "Calcium ions",
+        "b": "Hydrogen ions",
+        "c": "Magnesium ions",
+        "d": "Aluminum ions",
+        "e": "Potassium ions"
+      },
+      "correct_option": "e",
+      "explanation": "The paragraph specifies that magnesium and potassium ions are less effective at promoting aggregation compared to calcium and hydrogen ions. Among these, potassium ions are particularly less effective due to their weaker flocculating ability.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the role of sesquioxides in soil aggregation?",
+      "options": {
+        "a": "They increase soil acidity",
+        "b": "They act as cementing agents between particles",
+        "c": "They dissolve organic matter",
+        "d": "They reduce soil compaction",
+        "e": "They increase soil porosity"
+      },
+      "correct_option": "b",
+      "explanation": "Sesquioxides like iron and aluminum oxides act as cementing agents, binding sand, silt, and clay particles together to form stable aggregates.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following is a stable aggregate formed by the combination of clay and humus?",
+      "options": {
+        "a": "Clay-sand aggregate",
+        "b": "Clay-silt aggregate",
+        "c": "Clay-humus complex",
+        "d": "Clay-calcium aggregate",
+        "e": "Clay-magnesium aggregate"
+      },
+      "correct_option": "c",
+      "explanation": "The paragraph clearly states that clay combines with humus to form a clay-humus complex, which is a stable aggregate. This complex enhances soil structure and fertility.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the term used to describe the maximum amount of water that a soil can hold after free drainage has ceased?",
+      "options": {
+        "a": "Wilting point",
+        "b": "Permanent wilting point",
+        "c": "Field capacity",
+        "d": "Saturated soil",
+        "e": "Hygroscopic water"
+      },
+      "correct_option": "c",
+      "explanation": "Field capacity refers to the amount of water retained in the soil after excess gravitational water has drained away. It represents the upper limit of plant-available water.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following describes the condition when plants can no longer extract sufficient water from the soil, leading to wilting?",
+      "options": {
+        "a": "Field capacity",
+        "b": "Permanent wilting point",
+        "c": "Saturated soil",
+        "d": "Capillary water",
+        "e": "Gravitational water"
+      },
+      "correct_option": "b",
+      "explanation": "The permanent wilting point (PWP) is the soil moisture level at which plants permanently wilt because they cannot extract any more water from the soil, even though some water remains in the soil.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the term for soil that is completely filled with water, leaving no air spaces?",
+      "options": {
+        "a": "Field capacity",
+        "b": "Permanent wilting point",
+        "c": "Saturated soil",
+        "d": "Hygroscopic water",
+        "e": "Capillary water"
+      },
+      "correct_option": "c",
+      "explanation": "Saturated soil occurs when all the pore spaces in the soil are filled with water, leaving no room for air. This condition is often temporary and occurs after heavy rainfall or irrigation.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which type of soil water is held so tightly by soil particles that it is unavailable to plants?",
+      "options": {
+        "a": "Gravitational water",
+        "b": "Capillary water",
+        "c": "Hygroscopic water",
+        "d": "Field capacity water",
+        "e": "Permanent wilting point water"
+      },
+      "correct_option": "c",
+      "explanation": "Hygroscopic water is the thin film of water adsorbed onto soil particles due to molecular attraction. It is held so tightly that plants cannot use it, making it unavailable for plant growth.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which of the following represents the range of soil moisture that is most available to plants?",
+      "options": {
+        "a": "Between hygroscopic water and capillary water",
+        "b": "Between gravitational water and field capacity",
+        "c": "Between field capacity and permanent wilting point",
+        "d": "Between permanent wilting point and hygroscopic water",
+        "e": "Between saturated soil and gravitational water"
+      },
+      "correct_option": "c",
+      "explanation": "The range of soil moisture between field capacity (maximum available water) and permanent wilting point (minimum available water) is known as the \"available water\" for plants. Water outside this range is either too tightly held or has already drained away.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What happens to plants when the soil moisture reaches the permanent wilting point?",
+      "options": {
+        "a": "Plants grow rapidly due to abundant water",
+        "b": "Plants begin to recover from water stress",
+        "c": "Plants permanently wilt and cannot recover",
+        "d": "Plants start storing excess water",
+        "e": "Plants increase root growth to find water"
+      },
+      "correct_option": "c",
+      "explanation": "At the permanent wilting point, the soil moisture level is so low that plants cannot extract enough water to sustain their physiological processes, leading to irreversible wilting.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which type of soil water is held in small pores and is available to plants?",
+      "options": {
+        "a": "Gravitational water",
+        "b": "Capillary water",
+        "c": "Hygroscopic water",
+        "d": "Saturated water",
+        "e": "Permanent wilting point water"
+      },
+      "correct_option": "b",
+      "explanation": "Capillary water is held in the small pores of the soil by surface tension. It is the primary source of water available to plants and moves through the soil via capillary action.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the term for the condition where soil contains both water and air, allowing optimal plant growth?",
+      "options": {
+        "a": "Saturated soil",
+        "b": "Field capacity",
+        "c": "Permanent wilting point",
+        "d": "Hygroscopic water",
+        "e": "Gravitational water"
+      },
+      "correct_option": "b",
+      "explanation": "At field capacity, the soil contains the optimal balance of water and air, providing ideal conditions for plant growth. Excess water has drained away, leaving behind water that is available to plants.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which factor does NOT influence the amount of water a soil can hold at field capacity?",
+      "options": {
+        "a": "Soil texture",
+        "b": "Soil structure",
+        "c": "Organic matter content",
+        "d": "Soil temperature",
+        "e": "Soil porosity"
+      },
+      "correct_option": "d",
+      "explanation": "Soil texture, structure, organic matter content, and porosity all influence the water-holding capacity of soil at field capacity. Soil temperature, however, primarily affects water evaporation rates rather than the soil's ability to retain water.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What does water potential in soil measure?",
+      "options": {
+        "a": "The amount of water present in the soil",
+        "b": "The energy status of soil water, indicating its availability to plants",
+        "c": "The temperature of the soil water",
+        "d": "The gravitational force acting on soil water",
+        "e": "The pH level of the soil water"
+      },
+      "correct_option": "b",
+      "explanation": "Water potential is a measure of the energy status of water in the soil, which determines how easily water can move and be taken up by plant roots. It is influenced by factors such as matric potential (adhesion to soil particles), solute potential (osmotic effects of dissolved salts), and gravitational potential. A lower (more negative) water potential indicates that water is less available to plants, while a higher (less negative) water potential means water is more readily available.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Why is water potential in soil always negative?",
+      "options": {
+        "a": "Because soil water is always frozen",
+        "b": "Because soil water is under tension due to adhesive and cohesive forces",
+        "c": "Because soil water contains high levels of dissolved salts",
+        "d": "Because soil water is always saturated",
+        "e": "Because soil water is unaffected by gravity"
+      },
+      "correct_option": "b",
+      "explanation": "Water potential in soil is always negative because soil water is subject to forces such as adhesion (attraction between water molecules and soil particles) and cohesion (attraction between water molecules). These forces create tension, making it harder for plants to extract water. The more tightly water is held by the soil (e.g., in smaller pores or by clay particles), the more negative the water potential becomes.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the term used to describe the mass of dry soil per unit volume of soil, including pore spaces?",
+      "options": {
+        "a": "Particle density",
+        "b": "Bulk density",
+        "c": "Soil porosity",
+        "d": "Soil texture",
+        "e": "Soil compaction"
+      },
+      "correct_option": "b",
+      "explanation": "Bulk density is defined as the mass of dry soil per unit volume, including both solids and pore spaces. It is an important physical property that affects root penetration, water movement, and aeration. High bulk density indicates compacted soil, which can restrict root growth and water infiltration.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which factor does NOT directly influence soil temperature?",
+      "options": {
+        "a": "Soil color",
+        "b": "Soil moisture content",
+        "c": "Soil organic matter",
+        "d": "Soil pH",
+        "e": "Vegetative cover"
+      },
+      "correct_option": "d",
+      "explanation": "Soil temperature is influenced by factors such as soil color (darker soils absorb more heat), moisture content (water has a high specific heat capacity), organic matter (which insulates the soil), and vegetative cover (which shades the soil). Soil pH, however, primarily affects chemical reactions and nutrient availability, not temperature.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the primary effect of high bulk density on soil aeration?",
+      "options": {
+        "a": "Increases oxygen availability",
+        "b": "Reduces pore space, leading to poor aeration",
+        "c": "Enhances water retention",
+        "d": "Improves root penetration",
+        "e": "Increases soil porosity"
+      },
+      "correct_option": "b",
+      "explanation": "High bulk density indicates that the soil is compacted, leaving less pore space for air and water. This reduces soil aeration, which can limit oxygen availability to plant roots and soil microorganisms, negatively affecting plant growth and microbial activity.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "What is the optimum soil temperature for the winter cereals for better germination & growth?",
+      "options": {
+        "a": "15 to 18 C",
+        "b": "5 to 10 C",
+        "c": "18 to 20 C",
+        "d": "8 to 10 C",
+        "e": "Less than 10 C"
+      },
+      "correct_option": "a",
+      "explanation": "Optimum soil temperature for winter cereals is 15 to 18 c, maize- -32 C, for cotton, sorghum and sugarcane it is 30 C, for mustard it is 18 to 23 C.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "Which soil physical property is most closely related to its ability to hold and transmit air?",
+      "options": {
+        "a": "Soil texture",
+        "b": "Soil structure",
+        "c": "Soil porosity",
+        "d": "Bulk density",
+        "e": "Soil temperature"
+      },
+      "correct_option": "c",
+      "explanation": "Soil porosity refers to the amount of pore space in the soil, which determines how much air and water the soil can hold. Well-aerated soils have high porosity, allowing for adequate oxygen exchange, which is essential for root respiration and microbial activity.[cite: 16]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Soil Properties",
+      "question": "How does soil aeration affect root growth?",
+      "options": {
+        "a": "Poor aeration increases root growth due to higher carbon dioxide levels",
+        "b": "Poor aeration limits root growth due to reduced oxygen availability",
+        "c": "Poor aeration enhances nutrient uptake",
+        "d": "Poor aeration increases water retention",
+        "e": "Poor aeration has no effect on root growth"
+      },
+      "correct_option": "b",
+      "explanation": "Roots require oxygen for respiration, which provides energy for growth and nutrient uptake. Poor soil aeration, often caused by compaction or waterlogging, reduces oxygen availability, leading to restricted root growth and potentially causing root death.[cite: 16]"
+    }
+  ]
+}

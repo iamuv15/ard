@@ -1,0 +1,495 @@
+{
+  "title": "Agriculture Extension Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following best defines the concept of \"Agricultural Extension\" in modern times?",
+      "options": {
+        "a": "It is a one-way transfer of agricultural technology from researchers to farmers.",
+        "b": "It focuses solely on improving crop yields through government schemes.",
+        "c": "It is a two-way interactive process involving farmers, researchers, and extension workers.",
+        "d": "It excludes the use of ICT (Information and Communication Technology) in dissemination of agricultural knowledge.",
+        "e": "It only involves government institutions and does not include NGOs or private players."
+      },
+      "correct_option": "c",
+      "explanation": "It is a two-way interactive process involving farmers, researchers, and extension workers. Explanation: The use of the term 'extension' originated in England in 1866 with a system of university extension which was taken up first by Cambridge and Oxford Universities, and later by other educational institutions in England and in other countries.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following is NOT a principle of Agricultural Extension?",
+      "options": {
+        "a": "Learning by doing",
+        "b": "Farmers' participation",
+        "c": "Technology-centered approach",
+        "d": "Need-based program planning",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Technology-centered approach. Explanation: Agricultural extension follows a farmer-centered approach, not just a technology-centered approach. Learning by doing ensures farmers gain hands-on experience. Farmers' participation ensures adoption is successful. Need-based program planning ensures farmers' actual needs are met. Behavioral and attitudinal change is crucial for long-term sustainability.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which agricultural extension model is focused on increasing production through mass adoption of new technology?",
+      "options": {
+        "a": "General Agricultural Extension Model",
+        "b": "Training and Visit (T&V) Model",
+        "c": "Farmer Field School Model",
+        "d": "Participatory Rural Appraisal (PRA)",
+        "e": "Diffusion of Innovation"
+      },
+      "correct_option": "b",
+      "explanation": "Training and Visit (T&V) Model. Explanation: T&V Model was developed by Daniel Benor in the 1970s, focusing on regular training and structured visits by extension officers to transfer new agricultural technology to farmers. General Agricultural Extension Model covers broad agricultural knowledge. Farmer Field School Model (C) focuses on learning-by-doing and farmer empowerment. PRA (D) involves local knowledge in development. Diffusion of Innovation (E) explains how new ideas spread but doesn't structure visits like T&V.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the role of the \"Kisan Call Center\" (KCC) in Indian agriculture extension?",
+      "options": {
+        "a": "Provide only weather-related updates to farmers",
+        "b": "Offer free agricultural advice through a toll-free number",
+        "c": "Focus on marketing agricultural products",
+        "d": "Provide direct financial support to farmers",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Offer free agricultural advice through a toll-free number. Explanation: Kisan Call Centers (KCCs) were launched in 2004 to provide real-time expert agricultural advisory services to farmers through a toll-free number (1800-180-1551). The service is available in local languages and covers crop cultivation, pest control, soil health, irrigation, market prices, and government schemes. Weather updates are just one component, but not the main focus. Marketing and financial support are handled by other agencies, not KCCs. KCCs do not sell fertilizers or seeds they provide guidance on their usage. This initiative bridges the knowledge gap between farmers and agricultural experts, making technical advice accessible, affordable, and farmer-friendly.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which communication method is most effective for large-scale agricultural extension in rural areas?",
+      "options": {
+        "a": "Individual farm visits",
+        "b": "Demonstration plots",
+        "c": "Use of community radio programs",
+        "d": "Farmer discussion groups",
+        "e": "Agricultural newspapers"
+      },
+      "correct_option": "c",
+      "explanation": "Use of community radio programs. Explanation: Community radio is highly effective for reaching large rural audiences, especially in areas with low literacy rates. Individual farm visits are personalized but time-consuming and expensive for large populations. Demonstration plots are useful for hands-on learning but have limited reach. Farmer discussion groups promote interactive learning but depend on farmer availability. Agricultural newspapers are good for literate farmers but may not reach everyone. Community radio allows timely dissemination of critical agricultural information, including weather forecasts, pest alerts, and improved farming techniques, making it an affordable and impactful tool in extension services.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following extension approaches follows a \"bottom-up\" planning method?",
+      "options": {
+        "a": "National Agricultural Technology Project (NATP)",
+        "b": "Krishi Vigyan Kendra (KVK) Model",
+        "c": "Transfer of Technology Model",
+        "d": "Community Development Program (CDP)",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Krishi Vigyan Kendra (KVK) Model. Explanation: KVKs (Krishi Vigyan Kendras) follow a bottom-up approach, where extension activities are designed based on local needs and farmer participation. NATP focuses on technology dissemination but still has a top-down approach. Transfer of Technology is a one-way knowledge transfer model, making it top-down. CDP (D) & IRDP were government-led programs with limited farmer input, making them partially top-down. KVKs conduct on-farm trials, training programs, and adaptive research to ensure farmers' needs drive extension services rather than just imposing pre-designed technologies.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following best defines agricultural extension according to J.P. Leagans?",
+      "options": {
+        "a": "A process of teaching farmers modern techniques",
+        "b": "A service that helps rural people improve their living standards through education",
+        "c": "A method of providing subsidies to farmers",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "A service that helps rural people improve their living standards through education. Explanation: J.P. Leagans defined agricultural extension as a non-formal education process that improves rural people's social and economic well-being. It goes beyond farming techniques and includes aspects like health, nutrition, and rural development.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Agricultural extension is primarily aimed at",
+      "options": {
+        "a": "Increasing agricultural production through subsidies",
+        "b": "Educating and advising farmers to adopt improved farming practices",
+        "c": "Reducing land ownership among small farmers",
+        "d": "Encouraging the use of only traditional farming methods",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Educating and advising farmers to adopt improved farming practices. Explanation: The main goal of agricultural extension is to educate, train, and support farmers in adopting modern, scientific farming methods to improve productivity and sustainability. Unlike subsidies or traditional-only practices, extension focuses on knowledge-sharing and skill-building.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the first step in the extension education process?",
+      "options": {
+        "a": "Implementation of the program",
+        "b": "Situation analysis (problem identification)",
+        "c": "Planning extension activities",
+        "d": "Conducting training programs",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Situation analysis (problem identification). Explanation: The extension process begins with identifying farmers' problems, needs, and conditions through surveys, discussions, and observations.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which step in extension education involves setting clear and measurable goals?",
+      "options": {
+        "a": "Planning the extension program",
+        "b": "Setting objectives",
+        "c": "Implementing the program",
+        "d": "Providing financial assistance to farmers",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Setting objectives. Explanation: After identifying problems, extension workers define specific goals that are SMART (Specific, Measurable, Achievable, Relevant, and Time-bound).[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following is an example of an implementation activity in extension education?",
+      "options": {
+        "a": "Conducting farmer field schools and demonstrations",
+        "b": "Setting long-term agricultural policies",
+        "c": "Defining the scope of extension programs",
+        "d": "Evaluating the effectiveness of training programs",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Conducting farmer field schools and demonstrations. Explanation: The implementation step involves teaching and guiding farmers using methods like field visits, practical training, and demonstrations.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Why is the follow-up step important in extension education?",
+      "options": {
+        "a": "To ensure farmers continue applying the recommended practices",
+        "b": "To provide farmers with financial incentives",
+        "c": "To introduce entirely new agricultural techniques every year",
+        "d": "To conduct a one-time training session",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "To ensure farmers continue applying the recommended practices. Explanation: Follow-up helps farmers sustain newly learned skills, address emerging challenges, and reinforce good agricultural practices.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the purpose of the evaluation step in extension education?",
+      "options": {
+        "a": "To introduce new agricultural policies",
+        "b": "To assess the success and impact of the extension program",
+        "c": "To increase government funding for agriculture",
+        "d": "To register farmers in extension training programs",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "To assess the success and impact of the extension program. Explanation: Evaluation measures the effectiveness of extension activities by analysing results, collecting feedback, and identifying improvements.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following is an example of an individual contact method?",
+      "options": {
+        "a": "Farmers' Field Day",
+        "b": "Demonstration Plot",
+        "c": "Farm and Home Visit",
+        "d": "Radio Broadcast",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Farm and Home Visit. Explanation: Farm and home visits involve a one-on-one interaction between an extension worker and a farmer to provide personalized advice. Other options are group or mass contact methods.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the main advantage of individual contact methods in extension education?",
+      "options": {
+        "a": "They reach a large number of farmers at once",
+        "b": "They provide personalized solutions to farmers' problems",
+        "c": "They require minimal time and effort",
+        "d": "They rely only on digital communication",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "They provide personalized solutions to farmers' problems. Explanation: Individual methods focus on direct interaction, allowing extension workers to give specific advice based on a farmer's unique situation.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following is NOT an individual contact method?",
+      "options": {
+        "a": "Personal Letter",
+        "b": "Farm Clinic",
+        "c": "Face-to-Face Advisory Service",
+        "d": "Farmers' Training Camp",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Farmers' Training Camp. Explanation: Farmers' Training Camp is a group contact method where multiple farmers are trained together, unlike individual contact methods that focus on one-on-one communication.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "A farmer calls an agricultural extension officer for advice on pest control. Which individual contact method is being used?",
+      "options": {
+        "a": "Radio Program",
+        "b": "Personal Letter",
+        "c": "Telephone Call",
+        "d": "Farmer Field School",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Telephone Call. Explanation: Telephone calls allow direct, one-on-one communication between farmers and extension workers, making them an individual contact method.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the major disadvantage of individual contact methods?",
+      "options": {
+        "a": "They cannot address specific farmer problems",
+        "b": "They are too costly for farmers",
+        "c": "They are time-consuming and labor-intensive",
+        "d": "They are ineffective in transferring knowledge",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "They are time-consuming and labor-intensive. Explanation: Individual contact methods require significant time and effort from extension workers, as they need to interact with farmers one by one rather than reaching multiple farmers at once.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Personal letters in extension education are mainly used for",
+      "options": {
+        "a": "Group discussions",
+        "b": "Providing specific advice to individual farmers",
+        "c": "Broadcasting general agricultural knowledge",
+        "d": "Conducting large-scale training programs",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Providing specific advice to individual farmers. Explanation: Personal letters allow extension workers to share customized guidance and updates directly with farmers, making them an effective individual contact method.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following is a group contact method in extension education?",
+      "options": {
+        "a": "Farm and Home Visit",
+        "b": "Personal Letter",
+        "c": "Result Demonstration",
+        "d": "Radio Program",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Result Demonstration. Explanation: Result demonstrations are conducted for a group of farmers to show the effectiveness of new agricultural practices, making them a group contact method. Other options belong to individual or mass contact methods.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the main advantage of group contact methods?",
+      "options": {
+        "a": "They provide one-on-one personalized solutions",
+        "b": "They help in reaching a larger number of farmers at the same time",
+        "c": "They do not require any extension worker involvement",
+        "d": "They eliminate the need for mass communication methods",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "They help in reaching a larger number of farmers at the same time. Explanation: Group contact methods are efficient, allowing extension workers to educate multiple farmers together, making learning more interactive and cost-effective.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following is NOT a group contact method?",
+      "options": {
+        "a": "Method Demonstration",
+        "b": "Farmer Field School",
+        "c": "Study Tour",
+        "d": "Telephone Call",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Telephone Call. Explanation: Telephone calls are an individual contact method because they involve direct one-on-one interaction between an extension worker and a farmer. The other options involve multiple farmers learning together.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Farmer discussion groups are useful in extension education because they:",
+      "options": {
+        "a": "Provide one-to-one advisory services",
+        "b": "Help farmers exchange ideas and learn from each other",
+        "c": "Use only digital communication tools",
+        "d": "Replace the need for mass communication methods",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Help farmers exchange ideas and learn from each other. Explanation: Farmer discussion groups allow farmers to share experiences, solve common problems, and learn collectively, making them an effective group contact method.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following best describes a study tour as a group contact method?",
+      "options": {
+        "a": "A large-scale agricultural fair for all farmers",
+        "b": "A personal visit to an individual farmer's field",
+        "c": "A planned visit by a group of farmers to an agricultural research station or progressive farm",
+        "d": "A radio program discussing new farming techniques",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A planned visit by a group of farmers to an agricultural research station or progressive farm. Explanation: Study tours allow farmers to see and learn from real-life successful agricultural practices, making them a powerful group learning tool.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the main disadvantage of group contact methods?",
+      "options": {
+        "a": "They are expensive and time-consuming for individual farmers",
+        "b": "They do not encourage farmer participation",
+        "c": "They cannot be used for skill development",
+        "d": "They do not allow personal attention to individual farmers' problems",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "They do not allow personal attention to individual farmers' problems. Explanation: Since group methods focus on multiple farmers at once, they may not address individual concerns in detail, unlike individual contact methods such as farm visits.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the best definition of extension teaching methods?",
+      "options": {
+        "a": "Techniques used to educate farmers and rural communities",
+        "b": "A system of distributing free agricultural inputs",
+        "c": "A government policy to regulate agricultural markets",
+        "d": "A research process conducted in laboratories",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Techniques used to educate farmers and rural communities. Explanation: Extension teaching methods are approaches used by extension workers to transfer knowledge, skills, and innovations to farmers and rural people.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following best defines individual contact methods in extension education?",
+      "options": {
+        "a": "Methods that involve one-to-one interaction between an extension worker and a farmer",
+        "b": "Methods that focus only on mass media for education",
+        "c": "A process where farmers learn only through printed materials",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Methods that involve one-to-one interaction between an extension worker and a farmer. Explanation: Individual contact methods are personalized approaches where extension workers interact directly with a farmer to solve specific problems.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the key characteristic of group contact methods?",
+      "options": {
+        "a": "They are conducted for a single farmer at a time",
+        "b": "They use mass media to reach millions of farmers",
+        "c": "They involve learning in small groups where farmers can interact",
+        "d": "They only focus on online learning platforms",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "They involve learning in small groups where farmers can interact. Explanation: Group contact methods involve face-to-face interaction with multiple farmers at once, helping them learn through demonstrations, discussions, and training programs.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "How are mass contact methods defined in extension education?",
+      "options": {
+        "a": "Teaching methods used to educate a large number of farmers at the same time",
+        "b": "A method where only one farmer is trained at a time",
+        "c": "A process of distributing free agricultural inputs",
+        "d": "A government-led initiative to provide subsidies",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Teaching methods used to educate a large number of farmers at the same time. Explanation: Mass contact methods use communication tools like radio, TV, newspapers, and social media to educate many farmers simultaneously.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following is the most accurate definition of a demonstration method?",
+      "options": {
+        "a": "A training method where farmers are shown how to perform agricultural practices",
+        "b": "A way to communicate with farmers through newspapers",
+        "c": "A mass communication strategy using social media",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "A training method where farmers are shown how to perform agricultural practices. Explanation: Demonstration methods allow farmers to learn by seeing and doing, which makes it easier to adopt new agricultural techniques.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the main objective of using mass contact methods in agricultural extension?",
+      "options": {
+        "a": "To provide individual advisory services to farmers",
+        "b": "To spread agricultural information to a large number of people quickly",
+        "c": "To conduct experiments in agricultural universities",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "To spread agricultural information to a large number of people quickly. Explanation: Mass contact methods use tools like radio, TV, and newspapers to quickly inform farmers about new agricultural practices, policies, and innovations.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "Which of the following best describes \"Method Demonstration\" in Agricultural Extension?",
+      "options": {
+        "a": "A teaching method where farmers are given printed materials to read and understand.",
+        "b": "A technique where an extension worker explains a concept without practical application.",
+        "c": "A process where farmers learn by observing and practicing a technique demonstrated by an expert.",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A process where farmers learn by observing and practicing a technique demonstrated by an expert. Explanation: Method demonstration is a practical approach in agricultural extension where an expert or extension worker demonstrates a farming technique or practice, allowing farmers to observe, learn, and then apply it themselves. It is one of the most effective ways to introduce new agricultural practices, as it provides hands-on experience and visual learning, increasing adoption rates among farmers.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the primary purpose of \"Result Demonstration\" in Agricultural Extension?",
+      "options": {
+        "a": "To show the immediate effect of an agricultural practice through a controlled experiment.",
+        "b": "To distribute free agricultural inputs to farmers for experimentation.",
+        "c": "To provide theoretical knowledge about farming without practical applications.",
+        "d": "To let farmers test various methods without guidance from an expert.",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "To show the immediate effect of an agricultural practice through a controlled experiment. Explanation: Result Demonstration is an extension method used to show the effectiveness of a new farming practice, technology, or input by comparing it with conventional methods under real farming conditions. It helps farmers see the benefits of adopting improved techniques by observing measurable results, such as increased yield or better soil health. This method builds confidence among farmers and encourages them to adopt modern agricultural practices.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the correct definition of \"Result Demonstration\" in Agricultural Extension?",
+      "options": {
+        "a": "A method used to compare traditional and improved farming practices by showing their results in real conditions.",
+        "b": "A way of distributing free inputs to farmers to test their effectiveness.",
+        "c": "A classroom-based approach to train farmers using textbooks and lectures.",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "A method used to compare traditional and improved farming practices by showing their results in real conditions. Explanation: Result Demonstration is a method of agricultural extension where farmers are shown the benefits of a new farming technique, input, or technology by comparing its performance with traditional methods. This is done under real farming conditions to help farmers make informed decisions based on observable results.[cite: 7]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agriculture Extension",
+      "question": "What is the correct definition of National or Composite Demonstration in Agricultural Extension?",
+      "options": {
+        "a": "A demonstration conducted on a small scale to test individual farmer's skills.",
+        "b": "A theoretical study on different agricultural methods without field application.",
+        "c": "A large-scale demonstration conducted at the national level to showcase improved agricultural practices.",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "A large-scale demonstration conducted at the national level to showcase improved agricultural practices. Explanation: National or Composite Demonstration is a large-scale extension method used to demonstrate improved agricultural practices across different regions of a country. These demonstrations are conducted on farmers' fields to show the effectiveness of modern technologies, improved seeds, fertilizers, and other inputs in real farming conditions. The aim is to promote widespread adoption of better farming techniques for increased productivity.[cite: 7]"
+    }
+  ]
+}

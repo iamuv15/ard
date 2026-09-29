@@ -1,0 +1,621 @@
+{
+  "title": "Cropping System Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Growing plants of different height in the same field at the same time is known as",
+      "options": {
+        "a": "Multiple cropping",
+        "b": "Mixed cropping",
+        "c": "Relay cropping",
+        "d": "Multi-storied cropping",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Multi storied cropping: Growing plants of different heights in the same field at the same time is termed as multi-storeyed cropping. It is mostly practiced in orchards and plantation crops for maximum use of solar energy even under normal planting density. Example: eucalyptus, papaya, and berseem grown together, growing of pineapple, sweet potato, black pepper, tapioca, turmeric, ginger etc. In coconut or areca-nut.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Maize-Toria-Wheat-Moong are grown in a rotation in field according to the season this system is termed as",
+      "options": {
+        "a": "Multiple cropping",
+        "b": "Mixed cropping",
+        "c": "Relay cropping",
+        "d": "Ratoon cropping",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Growing of two or more crops on the same piece of land in one year calendar is known as multiple cropping. It is the intensification of the cropping in time & space dimension means getting a greater number of crops from a single piece of land in a given time period.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ system is defined as the set of elements or components like cropping system, dairying, poultry, piggery, bee keeping etc. Which are interrelated and interact among themselves.",
+      "options": {
+        "a": "Multiple cropping system",
+        "b": "Mixed cropping system",
+        "c": "Farming system",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Farming system is defined as a set of various elements or components that are interrelated among themselves. Farming system consist of several enterprises like cropping system, dairying, piggery, poultry, fishery, bee keeping etc.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Raising of livestock, poultry, bee keeping along with the crop production in a small farmland just to sustain & satisfy the needs of the farmer is termed as",
+      "options": {
+        "a": "Mixed farming system",
+        "b": "Mixed cropping system",
+        "c": "Multiple cropping system",
+        "d": "Farming system",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Mixed farming system: It is the system of farming on a particular farm which include crop production, raising livestock, poultry, fisheries, beekeeping etc., to sustain & satisfy as many needs of the farmer as possible.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ represents the proportion of area under various crops at a given point of time in a unit area. This indicates the yearly sequence & spatial arrangements of a crop at given point of a time or fallow",
+      "options": {
+        "a": "Crop rotation",
+        "b": "Cropping pattern",
+        "c": "Cropping system",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Cropping pattern means the proportion of area under various crops at a given point of time in a unit area. It indicates the yearly sequence & spatial arrangements of crops and fallow in an area.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Recurrent succession of the crops on a same piece of land over a longer period of time is termed as a",
+      "options": {
+        "a": "Cropping pattern",
+        "b": "Cropping system",
+        "c": "Multiple cropping",
+        "d": "Crop rotation",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Crop rotation is a process of growing different crops in succession on a piece of land in a specific period of time, with an object to get maximum profit from least investment without impairing the soil fertility.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Wheat is grown after harvesting of rice and again rice is sown after harvesting wheat over a longer period of time in a particular season this system of rice and wheat cultivation is called as a",
+      "options": {
+        "a": "Crop rotation",
+        "b": "Cropping pattern",
+        "c": "Relay cropping ratoon cropping",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Crop rotation: This refers to the practice of growing different crops in the same field in succession, which in this case is wheat after rice and then rice after wheat.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Double cropping is more feasible in which area",
+      "options": {
+        "a": "Area receiving rainfall more than 650 mm & the soil moisture storage capacity of 200 mm/m depth.",
+        "b": "Area receiving rainfall more than 850 mm & the soil moisture storage capacity of 200 mm/m depth.",
+        "c": "Area receiving rainfall more than 1100 mm & the soil moisture storage capacity of 200 mm/m depth.",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Area receiving rainfall more than 850 mm & the soil moisture storage capacity of 200 mm/m depth. Double cropping is feasible in areas receiving rainfall more han 850 mm and soil moisture storage capacity of 200mm/m depth. Double cropping is also possible with rain water harvested in farm ponds which is used for establishing winter crop.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Growing of only groundnut or cotton or sorghum in rainfed condition in a field due to non-availability of water for introduction of another crop. This cropping system comes under",
+      "options": {
+        "a": "Mono cropping",
+        "b": "Relay cropping",
+        "c": "Sequence cropping",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Monocropping refers to the growing of only one crop on a piece of land. It may be due to climatological & socio-economic conditions or due to specialization of a farmer in growing a particular crop. Ex- 1. Rainfed condition- groundnut, sorghum or cotton, specialization-flue-cured tobacco in guntur region of andhra pradesh.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Growing of two or more crops on a same piece of land in a given year is termed as",
+      "options": {
+        "a": "Mono cropping",
+        "b": "Multiple cropping",
+        "c": "Ratoon cropping",
+        "d": "Cropping pattern",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Multiple cropping: Growing of two or more crops on the same piece of land in one year calendar is known as multiple cropping.it is the intensification of the cropping in time & space dimension means getting a greater number of crops from a single piece of land in a given time period.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Maize & cucumber are grown is a same field at a similar time without a fixed row & pattern this cropping system is called as a",
+      "options": {
+        "a": "Multiple cropping",
+        "b": "Double cropping",
+        "c": "Relay cropping",
+        "d": "Mixed cropping",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Mixed cropping: Growing of two or more crops simultaneously intermingled without any fix row & pattern. Characteristics: Seeds of different crops are mixed in a proportion & sown. Mostly practiced in dry land regions of India. Main objective is to meet the family requirement of vegetables, cereals, pulses etc. Mixed cropping is of subsistence in nature.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Under this cropping system there is a intensification of cropping in time and a space dimensions means more number of crops are in a given area in a given time period is called as",
+      "options": {
+        "a": "Multiple cropping",
+        "b": "Crop rotation",
+        "c": "Cropping system",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Multiple cropping: Growing of two or more crops simultaneously intermingled without any fix row & pattern.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Setaria + red gram is sown in a field in 5:1 row pattern this type of cropping system is termed as",
+      "options": {
+        "a": "Relay cropping",
+        "b": "Intercropping",
+        "c": "Cropping sequence",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Intercropping: Growing of two or more crops simultaneously on the same piece of land in a definite row & pattern. Ex setaria + red gram (5:1 ration pattern).[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ is growing of two or more crops on a same piece of land in a definite row and pattern is termed as",
+      "options": {
+        "a": "Mixed cropping",
+        "b": "Multiple cropping",
+        "c": "Intercropping",
+        "d": "Crop rotation",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Intercropping involves growing two or more crops simultaneously on the same field in Definite row and pattern but they are not mixed with each other. They are grown inset pattern. They are grown in alternating rows. This pattern prevents pests and diseases to spread in all the plants of one crop.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Additive & replacement series are the types of intercropping classified on the basis of",
+      "options": {
+        "a": "Number of plant population",
+        "b": "On the basis of arrangement of intercrops",
+        "c": "On the basis of geometry of crop",
+        "d": "All of the above",
+        "e": "None of the these"
+      },
+      "correct_option": "a",
+      "explanation": "Number of plant population: Types of intercropping- based on number of plant population intercropping is divided into two parts. 1. Additive series. 2. Replacement series.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "In this type of cropping system mustard was introduced as an intercrop in a wheat field without changing the population of wheat crop this type of cropping system is called as a",
+      "options": {
+        "a": "Replacement intercropping",
+        "b": "Mixed cropping",
+        "c": "Additive intercropping",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Additive Intercropping: Additive series-in additive series we maintain the 100% population of our base crop (main crop) but changes the geometry of the main crop to adjust the intercrop in between. Ex wheat & mustard in 10:1(means 10 rows of wheat with 1 row of mustard). In additive series the population of the intercrop is very less.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "In this type of intercrop the population of the base crop is reduced to introduce an intercrop in between its rows this type of system is termed as",
+      "options": {
+        "a": "Relay cropping",
+        "b": "Ratoon cropping",
+        "c": "Additive series intercropping",
+        "d": "Replacement series intercropping",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Replacement series intercropping: Replacement series-in replacement series the population of the one crop is reduced to adjust the intercrop in between. Here both the crops are called as a component crop. Ex-castor & red gram grown in 1:1.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Setaria and redgram intercrop is widely practiced in rainfed condition if 100% population of the setaria is maintained and redgram is introduced in between its rows then identify which one is the base crop & which is intercrop here",
+      "options": {
+        "a": "Redgram is base crop & setaria is intercrop",
+        "b": "Setaria is a base crop & red gram is intercrop",
+        "c": "Both are intercrop",
+        "d": "None is the intercrop",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Setaria is base crop & red gram is intercrop. Here setaria is the base because 100% population of setaria is maintained & red gram is introduced in between rows of setaria just by changing distance between its rows.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "In a wheat & mustard intercrop the population of wheat is maintained to 80% to grow it along the mustard at a 20% so identify which is intercrop and which is the base crop",
+      "options": {
+        "a": "Wheat is intercrop & mustard is the base crop",
+        "b": "Both are intercrop",
+        "c": "None is the base crop",
+        "d": "Wheat is the base crop & mustard is the intercrop.",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Wheat is base crop & mustard is an intercrop. Wheat crop population is more in this intercrop system so we can say wheat is a base crop and mustard is an intercrop.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "The population of both the crops in intercropping system of groundnut & pigeon pea is maintained to 50% hence identify which one of the following is a base crop and intercrop",
+      "options": {
+        "a": "Both are intercrop",
+        "b": "None of the are intercrop",
+        "c": "Groundnut is the intercrop",
+        "d": "Pigeon pea is an intercrop",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Both are intercrop. Both the crop groundnut and pigeon pea have plant population of 50% and both share equal space and have equal percentage their number of plants so here both are the intercrops.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "What is the important requirement for the intercropping system?",
+      "options": {
+        "a": "Both the crops have different peak nutrient demand",
+        "b": "Both crops should have different nutrient requirement",
+        "c": "Both crops should have different harvesting techniques",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Requirements for intercropping: The time for peak nutrient demand for main & intercrop should not overlap. Very less competition for the light between the crops. Both the crops be it main crop or inter crop should be complimentary in nature. The difference of maturity between intercrops should be at least 30 days.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Maize and urd are grown in specific row & pattern both of the crops have different growing habits and offer zero competition to each other this type of cropping system is",
+      "options": {
+        "a": "Parallel intercropping",
+        "b": "Complimentary intercropping",
+        "c": "Replacement intercropping",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Parallel cropping. Under this cropping two crops are selected which have different growth habits and have a zero competition between each other and both of them express their full yield potential. Example: mung or urd with maize and urd, mung or soybean with cotton.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "In ___ the yield of one crop is not affected by the other. In other words, the yield of both the crops is equal to their pure crop.",
+      "options": {
+        "a": "Inhibited cropping",
+        "b": "Companion cropping",
+        "c": "Trap crop",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Companion cropping. In companion cropping the yield of one crop is not affected by the other. In other words, the yield of both the crops is equal to their pure crop. Thus, the standard plant populations of both crops are maintained. Example: mustard, wheat, potato, etc. With sugarcane.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Pineapple, black pepper & papaya & coconut are grown in field according to their height this type of cropping system is defined as",
+      "options": {
+        "a": "Ratoon cropping",
+        "b": "Sequence cropping",
+        "c": "Multi storied cropping",
+        "d": "Multiple cropping",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Multi-storeyed cropping: Growing plants of different heights in the same field at the same time is termed as multi-storeyed cropping. It is mostly practiced in orchards and plantation crops for maximum use of solar energy even under normal planting density. Example: eucalyptus, papaya, and berseem grown together, growing of pineapple, sweet potato, black pepper, tapioca, turmeric, ginger etc. In coconut or areca-nut.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "When sugarcane and potato are grown together in a similar field it is found that there is increase in yield of both the crop as compared to when grown in pure stand this type of cropping system is called as",
+      "options": {
+        "a": "Complimentary cropping",
+        "b": "Synergistic cropping",
+        "c": "Parallel cropping",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Synergistic cropping. Here the yields of both crops, grown together are found to be higher than the yields of their pure crops on unit area basis.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "The main principles of the intercrop are",
+      "options": {
+        "a": "Complimentary crop should be grown together",
+        "b": "Longer duration crop should be grown with shorter duration crop",
+        "c": "Crops should have similar agronomic practices",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Principles of inter cropping: 1. The crops grown in association should have complementary effects rather competitive effects. 2. The subsidiary crop should be of shorter duration and of faster growing habits... 3. The component crops should have similar agronomic practices. 4. Erect growing crops should be intercropped with cover crops like pulses... 5. The component crops should have different root depths... 6. A standard plant population of main crop should be maintained... 7. Component crops of similar pest and disease pathogens and parasite infestations should not be chosen.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ in this type of cropping system two or more crops' seeds are mixed in a proportion & area sown without any fixed row and pattern. The seeds under this cropping system are generally sown by broadcasting.",
+      "options": {
+        "a": "Mixed cropping",
+        "b": "Intercropping",
+        "c": "Multiple cropping",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Mixed cropping: Growing of two or more crops simultaneously intermingled without any fix row & pattern. Characteristics: Seeds of different crops are mixed in a proportion & sown. Mostly practiced in dry land regions of india. Main objective is to meet the family requirement of vegetables, cereals, pulses etc. Mixed cropping is of subsistence in nature.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Growing of two or more crops in a sequence in a growing year is called as a",
+      "options": {
+        "a": "Companion cropping",
+        "b": "Sequence cropping",
+        "c": "Multi storied cropping",
+        "d": "Ratoon cropping",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "It is defined as growing of two or more crops in a sequence on the same piece of land in a farming year. Depending upon the number of crops grown in a field in a year it is called as double (if 2 crops), triple (if 3 crops) quadruple etc. Example of double cropping-rice-linseed, rice-vegetables, soyabean-wheat etc.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Ratooning is practiced in which of the following crop?",
+      "options": {
+        "a": "Sugarcane",
+        "b": "Rice",
+        "c": "Wheat",
+        "d": "Barley",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Ratooning is an ancient method of propagation in sugarcane in which subterranean buds on the stubble (the part of cane left underground after harvesting) give rise to a new crop stand, which is usually referred to as the 'ratoon' or the 'stubble crop' as opposed to 'plant crop', which is raised from seeds or seedlings.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "In this practice crop is harvested from the stem and left for regrowth to next season crop from it this practice is called as",
+      "options": {
+        "a": "Relay cropping",
+        "b": "Complimentary cropping",
+        "c": "Ratooning",
+        "d": "Retting",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Ratoon cropping- to raise a crop with regrowth coming out of roots or stalks after the harvest of the crops. Ratooning is one of the important systems of intensive cropping, which implies more than one harvest from one sowing/planting because of regrowth from the basal buds on the stem after harvest of first crop. thus, ratooning consists of allowing the stubbles of the original crop to strike again or to produce the tillers after harvesting and to raise another crop. E.g. Ratooning of sugarcane, hybrid jowar, hybrid bajra, and redgram etc.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Succeeding crop is sown before the harvesting of the preceding crop this cropping system is called as a",
+      "options": {
+        "a": "Relay cropping",
+        "b": "Companion cropping",
+        "c": "Ratoon crop",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Relay cropping: Relay cropping-planting of the succeeding crop before the harvesting of the preceding crop. Ex paddy-lathyrus, paddy-lucerne, paddy-berseem, cotton-berseem.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Soyabean is sown in rows before the harvesting of the wheat crop this practice is example of which cropping system",
+      "options": {
+        "a": "Companion cropping",
+        "b": "Multiple cropping",
+        "c": "Complimentary cropping",
+        "d": "Relay cropping",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Relay cropping: Relay cropping-planting of the succeeding crop before the harvesting of the preceding crop. Ex paddy-lathyrus, paddy-lucerne, paddy-berseem, cotton-berseem.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ is the system of growing fodder crop in the passage left between two rows of trees for full space utilization and get fodder crop for the livestock",
+      "options": {
+        "a": "Relay cropping",
+        "b": "Agro-silviculture",
+        "c": "Alley cropping",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Alley cropping: Alley cropping- the system of growing jowar, maize, bajra or any other arable crop in the alleys (passage between two rows) of leguminous shrubs like subabul (leucaena leucacephala) is called as alley cropping.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ cropping system is defined as a growing of a suitable crop in place of normally grown crop in a region due to late receipt of rainfall. Generally, these crops give low yields as compared to normal grown crop.",
+      "options": {
+        "a": "Contingency cropping",
+        "b": "Complimentary cropping",
+        "c": "Multiple cropping",
+        "d": "Mixed cropping",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Contingency cropping. It is defined as a growing of a suitable crop in place of normally grown crop in a region due to late receipt of rainfall. Generally contingency crops give low yields as compared to normal grown crop.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "In this type of cropping system two plant crops are grown together which synergistically impact each other's growth positively is called as",
+      "options": {
+        "a": "Sequence cropping",
+        "b": "Multiple cropping",
+        "c": "Allelopathy cropping",
+        "d": "Companion cropping",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Companion cropping. Companion cropping is a type of polyculture under which two plant species grown together which synergistically improve one another's growth. These crops directly mask the negatives of each other & enhance the positive impacts of each other. The push & pull technology to reduce weed & pest is based on companion cropping.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ are those crops which releases some chemical compound that produces a particular smell to repel the pest from the field or other nearby grown crops",
+      "options": {
+        "a": "Trap crops",
+        "b": "Repellent crop",
+        "c": "Sequence crop",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Repellent crop-certain plant releases some chemical compound which repel or deter insect pest from the main crop. Ex- basil planted with tomato reduce tomato thrips onion repels insects like arthropods, mites, aphids etc.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "These are the plants that attract the pest away from the target crop. Once these crop plants concentrated with pest then pest can be removed by burning, tilling, insecticide, etc. Or can be left untouched this type of crop is called as a",
+      "options": {
+        "a": "Repellent crop",
+        "b": "Companion crop",
+        "c": "Trap crop",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Trap crops: Trap crop- trap crops are the plants that attract the pest away from the target crop. Once the trap crop concentrated with pest then pest can be removed by burning, tilling, insecticide, etc. Or can be left untouched.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Basil act as a ___ crop when grown in a tomato field",
+      "options": {
+        "a": "Repellent crop",
+        "b": "Trap crop",
+        "c": "Both",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Repellent crop. A repellent crop is a type of plant grown to deter pests, either by its smell, chemical composition, or physical characteristics. These crops are often used in companion planting or integrated pest management (IPM) strategies to protect main crops from insects, animals, or even weeds.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Which type of crop visually & physically block the host plant to confuse the pest for attacking the main crop is called as a",
+      "options": {
+        "a": "Companion plant",
+        "b": "Camouflage plant",
+        "c": "Masking plant",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Camouflage plants-are those plant which physically & visually blocks the host plant. Ex intercropping of cabbage reduce pest load on cabbage.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ plants release some volatiles that masks host plant odor interfering with host plant location are termed as",
+      "options": {
+        "a": "Trap crop",
+        "b": "Repellent crop",
+        "c": "Masking crop",
+        "d": "Camouflage crop",
+        "e": "None of the above"
+      },
+      "correct_option": "c",
+      "explanation": "Masking plants-these plants release some volatiles that masks host plant odors interfering with host plant location. Ex cabbage root fly was disrupted when peas, rye-grass or clover planted on its broader.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "___ is a process of growing different crops in succession on a piece of land in a specific period of time, with an object to get maximum profit from least investment without impairing the soil fertility",
+      "options": {
+        "a": "Crop rotation",
+        "b": "Cropping system",
+        "c": "Farming system",
+        "d": "Cropping pattern",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Crop rotation is a process of growing different crops in succession on a piece of land in a specific period of time, with an object to get maximum profit from least investment without impairing the soil fertility.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "In this system of cropping, the main crop is grown in the centre, surrounded by hardy or thorny crops such as safflower around pea, or wheat, mesta (patsan) around sugarcane, jowar around maize etc this type of crops are called as a",
+      "options": {
+        "a": "Complimentary crops",
+        "b": "Guard crops",
+        "c": "Multi storey cropping",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Guard crops: under this system of cropping, the main crop is grown in the centre, surrounded by hardy or thorny crops such as safflower around pea, or wheat, mesta (patsan) around sugarcane, jowar around maize etc. With a view to provide protection to the main crop.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "When sub crops are sown to supplement the yield of the main crop the sub crops are called as",
+      "options": {
+        "a": "Augmenting crops",
+        "b": "Guard crops",
+        "c": "Companion crop",
+        "d": "All of the above",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "Augmenting crop. Augmenting crops: when sub crops are sown to supplement the yield of the main crop the sub crops are called as augmenting crops such as japanese mustard with berseem. Here the mustard helps in getting higher tonnage of fodder inspite of the fact that berseem gives poor yield in first cutting.[cite: 4]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Cropping System",
+      "question": "Which crop has high C: N in its stubble which reduces the availability of nitrogen to the next succeeding crops",
+      "options": {
+        "a": "Rice",
+        "b": "Mustard",
+        "c": "Brinjal",
+        "d": "Sorghum",
+        "e": "None of the above"
+      },
+      "correct_option": "d",
+      "explanation": "Sorghum & pearl millet stubbles have high c:n ratio which cause immobilization of the nitrogen & deficiency of the n2 in the early stages of the succeeding crop this effect is also called as sorghum effect.[cite: 4]"
+    }
+  ]
+}

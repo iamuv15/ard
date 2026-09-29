@@ -1,0 +1,1349 @@
+{
+  "title": "Animal Husbandry Part 1 Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the correct term for a group of sheep?",
+      "options": {
+        "a": "Herd",
+        "b": "Trip",
+        "c": "Flock",
+        "d": "Drove",
+        "e": "Band"
+      },
+      "correct_option": "c",
+      "explanation": "A group of sheep is called a flock, whereas for goats, it is a trip or band.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the act of parturition in pigs called?",
+      "options": {
+        "a": "Kidding",
+        "b": "Foaling",
+        "c": "Lambing",
+        "d": "Farrowing",
+        "e": "Calving"
+      },
+      "correct_option": "d",
+      "explanation": "The act of giving birth in pigs is called farrowing, while in cattle it is calving.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the young female cattle called?",
+      "options": {
+        "a": "Heifer calf",
+        "b": "Gimmer lamb",
+        "c": "Filly",
+        "d": "Gilt",
+        "e": "Kid"
+      },
+      "correct_option": "a",
+      "explanation": "Young female cattle before its first calving are known as a heifer calf.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the name of an adult male goat?",
+      "options": {
+        "a": "Boar",
+        "b": "Buck",
+        "c": "Ram",
+        "d": "Stallion",
+        "e": "Bull"
+      },
+      "correct_option": "b",
+      "explanation": "An adult male goat is called a buck, while an adult female goat is called a doe or nanny.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the term for the act of mating in sheep?",
+      "options": {
+        "a": "Covering",
+        "b": "Serving",
+        "c": "Tupping",
+        "d": "Coupling",
+        "e": "Lakhana"
+      },
+      "correct_option": "c",
+      "explanation": "Tupping refers to the mating process in sheep, while serving is used for cattle and goats.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the correct term for an adult female pig?",
+      "options": {
+        "a": "Sow",
+        "b": "Gilt",
+        "c": "Nanny",
+        "d": "Mare",
+        "e": "Doe"
+      },
+      "correct_option": "a",
+      "explanation": "A mature female pig that has given birth is called a sow, while a young female pig that has not yet farrowed is called a gilt.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the act of parturition in goats called?",
+      "options": {
+        "a": "Farrowing",
+        "b": "Calving",
+        "c": "Foaling",
+        "d": "Kidding",
+        "e": "Lambing"
+      },
+      "correct_option": "d",
+      "explanation": "No Explanation added[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the act of mating in cattle called?",
+      "options": {
+        "a": "Tupping",
+        "b": "Coupling",
+        "c": "Lakhana",
+        "d": "Serving",
+        "e": "Covering"
+      },
+      "correct_option": "d",
+      "explanation": "The mating process in cattle is called serving, while in horses, it is covering, and in sheep, it is tupping.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the term for a young male sheep?",
+      "options": {
+        "a": "Heifer calf",
+        "b": "Ram lamb",
+        "c": "Buckling",
+        "d": "Piglet",
+        "e": "Colt"
+      },
+      "correct_option": "b",
+      "explanation": "A young male sheep is called a ram lamb, while a young female sheep is a gimmer lamb.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the act of parturition in sheep called?",
+      "options": {
+        "a": "Calving",
+        "b": "Foaling",
+        "c": "Lambing",
+        "d": "Farrowing",
+        "e": "Kidding"
+      },
+      "correct_option": "c",
+      "explanation": "Lambing refers to the birth process in sheep, while calving is for cattle, and foaling is for horses.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the correct term for adult male cattle?",
+      "options": {
+        "a": "Stallion",
+        "b": "Ram",
+        "c": "Buck",
+        "d": "Boar",
+        "e": "Bull"
+      },
+      "correct_option": "e",
+      "explanation": "Adult male cattle is called a bull, whereas an adult male pig is a boar, and an adult male horse is a stallion.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the term for a young female pig that has not yet farrowed?",
+      "options": {
+        "a": "Gilt",
+        "b": "Sow",
+        "c": "Heifer",
+        "d": "Filly",
+        "e": "Kid"
+      },
+      "correct_option": "a",
+      "explanation": "No Explanation added[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the term for a young male goat?",
+      "options": {
+        "a": "Boarling",
+        "b": "Buckling",
+        "c": "Ram lamb",
+        "d": "Heifer",
+        "e": "Piglet"
+      },
+      "correct_option": "b",
+      "explanation": "A young male goat is called a buckling, while a young female goat is called a gloating.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the correct term for a castrated bull used for meat production?",
+      "options": {
+        "a": "Bullock",
+        "b": "Steer",
+        "c": "Teaser bull",
+        "d": "Heifer",
+        "e": "Crit"
+      },
+      "correct_option": "b",
+      "explanation": "A steer is castrated male cattle raised specifically for meat production.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is a teaser bull?",
+      "options": {
+        "a": "Castrated bull for meat purpose",
+        "b": "Vasectomized bull used for heat detection",
+        "c": "Bullock used for draught purpose",
+        "d": "Smallest piglet in a litter",
+        "e": "Male animal made infertile by surgical removal of testicles"
+      },
+      "correct_option": "b",
+      "explanation": "A teaser bull is a vasectomized bull (its vas deferens is cut and ligated) that is used for heat detection in cows. Unlike steers or bullocks, a teaser bull is not fully castrated.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is a heifer?",
+      "options": {
+        "a": "A female cow above one year that has not calved",
+        "b": "A castrated bull for draught purposes",
+        "c": "A vasectomized bull used for heat detection",
+        "d": "A young female pig",
+        "e": "A small piglet in a litter"
+      },
+      "correct_option": "a",
+      "explanation": "A heifer is a young female cow, older than one year, which has not yet calved.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the term for a cow that remains always in heat?",
+      "options": {
+        "a": "Teaser bull",
+        "b": "Heifer",
+        "c": "Buller cow/Nymphomaniac cow",
+        "d": "Runt",
+        "e": "Steer"
+      },
+      "correct_option": "c",
+      "explanation": "A buller cow or nymphomaniac cow is a cow that remains in heat continuously due to hormonal imbalances.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the smallest piglet in a litter, often the weakest and last to be born, called?",
+      "options": {
+        "a": "Crit/Card / Runt",
+        "b": "Heifer",
+        "c": "Gilt",
+        "d": "Bullock",
+        "e": "Buckling"
+      },
+      "correct_option": "a",
+      "explanation": "The smallest piglet in a litter, often the weakest and last to be born, is called a Crit, Card, or Runt.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the process of making a male animal infertile by removing its testicles called?",
+      "options": {
+        "a": "Vasectomy",
+        "b": "Castration",
+        "c": "Artificial insemination",
+        "d": "Heat detection",
+        "e": "Parturition"
+      },
+      "correct_option": "b",
+      "explanation": "Castration is the surgical removal of testicles to make a male animal infertile. This is done to control reproduction, improve meat quality, or manage aggression in animals.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is a castrated female animal called?",
+      "options": {
+        "a": "Steer",
+        "b": "Heifer",
+        "c": "Spayed female",
+        "d": "Runt",
+        "e": "Buckling"
+      },
+      "correct_option": "c",
+      "explanation": "A castrated female is one whose reproductive organs are removed to make it infertile. This process is commonly referred to as spaying.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which buffalo breed in the Murrah group has the lowest milk production capacity?",
+      "options": {
+        "a": "Murrah",
+        "b": "Nili Ravi",
+        "c": "Kundi",
+        "d": "Godavari",
+        "e": "Bhadawari"
+      },
+      "correct_option": "c",
+      "explanation": "Among the Murrah group breeds, Kundi buffaloes have lower milk yield compared to Murrah, Nili Ravi, and Godavari. However, they are heat tolerant and disease resistant.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which buffalo breed in the Murrah group is most suitable for commercial dairy farming?",
+      "options": {
+        "a": "Godavari",
+        "b": "Nili Ravi",
+        "c": "Kundi",
+        "d": "Murrah",
+        "e": "Toda"
+      },
+      "correct_option": "d",
+      "explanation": "Murrah buffaloes are the most preferred breed for commercial dairy farming due to their high milk yield and adaptability.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which breed of buffalo is highly resistant to diseases and heat stress?",
+      "options": {
+        "a": "Murrah",
+        "b": "Nili Ravi",
+        "c": "Kundi",
+        "d": "Godavari",
+        "e": "Surti"
+      },
+      "correct_option": "c",
+      "explanation": "Kundi buffaloes, found in Sindh, Pakistan, are well adapted to hot climates and are resistant to diseases.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which buffalo breed is known for its white forehead and white switch on the tail?",
+      "options": {
+        "a": "Murrah",
+        "b": "Kundi",
+        "c": "Nili Ravi",
+        "d": "Godavari",
+        "e": "Mehsana"
+      },
+      "correct_option": "c",
+      "explanation": "Nili Ravi buffaloes have distinctive white markings on the forehead and tail switch. They are primarily found in Punjab (India and Pakistan).[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which buffalo breed from the Murrah group is characterized by a wedge-shaped body, tightly curled horns, and high milk yield?",
+      "options": {
+        "a": "Nili Ravi",
+        "b": "Murrah",
+        "c": "Kundi",
+        "d": "Godavari",
+        "e": "Jaffarabadi"
+      },
+      "correct_option": "b",
+      "explanation": "Murrah buffaloes have a wedge-shaped body, bright eyes, tightly curled horns, and a high milk yield of 20-25 liters/day[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Godavari buffalo breed was developed in which Indian state?",
+      "options": {
+        "a": "Haryana",
+        "b": "Andhra Pradesh",
+        "c": "Gujarat",
+        "d": "Maharashtra",
+        "e": "Punjab"
+      },
+      "correct_option": "b",
+      "explanation": "No Explanation added[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which buffalo breed is native to Pakistan and is commonly found in the Punjab region?",
+      "options": {
+        "a": "Nili Ravi",
+        "b": "Murrah",
+        "c": "Godavari",
+        "d": "Kundi",
+        "e": "Jaffarabadi"
+      },
+      "correct_option": "a",
+      "explanation": "Nili Ravi buffalo is native to Pakistan and is widely found in Punjab (both India and Pakistan). It is known for its high milk yield and characteristic white markings[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which buffalo breed is considered the best dairy breed in India due to its high milk production?",
+      "options": {
+        "a": "Kundi",
+        "b": "Nili Ravi",
+        "c": "Godavari",
+        "d": "Murrah",
+        "e": "Surti"
+      },
+      "correct_option": "d",
+      "explanation": "Murrah buffaloes are the highest milk-producing breed in India and are widely used for commercial dairy farming.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the average age at puberty in buffaloes?",
+      "options": {
+        "a": "12-18 months",
+        "b": "18-24 months",
+        "c": "24-30 months",
+        "d": "30-36 months",
+        "e": "36-42 months"
+      },
+      "correct_option": "c",
+      "explanation": "Buffaloes attain puberty at 24-30 months, which is later compared to cows. Puberty is influenced by nutrition, breed, and management practices.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "At what age is the first mating recommended for buffaloes?",
+      "options": {
+        "a": "12-18 months",
+        "b": "18-24 months",
+        "c": "24-30 months",
+        "d": "30-36 months",
+        "e": "36-42 months"
+      },
+      "correct_option": "d",
+      "explanation": "First mating in buffaloes is recommended at 30-36 months when they reach an optimum body weight of 300-350 kg.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the average length of the oestrus cycle in buffaloes?",
+      "options": {
+        "a": "14 days",
+        "b": "18 days",
+        "c": "21 days",
+        "d": "25 days",
+        "e": "28 days"
+      },
+      "correct_option": "c",
+      "explanation": "The oestrus cycle in buffaloes lasts for about 21 days, similar to cattle. It consists of proestrus, estrus, metestrus, and diestrus phases.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "How long does the oestrus (heat) period last in buffaloes?",
+      "options": {
+        "a": "6-10 hours",
+        "b": "12-18 hours",
+        "c": "18-24 hours",
+        "d": "24-36 hours",
+        "e": "36-48 hours"
+      },
+      "correct_option": "b",
+      "explanation": "The duration of estrus in buffaloes is 12-18 hours, which is shorter than in cows.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "When does ovulation occur in buffaloes after the end of estrus?",
+      "options": {
+        "a": "4-8 hours",
+        "b": "8-12 hours",
+        "c": "12-16 hours",
+        "d": "18-24 hours",
+        "e": "24-30 hours"
+      },
+      "correct_option": "c",
+      "explanation": "Ovulation occurs 12-16 hours after the end of estrus, which is why insemination is recommended towards the end of heat.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the best time for artificial insemination (Al) in buffaloes?",
+      "options": {
+        "a": "At the start of heat",
+        "b": "Mid-heat or towards the end of heat",
+        "c": "24 hours after heat",
+        "d": "Before the start of heat",
+        "e": "48 hours after heat"
+      },
+      "correct_option": "b",
+      "explanation": "Artificial insemination (Al) should be performed in mid-heat or towards the end of heat, as ovulation occurs 12-16 hours after estrus ends.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the average gestation period of a buffalo?",
+      "options": {
+        "a": "280-290 days",
+        "b": "290-300 days",
+        "c": "305-318 days",
+        "d": "320-330 days",
+        "e": "330-350 days"
+      },
+      "correct_option": "c",
+      "explanation": "Buffaloes have a longer gestation period (305-318 days) compared to cows (280-290 days).[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "How long is the dry period in buffaloes?",
+      "options": {
+        "a": "30-60 days",
+        "b": "60-90 days",
+        "c": "90-120 days",
+        "d": "120-150 days",
+        "e": "150-180 days"
+      },
+      "correct_option": "c",
+      "explanation": "The dry period in buffaloes is 90-120 days to allow the udder to regenerate for the next lactation.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "How many days after calving does a buffalo typically show its first heat?",
+      "options": {
+        "a": "10 days",
+        "b": "20 days",
+        "c": "30 days",
+        "d": "40 days",
+        "e": "50 days"
+      },
+      "correct_option": "d",
+      "explanation": "Buffaloes typically show their first heat about 40 days after calving if they are in good health and nutrition.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following is a well-known buffalo breed from Gujarat?",
+      "options": {
+        "a": "Surti",
+        "b": "Bhadawari",
+        "c": "Toda",
+        "d": "Nagpuri",
+        "e": "South Kanara"
+      },
+      "correct_option": "a",
+      "explanation": "Surti buffalo originates from Gujarat, specifically from the Surat and Baroda regions. It is known for high milk yield and good fat content (7-8%).[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which buffalo breed is native to the Nilgiri Hills of Tamil Nadu?",
+      "options": {
+        "a": "Surti",
+        "b": "Toda",
+        "c": "Nagpuri",
+        "d": "Mehsana",
+        "e": "Jaffarabadi"
+      },
+      "correct_option": "b",
+      "explanation": "Toda buffalo is an indigenous breed found in the Nilgiri Hills of Tamil Nadu. It is known for long, curved horns and is traditionally reared by the Toda tribal community.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Nagpuri buffalo is mainly found in which Indian state?",
+      "options": {
+        "a": "Gujarat",
+        "b": "Maharashtra",
+        "c": "Tamil Nadu",
+        "d": "Odisha",
+        "e": "Rajasthan"
+      },
+      "correct_option": "b",
+      "explanation": "Nagpuri buffalo originates from Maharashtra and is popular for its hardiness and good milk production in semi-arid regions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which breed of buffalo is known for its massive size and originates from Gujarat?",
+      "options": {
+        "a": "Mehsana",
+        "b": "Surti",
+        "c": "Bhadawari",
+        "d": "Jaffarabadi",
+        "e": "Pandharpuri"
+      },
+      "correct_option": "d",
+      "explanation": "Jaffarabadi buffalo is one of the largest and heaviest buffalo breeds in India, mainly found in Jamnagar and Bhavnagar regions of Gujarat. It is similar to Murrah but larger in body size.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Tarai buffalo is primarily found in which region?",
+      "options": {
+        "a": "Gujarat",
+        "b": "Uttar Pradesh",
+        "c": "Tamil Nadu",
+        "d": "Odisha",
+        "e": "Karnataka"
+      },
+      "correct_option": "b",
+      "explanation": "Tarai buffalo is found in the Tarai region of Uttar Pradesh and is known for its dual-purpose utility (milk and draught power).[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Bhadawari buttalo is renowned for its high content of which of the following components in its milk?",
+      "options": {
+        "a": "Water",
+        "b": "Fat",
+        "c": "Protein",
+        "d": "Carbohydrates",
+        "e": "Lactose"
+      },
+      "correct_option": "b",
+      "explanation": "The Bhadawari buffalo, primarily found in Uttar Pradesh and Madhya Pradesh, is well-known for its exceptionally high milk fat content ranging from 8% to 12%. This makes it highly suitable for producing ghee, butter, and other dairy products with rich fat content. Additionally, Bhadawari buffaloes are hardy and well-adapted to hot and dry climatic conditions[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following statements is true about the Jersey cattle breed?",
+      "options": {
+        "a": "It has the shortest lactation period among cattle",
+        "b": "It produces the highest milk yield among all cattle breeds",
+        "c": "It has the highest milk fat percentage among cattle (5.5%)",
+        "d": "It is the largest exotic cattle breed",
+        "e": "It is not suitable for tropical climates"
+      },
+      "correct_option": "c",
+      "explanation": "The Jersey cattle breed, originating from the Island of Jersey (England), is known for its high milk fat content (5.5%), making it ideal for butter and cheese production. It also has the longest lactation period among cattle (365 days) and is smallest but one of the hardiest exotic breeds, adapting well to various climatic conditions, including tropical regions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following is a distinguishing feature of the Holstein Friesian (HF) breed?",
+      "options": {
+        "a": "It has the highest milk fat percentage among cattle",
+        "b": "It produces the highest milk yield among all cattle breeds",
+        "c": "It originates from Switzerland",
+        "d": "It has the shortest lactation period among cattle",
+        "e": "It is primarily used for meat production"
+      },
+      "correct_option": "b",
+      "explanation": "The Holstein Friesian (HF) breed, originating from the Netherlands (Holland), is recognized as the highest milk-producing cattle breed globally, with an average lactation yield of 6,150 liters. However, it has one of the lowest milk fat percentages (3.5%), making it less suitable for butter and ghee production compared to breeds like Jersey or Bhadawari.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following is a notable characteristic of the Brown Swiss cattle breed?",
+      "options": {
+        "a": "It has the highest milk fat percentage among cattle",
+        "b": "It is the least heat-tolerant exotic breed",
+        "c": "It has the highest milk lactose content (5%)",
+        "d": "It produces the highest milk yield among all cattle breeds",
+        "e": "It originates from the Netherlands"
+      },
+      "correct_option": "c",
+      "explanation": "The Brown Swiss (BS) breed, originating from Switzerland, is known for its high milk lactose content (5%), making it excellent for dairy processing. It is also considered the most heat-tolerant exotic cattle breed, making it suitable for tropical and subtropical climates.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the average age at puberty for cattle?",
+      "options": {
+        "a": "6-8 months",
+        "b": "12-15 months",
+        "c": "18-20 months",
+        "d": "24-30 months",
+        "e": "36 months"
+      },
+      "correct_option": "b",
+      "explanation": "The average age at puberty in cattle is 12-15 months, though it can vary based on breed, nutrition, and environmental factors. In buffaloes, puberty occurs later, typically around 24-30 months.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the typical duration of oestrus (heat period) in cattle?",
+      "options": {
+        "a": "6-8 hours",
+        "b": "10-12 hours",
+        "c": "12-18 hours",
+        "d": "20-24 hours",
+        "e": "36 hours"
+      },
+      "correct_option": "c",
+      "explanation": "In cattle, the oestrus (heat) period lasts for 12-18 hours, during which the cow is receptive to mating. Ovulation generally occurs 12-16 hours after the end of oestrus.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the normal gestation period in cattle?",
+      "options": {
+        "a": "250-260 days",
+        "b": "270-280 days",
+        "c": "280-290 days",
+        "d": "300-310 days",
+        "e": "320-330 days"
+      },
+      "correct_option": "c",
+      "explanation": "The gestation period in cattle is typically 280-290 days, depending on the breed and environmental conditions. This is similar to buffaloes.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the average lactation length in cattle?",
+      "options": {
+        "a": "120 days",
+        "b": "180 days",
+        "c": "305 days",
+        "d": "400 days",
+        "e": "500 days"
+      },
+      "correct_option": "c",
+      "explanation": "The average lactation length in cattle is 305 days, which is nearly the same across different breeds. This period defines the time a cow produces milk after calving before drying off.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following is the best draught-purpose cattle breed of India?",
+      "options": {
+        "a": "Gir",
+        "b": "Sahiwal",
+        "c": "Amritmahal",
+        "d": "Vechur",
+        "e": "Hariana"
+      },
+      "correct_option": "c",
+      "explanation": "Amritmahal is a native breed from Karnataka and is considered the best draught-purpose breed of India due to its endurance, speed, and strength, making it ideal for agricultural and cart-pulling purposes.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Nagori breed, known for its excellent draught capability, originates from which Indian state?",
+      "options": {
+        "a": "Gujarat",
+        "b": "Maharashtra",
+        "c": "Rajasthan",
+        "d": "Madhya Pradesh",
+        "e": "Tamil Nadu"
+      },
+      "correct_option": "c",
+      "explanation": "Nagori is a well-known draught breed from Rajasthan, recognized for its speed and strength, making it ideal for transport and plowing.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which cattle breed is recognized as the smallest in the world?",
+      "options": {
+        "a": "Amritmahal",
+        "b": "Nagori",
+        "c": "Khillari",
+        "d": "Vechur",
+        "e": "Red Sindhi"
+      },
+      "correct_option": "d",
+      "explanation": "Vechur cattle, native to Kottayam, Kerala, is the smallest cattle breed in the world, with an average height of 90 cm and weight of around 130 kg. It is known for its high disease resistance and good milk production.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following cattle breeds is the best draught-purpose breed of Maharashtra?",
+      "options": {
+        "a": "Ongole",
+        "b": "Khillari",
+        "c": "Gir",
+        "d": "Red Kandhari",
+        "e": "Deoni"
+      },
+      "correct_option": "b",
+      "explanation": "Khillari is a native cattle breed of Maharashtra, well adapted for draught purposes, especially for plowing and cart transportation due to its strength and agility.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which indigenous cattle breed has the longest lactation period among desi breeds?",
+      "options": {
+        "a": "Sahiwal",
+        "b": "Red Sindhi",
+        "c": "Gir",
+        "d": "Tharparkar",
+        "e": "Hariana"
+      },
+      "correct_option": "c",
+      "explanation": "Gir cattle, native to the Gir forest region of Gujarat, have the longest lactation period among Indian indigenous breeds (325 days). They are also known for their high milk yield and adaptability to harsh climatic conditions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which indigenous cattle breed is considered the best Indian milch breed?",
+      "options": {
+        "a": "Gir",
+        "b": "Red Sindhi",
+        "c": "Tharparkar",
+        "d": "Sahiwal",
+        "e": "Hariana"
+      },
+      "correct_option": "d",
+      "explanation": "Sahiwal, originally from Montgomery (Pakistan), Punjab, Haryana, and Uttar Pradesh, is regarded as the best Indian milch breed due to its high milk production, disease resistance, and loose skin (Lola trait), which helps in heat tolerance.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which indigenous cattle breed is known for its highest disease resistance and color change property?",
+      "options": {
+        "a": "Gir",
+        "b": "Sahiwal",
+        "c": "Tharparkar",
+        "d": "Red Sindhi",
+        "e": "Kankrei"
+      },
+      "correct_option": "c",
+      "explanation": "Tharparkar cattle, native to Tharparkar (Pakistan) and Malani (Jaisalmer, Rajasthan), are highly disease-resistant and have a unique color change property, where their coat appears lighter in summer and darker in winter, helping them adapt to extreme climatic conditions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which is the heaviest Indian cattle breed, known for its famous gait \"Sawai Chal\"?",
+      "options": {
+        "a": "Tharparkar",
+        "b": "Gir",
+        "c": "Kankrej",
+        "d": "Hariana",
+        "e": "Ongole"
+      },
+      "correct_option": "c",
+      "explanation": "Kankrej cattle, native to Kutch and Banaskantha regions of Gujarat, are the heaviest Indian cattle breed. They are also known for their unique \"Sawai Chal\" gait, which helps them move efficiently across rough terrains.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian cattle breed is known for its pure white color?",
+      "options": {
+        "a": "Gir",
+        "b": "Sahiwal",
+        "c": "Ongole",
+        "d": "Kankrej",
+        "e": "Tharparkar"
+      },
+      "correct_option": "c",
+      "explanation": "Ongole cattle, originating from Andhra Pradesh, are large-sized, muscular, and known for their pure white coat color. They are widely used for draught purposes and bullfighting in some regions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian cattle breed is primarily tound in the Kosi region and is well-suited for both milking and draught purposes?",
+      "options": {
+        "a": "Ongole",
+        "b": "Mewati",
+        "c": "Kankrej",
+        "d": "Hariana",
+        "e": "Tharparkar"
+      },
+      "correct_option": "b",
+      "explanation": "Mewati (Kosi) cattle, found in the Kosi region of Rajasthan and Haryana, are known for their dual-purpose use, providing both milk and draught power.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian cattle breed is best suited for working in hilly and heavy rainfall areas due to its high disease resistance?",
+      "options": {
+        "a": "Dangi",
+        "b": "Sahiwal",
+        "c": "Tharparkar",
+        "d": "Nimari",
+        "e": "Red Sindhi"
+      },
+      "correct_option": "a",
+      "explanation": "Dangi cattle, native to Maharashtra, are highly disease-resistant and well-adapted to hilly and high rainfall regions, making them excellent for plowing and draught work.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Nimari cattle are primarily found in which Indian state?",
+      "options": {
+        "a": "Rajasthan",
+        "b": "Gujarat",
+        "c": "Madhya Pradesh",
+        "d": "Uttar Pradesh",
+        "e": "Maharashtra"
+      },
+      "correct_option": "c",
+      "explanation": "Nimari cattle, a dual-purpose breed, originate from Madhya Pradesh and are known for their strength, milk production, and adaptability to dry conditions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian cattle breed is known for its high milk yield and deep reddish-brown color?",
+      "options": {
+        "a": "Gir",
+        "b": "Sahiwal",
+        "c": "Red Sindhi",
+        "d": "Tharparkar",
+        "e": "Kankrej"
+      },
+      "correct_option": "c",
+      "explanation": "Red Sindhi cattle, originally from Sindh (Pakistan), are excellent milk producers, well-suited for hot and humid climates. Their deep reddish-brown color, high disease resistance, and adaptability make them a preferred dairy breed in India and other tropical regions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the gestation period in cattle?",
+      "options": {
+        "a": "The time taken for a cow to reach puberty",
+        "b": "The period between two consecutive calvings",
+        "c": "The duration from conception to birth of a calf",
+        "d": "The time taken for milk production to reach its peak",
+        "e": "The period of heat cycle in cows"
+      },
+      "correct_option": "c",
+      "explanation": "The gestation period refers to the time between conception and the birth of a calf. In cattle, this period typically lasts 280-290 days, depending on the breed and environmental conditions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the dry period in cattle?",
+      "options": {
+        "a": "The time when a cow is not producing milk between two lactations",
+        "b": "The period when a cow is in heat and ready for mating",
+        "c": "The duration from birth to first calving",
+        "d": "The phase of peak milk production in lactation",
+        "e": "The time when a cow is pregnant and producing maximum milk"
+      },
+      "correct_option": "a",
+      "explanation": "The dry period is the non-lactating phase between two lactations, typically lasting 60-90 days in cows and 90-120 days in buffaloes. It allows the udder to rest and prepare for the next lactation, improving overall milk yield.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which sheep breed is considered the best fine wool breed in the world?",
+      "options": {
+        "a": "Rambouillet",
+        "b": "Corriedale",
+        "c": "Merino",
+        "d": "Dorset",
+        "e": "Suffolk"
+      },
+      "correct_option": "c",
+      "explanation": "Merino sheep, originally from Spain, are globally recognized as the best fine wool breed due to their high-quality, soft, and fine wool. Ewes are usually polled (hornless), while rams typically have spiral horns. Merino wool is highly valued in the textile industry.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following is the largest and heaviest sheep breed in the world?",
+      "options": {
+        "a": "Merino",
+        "b": "Suffolk",
+        "c": "Lincoln",
+        "d": "Dorset",
+        "e": "Rambouillet"
+      },
+      "correct_option": "c",
+      "explanation": "Lincoln sheep, originating from England, are the largest and heaviest sheep breed in the world. They are known for their long, coarse wool and are primarily used for meat and wool production.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following is the oldest English sheep breed, characterized by its mousey grey face?",
+      "options": {
+        "a": "Dorset",
+        "b": "Suffolk",
+        "c": "Southdown",
+        "d": "Hampshire",
+        "e": "Lincoln"
+      },
+      "correct_option": "c",
+      "explanation": "Southdown sheep, originating from England, are the oldest English sheep breed. They are easily recognized by their mousey grey face and compact body. Southdowns are primarily raised for meat production due to their excellent carcass quality.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which sheep breed is known as the best pelt-producing breed in the world?",
+      "options": {
+        "a": "Merino",
+        "b": "Karakul",
+        "c": "Lincoln",
+        "d": "Southdown",
+        "e": "Dorset"
+      },
+      "correct_option": "b",
+      "explanation": "Karakul sheep, originating from the Bukhara province of Uzbekistan (Central Asia), are renowned for their high-quality pelt (fur) production. The lambs are particularly valued for their silky, curly pelts, which are used in the fur industry.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian sheep breed is also known as Shekhawati and is famous for its fine wool?",
+      "options": {
+        "a": "Marwari",
+        "b": "Malpura",
+        "c": "Chokla",
+        "d": "Deccani",
+        "e": "Nellore"
+      },
+      "correct_option": "c",
+      "explanation": "Chokla sheep, also known as Shekhawati, originate from Rajasthan, India. They are famous for producing fine wool, making them one of the best wool-producing sheep breeds in India.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian sheep breed is known for having yellow-colored wool?",
+      "options": {
+        "a": "Chokla",
+        "b": "Nali",
+        "c": "Marwari",
+        "d": "Malpura",
+        "e": "Deccani"
+      },
+      "correct_option": "b",
+      "explanation": "Nali sheep, found in Rajasthan, Haryana, and Punjab, are recognized for their medium-fine, yellow-colored wool. This wool is used in the textile industry, and the breed is well-adapted to semi-arid climates.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian sheep breed is known for its high disease resistance and is classified as a triple-purpose breed?",
+      "options": {
+        "a": "Nali",
+        "b": "Deccani",
+        "c": "Chokla",
+        "d": "Marwari",
+        "e": "Malpura"
+      },
+      "correct_option": "d",
+      "explanation": "Marwari sheep, originating from the Marwar region of Rajasthan, are known for their high disease resistance. They are classified as a triple-purpose breed, meaning they are valued for wool, meat, and milk production. Their adaptability to harsh climatic conditions makes them a popular breed in arid and semi-arid regions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian sheep breed originates from the Bikaner region of Rajasthan and is known for its fine wool?",
+      "options": {
+        "a": "Marwari",
+        "b": "Nali",
+        "c": "Pugal",
+        "d": "Deccani",
+        "e": "Chokla"
+      },
+      "correct_option": "c",
+      "explanation": "Pugal sheep originate from the Bikaner region of Rajasthan and are known for their fine wool quality. They are well-adapted to arid and semi-arid conditions and are primarily raised for wool production. Their wool is used in making carpets and textiles.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which is the tallest breed of sheep in India, known for its mutton quality and lack of wool?",
+      "options": {
+        "a": "Deccani",
+        "b": "Mandya",
+        "c": "Nellore",
+        "d": "Marwari",
+        "e": "Sonadi"
+      },
+      "correct_option": "c",
+      "explanation": "Nellore sheep is the tallest sheep breed in India, primarily reared for mutton production. It is also called \"goat-like sheep\" because it lacks wool and resembles a goat in appearance. This breed is highly valued for its fast growth rate and adaptability in semi-arid regions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian sheep breed is tamous for its premium mutton quality and is often called the \"Mysore mutton breed\"?",
+      "options": {
+        "a": "Deccani",
+        "b": "Nellore",
+        "c": "Mandya (Bannur)",
+        "d": "Marwari",
+        "e": "Sonadi"
+      },
+      "correct_option": "c",
+      "explanation": "Mandya sheep, also known as Bannur sheep, originates from Karnataka and is famous for its superior mutton quality. It is often referred to as the \"Mysore mutton breed\" due to the tenderness and taste of its meat, making it highly preferred in the region.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which sheep breed is known for its natural resistance to foot rot and is the ancestor of the world-famous Merino sheep?",
+      "options": {
+        "a": "Nali",
+        "b": "Marwari",
+        "c": "Garole",
+        "d": "Deccani",
+        "e": "Sonadi"
+      },
+      "correct_option": "c",
+      "explanation": "Garole sheep, native to the Sundarbans region of West Bengal, is known for its natural resistance to foot rot and adaptability to humid and marshy environments. It is also considered the ancestor of the world-famous Merino sheep, contributing to the development of fine wool breeds worldwide.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian sheep breed is primarily reared by the nomadic communities of Jammu and Kashmir for wool production?",
+      "options": {
+        "a": "Deccani",
+        "b": "Marwari",
+        "c": "Bhakarwal",
+        "d": "Mandya",
+        "e": "Sonadi"
+      },
+      "correct_option": "c",
+      "explanation": "Bhakarwal sheep is a breed native to the Jammu and Kashmir region, primarily reared by the Bhakarwal and Gujjar nomadic communities. It is well-known for its coarse wool, which is used for making warm garments and carpets suitable for cold climates.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following is the correct term for the act of parturition in sheep?",
+      "options": {
+        "a": "Kidding",
+        "b": "Calving",
+        "c": "Lambing",
+        "d": "Foaling",
+        "e": "Farrowing"
+      },
+      "correct_option": "c",
+      "explanation": "In sheep, lambing refers to the process of giving birth. Other terms like kidding (goats), calving (cattle), foaling (horses), and farrowing (pigs) are specific to different livestock species.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the term used for a young female sheep?",
+      "options": {
+        "a": "Ewe",
+        "b": "Ram",
+        "c": "Gimmer lamb",
+        "d": "Buckling",
+        "e": "Heifer"
+      },
+      "correct_option": "c",
+      "explanation": "In sheep, lambing refers to the process of giving birth. Other terms like kidding (goats), calving (cattle), foaling (horses), and farrowing (pigs) are specific to different livestock species.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following refers to a young male sheep?",
+      "options": {
+        "a": "Buck",
+        "b": "Ram lamb",
+        "c": "Lamb",
+        "d": "Boarling",
+        "e": "Steer"
+      },
+      "correct_option": "b",
+      "explanation": "A ram lamb is a young male sheep, whereas lamb refers to any young sheep. Buck is a term for a male goat, boarding is used for pigs, and steer is castrated male cattle.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the term used for a castrated male sheep?",
+      "options": {
+        "a": "Wether",
+        "b": "Steer",
+        "c": "Gelding",
+        "d": "Boarling",
+        "e": "Bullock"
+      },
+      "correct_option": "a",
+      "explanation": "A wether is a castrated male sheep. A steer refers to castrated male cattle, gelding is used for horses, boarling is for pigs, and bullock is another term for castrated male cattle.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "At what age do sheep and goats typically reach breeding age?",
+      "options": {
+        "a": "4-5 months",
+        "b": "6-8 months",
+        "c": "10-12 months",
+        "d": "12-14 months",
+        "e": "18-20 months"
+      },
+      "correct_option": "b",
+      "explanation": "Sheep and goats generally reach breeding age between 6 to 8 months. However, actual breeding depends on factors such as breed, nutrition, and environmental conditions.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "After lambing, when does a ewe typically return to heat?",
+      "options": {
+        "a": "7 days",
+        "b": "14 days",
+        "c": "21 days",
+        "d": "30 days",
+        "e": "45 days"
+      },
+      "correct_option": "c",
+      "explanation": "An ewe usually returns to estrus (heat) 21 days after lambing, allowing for quick breeding cycles in intensive farming systems.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the average gestation period (pregnancy length) in sheep?",
+      "options": {
+        "a": "120 days",
+        "b": "130 days",
+        "c": "147 days",
+        "d": "160 days",
+        "e": "180 days"
+      },
+      "correct_option": "c",
+      "explanation": "The gestation period in sheep is approximately 147 days, but it can range from 144 to 152 days depending on breed and environmental factors.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the ideal male-to-female ratio in sheep and goat breeding?",
+      "options": {
+        "a": "1:5",
+        "b": "1:10",
+        "c": "1:20",
+        "d": "1:30",
+        "e": "1:50"
+      },
+      "correct_option": "c",
+      "explanation": "A single male (ram or buck) is typically sufficient for 20 females during the breeding season to ensure successful mating.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "What is the average estrous cycle length in ewes?",
+      "options": {
+        "a": "10-12 days",
+        "b": "14-19 days",
+        "c": "16-17 days",
+        "d": "20-22 days",
+        "e": "25-28 days"
+      },
+      "correct_option": "c",
+      "explanation": "The estrous cycle in ewes repeats every 16-17 days, with a general range of 14-19 days. This cycle determines when a ewe is receptive to mating.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "How does the estrous cycle in goats (does) compare to that of sheep (ewes)?",
+      "options": {
+        "a": "It is shorter in does than in ewes",
+        "b": "It is longer in does than in ewes",
+        "c": "It is the same in both",
+        "d": "Does do not have an estrous cycle",
+        "e": "Estrous cycles in does are unpredictable"
+      },
+      "correct_option": "b",
+      "explanation": "The estrous cycle is 19-21 days in does (range 17-24 days), which is slightly longer than in ewes, whose cycle averages 16-17 days (range 14-19 days).[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Changthangi breed of sheep is famous for producing which of the following?",
+      "options": {
+        "a": "Carpet wool",
+        "b": "Pashmina wool",
+        "c": "Mohair",
+        "d": "Cashmere wool",
+        "e": "Coarse wool"
+      },
+      "correct_option": "b",
+      "explanation": "Changthangi sheep, also known as Pashmina sheep, is found in the Ladakh region. It is famous for producing Pashmina wool, which is used for making high-quality shawls.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Saanen goat, known as the \"Milk Queen,\" originates from which country?",
+      "options": {
+        "a": "France",
+        "b": "Switzerland",
+        "c": "England",
+        "d": "Germany",
+        "e": "Italy"
+      },
+      "correct_option": "b",
+      "explanation": "Switzerland. It is called the \"Milk Queen\" due to its high milk yield and is widely used in commercial dairy farming.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following goat breeds is also known as the \"Jersey of Goats\"?",
+      "options": {
+        "a": "Alpine",
+        "b": "Boer",
+        "c": "Anglo-Nubian",
+        "d": "Toggenburg",
+        "e": "Orenberg"
+      },
+      "correct_option": "c",
+      "explanation": "The Anglo-Nubian goat, originating from England, is called the \"Jersey of Goats\" because of its high-fat milk production. It has a distinctive Roman nose and is an excellent dual-purpose breed.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Angora goat, famous for its luxurious fiber, is also known as what?",
+      "options": {
+        "a": "Mohair goat",
+        "b": "Pashmina goat",
+        "c": "Cashmere goat",
+        "d": "Wool goat",
+        "e": "Fleece goat"
+      },
+      "correct_option": "a",
+      "explanation": "The Angora goat, originally from Turkey, produces Mohair, a fine, soft, and silky fiber. It is also known as the \"sheep-like goat\" due to its woolly appearance.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Boer goat, famous for its meat production, originates from which region?",
+      "options": {
+        "a": "South America",
+        "b": "Southern Africa",
+        "c": "Australia",
+        "d": "Europe",
+        "e": "Middle East"
+      },
+      "correct_option": "b",
+      "explanation": "The Boer goat, native to Southern Africa, is one of the best meat-producing goat breeds in the world. It is commonly used for crossbreeding to improve meat yield.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following goat breeds is hornless and highly adaptable?",
+      "options": {
+        "a": "Toggenburg",
+        "b": "Saanen",
+        "c": "Alpine",
+        "d": "Boer",
+        "e": "Orenberg"
+      },
+      "correct_option": "a",
+      "explanation": "The Toggenburg goat, originally from Switzerland, is hornless (polled) and has high adaptability among exotic breeds. It is a good milk-producing breed with a distinct brownish coat.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "The Orenberg goat, found in Kazakhstan, is mainly raised for which purpose?",
+      "options": {
+        "a": "Meat",
+        "b": "Milk",
+        "c": "Wool",
+        "d": "Dual-purpose",
+        "e": "Hide production"
+      },
+      "correct_option": "c",
+      "explanation": "The Orenberg goat, native to Kazakhstan, is mainly raised for its high-quality wool, which is used for cashmere production.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which Indian goat breed is known as the \"King of Goats\"?",
+      "options": {
+        "a": "Barbari",
+        "b": "Jhakrana",
+        "c": "Jamunapari",
+        "d": "Sirohi",
+        "e": "Marwari"
+      },
+      "correct_option": "c",
+      "explanation": "The Jamunapari breed, originating from Etawah, Uttar Pradesh, is known as the \"King of Goats\" due to its large size, high milk yield, and superior meat quality.[cite: 19]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Animal Husbandry Part 1",
+      "question": "Which of the following goat breeds is best suited for stall-feeding and intensive farming?",
+      "options": {
+        "a": "Jhakrana",
+        "b": "Barbari",
+        "c": "Kutchi",
+        "d": "Beetle",
+        "e": "Marwari"
+      },
+      "correct_option": "b",
+      "explanation": "Barbari goats are small-sized, highly prolific, and suitable for stall-feeding, making them ideal for commercial farming and backyard rearing.[cite: 19]"
+    }
+  ]
+}
