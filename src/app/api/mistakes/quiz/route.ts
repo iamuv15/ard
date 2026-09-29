@@ -29,7 +29,7 @@ export async function GET(request: Request) {
       orderBy: { id: 'asc' }
     })
 
-    const questions = mistakes.map(m => m.question)
+    const questions = mistakes.map((m: any) => m.question)
 
     return NextResponse.json({ questions })
   } catch (error) {

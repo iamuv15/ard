@@ -25,7 +25,7 @@ async function main() {
         where: { name: quizName }
       });
       console.log(`Deleted ${deleted.count} quizzes named: ${quizName}`);
-    } catch (error) {
+    } catch (error: any) {
       console.log(`Error deleting quiz "${quizName}": ${error.message}`);
     }
   }

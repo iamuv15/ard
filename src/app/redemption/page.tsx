@@ -31,16 +31,16 @@ export default async function RedemptionLobby() {
   const now = new Date()
   
   // Due mistakes
-  const dueMistakes = allMistakes.filter(m => m.nextReviewAt <= now)
+  const dueMistakes = allMistakes.filter((m: any) => m.nextReviewAt <= now)
   const totalDue = dueMistakes.length
 
   // Cooldown mistakes
-  const cooldownMistakes = allMistakes.filter(m => m.nextReviewAt > now)
+  const cooldownMistakes = allMistakes.filter((m: any) => m.nextReviewAt > now)
   const totalCooldown = cooldownMistakes.length
 
   // Group by chapter (for due mistakes)
   const dueChapterMistakes: Record<number, { chapter: any, count: number }> = {}
-  dueMistakes.forEach(m => {
+  dueMistakes.forEach((m: any) => {
     const chapter = m.question.quiz.chapter
     const chapterId = chapter.id
     if (!dueChapterMistakes[chapterId]) {
@@ -52,7 +52,7 @@ export default async function RedemptionLobby() {
 
   // Group by chapter (for cooldown mistakes)
   const cooldownChapterMistakes: Record<number, { chapter: any, count: number }> = {}
-  cooldownMistakes.forEach(m => {
+  cooldownMistakes.forEach((m: any) => {
     const chapter = m.question.quiz.chapter
     const chapterId = chapter.id
     if (!cooldownChapterMistakes[chapterId]) {

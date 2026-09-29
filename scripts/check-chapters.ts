@@ -9,7 +9,7 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   const chapters = await prisma.chapter.findMany();
-  console.log('Chapters:', chapters.map(c => ({ id: c.id, name: c.name })));
+  console.log('Chapters:', chapters.map((c: any) => ({ id: c.id, name: c.name })));
 }
 
 main()

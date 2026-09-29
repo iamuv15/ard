@@ -50,7 +50,7 @@ export default async function AdminDashboard() {
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
               Select a chapter, define questions per quiz, and upload multiple Excel files.
             </p>
-            <UploadForm chapters={chapters.map(c => ({ id: c.id, name: c.name }))} />
+            <UploadForm chapters={chapters.map((c: any) => ({ id: c.id, name: c.name }))} />
           </div>
         </div>
         

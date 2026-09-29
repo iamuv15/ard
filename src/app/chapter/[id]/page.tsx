@@ -29,7 +29,7 @@ export default async function ChapterPage(props: { params: Promise<{ id: string 
     notFound()
   }
 
-  const totalQuestions = chapter.quizzes.reduce((acc, quiz) => acc + quiz._count.questions, 0);
+  const totalQuestions = chapter.quizzes.reduce((acc: number, quiz: any) => acc + quiz._count.questions, 0);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
@@ -56,7 +56,7 @@ export default async function ChapterPage(props: { params: Promise<{ id: string 
         </div>
         
         <div className="flex flex-col gap-3">
-          {chapter.quizzes.map((quiz) => {
+          {chapter.quizzes.map((quiz: any) => {
             return (
               <Link 
                 key={quiz.id} 
