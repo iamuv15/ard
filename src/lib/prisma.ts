@@ -5,18 +5,20 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }
 
-// Check if we need to append sslmode for Supabase
-let connectionString = process.env.DATABASE_URL!
-if (connectionString && connectionString.includes('supabase') && !connectionString.includes('sslmode')) {
-  connectionString += (connectionString.includes('?') ? '&' : '?') + 'sslmode=require'
+let connectionString = process.env.DATABASE_URL || ''
+
+// For Supabase / Postgres: If sslmode=require is present without uselibpqcompat,
+// pg treats it as verify-full which fails on certificate chains in serverless runtimes.
+if (connectionString.includes('sslmode=require') && !connectionString.includes('uselibpqcompat')) {
+  connectionString += (connectionString.includes('?') ? '&' : '?') + 'uselibpqcompat=true'
 }
 
 const adapter = new PrismaPg({
   connectionString,
-  // Serverless pooling configuration to prevent stale socket timeouts
+  ssl: { rejectUnauthorized: false },
   max: 10,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 10000, // 10s connection timeout
+  connectionTimeoutMillis: 10000,
 })
 
 const prisma = globalForPrisma.prisma ?? new PrismaClient({ adapter })

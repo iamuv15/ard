@@ -28,15 +28,15 @@ export async function POST(request: Request, props: { params: Promise<{ id: stri
     }
 
     // Perform atomic transaction: move questions, then delete source quiz
-    await prisma.$transaction([
-      prisma.question.updateMany({
+    await prisma.$transaction(async (tx) => {
+      await tx.question.updateMany({
         where: { quizId: sourceQuizId },
         data: { quizId: targetQuizId }
-      }),
-      prisma.quiz.delete({
+      })
+      await tx.quiz.delete({
         where: { id: sourceQuizId }
       })
-    ])
+    })
 
     return NextResponse.json({ success: true })
   } catch (error) {
