@@ -1,11 +1,11 @@
 import { PrismaClient } from '@prisma/client';
-import { PrismaLibSql } from '@prisma/adapter-libsql';
+import { PrismaPg } from '@prisma/adapter-pg';
 import * as fs from 'fs';
 import * as path from 'path';
 
 async function main() {
   const url = process.env.DATABASE_URL || 'file:./dev.db';
-  const adapter = new PrismaLibSql({ url });
+  const adapter = new PrismaPg({ connectionString: url });
   const prisma = new PrismaClient({ adapter });
 
   const jsonPath = path.join(process.cwd(), 'Quiz Questions', 'Agro-climatic Zones.json');
