@@ -6,7 +6,7 @@ export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Define paths that require authentication
-  const protectedPaths = ['/quiz', '/redemption']
+  const protectedPaths = ['/quiz', '/redemption', '/chapter']
   
   const isProtectedPath = protectedPaths.some(path => pathname.startsWith(path))
 
@@ -14,7 +14,9 @@ export async function proxy(request: NextRequest) {
     const token = request.cookies.get('auth_token')?.value
 
     if (!token) {
-      return NextResponse.redirect(new URL('/login', request.url))
+      const loginUrl = new URL('/login', request.url)
+      loginUrl.searchParams.set('redirect', pathname)
+      return NextResponse.redirect(loginUrl)
     }
 
     try {
@@ -22,7 +24,9 @@ export async function proxy(request: NextRequest) {
       await jwtVerify(token, new TextEncoder().encode(secret))
     } catch (err) {
       // Invalid token
-      const response = NextResponse.redirect(new URL('/login', request.url))
+      const loginUrl = new URL('/login', request.url)
+      loginUrl.searchParams.set('redirect', pathname)
+      const response = NextResponse.redirect(loginUrl)
       response.cookies.delete('auth_token')
       return response
     }

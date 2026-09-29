@@ -1,9 +1,15 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { NextRequest } from 'next/server'
+import { getUserSession } from '@/lib/auth'
 
 export async function GET(request: NextRequest) {
   try {
+    const session = await getUserSession()
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized. Please log in to view questions.' }, { status: 401 })
+    }
+
     const searchParams = request.nextUrl.searchParams
     const quizIdParam = searchParams.get('quizId')
     

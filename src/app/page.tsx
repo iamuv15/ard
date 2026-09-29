@@ -1,9 +1,7 @@
-import Link from 'next/link'
-import { BrainCircuit, BookOpen, ShieldAlert } from 'lucide-react'
 import prisma from '@/lib/prisma'
 import { getUserSession } from '@/lib/auth'
-import LogOutButton from '@/components/LogOutButton'
 import CourseDashboard from '@/components/CourseDashboard'
+import PublicLandingPage from '@/components/PublicLandingPage'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,9 +18,15 @@ export default async function Home() {
         }
       }
     },
-    orderBy: { createdAt: 'asc' }
+    orderBy: { name: 'asc' }
   })
 
+  // If not logged in: Show the rich preview landing page reflecting what's inside
+  if (!session) {
+    return <PublicLandingPage chapters={chapters} />
+  }
+
+  // If logged in: Show the actual course dashboard with full quiz access
   let mistakeCount = 0
   if (session) {
     mistakeCount = await prisma.userMistake.count({
@@ -30,5 +34,5 @@ export default async function Home() {
     })
   }
 
-  return <CourseDashboard chapters={chapters} mistakeCount={mistakeCount} userName={session?.name || null} />
+  return <CourseDashboard chapters={chapters} mistakeCount={mistakeCount} userName={session.name || null} />
 }

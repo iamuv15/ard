@@ -1,11 +1,17 @@
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { ArrowLeft, BookOpen, FileQuestion } from 'lucide-react'
 import prisma from '@/lib/prisma'
+import { getUserSession } from '@/lib/auth'
 
 export const dynamic = 'force-dynamic'
 
 export default async function ChapterPage(props: { params: Promise<{ id: string }> }) {
+  const session = await getUserSession()
+  if (!session) {
+    redirect('/login')
+  }
+
   const params = await props.params;
   const chapterId = parseInt(params.id, 10)
   
