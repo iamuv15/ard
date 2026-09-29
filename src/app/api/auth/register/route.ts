@@ -5,10 +5,15 @@ import { generateToken } from '@/lib/auth'
 
 export async function POST(request: Request) {
   try {
-    const { name, email, password } = await request.json()
+    const { name, email, password, inviteCode } = await request.json()
 
     if (!name || !email || !password) {
       return NextResponse.json({ error: 'All fields are required' }, { status: 400 })
+    }
+
+    const expectedCode = process.env.INVITE_CODE || 'Billu'
+    if (!inviteCode || inviteCode.trim().toLowerCase() !== expectedCode.trim().toLowerCase()) {
+      return NextResponse.json({ error: 'Invalid invite code. A valid invite code is required to register.' }, { status: 400 })
     }
 
     const existingUser = await prisma.user.findUnique({
