@@ -3,6 +3,7 @@ import prisma from '@/lib/prisma'
 import LogOutButton from '@/components/LogOutButton'
 import { ChapterList } from '@/components/admin/ChapterList'
 import { CreateChapterForm } from '@/components/admin/CreateChapterForm'
+import { UserManagement } from '@/components/admin/UserManagement'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,6 +20,12 @@ export default async function AdminDashboard() {
         }
       }
     },
+    orderBy: { createdAt: 'desc' }
+  })
+
+  const users = await prisma.user.findMany({
+    select: { id: true, name: true, email: true, cohort: true, role: true },
+    where: { role: 'USER' },
     orderBy: { createdAt: 'desc' }
   })
 
@@ -50,7 +57,7 @@ export default async function AdminDashboard() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
             <h2 className="text-xl font-semibold mb-4">2. Upload Quizzes</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-              Select a chapter, define questions per quiz, and upload multiple Excel files.
+              Select a chapter and upload multiple JSON or Excel files.
             </p>
             <UploadForm chapters={chapters.map((c: any) => ({ id: c.id, name: c.name }))} />
           </div>
@@ -59,6 +66,11 @@ export default async function AdminDashboard() {
         <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
           <h2 className="text-xl font-semibold mb-6">Manage Content</h2>
           <ChapterList initialChapters={chapters} />
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+          <h2 className="text-xl font-semibold mb-6">Manage Users</h2>
+          <UserManagement initialUsers={users} />
         </div>
       </div>
     </div>

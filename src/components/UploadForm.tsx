@@ -7,7 +7,6 @@ import { UploadCloud, Loader2, CheckCircle, AlertCircle, FileSpreadsheet } from 
 export function UploadForm({ chapters }: { chapters: { id: number, name: string }[] }) {
   const [files, setFiles] = useState<File[]>([])
   const [chapterId, setChapterId] = useState<string>('')
-  const [chunkSize, setChunkSize] = useState<string>('40')
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -29,7 +28,6 @@ export function UploadForm({ chapters }: { chapters: { id: number, name: string 
 
     const formData = new FormData()
     formData.append('chapterId', chapterId)
-    formData.append('chunkSize', chunkSize)
     
     files.forEach(file => {
       formData.append('files', file)
@@ -79,26 +77,10 @@ export function UploadForm({ chapters }: { chapters: { id: number, name: string 
           </select>
         </div>
 
-        <div>
-          <label htmlFor="chunkSize" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Questions per Quiz (Chunk Size)
-          </label>
-          <input
-            type="number"
-            id="chunkSize"
-            value={chunkSize}
-            onChange={(e) => setChunkSize(e.target.value)}
-            min="1"
-            placeholder="e.g. 40"
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-          />
-          <p className="text-xs text-gray-500 mt-1">Leave as 40 or empty to keep it default.</p>
-        </div>
-
         <div className="relative border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-6 text-center hover:border-blue-500 transition-colors cursor-pointer" onClick={() => fileInputRef.current?.click()}>
           <input
             type="file"
-            accept=".xlsx,.xls,.csv"
+            accept=".xlsx,.xls,.csv,.json"
             multiple
             onChange={handleFileChange}
             ref={fileInputRef}
@@ -107,7 +89,7 @@ export function UploadForm({ chapters }: { chapters: { id: number, name: string 
           <div className="flex flex-col items-center justify-center space-y-2">
             <UploadCloud className="w-10 h-10 text-gray-400" />
             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              {files.length > 0 ? `${files.length} file(s) selected` : 'Click to select multiple Excel files'}
+              {files.length > 0 ? `${files.length} file(s) selected` : 'Click to select Excel or JSON files'}
             </p>
             {files.length > 0 && (
               <div className="mt-2 text-left w-full max-h-32 overflow-y-auto bg-gray-50 dark:bg-gray-700/50 rounded p-2">

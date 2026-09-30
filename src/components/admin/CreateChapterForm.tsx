@@ -6,6 +6,7 @@ import { PlusCircle, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
 
 export function CreateChapterForm() {
   const [name, setName] = useState('')
+  const [cohort, setCohort] = useState('BETA')
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null)
   const router = useRouter()
@@ -23,7 +24,7 @@ export function CreateChapterForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: name.trim() }),
+        body: JSON.stringify({ name: name.trim(), cohort }),
       })
 
       const data = await res.json()
@@ -58,6 +59,21 @@ export function CreateChapterForm() {
             className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             required
           />
+        </div>
+
+        <div>
+          <label htmlFor="cohortSelect" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Assign To (Cohort)
+          </label>
+          <select
+            id="cohortSelect"
+            value={cohort}
+            onChange={(e) => setCohort(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+          >
+            <option value="BETA">Everyone (Beta & Alpha)</option>
+            <option value="ALPHA">Alpha Only</option>
+          </select>
         </div>
 
         <button

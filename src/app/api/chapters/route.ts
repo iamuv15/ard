@@ -11,7 +11,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { name } = await request.json()
+    const { name, cohort } = await request.json()
 
     if (!name || name.trim() === '') {
       return NextResponse.json({ error: 'Chapter name is required' }, { status: 400 })
@@ -19,7 +19,8 @@ export async function POST(request: Request) {
 
     const chapter = await prisma.chapter.create({
       data: {
-        name: name.trim()
+        name: name.trim(),
+        cohort: cohort || 'BETA'
       }
     })
 

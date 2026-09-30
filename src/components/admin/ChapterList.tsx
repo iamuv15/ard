@@ -8,6 +8,7 @@ import Link from 'next/link'
 type Quiz = {
   id: number
   name: string
+  cohort: string
   _count: {
     questions: number
   }
@@ -16,15 +17,18 @@ type Quiz = {
 type Chapter = {
   id: number
   name: string
+  cohort: string
   quizzes: Quiz[]
 }
 
 export function ChapterList({ initialChapters }: { initialChapters: Chapter[] }) {
   const [chapters, setChapters] = useState(initialChapters)
   const [deletingChapterId, setDeletingChapterId] = useState<number | null>(null)
+  const [togglingCohortId, setTogglingCohortId] = useState<number | null>(null)
   const [expandedChapters, setExpandedChapters] = useState<Record<number, boolean>>({})
   
   // Quiz state
+  const [togglingQuizCohortId, setTogglingQuizCohortId] = useState<number | null>(null)
   const [deletingQuizId, setDeletingQuizId] = useState<number | null>(null)
   const [editingQuizId, setEditingQuizId] = useState<number | null>(null)
   const [editQuizName, setEditQuizName] = useState('')
@@ -45,6 +49,55 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
 
   const toggleChapter = (id: number) => {
     setExpandedChapters(prev => ({ ...prev, [id]: !prev[id] }))
+  }
+
+  const toggleChapterCohort = async (chapter: Chapter) => {
+    setTogglingCohortId(chapter.id)
+    try {
+      const newCohort = chapter.cohort === 'ALPHA' ? 'BETA' : 'ALPHA'
+      const res = await fetch(`/api/chapters/${chapter.id}/cohort`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cohort: newCohort })
+      })
+      if (res.ok) {
+        setChapters(chapters.map(c => c.id === chapter.id ? { ...c, cohort: newCohort } : c))
+        router.refresh()
+      } else {
+        alert('Failed to update cohort')
+      }
+    } catch (error) {
+      alert('An error occurred')
+    } finally {
+      setTogglingCohortId(null)
+    }
+  }
+
+  const toggleQuizCohort = async (chapterId: number, quiz: Quiz) => {
+    setTogglingQuizCohortId(quiz.id)
+    try {
+      const newCohort = quiz.cohort === 'ALPHA' ? 'BETA' : 'ALPHA'
+      const res = await fetch(`/api/quizzes/${quiz.id}/cohort`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cohort: newCohort })
+      })
+      if (res.ok) {
+        setChapters(chapters.map(c => {
+          if (c.id === chapterId) {
+            return { ...c, quizzes: c.quizzes.map(q => q.id === quiz.id ? { ...q, cohort: newCohort } : q) }
+          }
+          return c
+        }))
+        router.refresh()
+      } else {
+        alert('Failed to update cohort')
+      }
+    } catch (error) {
+      alert('An error occurred')
+    } finally {
+      setTogglingQuizCohortId(null)
+    }
   }
 
   const confirmDeleteChapter = async () => {
@@ -185,7 +238,20 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
                   {expandedChapters[chapter.id] ? <ChevronDown className="w-5 h-5 text-gray-500" /> : <ChevronRight className="w-5 h-5 text-gray-500" />}
                 </button>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white cursor-pointer select-none" onClick={() => toggleChapter(chapter.id)}>{chapter.name}</h3>
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-bold text-gray-900 dark:text-white cursor-pointer select-none" onClick={() => toggleChapter(chapter.id)}>{chapter.name}</h3>
+                    <button 
+                      onClick={() => toggleChapterCohort(chapter)}
+                      disabled={togglingCohortId === chapter.id}
+                      className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full border transition-colors ${
+                        (chapter.cohort || 'BETA') === 'ALPHA' 
+                          ? 'bg-purple-100 text-purple-700 border-purple-200 hover:bg-purple-200 dark:bg-purple-900/30 dark:text-purple-400 dark:border-purple-800' 
+                          : 'bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800'
+                      }`}
+                    >
+                      {togglingCohortId === chapter.id ? '...' : (chapter.cohort || 'BETA')}
+                    </button>
+                  </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{chapter.quizzes.length} Quizzes</p>
                 </div>
               </div>
@@ -231,7 +297,20 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
                             />
                           ) : (
                             <div>
-                              <p className="font-medium text-gray-900 dark:text-white">{quiz.name}</p>
+                              <div className="flex items-center gap-2">
+                                <p className="font-medium text-gray-900 dark:text-white">{quiz.name}</p>
+                                <button 
+                                  onClick={() => toggleQuizCohort(chapter.id, quiz)}
+                                  disabled={togglingQuizCohortId === quiz.id}
+                                  className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full border transition-colors ${
+                                    (quiz.cohort || 'BETA') === 'ALPHA' 
+                                      ? 'bg-purple-100 text-purple-700 border-purple-200 hover:bg-purple-200 dark:bg-purple-900/30 dark:text-purple-400 dark:border-purple-800' 
+                                      : 'bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800'
+                                  }`}
+                                >
+                                  {togglingQuizCohortId === quiz.id ? '...' : (quiz.cohort || 'BETA')}
+                                </button>
+                              </div>
                               <p className="text-xs text-gray-500">{quiz._count.questions} questions</p>
                             </div>
                           )}

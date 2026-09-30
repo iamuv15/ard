@@ -32,7 +32,8 @@ export default function QuizPage() {
   const [score, setScore] = useState(0)
   const [loading, setLoading] = useState(true)
   const [isFinished, setIsFinished] = useState(false)
-  const [bookmarkedIds, setBookmarkedIds] = useState<Set<number>>(new Set())
+  const [bookmarks, setBookmarks] = useState<Record<number, string>>({})
+  const [bookmarkDropdownOpen, setBookmarkDropdownOpen] = useState<number | null>(null)
   const router = useRouter()
   const params = useParams()
 
@@ -40,8 +41,8 @@ export default function QuizPage() {
     fetch('/api/bookmarks')
       .then(res => res.json())
       .then(data => {
-        if (data.questionIds) {
-          setBookmarkedIds(new Set(data.questionIds))
+        if (data.bookmarksRecord) {
+          setBookmarks(data.bookmarksRecord)
         }
       })
       .catch(err => console.error('Failed to load bookmarks', err))
@@ -147,21 +148,33 @@ export default function QuizPage() {
     }
   }
 
-  const handleToggleBookmark = async (qId: number) => {
-    const isBookmarked = bookmarkedIds.has(qId)
-    const nextSet = new Set(bookmarkedIds)
-    if (isBookmarked) {
-      nextSet.delete(qId)
-    } else {
-      nextSet.add(qId)
-    }
-    setBookmarkedIds(nextSet)
+  const handleBookmarkClick = (qId: number) => {
+    setBookmarkDropdownOpen(bookmarkDropdownOpen === qId ? null : qId)
+  }
+
+  const handleBookmarkAction = async (qId: number, level: 'IMPORTANT' | 'MOST_IMPORTANT' | 'REMOVE') => {
+    setBookmarkDropdownOpen(null)
+    const newLevel = level === 'REMOVE' ? null : level
+
+    setBookmarks(prev => {
+      const next = { ...prev }
+      if (newLevel) {
+        next[qId] = newLevel
+      } else {
+        delete next[qId]
+      }
+      return next
+    })
 
     try {
       await fetch('/api/bookmarks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ questionId: qId })
+        body: JSON.stringify({ 
+          questionId: qId, 
+          importanceLevel: newLevel,
+          action: level === 'REMOVE' ? 'remove' : undefined
+        })
       })
     } catch (e) {
       console.error('Failed to update bookmark', e)
@@ -232,23 +245,89 @@ export default function QuizPage() {
                   </span>
                 ) : <span />}
 
-                <button
-                  type="button"
-                  onClick={() => handleToggleBookmark(currentQ.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
-                    bookmarkedIds.has(currentQ.id)
-                      ? 'bg-amber-50 border-amber-300 text-amber-700 shadow-sm'
-                      : 'bg-white border-gray-200 text-gray-600 hover:border-amber-300 hover:text-amber-700 hover:bg-amber-50/50'
-                  }`}
-                  title={bookmarkedIds.has(currentQ.id) ? "Marked for exam revision - click to unmark" : "Mark to revise later (Important for Exam)"}
-                >
-                  <Bookmark
-                    className={`w-3.5 h-3.5 transition-transform ${
-                      bookmarkedIds.has(currentQ.id) ? 'fill-amber-500 text-amber-500 scale-110' : 'text-gray-400'
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => handleBookmarkClick(currentQ.id)}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border shadow-sm ${
+                      bookmarks[currentQ.id] === 'MOST_IMPORTANT'
+                        ? 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100'
+                        : bookmarks[currentQ.id] === 'IMPORTANT'
+                        ? 'bg-amber-50 border-amber-200 text-amber-700 hover:bg-amber-100'
+                        : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'
                     }`}
-                  />
-                  <span>{bookmarkedIds.has(currentQ.id) ? 'Marked to Revise' : 'Mark to Revise'}</span>
-                </button>
+                  >
+                    <Bookmark
+                      className={`w-4 h-4 transition-transform ${
+                        bookmarks[currentQ.id] === 'MOST_IMPORTANT' ? 'fill-red-500 text-red-500' 
+                        : bookmarks[currentQ.id] === 'IMPORTANT' ? 'fill-amber-500 text-amber-500' 
+                        : 'text-gray-400'
+                      }`}
+                    />
+                    <span>
+                      {bookmarks[currentQ.id] === 'MOST_IMPORTANT' ? 'Highly Probable 🔥' 
+                      : bookmarks[currentQ.id] === 'IMPORTANT' ? 'Marked' 
+                      : 'Mark to Revise'}
+                    </span>
+                  </button>
+                  
+                  {bookmarkDropdownOpen === currentQ.id && (
+                    <>
+                      <div 
+                        className="fixed inset-0 z-10" 
+                        onClick={() => setBookmarkDropdownOpen(null)} 
+                      />
+                      <div className="absolute top-full right-0 mt-1.5 w-56 bg-white border border-gray-100 shadow-xl rounded-xl z-20 py-1.5 overflow-hidden ring-1 ring-black/5">
+                      {!bookmarks[currentQ.id] && (
+                        <>
+                          <button 
+                            onClick={() => handleBookmarkAction(currentQ.id, 'IMPORTANT')}
+                            className="w-full text-left px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-amber-50 hover:text-amber-700 flex items-center gap-2.5 transition-colors"
+                          >
+                            ⭐ Save as Important
+                          </button>
+                          <button 
+                            onClick={() => handleBookmarkAction(currentQ.id, 'MOST_IMPORTANT')}
+                            className="w-full text-left px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-red-50 hover:text-red-700 flex items-center gap-2.5 transition-colors"
+                          >
+                            🔥 Save as Highly Probable
+                          </button>
+                        </>
+                      )}
+                      
+                      {bookmarks[currentQ.id] === 'IMPORTANT' && (
+                        <button 
+                          onClick={() => handleBookmarkAction(currentQ.id, 'MOST_IMPORTANT')}
+                          className="w-full text-left px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-red-50 hover:text-red-700 flex items-center gap-2.5 transition-colors"
+                        >
+                          🔥 Upgrade to Highly Probable
+                        </button>
+                      )}
+                      
+                      {bookmarks[currentQ.id] === 'MOST_IMPORTANT' && (
+                        <button 
+                          onClick={() => handleBookmarkAction(currentQ.id, 'IMPORTANT')}
+                          className="w-full text-left px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-amber-50 hover:text-amber-700 flex items-center gap-2.5 transition-colors"
+                        >
+                          ⭐ Downgrade to Important
+                        </button>
+                      )}
+
+                      {bookmarks[currentQ.id] && (
+                        <div className="px-3 py-1">
+                          <div className="h-px bg-gray-100 mb-1"></div>
+                          <button 
+                            onClick={() => handleBookmarkAction(currentQ.id, 'REMOVE')}
+                            className="w-full text-left px-2 py-2 text-sm font-semibold text-red-600 hover:bg-red-50 rounded-lg flex items-center gap-2.5 transition-colors"
+                          >
+                            ❌ Remove from Saved
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                  )}
+                </div>
               </div>
               
               <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-relaxed mb-6">

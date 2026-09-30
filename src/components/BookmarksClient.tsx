@@ -20,6 +20,7 @@ import {
 type BookmarkItem = {
   id: number
   questionId: number
+  importanceLevel: string
   createdAt: Date | string
   question: {
     id: number
@@ -258,14 +259,27 @@ export default function BookmarksClient({ initialBookmarks, userName }: Props) {
               return (
                 <div 
                   key={item.id}
-                  className={`bg-white rounded-xl border border-gray-200 transition-all hover:border-gray-300 shadow-xs overflow-hidden ${
+                  className={`bg-white rounded-xl transition-all shadow-xs overflow-hidden ${
+                    item.importanceLevel === 'MOST_IMPORTANT' 
+                      ? 'border-2 border-red-200 hover:border-red-300' 
+                      : 'border border-gray-200 hover:border-gray-300'
+                  } ${
                     isRemoving ? 'opacity-40 pointer-events-none' : ''
                   }`}
                 >
-                  <div className="p-5 md:p-6">
+                  <div className={`p-5 md:p-6 ${item.importanceLevel === 'MOST_IMPORTANT' ? 'border-l-4 border-l-red-500' : 'border-l-4 border-l-amber-400'}`}>
                     {/* Header info */}
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                       <div className="flex flex-wrap items-center gap-2">
+                        {item.importanceLevel === 'MOST_IMPORTANT' ? (
+                          <span className="text-[11px] font-bold text-white bg-red-500 px-2 py-0.5 rounded shadow-xs flex items-center gap-1">
+                            🔥 Highly Probable
+                          </span>
+                        ) : (
+                          <span className="text-[11px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded flex items-center gap-1">
+                            ⭐ Marked
+                          </span>
+                        )}
                         <span className="text-[11px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded">
                           {q.quiz?.chapter?.name || 'Chapter'}
                         </span>

@@ -37,12 +37,15 @@ export async function GET(request: Request) {
       orderBy: { createdAt: 'desc' }
     })
 
-    const questionIds = bookmarks.map(b => b.questionId)
+    const bookmarksRecord: Record<number, string> = {}
+    bookmarks.forEach(b => {
+      bookmarksRecord[b.questionId] = b.importanceLevel
+    })
 
     return NextResponse.json({
       success: true,
       count: bookmarks.length,
-      questionIds,
+      bookmarksRecord,
       bookmarks
     })
   } catch (error: any) {
@@ -58,12 +61,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { questionId } = await request.json()
+    const { questionId, importanceLevel, action } = await request.json()
     if (!questionId || typeof questionId !== 'number') {
       return NextResponse.json({ error: 'Valid questionId is required' }, { status: 400 })
     }
 
-    // Check if bookmark already exists
     const existing = await prisma.userBookmark.findUnique({
       where: {
         userId_questionId: {
@@ -74,20 +76,31 @@ export async function POST(request: Request) {
     })
 
     if (existing) {
-      // Toggle off (remove)
-      await prisma.userBookmark.delete({
-        where: { id: existing.id }
-      })
-      return NextResponse.json({ success: true, bookmarked: false })
+      if (action === 'remove') {
+        await prisma.userBookmark.delete({ where: { id: existing.id } })
+        return NextResponse.json({ success: true, bookmarked: false, importanceLevel: null })
+      } else if (importanceLevel && importanceLevel !== existing.importanceLevel) {
+        await prisma.userBookmark.update({
+          where: { id: existing.id },
+          data: { importanceLevel }
+        })
+        return NextResponse.json({ success: true, bookmarked: true, importanceLevel })
+      } else {
+        // Just default toggle-off behavior for simple interactions
+        await prisma.userBookmark.delete({ where: { id: existing.id } })
+        return NextResponse.json({ success: true, bookmarked: false, importanceLevel: null })
+      }
     } else {
-      // Toggle on (create)
-      await prisma.userBookmark.create({
+      if (action === 'remove') return NextResponse.json({ success: true, bookmarked: false, importanceLevel: null })
+      
+      const created = await prisma.userBookmark.create({
         data: {
           userId: session.id,
-          questionId
+          questionId,
+          importanceLevel: importanceLevel || 'IMPORTANT'
         }
       })
-      return NextResponse.json({ success: true, bookmarked: true })
+      return NextResponse.json({ success: true, bookmarked: true, importanceLevel: created.importanceLevel })
     }
   } catch (error: any) {
     console.error('Error toggling bookmark:', error)

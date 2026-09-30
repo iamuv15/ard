@@ -14,6 +14,7 @@ datasource db {
 model Chapter {
   id        Int      @id @default(autoincrement())
   name      String   @unique
+  cohort    String   @default("BETA") // "ALPHA" or "BETA"
   quizzes   Quiz[]
   createdAt DateTime @default(now())
 }
@@ -23,6 +24,7 @@ model Quiz {
   name      String
   chapterId Int
   chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  cohort    String   @default("BETA") // "ALPHA" or "BETA"
   questions Question[]
   attempts  QuizAttempt[]
   createdAt DateTime @default(now())
@@ -57,6 +59,7 @@ model User {
   password  String
   name      String
   role      String    @default("USER")
+  cohort    String    @default("BETA") // "ALPHA" or "BETA"
   createdAt DateTime  @default(now())
 
   mistakes  UserMistake[]
@@ -92,9 +95,10 @@ model QuizAttempt {
 
 model UserBookmark {
   id         Int      @id @default(autoincrement())
-  userId     Int
-  questionId Int
-  createdAt  DateTime @default(now())
+  userId          Int
+  questionId      Int
+  importanceLevel String   @default("IMPORTANT")
+  createdAt       DateTime @default(now())
 
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)

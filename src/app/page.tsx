@@ -8,9 +8,14 @@ export const dynamic = 'force-dynamic'
 export default async function Home() {
   const session = await getUserSession()
 
+  const user = session ? await prisma.user.findUnique({ where: { id: session.id } }) : null
+  const cohort = user?.cohort || 'BETA'
+
   const chapters = await prisma.chapter.findMany({
+    where: cohort === 'ALPHA' ? {} : { cohort: 'BETA' },
     include: {
       quizzes: {
+        where: cohort === 'ALPHA' ? {} : { cohort: 'BETA' },
         include: {
           _count: {
             select: { questions: true }
