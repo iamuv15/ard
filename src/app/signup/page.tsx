@@ -32,10 +32,10 @@ export default function Signup() {
       } else {
         const data = await res.json()
         setError(data.error || 'Registration failed')
+        setLoading(false)
       }
     } catch (err) {
       setError('An error occurred. Please try again.')
-    } finally {
       setLoading(false)
     }
   }

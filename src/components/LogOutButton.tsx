@@ -1,18 +1,22 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { LogOut, Loader2 } from 'lucide-react'
 
 export default function LogOutButton() {
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   const handleLogout = async () => {
     if (loading) return
     setLoading(true)
     try {
       await fetch('/api/auth/logout', { method: 'POST' })
-    } finally {
-      window.location.href = '/'
+      router.push('/')
+      router.refresh()
+    } catch {
+      setLoading(false)
     }
   }
 
