@@ -248,7 +248,7 @@ export default function QuizPage() {
                 ) : <span />}
 
                 <div className="flex items-center gap-2">
-                  <ReportQuestionButton questionId={currentQ.id} />
+                  <ReportQuestionButton key={currentQ.id} questionId={currentQ.id} />
                   <div className="relative">
                     <button
                       type="button"

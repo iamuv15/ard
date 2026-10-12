@@ -249,7 +249,7 @@ function RevisionPracticeContent() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <ReportQuestionButton questionId={currentQ.id} />
+                  <ReportQuestionButton key={currentQ.id} questionId={currentQ.id} />
                   {/* Bookmark Toggle */}
                   <button
                     type="button"

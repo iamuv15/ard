@@ -36,6 +36,35 @@ export function ReportQuestionButton({
 
   const dropdownRef = useRef<HTMLDivElement>(null)
 
+  // Reset state whenever questionId changes
+  useEffect(() => {
+    setIsOpen(false)
+    setSelectedReason(null)
+    setOtherNote('')
+    setLoading(false)
+    setIsReported(false)
+    setFeedbackMessage(null)
+    setIsAutoCorrected(false)
+
+    let isMounted = true
+    // Fetch this question's specific report status
+    fetch(`/api/reports?questionId=${questionId}`)
+      .then(res => res.json())
+      .then(data => {
+        if (isMounted && data?.isReported) {
+          setIsReported(true)
+          if (data.report?.status === 'AUTO_CORRECTED') {
+            setIsAutoCorrected(true)
+          }
+        }
+      })
+      .catch(() => {})
+
+    return () => {
+      isMounted = false
+    }
+  }, [questionId])
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -50,6 +79,7 @@ export function ReportQuestionButton({
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [isOpen])
+
 
   const submitReport = async (reasonId: string, note?: string) => {
     setLoading(true)

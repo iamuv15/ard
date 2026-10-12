@@ -176,7 +176,7 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <ReportQuestionButton questionId={q.id} />
+                      <ReportQuestionButton key={q.id} questionId={q.id} />
                       <div className="relative">
                         <button
                           type="button"

@@ -297,7 +297,7 @@ export default function BookmarksClient({ initialBookmarks, userName }: Props) {
 
                       {/* Actions */}
                       <div className="flex items-center gap-2">
-                        <ReportQuestionButton questionId={q.id} />
+                        <ReportQuestionButton key={q.id} questionId={q.id} />
                         <button
                           onClick={() => handleRemove(q.id)}
                           className="flex items-center gap-1 text-xs font-semibold text-gray-400 hover:text-red-600 px-2.5 py-1 rounded-md hover:bg-red-50 transition-colors"
