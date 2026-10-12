@@ -51,6 +51,7 @@ model Question {
   createdAt     DateTime @default(now())
   mistakes      UserMistake[]
   bookmarks     UserBookmark[]
+  reports       QuestionReport[]
 }
 
 model User {
@@ -65,6 +66,7 @@ model User {
   mistakes  UserMistake[]
   attempts  QuizAttempt[]
   bookmarks UserBookmark[]
+  reports   QuestionReport[]
 }
 
 model UserMistake {
@@ -104,4 +106,30 @@ model UserBookmark {
   question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@unique([userId, questionId])
+}
+
+model QuestionReport {
+  id               Int      @id @default(autoincrement())
+  questionId       Int
+  question         Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  reportedByUserId Int?
+  reportedBy       User?    @relation(fields: [reportedByUserId], references: [id], onDelete: SetNull)
+
+  reason           String   // e.g. "WRONG_ANSWER_KEY", "MULTIPLE_CORRECT", "NO_CORRECT", "TYPO_IN_QUESTION", "EXPLANATION_ERROR", "OUTDATED_INFO", "OTHER"
+  userNote         String?  // Optional text typed by user if "Other" or note
+
+  status           String   @default("PENDING_AI") // "PENDING_AI", "AUTO_CORRECTED", "NEEDS_ADMIN_REVIEW", "ADMIN_RESOLVED", "DISMISSED"
+  aiConfidence     String?  // "HIGH", "MEDIUM", "LOW"
+  aiReasoning      String?
+  previousAnswer   String?
+  suggestedAnswer  String?
+  suggestedExplanation String?
+
+  resolvedAt       DateTime?
+  resolvedByAdmin  Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([questionId])
+  @@index([status])
 }

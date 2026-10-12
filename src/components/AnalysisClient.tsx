@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, CheckCircle2, XCircle, Clock, BarChart2, Target, Minus, Bookmark } from 'lucide-react'
+import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 
 type Question = {
   id: number
@@ -174,10 +175,12 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
                       )}
                     </div>
 
-                    <div className="relative">
-                      <button
-                        type="button"
-                        onClick={() => handleBookmarkClick(q.id)}
+                    <div className="flex items-center gap-2">
+                      <ReportQuestionButton questionId={q.id} />
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onClick={() => handleBookmarkClick(q.id)}
                         className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border shadow-sm ${
                           bookmarks[q.id] === 'MOST_IMPORTANT'
                             ? 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100'
@@ -257,6 +260,7 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
                         </div>
                       </>
                       )}
+                      </div>
                     </div>
                   </div>
 

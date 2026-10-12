@@ -16,6 +16,8 @@ import {
   BookOpen,
   ArrowRight
 } from 'lucide-react'
+import { ReportQuestionButton } from '@/components/ReportQuestionButton'
+
 
 type BookmarkItem = {
   id: number
@@ -293,15 +295,18 @@ export default function BookmarksClient({ initialBookmarks, userName }: Props) {
                         )}
                       </div>
 
-                      {/* Remove button */}
-                      <button
-                        onClick={() => handleRemove(q.id)}
-                        className="flex items-center gap-1 text-xs font-semibold text-gray-400 hover:text-red-600 px-2.5 py-1 rounded-md hover:bg-red-50 transition-colors"
-                        title="Remove from revision list"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                        <span>Unmark</span>
-                      </button>
+                      {/* Actions */}
+                      <div className="flex items-center gap-2">
+                        <ReportQuestionButton questionId={q.id} />
+                        <button
+                          onClick={() => handleRemove(q.id)}
+                          className="flex items-center gap-1 text-xs font-semibold text-gray-400 hover:text-red-600 px-2.5 py-1 rounded-md hover:bg-red-50 transition-colors"
+                          title="Remove from revision list"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                          <span>Unmark</span>
+                        </button>
+                      </div>
                     </div>
 
                     {/* Question text */}
