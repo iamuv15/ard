@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { X, Pause, Flag, Trash2, ChevronLeft, ChevronRight, Bookmark } from 'lucide-react'
-import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 
 type Question = {
   id: number
@@ -254,10 +253,8 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
           <div className="flex-1 overflow-y-auto px-8 py-6 space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-sm font-bold text-gray-500">Q. {currentIndex + 1} of {questions.length}</h2>
-              <div className="flex items-center gap-2">
-                <ReportQuestionButton questionId={currentQ.id} />
-                <div className="relative">
-                  <button
+              <div className="relative">
+                <button
                     type="button"
                     onClick={() => handleBookmarkClick(currentQ.id)}
                     className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border shadow-sm ${
@@ -340,7 +337,7 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
                   )}
                 </div>
               </div>
-            </div>
+
 
             <p className="text-lg leading-relaxed font-medium text-gray-800">
               {currentQ.questionText}

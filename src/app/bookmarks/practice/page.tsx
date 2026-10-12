@@ -4,6 +4,8 @@ import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, Bookmark, RotateCcw } from 'lucide-react'
+import { ReportQuestionButton } from '@/components/ReportQuestionButton'
+
 
 type Question = {
   id: number
@@ -246,24 +248,28 @@ function RevisionPracticeContent() {
                   )}
                 </div>
 
-                {/* Bookmark Toggle */}
-                <button
-                  type="button"
-                  onClick={() => handleToggleBookmark(currentQ.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
-                    bookmarkedIds.has(currentQ.id)
-                      ? 'bg-amber-50 border-amber-300 text-amber-700 shadow-xs'
-                      : 'bg-white border-gray-200 text-gray-500 hover:border-amber-300 hover:text-amber-700'
-                  }`}
-                  title={bookmarkedIds.has(currentQ.id) ? "Marked for revision - click to unmark" : "Mark to revise"}
-                >
-                  <Bookmark
-                    className={`w-3.5 h-3.5 transition-transform ${
-                      bookmarkedIds.has(currentQ.id) ? 'fill-amber-500 text-amber-500' : 'text-gray-400'
+                <div className="flex items-center gap-2">
+                  <ReportQuestionButton questionId={currentQ.id} />
+                  {/* Bookmark Toggle */}
+                  <button
+                    type="button"
+                    onClick={() => handleToggleBookmark(currentQ.id)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
+                      bookmarkedIds.has(currentQ.id)
+                        ? 'bg-amber-50 border-amber-300 text-amber-700 shadow-xs'
+                        : 'bg-white border-gray-200 text-gray-500 hover:border-amber-300 hover:text-amber-700'
                     }`}
-                  />
-                  <span>{bookmarkedIds.has(currentQ.id) ? 'Marked for Revision' : 'Mark to Revise'}</span>
-                </button>
+                    title={bookmarkedIds.has(currentQ.id) ? "Marked for revision - click to unmark" : "Mark to revise"}
+                  >
+                    <Bookmark
+                      className={`w-3.5 h-3.5 transition-transform ${
+                        bookmarkedIds.has(currentQ.id) ? 'fill-amber-500 text-amber-500' : 'text-gray-400'
+                      }`}
+                    />
+                    <span>{bookmarkedIds.has(currentQ.id) ? 'Marked for Revision' : 'Mark to Revise'}</span>
+                  </button>
+                </div>
+
               </div>
 
               <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-relaxed mb-6">

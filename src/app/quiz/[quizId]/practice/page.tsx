@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
 import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, Bookmark } from 'lucide-react'
+import { ReportQuestionButton } from '@/components/ReportQuestionButton'
+
 
 type Question = {
   id: number
@@ -245,10 +247,12 @@ export default function QuizPage() {
                   </span>
                 ) : <span />}
 
-                <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => handleBookmarkClick(currentQ.id)}
+                <div className="flex items-center gap-2">
+                  <ReportQuestionButton questionId={currentQ.id} />
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => handleBookmarkClick(currentQ.id)}
                     className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border shadow-sm ${
                       bookmarks[currentQ.id] === 'MOST_IMPORTANT'
                         ? 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100'
@@ -329,6 +333,7 @@ export default function QuizPage() {
                   )}
                 </div>
               </div>
+            </div>
               
               <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-relaxed mb-6">
                 {currentQ.questionText}
