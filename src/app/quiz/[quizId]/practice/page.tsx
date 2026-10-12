@@ -410,10 +410,10 @@ export default function QuizPage() {
                 </div>
 
                 {currentQ.explanation && (
-                  <div className="bg-blue-50/50 rounded-xl p-4 border border-blue-100/50">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-[11px] font-black text-blue-800 uppercase tracking-widest flex items-center gap-1.5">
-                        <HelpCircle className="w-3.5 h-3.5" /> Rationale
+                  <div className="bg-slate-50/70 rounded-2xl p-4.5 border border-slate-200">
+                    <div className="flex items-center justify-between mb-2.5 pb-2 border-b border-slate-200/80">
+                      <h4 className="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
+                        <HelpCircle className="w-3.5 h-3.5 text-blue-600" /> Rationale
                       </h4>
                       <AdminReEnrichButton
                         questionId={currentQ.id}
@@ -424,7 +424,7 @@ export default function QuizPage() {
                     </div>
                     <FormattedExplanation
                       text={currentQ.explanation}
-                      className="text-[13px] font-medium text-blue-900/90 leading-relaxed"
+                      className="text-[13px] text-slate-800 leading-relaxed"
                     />
                     <SimplifyExplanationButton
                       key={currentQ.id}

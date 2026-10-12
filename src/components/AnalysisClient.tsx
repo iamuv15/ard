@@ -308,9 +308,9 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
 
                   {/* Explanation */}
                   {q.explanation && (
-                    <div className="bg-blue-50/70 rounded-xl p-4 border border-blue-100">
-                      <div className="flex items-center justify-between mb-1">
-                        <h4 className="text-[11px] font-bold text-blue-700 uppercase">Explanation</h4>
+                    <div className="bg-slate-50/80 rounded-xl p-4 border border-slate-200 mt-3">
+                      <div className="flex items-center justify-between mb-2 pb-1.5 border-b border-slate-200">
+                        <h4 className="text-xs font-bold text-slate-900 uppercase">Explanation</h4>
                         <AdminReEnrichButton
                           questionId={q.id}
                           onEnriched={(newExp) => {
@@ -318,7 +318,7 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
                           }}
                         />
                       </div>
-                      <FormattedExplanation text={q.explanation} className="text-sm text-blue-900 leading-relaxed" />
+                      <FormattedExplanation text={q.explanation} className="text-sm text-slate-800 leading-relaxed" />
                       <SimplifyExplanationButton
                         key={q.id}
                         questionId={q.id}

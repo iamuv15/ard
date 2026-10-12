@@ -64,14 +64,14 @@ export function AdminReEnrichButton({ questionId, onEnriched }: AdminReEnrichBut
       onClick={handleReEnrich}
       disabled={loading}
       title="Admin only: Re-format and generate tables for this explanation"
-      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 hover:bg-purple-100 transition-colors disabled:opacity-50"
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold text-purple-800 bg-purple-50 border border-purple-200 hover:bg-purple-100 transition-colors disabled:opacity-50 shadow-2xs"
     >
       {loading ? (
-        <Loader2 className="w-3 h-3 animate-spin text-purple-600" />
+        <Loader2 className="w-3.5 h-3.5 animate-spin text-purple-600" />
       ) : success ? (
-        <Check className="w-3 h-3 text-green-600" />
+        <Check className="w-3.5 h-3.5 text-green-600" />
       ) : (
-        <Sparkles className="w-3 h-3 text-purple-600 dark:text-purple-400" />
+        <Sparkles className="w-3.5 h-3.5 text-purple-600" />
       )}
       <span>{loading ? 'Formatting...' : success ? 'Updated!' : '✨ Re-format (Admin)'}</span>
     </button>
