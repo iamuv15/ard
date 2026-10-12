@@ -20,10 +20,11 @@ export default async function Home() {
           _count: {
             select: { questions: true }
           }
-        }
+        },
+        orderBy: [{ order: 'asc' }, { id: 'asc' }]
       }
     },
-    orderBy: { name: 'asc' }
+    orderBy: [{ order: 'asc' }, { name: 'asc' }]
   })
 
   // If not logged in: Show the rich preview landing page reflecting what's inside

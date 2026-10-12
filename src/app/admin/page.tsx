@@ -18,7 +18,8 @@ export default async function AdminDashboard() {
           _count: {
             select: { questions: true }
           }
-        }
+        },
+        orderBy: [{ order: 'asc' }, { id: 'asc' }]
       }
     },
     orderBy: { createdAt: 'desc' }

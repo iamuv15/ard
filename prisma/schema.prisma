@@ -15,6 +15,7 @@ model Chapter {
   id        Int      @id @default(autoincrement())
   name      String   @unique
   cohort    String   @default("BETA") // "ALPHA" or "BETA"
+  order     Int      @default(0)
   quizzes   Quiz[]
   createdAt DateTime @default(now())
 }
@@ -25,6 +26,7 @@ model Quiz {
   chapterId Int
   chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   cohort    String   @default("BETA") // "ALPHA" or "BETA"
+  order     Int      @default(0)
   questions Question[]
   attempts  QuizAttempt[]
   createdAt DateTime @default(now())
