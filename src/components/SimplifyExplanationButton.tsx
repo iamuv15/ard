@@ -10,21 +10,23 @@ interface SimplifyExplanationButtonProps {
 }
 
 function renderFormatted(text: string) {
-  // Simple formatter for **bold** and linebreaks
-  return text.split('\n').map((paragraph, pIdx) => (
-    <p key={pIdx} className={pIdx > 0 ? 'mt-1.5' : ''}>
-      {paragraph.split(/(\*\*.*?\*\*)/g).map((part, idx) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-          return (
-            <strong key={idx} className="font-bold text-amber-900 dark:text-amber-200">
-              {part.slice(2, -2)}
-            </strong>
-          )
-        }
-        return part
-      })}
-    </p>
-  ))
+  return text.split('\n').map((paragraph, pIdx) => {
+    if (!paragraph.trim()) return null
+    return (
+      <p key={pIdx} className={pIdx > 0 ? 'mt-2' : ''}>
+        {paragraph.split(/(\*\*.*?\*\*)/g).map((part, idx) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            return (
+              <strong key={idx} className="font-bold text-gray-900 dark:text-white">
+                {part.slice(2, -2)}
+              </strong>
+            )
+          }
+          return part
+        })}
+      </p>
+    )
+  })
 }
 
 export function SimplifyExplanationButton({
@@ -71,19 +73,19 @@ export function SimplifyExplanationButton({
   }
 
   return (
-    <div className={`mt-3 ${className}`}>
-      {/* Trigger Button - Minimalist and subtle so it doesn't distract quick revision */}
+    <div className={`mt-3.5 pt-3 border-t border-blue-100/80 dark:border-blue-900/40 ${className}`}>
+      {/* Trigger Button - Matches clean theme with crystal clear contrast */}
       <div className="flex items-center justify-between">
         <button
           type="button"
           onClick={handleToggle}
           disabled={loading}
-          className="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 transition-colors py-1 px-2 rounded-md hover:bg-amber-50 dark:hover:bg-amber-950/40"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 transition-all py-1.5 px-3 rounded-lg bg-white/90 dark:bg-gray-800 border border-blue-200/80 dark:border-blue-800 shadow-2xs hover:bg-blue-50/60"
         >
           {loading ? (
-            <Loader2 className="w-3 h-3 animate-spin text-amber-600" />
+            <Loader2 className="w-3.5 h-3.5 animate-spin text-blue-600" />
           ) : (
-            <Sparkles className="w-3 h-3 text-amber-500 fill-amber-500/30" />
+            <Sparkles className="w-3.5 h-3.5 text-blue-600 fill-blue-500/20" />
           )}
           <span>
             {isOpen ? 'Hide simpler explanation' : simpleExplanation ? 'View simpler explanation' : 'Explain in simpler terms'}
@@ -94,22 +96,24 @@ export function SimplifyExplanationButton({
           <button
             type="button"
             onClick={() => setIsOpen(false)}
-            className="text-[10px] text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 flex items-center gap-0.5"
+            className="text-[11px] font-medium text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1 transition-colors"
           >
             <span>Collapse</span>
-            <ChevronUp className="w-3 h-3" />
+            <ChevronUp className="w-3.5 h-3.5" />
           </button>
         )}
       </div>
 
-      {/* Expanded Intuitive Analogy Box */}
+      {/* Expanded Intuitive Analogy Box - Crisp white background, clean contrast */}
       {isOpen && simpleExplanation && (
-        <div className="mt-2 p-3.5 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 animate-in fade-in slide-in-from-top-1 duration-200 text-xs text-amber-900 dark:text-amber-100 leading-relaxed">
-          <div className="flex items-center gap-1.5 font-black text-[10px] uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-1.5">
-            <Sparkles className="w-3 h-3 text-amber-600" />
+        <div className="mt-2.5 p-4 rounded-xl bg-white dark:bg-gray-800 border border-blue-200 dark:border-gray-700 shadow-sm animate-in fade-in slide-in-from-top-1 duration-200">
+          <div className="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-blue-700 dark:text-blue-400 mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             <span>Intuitive Breakdown</span>
           </div>
-          <div>{renderFormatted(simpleExplanation)}</div>
+          <div className="text-[13px] leading-relaxed text-gray-800 dark:text-gray-200">
+            {renderFormatted(simpleExplanation)}
+          </div>
         </div>
       )}
     </div>
