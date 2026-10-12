@@ -5,7 +5,8 @@ import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
 import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, Bookmark } from 'lucide-react'
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
-
+import { FormattedExplanation } from '@/components/FormattedExplanation'
+import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
 
 type Question = {
   id: number
@@ -22,8 +23,10 @@ type Question = {
   explanationE?: string | null
   topic?: string | null
   explanation?: string | null
+  simpleExplanation?: string | null
   correctAnswer: string
 }
+
 
 export default function QuizPage() {
   const [questions, setQuestions] = useState<Question[]>([])
@@ -410,11 +413,18 @@ export default function QuizPage() {
                     <h4 className="text-[11px] font-black text-blue-800 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                       <HelpCircle className="w-3.5 h-3.5" /> Rationale
                     </h4>
-                    <p className="text-[13px] font-medium text-blue-900/80 leading-relaxed">
-                      {currentQ.explanation}
-                    </p>
+                    <FormattedExplanation
+                      text={currentQ.explanation}
+                      className="text-[13px] font-medium text-blue-900/90 leading-relaxed"
+                    />
+                    <SimplifyExplanationButton
+                      key={currentQ.id}
+                      questionId={currentQ.id}
+                      initialSimpleExplanation={currentQ.simpleExplanation}
+                    />
                   </div>
                 )}
+
                 
                 {/* Specific option explanations could go here if they exist */}
                 {options.map(opt => {

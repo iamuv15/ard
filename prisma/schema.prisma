@@ -43,9 +43,11 @@ model Question {
   explanationC  String?
   explanationD  String?
   explanationE  String?
-  topic         String?
-  explanation   String?
-  correctAnswer String
+  topic             String?
+  explanation       String?
+  simpleExplanation String?
+  correctAnswer     String
+
   quizId        Int
   quiz          Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
   createdAt     DateTime @default(now())

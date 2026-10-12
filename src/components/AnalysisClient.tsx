@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, CheckCircle2, XCircle, Clock, BarChart2, Target, Minus, Bookmark } from 'lucide-react'
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
+import { FormattedExplanation } from '@/components/FormattedExplanation'
+import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
 
 type Question = {
   id: number
@@ -14,8 +16,10 @@ type Question = {
   optionD: string
   optionE?: string | null
   explanation?: string | null
+  simpleExplanation?: string | null
   correctAnswer: string
 }
+
 
 type Props = {
   quizId: number
@@ -302,11 +306,17 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
 
                   {/* Explanation */}
                   {q.explanation && (
-                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                    <div className="bg-blue-50/70 rounded-xl p-4 border border-blue-100">
                       <h4 className="text-[11px] font-bold text-blue-700 uppercase mb-1">Explanation</h4>
-                      <p className="text-sm text-blue-900 leading-relaxed">{q.explanation}</p>
+                      <FormattedExplanation text={q.explanation} className="text-sm text-blue-900 leading-relaxed" />
+                      <SimplifyExplanationButton
+                        key={q.id}
+                        questionId={q.id}
+                        initialSimpleExplanation={q.simpleExplanation}
+                      />
                     </div>
                   )}
+
                 </div>
               )
             })}

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import prisma from '@/lib/prisma'
 import { QuestionManager } from '@/components/admin/QuestionManager'
+import { EnrichQuizButton } from '@/components/admin/EnrichQuizButton'
 import LogOutButton from '@/components/LogOutButton'
 
 export const dynamic = 'force-dynamic'
@@ -40,12 +41,16 @@ export default async function AdminQuizPage(props: { params: Promise<{ id: strin
           <LogOutButton />
         </div>
 
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold">Manage Questions: {quiz.name}</h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-2">
-            Chapter: {quiz.chapter.name} | {quiz.questions.length} questions in this quiz
-          </p>
+        <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold">Manage Questions: {quiz.name}</h1>
+            <p className="text-gray-500 dark:text-gray-400 mt-2">
+              Chapter: {quiz.chapter.name} | {quiz.questions.length} questions in this quiz
+            </p>
+          </div>
+          <EnrichQuizButton quizId={quiz.id} totalQuestions={quiz.questions.length} />
         </div>
+
 
         <QuestionManager initialQuestions={quiz.questions} />
       </div>
