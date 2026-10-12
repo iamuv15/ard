@@ -45,7 +45,74 @@ export async function POST(request: Request) {
       let customQuizName: string | null = null
       const fileName = file.name.replace(/\.[^/.]+$/, "") // Remove extension
 
-      if (file.name.toLowerCase().endsWith('.json')) {
+      if (file.name.toLowerCase().endsWith('.html') || file.name.toLowerCase().endsWith('.htm')) {
+        const text = await file.text()
+
+        // Extract custom quiz title if defined in JS variable or <title>
+        const titleMatch = text.match(/const\s+QUIZ_TITLE\s*=\s*["']([^"']+)["']/i) || text.match(/<title>([^<]+)<\/title>/i)
+        if (titleMatch && titleMatch[1]?.trim()) {
+          customQuizName = titleMatch[1].trim()
+        }
+
+        // Extract QUESTIONS array from embedded <script>
+        let rawQuestions: any[] = []
+        const questionsMatch = text.match(/const\s+QUESTIONS\s*=\s*(\[[\s\S]*?\])\s*;/m)
+        if (questionsMatch) {
+          try {
+            rawQuestions = JSON.parse(questionsMatch[1])
+          } catch (err) {
+            console.error('Failed to parse QUESTIONS from regex match in HTML file:', err)
+          }
+        }
+
+        // Fallback array search if regex fails due to syntax variations
+        if (rawQuestions.length === 0) {
+          const startIdx = text.indexOf('QUESTIONS = [')
+          if (startIdx !== -1) {
+            const arrayStart = text.indexOf('[', startIdx)
+            const arrayEnd = text.indexOf('];', arrayStart)
+            if (arrayStart !== -1 && arrayEnd !== -1) {
+              try {
+                rawQuestions = JSON.parse(text.slice(arrayStart, arrayEnd + 1))
+              } catch (e) {
+                // ignore
+              }
+            }
+          }
+        }
+
+        if (Array.isArray(rawQuestions)) {
+          mappedQuestions = rawQuestions.map((q: any) => {
+            const optA = String(q.option_1 || q.options?.a || q.options?.[0] || '').trim()
+            const optB = String(q.option_2 || q.options?.b || q.options?.[1] || '').trim()
+            const optC = String(q.option_3 || q.options?.c || q.options?.[2] || '').trim()
+            const optD = String(q.option_4 || q.options?.d || q.options?.[3] || '').trim()
+            const optE = (q.option_5 || q.options?.e || q.options?.[4]) ? String(q.option_5 || q.options?.e || q.options?.[4]).trim() : null
+
+            const rawAns = String(q.answer || q.correct_option || '').trim()
+            const correctKey = parseCorrectAnswer(rawAns, { A: optA, B: optB, C: optC, D: optD, E: optE || '' })
+
+            const exp = String(q.solution_text || q.explanation || '').trim()
+
+            return {
+              questionText: String(q.question || '').trim(),
+              optionA: optA,
+              optionB: optB,
+              optionC: optC,
+              optionD: optD,
+              optionE: optE,
+              explanationA: null,
+              explanationB: null,
+              explanationC: null,
+              explanationD: null,
+              explanationE: null,
+              topic: q.topic ? String(q.topic).trim() : null,
+              explanation: exp || null,
+              correctAnswer: correctKey,
+            }
+          }).filter((q: any) => q.questionText && q.optionA && q.optionB && q.correctAnswer)
+        }
+      } else if (file.name.toLowerCase().endsWith('.json')) {
         const text = await file.text()
         const jsonData = JSON.parse(text)
         customQuizName = jsonData.title || null

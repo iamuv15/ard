@@ -71,7 +71,7 @@ export default async function AdminDashboard() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
             <h2 className="text-xl font-semibold mb-4">2. Upload Quizzes</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-              Select a chapter and upload multiple JSON or Excel files.
+              Select a chapter and upload multiple JSON, Excel, or HTML files.
             </p>
             <UploadForm chapters={chapters.map((c: any) => ({ id: c.id, name: c.name }))} />
           </div>

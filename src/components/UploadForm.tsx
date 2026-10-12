@@ -80,7 +80,7 @@ export function UploadForm({ chapters }: { chapters: { id: number, name: string 
         <div className="relative border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-6 text-center hover:border-blue-500 transition-colors cursor-pointer" onClick={() => fileInputRef.current?.click()}>
           <input
             type="file"
-            accept=".xlsx,.xls,.csv,.json"
+            accept=".xlsx,.xls,.csv,.json,.html,.htm"
             multiple
             onChange={handleFileChange}
             ref={fileInputRef}
@@ -89,7 +89,7 @@ export function UploadForm({ chapters }: { chapters: { id: number, name: string 
           <div className="flex flex-col items-center justify-center space-y-2">
             <UploadCloud className="w-10 h-10 text-gray-400" />
             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              {files.length > 0 ? `${files.length} file(s) selected` : 'Click to select Excel or JSON files'}
+              {files.length > 0 ? `${files.length} file(s) selected` : 'Click to select Excel, JSON, or HTML files'}
             </p>
             {files.length > 0 && (
               <div className="mt-2 text-left w-full max-h-32 overflow-y-auto bg-gray-50 dark:bg-gray-700/50 rounded p-2">
