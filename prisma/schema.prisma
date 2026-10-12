@@ -46,6 +46,7 @@ model Question {
   topic             String?
   explanation       String?
   simpleExplanation String?
+  isEnriched        Boolean  @default(false)
   correctAnswer     String
 
   quizId        Int

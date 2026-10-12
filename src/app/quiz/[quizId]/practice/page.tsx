@@ -7,6 +7,7 @@ import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, Bo
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
+import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
 
 type Question = {
   id: number
@@ -410,9 +411,17 @@ export default function QuizPage() {
 
                 {currentQ.explanation && (
                   <div className="bg-blue-50/50 rounded-xl p-4 border border-blue-100/50">
-                    <h4 className="text-[11px] font-black text-blue-800 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-                      <HelpCircle className="w-3.5 h-3.5" /> Rationale
-                    </h4>
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-[11px] font-black text-blue-800 uppercase tracking-widest flex items-center gap-1.5">
+                        <HelpCircle className="w-3.5 h-3.5" /> Rationale
+                      </h4>
+                      <AdminReEnrichButton
+                        questionId={currentQ.id}
+                        onEnriched={(newExp) => {
+                          setQuestions(prev => prev.map(q => q.id === currentQ.id ? { ...q, explanation: newExp } : q))
+                        }}
+                      />
+                    </div>
                     <FormattedExplanation
                       text={currentQ.explanation}
                       className="text-[13px] font-medium text-blue-900/90 leading-relaxed"

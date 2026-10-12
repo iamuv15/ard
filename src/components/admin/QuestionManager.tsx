@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Trash2, Edit, Save, X, Loader2 } from 'lucide-react'
+import { FormattedExplanation } from '@/components/FormattedExplanation'
+import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
 
 type Question = {
   id: number
@@ -296,8 +298,17 @@ export function QuestionManager({ initialQuestions }: { initialQuestions: Questi
                   )}
                 </div>
                 {q.explanation && (
-                  <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">
-                    <span className="font-bold">Explanation:</span> {q.explanation}
+                  <div className="mt-4 p-3.5 bg-gray-50 dark:bg-gray-700/50 rounded-xl text-sm border border-gray-200 dark:border-gray-600">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-bold text-gray-900 dark:text-white text-xs uppercase">Explanation:</span>
+                      <AdminReEnrichButton
+                        questionId={q.id}
+                        onEnriched={(newExp) => {
+                          setQuestions(questions.map(item => item.id === q.id ? { ...item, explanation: newExp } : item))
+                        }}
+                      />
+                    </div>
+                    <FormattedExplanation text={q.explanation} />
                   </div>
                 )}
               </div>

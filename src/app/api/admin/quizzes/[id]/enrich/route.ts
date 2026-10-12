@@ -26,26 +26,46 @@ export async function POST(request: Request, props: { params: Promise<{ id: stri
       return NextResponse.json({ error: 'GEMINI_API_KEY not configured in environment' }, { status: 503 })
     }
 
-    const questions = await prisma.question.findMany({
-      where: { quizId },
-      orderBy: { id: 'asc' }
+    let body: any = {}
+    try {
+      body = await request.json()
+    } catch {
+      // Body is optional
+    }
+
+    const batchSize = Math.min(Math.max(body.batchSize || 6, 1), 10)
+    const forceReset = Boolean(body.forceReset)
+
+    if (forceReset) {
+      await prisma.question.updateMany({
+        where: { quizId },
+        data: { isEnriched: false }
+      })
+    }
+
+    const totalQuestions = await prisma.question.count({ where: { quizId } })
+
+    const unenrichedQuestions = await prisma.question.findMany({
+      where: { quizId, isEnriched: false },
+      orderBy: { id: 'asc' },
+      take: batchSize
     })
 
-    if (questions.length === 0) {
-      return NextResponse.json({ success: true, message: 'No questions found to enrich', enrichedCount: 0 })
+    if (unenrichedQuestions.length === 0) {
+      return NextResponse.json({
+        success: true,
+        allCompleted: true,
+        enrichedInChunk: 0,
+        remaining: 0,
+        total: totalQuestions,
+        message: 'All questions in this quiz are already enriched!'
+      })
     }
 
     const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite'
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
 
-    // Process questions in batches of 5 to balance rate limits and prompt efficiency
-    const BATCH_SIZE = 5
-    let enrichedCount = 0
-
-    for (let i = 0; i < questions.length; i += BATCH_SIZE) {
-      const batch = questions.slice(i, i + BATCH_SIZE)
-
-      const batchItems = batch.map((q, idx) => `
+    const batchItems = unenrichedQuestions.map((q, idx) => `
 [QUESTION_${idx + 1}]
 ID: ${q.id}
 Question: ${q.questionText}
@@ -56,82 +76,104 @@ C: ${q.optionC}
 D: ${q.optionD}
 ${q.optionE ? `E: ${q.optionE}` : ''}
 Correct Answer: ${q.correctAnswer}
-Current Explanation: ${q.explanation || 'None'}
+Current Raw Explanation: ${q.explanation || 'None provided'}
 `).join('\n')
 
-      const prompt = `You are an expert exam content editor.
-Clean and polish the explanations for these multiple-choice questions to make them clear, engaging, and easy to read for students.
+    const prompt = `You are an expert exam content editor and educational formatter.
+Your task is to REFORMAT and VISUALLY ENHANCE the existing explanations for these multiple-choice questions without losing any information.
 
-GUIDELINES:
-1. Strip all scraping artifacts, citation marks (e.g. [cite: 21], [cite: 23]), or broken characters.
-2. Bold key concepts, terminology, or reasons using markdown (e.g. **fluoride pollution**, **Option C**).
-3. Clearly explain why the correct option is right in 2-4 clean, easy-to-read sentences.
-4. Output strictly valid JSON matching this schema:
+STRICT GUIDELINES:
+1. ZERO LOSS OF INFORMATION: Do NOT summarize, trim, cut, or shorten the explanation. Retain 100% of the facts, definitions, scientific data, numerical values, chemical formulas, and reasoning present in the current raw explanation.
+2. CLEAN SCRAPING ARTIFACTS: Remove all [cite: xx] tags, citation brackets, broken characters, and redundant prefixes like "Ans: C" or "Correct option is...".
+3. MARKDOWN TABLES:
+   - Whenever comparative details, classifications, crop stages, nutrient deficiencies, pH levels, or multi-attribute facts are present, structure them into a clean GitHub Flavored Markdown (GFM) table (| Feature | Details |).
+4. VISUAL STRUCTURE & HIERARCHY:
+   - Organize logically into clean paragraphs separated by double line breaks (\n\n).
+   - Use sub-headers where appropriate (e.g. ### Core Concept, ### Key Takeaway).
+   - Use bullet points (- ) or numbered lists (1. ) for steps, conditions, or characteristics.
+   - Use **bold** for key concepts, essential numbers, and the correct option.
+   - Use *italics* for botanical / scientific names (e.g. *Oryza sativa*) and Latin terminology.
+   - Use a blockquote (> 💡 **Exam Pointer:** ...) for high-yield tips or takeaways if applicable.
+5. Output strictly valid JSON matching this schema:
 {
   "results": [
     {
       "id": number,
-      "polishedExplanation": "Clean, engaging, bold-formatted explanation"
+      "formattedExplanation": "Structured markdown explanation with tables, bold, bullets, and line breaks"
     }
   ]
 }
 
-QUESTIONS TO ENRICH:
+QUESTIONS TO FORMAT:
 ${batchItems}`
 
-      try {
-        let response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: {
-              responseMimeType: 'application/json',
-              temperature: 0.2
-            }
-          })
-        })
-
-        if (response.status === 404 && model !== 'gemini-2.0-flash-lite') {
-          const fallback = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`
-          response = await fetch(fallback, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              contents: [{ role: 'user', parts: [{ text: prompt }] }],
-              generationConfig: { responseMimeType: 'application/json', temperature: 0.2 }
-            })
-          })
+    let response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        generationConfig: {
+          responseMimeType: 'application/json',
+          temperature: 0.2
         }
+      })
+    })
 
-        if (response.ok) {
-          const data = await response.json()
-          const text = data.candidates?.[0]?.content?.parts?.[0]?.text
-          if (text) {
-            const parsed = JSON.parse(text)
-            if (Array.isArray(parsed.results)) {
-              for (const item of parsed.results) {
-                if (item.id && item.polishedExplanation) {
-                  await prisma.question.update({
-                    where: { id: item.id },
-                    data: { explanation: item.polishedExplanation.trim() }
-                  })
-                  enrichedCount++
-                }
+    if (response.status === 404 && model !== 'gemini-2.0-flash-lite') {
+      const fallback = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`
+      response = await fetch(fallback, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: prompt }] }],
+          generationConfig: { responseMimeType: 'application/json', temperature: 0.2 }
+        })
+      })
+    }
+
+    let enrichedCount = 0
+
+    if (response.ok) {
+      const data = await response.json()
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text
+      if (text) {
+        try {
+          const parsed = JSON.parse(text)
+          if (Array.isArray(parsed.results)) {
+            for (const item of parsed.results) {
+              if (item.id && item.formattedExplanation) {
+                await prisma.question.update({
+                  where: { id: item.id },
+                  data: {
+                    explanation: item.formattedExplanation.trim(),
+                    isEnriched: true
+                  }
+                })
+                enrichedCount++
               }
             }
           }
+        } catch (parseErr) {
+          console.error('Error parsing Gemini JSON response:', parseErr)
         }
-      } catch (err) {
-        console.error('Error enriching batch:', err)
       }
+    } else {
+      const errText = await response.text()
+      console.error('Gemini API error during enrichment:', errText)
+      return NextResponse.json({ error: 'AI formatting error. Please retry.' }, { status: 500 })
     }
+
+    const remainingCount = await prisma.question.count({
+      where: { quizId, isEnriched: false }
+    })
 
     return NextResponse.json({
       success: true,
-      enrichedCount,
-      totalQuestions: questions.length,
-      message: `Successfully enriched ${enrichedCount} of ${questions.length} question explanations!`
+      allCompleted: remainingCount === 0,
+      enrichedInChunk: enrichedCount,
+      remaining: remainingCount,
+      total: totalQuestions,
+      message: `Enriched ${enrichedCount} questions in this batch. ${remainingCount} remaining.`
     })
   } catch (error: any) {
     console.error('Error in quiz enrich API:', error)

@@ -6,6 +6,7 @@ import { ArrowLeft, CheckCircle2, XCircle, Clock, BarChart2, Target, Minus, Book
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
+import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
 
 type Question = {
   id: number
@@ -28,6 +29,7 @@ type Props = {
 }
 
 export default function AnalysisClient({ quizId, quizName, questions }: Props) {
+  const [questionList, setQuestionList] = useState(questions)
   const [result, setResult] = useState<{
     answers: Record<number, string>
     score: number
@@ -152,7 +154,7 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
         <div>
           <h2 className="text-xl font-bold mb-4 text-gray-900">Detailed Solutions</h2>
           <div className="space-y-4">
-            {questions.map((q, idx) => {
+            {questionList.map((q, idx) => {
               const userAns = result.answers[idx]
               const correctAns = q.correctAnswer.toUpperCase()
               const isCorrect = userAns === correctAns
@@ -307,7 +309,15 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
                   {/* Explanation */}
                   {q.explanation && (
                     <div className="bg-blue-50/70 rounded-xl p-4 border border-blue-100">
-                      <h4 className="text-[11px] font-bold text-blue-700 uppercase mb-1">Explanation</h4>
+                      <div className="flex items-center justify-between mb-1">
+                        <h4 className="text-[11px] font-bold text-blue-700 uppercase">Explanation</h4>
+                        <AdminReEnrichButton
+                          questionId={q.id}
+                          onEnriched={(newExp) => {
+                            setQuestionList(prev => prev.map(item => item.id === q.id ? { ...item, explanation: newExp } : item))
+                          }}
+                        />
+                      </div>
                       <FormattedExplanation text={q.explanation} className="text-sm text-blue-900 leading-relaxed" />
                       <SimplifyExplanationButton
                         key={q.id}
