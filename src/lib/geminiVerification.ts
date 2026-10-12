@@ -1,7 +1,7 @@
 import prisma from '@/lib/prisma'
 
 export type VerificationResult = {
-  status: 'AUTO_CORRECTED' | 'NEEDS_ADMIN_REVIEW'
+  status: 'AUTO_CORRECTED' | 'NEEDS_ADMIN_REVIEW' | 'DISMISSED' | 'ADMIN_RESOLVED'
   confidence: 'HIGH' | 'MEDIUM' | 'LOW'
   reasoning: string
   previousAnswer?: string
@@ -183,8 +183,9 @@ Evaluate this question and provide your assessment in this JSON format:
     const canAuto = Boolean(parsed.canAutoCorrect)
     const confidence = (['HIGH', 'MEDIUM', 'LOW'].includes(parsed.confidence) ? parsed.confidence : 'LOW') as 'HIGH' | 'MEDIUM' | 'LOW'
     const newAnswer = parsed.correctedAnswer ? String(parsed.correctedAnswer).toUpperCase().trim() : null
+    const isCurrentCorrect = Boolean(parsed.isCurrentAnswerCorrect)
 
-    // Check if auto-correction should take place
+    // Case 1: AI is HIGH confidence and identified an incorrect answer key -> Auto-Correct in DB
     if (
       canAuto &&
       confidence === 'HIGH' &&
@@ -209,17 +210,35 @@ Evaluate this question and provide your assessment in this JSON format:
         suggestedAnswer: newAnswer,
         suggestedExplanation: parsed.suggestedExplanation || undefined
       }
-    } else {
-      // Needs human review
+    }
+
+    // Case 2: AI is HIGH confidence that the current question & answer are ALREADY correct (false report)
+    // Auto-resolve directly into Resolved History so the solo developer queue is never cluttered
+    if (
+      confidence === 'HIGH' &&
+      (isCurrentCorrect || (newAnswer && newAnswer === question.correctAnswer.toUpperCase()) || (!canAuto && (!newAnswer || newAnswer === question.correctAnswer.toUpperCase())))
+    ) {
       return {
-        status: 'NEEDS_ADMIN_REVIEW',
-        confidence,
-        reasoning: parsed.reasoning || 'AI flagged for manual review by admin.',
+        status: 'DISMISSED',
+        confidence: 'HIGH',
+        reasoning: parsed.reasoning || `AI verified with HIGH confidence that the current answer (${question.correctAnswer}) is accurate. Automatically resolved.`,
         previousAnswer: question.correctAnswer,
-        suggestedAnswer: newAnswer || undefined,
+        suggestedAnswer: question.correctAnswer,
         suggestedExplanation: parsed.suggestedExplanation || undefined
       }
     }
+
+    // Case 3: Edge cases where AI is uncertain (MEDIUM/LOW confidence, wording ambiguity, question needs rewrite)
+    // Only these land in the manual review queue for the admin
+    return {
+      status: 'NEEDS_ADMIN_REVIEW',
+      confidence,
+      reasoning: parsed.reasoning || 'AI flagged for manual review by admin.',
+      previousAnswer: question.correctAnswer,
+      suggestedAnswer: newAnswer || undefined,
+      suggestedExplanation: parsed.suggestedExplanation || undefined
+    }
+
   } catch (error: any) {
     console.error('Error during Gemini verification:', error)
     return {

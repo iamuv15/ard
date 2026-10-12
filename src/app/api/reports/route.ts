@@ -90,6 +90,7 @@ export async function POST(request: Request) {
     }
 
     // Update the report with verification findings
+    const isAutoClosed = verification.status === 'DISMISSED' || verification.status === 'AUTO_CORRECTED'
     const updatedReport = await prisma.questionReport.update({
       where: { id: report.id },
       data: {
@@ -98,7 +99,8 @@ export async function POST(request: Request) {
         aiReasoning: verification.reasoning,
         suggestedAnswer: verification.suggestedAnswer || null,
         suggestedExplanation: verification.suggestedExplanation || null,
-        previousAnswer: question.correctAnswer
+        previousAnswer: question.correctAnswer,
+        resolvedAt: isAutoClosed ? new Date() : null,
       }
     })
 
@@ -108,8 +110,11 @@ export async function POST(request: Request) {
       message:
         updatedReport.status === 'AUTO_CORRECTED'
           ? 'Question verified and auto-corrected by AI.'
+          : updatedReport.status === 'DISMISSED'
+          ? 'AI verified with high confidence: Current answer is accurate.'
           : 'Report received and queued for admin review.'
     })
+
   } catch (error: any) {
     console.error('Error submitting question report:', error)
     return NextResponse.json({ error: 'Failed to submit report' }, { status: 500 })

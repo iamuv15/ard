@@ -71,9 +71,12 @@ export function ReportQuestionButton({
         if (data.report?.status === 'AUTO_CORRECTED') {
           setIsAutoCorrected(true)
           setFeedbackMessage(`AI verified! Answer auto-corrected to Option ${data.report.suggestedAnswer}.`)
+        } else if (data.report?.status === 'DISMISSED') {
+          setFeedbackMessage(`AI verified with high confidence: Current answer is accurate.`)
         } else {
           setFeedbackMessage('Report received! Queued for verification.')
         }
+
         if (onReported) {
           onReported(data.report?.status)
         }

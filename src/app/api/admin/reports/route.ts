@@ -189,6 +189,7 @@ export async function PATCH(request: Request) {
 
     if (action === 'retry_ai') {
       const verification = await verifyQuestionWithGemini(report.questionId, report.reason, report.userNote)
+      const isAutoClosed = verification.status === 'DISMISSED' || verification.status === 'AUTO_CORRECTED'
       const updated = await prisma.questionReport.update({
         where: { id: reportId },
         data: {
@@ -196,12 +197,14 @@ export async function PATCH(request: Request) {
           aiConfidence: verification.confidence,
           aiReasoning: verification.reasoning,
           suggestedAnswer: verification.suggestedAnswer || null,
-          suggestedExplanation: verification.suggestedExplanation || null
+          suggestedExplanation: verification.suggestedExplanation || null,
+          resolvedAt: isAutoClosed ? new Date() : null
         }
       })
 
       return NextResponse.json({ success: true, report: updated, message: 'Re-verified with AI' })
     }
+
 
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 })
   } catch (error: any) {
