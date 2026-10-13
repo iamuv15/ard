@@ -135,16 +135,22 @@ async function callGemini({
   }
 
   let lastError: Error | null = null
+  const overallDeadline = Date.now() + 54000
 
   for (let i = 0; i < candidateKeys.length; i++) {
     const { key, isPaid, label } = candidateKeys[i]
     const nextCandidate = candidateKeys[i + 1]
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
 
-    console.log(`[Gemini] >> ${model} | ${label} key (${key.slice(0, 8)}...) | thinking: ${allowThinking ? 'MEDIUM' : 'MINIMAL'} | prompt: ${userPrompt.length} chars`)
+    const remainingMs = overallDeadline - Date.now()
+    if (remainingMs < 3000) {
+      break
+    }
+    const fetchTimeoutMs = Math.min(remainingMs - 1000, allowThinking ? 50000 : 35000)
+
+    console.log(`[Gemini] >> ${model} | ${label} key (${key.slice(0, 8)}...) | thinking: ${allowThinking ? 'MEDIUM' : 'MINIMAL'} | timeout: ${fetchTimeoutMs}ms | prompt: ${userPrompt.length} chars`)
 
     const controller = new AbortController()
-    const fetchTimeoutMs = 35000
     const timer = setTimeout(() => controller.abort(), fetchTimeoutMs)
 
     try {
@@ -498,9 +504,9 @@ Output strictly valid JSON conforming to this schema:
       "relationType": "CO_OCCURRENCE" | "LIFECYCLE" | "TOOL_OR_DIAGNOSTIC" | "CONTRAST",
       "label": "Short reason for connection"
     }
-  ],
-  "allKeywords": ["Sorted list of all unique retained keywords"]
-}`
+  ]
+}
+Note: Output only the top 15-20 most critical crossBranchEdges. Do NOT generate a separate allKeywords array (it is automatically compiled from categories).`
 
   const userPrompt = `KEYWORD VOCABULARY TO FILTER AND STRUCTURE (${combined.length} raw terms):
 ${combined.map((k, i) => `${i + 1}. ${k}`).join('\n')}
@@ -712,9 +718,9 @@ Output strictly valid JSON conforming to this schema:
       "relationType": "CO_OCCURRENCE" | "LIFECYCLE" | "TOOL_OR_DIAGNOSTIC" | "CONTRAST",
       "label": "Short reason for connection"
     }
-  ],
-  "allKeywords": ["Sorted list of all unique retained keywords"]
-}`
+  ]
+}
+Note: Output only the top 15-20 most critical crossBranchEdges. Do NOT generate a separate allKeywords array (it is automatically compiled from categories).`
 
   const userPrompt = `KEYWORD VOCABULARY TO FILTER AND STRUCTURE (${combinedKeywordsForTaxonomy.length} raw terms):
 ${combinedKeywordsForTaxonomy.map((k, i) => `${i + 1}. ${k}`).join('\n')}
