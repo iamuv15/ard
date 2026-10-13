@@ -116,18 +116,15 @@ async function callGemini({
     }
   }
 
-  // Configure thinking tokens strictly according to our strategy:
-  // Allowed ONLY for crucial taxonomy/mind-map planning; OFF for definitions
+  // Configure thinking strictly for Gemini 3.5 models:
+  // Uses thinkingLevel ("HIGH" for crucial taxonomy/mind-map planning, "MINIMAL" for definitions & mining)
   if (allowThinking) {
-    if (thinkingBudget && thinkingBudget > 0) {
-      requestBody.generationConfig.thinkingConfig = {
-        thinkingBudget: thinkingBudget
-      }
+    requestBody.generationConfig.thinkingConfig = {
+      thinkingLevel: 'HIGH'
     }
   } else {
-    // Explicitly turn thinking off to save 100% of reasoning token costs
     requestBody.generationConfig.thinkingConfig = {
-      thinkingBudget: 0
+      thinkingLevel: 'MINIMAL'
     }
   }
 
@@ -144,11 +141,25 @@ async function callGemini({
 
       // Single attempt per candidate to prevent burning free quota on congested servers
       try {
-        const response = await fetch(endpoint, {
+        let response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(requestBody)
         })
+
+        // Auto-recovery for 400 INVALID_ARGUMENT (e.g. if thinkingConfig has model incompatibilities)
+        if (response.status === 400 && requestBody.generationConfig?.thinkingConfig) {
+          const fallbackBody = { ...requestBody, generationConfig: { ...requestBody.generationConfig } }
+          delete fallbackBody.generationConfig.thinkingConfig
+          const retryRes = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(fallbackBody)
+          })
+          if (retryRes.ok) {
+            response = retryRes
+          }
+        }
 
         if (response.ok) {
           const data = await response.json()
