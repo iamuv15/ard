@@ -73,22 +73,19 @@ export async function POST(
     }
 
     const body = await request.json()
-    const { keywords, category, subCategory, apiKey, paidApiKey, fallbackApiKey } = body
+    const { keywords, items, category, subCategory, apiKey, paidApiKey, fallbackApiKey } = body
 
-    if (!keywords || !Array.isArray(keywords) || keywords.length === 0) {
-      return NextResponse.json({ error: 'Keywords array is required' }, { status: 400 })
+    if ((!items || !Array.isArray(items) || items.length === 0) && (!keywords || !Array.isArray(keywords) || keywords.length === 0)) {
+      return NextResponse.json({ error: 'Keywords or items array is required' }, { status: 400 })
     }
 
-    if (!category) {
-      return NextResponse.json({ error: 'Category is required' }, { status: 400 })
-    }
-
-    // Generate capsules in small chunk with THINKING OFF (zero reasoning token bloat)
+    // Generate capsules in focused batches of 5-7 with THINKING OFF (Maximum quality, zero reasoning token bloat)
     const capsules = await generateConceptCapsulesBatch({
       chapterId,
-      keywords: keywords.slice(0, 5), // Keep batch small for fast response and Vercel timeout safety
-      category,
+      keywords: keywords ? keywords.slice(0, 7) : undefined,
+      category: category || 'General',
       subCategory,
+      items: items ? items.slice(0, 7) : undefined,
       apiKeyOverride: apiKey,
       fallbackApiKey: paidApiKey || fallbackApiKey
     })

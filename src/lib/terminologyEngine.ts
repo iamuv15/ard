@@ -707,17 +707,19 @@ Reason deeply through taxonomy and generate the complete Mind Map & Taxonomy JSO
  */
 export async function generateConceptCapsulesBatch({
   chapterId,
-  keywords,
-  category,
+  keywords = [],
+  category = 'General',
   subCategory,
+  items,
   apiKeyOverride,
   fallbackApiKey,
   delayBetweenCallsMs = 1200
 }: {
   chapterId: number
-  keywords: string[]
-  category: string
+  keywords?: string[]
+  category?: string
   subCategory?: string
+  items?: Array<{ keyword: string; category?: string; subCategory?: string }>
   apiKeyOverride?: string
   fallbackApiKey?: string
   delayBetweenCallsMs?: number
@@ -732,11 +734,31 @@ export async function generateConceptCapsulesBatch({
     throw new Error(`Chapter ID ${chapterId} not found`)
   }
 
+  // Normalize batch: limit to 7 items max to guarantee high quality and prevent token truncation
+  const normalizedItems: Array<{ keyword: string; category: string; subCategory?: string | null }> = 
+    (items && items.length > 0)
+      ? items.slice(0, 7).map(it => ({
+          keyword: it.keyword.trim(),
+          category: it.category || category || 'General',
+          subCategory: it.subCategory || subCategory || null
+        }))
+      : keywords.slice(0, 7).map(k => ({
+          keyword: k.trim(),
+          category: category || 'General',
+          subCategory: subCategory || null
+        }))
+
+  if (normalizedItems.length === 0) {
+    return []
+  }
+
+  const targetKeywords = normalizedItems.map(it => it.keyword)
+
   // Direct fast lookup of relevant questions without nested quiz scans
   const relevantQuestions = await prisma.question.findMany({
     where: {
       quiz: { chapterId },
-      OR: keywords.map(kw => ({
+      OR: targetKeywords.map(kw => ({
         OR: [
           { questionText: { contains: kw, mode: 'insensitive' } },
           { explanation: { contains: kw, mode: 'insensitive' } }
@@ -753,7 +775,7 @@ export async function generateConceptCapsulesBatch({
       correctAnswer: true,
       explanation: true
     },
-    take: 8
+    take: 20 // Rich question context across 5-7 terms
   })
 
   // Format question context
@@ -763,6 +785,7 @@ export async function generateConceptCapsulesBatch({
 
   const systemPrompt = `You are an expert exam author and agriscience educator.
 Your task is to write high-yield, exam-focused CONCEPT CAPSULES for the specified keywords under chapter "${chapter.name}".
+Because this batch contains only 5 to 7 concepts, provide MAXIMUM RIGOR, HIGH DEPTH, and UNCOMPROMISED ACCURACY.
 
 STRICT GUIDELINES:
 1. DEFINITION: 1 to 2 sentences max. Crystal clear, rigorous, scientific.
@@ -790,16 +813,13 @@ Output strictly valid JSON with this schema:
   ]
 }`
 
-  const userPrompt = `TARGET KEYWORDS:
-${keywords.map((k, i) => `${i + 1}. ${k}`).join('\n')}
-
-CATEGORY: ${category}
-${subCategory ? `SUBCATEGORY: ${subCategory}` : ''}
+  const userPrompt = `TARGET KEYWORDS (Batch of ${normalizedItems.length} concepts):
+${normalizedItems.map((it, i) => `${i + 1}. "${it.keyword}" [Branch: ${it.category}${it.subCategory ? ` > ${it.subCategory}` : ''}]`).join('\n')}
 
 RELEVANT MCQS FROM THIS CHAPTER FOR CONTEXT:
-${questionContext || 'Use standard authoritative agricultural exam curriculum data.'}
+${questionContext || 'Use standard authoritative agricultural exam curriculum data (ICAR / TNAU).'}
 
-Generate the JSON capsules for each keyword above.`
+Generate the JSON capsules for each keyword above with full tables and traps.`
 
   // THINKING IS STRICTLY OFF FOR DEFINITIONS (Pure structured synthesis)
   const result = await callGemini({
@@ -833,6 +853,11 @@ Generate the JSON capsules for each keyword above.`
     const examTraps = cap.examTraps || null
     const relatedTerms = Array.isArray(cap.relatedTerms) ? cap.relatedTerms : []
 
+    // Match exact category/subCategory from normalizedItems
+    const matchedMeta = normalizedItems.find(it => it.keyword.toLowerCase() === term.toLowerCase())
+    const itemCategory = matchedMeta?.category || category || 'General'
+    const itemSubCategory = matchedMeta?.subCategory || subCategory || null
+
     // Find questions that mention this term to link them
     const matchingQs = relevantQuestions.filter(q => 
       q.questionText.toLowerCase().includes(term.toLowerCase()) ||
@@ -850,8 +875,8 @@ Generate the JSON capsules for each keyword above.`
         chapterId,
         term,
         slug,
-        category,
-        subCategory: subCategory || null,
+        category: itemCategory,
+        subCategory: itemSubCategory,
         definition,
         content,
         examTraps,
@@ -862,8 +887,8 @@ Generate the JSON capsules for each keyword above.`
       },
       update: {
         term,
-        category,
-        subCategory: subCategory || null,
+        category: itemCategory,
+        subCategory: itemSubCategory,
         definition,
         content,
         examTraps,

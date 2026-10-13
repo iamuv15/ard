@@ -73,6 +73,10 @@ export default function AdminChapterConceptsPage() {
   // Generation status states
   const [mindMapGenerating, setMindMapGenerating] = useState(false)
   const [capsulesGenerating, setCapsulesGenerating] = useState(false)
+  const [capsuleBatchSize, setCapsuleBatchSize] = useState(5) // default 5, options 5, 6, 7 for quality
+  const [capsulePacingDelay, setCapsulePacingDelay] = useState(8) // seconds delay between auto batches
+  const [capsuleAutoRunning, setCapsuleAutoRunning] = useState(false)
+  const capsuleAutoRef = React.useRef(false)
   const [generatingSingleTerm, setGeneratingSingleTerm] = useState<string | null>(null)
   const [progress, setProgress] = useState<{ current: number; total: number; currentTerm?: string } | null>(null)
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null)
@@ -355,100 +359,144 @@ export default function AdminChapterConceptsPage() {
     }
   }
 
-  // STEP 2B: Generate Concept Capsules in Chunks of 2 (Thinking OFF, Fast, Live UI reload)
-  const handleGenerateAllCapsules = async () => {
+  // PHASE 3: Generate a Discrete, High-Yield Batch of 5-7 Concept Capsules (Thinking OFF, Maximum Quality)
+  const handleGenerateNextCapsuleBatch = async (customBatchSize?: number) => {
     if (!mindMap?.categories) return
+
+    const size = customBatchSize || capsuleBatchSize
+
+    // Collect all pending tasks from mindmap
+    const tasks: { keyword: string; category: string; subCategory?: string }[] = []
+    mindMap.categories.forEach(cat => {
+      cat.subCategories.forEach(sub => {
+        sub.keywords.forEach(kw => {
+          tasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
+        })
+      })
+    })
+
+    const existingNames = new Set(concepts.map(c => c.term.toLowerCase().trim()))
+    const pendingTasks = tasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
+
+    if (pendingTasks.length === 0) {
+      setStatusMessage({ type: 'success', text: 'All keywords in this chapter already have published capsules!' })
+      return
+    }
+
+    const batch = pendingTasks.slice(0, size)
+    const batchKeywords = batch.map(b => b.keyword)
 
     try {
       setCapsulesGenerating(true)
-      setStatusMessage(null)
+      setStatusMessage({
+        type: 'info',
+        text: `⚡ Generating high-yield batch of ${batch.length} concepts: ${batchKeywords.join(', ')}...`
+      })
 
-      // Collect all keyword tasks from mindmap
-      const tasks: { keyword: string; category: string; subCategory?: string }[] = []
-      mindMap.categories.forEach(cat => {
-        cat.subCategories.forEach(sub => {
-          sub.keywords.forEach(kw => {
-            tasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
-          })
+      const res = await fetch(`/api/admin/chapters/${chapterId}/concepts`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: batch,
+          paidApiKey: paidApiKey.trim() || undefined
         })
       })
 
-      // Filter out terms that already have concepts generated
-      const existingNames = new Set(concepts.map(c => c.term.toLowerCase().trim()))
-      const pendingTasks = tasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
-
-      if (pendingTasks.length === 0) {
-        setStatusMessage({ type: 'success', text: 'All keywords in this chapter already have capsules!' })
-        setCapsulesGenerating(false)
-        return
+      if (!res.ok) {
+        let errorText = `Failed with status ${res.status}`
+        try {
+          const errJson = await res.json()
+          errorText = errJson.error || errorText
+        } catch {}
+        throw new Error(errorText)
       }
 
-      // Small batch size of 2 terms guarantees ultra-fast execution (~3-5s) well within Vercel serverless timeouts
-      const chunkSize = 2
-      const totalPending = pendingTasks.length
-      let completed = 0
-
-      for (let i = 0; i < pendingTasks.length; i += chunkSize) {
-        const chunk = pendingTasks.slice(i, i + chunkSize)
-        const primaryCat = chunk[0].category
-        const primarySub = chunk[0].subCategory
-        const keywords = chunk.map(c => c.keyword)
-
-        setProgress({
-          current: completed,
-          total: totalPending,
-          currentTerm: keywords.join(', ')
-        })
-
-        const res = await fetch(`/api/admin/chapters/${chapterId}/concepts`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            keywords,
-            category: primaryCat,
-            subCategory: primarySub,
-            paidApiKey: paidApiKey.trim() || undefined
-          })
-        })
-
-        if (!res.ok) {
-          let errorText = `Failed with status ${res.status}`
-          try {
-            const errJson = await res.json()
-            errorText = errJson.error || errorText
-          } catch {}
-          throw new Error(`Generation stopped at "${keywords.join(', ')}": ${errorText}`)
-        }
-
-        const data = await res.json()
-        const count = data.generatedCount ?? chunk.length
-        completed += count
-
-        // Live update UI so each capsule card appears on screen immediately!
-        await loadData()
-
-        setProgress({
-          current: Math.min(completed, totalPending),
-          total: totalPending,
-          currentTerm: 'Preparing next batch...'
-        })
-
-        // Rate pacing pause
-        if (i + chunkSize < pendingTasks.length) {
-          await new Promise(r => setTimeout(r, 1200))
-        }
-      }
-
-      setStatusMessage({ 
-        type: 'success', 
-        text: `Successfully generated ${completed} concept capsules with comparative tables & exam traps!` 
+      const data = await res.json()
+      setStatusMessage({
+        type: 'success',
+        text: `✅ Batch of ${data.generatedCount || batch.length} concepts generated with tables & exam traps! You can inspect them below.`
       })
       await loadData()
+      return data
     } catch (err: any) {
-      setStatusMessage({ type: 'error', text: err.message || 'Error generating capsules' })
+      setStatusMessage({ type: 'error', text: `Error generating capsule batch: ${err.message}` })
+      throw err
     } finally {
       setCapsulesGenerating(false)
+    }
+  }
+
+  // PHASE 3: Auto-Run Batches of 5-7 with Browser-Paced Delay (Free Tier Safe)
+  const handleToggleAutoCapsules = async () => {
+    if (capsuleAutoRunning) {
+      capsuleAutoRef.current = false
+      setCapsuleAutoRunning(false)
+      setStatusMessage({ type: 'info', text: '⏸️ Capsule auto-generation paused.' })
+      return
+    }
+
+    if (!mindMap?.categories) return
+
+    capsuleAutoRef.current = true
+    setCapsuleAutoRunning(true)
+
+    try {
+      setStatusMessage({
+        type: 'info',
+        text: `▶️ Starting auto-generation in quality batches of ${capsuleBatchSize} with ${capsulePacingDelay}s delay between batches...`
+      })
+
+      while (capsuleAutoRef.current) {
+        // Collect current pending tasks
+        const tasks: { keyword: string; category: string; subCategory?: string }[] = []
+        mindMap.categories.forEach(cat => {
+          cat.subCategories.forEach(sub => {
+            sub.keywords.forEach(kw => {
+              tasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
+            })
+          })
+        })
+
+        const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`)
+        const data = await res.json()
+        const currentConcepts: any[] = data.existingConcepts || []
+        const existingNames = new Set(currentConcepts.map((c: any) => c.term.toLowerCase().trim()))
+        const pendingTasks = tasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
+
+        if (pendingTasks.length === 0) {
+          setStatusMessage({ type: 'success', text: '🎉 All chapter capsules have been successfully generated!' })
+          break
+        }
+
+        const batch = pendingTasks.slice(0, capsuleBatchSize)
+        setProgress({
+          current: currentConcepts.length,
+          total: tasks.length,
+          currentTerm: batch.map(b => b.keyword).join(', ')
+        })
+
+        await handleGenerateNextCapsuleBatch(capsuleBatchSize)
+
+        if (pendingTasks.length <= capsuleBatchSize) {
+          setStatusMessage({ type: 'success', text: '🎉 All chapter concepts have been published!' })
+          break
+        }
+
+        if (capsuleAutoRef.current) {
+          setStatusMessage({
+            type: 'info',
+            text: `⏳ Waiting ${capsulePacingDelay}s to protect Free Tier limits before next batch of ${capsuleBatchSize}...`
+          })
+          await new Promise(r => setTimeout(r, capsulePacingDelay * 1000))
+        }
+      }
+    } catch (err: any) {
+      console.error('Auto capsule generation error:', err)
+    } finally {
+      capsuleAutoRef.current = false
+      setCapsuleAutoRunning(false)
       setProgress(null)
+      await loadData()
     }
   }
 
@@ -852,7 +900,7 @@ export default function AdminChapterConceptsPage() {
                     High-Yield Dossiers & Traps
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Synthesizes definitions, comparative tables & exam traps. Generated in pairs of 2 with live UI mounting.
+                    Generated in <strong>batches of 5–7 concepts</strong> to guarantee maximum depth, comparative tables & exam traps.
                   </p>
                 </div>
 
@@ -865,20 +913,27 @@ export default function AdminChapterConceptsPage() {
                     <span>Pending Terms:</span>
                     <span className="text-amber-600 dark:text-amber-400">{Math.max(0, totalKeywords - generatedCount)}</span>
                   </div>
+                  {allPendingTasks.length > 0 && (
+                    <div className="pt-1 text-[10px] text-slate-400 truncate">
+                      <span className="font-bold text-slate-500">Next Up:</span> {allPendingTasks.slice(0, capsuleBatchSize).map(t => t.keyword).join(', ')}
+                    </div>
+                  )}
                 </div>
 
-                <div className="pt-1">
+                {/* Controls: Manual Next Batch & Auto-Run with Pacing */}
+                <div className="space-y-2 pt-1">
+                  {/* Manual Single Batch Button */}
                   <button
-                    onClick={handleGenerateAllCapsules}
-                    disabled={capsulesGenerating || mindMapGenerating || !mindMap || totalKeywords <= generatedCount}
+                    onClick={() => handleGenerateNextCapsuleBatch()}
+                    disabled={capsulesGenerating || capsuleAutoRunning || mindMapGenerating || !mindMap || totalKeywords <= generatedCount}
                     className="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50"
                   >
-                    {capsulesGenerating ? (
+                    {capsulesGenerating && !capsuleAutoRunning ? (
                       <>
                         <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                        Generating Capsules...
+                        Generating Batch ({Math.min(capsuleBatchSize, allPendingTasks.length)} Concepts)...
                       </>
-                    ) : totalKeywords <= generatedCount ? (
+                    ) : totalKeywords <= generatedCount && totalKeywords > 0 ? (
                       <>
                         <CheckCircle2 className="w-3.5 h-3.5" />
                         All Capsules Published ({generatedCount})
@@ -886,15 +941,73 @@ export default function AdminChapterConceptsPage() {
                     ) : (
                       <>
                         <Zap className="w-3.5 h-3.5" />
-                        Batch Generate {totalKeywords - generatedCount} Pending Capsules
+                        ⚡ Generate Next Batch ({Math.min(capsuleBatchSize, Math.max(1, allPendingTasks.length))} Concepts)
                       </>
                     )}
                   </button>
+
+                  {/* Auto-Run & Batch Size / Pacing Controls */}
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={handleToggleAutoCapsules}
+                      disabled={capsulesGenerating && !capsuleAutoRunning}
+                      className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50 ${
+                        capsuleAutoRunning
+                          ? 'bg-amber-600 hover:bg-amber-700 text-white'
+                          : 'border border-emerald-200 dark:border-emerald-800 bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-slate-700'
+                      }`}
+                    >
+                      {capsuleAutoRunning ? (
+                        <>
+                          <Pause className="w-3.5 h-3.5" />
+                          Pause Auto-Run
+                        </>
+                      ) : (
+                        <>
+                          <Play className="w-3.5 h-3.5" />
+                          Auto-Run All
+                        </>
+                      )}
+                    </button>
+
+                    {/* Batch Size Selector (5, 6, 7) */}
+                    <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-700 rounded-xl px-2 py-1 bg-white dark:bg-slate-800">
+                      <span className="text-[10px] text-slate-400 font-bold">Size:</span>
+                      <select
+                        value={capsuleBatchSize}
+                        onChange={e => setCapsuleBatchSize(Number(e.target.value))}
+                        disabled={capsuleAutoRunning || capsulesGenerating}
+                        className="bg-transparent text-[11px] font-bold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer"
+                        title="Batch size (5 to 7 concepts) to ensure highest quality tables & exam traps"
+                      >
+                        <option value={5}>5</option>
+                        <option value={6}>6</option>
+                        <option value={7}>7</option>
+                      </select>
+                    </div>
+
+                    {/* Delay Selector */}
+                    <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-700 rounded-xl px-2 py-1 bg-white dark:bg-slate-800">
+                      <Sliders className="w-3 h-3 text-slate-400" />
+                      <select
+                        value={capsulePacingDelay}
+                        onChange={e => setCapsulePacingDelay(Number(e.target.value))}
+                        disabled={capsuleAutoRunning}
+                        className="bg-transparent text-[11px] font-bold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer"
+                        title="Delay between batches to protect Free Tier quota"
+                      >
+                        <option value={5}>5s</option>
+                        <option value={8}>8s</option>
+                        <option value={10}>10s</option>
+                        <option value={15}>15s</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 text-[11px] text-slate-400">
-                Thinking is OFF (Fast, ~3-4s per batch).
+                Thinking is OFF (Fast, ~4-6s per batch of {capsuleBatchSize}).
               </div>
             </div>
           </div>
@@ -1008,12 +1121,12 @@ export default function AdminChapterConceptsPage() {
 
             {totalKeywords > generatedCount && (
               <button
-                onClick={handleGenerateAllCapsules}
-                disabled={capsulesGenerating || mindMapGenerating}
-                className="mt-3 w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                onClick={() => handleGenerateNextCapsuleBatch()}
+                disabled={capsulesGenerating || capsuleAutoRunning || mindMapGenerating}
+                className="mt-3 w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50"
               >
                 <Zap className="w-3.5 h-3.5" />
-                Batch Generate Pending (Thinking OFF)
+                Generate Next Batch ({Math.min(capsuleBatchSize, Math.max(1, totalKeywords - generatedCount))} Concepts)
               </button>
             )}
           </div>
@@ -1112,12 +1225,12 @@ export default function AdminChapterConceptsPage() {
               </div>
 
               <button
-                onClick={handleGenerateAllCapsules}
-                disabled={capsulesGenerating || mindMapGenerating}
+                onClick={() => handleGenerateNextCapsuleBatch()}
+                disabled={capsulesGenerating || capsuleAutoRunning || mindMapGenerating}
                 className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50 flex-shrink-0"
               >
                 <Zap className="w-3.5 h-3.5" />
-                Batch Generate All ({allPendingTasks.length})
+                Generate Next Batch ({Math.min(capsuleBatchSize, allPendingTasks.length)})
               </button>
             </div>
 
