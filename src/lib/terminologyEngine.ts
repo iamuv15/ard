@@ -81,35 +81,45 @@ async function callGemini({
   fallbackApiKey?: string
 }) {
   const primaryKey = (apiKeyOverride || process.env.GEMINI_API_KEY || '').trim()
+  const secondFreeKey = (process.env.GEMINI_API_KEY_2 || '').trim()
   const paidKey = (fallbackApiKey || process.env.GEMINI_PAID_API_KEY || process.env.GEMINI_FALLBACK_API_KEY || '').trim()
 
-  if (!primaryKey && !paidKey) {
-    throw new Error('GEMINI_API_KEY is not configured.')
+  if (!primaryKey && !secondFreeKey && !paidKey) {
+    throw new Error('GEMINI_API_KEY, GEMINI_API_KEY_2, or GEMINI_PAID_API_KEY is not configured.')
   }
 
   // Candidate keys:
   // - When thinking is required (Phase 2): Use Paid Key directly/first to avoid Free tier thinking TPU congestion
-  // - When thinking is minimal (Phase 1 & 3): Free Key runs first; on 503/429 falls back to Paid Key
-  const candidateKeys: { key: string; isPaid: boolean }[] = []
+  // - When thinking is minimal (Phase 1 & 3): Free Key 1 -> Free Key 2 (GEMINI_API_KEY_2) -> Paid Key
+  const candidateKeys: { key: string; isPaid: boolean; label: string }[] = []
   if (allowThinking) {
     if (paidKey) {
-      candidateKeys.push({ key: paidKey, isPaid: true })
+      candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
     }
     if (primaryKey && primaryKey !== paidKey) {
-      candidateKeys.push({ key: primaryKey, isPaid: false })
+      candidateKeys.push({ key: primaryKey, isPaid: false, label: 'FREE 1' })
+    }
+    if (secondFreeKey && secondFreeKey !== paidKey && secondFreeKey !== primaryKey) {
+      candidateKeys.push({ key: secondFreeKey, isPaid: false, label: 'FREE 2' })
     }
     if (candidateKeys.length === 0 && primaryKey) {
-      candidateKeys.push({ key: primaryKey, isPaid: false })
+      candidateKeys.push({ key: primaryKey, isPaid: false, label: 'FREE 1' })
     }
   } else {
+    // 1. First free key
     if (primaryKey) {
-      candidateKeys.push({ key: primaryKey, isPaid: false })
+      candidateKeys.push({ key: primaryKey, isPaid: false, label: 'FREE 1' })
     }
-    if (paidKey && paidKey !== primaryKey) {
-      candidateKeys.push({ key: paidKey, isPaid: true })
+    // 2. Second free key
+    if (secondFreeKey && secondFreeKey !== primaryKey) {
+      candidateKeys.push({ key: secondFreeKey, isPaid: false, label: 'FREE 2' })
+    }
+    // 3. Fallback to paid key
+    if (paidKey && paidKey !== primaryKey && paidKey !== secondFreeKey) {
+      candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
     }
     if (candidateKeys.length === 0 && paidKey) {
-      candidateKeys.push({ key: paidKey, isPaid: true })
+      candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
     }
   }
 
@@ -138,11 +148,12 @@ async function callGemini({
 
   let lastError: Error | null = null
 
-  for (const { key, isPaid } of candidateKeys) {
+  for (let i = 0; i < candidateKeys.length; i++) {
+    const { key, isPaid, label } = candidateKeys[i]
+    const nextCandidate = candidateKeys[i + 1]
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
-    const keyLabel = isPaid ? 'PAID' : 'FREE'
 
-    console.log(`[Gemini] >> ${model} | ${keyLabel} key (${key.slice(0, 8)}...) | thinking: ${allowThinking ? 'MEDIUM' : 'MINIMAL'} | prompt: ${userPrompt.length} chars`)
+    console.log(`[Gemini] >> ${model} | ${label} key (${key.slice(0, 8)}...) | thinking: ${allowThinking ? 'MEDIUM' : 'MINIMAL'} | prompt: ${userPrompt.length} chars`)
 
     const controller = new AbortController()
     const fetchTimeoutMs = 35000
@@ -159,12 +170,12 @@ async function callGemini({
       clearTimeout(timer)
       const elapsed = Date.now() - t0
 
-      console.log(`[Gemini] << ${model} | ${keyLabel} | HTTP ${response.status} | ${elapsed}ms`)
+      console.log(`[Gemini] << ${model} | ${label} | HTTP ${response.status} | ${elapsed}ms`)
 
       // Auto-recovery: If thinkingConfig was rejected with 400 INVALID_ARGUMENT, retry without it
       if (response.status === 400 && requestBody.generationConfig?.thinkingConfig) {
         const errText = await response.text()
-        console.warn(`[Gemini] 400 from ${model} with thinkingConfig: ${errText.slice(0, 160)}. Retrying without thinkingConfig...`)
+        console.warn(`[Gemini] 400 from ${model} on ${label} with thinkingConfig: ${errText.slice(0, 160)}. Retrying without thinkingConfig...`)
         const fallbackBody = { ...requestBody, generationConfig: { ...requestBody.generationConfig } }
         delete fallbackBody.generationConfig.thinkingConfig
 
@@ -190,8 +201,8 @@ async function callGemini({
         const data = await response.json()
         const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text
         if (!candidateText) {
-          console.error(`[Gemini] Empty candidate text from ${model}:`, JSON.stringify(data).slice(0, 200))
-          lastError = new Error(`Empty response content from ${model}`)
+          console.error(`[Gemini] Empty candidate text from ${model} on ${label}:`, JSON.stringify(data).slice(0, 200))
+          lastError = new Error(`Empty response content from ${model} on ${label} key`)
           continue
         }
 
@@ -204,11 +215,12 @@ async function callGemini({
       }
 
       const errText = await response.text()
-      console.warn(`[Gemini ${response.status}] ${model} on ${keyLabel} key: ${errText.slice(0, 200)}`)
+      console.warn(`[Gemini ${response.status}] ${model} on ${label} key: ${errText.slice(0, 200)}`)
 
-      // 503 (High Demand) or 429 (Rate Limit) -> try next candidate key
+      // 503 (High Demand) or 429 (Rate Limit) -> fail over to next candidate key in chain
       if (response.status === 503 || response.status === 429) {
-        lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
+        console.warn(`[Gemini Failover] ${label} key got ${response.status}. ${nextCandidate ? `Failing over to ${nextCandidate.label} key...` : 'No more fallback keys.'}`)
+        lastError = new Error(`Gemini API error (${response.status}) on ${label} key: ${errText}`)
         continue
       }
 
@@ -217,16 +229,16 @@ async function callGemini({
         continue
       }
 
-      lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
+      lastError = new Error(`Gemini API error (${response.status}) on ${label} key: ${errText}`)
       continue
 
     } catch (fetchErr: any) {
       clearTimeout(timer)
       if (fetchErr.name === 'AbortError') {
-        console.warn(`[Gemini Timeout] ${model} on ${keyLabel} key timed out after ${fetchTimeoutMs}ms`)
-        lastError = new Error(`Model ${model} timed out after ${fetchTimeoutMs}ms. Please try a smaller batch size.`)
+        console.warn(`[Gemini Timeout] ${model} on ${label} key timed out after ${fetchTimeoutMs}ms`)
+        lastError = new Error(`Model ${model} timed out after ${fetchTimeoutMs}ms on ${label} key.`)
       } else {
-        console.error(`[Gemini Error] ${model} on ${keyLabel} key:`, fetchErr.message)
+        console.error(`[Gemini Error] ${model} on ${label} key:`, fetchErr.message)
         lastError = fetchErr
       }
       continue
