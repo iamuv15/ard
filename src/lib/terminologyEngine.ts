@@ -98,8 +98,8 @@ async function callGemini({
     candidateKeys.push({ key: paidKey, isPaid: true })
   }
 
-  // Primary model is strictly gemini-3.5-flash as requested, with gemini-3.5-flash-lite and gemini-2.5-flash as fast fallback
-  const candidateModels = ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-2.5-flash']
+  // Model is strictly gemini-3.5-flash as requested
+  const candidateModels = ['gemini-3.5-flash']
 
   const requestBody: any = {
     contents: [
@@ -130,24 +130,23 @@ async function callGemini({
 
   let lastError: Error | null = null
 
-  // Overall deadline (8.5s) to guarantee execution completes safely before Vercel Hobby's 10s kill switch
-  const overallDeadline = Date.now() + 8500
+  // Generous overall deadline (55s) to allow gemini-3.5-flash ample time within maxDuration = 60
+  const overallDeadline = Date.now() + 55000
 
   // Outer loop: Try keys (Free key first, Paid key fallback)
   for (let k = 0; k < candidateKeys.length; k++) {
     const { key, isPaid } = candidateKeys[k]
 
-    // Middle loop: Try models (gemini-3.5-flash first, then lite, then 2.5-flash)
+    // Middle loop: Model (strictly gemini-3.5-flash)
     for (let m = 0; m < candidateModels.length; m++) {
       const remainingMs = overallDeadline - Date.now()
-      if (remainingMs < 1200) {
-        // Stop before exceeding Vercel 10s function limit
+      if (remainingMs < 2000) {
         break
       }
 
       const model = candidateModels[m]
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
-      const fetchTimeoutMs = Math.min(remainingMs - 300, 5000)
+      const fetchTimeoutMs = Math.min(remainingMs - 1000, 45000)
 
       const controller = new AbortController()
       const timer = setTimeout(() => controller.abort(), fetchTimeoutMs)
@@ -172,7 +171,7 @@ async function callGemini({
           }
 
           const retryController = new AbortController()
-          const retryTimer = setTimeout(() => retryController.abort(), Math.min(Math.max(1000, overallDeadline - Date.now() - 300), 3000))
+          const retryTimer = setTimeout(() => retryController.abort(), Math.min(Math.max(2000, overallDeadline - Date.now() - 1000), 30000))
           try {
             const retryRes = await fetch(endpoint, {
               method: 'POST',
