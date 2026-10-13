@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import * as xlsx from 'xlsx'
+import { incrementalQuizSync } from '@/lib/terminologyEngine'
 
 function parseCorrectAnswer(rawAnswer: string, options: {A: string, B: string, C: string, D: string, E: string}): string {
   let ans = String(rawAnswer).toUpperCase().trim();
@@ -213,6 +214,11 @@ export async function POST(request: Request) {
 
       await prisma.question.createMany({
         data: questionsToInsert
+      })
+
+      // Asynchronously trigger incremental terminology matching without blocking the upload response
+      incrementalQuizSync(quiz.id).catch(err => {
+        console.warn(`Background incremental terminology sync for quiz ${quiz.id}:`, err?.message || err)
       })
 
       totalQuestionsInserted += mappedQuestions.length

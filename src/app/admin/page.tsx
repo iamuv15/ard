@@ -5,6 +5,8 @@ import { ChapterList } from '@/components/admin/ChapterList'
 import { CreateChapterForm } from '@/components/admin/CreateChapterForm'
 import { UserManagement } from '@/components/admin/UserManagement'
 import { QuestionReportsHub } from '@/components/admin/QuestionReportsHub'
+import Link from 'next/link'
+import { Brain, ArrowRight } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -38,6 +40,36 @@ export default async function AdminDashboard() {
           <h1 className="text-3xl font-bold">Admin Dashboard</h1>
           <LogOutButton />
         </div>
+
+        {/* Dedicated Mind Map & Terminology Management Hub Banner */}
+        <Link
+          href="/admin/mindmaps"
+          className="group block p-6 rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white shadow-sm hover:shadow-md transition-all border border-emerald-500/20"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="p-3.5 bg-white/10 backdrop-blur-sm rounded-2xl text-white">
+                <Brain className="w-7 h-7" />
+              </div>
+              <div className="space-y-0.5">
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/20 text-emerald-100">
+                  New Admin Feature
+                </div>
+                <h2 className="text-xl font-black tracking-tight">
+                  Chapter Mind Maps & Terminology Hub
+                </h2>
+                <p className="text-sm text-emerald-100 font-medium">
+                  Manage chapter taxonomies with 10k Gemini reasoning tokens and generate high-yield concept capsules across all chapters.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 self-start sm:self-center px-4 py-2.5 rounded-xl bg-white text-emerald-800 font-bold text-xs shadow-xs group-hover:bg-emerald-50 transition-colors whitespace-nowrap">
+              <span>Open Mind Maps Hub</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+          </div>
+        </Link>
 
         {/* Question Quality & Corrections Hub (Two Queues) */}
         <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">

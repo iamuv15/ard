@@ -34,7 +34,7 @@ export async function verifyQuestionWithGemini(
     }
   }
 
-  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
+  const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite'
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
 
   const systemPrompt = `You are an expert exam auditor and subject-matter verifier for competitive examinations and multiple-choice questions (MCQs).
@@ -107,11 +107,10 @@ Evaluate this question and provide your assessment in this JSON format:
       })
     })
 
-    // If the specified model returns 404 (e.g. experimental or custom naming not found),
-    // automatically fallback to available Flash Lite / Flash model
-    if (response.status === 404 && model !== 'gemini-2.0-flash-lite' && model !== 'gemini-2.5-flash') {
-      console.warn(`Model ${model} returned 404. Attempting fallback to gemini-2.0-flash-lite...`)
-      const fallbackEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`
+    // If the specified model returns 404, fallback strictly to gemini-3.5-flash
+    if (response.status === 404 && model !== 'gemini-3.5-flash') {
+      console.warn(`Model ${model} returned 404. Attempting fallback to gemini-3.5-flash...`)
+      const fallbackEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`
       response = await fetch(fallbackEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -131,30 +130,6 @@ Evaluate this question and provide your assessment in this JSON format:
           }
         })
       })
-
-      if (response.status === 404) {
-        // Second fallback to standard gemini-2.5-flash
-        const secondFallback = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`
-        response = await fetch(secondFallback, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [
-              {
-                role: 'user',
-                parts: [
-                  { text: systemPrompt },
-                  { text: userPrompt }
-                ]
-              }
-            ],
-            generationConfig: {
-              responseMimeType: 'application/json',
-              temperature: 0.1
-            }
-          })
-        })
-      }
     }
 
     if (!response.ok) {

@@ -71,9 +71,9 @@ Explain WHY this answer is correct in simple, conversational terms.
       })
     })
 
-    // Fallback if model not found
-    if (response.status === 404 && model !== 'gemini-2.0-flash-lite' && model !== 'gemini-2.5-flash') {
-      const fallbackUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`
+    // Fallback strictly between gemini-3.5-flash-lite and gemini-3.5-flash
+    if (response.status === 404 && model !== 'gemini-3.5-flash') {
+      const fallbackUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`
       response = await fetch(fallbackUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -82,18 +82,6 @@ Explain WHY this answer is correct in simple, conversational terms.
           generationConfig: { temperature: 0.3, maxOutputTokens: 250 }
         })
       })
-
-      if (response.status === 404) {
-        const secondFallback = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`
-        response = await fetch(secondFallback, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: { temperature: 0.3, maxOutputTokens: 250 }
-          })
-        })
-      }
     }
 
     if (!response.ok) {

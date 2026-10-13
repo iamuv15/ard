@@ -35,9 +35,16 @@ export async function GET(request: NextRequest) {
         explanationC: true,
         explanationD: true,
         explanationE: true,
-        topic: true,
         explanation: true,
         correctAnswer: true, 
+        concepts: {
+          select: {
+            id: true,
+            term: true,
+            slug: true,
+            category: true
+          }
+        }
       }
     })
 

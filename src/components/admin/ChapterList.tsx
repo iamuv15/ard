@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Trash2, Edit, Loader2, Save, X, ChevronDown, ChevronRight, FileQuestion, Combine, Check, GripVertical } from 'lucide-react'
+import { Trash2, Edit, Loader2, Save, X, ChevronDown, ChevronRight, FileQuestion, Combine, Check, GripVertical, Brain } from 'lucide-react'
 import Link from 'next/link'
 import { EnrichQuizButton } from './EnrichQuizButton'
 
@@ -301,21 +301,32 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
                 </div>
               </div>
               
-              <button
-                onClick={() => {
-                  setChapterToDelete({ id: chapter.id, name: chapter.name })
-                  setIsChapterDeleteModalOpen(true)
-                }}
-                disabled={deletingChapterId === chapter.id}
-                className="flex items-center justify-center w-8 h-8 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors disabled:opacity-50"
-                title="Delete Chapter"
-              >
-                {deletingChapterId === chapter.id ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <Trash2 className="w-4 h-4" />
-                )}
-              </button>
+              <div className="flex items-center gap-2">
+                <Link
+                  href={`/admin/chapter/${chapter.id}/concepts`}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 font-bold text-xs border border-emerald-200 dark:border-emerald-800 transition-colors"
+                  title="Manage Chapter Mind Map & High-Yield Concepts"
+                >
+                  <Brain className="w-3.5 h-3.5" />
+                  <span>Mind Map</span>
+                </Link>
+
+                <button
+                  onClick={() => {
+                    setChapterToDelete({ id: chapter.id, name: chapter.name })
+                    setIsChapterDeleteModalOpen(true)
+                  }}
+                  disabled={deletingChapterId === chapter.id}
+                  className="flex items-center justify-center w-8 h-8 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors disabled:opacity-50"
+                  title="Delete Chapter"
+                >
+                  {deletingChapterId === chapter.id ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <Trash2 className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
             </div>
 
             {expandedChapters[chapter.id] && (

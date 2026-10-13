@@ -22,6 +22,9 @@ export default async function ChapterPage(props: { params: Promise<{ id: string 
   const chapter = await prisma.chapter.findUnique({
     where: { id: chapterId },
     include: {
+      _count: {
+        select: { concepts: true }
+      },
       quizzes: {
         include: {
           _count: {
@@ -47,7 +50,7 @@ export default async function ChapterPage(props: { params: Promise<{ id: string 
           Back to Chapters
         </Link>
         
-        <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 mb-6">
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl text-blue-600 dark:text-blue-400">
               <BookOpen className="w-8 h-8" />
@@ -62,6 +65,30 @@ export default async function ChapterPage(props: { params: Promise<{ id: string 
             </div>
           </div>
         </div>
+
+        {/* Feature Banner: Mind Map & High-Yield Glossary */}
+        <Link
+          href={`/chapter/${chapter.id}/concepts`}
+          className="group block mb-8 p-6 rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-md hover:shadow-xl hover:scale-[1.01] transition-all"
+        >
+          <div className="flex items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wider uppercase bg-white/20 text-white backdrop-blur-sm">
+                🧠 New Feature
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black tracking-tight">
+                Chapter Mind Map & High-Yield Glossary
+              </h2>
+              <p className="text-sm text-emerald-100 font-medium max-w-xl">
+                Master core terminologies, species comparative tables, and exam traps reverse-engineered from {totalQuestions} MCQs.
+              </p>
+            </div>
+            <div className="hidden sm:flex items-center gap-2 px-5 py-3 rounded-2xl bg-white text-emerald-800 font-bold text-sm shadow-sm group-hover:bg-emerald-50 transition-colors whitespace-nowrap">
+              <span>Explore Mind Map</span>
+              <span>→</span>
+            </div>
+          </div>
+        </Link>
         
         <div className="flex flex-col gap-3">
           {chapter.quizzes.map((quiz: any) => {

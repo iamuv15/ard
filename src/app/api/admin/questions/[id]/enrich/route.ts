@@ -81,8 +81,8 @@ Current Raw Explanation: ${question.explanation || 'None provided'}
       })
     })
 
-    if (response.status === 404 && model !== 'gemini-2.0-flash-lite') {
-      const fallback = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`
+    if (response.status === 404 && model !== 'gemini-3.5-flash') {
+      const fallback = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`
       response = await fetch(fallback, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

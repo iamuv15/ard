@@ -8,6 +8,8 @@ import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
 import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
+import { ConceptDossierModal } from '@/components/concepts/ConceptDossierModal'
+import { BookOpen } from 'lucide-react'
 
 type Question = {
   id: number
@@ -26,6 +28,7 @@ type Question = {
   explanation?: string | null
   simpleExplanation?: string | null
   correctAnswer: string
+  concepts?: { id: number; term: string; slug: string; category: string }[]
 }
 
 
@@ -33,6 +36,7 @@ export default function QuizPage() {
   const [questions, setQuestions] = useState<Question[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
+  const [activeConceptSlug, setActiveConceptSlug] = useState<string | null>(null)
   const [isAnswered, setIsAnswered] = useState(false)
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
   const [score, setScore] = useState(0)
@@ -431,6 +435,29 @@ export default function QuizPage() {
                       questionId={currentQ.id}
                       initialSimpleExplanation={currentQ.simpleExplanation}
                     />
+
+                    {/* Linked High-Yield Concepts */}
+                    {currentQ.concepts && currentQ.concepts.length > 0 && (
+                      <div className="mt-3 pt-3 border-t border-slate-200/80">
+                        <div className="text-[11px] font-black text-emerald-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                          <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+                          <span>Tested Concepts in this Question:</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {currentQ.concepts.map(c => (
+                            <button
+                              key={c.id}
+                              onClick={() => setActiveConceptSlug(c.slug)}
+                              className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-colors flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                              title="View High-Yield Capsule"
+                            >
+                              <span>{c.term}</span>
+                              <span className="text-[10px] opacity-75">📖</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -482,6 +509,13 @@ export default function QuizPage() {
           </div>
         </div>
       )}
+
+      {/* Contextual Concept Capsule Modal */}
+      <ConceptDossierModal
+        slug={activeConceptSlug}
+        onClose={() => setActiveConceptSlug(null)}
+        onSelectRelatedTerm={termSlug => setActiveConceptSlug(termSlug)}
+      />
     </div>
   )
 }

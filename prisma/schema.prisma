@@ -12,12 +12,14 @@ datasource db {
 }
 
 model Chapter {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  cohort    String   @default("BETA") // "ALPHA" or "BETA"
-  order     Int      @default(0)
+  id        Int              @id @default(autoincrement())
+  name      String           @unique
+  cohort    String           @default("BETA") // "ALPHA" or "BETA"
+  order     Int              @default(0)
   quizzes   Quiz[]
-  createdAt DateTime @default(now())
+  concepts  ChapterConcept[]
+  mindMap   ChapterMindMap?
+  createdAt DateTime         @default(now())
 }
 
 model Quiz {
@@ -57,6 +59,41 @@ model Question {
   mistakes      UserMistake[]
   bookmarks     UserBookmark[]
   reports       QuestionReport[]
+  concepts      ChapterConcept[]
+}
+
+model ChapterMindMap {
+  id          Int      @id @default(autoincrement())
+  chapterId   Int      @unique
+  chapter     Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  treeData    Json
+  rawKeywords String[] @default([])
+  lastSyncAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ChapterConcept {
+  id           Int        @id @default(autoincrement())
+  chapterId    Int
+  chapter      Chapter    @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  term         String
+  slug         String
+  category     String
+  subCategory  String?
+  definition   String
+  content      String
+  examTraps    String?
+  relatedTerms String[]   @default([])
+  order        Int        @default(0)
+  isPublished  Boolean    @default(true)
+  questions    Question[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@unique([chapterId, slug])
+  @@index([chapterId])
+  @@index([category])
 }
 
 model User {
