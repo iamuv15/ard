@@ -756,7 +756,7 @@ export default function AdminChapterConceptsPage() {
                     Chunked Question Mining
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Extracts keywords from batches of {batchSize} questions in ~2s (Thinking OFF). Never times out Vercel!
+                    Extracts keywords in ~2s using <strong>Gemini 3.5 Flash Lite</strong> (Thinking OFF). Never times out Vercel!
                   </p>
                 </div>
 
@@ -957,7 +957,7 @@ export default function AdminChapterConceptsPage() {
                     Master Mind Map Structuring
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Uses <strong>10,000 thinking tokens</strong> to group accumulated keywords into branches & run TNAU Agritech syllabus gap audit.
+                    Uses <strong>Gemini 3.5 Flash</strong> with 10k reasoning tokens to structure categories & run TNAU Agritech syllabus gap audit.
                   </p>
                 </div>
 
@@ -1031,7 +1031,7 @@ export default function AdminChapterConceptsPage() {
                     High-Yield Dossiers & Traps
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Generated in <strong>batches of 5–7 concepts</strong> to guarantee maximum depth, comparative tables & exam traps.
+                    Generated in <strong>batches of 5–7 concepts</strong> using <strong>Gemini 3.5 Flash Lite</strong> for fast, detailed tables & exam traps.
                   </p>
                 </div>
 

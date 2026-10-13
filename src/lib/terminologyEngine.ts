@@ -60,9 +60,9 @@ function slugify(text: string): string {
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /**
- * Helper to call Google Gemini API (gemini-3.5-flash) with multi-tier resilience:
- * - Phase 1 (Mining) & Phase 3 (Capsules): thinkingLevel = 'MINIMAL', Free Key runs first -> falls back to Paid Key on 503/429
- * - Phase 2 (Deep Master MindMap Taxonomy): thinkingLevel = 'MEDIUM', Paid Key runs directly/first
+ * Helper to call Google Gemini API with multi-tier resilience:
+ * - Phase 1 (MCQ Mining) & Phase 3 (Capsules): gemini-3.5-flash-lite, thinkingLevel = 'MINIMAL', Free Keys first -> Paid Key fallback
+ * - Phase 2 (Master MindMap Taxonomy): gemini-3.5-flash, thinkingLevel = 'MEDIUM', Free Keys first -> Paid Key fallback
  */
 async function callGemini({
   systemPrompt,
@@ -70,7 +70,8 @@ async function callGemini({
   allowThinking = false,
   temperature = 0.2,
   apiKeyOverride,
-  fallbackApiKey
+  fallbackApiKey,
+  modelOverride
 }: {
   systemPrompt: string
   userPrompt: string
@@ -79,6 +80,7 @@ async function callGemini({
   temperature?: number
   apiKeyOverride?: string
   fallbackApiKey?: string
+  modelOverride?: string
 }) {
   const primaryKey = (apiKeyOverride || process.env.GEMINI_API_KEY || '').trim()
   const secondFreeKey = (process.env.GEMINI_API_KEY_2 || '').trim()
@@ -111,7 +113,11 @@ async function callGemini({
     candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
   }
 
-  const model = 'gemini-3.5-flash'
+  // Model Selection:
+  // - Phase 1 & 3: gemini-3.5-flash-lite (high throughput, low latency, budget-friendly)
+  // - Phase 2: gemini-3.5-flash (deep reasoning for master mindmap taxonomy synthesis)
+  const defaultModel = allowThinking ? 'gemini-3.5-flash' : 'gemini-3.5-flash-lite'
+  const model = modelOverride || defaultModel
 
   // Build request body:
   // - Phase 2 (Taxonomy Reasoning): thinkingLevel = 'MEDIUM'
@@ -219,6 +225,33 @@ async function callGemini({
       }
 
       if (response.status === 404) {
+        if (model === 'gemini-3.5-flash-lite') {
+          console.warn(`[Gemini 404] ${model} not found on ${label} key. Attempting fallback to gemini-3.5-flash...`)
+          try {
+            const fallbackEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${key}`
+            const fbRes = await fetch(fallbackEndpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(requestBody),
+              signal: controller.signal
+            })
+            if (fbRes.ok) {
+              const fbData = await fbRes.json()
+              const fbCandidate = fbData.candidates?.[0]?.content?.parts?.[0]?.text
+              if (fbCandidate) {
+                clearTimeout(timer)
+                try {
+                  return JSON.parse(fbCandidate)
+                } catch {
+                  const cleaned = fbCandidate.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
+                  return JSON.parse(cleaned)
+                }
+              }
+            }
+          } catch (fbErr: any) {
+            console.warn(`[Gemini Fallback Error]`, fbErr?.message)
+          }
+        }
         lastError = new Error(`Gemini model ${model} not found (404)`)
         continue
       }
@@ -285,7 +318,8 @@ Output strictly valid JSON:
     allowThinking: false, // Fast mining, zero reasoning overhead
     temperature: 0.1,
     apiKeyOverride,
-    fallbackApiKey
+    fallbackApiKey,
+    modelOverride: 'gemini-3.5-flash-lite'
   })
   const durationMs = Date.now() - startTime
 
@@ -913,7 +947,8 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
     allowThinking: false, // ZERO thinking tokens spent here!
     temperature: 0.15,
     apiKeyOverride,
-    fallbackApiKey
+    fallbackApiKey,
+    modelOverride: 'gemini-3.5-flash-lite'
   })
 
   // Robust parsing: accept array directly or property wrappers
