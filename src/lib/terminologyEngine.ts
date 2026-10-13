@@ -853,15 +853,15 @@ export async function generateConceptCapsulesBatch({
     throw new Error(`Chapter ID ${chapterId} not found`)
   }
 
-  // Normalize batch: limit to 7 items max to guarantee high quality and prevent token truncation
+  // Normalize batch: support up to 20 concepts per batch (e.g. 5, 6, 7, 10, 12, 15)
   const normalizedItems: Array<{ keyword: string; category: string; subCategory?: string | null }> = 
     (items && items.length > 0)
-      ? items.slice(0, 7).map(it => ({
+      ? items.slice(0, 20).map(it => ({
           keyword: it.keyword.trim(),
           category: it.category || category || 'General',
           subCategory: it.subCategory || subCategory || null
         }))
-      : keywords.slice(0, 7).map(k => ({
+      : (keywords || []).slice(0, 20).map(k => ({
           keyword: k.trim(),
           category: category || 'General',
           subCategory: subCategory || null
@@ -894,7 +894,7 @@ export async function generateConceptCapsulesBatch({
       correctAnswer: true,
       explanation: true
     },
-    take: 20 // Rich question context across 5-7 terms
+    take: Math.max(20, normalizedItems.length * 3) // Rich question context scaled with batch size
   })
 
   // Format question context

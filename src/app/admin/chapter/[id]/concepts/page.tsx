@@ -99,6 +99,13 @@ export default function AdminChapterConceptsPage() {
           setPhase1BatchSize(parsed)
         }
       }
+      const savedCapsuleSize = localStorage.getItem('phase3_batch_size')
+      if (savedCapsuleSize) {
+        const parsed = parseInt(savedCapsuleSize, 10)
+        if (!isNaN(parsed) && [5, 6, 7, 10, 12, 15].includes(parsed)) {
+          setCapsuleBatchSize(parsed)
+        }
+      }
     } catch {}
   }, [])
 
@@ -1031,7 +1038,7 @@ export default function AdminChapterConceptsPage() {
                     High-Yield Dossiers & Traps
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Generated in <strong>batches of 5–7 concepts</strong> using <strong>Gemini 3.5 Flash Lite</strong> for fast, detailed tables & exam traps.
+                    Generated in <strong>batches of 5–15 concepts</strong> using <strong>Gemini 3.5 Flash Lite</strong> for fast, detailed tables & exam traps.
                   </p>
                 </div>
 
@@ -1101,19 +1108,28 @@ export default function AdminChapterConceptsPage() {
                       )}
                     </button>
 
-                    {/* Batch Size Selector (5, 6, 7) */}
+                    {/* Batch Size Selector (5, 6, 7, 10, 12, 15) */}
                     <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-700 rounded-xl px-2 py-1 bg-white dark:bg-slate-800">
                       <span className="text-[10px] text-slate-400 font-bold">Size:</span>
                       <select
                         value={capsuleBatchSize}
-                        onChange={e => setCapsuleBatchSize(Number(e.target.value))}
+                        onChange={e => {
+                          const val = Number(e.target.value)
+                          setCapsuleBatchSize(val)
+                          try {
+                            localStorage.setItem('phase3_batch_size', String(val))
+                          } catch {}
+                        }}
                         disabled={capsuleAutoRunning || capsulesGenerating}
                         className="bg-transparent text-[11px] font-bold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer"
-                        title="Batch size (5 to 7 concepts) to ensure highest quality tables & exam traps"
+                        title="Batch size concepts per pass (5 to 15 concepts)"
                       >
                         <option value={5}>5</option>
                         <option value={6}>6</option>
                         <option value={7}>7</option>
+                        <option value={10}>10</option>
+                        <option value={12}>12</option>
+                        <option value={15}>15</option>
                       </select>
                     </div>
 

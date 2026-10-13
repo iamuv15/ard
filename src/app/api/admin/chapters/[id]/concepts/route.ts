@@ -79,13 +79,13 @@ export async function POST(
       return NextResponse.json({ error: 'Keywords or items array is required' }, { status: 400 })
     }
 
-    // Generate capsules in focused batches of 5-7 with THINKING OFF (Maximum quality, zero reasoning token bloat)
+    // Generate capsules in focused batches of 5-15 with THINKING OFF (Maximum quality, zero reasoning token bloat)
     const capsules = await generateConceptCapsulesBatch({
       chapterId,
-      keywords: keywords ? keywords.slice(0, 7) : undefined,
+      keywords: keywords ? keywords.slice(0, 20) : undefined,
       category: category || 'General',
       subCategory,
-      items: items ? items.slice(0, 7) : undefined,
+      items: items ? items.slice(0, 20) : undefined,
       apiKeyOverride: apiKey,
       fallbackApiKey: paidApiKey || fallbackApiKey
     })
