@@ -147,7 +147,21 @@ export default function AdminChapterConceptsPage() {
       setMindMap(data.mindMap?.treeData || null)
       setConcepts(data.existingConcepts || [])
       setTotalQuestions(data.totalQuestions || 0)
-      setRawKeywords(data.rawKeywords || [])
+      const currentKeywords = data.rawKeywords || []
+      setRawKeywords(currentKeywords)
+
+      // Restore batch progress state without resetting to 0
+      try {
+        const savedBatch = localStorage.getItem(`chapter_${chapterId}_batch_index`)
+        if (savedBatch !== null) {
+          const parsed = parseInt(savedBatch, 10)
+          if (!isNaN(parsed)) setBatchIndex(parsed)
+        } else if (currentKeywords.length > 0 && data.totalQuestions > 0 && currentKeywords.length >= data.totalQuestions) {
+          // If keywords pool is already fully mined (e.g. 1101 terms for 612 questions), mark complete
+          const calcBatches = Math.max(1, Math.ceil(data.totalQuestions / batchSize))
+          setBatchIndex(calcBatches)
+        }
+      } catch {}
     } catch (err: any) {
       setStatusMessage({ type: 'error', text: err.message || 'Error loading chapter' })
     } finally {
@@ -161,7 +175,17 @@ export default function AdminChapterConceptsPage() {
 
   // PHASE 1: Progressive Mining of a Single MCQ Batch (~2s, Thinking OFF)
   const handleMineSingleBatch = async (idx?: number) => {
-    const targetIdx = typeof idx === 'number' ? idx : batchIndex
+    let targetIdx = typeof idx === 'number' ? idx : batchIndex
+
+    // If already complete, confirm if user wants to restart or re-mine
+    if (typeof idx !== 'number' && targetIdx >= totalBatches) {
+      if (!window.confirm('All questions have already been mined into the keyword pool. Do you want to re-mine from Batch 1?')) {
+        return
+      }
+      targetIdx = 0
+      setBatchIndex(0)
+    }
+
     try {
       setBatchMining(true)
       setStatusMessage({
@@ -183,13 +207,19 @@ export default function AdminChapterConceptsPage() {
       const data = await safeParseResponse(res)
 
       setRawKeywords(data.allRawKeywords || [])
-      const nextIdx = (targetIdx + 1) % totalBatches
+      const isComplete = targetIdx + 1 >= totalBatches
+      const nextIdx = isComplete ? totalBatches : targetIdx + 1
       setBatchIndex(nextIdx)
+      try {
+        localStorage.setItem(`chapter_${chapterId}_batch_index`, String(nextIdx))
+      } catch {}
 
       const sample = data.extractedKeywords?.slice(0, 6).join(', ') || ''
       setStatusMessage({
         type: 'success',
-        text: `✅ Batch ${targetIdx + 1}/${totalBatches} mined! +${data.newKeywordsAdded} new terms added (Total Pool: ${data.totalKeywordsPool}). Extracted: [${sample}${data.extractedKeywords?.length > 6 ? ', ...' : ''}]`
+        text: isComplete
+          ? `🎉 All ${totalBatches} batches mined! Total Pool: ${data.totalKeywordsPool} keywords. Proceed to Phase 2 to synthesize the Master Mind Map.`
+          : `✅ Batch ${targetIdx + 1}/${totalBatches} mined! +${data.newKeywordsAdded} new terms added (Total Pool: ${data.totalKeywordsPool}). Extracted: [${sample}${data.extractedKeywords?.length > 6 ? ', ...' : ''}]`
       })
 
       return data
@@ -210,9 +240,17 @@ export default function AdminChapterConceptsPage() {
       return
     }
 
+    let currentIdx = batchIndex
+    if (currentIdx >= totalBatches) {
+      if (!window.confirm('All questions have already been mined. Do you want to re-run auto-mining from Batch 1?')) {
+        return
+      }
+      currentIdx = 0
+      setBatchIndex(0)
+    }
+
     autoMiningRef.current = true
     setAutoMining(true)
-    let currentIdx = batchIndex
 
     setStatusMessage({
       type: 'info',
@@ -223,9 +261,13 @@ export default function AdminChapterConceptsPage() {
       while (autoMiningRef.current && currentIdx < totalBatches) {
         await handleMineSingleBatch(currentIdx)
         currentIdx++
-        setBatchIndex(currentIdx % totalBatches)
+        const isComplete = currentIdx >= totalBatches
+        setBatchIndex(isComplete ? totalBatches : currentIdx)
+        try {
+          localStorage.setItem(`chapter_${chapterId}_batch_index`, String(isComplete ? totalBatches : currentIdx))
+        } catch {}
 
-        if (currentIdx >= totalBatches) {
+        if (isComplete) {
           setStatusMessage({
             type: 'success',
             text: `🎉 Auto-mining complete across all ${totalBatches} batches! Ready to synthesize Master Mind Map in Phase 2.`
@@ -267,6 +309,9 @@ export default function AdminChapterConceptsPage() {
         setRawKeywords([])
         setBatchIndex(0)
         setMindMap(null)
+        try {
+          localStorage.removeItem(`chapter_${chapterId}_batch_index`)
+        } catch {}
         setStatusMessage({ type: 'success', text: 'Keyword pool reset. You can start mining from Batch 1.' })
         await loadData()
       }
@@ -696,7 +741,13 @@ export default function AdminChapterConceptsPage() {
                     PHASE 1: MCQ MINING
                   </span>
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
-                    Batch {Math.min(batchIndex + 1, totalBatches)}/{totalBatches}
+                    {batchIndex >= totalBatches ? (
+                      <span className="text-emerald-600 dark:text-emerald-400 font-extrabold flex items-center gap-1">
+                        <CheckCircle2 className="w-3.5 h-3.5 inline" /> {totalBatches}/{totalBatches} Mined
+                      </span>
+                    ) : (
+                      `Batch ${Math.min(batchIndex + 1, totalBatches)}/${totalBatches}`
+                    )}
                   </span>
                 </div>
 
@@ -764,13 +815,16 @@ export default function AdminChapterConceptsPage() {
                 {/* Progress Mini Bar */}
                 <div className="space-y-1">
                   <div className="flex justify-between text-[11px] font-bold text-slate-400">
-                    <span>Mined: {Math.min(batchIndex * batchSize, totalQuestions)} / {totalQuestions} Qs</span>
+                    <span>
+                      Mined: {batchIndex >= totalBatches ? totalQuestions : Math.min(batchIndex * batchSize, totalQuestions)} / {totalQuestions} Qs
+                      {batchIndex >= totalBatches && ' (Complete)'}
+                    </span>
                     <span className="text-blue-600 dark:text-blue-400 font-extrabold">{rawKeywords.length} Terms</span>
                   </div>
                   <div className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-blue-600 transition-all duration-300"
-                      style={{ width: `${Math.min(100, Math.round(((batchIndex * batchSize) / (totalQuestions || 1)) * 100))}%` }}
+                      className={`h-full transition-all duration-300 ${batchIndex >= totalBatches ? 'bg-emerald-500' : 'bg-blue-600'}`}
+                      style={{ width: `${batchIndex >= totalBatches ? 100 : Math.min(100, Math.round(((batchIndex * batchSize) / (totalQuestions || 1)) * 100))}%` }}
                     />
                   </div>
                 </div>
@@ -781,12 +835,21 @@ export default function AdminChapterConceptsPage() {
                   <button
                     onClick={() => handleMineSingleBatch()}
                     disabled={batchMining || autoMining || mindMapGenerating}
-                    className="w-full py-2 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50"
+                    className={`w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50 ${
+                      batchIndex >= totalBatches
+                        ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                        : 'bg-blue-600 hover:bg-blue-700 text-white'
+                    }`}
                   >
                     {batchMining ? (
                       <>
                         <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                        Mining Batch {batchIndex + 1}...
+                        Mining Batch {Math.min(batchIndex + 1, totalBatches)}...
+                      </>
+                    ) : batchIndex >= totalBatches ? (
+                      <>
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        All {totalQuestions} MCQs Mined (Ready for Phase 2)
                       </>
                     ) : (
                       <>
@@ -811,6 +874,11 @@ export default function AdminChapterConceptsPage() {
                         <>
                           <Pause className="w-3.5 h-3.5" />
                           Pause Auto-Mine
+                        </>
+                      ) : batchIndex >= totalBatches ? (
+                        <>
+                          <RotateCcw className="w-3.5 h-3.5" />
+                          Re-Mine All
                         </>
                       ) : (
                         <>

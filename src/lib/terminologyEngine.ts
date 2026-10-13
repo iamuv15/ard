@@ -255,6 +255,11 @@ Analyze these multiple-choice questions for chapter "${chapterName}".
 Extract ALL key examination concepts, entities, processes, physiological metrics, instruments, diseases, and comparative parameters mentioned across the question stems, correct answers, and distractor options.
 Do NOT write definitions or summaries. Return only high-yield keywords.
 
+CRITICAL EXCLUSIONS:
+- Do NOT extract standalone geographic administrative entities (e.g. states like "Punjab", "Rajasthan", "Haryana", districts, countries).
+- Do NOT extract generic filler words or exam distractors (e.g. "Option A", "Group", "Band", "Trip", "True", "False").
+- Return strictly high-yield agricultural/veterinary terms.
+
 Output strictly valid JSON:
 {
   "keywords": ["Keyword1", "Keyword2", "Keyword3"]
@@ -445,15 +450,30 @@ Construct a rigorous, comprehensive CHAPTER MIND MAP and TAXONOMY TREE for "${ch
 You are provided with a complete vocabulary of ${combined.length} keywords mined from chapter MCQs and benchmarked against TNAU Agritech university syllabus standards.
 
 TAXONOMY & ARCHITECTURAL RULES:
-1. DEDUPLICATION: Merge synonymous or near-identical terms into clear professional terms.
-2. MACRO-BRANCHES: Organize extracted terms into 5 to 7 coherent, macro-categories suitable for the chapter "${chapter.name}" (aligned with ICAR / TNAU Agritech curriculum).
-3. SUBCATEGORIES: Under each macro-category, create clear sub-branches grouping related terms.
-4. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
-   Identify critical exam linkages between terms:
-   - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
-   - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
-   - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
-   - CO_OCCURRENCE (terms frequently paired together in exam options)
+1. STRICT DOMAIN RELEVANCE & NOISE FILTERING:
+   - EXCLUDE all standalone administrative geographies (e.g. states like "Punjab", "Rajasthan", "Haryana", districts, or countries). Do NOT create concept nodes for geographic states. If a breed has an origin, keep the breed name (e.g., "Bikaneri Camel", "Murrah Buffalo"), not the state as an independent node.
+   - EXCLUDE generic exam distractors, filler words, or general English words (e.g., "Group", "Band", "Trip", "True", "False", "None of the above", "Option A").
+   - EXCLUDE any non-domain entities unrelated to ${chapter.name}.
+   - RETAIN only substantive, high-yield examination concepts: breeds, anatomical & physiological metrics, diseases & vaccines, breeding & reproduction techniques, feeds & nutritional values, housing & management systems, dairy/meat processing parameters, and diagnostic tools.
+
+2. COMPREHENSIVE COVERAGE (DO NOT ARTIFICIALLY BOTTLE-NECK OR TRUNCATE):
+   - Do NOT restrict or compress the taxonomy to an arbitrary small number (e.g., do not bottle-neck to 50 concepts).
+   - Retain ALL distinct, valid, non-repetitive, exam-relevant concepts found in the vocabulary. If there are 100, 150, 200, or more legitimate concepts across the chapter MCQs, include EVERY single one under its proper subcategory. Comprehensive syllabus coverage is paramount.
+
+3. CANONICAL DEDUPLICATION & MERGING:
+   - Merge synonymous, plural/singular, or slightly varied spellings into a single canonical professional term (e.g. "Desi pig" and "Desi pigs" -> "Indigenous Pig Breeds"; "Colostrum feeding" and "Feeding colostrum" -> "Colostrum Management").
+   - Ensure every concept name is clean, Title-Cased, and free of formatting artifacts.
+
+4. COHERENT MACRO-BRANCHES & SUBCATEGORIES:
+   - Organize terms into 6 to 8 coherent, ICAR / TNAU-aligned macro-categories suitable for "${chapter.name}".
+   - Under each macro-category, create clear sub-branches (subCategories) and distribute ALL valid deduplicated concepts into them.
+
+5. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
+   - Identify critical exam linkages between terms:
+     - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
+     - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
+     - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
+     - CO_OCCURRENCE (terms frequently paired together in exam options)
 
 Output strictly valid JSON conforming to this schema:
 {
@@ -479,15 +499,15 @@ Output strictly valid JSON conforming to this schema:
       "label": "Short reason for connection"
     }
   ],
-  "allKeywords": ["Sorted list of all unique extracted keywords"]
+  "allKeywords": ["Sorted list of all unique retained keywords"]
 }`
 
-  const userPrompt = `KEYWORD VOCABULARY TO STRUCTURE:
+  const userPrompt = `KEYWORD VOCABULARY TO FILTER AND STRUCTURE (${combined.length} raw terms):
 ${combined.map((k, i) => `${i + 1}. ${k}`).join('\n')}
 
 ${tnauSpine ? `TNAU AGRITECH BENCHMARK CATEGORIES FOR REFERENCE:\n${tnauSpine.categories.map(c => `- ${c.name}: ${c.topics.slice(0, 3).join(', ')}`).join('\n')}` : ''}
 
-Reason deeply through taxonomy and generate the complete Mind Map & Taxonomy JSON.`
+Filter out state names and non-subject noise, deduplicate variations, and structure ALL genuine non-repetitive ${chapter.name} exam concepts into the complete Mind Map & Taxonomy JSON.`
 
   const result: ChapterMindMapTree = await callGemini({
     systemPrompt,
@@ -644,15 +664,30 @@ Construct a rigorous, comprehensive CHAPTER MIND MAP and TAXONOMY TREE for "${ch
 You are provided with a complete vocabulary of ${combinedKeywordsForTaxonomy.length} keywords mined from all chapter MCQs and benchmarked against TNAU Agritech university syllabus standards.
 
 TAXONOMY & ARCHITECTURAL RULES:
-1. DEDUPLICATION: Merge synonymous or near-identical terms into clear professional terms.
-2. MACRO-BRANCHES: Organize extracted terms into 5 to 7 coherent, macro-categories suitable for the chapter "${chapter.name}" (aligned with ICAR / TNAU Agritech curriculum).
-3. SUBCATEGORIES: Under each macro-category, create clear sub-branches grouping related terms.
-4. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
-   Identify critical exam linkages between terms:
-   - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
-   - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
-   - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
-   - CO_OCCURRENCE (terms frequently paired together in exam options)
+1. STRICT DOMAIN RELEVANCE & NOISE FILTERING:
+   - EXCLUDE all standalone administrative geographies (e.g. states like "Punjab", "Rajasthan", "Haryana", districts, or countries). Do NOT create concept nodes for geographic states. If a breed has an origin, keep the breed name (e.g., "Bikaneri Camel", "Murrah Buffalo"), not the state as an independent node.
+   - EXCLUDE generic exam distractors, filler words, or general English words (e.g., "Group", "Band", "Trip", "True", "False", "None of the above", "Option A").
+   - EXCLUDE any non-domain entities unrelated to ${chapter.name}.
+   - RETAIN only substantive, high-yield examination concepts: breeds, anatomical & physiological metrics, diseases & vaccines, breeding & reproduction techniques, feeds & nutritional values, housing & management systems, dairy/meat processing parameters, and diagnostic tools.
+
+2. COMPREHENSIVE COVERAGE (DO NOT ARTIFICIALLY BOTTLE-NECK OR TRUNCATE):
+   - Do NOT restrict or compress the taxonomy to an arbitrary small number (e.g., do not bottle-neck to 50 concepts).
+   - Retain ALL distinct, valid, non-repetitive, exam-relevant concepts found in the vocabulary. If there are 100, 150, 200, or more legitimate concepts across the chapter MCQs, include EVERY single one under its proper subcategory. Comprehensive syllabus coverage is paramount.
+
+3. CANONICAL DEDUPLICATION & MERGING:
+   - Merge synonymous, plural/singular, or slightly varied spellings into a single canonical professional term (e.g. "Desi pig" and "Desi pigs" -> "Indigenous Pig Breeds"; "Colostrum feeding" and "Feeding colostrum" -> "Colostrum Management").
+   - Ensure every concept name is clean, Title-Cased, and free of formatting artifacts.
+
+4. COHERENT MACRO-BRANCHES & SUBCATEGORIES:
+   - Organize terms into 6 to 8 coherent, ICAR / TNAU-aligned macro-categories suitable for "${chapter.name}".
+   - Under each macro-category, create clear sub-branches (subCategories) and distribute ALL valid deduplicated concepts into them.
+
+5. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
+   - Identify critical exam linkages between terms:
+     - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
+     - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
+     - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
+     - CO_OCCURRENCE (terms frequently paired together in exam options)
 
 Output strictly valid JSON conforming to this schema:
 {
@@ -678,15 +713,15 @@ Output strictly valid JSON conforming to this schema:
       "label": "Short reason for connection"
     }
   ],
-  "allKeywords": ["Sorted list of all unique extracted keywords"]
+  "allKeywords": ["Sorted list of all unique retained keywords"]
 }`
 
-  const userPrompt = `KEYWORD VOCABULARY TO STRUCTURE:
+  const userPrompt = `KEYWORD VOCABULARY TO FILTER AND STRUCTURE (${combinedKeywordsForTaxonomy.length} raw terms):
 ${combinedKeywordsForTaxonomy.map((k, i) => `${i + 1}. ${k}`).join('\n')}
 
 ${tnauSpine ? `TNAU AGRITECH BENCHMARK CATEGORIES FOR REFERENCE:\n${tnauSpine.categories.map(c => `- ${c.name}: ${c.topics.slice(0, 3).join(', ')}`).join('\n')}` : ''}
 
-Reason deeply through taxonomy and generate the complete Mind Map & Taxonomy JSON.`
+Filter out state names and non-subject noise, deduplicate variations, and structure ALL genuine non-repetitive ${chapter.name} exam concepts into the complete Mind Map & Taxonomy JSON.`
 
   // CRITICAL: Generous 10,000 thinking tokens for the Master Taxonomy Architect (with multi-key failover)
   const result: ChapterMindMapTree = await callGemini({
