@@ -186,9 +186,10 @@ export default function AdminChapterConceptsPage() {
       const nextIdx = (targetIdx + 1) % totalBatches
       setBatchIndex(nextIdx)
 
+      const sample = data.extractedKeywords?.slice(0, 6).join(', ') || ''
       setStatusMessage({
         type: 'success',
-        text: `✅ Batch ${targetIdx + 1}/${totalBatches} mined! +${data.newKeywordsAdded} new terms added (Total Pool: ${data.totalKeywordsPool} keywords).`
+        text: `✅ Batch ${targetIdx + 1}/${totalBatches} mined! +${data.newKeywordsAdded} new terms added (Total Pool: ${data.totalKeywordsPool}). Extracted: [${sample}${data.extractedKeywords?.length > 6 ? ', ...' : ''}]`
       })
 
       return data
@@ -617,11 +618,11 @@ export default function AdminChapterConceptsPage() {
                       ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300' 
                       : 'bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300'
                   }`}>
-                    {paidApiKey ? '🟢 Free Tier Primary • Paid Fallback Armed' : '🔵 Free Tier Active'}
+                    {paidApiKey ? '🟢 Paid API Key Active (Primary Mode)' : '🔵 Free Tier Active'}
                   </span>
                 </div>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                  Always uses Free tier first. If Google encounters high demand (503) or rate limits (429), it automatically fails over to your Paid Key with 0 downtime.
+                  {paidApiKey ? 'Using Paid Key as primary to bypass Free Tier demand queues and inspect inputs/outputs. Falls back to Free Key if needed.' : 'Free tier active. You can add a Paid Key below to handle requests directly.'}
                 </p>
               </div>
             </div>

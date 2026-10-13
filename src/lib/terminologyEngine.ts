@@ -89,14 +89,19 @@ async function callGemini({
     throw new Error('GEMINI_API_KEY is not configured.')
   }
 
-  // Build candidate key list: Free key first, then Paid key
+  // Build candidate key list: Temporarily prioritize Paid Key first as requested
   const candidateKeys: { key: string; isPaid: boolean }[] = []
-  if (primaryKey) {
-    candidateKeys.push({ key: primaryKey, isPaid: false })
-  }
-  if (paidKey && paidKey !== primaryKey) {
+  if (paidKey) {
     candidateKeys.push({ key: paidKey, isPaid: true })
   }
+  if (primaryKey && primaryKey !== paidKey) {
+    candidateKeys.push({ key: primaryKey, isPaid: false })
+  }
+  if (candidateKeys.length === 0 && primaryKey) {
+    candidateKeys.push({ key: primaryKey, isPaid: false })
+  }
+
+  console.log(`[Gemini Engine] Target Key Chain: ${candidateKeys.map(c => `${c.isPaid ? 'PAID KEY' : 'FREE KEY'} (prefix: ${c.key.slice(0, 8)}...)`).join(' -> ')}`)
 
   // Model is strictly gemini-3.5-flash as requested
   const candidateModels = ['gemini-3.5-flash']
@@ -133,7 +138,7 @@ async function callGemini({
   // Generous overall deadline (55s) to allow gemini-3.5-flash ample time within maxDuration = 60
   const overallDeadline = Date.now() + 55000
 
-  // Outer loop: Try keys (Free key first, Paid key fallback)
+  // Outer loop: Try keys (Paid key first, then Free key)
   for (let k = 0; k < candidateKeys.length; k++) {
     const { key, isPaid } = candidateKeys[k]
 
@@ -263,6 +268,12 @@ Output strictly valid JSON:
 
   const userPrompt = `MCQ BATCH:\n${digest}\n\nExtract all distinct keywords.`
 
+  console.log(`[Phase 1 MCQ Mining] === INPUT START ===`)
+  console.log(`[Phase 1 MCQ Mining] Chapter: "${chapterName}", Questions count: ${mcqs.length}`)
+  console.log(`[Phase 1 MCQ Mining] Prompt chars: ${userPrompt.length} (~${Math.round(userPrompt.length / 4)} tokens)`)
+  console.log(`[Phase 1 MCQ Mining] First question preview: ${digest.split('\n')[0]}`)
+
+  const startTime = Date.now()
   const res = await callGemini({
     systemPrompt,
     userPrompt,
@@ -271,8 +282,13 @@ Output strictly valid JSON:
     apiKeyOverride,
     fallbackApiKey
   })
+  const durationMs = Date.now() - startTime
 
-  return res.keywords || []
+  const keywords: string[] = res.keywords || []
+  console.log(`[Phase 1 MCQ Mining] === OUTPUT RECEIVED (${durationMs}ms) ===`)
+  console.log(`[Phase 1 MCQ Mining] Extracted ${keywords.length} keywords:`, keywords)
+
+  return keywords
 }
 
 /**
