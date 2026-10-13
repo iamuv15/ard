@@ -3,6 +3,9 @@ import prisma from '@/lib/prisma'
 import { cookies } from 'next/headers'
 import { generateConceptCapsulesBatch } from '@/lib/terminologyEngine'
 
+export const maxDuration = 60
+export const dynamic = 'force-dynamic'
+
 async function checkAdminAuth() {
   const cookieStore = await cookies()
   const sessionCookie = cookieStore.get('admin_session')

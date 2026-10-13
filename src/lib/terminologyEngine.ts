@@ -397,37 +397,41 @@ export async function generateConceptCapsulesBatch({
   apiKeyOverride?: string
   delayBetweenCallsMs?: number
 }): Promise<ConceptCapsule[]> {
+  // Fast chapter check
   const chapter = await prisma.chapter.findUnique({
     where: { id: chapterId },
-    include: {
-      quizzes: {
-        include: {
-          questions: {
-            where: {
-              OR: keywords.map(kw => ({
-                OR: [
-                  { questionText: { contains: kw, mode: 'insensitive' } },
-                  { explanation: { contains: kw, mode: 'insensitive' } },
-                  { optionA: { contains: kw, mode: 'insensitive' } },
-                  { optionB: { contains: kw, mode: 'insensitive' } },
-                  { optionC: { contains: kw, mode: 'insensitive' } },
-                  { optionD: { contains: kw, mode: 'insensitive' } }
-                ]
-              }))
-            },
-            take: 15
-          }
-        }
-      }
-    }
+    select: { id: true, name: true }
   })
 
   if (!chapter) {
     throw new Error(`Chapter ID ${chapterId} not found`)
   }
 
-  // Gather matching questions for context
-  const relevantQuestions = chapter.quizzes.flatMap(q => q.questions)
+  // Direct fast lookup of relevant questions without nested quiz scans
+  const relevantQuestions = await prisma.question.findMany({
+    where: {
+      quiz: { chapterId },
+      OR: keywords.map(kw => ({
+        OR: [
+          { questionText: { contains: kw, mode: 'insensitive' } },
+          { explanation: { contains: kw, mode: 'insensitive' } }
+        ]
+      }))
+    },
+    select: {
+      id: true,
+      questionText: true,
+      optionA: true,
+      optionB: true,
+      optionC: true,
+      optionD: true,
+      correctAnswer: true,
+      explanation: true
+    },
+    take: 8
+  })
+
+  // Format question context
   const questionContext = relevantQuestions.map(q => 
     `[Q ID:${q.id}] Stem: ${q.questionText} | Options: [A:${q.optionA}, B:${q.optionB}, C:${q.optionC}, D:${q.optionD}] | Correct: ${q.correctAnswer} | Exp: ${q.explanation || ''}`
   ).join('\n')
@@ -481,16 +485,32 @@ Generate the JSON capsules for each keyword above.`
     apiKeyOverride
   })
 
-  const capsules: ConceptCapsule[] = result.capsules || []
+  // Robust parsing: accept array directly or property wrappers
+  let capsules: ConceptCapsule[] = []
+  if (Array.isArray(result)) {
+    capsules = result
+  } else if (Array.isArray(result?.capsules)) {
+    capsules = result.capsules
+  } else if (Array.isArray(result?.concepts)) {
+    capsules = result.concepts
+  } else if (Array.isArray(result?.data)) {
+    capsules = result.data
+  }
 
   // Upsert each concept in the database and link matched questions
   for (const cap of capsules) {
-    const slug = slugify(cap.term)
+    const term = (cap.term || '').trim()
+    if (!term) continue
+    const slug = slugify(term)
+    const definition = cap.definition || `${term} - key agricultural concept.`
+    const content = cap.content || definition
+    const examTraps = cap.examTraps || null
+    const relatedTerms = Array.isArray(cap.relatedTerms) ? cap.relatedTerms : []
 
     // Find questions that mention this term to link them
     const matchingQs = relevantQuestions.filter(q => 
-      q.questionText.toLowerCase().includes(cap.term.toLowerCase()) ||
-      (q.explanation && q.explanation.toLowerCase().includes(cap.term.toLowerCase()))
+      q.questionText.toLowerCase().includes(term.toLowerCase()) ||
+      (q.explanation && q.explanation.toLowerCase().includes(term.toLowerCase()))
     )
 
     await prisma.chapterConcept.upsert({
@@ -502,28 +522,28 @@ Generate the JSON capsules for each keyword above.`
       },
       create: {
         chapterId,
-        term: cap.term,
+        term,
         slug,
         category,
         subCategory: subCategory || null,
-        definition: cap.definition,
-        content: cap.content,
-        examTraps: cap.examTraps,
-        relatedTerms: cap.relatedTerms || [],
+        definition,
+        content,
+        examTraps,
+        relatedTerms,
         questions: {
           connect: matchingQs.map(q => ({ id: q.id }))
         }
       },
       update: {
-        term: cap.term,
+        term,
         category,
         subCategory: subCategory || null,
-        definition: cap.definition,
-        content: cap.content,
-        examTraps: cap.examTraps,
-        relatedTerms: cap.relatedTerms || [],
+        definition,
+        content,
+        examTraps,
+        relatedTerms,
         questions: {
-          connect: matchingQs.map(q => ({ id: q.id }))
+          set: matchingQs.map(q => ({ id: q.id }))
         }
       }
     })

@@ -53,6 +53,7 @@ export default function AdminChapterConceptsPage() {
   // Generation status states
   const [mindMapGenerating, setMindMapGenerating] = useState(false)
   const [capsulesGenerating, setCapsulesGenerating] = useState(false)
+  const [generatingSingleTerm, setGeneratingSingleTerm] = useState<string | null>(null)
   const [progress, setProgress] = useState<{ current: number; total: number; currentTerm?: string } | null>(null)
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null)
 
@@ -79,13 +80,13 @@ export default function AdminChapterConceptsPage() {
     if (chapterId) loadData()
   }, [chapterId])
 
-  // STEP 1: Generate Mind Map with Thinking ON
+  // STEP 1: Generate Mind Map with Thinking ON (10,000 tokens)
   const handleGenerateMindMap = async () => {
     try {
       setMindMapGenerating(true)
       setStatusMessage({ 
         type: 'info', 
-        text: 'Generating taxonomy with Gemini Thinking allowed... This analyzes all chapter MCQs.' 
+        text: 'Architecting taxonomy with Gemini Thinking (10,000 tokens)... Analyzing chapter questions.' 
       })
 
       const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
@@ -99,7 +100,7 @@ export default function AdminChapterConceptsPage() {
         setMindMap(data.mindMap)
         setStatusMessage({ 
           type: 'success', 
-          text: `Mind Map created! Extracted ${data.totalKeywordsExtracted} unique key terminologies.` 
+          text: `Mind Map created! Extracted ${data.totalKeywordsExtracted} key terminologies into structured branches.` 
         })
         loadData()
       } else {
@@ -112,7 +113,47 @@ export default function AdminChapterConceptsPage() {
     }
   }
 
-  // STEP 2: Generate Concept Capsules in Chunks (Thinking OFF to save tokens & avoid timeouts)
+  // STEP 2A: Generate a Single Concept Capsule (Fast, 1 term)
+  const handleGenerateSingleCapsule = async (keyword: string, category: string, subCategory?: string) => {
+    try {
+      setGeneratingSingleTerm(keyword)
+      setStatusMessage(null)
+
+      const res = await fetch(`/api/admin/chapters/${chapterId}/concepts`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          keywords: [keyword],
+          category,
+          subCategory
+        })
+      })
+
+      if (!res.ok) {
+        let errText = `Failed with status ${res.status}`
+        try {
+          const errJson = await res.json()
+          errText = errJson.error || errText
+        } catch {}
+        throw new Error(errText)
+      }
+
+      setStatusMessage({
+        type: 'success',
+        text: `Concept capsule for "${keyword}" generated successfully with tables and exam traps!`
+      })
+      await loadData()
+    } catch (err: any) {
+      setStatusMessage({
+        type: 'error',
+        text: `Error generating capsule for "${keyword}": ${err.message}`
+      })
+    } finally {
+      setGeneratingSingleTerm(null)
+    }
+  }
+
+  // STEP 2B: Generate Concept Capsules in Chunks of 2 (Thinking OFF, Fast, Live UI reload)
   const handleGenerateAllCapsules = async () => {
     if (!mindMap?.categories) return
 
@@ -121,7 +162,7 @@ export default function AdminChapterConceptsPage() {
       setStatusMessage(null)
 
       // Collect all keyword tasks from mindmap
-      const tasks: { keyword: string; category: string; subCategory: string }[] = []
+      const tasks: { keyword: string; category: string; subCategory?: string }[] = []
       mindMap.categories.forEach(cat => {
         cat.subCategories.forEach(sub => {
           sub.keywords.forEach(kw => {
@@ -140,11 +181,11 @@ export default function AdminChapterConceptsPage() {
         return
       }
 
-      const chunkSize = 4
+      // Small batch size of 2 terms guarantees ultra-fast execution (~3-5s) well within Vercel serverless timeouts
+      const chunkSize = 2
       const totalPending = pendingTasks.length
       let completed = 0
 
-      // Group pending tasks by category to batch intelligently
       for (let i = 0; i < pendingTasks.length; i += chunkSize) {
         const chunk = pendingTasks.slice(i, i + chunkSize)
         const primaryCat = chunk[0].category
@@ -168,26 +209,38 @@ export default function AdminChapterConceptsPage() {
         })
 
         if (!res.ok) {
-          const errData = await res.json()
-          console.warn('Chunk generation warning:', errData.error)
+          let errorText = `Failed with status ${res.status}`
+          try {
+            const errJson = await res.json()
+            errorText = errJson.error || errorText
+          } catch {}
+          throw new Error(`Generation stopped at "${keywords.join(', ')}": ${errorText}`)
         }
 
-        completed += chunk.length
+        const data = await res.json()
+        const count = data.generatedCount ?? chunk.length
+        completed += count
+
+        // Live update UI so each capsule card appears on screen immediately!
+        await loadData()
+
         setProgress({
           current: Math.min(completed, totalPending),
           total: totalPending,
           currentTerm: 'Preparing next batch...'
         })
 
-        // Free tier rate pacing pause (1.5 seconds)
-        await new Promise(r => setTimeout(r, 1500))
+        // Rate pacing pause
+        if (i + chunkSize < pendingTasks.length) {
+          await new Promise(r => setTimeout(r, 1200))
+        }
       }
 
       setStatusMessage({ 
         type: 'success', 
         text: `Successfully generated ${completed} concept capsules with comparative tables & exam traps!` 
       })
-      loadData()
+      await loadData()
     } catch (err: any) {
       setStatusMessage({ type: 'error', text: err.message || 'Error generating capsules' })
     } finally {
@@ -200,6 +253,20 @@ export default function AdminChapterConceptsPage() {
   const allKeywords = mindMap?.allKeywords || []
   const generatedCount = concepts.length
   const totalKeywords = allKeywords.length
+
+  // Build the list of pending tasks for the queue view
+  const allPendingTasks: { keyword: string; category: string; subCategory?: string }[] = []
+  if (mindMap?.categories) {
+    mindMap.categories.forEach(cat => {
+      cat.subCategories.forEach(sub => {
+        sub.keywords.forEach(kw => {
+          if (!existingSlugSet.has(kw.toLowerCase().trim())) {
+            allPendingTasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
+          }
+        })
+      })
+    })
+  }
 
   const filteredConcepts = concepts.filter(c => {
     if (!searchQuery.trim()) return true
@@ -229,7 +296,7 @@ export default function AdminChapterConceptsPage() {
               {chapterName || 'Chapter'} • Mind Map & Concepts
             </h1>
             <p className="text-sm text-slate-500 dark:text-slate-400 max-w-xl">
-              Extract high-yield keywords, generate taxonomic mind maps with thinking allowed, and synthesize comparative tables with zero-overhead batch processing.
+              Two-step pipeline: Step 1 builds the Master Taxonomy (10k thinking); Step 2 writes high-yield notes, tables & exam traps (thinking OFF).
             </p>
           </div>
 
@@ -246,7 +313,12 @@ export default function AdminChapterConceptsPage() {
             <button
               onClick={handleGenerateMindMap}
               disabled={mindMapGenerating || capsulesGenerating}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-sm transition-all disabled:opacity-50 cursor-pointer"
+              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all disabled:opacity-50 cursor-pointer ${
+                mindMap
+                  ? 'border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200'
+                  : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 text-white shadow-sm'
+              }`}
+              title="Step 1: Analyzes questions with 10k thinking tokens to create the topic branches"
             >
               {mindMapGenerating ? (
                 <>
@@ -255,11 +327,104 @@ export default function AdminChapterConceptsPage() {
                 </>
               ) : (
                 <>
-                  <Brain className="w-4 h-4" />
-                  {mindMap ? 'Re-Sync Mind Map (Thinking ON)' : 'Generate Mind Map (Thinking ON)'}
+                  <Brain className="w-4 h-4 text-blue-500" />
+                  {mindMap ? 'Re-Sync Mind Map (Optional)' : 'Generate Mind Map (Step 1)'}
                 </>
               )}
             </button>
+          </div>
+        </div>
+
+        {/* 2-Step Workflow Guide Banner */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-400">
+              Workflow Guide: Which Button To Press?
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Step 1 Card */}
+            <div className={`p-5 rounded-2xl border transition-all ${
+              mindMap 
+                ? 'border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/20 dark:bg-emerald-950/10' 
+                : 'border-blue-300 dark:border-blue-700 bg-blue-50/40 dark:bg-blue-950/20'
+            }`}>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-800 dark:text-blue-300">
+                  STEP 1: TAXONOMY & MIND MAP
+                </span>
+                {mindMap ? (
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Ready ({allKeywords.length} terms)
+                  </span>
+                ) : (
+                  <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                    Press 1st
+                  </span>
+                )}
+              </div>
+              <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">
+                Mine Keywords & Structure Mind Map
+              </h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
+                Scans all MCQs using <strong>Gemini 3.5 with 10k thinking tokens</strong> to group keywords into macro-branches. Once ready, you only press this if you upload new MCQs.
+              </p>
+
+              <button
+                onClick={handleGenerateMindMap}
+                disabled={mindMapGenerating || capsulesGenerating}
+                className="w-full py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50"
+              >
+                <Brain className="w-3.5 h-3.5 text-blue-500" />
+                {mindMapGenerating ? 'Reasoning (10k tokens)...' : mindMap ? 'Re-Sync Mind Map (Optional)' : 'Generate Mind Map'}
+              </button>
+            </div>
+
+            {/* Step 2 Card */}
+            <div className={`p-5 rounded-2xl border transition-all ${
+              generatedCount === totalKeywords && totalKeywords > 0
+                ? 'border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/20 dark:bg-emerald-950/10'
+                : 'border-amber-300 dark:border-amber-700/60 bg-amber-50/30 dark:bg-amber-950/20'
+            }`}>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300">
+                  STEP 2: CONCEPT CAPSULES
+                </span>
+                <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
+                  {generatedCount}/{totalKeywords} Live
+                </span>
+              </div>
+              <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">
+                Generate Comparative Notes & Traps
+              </h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
+                Synthesizes definitions, comparative tables & examiner traps for pending keywords. <strong>Thinking is OFF (Fast, ultra-reliable).</strong>
+              </p>
+
+              <button
+                onClick={handleGenerateAllCapsules}
+                disabled={capsulesGenerating || mindMapGenerating || !mindMap || totalKeywords <= generatedCount}
+                className="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50"
+              >
+                {capsulesGenerating ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    Generating Capsules...
+                  </>
+                ) : totalKeywords <= generatedCount ? (
+                  <>
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    All Capsules Published ({generatedCount})
+                  </>
+                ) : (
+                  <>
+                    <Zap className="w-3.5 h-3.5" />
+                    Batch Generate {totalKeywords - generatedCount} Pending Capsules
+                  </>
+                )}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -429,6 +594,67 @@ export default function AdminChapterConceptsPage() {
                 </p>
               </div>
             )}
+          </div>
+        )}
+
+        {/* Pending Capsules Queue */}
+        {allPendingTasks.length > 0 && (
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xs p-6 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 className="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-amber-500" />
+                  Pending Capsules Queue ({allPendingTasks.length})
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  These keywords are in the Mind Map but need capsules generated. Click "Batch Generate" above, or generate individual terms below.
+                </p>
+              </div>
+
+              <button
+                onClick={handleGenerateAllCapsules}
+                disabled={capsulesGenerating || mindMapGenerating}
+                className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50 flex-shrink-0"
+              >
+                <Zap className="w-3.5 h-3.5" />
+                Batch Generate All ({allPendingTasks.length})
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 pt-2">
+              {allPendingTasks.map((task, idx) => {
+                const isThisGenerating = generatingSingleTerm === task.keyword
+                return (
+                  <div
+                    key={idx}
+                    className="p-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 flex items-center justify-between gap-2"
+                  >
+                    <div className="min-w-0 pr-2">
+                      <div className="text-[10px] uppercase font-bold text-slate-400 truncate">
+                        {task.category}
+                      </div>
+                      <div className="text-xs font-bold text-slate-900 dark:text-white truncate" title={task.keyword}>
+                        {task.keyword}
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleGenerateSingleCapsule(task.keyword, task.category, task.subCategory)}
+                      disabled={capsulesGenerating || Boolean(generatingSingleTerm)}
+                      className="px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/60 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 border border-slate-200 dark:border-slate-700 text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer flex-shrink-0 disabled:opacity-50"
+                      title="Generate capsule for this term"
+                    >
+                      {isThisGenerating ? (
+                        <Loader2 className="w-3 h-3 animate-spin text-emerald-500" />
+                      ) : (
+                        <Zap className="w-3 h-3 text-emerald-500" />
+                      )}
+                      <span>{isThisGenerating ? 'Saving...' : 'Generate'}</span>
+                    </button>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         )}
 
