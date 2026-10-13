@@ -45,7 +45,8 @@ export async function GET() {
           id: ch.mindMap.id,
           lastSyncAt: ch.mindMap.lastSyncAt,
           keywordsCount,
-          categoriesCount
+          categoriesCount,
+          syllabusAudit: treeData?.syllabusAudit || null
         } : null,
         conceptsCount: ch._count.concepts
       }

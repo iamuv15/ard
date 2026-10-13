@@ -1,0 +1,116 @@
+{
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "India produces approximately 38.4% of global millet production (FAO, 2023), making it the world's largest producer. Millets, popularly branded as \"SHRI ANNA\" by the Indian Government, include sorghum (jowar), pearl millet (bajra), finger millet (ragi), and minor millets (foxtail, kodo, proso, barnyard, little). Key statistics: India's millet production 2024-25: 180.15 lakh tonnes (4.43 lakh tonnes higher than the previous year). Major producing states: Rajasthan (bajra), Karnataka (jowar, ragi), Maharashtra (jowar, bajra), MP, UP, Andhra Pradesh. India is currently the LARGEST producer of millets in the world, contributing approximately what percentage of global millet production according to FAO 2023?",
+      "options": {
+        "a": "25%",
+        "b": "30%",
+        "c": "33%",
+        "d": "38.4%",
+        "e": "45%"
+      },
+      "correct_option": "d",
+      "explanation": "India led the UN General Assembly resolution declaring 2023 as the INTERNATIONAL YEAR OF MILLETS (IYM 2023). Millets are climate-resilient (drought tolerant, need only 250-500 mm rainfall), nutritionally rich (protein, iron, calcium, dietary fibre), gluten-free, and have low glycaemic index. Support programmes: Sub-Mission on Nutri-Cereals, ODOP (One District One Product) for millets, INR 800 crore Millet Mission by MoAFW.[cite: 1002]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The DOUBLE TRANSPLANTING METHOD, in which seedlings are first transplanted to a secondary nursery and then to the main field, is most commonly practised in which crop?",
+      "options": {
+        "a": "Sugarcane",
+        "b": "Paddy",
+        "c": "Vegetable crops",
+        "d": "Fruit crops",
+        "e": "Wheat"
+      },
+      "correct_option": "b",
+      "explanation": "DOUBLE TRANSPLANTING (also called Naitcha / Naicha method) is a special technique for PADDY cultivation, used in areas facing delayed field availability or flood risks: Steps: 1. Seeds are sown in a normal primary nursery. 2. At 25-34 days, seedlings are transplanted from primary nursery to a SECONDARY NURSERY at closer spacing (multiple seedlings per hill). 3. At 60-65 days, they are transplanted a second time to the main field. Benefits: Overcomes delayed availability of main field (due to preceding rabi crop, floods). Produces stronger, hardier seedlings (\"aged\" seedlings tolerate transplanting shock and early submergence better). Improves tillering and early establishment. Better weed suppression due to bigger seedlings. Drawbacks: extra labour cost, higher seedling handling, some yield reduction compared to timely single transplant. Popular in flood-prone areas of West Bengal, Odisha, Assam, and Bangladesh (where it is called \"Boro\" system).[cite: 1003]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is called a \"FRUIT FIBRE\"?",
+      "options": {
+        "a": "Cotton",
+        "b": "Jute",
+        "c": "Mesta",
+        "d": "Manila hemp",
+        "e": "Flax"
+      },
+      "correct_option": "a",
+      "explanation": "Fibres are classified based on the plant part from which they are obtained: (A) FRUIT/SEED FIBRES: extracted from seeds inside the fruit. COTTON (Gossypium hirsutum) - most important fibre crop of the world; lint is a seed hair. Kapas / Silk cotton (Ceiba pentandra). Coir (from coconut husk - technically a mesocarp fibre). (B) BAST / STEM / STALK FIBRES: from phloem of stems, extracted by retting. Jute (Corchorus capsularis) - \"Golden fibre\". Mesta (Hibiscus cannabinus). Flax / Linseed (Linum usitatissimum). Ramie, Roselle, Sunn hemp. (C) LEAF / HARD FIBRES: from leaves; extracted by decortication. Sisal (Agave sisalana). Manila hemp / Abaca (Musa textilis). Henequen (Agave fourcroydes). So Cotton is a FRUIT/SEED fibre, while Jute and Mesta are BAST fibres, Manila hemp is a LEAF fibre, and Flax is a BAST fibre.[cite: 1004]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer in a drought-prone district receives a delayed monsoon by nearly three weeks. To avoid terminal moisture stress and ensure harvesting before the withdrawal of the monsoon, the agricultural extension officer advises him to choose a paddy variety with a shorter maturity period. Which type of paddy variety would be most suitable in the above situation?",
+      "options": {
+        "a": "Late-duration variety (>140 days)",
+        "b": "Medium-duration variety (120-140 days)",
+        "c": "Early-duration variety (<120 days)",
+        "d": "Perennial rice variety",
+        "e": "Hybrid rice only"
+      },
+      "correct_option": "c",
+      "explanation": "Paddy varieties are broadly classified by duration: EARLY-MATURING: ~110 days (100-115). Examples: Ratna, PR-115, MTU-1010 (~125 days), Naveen. MEDIUM-MATURING: 113-125 days. Examples: IR-64, Swarna (150-day medium-long), Samba Mahsuri. LATE-MATURING: 130-150 days. Examples: BPT-5204 (Samba Mahsuri - long duration), some traditional Basmatis. From panicle initiation to harvest is about 60-65 days regardless of variety. Harvesting is done at 30-35 days after flowering, when 80% of grains turn straw-coloured and grain moisture is around 20%. Field water is drained about 20 days after 50% flowering (dough stage). Early-maturing varieties are important for: Escaping terminal drought or cyclone risk. Fitting into intensive cropping systems (Rice-Rice, Rice-Wheat). Freeing land for rabi crop. Recent breeding has produced ultra-short duration varieties like Sahbhagi Dhan (~105 days) for drought-prone lowlands.[cite: 1005]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Moringa (Drumstick, Moringa oleifera) is a fast-growing, drought-resistant tree native to the Indian subcontinent, used as vegetable, herbal medicine and even for water purification. Identify the INCORRECT statement about Moringa:",
+      "options": {
+        "a": "It is native to the Indian subcontinent",
+        "b": "Being a legume, it is used as a green manure crop",
+        "c": "It is a drought-resistant tree",
+        "d": "It is a deciduous tree",
+        "e": "Its leaves are highly nutritious and rich in vitamins"
+      },
+      "correct_option": "b",
+      "explanation": "The INCORRECT statement is #2. Moringa is NOT a legume \u2014 it belongs to the family MORINGACEAE (NOT Fabaceae/Leguminosae), and it does NOT fix atmospheric nitrogen. Therefore it is not used as a green manure crop. Correct facts about Moringa: Native to the Indian subcontinent (foothills of the Himalayas). Fast-growing (can reach 3 m in first year), drought-resistant. DECIDUOUS - sheds leaves seasonally, usually in the dry season. All parts (leaves, pods, seeds, flowers) are edible and highly nutritious \u2014 leaves contain 7x vitamin C of oranges, 4x calcium of milk, 3x potassium of bananas, and are exceptionally protein-rich. Seeds contain a coagulant used for WATER PURIFICATION in rural areas. Used in traditional herbal medicine (Ayurveda) for over 300 ailments. Called \"Miracle Tree\" and \"Tree of Life\". Green manure crops are legumes (Sunhemp, Dhaincha, Sesbania) \u2014 Moringa doesn't qualify.[cite: 1006]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Carrot (Daucus carota) is a:",
+      "options": {
+        "a": "Short day plant",
+        "b": "Long day plant",
+        "c": "Day neutral plant",
+        "d": "Photo-insensitive plant",
+        "e": "Facultative long-day plant"
+      },
+      "correct_option": "b",
+      "explanation": "CARROT (Daucus carota) is a LONG-DAY plant, requiring day length greater than ~12 hours to induce flowering. However, in India, carrot is grown as a ROOT crop (for the fleshy taproot), not for seed, so it is harvested at 60-90 days BEFORE flowering \u2014 hence photoperiod doesn't affect commercial production. Photoperiod classification: SHORT-DAY PLANTS (day length <12 hours): Rice, sunflower, cotton, soybean, sugarcane, tobacco, chrysanthemum. LONG-DAY PLANTS (day length >12 hours): CARROT, barley, oat, cabbage, spinach, radish, wheat, sugar beet, lettuce. DAY-NEUTRAL PLANTS: Tomato, maize, cucumber, cotton (some varieties), sunflower (some). Carrot is a biennial: it produces the fleshy root in the first year and flowers in the second year after cold exposure (vernalization). In warm climates it can be grown year-round; in temperate zones, seed production requires overwintering.[cite: 1007]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The most CRITICAL stage for moisture stress in wheat is the:",
+      "options": {
+        "a": "Germination stage",
+        "b": "Tillering stage",
+        "c": "Crown Root Initiation (CRI) stage",
+        "d": "Milking stage",
+        "e": "Maturity stage"
+      },
+      "correct_option": "c",
+      "explanation": "CROWN ROOT INITIATION (CRI) is the MOST CRITICAL stage for moisture stress in wheat. CRI occurs 20-25 days after sowing (DAS), when the transition zone between the seedling root and shoot develops crown roots \u2014 the permanent adventitious roots that support the plant for the rest of its life. Water stress at this stage severely restricts crown root formation, leading to poor tillering and yield. CRITICAL IRRIGATION STAGES in wheat (in order of priority): 1. CRI (20-25 DAS) - MOST CRITICAL. 2. Tillering (40-45 DAS). 3. Jointing / Late tillering (60-65 DAS). 4. Flowering / Anthesis (80-85 DAS). 5. Milking (100-105 DAS). 6. Dough (110-115 DAS). Under limited water, if only ONE irrigation is possible, give it at CRI. Two irrigations \u2192 CRI + Flowering. Six irrigations under fully irrigated conditions is optimum. Other critical growth stages: Boot leaf (70-75 DAS), Maturity (115-120 DAS). Critical moisture is defined as the stage where water shortage causes maximum yield loss.[cite: 1008]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following crops is popularly known as the \"GOLDEN CROP\" of the United States (a major staple, feed, and biofuel crop)?",
+      "options": {
+        "a": "Jute",
+        "b": "Cotton",
+        "c": "Maize (Corn)",
+        "d": "Soybean",
+        "e": "Wheat"
+      },
+      "correct_option": "c",
+      "explanation": "MAIZE (Corn, Zea mays) is called the \"GOLDEN CROP\" of the United States \u2014 it is the country's largest crop by area, volume, and value. The USA produces ~380 million tonnes of maize annually (about 33% of global production), and the \"Corn Belt\" of the Midwest (Iowa, Illinois, Nebraska) is the world's largest maize-producing region. US corn goes to: ~40% ethanol biofuel (used in E10/E15 gasoline). ~40% animal feed (cattle, poultry, swine). ~15% exports. ~5% direct food and industrial uses (starch, HFCS). Other nicknames worldwide: JUTE: \"Golden Fibre\" (Bengal, Bangladesh). COTTON: \"White Gold\". SOYBEAN: \"Golden Bean\" / \"Miracle Bean\". RUBBER: \"White Gold\" (some contexts). COCONUT: \"Kalpavriksha\" / \"Tree of Life\". TURMERIC: \"Golden Spice of India\". In India, maize has emerged as an important commercial crop, with rising demand from poultry and starch industries. The National Bio-Ethanol Blending Program has boosted maize demand for ethanol. India is the 4th largest maize producer globally.[cite: 924]"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import prisma from '@/lib/prisma'
+import { getTNAUSpine } from '@/lib/tnauSyllabusSpine'
 
 // Types for MindMap and Concept Capsules
 export interface MindMapEdge {
@@ -17,12 +18,21 @@ export interface MindMapCategory {
   }[]
 }
 
+export interface SyllabusAudit {
+  scorePercent: number
+  totalBenchmarkTopics: number
+  coveredTopicsCount: number
+  gapTopics: string[]
+  tnauSourceUrl?: string
+}
+
 export interface ChapterMindMapTree {
   chapterId: number
   chapterName: string
   categories: MindMapCategory[]
   crossBranchEdges: MindMapEdge[]
   allKeywords: string[]
+  syllabusAudit?: SyllabusAudit
 }
 
 export interface ConceptCapsule {
@@ -142,9 +152,46 @@ async function callGemini({
 }
 
 /**
- * STEP 1: Construct or Update the Chapter Mind Map & Taxonomy (THINKING ON)
- * Analyzes questions from a chapter, extracts high-yield keywords,
- * groups them into a structured taxonomy tree, and maps adjacent relationships.
+ * Helper: Phase 1 "MAP" - Mine keywords from an individual batch of 50-60 MCQs (Fast, Thinking OFF)
+ */
+async function mineKeywordsFromMCQBatch(
+  mcqs: Array<{ id: number; questionText: string; optionA: string; optionB: string; optionC: string; optionD: string; optionE?: string | null; correctAnswer: string; topic?: string | null; explanation?: string | null }>,
+  chapterName: string,
+  apiKeyOverride?: string
+): Promise<string[]> {
+  const digest = mcqs.map((q, idx) => 
+    `[Q${idx + 1}] Stem: ${q.questionText} | Options: [A: ${q.optionA}, B: ${q.optionB}, C: ${q.optionC}, D: ${q.optionD}${q.optionE ? `, E: ${q.optionE}` : ''}] | Ans: ${q.correctAnswer} | Exp: ${q.explanation ? q.explanation.slice(0, 160) : ''}`
+  ).join('\n')
+
+  const systemPrompt = `You are an expert exam entity extractor for Indian agricultural examinations (NABARD, IBPS AFO, ICAR).
+Analyze these multiple-choice questions for chapter "${chapterName}".
+Extract ALL key examination concepts, entities, processes, physiological metrics, instruments, diseases, and comparative parameters mentioned across the question stems, correct answers, and distractor options.
+Do NOT write definitions or summaries. Return only high-yield keywords.
+
+Output strictly valid JSON:
+{
+  "keywords": ["Keyword1", "Keyword2", "Keyword3"]
+}`
+
+  const userPrompt = `MCQ BATCH:\n${digest}\n\nExtract all distinct keywords.`
+
+  const res = await callGemini({
+    systemPrompt,
+    userPrompt,
+    allowThinking: false, // Fast mining, zero reasoning overhead
+    temperature: 0.1,
+    apiKeyOverride
+  })
+
+  return res.keywords || []
+}
+
+/**
+ * STEP 1: Two-Phase "Map-Reduce" Chapter Mind Map & Taxonomy Pipeline (10k Thinking for Reduce)
+ * Handles chapters with 500+ MCQs gracefully:
+ * - Phase 1 (Map): Chunked mining across all questions (Thinking OFF, Fast).
+ * - Phase 2 (Reduce): Master taxonomy structuring with 10k thinking tokens.
+ * - Phase 3 (Audit): Compares with TNAU Agritech standard syllabus to find missing topics.
  */
 export async function generateChapterMindMap(
   chapterId: number,
@@ -184,29 +231,64 @@ export async function generateChapterMindMap(
     throw new Error(`Chapter "${chapter.name}" has no questions to extract keywords from.`)
   }
 
-  // Sample or chunk questions if there are hundreds (to stay token-efficient while comprehensive)
-  const sampleLimit = options?.maxQuestionsSample || 120
-  const sampledQuestions = allQuestions.slice(0, sampleLimit)
+  // PHASE 1: MAP - Chunked Keyword Mining in batches of 50-60 (immune to mixed questions)
+  const batchSize = 55
+  const totalBatches = Math.ceil(allQuestions.length / batchSize)
+  const minedKeywordsSet = new Set<string>()
 
-  const mcqDigest = sampledQuestions.map((q, idx) => {
-    return `[Q${idx + 1}] ID:${q.id} | Topic:${q.topic || 'Gen'} | Stem: ${q.questionText} | Options: [A: ${q.optionA}, B: ${q.optionB}, C: ${q.optionC}, D: ${q.optionD}${q.optionE ? `, E: ${q.optionE}` : ''}] | Correct: ${q.correctAnswer}`
-  }).join('\n')
+  for (let b = 0; b < totalBatches; b++) {
+    const batchQuestions = allQuestions.slice(b * batchSize, (b + 1) * batchSize)
+    try {
+      const keywords = await mineKeywordsFromMCQBatch(batchQuestions, chapter.name, options?.apiKey)
+      keywords.forEach(kw => {
+        if (kw && kw.trim()) minedKeywordsSet.add(kw.trim())
+      })
+    } catch (err: any) {
+      console.warn(`Mining warning on batch ${b + 1}:`, err?.message)
+    }
 
-  const systemPrompt = `You are a chief curriculum architect and competitive exam taxonomist specializing in agricultural & rural development examinations (NABARD Grade A, IBPS AFO, ICAR, State PSCs).
-Your mission is to construct a rigorous, comprehensive CHAPTER MIND MAP and TAXONOMY TREE based on the provided multiple-choice questions.
+    // Pacing delay between mining calls to stay well within 15 RPM
+    if (b < totalBatches - 1) {
+      await sleep(1200)
+    }
+  }
 
-TAXONOMY & EXTRACTION RULES:
-1. EXTRACT ALL HIGH-YIELD KEYWORDS: Look at question stems, correct answers, AND the distractor options (e.g. if the question asks for sheep parturition and gives options Calving, Lambing, Farrowing, Foaling - extract all 4 parturition terms!).
-2. TAXONOMIC HIERARCHY: Organize extracted terms into 4 to 7 coherent, macro-categories suitable for the chapter "${chapter.name}".
-   - For Animal Husbandry: Typical branches include "Breeds & Classification", "Reproduction & Lifecycle", "Feeds & Nutrition", "Farm Management Practices", "Milk & Dairy Technology", "Diseases & Veterinary Care".
-   - Under each macro-category, create clear sub-categories (e.g. under Reproduction: "Oestrus Cycle", "Gestation & Parturition", "Artificial Insemination").
-3. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
+  // Retrieve standard TNAU Agritech syllabus spine for benchmarking & gap audit
+  const tnauSpine = getTNAUSpine(chapter.name)
+  const mustCoverTopics = tnauSpine?.mustCoverTopics || []
+  
+  // Identify syllabus gaps (Topics in TNAU standard syllabus that were NOT found in any platform MCQ)
+  const extractedListLower = new Set(Array.from(minedKeywordsSet).map(k => k.toLowerCase()))
+  const gapTopics = mustCoverTopics.filter(topic => {
+    const topicLower = topic.toLowerCase()
+    return !Array.from(extractedListLower).some(extracted => 
+      extracted.includes(topicLower) || topicLower.includes(extracted)
+    )
+  })
+
+  // Ensure high-yield gap topics are also fed to the taxonomy architect so they appear in the mindmap
+  const combinedKeywordsForTaxonomy = Array.from(new Set([
+    ...Array.from(minedKeywordsSet),
+    ...gapTopics
+  ]))
+
+  // PHASE 2: REDUCE - Master Taxonomy Structuring with 10,000 Thinking Tokens
+  const systemPrompt = `You are a chief curriculum architect and competitive exam taxonomist specializing in agricultural examinations (NABARD Grade A, IBPS AFO, ICAR, State PSCs).
+Construct a rigorous, comprehensive CHAPTER MIND MAP and TAXONOMY TREE for "${chapter.name}".
+You are provided with a complete vocabulary of ${combinedKeywordsForTaxonomy.length} keywords mined from all chapter MCQs and benchmarked against TNAU Agritech university syllabus standards.
+
+TAXONOMY & ARCHITECTURAL RULES:
+1. DEDUPLICATION: Merge synonymous or near-identical terms into clear professional terms.
+2. MACRO-BRANCHES: Organize extracted terms into 5 to 7 coherent, macro-categories suitable for the chapter "${chapter.name}" (aligned with ICAR / TNAU Agritech curriculum).
+3. SUBCATEGORIES: Under each macro-category, create clear sub-branches grouping related terms.
+4. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
    Identify critical exam linkages between terms:
    - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
    - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
    - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
-   - CO_OCCURRENCE (terms frequently paired together)
-4. OUTPUT FORMAT: Output strictly valid JSON conforming to this schema:
+   - CO_OCCURRENCE (terms frequently paired together in exam options)
+
+Output strictly valid JSON conforming to this schema:
 {
   "chapterId": ${chapterId},
   "chapterName": "${chapter.name}",
@@ -233,14 +315,19 @@ TAXONOMY & EXTRACTION RULES:
   "allKeywords": ["Sorted list of all unique extracted keywords"]
 }`
 
-  const userPrompt = `Here are the MCQs from Chapter "${chapter.name}":\n\n${mcqDigest}\n\nGenerate the complete Mind Map & Taxonomy JSON.`
+  const userPrompt = `KEYWORD VOCABULARY TO STRUCTURE:
+${combinedKeywordsForTaxonomy.map((k, i) => `${i + 1}. ${k}`).join('\n')}
 
-  // CRITICAL: Generous thinking allowed for mindmap taxonomy clustering (up to 10k tokens)
+${tnauSpine ? `TNAU AGRITECH BENCHMARK CATEGORIES FOR REFERENCE:\n${tnauSpine.categories.map(c => `- ${c.name}: ${c.topics.slice(0, 3).join(', ')}`).join('\n')}` : ''}
+
+Reason deeply through taxonomy and generate the complete Mind Map & Taxonomy JSON.`
+
+  // CRITICAL: Generous 10,000 thinking tokens for the Master Taxonomy Architect
   const result: ChapterMindMapTree = await callGemini({
     systemPrompt,
     userPrompt,
     allowThinking: true,
-    thinkingBudget: 10000, // Generous 10k thinking budget for deep taxonomy clustering
+    thinkingBudget: 10000,
     temperature: 0.3,
     apiKeyOverride: options?.apiKey
   })
@@ -257,6 +344,19 @@ TAXONOMY & EXTRACTION RULES:
     }
   }
   result.allKeywords = Array.from(collected)
+
+  // PHASE 3: Calculate Syllabus Audit Metrics
+  const totalStandard = mustCoverTopics.length || 1
+  const coveredCount = Math.max(0, mustCoverTopics.length - gapTopics.length)
+  const scorePercent = Math.round((coveredCount / totalStandard) * 100)
+
+  result.syllabusAudit = {
+    scorePercent: Math.min(100, Math.max(0, scorePercent)),
+    totalBenchmarkTopics: mustCoverTopics.length,
+    coveredTopicsCount: coveredCount,
+    gapTopics,
+    tnauSourceUrl: tnauSpine?.sourceUrl
+  }
 
   // Persist into ChapterMindMap table
   await prisma.chapterMindMap.upsert({
@@ -346,6 +446,7 @@ STRICT GUIDELINES:
    - Detail exactly how exam examiners twist questions on this concept (e.g. classic distractor options, exceptions, standard ICAR/Govt values).
 4. SIBLING & ADJACENT TERMS: List other keywords related to this term.
 5. NO VERBOSE FLUFF: Keep it dense, high-contrast, structured with bold keywords and bullet points.
+6. BENCHMARK AUTHORITY: Adhere strictly to authoritative ICAR and TNAU Agritech university benchmarks (e.g. standard livestock gestation days, silage moisture 65-70%, colostrum feeding within 1-2 hours, milk fat and SNF standards, Vertisol montmorillonite mineralogy).
 
 Output strictly valid JSON with this schema:
 {

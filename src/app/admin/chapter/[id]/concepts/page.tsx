@@ -29,6 +29,13 @@ interface MindMapTree {
     }[]
   }[]
   allKeywords: string[]
+  syllabusAudit?: {
+    scorePercent: number
+    totalBenchmarkTopics: number
+    coveredTopicsCount: number
+    gapTopics: string[]
+    tnauSourceUrl?: string
+  }
 }
 
 export default function AdminChapterConceptsPage() {
@@ -346,6 +353,84 @@ export default function AdminChapterConceptsPage() {
             )}
           </div>
         </div>
+
+        {/* TNAU Agritech Syllabus Audit & Gap Detection Card */}
+        {mindMap?.syllabusAudit && (
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xs p-6 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-extrabold text-base text-slate-900 dark:text-white">
+                    TNAU Agritech Syllabus Completeness Audit
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Benchmarked against standard university curriculum checklist ({mindMap.syllabusAudit.coveredTopicsCount}/{mindMap.syllabusAudit.totalBenchmarkTopics} topics covered by your MCQs)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="text-right">
+                  <div className="text-xl font-black text-indigo-600 dark:text-indigo-400">
+                    {mindMap.syllabusAudit.scorePercent}%
+                  </div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    Coverage Score
+                  </div>
+                </div>
+
+                {mindMap.syllabusAudit.tnauSourceUrl && (
+                  <a
+                    href={mindMap.syllabusAudit.tnauSourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  >
+                    <span>TNAU Portal</span>
+                    <ExternalLink className="w-3 h-3 opacity-60" />
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {/* Coverage Meter */}
+            <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 transition-all duration-500"
+                style={{ width: `${mindMap.syllabusAudit.scorePercent}%` }}
+              />
+            </div>
+
+            {/* Identified Gap Topics (0 MCQs on platform) */}
+            {mindMap.syllabusAudit.gapTopics && mindMap.syllabusAudit.gapTopics.length > 0 && (
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
+                <div className="flex items-center justify-between text-xs font-bold text-amber-800 dark:text-amber-400">
+                  <span className="flex items-center gap-1.5">
+                    <AlertCircle className="w-4 h-4 text-amber-500" />
+                    Identified Syllabus Gaps ({mindMap.syllabusAudit.gapTopics.length} high-yield topics with 0 platform MCQs):
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {mindMap.syllabusAudit.gapTopics.map((gap, i) => (
+                    <span
+                      key={i}
+                      className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-800/60"
+                      title="This topic is part of the standard TNAU/ICAR syllabus but currently has no questions in this chapter."
+                    >
+                      ⚠️ {gap}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-[11px] text-slate-400 italic mt-1">
+                  Tip: These topics are automatically incorporated into the Mind Map so students can still learn them. You can upload new quizzes to test these areas!
+                </p>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Concept List & Search */}
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xs p-6 space-y-4">

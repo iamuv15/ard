@@ -27,6 +27,12 @@ interface ChapterData {
     lastSyncAt: string
     keywordsCount: number
     categoriesCount: number
+    syllabusAudit?: {
+      scorePercent: number
+      totalBenchmarkTopics: number
+      coveredTopicsCount: number
+      gapTopics: string[]
+    } | null
   } | null
   conceptsCount: number
 }
@@ -227,10 +233,28 @@ export default function AdminMindMapsHubPage() {
                     </h3>
 
                     {hasMindMap && (
-                      <div className="mt-2 flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium">
-                        <span>🏷️ {chapter.mindMap?.keywordsCount} Keywords</span>
-                        <span>📑 {chapter.mindMap?.categoriesCount} Macro-Branches</span>
-                        <span>📖 {chapter.conceptsCount} Capsules</span>
+                      <div className="mt-2 space-y-2">
+                        <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                          <span>🏷️ {chapter.mindMap?.keywordsCount} Keywords</span>
+                          <span>📑 {chapter.mindMap?.categoriesCount} Macro-Branches</span>
+                          <span>📖 {chapter.conceptsCount} Capsules</span>
+                        </div>
+                        {chapter.mindMap?.syllabusAudit && (
+                          <div className="flex items-center gap-2 pt-1 flex-wrap">
+                            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/40">
+                              🎯 TNAU Audit: {chapter.mindMap.syllabusAudit.scorePercent}%
+                            </span>
+                            {chapter.mindMap.syllabusAudit.gapTopics.length > 0 ? (
+                              <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/40">
+                                ⚠️ {chapter.mindMap.syllabusAudit.gapTopics.length} Gap Topics
+                              </span>
+                            ) : (
+                              <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
+                                ✓ Full Syllabus Covered
+                              </span>
+                            )}
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>

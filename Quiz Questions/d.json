@@ -1,0 +1,1265 @@
+{
+  "title": "Agronomy Part 1 Mock Test",
+  "questions": [
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer notices that very few weeds grow beneath a mature eucalyptus plantation. Agricultural experts explain that, apart from shading, certain chemical substances released by eucalyptus influence the germination and growth of neighbouring plants. The chemical substances responsible for this phenomenon are called:",
+      "options": {
+        "a": "Phytohormones",
+        "b": "Allelochemicals",
+        "c": "Biofertilizers",
+        "d": "Rhizobia",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "Allelopathy is a biological phenomenon where one plant produces biochemicals (called allelochemicals) that influence the germination, growth, survival, and reproduction of other plants around it. These effects can be positive (stimulatory) or negative (inhibitory). Classic examples include walnut trees (juglone), sorghum residues, sunflower, eucalyptus and parthenium - all of which suppress nearby crop growth. Understanding allelopathy is important in designing crop rotations, intercropping, and weed management (some cover crops are used as bio-herbicides due to their allelopathic effect). Symbiosis is a mutually beneficial relationship (like Rhizobium-legume), so it is different from allelopathy.[cite: 25]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer in a semi-arid region plans to cultivate pigeon pea after harvesting wheat. Before the onset of the monsoon, the agricultural extension officer advises him to undertake deep summer ploughing. The practice brings large soil clods to the surface, where they are exposed to intense summer heat. Over time, repeated heating, cooling, and occasional pre-monsoon showers naturally break the clods into finer particles, improving soil structure, enhancing root penetration, and helping manage soil-borne pests and weeds. Based on the recommended depth of tillage for different crops, answer the following question.\nQ. A deep tillage of ___ cm is generally recommended for a deep-rooted crop like pigeon pea, whereas a moderately deep tillage of ___ cm is suitable for maize.",
+      "options": {
+        "a": "10-20, 20-30",
+        "b": "25-30, 15-20",
+        "c": "20-30, 10-15",
+        "d": "10-15, 5-10",
+        "e": "None of the above"
+      },
+      "correct_option": "b",
+      "explanation": "The depth of ploughing is decided by the effective root zone of the crop. Pigeon pea (Cajanus cajan) is a deep-rooted crop with a tap root system that penetrates 1.5-2 metres, and therefore requires deep tillage of 25-30 cm to break subsurface hard pans and allow proper root penetration and moisture storage. Maize, being shallower rooted, requires only moderate deep tillage of 15-20 cm. Deep tillage in dryland farming improves soil moisture retention, but its economics depend on rainfall pattern - it is advisable only for long-duration, deep-rooted crops. In general, shallow-rooted crops need 10-20 cm ploughing and deep-rooted crops need 15-30 cm.[cite: 26]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The Government of India has been actively promoting millets through initiatives such as the International Year of Millets (2023), inclusion under the National Food Security Mission (NFSM), and awareness campaigns highlighting their nutritional and climate-resilient characteristics. Identify Wrong Pair?",
+      "options": {
+        "a": "Sorghum - (Great Millet)",
+        "b": "Bajra - (White Millet)",
+        "c": "Ragi - (Finger Millet)",
+        "d": "Saame - (Little Millet)",
+        "e": "All are correct"
+      },
+      "correct_option": "b",
+      "explanation": "Millets are classified into two groups. The three MAJOR millets are: (1) Sorghum/Jowar/Great Millet - Sorghum bicolor, (2) Bajra/Pearl Millet - Pennisetum typhoides, and (3) Ragi/Finger Millet - Eleusine coracana. The MINOR millets include Foxtail millet (Navane), Little millet (Saame - Panicum miliare), Kodo millet (Haraka), Proso millet (Baragu), and Barnyard millet (Udlu). So Saame/Little millet belongs to the minor millet category. India, at whose request the UN declared 2023 as the International Year of Millets, is the world's largest millet producer.[cite: 27]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "___ is the cultivation, management, and study of individual trees, shrubs, vines and other perennial woody plants. This science studies how these plants grow and respond to cultural practices and their environment.",
+      "options": {
+        "a": "Silviculture",
+        "b": "Pomiculture",
+        "c": "Arboriculture",
+        "d": "Viticulture",
+        "e": "Floriculture"
+      },
+      "correct_option": "c",
+      "explanation": "Arboriculture is the practice and science of cultivating, managing, and studying individual trees, shrubs, vines and woody perennials - typically for aesthetic, functional or ecological purposes (parks, gardens, urban forestry). It is different from: Silviculture, which deals with cultivation and management of FORESTS on a large scale for timber; Viticulture, which deals specifically with grape cultivation; Pomiculture, which deals with fruit crop cultivation; and Floriculture, dealing with flowers. Arboriculture is a key branch of horticulture and plays a role in urban greening and carbon sequestration.[cite: 28]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Millet Shakti is a collaborative initiative between the Shree Anna Abhiyan and Mission Shakti, aimed at promoting millet entrepreneurship, awareness campaigns, and the consumption of millets through women self-help groups (WSHGs) in which of the following state?",
+      "options": {
+        "a": "Jharkhand",
+        "b": "Bihar",
+        "c": "Odisha",
+        "d": "Madhya Pradesh",
+        "e": "Karnataka"
+      },
+      "correct_option": "c",
+      "explanation": "Millet Shakti is a collaborative initiative between the Shree Anna Abhiyan and Mission Shakti, aimed at promoting millet entrepreneurship, awareness campaigns, and the consumption of millets through women self-help groups (WSHGs) in Odisha[cite: 29]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Rice is classified as which type of crop based on its photoperiodic response?",
+      "options": {
+        "a": "Long-day crop",
+        "b": "Short Day Plant",
+        "c": "Day Neutral Plant",
+        "d": "Intermediate-day crop",
+        "e": "None"
+      },
+      "correct_option": "b",
+      "explanation": "Photoperiodic Crops (Based on Day Length) Photoperiodism is the response of plants to the relative length of day and night, particularly for flowering. 1. Short-Day Crops (SDP) Definition: Flowering occurs when the day length is shorter than a critical period (i.e., long nights). Examples Rice (traditional varieties) Soybean Jowar (Sorghum) Pearl Millet (Bajra) Finger Millet (Ragi) Cotton Tobacco Chrysanthemum Memory Trick: \"Rice Sleeps in Long Nights.\" 2. Long-Day Crops (LDP) Definition: Flowering occurs when the day length exceeds the critical period (i.e., short nights). Examples Wheat Barley Oat Sugar Beet Spinach Lettuce Radish Memory Trick: \"Wheat Waits for Longer Days.\" 3. Day-Neutral Crops (DNP) Definition: Flowering is independent of day length and mainly depends on age or environmental conditions. Examples Tomato Sunflower Cucumber Maize Cotton (many modern hybrids are day-neutral) Castor Pea Memory Trick: \"Tomato Doesn't Care About Time.\" NABARD Revision Table Type Flowering Condition Common Crops Short-Day Short days, long nights Rice, Jowar, Bajra, Ragi, Soybean, Cotton, Tobacco Long-Day Long days, short nights Wheat, Barley, Oat, Sugar Beet, Spinach, Lettuce Day-Neutral Not affected by day length Tomato, Maize, Sunflower, Cucumber, Castor[cite: 30, 31, 32]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Maize, also known as corn, is a tall stout grass that produces cereal grain. The leafy stalk of the plant gives rise to male inflorescences or tassels which produce pollen, and female inflorescences called EARS. Which type of Maize is most commonly cultivated in India?",
+      "options": {
+        "a": "Flint Corn",
+        "b": "Dent Corn",
+        "c": "Pop Corn",
+        "d": "Floor Corn",
+        "e": "Pod Corn"
+      },
+      "correct_option": "a",
+      "explanation": "FLINT CORN (Zea mays indurata) is the most commonly cultivated type of maize in India. Its kernels have a soft, starchy centre completely enclosed by a very hard outer layer, making them resistant to storage pests. Kernels are usually rounded, either white or yellow. Other maize types are: DENT CORN (Zea mays indentata) - most common in the USA, has a \"dent\" at the top due to soft starch shrinkage; POP CORN (Zea mays everta) - has hard endosperm that explodes on heating; SWEET CORN (Zea mays saccharata) - has ~5% sugar, eaten fresh or canned; FLOOR/SOFT CORN (Zea mays amylacea); POD CORN (Zea mays tunicata) - each kernel enclosed in a husk; WAXY CORN (Zea mays ceratina) - gummy starch used for industrial starch production. Type Scientific Name Trick Flint INDURATA INDIA \u2192 Most common in India Dent INDENTATA Has a DENT Pop EVERTA EVERY kernel EXPLODES Sweet SACCHARATA SACCHAR = Sugar Flour AMYLACEA AMYL = Starch/Flour Pod TUNICATA TUNIC = Cover/Jacket Waxy CERATINA \u2192 Think Cera (wax)[cite: 33]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Vertical mulching is a soil management technique used to alleviate compaction and deliver nutrients and oxygen directly to a tree's root zone. It involves drilling or excavating a series of 12 to 18-inch deep holes around the tree's drip line and backfilling them with a porous organic mixture. Vertical Mulching is practised most commonly in which of the following types of soil?",
+      "options": {
+        "a": "Red soil",
+        "b": "Black soil",
+        "c": "Alluvial soil",
+        "d": "Laterite soil",
+        "e": "Sandy soil"
+      },
+      "correct_option": "b",
+      "explanation": "Vertical Mulching is a special moisture-conservation technique used mostly in BLACK (Vertisol) soils. In black soils, which have high clay content and deep cracks in summer, narrow trenches (15-30 cm deep) are dug across the slope and filled with organic materials such as crop residues, stubble, or straw. When rainfall occurs, water enters these vertical channels rapidly, minimises runoff and gets stored in deeper layers of the profile. It also improves aeration and root growth. This technique is highly effective in the Deccan black soil region for kharif crops. In other soils (red, alluvial, laterite), surface mulching or dust mulching is more common.[cite: 34]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Bacteria are one of the well known biotic crop production factor, Which one of the following is a AEROBIC NON-SYMBIOTIC Nitrogen-Fixing Bacterium?",
+      "options": {
+        "a": "Azotobacter",
+        "b": "Nostoc",
+        "c": "Clostridium",
+        "d": "Rhodospirillum",
+        "e": "Rhizobium"
+      },
+      "correct_option": "a",
+      "explanation": "Nitrogen-fixing bacteria are broadly of two types: (A) FREE-LIVING (Non-symbiotic): They fix atmospheric N2 independently in the soil. - Aerobic: Azotobacter, Beijerinckia - Anaerobic: Clostridium, Rhodospirillum - Cyanobacteria: Anabaena, Nostoc (B) SYMBIOTIC (Mutualistic): They fix N2 in association with plant roots. - Rhizobium: forms root nodules with LEGUMES (soybean, pigeon pea, groundnut, chickpea, etc.) - Frankia: forms nodules with non-legume trees like Casuarina, Alnus. Rhizobium is the classic symbiotic N-fixer. It converts atmospheric nitrogen into ammonia, which the plant uses to build amino acids; in return, the plant supplies carbohydrates to the bacteria.[cite: 35]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "During the 1960s, India was heavily dependent on food imports under the PL-480 programme and frequently faced food shortages due to low agricultural productivity. To achieve self-sufficiency in foodgrain production, the Government of India introduced a package of improved agricultural technologies, including high-yielding varieties (HYVs), assured irrigation, chemical fertilizers, pesticides, and institutional support. The Green Revolution in India was primarily started for which of the following crops? (Select the MOST appropriate answer)",
+      "options": {
+        "a": "Wheat",
+        "b": "Paddy",
+        "c": "Both wheat and paddy",
+        "d": "Pulses",
+        "e": "Millets"
+      },
+      "correct_option": "a",
+      "explanation": "The Green Revolution in India began in the mid-1960s and was primarily focused on WHEAT. It was based on the introduction of High-Yielding Varieties (HYVs) of wheat developed by Dr. Norman Borlaug at CIMMYT (Mexico), notably semi-dwarf varieties like Sonora-64 and Lerma Rojo. Dr. M.S. Swaminathan, known as the \"Father of Green Revolution in India\", led its adaptation. States like Punjab, Haryana and Western UP became wheat baskets. Rice was included later with varieties like IR-8 (developed at IRRI, Philippines). While the revolution eventually covered both wheat and rice, its initial and most dramatic success was with wheat \u2014 production almost doubled between 1965 and 1972. Pulses and millets were largely bypassed, which is why they are now the focus of the \"Second Green Revolution\" or \"Rainbow Revolution\". Important HYV Varieties Associated with the Green Revolution (NABARD Revision) Wheat Variety Developed By/Origin Significance Kalyan Sona Developed in India from Mexican dwarf lines One of the first successful HYV wheat varieties during the Green Revolution Sonalika Developed in India Early maturing, high yielding, widely adopted Lerma Rojo 64A Mexico Introduced as breeding material Sonora 64 Mexico Introduced during the initial Green Revolution phase Remember: Kalyan Sona & Sonalika = India's Green Revolution Wheat Rice Variety Significance IR8 World's first miracle rice developed by IRRI; triggered the Green Revolution in rice Jaya High-yielding variety developed in India Padma HYV suitable for Indian conditions Ratna Popular HYV during the Green Revolution Remember: IR8 \u2192 International; Jaya & Ratna \u2192 India[cite: 36]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Haryana became the first state in India to extend price protection to a millet crop through which scheme?",
+      "options": {
+        "a": "Kisan Kalyan Yojana",
+        "b": "Kisan Samman Yojana",
+        "c": "Bhavantar Bharpayee Yojana",
+        "d": "Bhavantar Vikas Yojana",
+        "e": "Fasal Bima Yojana"
+      },
+      "correct_option": "c",
+      "explanation": "Haryana became the FIRST state in India to extend price protection to a millet crop (BAJRA / pearl millet) through its BHAVANTAR BHARPAYEE YOJANA (BBY). Under this Price Deficiency Payment (PDP) scheme, if private buyers purchase the millet crop below the government-notified Minimum Support Price (MSP), the state government pays farmers the difference up to a maximum of 600 per quintal. The gap between MSP and average market price is called the \"Bhavantar\" price. This is important because millets are largely traded outside the APMC procurement system and farmers usually get lower than MSP prices. Madhya Pradesh had earlier launched a similar Bhavantar scheme for oilseeds/pulses, but Haryana's is the first FOR MILLETS.[cite: 37]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which one of the following crops is most commonly used as a smothering crop in India?",
+      "options": {
+        "a": "Cotton",
+        "b": "Wheat",
+        "c": "Sorghum",
+        "d": "Mustard",
+        "e": "Cowpea"
+      },
+      "correct_option": "e",
+      "explanation": "Smothering Crops (Suppressor Crops) Definition: Smothering crops are fast-growing, dense-canopy crops that suppress the growth of weeds by shading them and competing aggressively for light, water, nutrients, and space. They are an important component of cultural weed management. Characteristics: Rapid initial growth Dense foliage/canopy High ground cover Strong competition with weeds Reduce weed seed production[cite: 38]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following crops is popularly known as a \"BIODRAINAGE\" crop, used to lower waterlogged and saline groundwater tables?",
+      "options": {
+        "a": "Oak",
+        "b": "Poplar",
+        "c": "Pine",
+        "d": "Eucalyptus",
+        "e": "Neem"
+      },
+      "correct_option": "d",
+      "explanation": "BIODRAINAGE refers to the pumping out of excess soil water by deep-rooted, fast-growing trees through transpiration. EUCALYPTUS (Eucalyptus tereticornis, E. camaldulensis) is the most widely used biodrainage species in India because it has: (a) a very deep and extensive root system, (b) very high transpiration rate (up to 200 litres per day per tree), and (c) tolerance to salinity and waterlogging. Biodrainage plantations are used along canals, drainage lines, and in waterlogged saline areas (e.g., Haryana, Rajasthan canal command areas) to reduce the rising water table and reclaim salt-affected lands without the need for costly conventional drainage. Other biodrainage species include Poplar (Populus deltoides), Casuarina, and Prosopis, but Eucalyptus is the most effective.[cite: 39]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Consider the following statements:\n1. Rice is a C3 crop.\n2. Maize is a C4 crop.\n3. Sugarcane exhibits Kranz anatomy.\nWhich of the statements given above are correct?",
+      "options": {
+        "a": "Only 1",
+        "b": "Only 2",
+        "c": "only 1 and 2",
+        "d": "Only 1 and 3",
+        "e": "1, 2 and 3"
+      },
+      "correct_option": "e",
+      "explanation": "Statement 1: Rice is a C3 crop. - Correct. Rice fixes atmospheric CO2 through the Calvin Cycle (C3 pathway). The first stable product formed is 3-phosphoglyceric acid (3-PGA), a 3-carbon compound. Rice has no Kranz anatomy and shows relatively higher photorespiration, especially under high temperature. Statement 2: Maize is a C4 crop. - Correct. Maize follows the Hatch and Slack (C4) pathway. The first stable product is Oxaloacetic Acid (OAA), a 4-carbon compound. Initial CO2 fixation is carried out by PEP carboxylase, which has a high affinity for CO2 and minimizes photorespiration. Statement 3: Sugarcane exhibits Kranz anatomy. Correct. Sugarcane is a C4 plant and possesses Kranz anatomy, characterized by a ring of bundle sheath cells surrounding the vascular bundles. In C4 plants, mesophyll cells initially fix CO2 into OAA, which is then transported to bundle sheath cells, where the Calvin cycle occurs. This spatial separation greatly reduces photorespiration and enhances photosynthetic efficiency under high temperature, intense sunlight, and low moisture conditions. Exam Tip: C3 Plants: Rice, Wheat, Barley, Potato, Soybean. C4 Plants: Maize, Sugarcane, Sorghum (Jowar), Pearl Millet (Bajra), Finger Millet (Ragi). Memory Trick: \"C4 = Maize, Sugarcane, Jowar, Bajra, Ragi\" \u2192 All major tropical grasses with Kranz anatomy and high water-use efficiency. The C3 (Calvin) pathway requires 18 ATP + 12 NADPH to synthesise one molecule of glucose. The C4 (Hatch-Slack) pathway is more ATP-expensive: it needs 30 ATP + 12 NADPH per molecule of glucose because the extra CO2-concentrating mechanism (in bundle sheath cells) requires additional energy. Despite this higher ATP demand, C4 plants (maize, sugarcane, sorghum, bajra) are more efficient in hot, dry, high-light conditions because they minimise photorespiration \u2192 they achieve much higher net productivity per unit water. C3 plants (rice, wheat, soybean, cotton) do well in moderate climates. CAM plants (pineapple, cactus) have an even more specialised pathway suited to arid conditions.[cite: 40, 41]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer cultivating transplanted rice in a continuously submerged field observes that 2-3 weeks after transplanting, the young leaves develop yellowing between the veins, followed by brown patches. Plant growth is stunted despite adequate nitrogen fertilization. An agricultural extension officer attributes the problem to a micronutrient deficiency commonly observed under submerged paddy conditions. Which one of the following nutrient deficiencies is most likely responsible for the above symptoms?",
+      "options": {
+        "a": "Sulphur",
+        "b": "Nitrogen",
+        "c": "Zinc",
+        "d": "Molybdenum",
+        "e": "Nitrogen"
+      },
+      "correct_option": "c",
+      "explanation": "Zinc deficiency is the most common micronutrient deficiency in submerged rice fields. Continuous flooding increases soil reduction and the availability of bicarbonates, which reduces zinc availability to rice plants. Typical symptoms: Appears 2-4 weeks after transplanting. Stunted growth. Chlorosis (yellowing) of young leaves. Brown or bronze spots (\"Khaira disease\" in rice). Poor tillering. NABARD Fact: Although iron deficiency is common in upland/calcareous soils, zinc deficiency is the most widespread micronutrient disorder in submerged paddy soils, making it a frequently tested concept in agriculture examinations.[cite: 42]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The scientific name of soybean is?",
+      "options": {
+        "a": "Arachis hypogaea",
+        "b": "Cicer arietinum",
+        "c": "Glycine max",
+        "d": "Vigna radiata",
+        "e": "None"
+      },
+      "correct_option": "c",
+      "explanation": "SOYBEAN (Glycine max) is called the \"WONDER CROP\", \"GOLDEN BEAN\", or \"MIRACLE CROP\" because of its extraordinary nutritional profile: Contains ~40% high quality PROTEIN (highest among any pulse or oilseed) - rich in lysine (~5%), which is deficient in cereals. Contains ~20% OIL, making it also an oilseed. Rich in minerals, vitamins (thiamine, riboflavin), and its sprouts contain vitamin C. Contains carotene (precursor of vitamin A). Being a legume, it fixes atmospheric nitrogen and enriches the soil. Out of soybean produced globally, ~85% is used for oil extraction, ~10% for seed, and ~5% for direct food (tofu, milk, soy protein). Soybean is a kharif crop, best grown in Madhya Pradesh, Maharashtra, and Rajasthan. Its main pest is the girdle beetle, and yellow mosaic virus is a major disease.[cite: 43]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer cultivating mustard applies the recommended doses of nitrogen, phosphorus and potassium but observes poor seed filling and low oil content. On the advice of an agricultural extension officer, he applies an additional nutrient, following which both seed yield and oil percentage improve significantly. Which one of the following nutrients was most likely applied?",
+      "options": {
+        "a": "Calcium",
+        "b": "Magnesium",
+        "c": "Sulphur",
+        "d": "Zinc",
+        "e": "None"
+      },
+      "correct_option": "c",
+      "explanation": "NABARD Fact to Remember: Sulphur = \"Oil Nutrient\". Particularly important for: Mustard, Rapeseed, Soybean, Groundnut, Sunflower, Sesame. Memory Trick: \"No Sulphur \u2192 No Shine in Oil.\" Sulphur is indispensable for oil synthesis, protein formation, and improving both yield and oil percentage in oilseed crops.[cite: 44]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "It refers to tillage done after seeding or planting the crop (in a sterile soil) either at the pre-emergence stage of the crop or while it is in the early stages of growth, so that crop plants (such as sugarcane, potato) do not get damaged but extra plants and broad-leaved weeds are uprooted. Identify this tillage.",
+      "options": {
+        "a": "Zero tillage",
+        "b": "Dry tillage",
+        "c": "Sub-soiling",
+        "d": "Blind tillage",
+        "e": "Minimum tillage"
+      },
+      "correct_option": "d",
+      "explanation": "BLIND TILLAGE is a shallow tillage operation carried out AFTER sowing but BEFORE crop emergence (or during very early growth) to break the soil crust, control weeds, and improve aeration without damaging the sown crop. It is called \"blind\" because the operator cannot see the crop plants below the soil. Other tillage types: Zero tillage: no soil disturbance; residues left on surface; direct drilling of seed. Sub-soiling: deep chiselling (below plough layer) to break hard pans. Dry tillage: tillage in a soil with sufficient moisture (21-23%) for direct sowing crops. Minimum tillage: reducing operations to the bare minimum needed for a good seedbed. Clean tillage: complete removal of all vegetation. Blind tillage is common in sugarcane, potato, cotton, and paddy fields (broadcast rice).[cite: 45]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer cultivating maize in a phosphorus-deficient soil applies a biofertilizer that establishes a symbiotic association with the plant roots. After a few weeks, the crop shows better phosphorus uptake, improved drought tolerance, and enhanced root growth. The biofertilizer used by the farmer is most likely:",
+      "options": {
+        "a": "Rhizobium",
+        "b": "Azotobacter",
+        "c": "Vesicular-Arbuscular Mycorrhiza (VAM)",
+        "d": "Azospirillum",
+        "e": "Blue-Green Algae"
+      },
+      "correct_option": "c",
+      "explanation": "VAM = Arbuscular Mycorrhiza (AM). Nature: Symbiotic fungus. Main benefit: Enhanced phosphorus uptake. Improves: Drought tolerance, Root growth, Micronutrient uptake (especially Zn and Cu), Plant establishment. Does NOT fix atmospheric nitrogen. Poor/No association: Brassicaceae (mustard), Chenopodiaceae (spinach, beet).[cite: 46]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "List I (ICAR Institute)\nA. ICAR-Indian Institute of Millets Research (IIMR)\nB. ICAR-National Rice Research Institute (NRRI)\nC. ICAR-Indian Institute of Oilseeds Research (IIOR)\nD. ICAR-Indian Institute of Maize Research (IIMR)\nList II (Location)\n1. Hyderabad\n2. Cuttack\n3. Hyderabad\n4. Ludhiana\nIdentify Correct Codes:",
+      "options": {
+        "a": "A-1, B-2, C-3, D-4",
+        "b": "A-3, B-2, C-1, D-4",
+        "c": "A-1, B-4, C-3, D-2",
+        "d": "A-2, B-1, C-4, D-3",
+        "e": "None of the above"
+      },
+      "correct_option": "a",
+      "explanation": "No Explanation added[cite: 47]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The optimum temperature (\u00b0C) for the ideal vegetative growth of wheat is:",
+      "options": {
+        "a": "5-10",
+        "b": "10-15",
+        "c": "15-20",
+        "d": "20-25",
+        "e": "25-30"
+      },
+      "correct_option": "c",
+      "explanation": "Wheat is a cool-season (rabi) crop with distinct temperature requirements at different growth stages: Germination: 20-22\u00b0C. Vegetative growth: 15-20\u00b0C (optimum) - cool and moist conditions promote tillering. Reproductive phase / grain filling: 20-25\u00b0C - warm and dry conditions favour grain formation. Temperatures above 30\u00b0C during grain filling cause \"terminal heat stress\" and drastically reduce yield due to forced maturity. Wheat is a long-day plant, so short days promote vegetative growth while longer days hasten flowering. Annual rainfall of 250-1800 mm is suitable; too high rainfall increases disease. This is why the great wheat belts of the world (India, USA, Russia, Canada, Argentina, Australia) lie in the temperate zones between 30-60\u00b0N and 25-40\u00b0S latitudes.[cite: 48]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "In the ontogenic classification of weeds, the basis of classification is:",
+      "options": {
+        "a": "Habitat of the weed",
+        "b": "Morphological characteristics",
+        "c": "Mode of reproduction",
+        "d": "Duration of life cycle",
+        "e": "Regenerative farming philosophy"
+      },
+      "correct_option": "d",
+      "explanation": "Ontogenic Class Life Cycle: Annual - One season/year. Biennial - Two growing seasons. Perennial - More than two years. Annual - 1 season. Biennial - 2 seasons. Perennial - Many years.[cite: 49]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is an example of a LEGUME FODDER crop?",
+      "options": {
+        "a": "Maize",
+        "b": "Jowar",
+        "c": "Bajra",
+        "d": "Berseem",
+        "e": "Napier"
+      },
+      "correct_option": "d",
+      "explanation": "Fodder crops are broadly classified as: (A) LEGUME (LEGUMINOSAE) FODDERS - high in protein, fix atmospheric N2: Berseem (Trifolium alexandrinum) - \"King of Fodders\", rabi season, multi-cut. Lucerne / Alfalfa (Medicago sativa) - perennial. Cowpea (Vigna unguiculata) - kharif. Cluster bean / Guar (Cyamopsis tetragonoloba). Horse gram, rice bean, lupins. (B) NON-LEGUME (GRASS / CEREAL) FODDERS - high in fibre/energy: Maize, Jowar (Sorghum), Bajra - annual cereal fodders. Napier (Pennisetum purpureum), Guinea, Para, Rhodes - perennial grasses. Berseem is the most popular winter legume fodder in North India, providing 4-6 cuttings from November to April.[cite: 50]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "1. It occurs above the permanent snow line.\n2. Commercial agriculture is generally absent.\n3. Lichens and mosses are among the dominant forms of vegetation.\nWhich of the statements given above are correct?",
+      "options": {
+        "a": "1 only",
+        "b": "1 and 2 Only",
+        "c": "2 and 3 only",
+        "d": "1, 2 and 3",
+        "e": "1 and 3 only"
+      },
+      "correct_option": "d",
+      "explanation": "NIVAL = Never-ending Ice, Very little Agriculture, Lichens.[cite: 51]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The FIELD CAPACITY of soil refers to the amount of soil moisture held against gravity, generally at a soil water tension of about:",
+      "options": {
+        "a": "0 bar",
+        "b": "1/3 bar (0.33 bar)",
+        "c": "15 bar",
+        "d": "31 bar",
+        "e": "100 bar"
+      },
+      "correct_option": "b",
+      "explanation": "FIELD CAPACITY (FC) is the moisture content retained in a well-drained soil 2-3 days after saturation, when gravitational water has drained away. It corresponds to a soil moisture tension of approximately 1/3 bar (0.33 bar or 33 kPa). Field capacity represents the UPPER LIMIT of readily available water for plants. Other important soil moisture constants: Saturation: 0 bar (all pores filled with water). Field Capacity (FC): 1/3 bar. Permanent Wilting Point (PWP): 15 bar - the lower limit of available water; plants cannot recover from wilting. Hygroscopic Coefficient: 31 bar - water held tightly to soil particles, unavailable to plants. Available Water Capacity (AWC) = FC - PWP, and it defines the range of water usable by crops. Sandy soils have low AWC (~5-10%), while loams and silty soils have high AWC (~15-20%). This concept is critical for irrigation scheduling.[cite: 52]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "In the context of cropping systems, CROPPING INTENSITY is calculated as:",
+      "options": {
+        "a": "(Gross Cropped Area x 100) / Net Sown Area",
+        "b": "(Gross Cropped Area / Net Sown Area) x 100",
+        "c": "(Net Sown Area / Gross Cropped Area) x 100",
+        "d": "(Total Land Area / Cultivated Area) x 100",
+        "e": "(Cultivated Area / Total Land Area) x 100"
+      },
+      "correct_option": "b",
+      "explanation": "CROPPING INTENSITY (CI) = (Gross Cropped Area / Net Sown Area) x 100. Gross Cropped Area (GCA) = area sown across all seasons in a year (a field sown twice is counted twice). Net Sown Area (NSA) = actual physical area sown at least once during the year (counted only once). So if NSA = 100 ha and one crop is grown in kharif (100 ha) and another in rabi (75 ha), GCA = 175 ha, and CI = 175%. India's cropping intensity is currently around 155%, having risen from ~110% at independence. Higher cropping intensity is achieved through irrigation, short-duration varieties, mechanisation, and multiple cropping. Options 1 (multiplication is by 100, not multiplied first) and 3 (inverted) are commonly confused variants. NABARD provides infrastructure finance (irrigation, farm mechanisation) to raise cropping intensity in rainfed and rural regions.[cite: 53]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is NOT a major principle of Agronomy?",
+      "options": {
+        "a": "Agrometeorology",
+        "b": "Weed Management",
+        "c": "Sustainable Agriculture",
+        "d": "Coppicing",
+        "e": "None"
+      },
+      "correct_option": "d",
+      "explanation": "The major principles / sub-disciplines of Agronomy include: 1. Agrometeorology - study of climatic factors related to agriculture. 2. Soils & Tillage - soil management and land preparation. 3. Soil & Water Conservation - reducing runoff and erosion. 4. Dryland Agriculture - farming in areas with low/erratic rainfall. 5. Mineral Nutrition, Manures & Fertilizers - plant nutrition. 6. Irrigation & Water Management - optimum water use. 7. Weed Management - control of unwanted plants. 8. Cropping & Farming Systems - crop rotations, intercropping, etc. 9. Sustainable Agriculture - long-term productivity without soil/environment damage. Coppicing is a silvicultural practice in which a tree is cut close to the ground, allowing new shoots (coppice shoots) to regenerate naturally from the remaining stump (called the stool) or roots. Definition: Coppicing is the regeneration of trees by cutting them near ground level so that new shoots arise from the stump or root system. Why is Coppicing Practised? Sustainable production of fuelwood, Small timber and poles, Bamboo-like repeated harvesting, Rapid regeneration without replanting, Soil and moisture conservation. Common Coppicing Species: Eucalyptus, Subabul (Leucaena leucocephala), Acacia, Casuarina, Willow, Poplar (some species).[cite: 54, 55]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The technique used to prevent breakage during milling by soaking paddy in water at 32-38% moisture and then steaming it at 15 lb pressure for 10-20 minutes is called:",
+      "options": {
+        "a": "Puddling",
+        "b": "Curing",
+        "c": "Scouring",
+        "d": "Parboiling",
+        "e": "Malting"
+      },
+      "correct_option": "d",
+      "explanation": "PARBOILING of rice was developed in India as a pre-milling technique to prevent grain breakage, especially in long-grained varieties. Steps: 1. Soaking (steeping) - paddy is soaked in water to bring moisture to 32-38%. 2. Steaming - paddy in husk is steamed at ~15 lb pressure for 10-20 minutes to partially gelatinise the starch. 3. Drying - the paddy is then dried before dehusking. Benefits of parboiling: Higher milling recovery (66-70% vs 55-60% for raw rice). Fewer broken grains due to a firmer, more compact kernel. Better resistance to insect attack in storage. Higher nutritive value - water-soluble B vitamins (niacin, riboflavin, thiamine) from the germ/pericarp migrate into the endosperm and are retained. Firmer, less sticky cooked rice. Disadvantages: darker/yellowish colour, changed flavour, and higher energy use. Parboiled rice is common in South India, Sri Lanka, Bangladesh, and West Africa.[cite: 56]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The BROAD BED and FURROW (BBF) system used in the midst of rice fields (broad bed of 4 m width, 1 m height; furrow 6 m width, 1 m depth) primarily helps to integrate:",
+      "options": {
+        "a": "Only vegetable crops",
+        "b": "Vegetables, rice, fish and fodder - an Integrated Farming System",
+        "c": "Only rice cultivation",
+        "d": "Only fodder cultivation",
+        "e": "Only water storage"
+      },
+      "correct_option": "b",
+      "explanation": "The BROAD BED AND FURROW (BBF) system is a landscape modification technique developed to grow vegetables and fodders in the midst of rice fields. Alternating broad beds (4 m wide, 1 m high) provide drained conditions for vegetables and fodder, while furrows (6 m wide, 1 m deep) hold standing water for rice and fish. This creates a full Integrated Farming System (IFS): (a) rice on submerged part, (b) vegetables and fodder on raised beds, (c) fish culture in the furrows, and (d) animal component fed by fodder from the beds. Farmers get diversified income (rice + vegetables + fish + milk/meat), better nutrition, and reduced climate risk. BBF also improves drainage in flood-prone areas. It has been popularised by ICAR-Indian Institute of Farming Systems Research (IIFSR, Modipuram) and Central Rice Research Institute (Cuttack).[cite: 57]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Wheat is cultivated over a wide range of latitudes (60\u00b0N to 60\u00b0S) and altitudes (sea level to 3,500 m in tropics/subtropics). Because of its need for cool moist weather during vegetative growth and warm dry weather during grain formation, the great wheat regions of the world are found in the temperate zones between:",
+      "options": {
+        "a": "15-30\u00b0N and 10-25\u00b0S",
+        "b": "30-60\u00b0N and 25-40\u00b0S",
+        "c": "5-20\u00b0N and 5-20\u00b0S",
+        "d": "45-65\u00b0N and 40-60\u00b0S",
+        "e": "Equator to 15\u00b0 in both hemispheres"
+      },
+      "correct_option": "b",
+      "explanation": "The great wheat-growing regions of the world lie in the temperate zones between 30-60\u00b0N (Great Plains USA, Canada, Ukraine, Russia, Kazakhstan, China, Northern India, Europe) and 25-40\u00b0S (Argentina, Southern Australia). This latitude belt provides the ideal combination wheat needs: cool moist winters (for vegetative growth and tillering) and warm dry summers/springs (for grain formation and harvest). Areas closer to the equator have too high temperatures and short-day conditions unsuitable for wheat, while regions at very high latitudes have too short a growing season. India's wheat belt lies in the northern subtropics - Punjab, Haryana, UP, MP, Rajasthan and Bihar - where winters mimic temperate conditions. This is why India can grow wheat only as a RABI crop, not year-round.[cite: 58]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following can be used as a BIO-CONTROL AGENT against crop pests and weeds?",
+      "options": {
+        "a": "Beetles",
+        "b": "Mites",
+        "c": "Fungi",
+        "d": "Bacteria",
+        "e": "All of the above"
+      },
+      "correct_option": "e",
+      "explanation": "BIO-CONTROL uses living organisms to suppress pests, diseases and weeds - a cornerstone of Integrated Pest Management (IPM). All the listed groups are used: BEETLES: e.g. Rodolia cardinalis (Vedalia beetle) against cottony cushion scale; Zygogramma bicolorata against Parthenium. MITES: predatory mites (Phytoseiulus persimilis) control spider mites in vegetables. FUNGI: entomopathogens like Beauveria bassiana, Metarhizium anisopliae kill insects; Trichoderma spp. is a soil-borne biocontrol against Fusarium/Rhizoctonia. BACTERIA: Bacillus thuringiensis (Bt) produces toxins against lepidopteran pests; Pseudomonas fluorescens controls soil diseases. Also used: parasitoids (Trichogramma wasps against Helicoverpa), nematodes (Heterorhabditis). Bio-control is eco-friendly, avoids pesticide residues, and protects beneficial insects.[cite: 59]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is classified as a CONDIMENT crop, used in small quantities to impart flavour to food?",
+      "options": {
+        "a": "Potato",
+        "b": "Tomato",
+        "c": "Chilli",
+        "d": "Ragi",
+        "e": "Maize"
+      },
+      "correct_option": "c",
+      "explanation": "CONDIMENT crops produce edible materials used in SMALL QUANTITIES to impart flavour, aroma, colour, or pungency to food. This category includes: Chilli (Capsicum spp.) - pungency (capsaicin), Ginger (Zingiber officinale), Turmeric (Curcuma longa), Coriander (Coriandrum sativum), Cumin, fenugreek, mustard, etc. Potato and Tomato are VEGETABLE crops (used in larger quantities as staple/food). Ragi and Maize are CEREAL crops. Chilli is India's most important condiment/spice crop by area and value. India is the world's largest producer, consumer and exporter of chilli, with Guntur (Andhra Pradesh) being the largest chilli market in Asia. India is also the \"Land of Spices\", contributing over 40% of world spice production.[cite: 60]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Correct order of soil water by strength of retention:",
+      "options": {
+        "a": "Gravitational, Capillary, Hygroscopic",
+        "b": "Hygroscopic, Capillary, Gravitational",
+        "c": "Capillary, Hygroscopic, Gravitational",
+        "d": "Gravitational, Hygroscopic, Capillary",
+        "e": "Hygroscopic, Gravitational, Capillary"
+      },
+      "correct_option": "b",
+      "explanation": "Hygroscopic water - Most tightly held by soil particles; not available to plants. Capillary water - Moderately held; main source of plant-available water. Gravitational water - Least tightly held; drains rapidly under gravity; generally not available for long. The three main forms of soil water available for plant use, from most to least tightly held, are correctly listed as: Therefore, the correct sequence is: Hygroscopic \u2192 Capillary \u2192 Gravitational. Correct Answer: A. Hygroscopic, Capillary, Gravitational. Quick Memory Trick: \"H C G = Hold \u2192 Crop \u2192 Go\". Hygroscopic, Capillary, Gravitational. Hygroscopic = Held very tightly, Capillary = Crop uses it, Gravitational = Goes downward. Concept Note: Although the question says \"available for plant use\", hygroscopic and gravitational water are generally not considered plant-available. The examiner is actually testing the order of retention (tightness of holding) rather than availability. If the question had asked \"forms of soil water available to plants\", only capillary water would be the correct answer.[cite: 61]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Groundnut thrives best in which of the following soil types?",
+      "options": {
+        "a": "Red clay soil",
+        "b": "Sandy loam soil",
+        "c": "Heavy black cotton soil",
+        "d": "Laterite soil",
+        "e": "Peat and muck soil"
+      },
+      "correct_option": "b",
+      "explanation": "GROUNDNUT (Arachis hypogaea) thrives best in well-drained SANDY LOAM soils. This is because groundnut is a \"geocarpic\" crop - after fertilisation, the ovary (peg) elongates and enters the soil, where the pod develops underground. Sandy loams offer: Loose texture, which allows easy peg penetration (in heavy clay, pegs cannot penetrate). Good drainage, preventing pod rot. Adequate calcium (essential for pod development and to prevent \"pops\" or empty pods). Warm surface temperatures. Peg extension takes 5-6 days to penetrate the bracts; once pegs are 3-4 mm long, they become positively geotropic. Groundnut is the top oilseed crop in India by production; Gujarat is the leading producer, followed by Rajasthan, Tamil Nadu and Andhra Pradesh. Major disease: Tikka (leaf spot) caused by Cercospora spp.[cite: 62]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "In India, the sunflower was introduced from RUSSIA in the year:",
+      "options": {
+        "a": "1959",
+        "b": "1969",
+        "c": "1979",
+        "d": "1989",
+        "e": "1999"
+      },
+      "correct_option": "b",
+      "explanation": "Sunflower (Helianthus annuus) was introduced to India from RUSSIA in 1969, initially through the Indian Council of Agricultural Research (ICAR). Russia and Ukraine were then the world's largest sunflower producers (still are, along with Argentina). Sunflower has 45-50% good-quality oil, is high in linoleic acid (67%), which helps reduce cholesterol, making it nutritionally superior to groundnut or mustard oil for heart patients. Since 1969, it has expanded to Karnataka, Andhra Pradesh, Maharashtra and Bihar, and is grown in all three seasons (kharif, rabi, summer). Sunflower is a day-neutral, photoperiod-insensitive crop, hence adaptable across seasons. Main pest: parrots and birds (heliotropism makes the head easy to spot); Disease: Alternaria leaf blight and head rot.[cite: 63]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Azolla, Blue-Green Algae (Anabaena), Azotobacter, and Azospirillum are best classified as:",
+      "options": {
+        "a": "Weeds",
+        "b": "Commercial crops",
+        "c": "Bio-Fertilisers",
+        "d": "Cash crops",
+        "e": "Insecticides"
+      },
+      "correct_option": "c",
+      "explanation": "All of these are BIO-FERTILISERS - living microorganisms that enrich soil fertility through nitrogen fixation, phosphorus solubilisation, or nutrient mobilisation. AZOLLA: an aquatic fern that hosts N-fixing cyanobacterium Anabaena azollae in its leaves; grown alongside rice, it can supply 25-30 kg N/ha. BLUE-GREEN ALGAE (BGA / CYANOBACTERIA): Anabaena, Nostoc, Aulosira - free-living N-fixers in rice fields; may add 20-30 kg N/ha. AZOTOBACTER: free-living aerobic N-fixer for upland crops (wheat, maize, cotton, vegetables). AZOSPIRILLUM: associative N-fixer, colonises roots of grasses like millets, sugarcane, maize. Other important bio-fertilisers: Rhizobium (legume symbiont), Phosphate Solubilising Bacteria (PSB - Bacillus megaterium), Vesicular Arbuscular Mycorrhiza (VAM), and Frankia. Bio-fertilisers are subsidised under the National Mission on Sustainable Agriculture (NMSA) and Organic/Natural farming programmes.[cite: 64]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is NOT considered an edible oil in the traditional sense of cooking?",
+      "options": {
+        "a": "Mustard oil",
+        "b": "Rice bran oil",
+        "c": "Castor oil",
+        "d": "Safflower oil",
+        "e": "Niger oil"
+      },
+      "correct_option": "c",
+      "explanation": "CASTOR OIL (from Ricinus communis) is NOT an edible cooking oil. Although small amounts are used medicinally as a laxative (contains ricinoleic acid), large quantities cause severe gastric upset. Castor oil is used industrially in lubricants, plastics, paints, cosmetics, brake fluids, and increasingly for biodiesel. India is the world's LARGEST producer and exporter of castor oil (~80% of global supply), with Gujarat and Rajasthan being the main states. The other four are all edible: Mustard oil - the most popular edible oil in northern and eastern India. Rice bran oil - extracted from bran (by-product of rice milling); one of India's fastest-growing edible oils. Safflower (kardi) oil - high in polyunsaturated fatty acids (PUFA, 74.6%). Niger oil (Guizotia abyssinica) - tribal region oil, high in linoleic acid.[cite: 65]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The complementary interaction between intercrops in an intercropping system, whereby they occupy different ecological niches without direct competition, is known as:",
+      "options": {
+        "a": "Complementation",
+        "b": "Symbiosis",
+        "c": "Annidation",
+        "d": "Facilitation",
+        "e": "Mutualism"
+      },
+      "correct_option": "c",
+      "explanation": "ANNIDATION refers to the complementary (mutually helpful, non-competitive) interaction between intercrop components. It typically occurs when the crops differ in growth pattern such that they occupy DIFFERENT NICHES either in space (deep vs shallow roots; tall vs short canopy) or in time (short vs long duration). Two types of annidation: ANNIDATION IN SPACE - crops with different rooting depths or canopy heights (e.g. maize + groundnut: maize is tall with fibrous roots, groundnut is short with taproots). ANNIDATION IN TIME - crops with different durations (e.g. maize (100 days) + pigeon pea (180 days): maize matures early, then pigeon pea uses the remaining resources). This is the theoretical basis of successful intercropping like sorghum + red gram, wheat + mustard, sugarcane + potato. It maximises Land Equivalent Ratio (LER) and total productivity.[cite: 66]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Phalaris minor (little canary grass) and Avena fatua (wild oats) - two problematic monocot weeds - closely resemble which of the following crops, making them difficult to control?",
+      "options": {
+        "a": "Paddy",
+        "b": "Maize",
+        "c": "Ragi",
+        "d": "Wheat",
+        "e": "Bajra"
+      },
+      "correct_option": "d",
+      "explanation": "Phalaris minor (LITTLE CANARY GRASS / gulli danda) and Avena fatua (WILD OATS / jangli jai) are the most serious grass weeds of WHEAT in northern India. They mimic wheat in appearance during the vegetative stage - similar leaf colour, growth habit, and tillering - making hand-weeding almost impossible. They compete heavily for N, moisture, and light, and can reduce wheat yields by 30-80% if uncontrolled. Herbicide control has evolved: Isoproturon was the main control in the 1980s-90s but Phalaris developed resistance. Now used: Sulfosulfuron, Clodinafop, Pinoxaden, Mesosulfuron. Integrated approach: crop rotation (with sugarcane, berseem), stale seedbed, high seed rate, delayed sowing where feasible, and combined pre + post emergent herbicides. Herbicide resistance in Phalaris minor is a classic case study in Indian weed science.[cite: 67]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Isabgol (Plantago ovata), popularly used as a laxative and dietary fibre, is important for its yield of which plant part?",
+      "options": {
+        "a": "Seed",
+        "b": "Husk",
+        "c": "Leaves",
+        "d": "Roots",
+        "e": "Flowers"
+      },
+      "correct_option": "b",
+      "explanation": "The commercially valuable part of ISABGOL is the HUSK (seed coat), which surrounds the tiny seeds. This husk contains high amounts of MUCILAGE (soluble dietary fibre) - up to 70% of its weight. When it comes in contact with water, mucilage swells to 10-14 times its volume, forming a gel that acts as a natural bulk laxative, prebiotic, and cholesterol-lowering agent. Isabgol is a rabi crop grown mainly in Gujarat (Unjha in Mehsana is the world's largest isabgol market), Rajasthan, and MP. It requires cool dry weather during vegetative growth and warm dry weather at maturity. Threshing separates seeds; then the husk is mechanically stripped from the seed by grinding. India is the world's largest producer and exporter of isabgol husk, accounting for ~85% of global trade. It is an important cash crop for arid-zone farmers.[cite: 68]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer in central India observes poor crop growth despite applying adequate fertilizers. Soil testing reveals that the soil reaction is close to neutral, where most essential plant nutrients are readily available and beneficial soil microorganisms remain highly active. The optimum soil pH range for the growth of most agricultural crops is:",
+      "options": {
+        "a": "4.5-5.5",
+        "b": "5.5-6.5",
+        "c": "6.5-7.5",
+        "d": "7-8",
+        "e": "None"
+      },
+      "correct_option": "c",
+      "explanation": "Most crops: 6.5-7.5. Tea: 4.5-5.5 (strongly acidic). Rice: Performs well in slightly acidic soils (5.5-6.5). Availability of most nutrients is highest near neutral pH (6.5-7.0). Memory Trick: \"6.5-7.5 = Heaven for Most Crops.\"[cite: 69]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The mechanical process of removing seeds and gin trash (stems, dirt, burrs) from cotton bolls, thereby separating the fibre (lint) from seed, is known as:",
+      "options": {
+        "a": "Retting",
+        "b": "Curing",
+        "c": "Combing",
+        "d": "Ginning",
+        "e": "Threshing"
+      },
+      "correct_option": "d",
+      "explanation": "GINNING is the primary post-harvest mechanical process for cotton - it separates the lint (fibre) from cotton seed and removes gin trash (stems, burrs, soil, leaves). Historically, ginning was manual (single-roller Charkha), then Eli Whitney invented the cotton gin (1793). Modern types: SAW GIN: uses circular saws to pull fibres through slots; suited to short and medium staple cotton (American upland). ROLLER GIN (Double roller / DR): gentler, preferred for long-staple Indian cotton (Suvin, DCH-32) as it preserves fibre length. MICRO-GIN: small units near farms. Ginning outturn (GOT) - the % of lint to seed cotton (kapas) - is typically 33-37%. By-products: cotton seed (crushed for oil/cake), gin trash (mulch/fuel), and linter (short fibres, used in currency notes and cellulose products). India is the world's largest cotton producer and has ~5,000 ginning units, mostly in Maharashtra, Gujarat, Telangana, and MP.[cite: 70]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A researcher is studying the life cycle of the brown planthopper and developing eco-friendly methods to manage the pest in rice fields. The branch of agricultural science involved is:",
+      "options": {
+        "a": "Plant Pathology",
+        "b": "Plant Entomology",
+        "c": "Plant Physiology",
+        "d": "Silviculture",
+        "e": "None"
+      },
+      "correct_option": "b",
+      "explanation": "Branch What it Studies Key Focus Example Agronomy Science and management of field crops Crop production, cropping systems, tillage, irrigation, nutrient & weed management Deciding seed rate, fertilizer dose and irrigation schedule for wheat Horticulture Cultivation of fruits, vegetables, flowers, spices, plantation & medicinal crops High-value horticultural crops Mango, Tomato, Rose, Tea, Cardamom Soil Science Study of soil and its properties Soil fertility, pH, soil health, nutrient management Soil testing and fertilizer recommendation Agricultural Engineering Engineering applications in agriculture Farm machinery, irrigation systems, drainage, post-harvest engineering Tractor, Laser land leveller, Drip irrigation Plant Breeding & Genetics Development of improved crop varieties; Study of heredity and variation Hybridization, selection, crop improvement; Genes, inheritance, DNA Developing drought-resistant rice; Basis of plant breeding Plant Pathology Study of plant diseases Disease diagnosis and management Blast disease in rice Entomology Study of insect pests Pest identification and control Brown planthopper in rice Nematology Study of plant-parasitic nematodes Root-knot and cyst nematodes Root-knot nematode in vegetables Agricultural Microbiology Beneficial microorganisms in agriculture Biofertilizers, decomposition, nutrient cycling Rhizobium, Azotobacter, VAM Seed Science & Technology Production and quality of seeds Seed certification, processing, storage and testing Certified seed production Meteorology (Agrometeorology) Interaction of weather and crops Weather-based crop management Advising sowing based on monsoon forecast Agricultural Extension Transfer of agricultural technologies to farmers Farmer training, demonstrations, capacity building KVK demonstrations Agricultural Economics Economics of farming Cost of cultivation, marketing, farm management Benefit-cost analysis of soybean cultivation Forestry / Silviculture Growing and management of forest trees Timber, fuelwood, afforestation Coppicing of eucalyptus Agroforestry Integration of trees with crops and livestock Sustainable land use Poplar + Wheat system Animal Husbandry Scientific management of livestock Breeding, feeding, housing and health Dairy, sheep, goat farming Dairying Milk production and processing Dairy cattle and milk products Cooperative dairy Fisheries Science Fish production and management Inland and marine fisheries, aquaculture Carp culture, shrimp farming Sericulture Rearing of silkworms Silk production Mulberry silk cultivation Apiculture Scientific rearing of honey bees Honey and wax production, pollination Beekeeping Floriculture Cultivation of flowers Cut flowers and ornamental plants Rose, Marigold, Orchid Pomology Cultivation of fruit crops Fruit production Mango, Apple, Banana Olericulture Cultivation of vegetable crops Vegetable production Tomato, Brinjal, Cabbage Plantation Crops Cultivation of perennial commercial crops Beverage and industrial crops Tea, Coffee, Rubber, Coconut[cite: 71, 72, 73, 74]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The DAPOG method of raising rice nursery, which uses no soil for growing seedlings, was developed in:",
+      "options": {
+        "a": "India",
+        "b": "Japan",
+        "c": "Philippines",
+        "d": "Sri Lanka",
+        "e": "Vietnam"
+      },
+      "correct_option": "c",
+      "explanation": "The DAPOG METHOD of rice nursery was developed in the PHILIPPINES and is now widely used in South and Southeast Asia. Key features: NO soil is used - a polythene sheet is placed on a raised bed, over which sprouted paddy seeds are spread uniformly. Water is sprinkled 3-4 times a day for the first 4 days, then a thin layer of 1-2 cm water is maintained. Seedlings are ready in 11-14 DAYS (compared to 25-30 days in wet-bed / dry-bed nursery). Root development is limited but sufficient for transplanting. Seedlings are lifted as a mat and hand-transplanted. Advantages: (a) very short duration - enables double/triple cropping; (b) no soil handling; (c) high seedling density (about 40-60 kg seed produces enough seedlings for 1 ha). Other nursery methods: Wet bed (traditional, most common in India), Dry bed (for upland rice), Mat nursery / SRI trays. The Dapog method is preferred where labour and time are limited.[cite: 75]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The optimum crop combination for STRIP CROPPING that provides both soil protection and nutrient benefit is:",
+      "options": {
+        "a": "Sorghum + Bajra",
+        "b": "Soybean + Mustard",
+        "c": "Groundnut + Mustard",
+        "d": "Sorghum + Green gram",
+        "e": "Wheat + Barley"
+      },
+      "correct_option": "d",
+      "explanation": "STRIP CROPPING is the practice of growing alternate strips of erosion-permitting (e.g. row crops) and erosion-resisting (e.g. close-growing legumes/grasses) crops across the slope. The best pair combines a tall, deep-rooted cereal with a short, N-fixing legume: SORGHUM + GREEN GRAM: Sorghum is tall and sturdy - provides good CANOPY COVER, reducing raindrop impact and soil erosion. Green gram (Vigna radiata) is a LEGUME - fixes atmospheric nitrogen (~30-40 kg N/ha) and enriches the soil. Different rooting depths - complementary use of nutrients and moisture (annidation). Other combinations (Sorghum + Bajra, wheat + barley) are both cereals with similar habits and would not offer the same erosion protection or N-fixation. Groundnut + Mustard would be a poor pair as both are somewhat sensitive to competition. Strip cropping is a key soil conservation technique in undulating dryland areas of central and peninsular India.[cite: 76]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A certified seed producer regularly inspects his paddy field during the flowering stage and removes plants that differ in height, maturity, flower colour, or show disease symptoms. This practice ensures that only genetically pure and healthy plants contribute to seed production. The above practice is known as:",
+      "options": {
+        "a": "Thinning",
+        "b": "Gap filling",
+        "c": "Rouging",
+        "d": "Earthing up",
+        "e": "Prunning"
+      },
+      "correct_option": "c",
+      "explanation": "Practice Purpose Rouging Remove off-types and diseased plants to maintain genetic purity Thinning Remove excess healthy seedlings to maintain optimum spacing Gap Filling Replace missing plants to maintain plant population[cite: 77]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "VERNALIZATION refers to:",
+      "options": {
+        "a": "The response of plants to day length (photoperiodism)",
+        "b": "The requirement of low temperature exposure to induce flowering in some plants",
+        "c": "The wilting of plants due to salinity",
+        "d": "The germination of seed under submerged conditions",
+        "e": "The absorption of nutrients through leaves"
+      },
+      "correct_option": "b",
+      "explanation": "VERNALIZATION is the process of exposing seeds or young plants to LOW TEMPERATURES (typically 0-7\u00b0C) for a specific period to induce or accelerate flowering. Without this cold exposure, some varieties remain vegetative and never flower. Key facts: Term coined by Russian scientist T.D. Lysenko (though the phenomenon was known earlier). Occurs in the SHOOT APEX / meristem of seedlings. Effect is reversible (devernalization) if the plants are exposed to high temperatures immediately after cold treatment. The chemical GIBBERELLIN can partially replace the cold requirement in some species. CROPS NEEDING VERNALIZATION: winter wheat, winter rye, winter barley, sugar beet, cabbage, biennials (carrot, celery, onion). It's why WINTER wheats (grown in USA, Russia) require sowing in autumn - the young plants get vernalised naturally over winter. Indian wheats are SPRING types and do not need vernalization, which is why they are sown in November-December. Photoperiodism and vernalization together control flowering time.[cite: 78]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following does NOT fall under the classification of Pulses?",
+      "options": {
+        "a": "Soybean",
+        "b": "Cowpea",
+        "c": "Horse gram",
+        "d": "Red gram",
+        "e": "All are pulses"
+      },
+      "correct_option": "e",
+      "explanation": "All listed crops are legumes and can be considered pulses in the general Indian classification, though FAO distinguishes soybean and groundnut as oilseeds (because they are grown primarily for oil, not seed as food). Soybean (Glycine max) - technically a pulse under Indian classification but internationally categorised as an oilseed. Cowpea (Vigna unguiculata) - grown as pulse and fodder. Horse gram (Macrotyloma uniflorum) - traditional dryland pulse. Red gram/Pigeon pea (Cajanus cajan) - 2nd most important pulse after chickpea. Indian pulses are broadly grouped as: GRAMS (chickpea, red gram, black gram, green gram, horse gram); BEANS (soybean, field bean, French bean, lima bean, winged bean, cluster bean, moth bean); PEAS (garden pea, cowpea, cluster bean). Since the Indian Agri context includes soybean as a pulse (dual classification), and cowpea, horse gram, red gram are unambiguously pulses, all belong. Hence, \"All are pulses\" is the answer.[cite: 79]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The desirable depth of ploughing for field crops (shallow rooted 10-20 cm; deep rooted 15- 30 cm) is generally accepted to be:",
+      "options": {
+        "a": "5-10 cm",
+        "b": "8-15 cm",
+        "c": "12-20 cm",
+        "d": "25-30 cm",
+        "e": "30-40 cm"
+      },
+      "correct_option": "c",
+      "explanation": "The generally desirable depth of ploughing for the majority of field crops is 12-20 cm. This depth accommodates the root zone of most cereals, oilseeds, and pulses without unnecessary energy expenditure. The exact depth is adjusted by root architecture: SHALLOW ROOTED CROPS (rice, wheat, ragi, most vegetables): 10-20 cm. DEEP ROOTED CROPS (pigeon pea, castor, cotton, sugarcane): 15-30 cm. Deeper ploughing beyond 30 cm is termed SUB-SOILING or CHISEL PLOUGHING, done once in 3-5 years to break subsoil hard pans. Excessive deep ploughing can bring up infertile subsoil, increase erosion, and destroy soil structure. Correct depth ensures optimum root growth, moisture penetration, and weed control. Modern reduced-tillage systems aim to minimise deep disturbance while retaining these benefits through residue cover and biological soil aeration.[cite: 80]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer gradually reduces intensive tillage, keeps crop residues on the field after harvest, grows cover crops during the off-season, diversifies crop rotations, and integrates livestock with crop production. Over time, soil organic carbon increases, biodiversity improves, and the farm becomes more resilient to droughts. The farming approach described above is best known as:",
+      "options": {
+        "a": "Permaculture",
+        "b": "Secondary Agriculture",
+        "c": "Regenerative Agriculture",
+        "d": "High-tech Agriculture",
+        "e": "Circular Agriculture"
+      },
+      "correct_option": "c",
+      "explanation": "REGENERATIVE AGRICULTURE goes beyond mere sustainability - it aims to actively RESTORE and IMPROVE the soil, biodiversity, and water cycle. Key principles: 1. Keep soil covered (residues, cover crops) - reduces erosion, moderates soil temperature. 2. Minimise soil disturbance (zero/reduced tillage) - protects soil microbes. 3. Maximise plant diversity (crop rotations, intercropping). 4. Keep living roots in the soil year-round. 5. Integrate livestock and rotational grazing. 6. Sequester carbon into soil organic matter, offsetting CO2 emissions. PERMACULTURE (Bill Mollison, 1970s): a holistic ecological design system for land use, mimicking natural ecosystems. SECONDARY AGRICULTURE: all practices of converting agricultural produce, residues, and by-products into HIGH VALUE (processing, value addition). CIRCULAR AGRICULTURE: closing nutrient loops, waste-to-resource. Regenerative agriculture is being promoted globally as a climate-smart approach and is being adopted through carbon-farming markets.[cite: 81]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A Farmer Producer Organization (FPO) sets up a small processing unit where tomatoes are converted into ketchup, milk into paneer, and maize into corn flakes. The initiative helps farmers earn higher incomes by increasing the value of their agricultural produce. The activities described above are best classified as:",
+      "options": {
+        "a": "Primary Agriculture",
+        "b": "Secondary Agriculture",
+        "c": "Tertiary Agriculture",
+        "d": "Subsistence Agriculture",
+        "e": "Derived Agriculture"
+      },
+      "correct_option": "b",
+      "explanation": "Primary Agriculture Secondary Agriculture Production of crops and livestock Processing and value addition to agricultural produce Farming activities Agro-processing, milling, packaging, preservation Example: Growing wheat Example: Wheat \u2192 Flour, Milk \u2192 Cheese, Tomato \u2192 Ketchup[cite: 82]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following crops is popularly called the \"QUEEN OF OILSEEDS\" due to its high oil content (45-50%) and nutritional value?",
+      "options": {
+        "a": "Mustard",
+        "b": "Groundnut",
+        "c": "Sesame",
+        "d": "Sunflower",
+        "e": "Safflower"
+      },
+      "correct_option": "c",
+      "explanation": "SESAME (Sesamum indicum, \"til\") is called the \"QUEEN OF OILSEEDS\" because: Very high oil content: 45-50% (highest per unit seed among traditional oilseeds). Excellent oil quality: rich in polyunsaturated fatty acids (linoleic + oleic ~85%), and unique antioxidants like sesamol, sesamin, and sesamolin, which give sesame oil exceptional shelf life and heart-health benefits. High protein content (~25%). Adapted to marginal, rainfed conditions. Sesame is one of the oldest cultivated oilseeds - mentioned in Ayurveda and used across South Asia. Gujarat, West Bengal, Rajasthan, and MP are major Indian producers. Bengal Gram (chickpea) is called \"King of Pulses\"; Groundnut is \"King of Oilseeds\"; Cotton is \"King of Fibres\"; Sugarcane is \"King of Crops\"; Wheat is \"King of Cereals\"; Rice is \"Queen of Cereals\"; and Sesame is \"Queen of Oilseeds\".[cite: 83]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Two farmers cultivate the same variety of wheat on adjacent fields using identical quantities of fertilizers, irrigation and pesticides. However, Farmer A obtains a significantly higher yield because his field has a deep, well-drained loamy soil with good organic matter content. The above situation best illustrates the importance of which factor affecting crop production?",
+      "options": {
+        "a": "Economic factor",
+        "b": "Edaphic factor",
+        "c": "Physiographic factor",
+        "d": "Agronomic Factors",
+        "e": "None"
+      },
+      "correct_option": "b",
+      "explanation": "Factor Includes Climatic Rainfall, Temperature, Humidity, Sunshine, Wind Edaphic Soil texture, Structure, pH, Fertility, Organic Matter Biotic Weeds, Insects, Diseases, Rodents Physiographic Slope, Altitude, Topography Genetic HYVs, Hybrids, GM varieties Technological Irrigation, Mechanization, Fertilizers, Precision farming Socio-economic Labour, Credit, Input availability, Market access Institutional MSP, Insurance, Extension, Government policies[cite: 84]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The Committee on Doubling Farmers' Income (DFI), which recommended strategies to double farm incomes by 2022, was chaired by:",
+      "options": {
+        "a": "Ashok Gulati",
+        "b": "Ashok Dalwai",
+        "c": "M.S. Swaminathan",
+        "d": "Rajesh Sinha",
+        "e": "Y.K. Alagh"
+      },
+      "correct_option": "b",
+      "explanation": "The Committee on DOUBLING FARMERS' INCOME (DFI) was constituted by the Government of India in 2016 and chaired by Dr. ASHOK DALWAI (IAS, then CEO of National Rainfed Area Authority). The Committee submitted a 14-volume report in 2018. Key recommendations to double farmers' income by 2022: (i) Improving productivity and resource-use efficiency. (ii) Reducing cost of production through mechanisation, better inputs. (iii) Increasing cropping intensity through irrigation and short-duration varieties. (iv) Diversification to high-value crops (horticulture, dairy, fisheries, poultry). (v) Improving farmer terms of trade via better MSP realisation, e-NAM, contract farming. (vi) Reducing risks through PMFBY (crop insurance), income support (PM-KISAN). (vii) Changing crop geometry - arrangement of plants for optimum use of resources. The Committee identified 7 sources of income growth. Its recommendations continue to guide agricultural policy - PM-KISAN, e-NAM, MSP hikes, FPOS, PMFBY are outcomes.[cite: 85]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Weeds are classified based on many criteria. Which of the following is the CORRECT classification of Cyperus rotundus (Motha, Nut sedge)?",
+      "options": {
+        "a": "Perennial sedge",
+        "b": "Annual broadleaf",
+        "c": "Annual grass",
+        "d": "Aquatic weed",
+        "e": "Parasitic weed"
+      },
+      "correct_option": "a",
+      "explanation": "Cyperus rotundus (Nut Sedge / Motha / Purple nutsedge) is a PERENNIAL SEDGE, classified under the family Cyperaceae. It has been called \"the world's worst weed\" because of its ability to spread aggressively through underground tubers (nutlets), producing thousands per m2 that survive drought, tillage, and most herbicides. Weed Classification frameworks: (A) Life cycle: Annuals (Amaranthus), Biennials (Daucus carota - wild carrot), Perennials (Cyperus, Cynodon). (B) Morphology: Grasses (Cynodon, Phalaris), Sedges (Cyperus), Broad-leaved / dicots (Parthenium, Amaranthus, Chenopodium). (C) Habitat: Terrestrial vs Aquatic (water hyacinth - Eichhornia). (D) Association: Parasitic - Striga on sorghum, Orobanche on tobacco, Cuscuta on many crops. (E) Origin: Native vs Introduced (Parthenium hysterophorus was introduced with US wheat aid in the 1950s). Control of Cyperus needs integrated approach - glyphosate + persistent hand-weeding + crop rotation with dense crops like sugarcane.[cite: 86]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The fruit of which of the following crops is technically known by the name \"SILIQUA\"?",
+      "options": {
+        "a": "Paddy",
+        "b": "Maize",
+        "c": "Mustard",
+        "d": "Soybean",
+        "e": "Red gram"
+      },
+      "correct_option": "c",
+      "explanation": "SILIQUA is a dry, dehiscent fruit typical of the mustard family (Brassicaceae/Cruciferae). It is a long, thin, two-chambered pod that splits open at maturity into two valves along a central partition (replum), releasing the seeds. Fruits/grains of important crops: MUSTARD (Brassica juncea), rapeseed, radish, cabbage - SILIQUA. PADDY, wheat, maize, sorghum, all cereals (Poaceae) - CARYOPSIS (single seed fused with pericarp). SOYBEAN, all legumes - LEGUME or POD (dehiscent along two sutures). RED GRAM - POD. COTTON - CAPSULE (dehiscent capsule that opens to release lint-covered seeds). GROUNDNUT - LOMENTUM (indehiscent legume). SUNFLOWER - ACHENE (single seeded, indehiscent). TOMATO, brinjal, chilli - BERRY. COCONUT - DRUPE. Understanding fruit types is important for post-harvest handling and threshing.[cite: 87]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer adopts minimum tillage, multi-species cover crops, residue retention, crop diversification, compost application, and rotational grazing. The objective is to transform the farm into a self-sustaining ecosystem with healthier soils and improved water infiltration. Which of the following is the primary objective of the farming approach described above?",
+      "options": {
+        "a": "Maximizing fertilizer use efficiency",
+        "b": "Restoring ecological processes while maintaining sustainable agricultural productivity",
+        "c": "Increasing mechanization in farming operations",
+        "d": "Replacing all crops with perennial species",
+        "e": "Eliminating irrigation requirements"
+      },
+      "correct_option": "b",
+      "explanation": "describing practices and objectives rather than directly naming the concept, requiring candidates to infer that the approach is regenerative agriculture.[cite: 88]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The Caryopsis is a grain or fruit type characteristic of which plant family?",
+      "options": {
+        "a": "Fabaceae",
+        "b": "Brassicaceae",
+        "c": "Solanaceae",
+        "d": "Cucurbitaceae",
+        "e": "Poaceae (Gramineae)"
+      },
+      "correct_option": "e",
+      "explanation": "CARYOPSIS is popularly called a \"GRAIN\" and is the characteristic fruit of the family POACEAE (also called Gramineae) - the grass family. In a caryopsis, the pericarp (fruit wall) is fused with the seed coat, forming a single-seeded, dry, indehiscent fruit. Examples: WHEAT, RICE, MAIZE, OAT, BARLEY, sorghum, all millets, sugarcane. Structure: PERICARP (fused with testa) ENDOSPERM (~80% of grain, starch and protein) EMBRYO (germ) - with scutellum, plumule, radicle, coleoptile, coleorhiza. ALEURONE LAYER (single row of protein-rich cells around the endosperm). The term \"cereal grains\" refers broadly to caryopses of Poaceae. In common usage \"grain\" also includes seeds of pulses and oilseeds, though technically those are not caryopses. Because the pericarp is fused, cereals cannot be \"dehulled\" in the same way as legumes - hence special milling processes (dehulling, polishing, parboiling for rice; roller milling for wheat).[cite: 89]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following crops can tolerate WATERLOGGING conditions better than any other cereal (except rice)?",
+      "options": {
+        "a": "Wheat",
+        "b": "Maize",
+        "c": "Ragi",
+        "d": "Sorghum",
+        "e": "Bajra"
+      },
+      "correct_option": "d",
+      "explanation": "Among the major cereals, SORGHUM (Sorghum bicolor) has an exceptional ability to tolerate BOTH drought and temporary waterlogging - a rare combination. This is because: Sorghum has an extensive fibrous root system that can survive short-term anaerobic stress. Its stem contains aerenchyma-like tissues that facilitate oxygen transport to roots. It has \"stay-green\" and osmotic adjustment mechanisms. Bajra is highly drought tolerant but poor in waterlogging; maize is very sensitive to waterlogging (yields drop with even 2-3 days of standing water); wheat and ragi are also waterlogging-sensitive. Rice, of course, is grown standing in water but it is a semi-aquatic exception. Sorghum's dual tolerance makes it a strategic crop for climate change adaptation in central India (Deccan) where erratic monsoon may cause both dry spells and short flooding events. It is also called \"camel of cereal crops\" due to drought tolerance.[cite: 90]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "A farmer redesigns his farm by integrating fruit trees, vegetables, livestock, rainwater harvesting, composting and natural pest management. The system is planned so that the waste generated by one component becomes a resource for another, thereby minimizing external inputs and enhancing ecological sustainability. The farming approach described above is best known as:",
+      "options": {
+        "a": "Precision Agriculture",
+        "b": "Permaculture",
+        "c": "Vertical Farming",
+        "d": "Hydroponics",
+        "e": "Contract Farming"
+      },
+      "correct_option": "b",
+      "explanation": "Permaculture = Permanent + Agriculture + Culture. Three Ethics of Permaculture: Earth Care, People Care, Fair Share (Return of Surplus). Core Principle: \"Design farming like nature.\" Instead of treating crops, livestock, trees, water, and soil as separate components, permaculture integrates them into a self-sustaining ecosystem with minimal waste and external inputs.[cite: 91]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The best crop for making SILAGE (fermented, preserved green fodder for winter feeding of livestock) is:",
+      "options": {
+        "a": "Paddy",
+        "b": "Wheat",
+        "c": "Maize",
+        "d": "Millet",
+        "e": "Barley"
+      },
+      "correct_option": "c",
+      "explanation": "MAIZE is the world's number-one silage crop for these reasons: High biomass yield (40-60 tonnes fresh weight/ha). Sufficient soluble sugars (~10-12% dry matter) for anaerobic fermentation by lactobacilli. Optimum dry matter content (28-35%) at dough stage - ideal for ensiling. Good palatability and high energy value (starch from grain). Wide adaptation and short duration (~90 days). SILAGE MAKING: fodder maize is chopped at milky-to-dough stage, packed tightly into a silo/pit (excluding air), compacted, sealed with polythene and soil. Anaerobic fermentation converts sugars into lactic acid (pH drops to 3.8-4.2), preserving the fodder for 6-12 months. Other silage crops: SORGHUM, oats, pearl millet, berseem (with additives). Silage is critical for dairy farms to bridge the fodder deficit in winter and summer. Also HAY (dried fodder) is another preservation method used more for legumes like berseem, lucerne.[cite: 92]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "INTEGRATED PEST MANAGEMENT (IPM) primarily emphasises:",
+      "options": {
+        "a": "Sole reliance on chemical pesticides",
+        "b": "Complete avoidance of any control method",
+        "c": "Combining multiple pest control tactics with pesticides as the LAST resort",
+        "d": "Only cultural methods, no others",
+        "e": "Only biological control, no others"
+      },
+      "correct_option": "c",
+      "explanation": "INTEGRATED PEST MANAGEMENT (IPM) is an ecosystem-based strategy that focuses on long-term prevention of pests through a COMBINATION of techniques: 1. CULTURAL: crop rotation, resistant varieties, sanitation, timely sowing, trap cropping. 2. MECHANICAL: hand-picking, pheromone traps, light traps, bird perches. 3. BIOLOGICAL: predators (Trichogramma, ladybird beetle), parasitoids, entomopathogens (Bt, Beauveria), botanicals (neem). 4. CHEMICAL: pesticides used ONLY when Economic Threshold Level (ETL) is crossed, and preferably selective/target-specific chemicals. IPM decisions are based on regular field scouting, pest monitoring, and ETL crossing - not on calendar sprays. Benefits: reduced pesticide use, lower cost, protection of pollinators and natural enemies, safer food, less resistance development. India runs an IPM programme through 35 Central Integrated Pest Management Centres (CIPMCs), and IPM is a core theme in Krishi Vigyan Kendras (KVKs) and Farmers' Field Schools (FFS).[cite: 93]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "India produces approximately what percentage of Asia's and the World's millet production respectively?",
+      "options": {
+        "a": "60% and 40%",
+        "b": "70% and 30%",
+        "c": "80% and 40%",
+        "d": "90% and 10%",
+        "e": "50% and 25%"
+      },
+      "correct_option": "c",
+      "explanation": "India is the world's largest millet producer, contributing approximately 40% to 42% of the global output. Within Asia, India is the dominant agricultural powerhouse, accounting for about 80% of the continent's total millet production[cite: 94]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Climate-Smart Agriculture (CSA) is promoted in India under which of the following schemes?\n1. Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)\n2. Paramparagat Krishi Vikas Yojana (PKVY)\n3. Soil Health Mission (SHM)\n4. National Bamboo Mission (NBM)\n5. Sub-Mission on Agro-Forestry (SMA)\nSelect the correct combination:",
+      "options": {
+        "a": "1, 2, 3 only",
+        "b": "4, 5 only",
+        "c": "3, 4, 5 only",
+        "d": "1, 2, 3, 4 only",
+        "e": "1, 2, 3, 4 and 5"
+      },
+      "correct_option": "e",
+      "explanation": "CLIMATE-SMART AGRICULTURE (CSA) is an integrated approach to managing landscapes to help adapt to climate change, mitigate greenhouse gas emissions, and sustainably increase productivity. It has three pillars: PRODUCTIVITY, ADAPTATION, and MITIGATION. In India, CSA is promoted through multiple schemes: 1. PMKSY - \"Har Khet Ko Pani\"; micro-irrigation improves water-use efficiency (climate adaptation). 2. PKVY - organic farming clusters; reduces chemical use, improves soil carbon. 3. Soil Health Mission (SHM) - soil health cards reduce fertilizer overuse. 4. National Bamboo Mission (NBM) - bamboo sequesters CO2 and provides drought-resilient income. 5. Sub-Mission on Agroforestry (SMAF) - trees on farms sequester carbon, improve microclimate. Other CSA-related programmes: NAFCC (National Adaptation Fund for Climate Change), NMSA (National Mission for Sustainable Agriculture), and NICRA (National Innovations on Climate Resilient Agriculture) by ICAR-CRIDA.[cite: 95]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is NOT a Kharif crop in India?",
+      "options": {
+        "a": "Cotton",
+        "b": "Maize",
+        "c": "Paddy",
+        "d": "Mustard",
+        "e": "Soybean"
+      },
+      "correct_option": "d",
+      "explanation": "MUSTARD (Brassica juncea) is a RABI crop, sown in October-November and harvested in February-March. It requires cool, dry weather during vegetative growth and moderate temperature during flowering/silique formation. Indian cropping seasons: KHARIF (rainy / monsoon): June-October. Crops: rice, maize, sorghum, bajra, cotton, groundnut, SOYBEAN, sugarcane (annual), moong, urd, arhar, castor. RABI (winter): October-March. Crops: WHEAT, barley, MUSTARD, gram, pea, lentil, potato, sunflower (some regions). ZAID (summer): March-June. Crops: summer moong, cucurbits, watermelon, sunflower (irrigated), summer sesame. Some crops (rice in West Bengal, sunflower in Karnataka) are grown across seasons. The Kharif-Rabi division reflects the temperature and moisture pattern of the Indian monsoon; the Green Revolution's success was in raising kharif rice + rabi wheat productivity in the Indo-Gangetic plains.[cite: 96]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is NOT a benefit of AEROBIC RICE (dry direct-seeded rice) cultivation over traditional puddled transplanted rice?",
+      "options": {
+        "a": "Puddling of soil is not required",
+        "b": "Nursery raising is not necessary",
+        "c": "Less weed growth",
+        "d": "Saving of water up to 40-50 per cent",
+        "e": "Saving of labour in transplanting"
+      },
+      "correct_option": "c",
+      "explanation": "AEROBIC RICE / DIRECT SEEDED RICE (DSR) is grown like an upland crop in non-flooded, well-drained soils. Its key benefits: No puddling required (saves fuel, water, labour). No nursery raising or transplanting (saves 30-40 person-days/ha of labour). Water saving of 40-50% (crucial in water-scarce regions like Punjab, Haryana). Lower methane (CH4) emissions (as no anaerobic conditions). Shorter growing duration. BUT WEED GROWTH IS ACTUALLY MUCH HIGHER (NOT LOWER) in aerobic rice. This is because: Under puddled/flooded rice, standing water suppresses most weeds. In dry aerobic rice, upland weeds like Echinochloa, Cyperus, and broadleaved weeds proliferate rapidly. DSR requires heavy reliance on pre- and post-emergent herbicides (pendimethalin, bispyribac-sodium). Hence \"Less weed growth\" is the INCORRECT statement - this is a MAJOR CHALLENGE of DSR, not a benefit. Weed management is the biggest bottleneck in DSR adoption.[cite: 97]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Browsing is a herbivory pattern where animals feed on leaves, soft shoots, or fruits of HIGH- GROWING, generally woody plants (shrubs, trees). Which animal is most popularly known for this browsing habit?",
+      "options": {
+        "a": "Cow",
+        "b": "Buffalo",
+        "c": "Goat",
+        "d": "Sheep",
+        "e": "Horse"
+      },
+      "correct_option": "c",
+      "explanation": "GOATS are classic BROWSERS - they preferentially feed on leaves, buds, twigs, and fruits of high-growing shrubs and small trees rather than ground-level grasses. Their anatomy suits browsing: narrow muzzle for selective feeding, agile bodies that can stand on hind legs to reach 1.5-2 m, and preference for aromatic/tannin-rich forage that other livestock avoid. This distinguishes them from: GRAZERS (cattle, buffalo, sheep, horse) - feed mainly on GROUND-LEVEL grasses. MIXED FEEDERS (deer, some goats depending on availability). The browsing habit is why goats can survive in scrubby, arid areas where grasses are scarce (Rajasthan, Kutch, Andhra Pradesh drylands). But it also makes goats notorious for overbrowsing seedlings - hence \"goat menace\" in re-forestation. Common Indian goat breeds: Barbari, Beetal, Jamnapari, Sirohi, Osmanabadi, Malabari. Goat rearing is important for landless and marginal farmers (\"poor man's cow\"). NABARD provides refinance for goatery projects.[cite: 98]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Consider the following crops:\n1. Wheat\n2. Mustard\n3. Gram\n4. Barley\nWhich of the above are Rabi crops?",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "1, 2 and 3 only",
+        "c": "2, 3 and 4 only",
+        "d": "1, 2, 3 and 4",
+        "e": "1 and 4 only"
+      },
+      "correct_option": "d",
+      "explanation": "No Explanation added[cite: 99]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Consider the following crops:\n1. Soybean\n2. Chickpea (Gram)\n3. Pearl Millet (Bajra)\n4. Lentil\nWhich of the above are exclusively Rabi crops under normal Indian conditions?",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "2 and 3 only",
+        "c": "2 and 4 only",
+        "d": "1, 3 and 4 only",
+        "e": "1, 2 and 4 only"
+      },
+      "correct_option": "c",
+      "explanation": "Explanation: 1. Soybean - Incorrect. Soybean is predominantly a Kharif crop in India. It is sown with the onset of the southwest monsoon (June-July) and harvested during September-October. Therefore, it is not a Rabi crop. 2. Chickpea (Gram) - Correct. Chickpea is one of the most important Rabi pulse crops. It is sown after the monsoon (October-November) and harvested during February-April. It requires cool and dry weather during its growing period. 3. Pearl Millet (Bajra) - Incorrect. Pearl millet is primarily a Kharif cereal crop. It is grown during the rainy season because of its drought tolerance and adaptability to semi-arid regions. Hence, it is not a Rabi crop under normal conditions. 4. Lentil - Correct. Lentil is a Rabi pulse crop. It is sown in October-November and harvested during March-April. It thrives under cool winter conditions.[cite: 100]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Consider the following crop groups:\nGroup I: Wheat, Barley, Oat\nGroup II: Rice, Cotton, Soybean\nThe above groups represent:",
+      "options": {
+        "a": "Group I - Zaid; Group II - Rabi",
+        "b": "Group I - Rabi; Group II - Kharif",
+        "c": "Group 1 - Kharif; Group II - Rabi",
+        "d": "Both groups are Kharif crops",
+        "e": "Both groups are Rabi crops"
+      },
+      "correct_option": "b",
+      "explanation": "Answer: B. Group I - Rabi; Group II - Kharif. Explanation: Group I: Wheat, Barley and Oat are Rabi crops. These are cool-season cereals that are: Sown during October-December after the withdrawal of the southwest monsoon. Grown under cool and dry winter conditions. Harvested during March-April. Therefore, all three crops belong to the Rabi season. Group II: Rice, Cotton and Soybean are Kharif crops. These crops are generally: Sown with the onset of the southwest monsoon (June-July). Grown under warm temperatures and adequate rainfall. Harvested during September-November, depending on the crop and region. Hence, all three are predominantly Kharif crops. Group Crops Predominant Cropping Season: Group I Wheat, Barley, Oat Rabi. Group II Rice, Cotton, Soybean Kharif. Correct Answer: B. Group 1- Rabi; Group II - Kharif[cite: 101]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Consider the following statements regarding the Agriculture Sector in Economic Survey 2025-26:\n1. The agriculture and allied sector recorded an average annual growth of about 4.4% during the last five years.\n2. The sector registered a growth of 3.5% in Q2 of FY 2025-26.\n3. The decade 2015-16 to 2024-25 recorded the highest average agricultural growth among all decades.\nWhich of the statements given above are correct?",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "2 and 3 only",
+        "c": "1 and 3 only",
+        "d": "1, 2 and 3",
+        "e": "3 only"
+      },
+      "correct_option": "d",
+      "explanation": "All are correct - Master Notes 1[cite: 102]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "According to the Economic Survey 2025-26, which one of the following has emerged as the dominant growth driver among India's allied agricultural sectors?",
+      "options": {
+        "a": "Fisheries",
+        "b": "Horticulture",
+        "c": "Livestock",
+        "d": "Sericulture",
+        "e": "Apiculture"
+      },
+      "correct_option": "c",
+      "explanation": "C[cite: 103]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is NOT an example of an IN-SITU GREEN MANURE crop (i.e. grown and incorporated into the same field)?",
+      "options": {
+        "a": "Sunhemp",
+        "b": "Dhaincha",
+        "c": "Sesbania",
+        "d": "Horse gram",
+        "e": "Pongamia"
+      },
+      "correct_option": "e",
+      "explanation": "GREEN MANURING enriches soil by incorporating green plant tissues. Two types: (A) IN-SITU (Green Manure) - grown in the same field and ploughed under before the main crop. LEGUMINOUS: Sunhemp (Crotalaria juncea), Dhaincha (Sesbania aculeata), Sesbania speciosa, HORSE GRAM (Macrotyloma uniflorum), Indigo (Indigofera), Cowpea, Green gram, Cluster bean, Berseem, Wild Indigo (Tephrosia). NON-LEGUMINOUS: Maize, jowar, oats - used less commonly. (B) EX-SITU (Green Leaf Manure) - green leaves/twigs are cut from trees GROWING ELSEWHERE and carried to the field. Gliricidia (Gliricidia sepium), Subabul (Leucaena leucocephala), PONGAMIA (Pongamia glabra / Millettia pinnata) - a large tree, leaves are cut and carried. Sesbania grandiflora (Agase), Cassia siamea, Neem, Ipomoea (Yekka), Calotropis gigantea. Pongamia is a TREE from which leaves are collected as EX-SITU green leaf manure - not grown in the field for in-situ manuring. Hence it doesn't fit the \"in-situ\" category.[cite: 104]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Rainfall recorded MORE THAN what threshold in 24 hours is officially known as a \"RAINY DAY\" by IMD?",
+      "options": {
+        "a": "1.0 mm",
+        "b": "1.5 mm",
+        "c": "2.0 mm",
+        "d": "2.5 mm",
+        "e": "3.0 mm"
+      },
+      "correct_option": "d",
+      "explanation": "The India Meteorological Department (IMD) defines a \"RAINY DAY\" as a day on which more than 2.5 mm of rainfall is recorded in 24 hours (from 08:30 IST to 08:30 IST the next day). IMD Rainfall categories (24-hour rainfall): Very Light: 0.1-2.4 mm, Light: 2.5-15.5 mm, Moderate: 15.6-64.4 mm, Heavy: 64.5-115.5 mm, Very Heavy: 115.6-204.4 mm, Extremely Heavy: \u2265204.5 mm. Related classifications for seasonal rainfall as % of long-period average (LPA): Normal: within \u00b119% of LPA, Deficient: 20-59% below, Large deficient: \u226560% below, Excess: 20-59% above, Large excess: \u226560% above. Understanding rainy days is important because agricultural planning depends not only on total rainfall but also on its DISTRIBUTION. A region with 50 rainy days spread evenly is agriculturally more valuable than one with 30 rainy days concentrated in a few storms. NABARD and states use rainy day data for crop insurance triggers (Weather-Based Crop Insurance Scheme).[cite: 105]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "According to the Economic Survey 2025-26, the widest yield gaps between India and global averages are observed in:\n1. Pulses\n2. Maize\n3. Soybean\n4. Groundnut\nSelect the correct answer using the code below.",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "2 and 3 only",
+        "c": "1, 2 and 3 only",
+        "d": "1, 3 and 4 only",
+        "e": "1, 2, 3 and 4"
+      },
+      "correct_option": "c",
+      "explanation": "C As per Master Notes[cite: 106]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which one of the following crops is cited as a notable exception where India's productivity is relatively closer to global benchmarks?",
+      "options": {
+        "a": "Rice",
+        "b": "Wheat",
+        "c": "Soybean",
+        "d": "Groundnut",
+        "e": "Pulses"
+      },
+      "correct_option": "d",
+      "explanation": "According to the Economic Survey 2025-26, while the yields of most major crops such as cereals, pulses, rice, maize and soybean remain below global averages, groundnut stands out as a notable exception where India's productivity is relatively closer to global benchmarks. The comparatively higher productivity of groundnut is attributed to: Concentration of cultivation in agro-climatically suitable semi-arid regions. Availability of two cropping seasons in several producing states. Strong policy support for oilseed production. Adoption of improved high-yielding varieties, particularly in Gujarat, Karnataka and Tamil Nadu. This demonstrates that when crop choice is aligned with agro-climatic suitability, improved technology and policy support, productivity can approach global standards.[cite: 107]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following is a BENEFIT of ZERO/NO-TILLAGE agriculture?",
+      "options": {
+        "a": "Higher fuel and labour cost",
+        "b": "Increased soil erosion",
+        "c": "Destruction of soil biota",
+        "d": "Improved soil moisture conservation and reduced carbon loss",
+        "e": "Higher greenhouse gas emissions"
+      },
+      "correct_option": "d",
+      "explanation": "ZERO TILLAGE (No-Till, ZT) is a conservation-agriculture practice where the new crop is directly seeded into the residues of the previous crop with minimal soil disturbance, using a zero-till drill. Benefits: 1. IMPROVED SOIL MOISTURE - residues on surface reduce evaporation. 2. LOWER FUEL & LABOUR COST - no ploughing, planking, harrowing (saves ~3,000-4,000/ha). 3. REDUCED SOIL EROSION - residue cover protects soil from raindrops and wind. 4. HIGHER SOIL ORGANIC CARBON - carbon is not oxidised by tillage. 5. BETTER SOIL STRUCTURE & BIOLOGICAL ACTIVITY - earthworms, mycorrhiza flourish. 6. TIMELINESS - enables early sowing of wheat after rice, escaping terminal heat. 7. LOWER GHG EMISSIONS - less CO2 release from soil and no residue burning. Zero tillage requires: Effective herbicide-based weed control (Glyphosate on residues). Zero-till seed drills. Adequate crop residues (mulch). Zero tillage in rice-wheat rotation of the Indo-Gangetic Plains has been a great success, championed by ICAR, CIMMYT, and BISA (Borlaug Institute for South Asia). It reduces stubble burning too.[cite: 108]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "An economist remarks that future agricultural growth in India will increasingly depend on diversification, value addition, allied sectors and technology adoption rather than merely expanding cultivated area. The above observation is best supported by which finding of the Economic Survey 2025-26?",
+      "options": {
+        "a": "Agriculture has become entirely independent of the monsoon.",
+        "b": "The latest decade recorded the highest agricultural growth, driven by policy support, technology adoption and diversification.",
+        "c": "India has achieved the highest crop yields globally.",
+        "d": "Foodgrain production is declining.",
+        "e": "Allied sectors have become less significant over time."
+      },
+      "correct_option": "b",
+      "explanation": "Explanation: The Economic Survey 2025-26 highlights that future agricultural growth cannot rely merely on expanding the cultivated area, as land availability is limited. Instead, sustained growth will increasingly come from higher productivity, crop diversification, value addition, allied sectors (especially livestock, fisheries and horticulture), and technological interventions. The Survey notes that the decade 2015-16 to 2024-25 recorded the highest average annual growth in agriculture and allied sectors. This improvement has been supported by: Diversification towards high-value agriculture and allied activities. Adoption of improved technologies and better farming practices. Policy initiatives promoting productivity and resilience. Expansion of value chains and post-harvest infrastructure. Hence, Option B best supports the economist's observation. Why the other options are incorrect? A. Incorrect. Indian agriculture continues to remain influenced by the monsoon, although resilience has improved. C. Incorrect. The Survey points out that India still has significant yield gaps compared with global benchmarks for many major crops. D. Incorrect. Foodgrain production has not been declining; it has generally shown an increasing trend. E. Incorrect. The contribution of allied sectors has become increasingly important, not less significant, in driving agricultural growth.[cite: 109]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The gradual removal of germ and bran from rough rice through a series of pearling cones is known as:",
+      "options": {
+        "a": "Parboiling",
+        "b": "Scouring / Pearling / Whitening",
+        "c": "Winnowing",
+        "d": "Puddling",
+        "e": "Ginning"
+      },
+      "correct_option": "b",
+      "explanation": "SCOURING / PEARLING / WHITENING is the milling process by which the germ (embryo) and bran (pericarp and aleurone layer) are gradually removed from HULLED (dehusked) rice to produce polished white rice. Process: Rice passes through a series of pearling cones - inverted cones with abrasive surfaces, revolving inside conical casings of steel wire cloth. As rice moves down the narrow annular space, the bran is pushed off through the wire cloth interstices. Successive stages progressively whiten the rice. BY-PRODUCT: RICE BRAN, which is used as: (a) animal feed, (b) source of RICE BRAN OIL (rich in oryzanol, vitamin E) - one of India's fastest-growing edible oils. Note the sequence of RICE MILLING: 1. Cleaning (removing dust, stones) 2. Dehusking (removing husk to produce brown rice) 3. Scouring/Pearling/Whitening (removing bran) 4. Polishing (giving glossy finish) 5. Grading (separating whole and broken grains) Excessive polishing removes vitamins (thiamine - hence the association of white rice with beriberi in rice-eating populations before enrichment). Parboiling before milling retains more nutrients.[cite: 110]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which one of the following terms is NOT primarily concerned with crop cultivation?",
+      "options": {
+        "a": "Pomology",
+        "b": "Pisciculture",
+        "c": "Apiculture",
+        "d": "Oenology",
+        "e": "More than one option"
+      },
+      "correct_option": "e",
+      "explanation": "No Explanation added[cite: 111]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Consider the following crops:\n1. Coconut\n2. Tea\n3. Apple\n4. Coffee\nWhich of the above are predominantly tropical crops?",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "1, 2 and 4 only",
+        "c": "2, 3 and 4 only",
+        "d": "1, 3 and 4 only",
+        "e": "1, 2, 3 and 4"
+      },
+      "correct_option": "b",
+      "explanation": "Explanation: 1. Coconut - Correct. Coconut is a tropical plantation crop that thrives in warm, humid climates with abundant rainfall. It is highly sensitive to frost and grows best in coastal tropical regions. 2. Tea - Correct. Tea is predominantly grown in tropical and subtropical regions. In India, major tea-growing areas such as Assam, West Bengal (Dooars), Kerala and Tamil Nadu have warm, humid conditions with high rainfall. Hence, tea is generally classified as a tropical crop. 3. Apple - Incorrect. Apple is a temperate fruit crop. It requires a winter chilling period (low temperatures during dormancy) for proper flowering and fruit setting. Therefore, it is not a tropical crop. 4. Coffee - Correct. Coffee is a tropical plantation crop, cultivated under warm and humid conditions, generally at higher elevations in tropical regions. In India, it is mainly grown in Karnataka, Kerala and Tamil Nadu. Summary: Crop Climatic Group: Coconut Tropical, Tea Tropical (also grown in subtropical regions), Apple Temperate, Coffee Tropical. Therefore, the predominantly tropical crops are Coconut, Tea and Coffee. Correct Answer: B. 1, 2 and 4 only[cite: 112]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Consider the following crops:\n1. Rubber\n2. Oil Palm\n3. Cocoa\n4. Cashew\nWhich of the above are predominantly tropical plantation crops?",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "2, 3 and 4 only",
+        "c": "1, 3 and 4 only",
+        "d": "1, 2, 3 and 4",
+        "e": "1 and 4 only"
+      },
+      "correct_option": "d",
+      "explanation": "Explanation: 1. Rubber - Correct. Rubber is a tropical plantation crop requiring high temperature (25-35\u00b0C), abundant rainfall (200-300 cm) and humid conditions. It is mainly cultivated in Kerala, Tripura, Karnataka and Tamil Nadu. 2. Oil Palm - Correct. Oil palm is a tropical plantation crop that thrives in hot, humid climates with well-distributed rainfall throughout the year. It is cultivated in Andhra Pradesh, Telangana, Karnataka, Tamil Nadu and the North-Eastern states. 3. Cocoa - Correct. Cocoa is a tropical plantation crop requiring warm temperatures, high humidity and shade. In India, it is commonly grown as an intercrop in coconut and arecanut plantations. 4. Cashew - Correct. Cashew is a tropical plantation crop adapted to warm climates and well-drained lateritic soils. It is widely cultivated in Kerala, Karnataka, Goa, Maharashtra, Odisha, Andhra Pradesh and Tamil Nadu. Summary: Crop Climatic Classification: Rubber Tropical Plantation Crop, Oil Palm Tropical Plantation Crop, Cocoa Tropical Plantation Crop, Cashew Tropical Plantation Crop. Since all four crops are predominantly tropical plantation crops, the correct answer is: Correct Answer: D. 1, 2, 3 and 4[cite: 113]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which one of the following sequences correctly arranges the climatic adaptation of the crops from Tropical \u2192 Subtropical \u2192 Temperate?",
+      "options": {
+        "a": "Banana \u2192 Citrus \u2192 Apple",
+        "b": "Apple \u2192 Mango \u2192 Coconut",
+        "c": "Coconut \u2192 Apple \u2192 Citrus",
+        "d": "Tea \u2192 Banana \u2192 Apple",
+        "e": "Apple \u2192 Citrus \u2192 Mango"
+      },
+      "correct_option": "a",
+      "explanation": "Tropical Crops Subtropical Crops Temperate Crops: Banana Citrus Apple, Coconut Guava Pear, Papaya Litchi Peach, Rubber Aonla Plum, Cocoa Pomegranate Cherry, Oil Palm Ber Walnut, Cashew Grapes Almond[cite: 114]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Consider the following crops:\n1. Cotton\n2. Jute\n3. Sunnhemp\n4. Mesta\n5. Flax\nHow many of the above are primarily cultivated as fibre crops under the economic classification of field crops?",
+      "options": {
+        "a": "Only two",
+        "b": "Only three",
+        "c": "Only four",
+        "d": "All five",
+        "e": "None"
+      },
+      "correct_option": "d",
+      "explanation": "STYLO (Stylosanthes spp., commonly S. hamata, S. scabra, S. guianensis) is a tropical PERENNIAL FORAGE LEGUME native to Brazil, widely used as a range grass and fodder crop. Characteristics: Erect-growing legume, 0.6 to 1.8 m tall. Adapted to tropical climates. Tolerant of low-fertility, acidic soils and poor drainage. Being a legume, fixes atmospheric nitrogen (~50-200 kg N/ha/year), improving soil fertility for companion grasses. Popularly used in silvo-pastoral systems, alley cropping, and reclamation of degraded lands. Improves palatability and protein content of pastures. Uses: Grazing (as pasture, alone or mixed with grasses like Guinea, Setaria). Cut-and-carry green fodder. Green manure. Cover crop in plantations (coconut, arecanut, coffee). The Central Range Management Society and ICAR-IGFRI (Indian Grassland and Fodder Research Institute, Jhansi) promote Stylo for silvi-pastoral rehabilitation of common grazing lands.[cite: 115]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The classification of plants into ANNUAL, BIENNIAL, and PERENNIAL is based on which biological aspect?",
+      "options": {
+        "a": "Botany (morphology)",
+        "b": "Anatomy",
+        "c": "Ontogeny (life span)",
+        "d": "CO2 Fixation type",
+        "e": "Pollination behaviour"
+      },
+      "correct_option": "c",
+      "explanation": "ONTOGENY refers to the origin and development of an individual organism, from fertilisation of the egg to maturity - essentially the LIFE HISTORY / LIFE SPAN of the plant. Classification based on ontogeny: ANNUAL: complete life cycle (germination \u2192 flowering \u2192 seed setting \u2192 death) within ONE year/season. Examples: wheat, rice, maize, mustard, most vegetables, cotton (as annual). BIENNIAL: two-year cycle - vegetative in year 1, reproductive in year 2 after vernalization. Examples: sugar beet, beetroot, carrot (seed production), cabbage (seed). PERENNIAL: live and produce for many years. Examples: Napier grass, coconut, mango, tea, sugarcane (ratoon), banana, all fruit trees, alfalfa. Other classification systems: BOTANICAL: based on family (Poaceae, Fabaceae) or morphology. CO2 FIXATION: C3, C4, CAM plants. PHOTOPERIOD: short/long/day-neutral. CROPPING SEASON: kharif, rabi, zaid. END USE: food, fodder, fibre, oilseed, sugar, spice, medicinal. Ontogeny helps in choosing crop rotations, cropping intensity, and long-term farm planning.[cite: 116]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "The scientific name of HORSE GRAM (a drought-tolerant Indian pulse) is:",
+      "options": {
+        "a": "Glycine max",
+        "b": "Vigna radiata",
+        "c": "Macrotyloma uniflorum",
+        "d": "Vigna unguiculata",
+        "e": "Cicer arietinum"
+      },
+      "correct_option": "c",
+      "explanation": "HORSE GRAM (Kulthi, Hurali) \u2014 Macrotyloma uniflorum \u2014 is a highly drought-tolerant, hardy pulse of Indian origin, grown mainly in dry regions of Karnataka, Andhra Pradesh, Tamil Nadu, MP, and Chhattisgarh. Formerly classified as Dolichos biflorus, it was renamed to Macrotyloma uniflorum. Common scientific names of Indian pulses: Chickpea: Cicer arietinum. Pigeon pea / Red gram: Cajanus cajan. Black gram / Urd: Vigna mungo. Green gram / Mung: Vigna radiata. Lentil / Masoor: Lens culinaris. Field pea: Pisum arvense. Cowpea / Lobia: Vigna unguiculata. Cluster bean / Guar: Cyamopsis tetragonoloba. Moth bean: Vigna aconitifolia. Rice bean: Vigna umbellata. Fababean: Vicia faba. Common bean / Rajmash: Phaseolus vulgaris. Grasspea / Khesari: Lathyrus sativus. Soybean: Glycine max. Horse gram is nutritionally rich (25% protein) and traditionally used in Ayurveda for kidney stones. It is a good example of a resilient \"smart food\" being revived under nutritional security programs.[cite: 117]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "GLUTEN \u2013 the protein giving elastic, spongy texture to bread \u2013 is found in significant quantities in:",
+      "options": {
+        "a": "Rice",
+        "b": "Wheat",
+        "c": "Bajra",
+        "d": "Ragi",
+        "e": "Maize"
+      },
+      "correct_option": "b",
+      "explanation": "GLUTEN is a protein complex found naturally in WHEAT, and in smaller amounts in barley and rye. It is composed of two main proteins: GLIADIN (soluble in alcohol) \u2014 gives extensibility. GLUTENIN (insoluble) \u2014 gives elasticity. When wheat flour is mixed with water and kneaded, gluten forms a stretchy network that traps CO2 (from yeast fermentation or baking powder) \u2014 this gives BREAD, cakes, pasta, chapati their characteristic rise and structure. Without gluten, dough would tear easily. Gluten importance in wheat quality: HARD WHEAT (T. aestivum, high protein 12-15%): strong gluten, best for bread. DURUM WHEAT (T. durum, high yellow pigment): for pasta. SOFT WHEAT (low protein 8-10%): for biscuits, cakes. Millets (bajra, ragi, jowar, foxtail etc.) and rice, maize are NATURALLY GLUTEN-FREE. This is why millets are recommended for people with: CELIAC DISEASE (autoimmune gluten intolerance). WHEAT allergy. Non-celiac gluten sensitivity. This is a key reason the UN promoted the International Year of Millets 2023.[cite: 118]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Paddy for storage should have its MOISTURE content in the range of:",
+      "options": {
+        "a": "5-7%",
+        "b": "8-10%",
+        "c": "10-12%",
+        "d": "14-16%",
+        "e": "16-18%"
+      },
+      "correct_option": "c",
+      "explanation": "For safe storage, PADDY grains should be dried to 10\u201312% moisture content. Storage at higher moisture (>14%) invites: Fungal / mould growth (Aspergillus, Penicillium) producing aflatoxins. Insect infestation (rice weevil, lesser grain borer). Respiration heat build-up (\"hot spots\"). Fermentation and quality loss. Discolouration and loss of milling quality. Storage moisture guidelines (%): PADDY: 10\u201312. WHEAT: 10\u201312. Maize: 10\u201312. Oilseeds (mustard, soybean): 6\u20138 (higher oil deteriorates fast). Pulses: 9\u201310. Drying steps: 1. Field drying / sun drying on clean floors (traditional). 2. Mechanical drying with heated air (large-scale mills, FCI). Storage structures range from traditional (Bukhari, Morai, Bags in godowns) to modern silos (metal, concrete), FCI godowns, and Cover-and-Plinth (CAP) storage. NABARD's Rural Godown Scheme (Gramin Bhandaran Yojana) supports construction of village-level storage. Post-harvest losses in India are estimated at 5\u201315% of grain \u2014 reducing them is a major policy focus.[cite: 119]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which one of the following is correctly matched?\nCrop \u2192 Botanical Part\n1. Potato \u2192 Stem Tuber\n2. Groundnut \u2192 Peg\n3. Sugarcane \u2192 Stem\n4. Onion \u2192 Bulb",
+      "options": {
+        "a": "1-A, 2-B, 3-C, 4-D",
+        "b": "1-B, 2-A, 3-D, 4-C",
+        "c": "1-A, 2-C, 3-B, 4-D",
+        "d": "1-C, 2-A, 3-D, 4-B",
+        "e": "1-A, 2-D, 3-C, 4-B"
+      },
+      "correct_option": "a",
+      "explanation": "ICAR-INDIAN INSTITUTE OF FARMING SYSTEMS RESEARCH (IIFSR) is located at Modipuram, near Meerut, Uttar Pradesh. It was originally the Project Directorate for Cropping Systems Research, upgraded to IIFSR in 2014. Mandate: Develop and promote INTEGRATED FARMING SYSTEMS (IFS) that combine crops, livestock, fisheries, horticulture, and agroforestry for small and marginal farmers. Coordinate the All India Coordinated Research Project on Integrated Farming Systems (AICRP-IFS) across various agro-climatic zones. Design location-specific farming models \u2014 e.g. 1-hectare model for landless/small farmers combining vegetables + dairy + fish + poultry, giving year-round income. Other important ICAR institutes to remember: ICAR-IARI (Indian Agricultural Research Institute): New Delhi \u2014 Green Revolution institute. ICAR-IIWBR (Wheat & Barley): Karnal. ICAR-IIRR (Rice Research): Hyderabad. ICAR-IIVR (Vegetable Research): Varanasi. ICAR-IISR (Sugarcane): Lucknow. ICAR-IIPR (Pulses): Kanpur. ICAR-IIOR (Oilseeds): Hyderabad. ICAR-IGFRI (Grassland & Fodder): Jhansi.[cite: 120]"
+    },
+    {
+      "chapter": "Agriculture",
+      "topic": "Agronomy Part 1",
+      "question": "Which of the following crops are correctly associated?\n1. Cotton-Boll, Maize-Cob, Wheat-Earhead, Rice-Panicle\n2. Cotton-Cob, Maize-Panicle, Wheat-Boll, Rice-Earhead\n3. Cotton-Peg, Maize-Earhead, Wheat-Cob, Rice-Panicle\n4. Cotton-Boll, Maize-Peg, Wheat-Panicle, Rice-Cob\n5. Cotton-Capsule, Maize-Spike, Wheat-Cob, Rice-Pod",
+      "options": {
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "d": "4",
+        "e": "5"
+      },
+      "correct_option": "a",
+      "explanation": "No Explanation added[cite: 121]"
+    }
+  ]
+}
