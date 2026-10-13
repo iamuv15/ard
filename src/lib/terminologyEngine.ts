@@ -242,6 +242,262 @@ Output strictly valid JSON:
 }
 
 /**
+ * Progressive / Phased Mining:
+ * Mines keywords from a SINGLE batch of 50-60 MCQs in ~2 seconds.
+ * Allows client-side manual clicking or timed batching to completely avoid Vercel timeouts.
+ */
+export async function mineSingleMCQBatch({
+  chapterId,
+  batchIndex,
+  batchSize = 55,
+  apiKey,
+  fallbackApiKey
+}: {
+  chapterId: number
+  batchIndex: number
+  batchSize?: number
+  apiKey?: string
+  fallbackApiKey?: string
+}) {
+  const chapter = await prisma.chapter.findUnique({
+    where: { id: chapterId },
+    select: { id: true, name: true }
+  })
+  if (!chapter) throw new Error(`Chapter ${chapterId} not found`)
+
+  const totalQuestions = await prisma.question.count({
+    where: { quiz: { chapterId } }
+  })
+
+  const batchQuestions = await prisma.question.findMany({
+    where: { quiz: { chapterId } },
+    select: {
+      id: true,
+      questionText: true,
+      optionA: true,
+      optionB: true,
+      optionC: true,
+      optionD: true,
+      optionE: true,
+      correctAnswer: true,
+      topic: true,
+      explanation: true
+    },
+    orderBy: { id: 'asc' },
+    skip: batchIndex * batchSize,
+    take: batchSize
+  })
+
+  if (batchQuestions.length === 0) {
+    const existing = await prisma.chapterMindMap.findUnique({ where: { chapterId } })
+    return {
+      batchIndex,
+      batchQuestionsCount: 0,
+      totalQuestions,
+      totalBatches: Math.ceil(totalQuestions / batchSize),
+      extractedKeywords: [],
+      newKeywordsAdded: 0,
+      totalKeywordsPool: existing?.rawKeywords?.length || 0,
+      allRawKeywords: existing?.rawKeywords || []
+    }
+  }
+
+  const minedKeywords = await mineKeywordsFromMCQBatch(
+    batchQuestions,
+    chapter.name,
+    apiKey,
+    fallbackApiKey
+  )
+
+  const existingMindMap = await prisma.chapterMindMap.findUnique({
+    where: { chapterId }
+  })
+
+  const currentPool = new Set<string>(existingMindMap?.rawKeywords || [])
+  let newAdded = 0
+  minedKeywords.forEach(kw => {
+    const trimmed = (kw || '').trim()
+    if (trimmed && !currentPool.has(trimmed)) {
+      currentPool.add(trimmed)
+      newAdded++
+    }
+  })
+
+  const updatedList = Array.from(currentPool)
+
+  await prisma.chapterMindMap.upsert({
+    where: { chapterId },
+    create: {
+      chapterId,
+      rawKeywords: updatedList,
+      treeData: { categories: [], crossBranchEdges: [], allKeywords: updatedList },
+      lastSyncAt: new Date()
+    },
+    update: {
+      rawKeywords: updatedList,
+      lastSyncAt: new Date()
+    }
+  })
+
+  return {
+    batchIndex,
+    batchQuestionsCount: batchQuestions.length,
+    totalQuestions,
+    totalBatches: Math.ceil(totalQuestions / batchSize),
+    extractedKeywords: minedKeywords,
+    newKeywordsAdded: newAdded,
+    totalKeywordsPool: updatedList.length,
+    allRawKeywords: updatedList
+  }
+}
+
+/**
+ * Phase 2 Synthesizer:
+ * Takes accumulated keyword vocabulary and generates the Master Mind Map (Taxonomy Tree)
+ * using 10,000 thinking tokens in ~12 to 18 seconds.
+ */
+export async function synthesizeMindMapFromKeywords({
+  chapterId,
+  keywords,
+  apiKey,
+  fallbackApiKey
+}: {
+  chapterId: number
+  keywords?: string[]
+  apiKey?: string
+  fallbackApiKey?: string
+}): Promise<ChapterMindMapTree> {
+  const chapter = await prisma.chapter.findUnique({
+    where: { id: chapterId },
+    select: { id: true, name: true }
+  })
+  if (!chapter) throw new Error(`Chapter ${chapterId} not found`)
+
+  let targetKeywords = keywords
+  if (!targetKeywords || targetKeywords.length === 0) {
+    const existing = await prisma.chapterMindMap.findUnique({ where: { chapterId } })
+    targetKeywords = existing?.rawKeywords || []
+  }
+
+  if (targetKeywords.length === 0) {
+    throw new Error('No keywords found to synthesize taxonomy. Please mine at least one batch first.')
+  }
+
+  const tnauSpine = getTNAUSpine(chapter.name)
+  const mustCoverTopics = tnauSpine?.mustCoverTopics || []
+
+  const extractedLower = new Set(targetKeywords.map(k => k.toLowerCase()))
+  const gapTopics = mustCoverTopics.filter(topic => {
+    const topicLower = topic.toLowerCase()
+    return !Array.from(extractedLower).some(extracted => 
+      extracted.includes(topicLower) || topicLower.includes(extracted)
+    )
+  })
+
+  const combined = Array.from(new Set([...targetKeywords, ...gapTopics]))
+
+  const systemPrompt = `You are a chief curriculum architect and competitive exam taxonomist specializing in agricultural examinations (NABARD Grade A, IBPS AFO, ICAR, State PSCs).
+Construct a rigorous, comprehensive CHAPTER MIND MAP and TAXONOMY TREE for "${chapter.name}".
+You are provided with a complete vocabulary of ${combined.length} keywords mined from chapter MCQs and benchmarked against TNAU Agritech university syllabus standards.
+
+TAXONOMY & ARCHITECTURAL RULES:
+1. DEDUPLICATION: Merge synonymous or near-identical terms into clear professional terms.
+2. MACRO-BRANCHES: Organize extracted terms into 5 to 7 coherent, macro-categories suitable for the chapter "${chapter.name}" (aligned with ICAR / TNAU Agritech curriculum).
+3. SUBCATEGORIES: Under each macro-category, create clear sub-branches grouping related terms.
+4. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
+   Identify critical exam linkages between terms:
+   - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
+   - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
+   - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
+   - CO_OCCURRENCE (terms frequently paired together in exam options)
+
+Output strictly valid JSON conforming to this schema:
+{
+  "chapterId": ${chapterId},
+  "chapterName": "${chapter.name}",
+  "categories": [
+    {
+      "name": "Macro Category Name",
+      "description": "Short 1-line scope",
+      "subCategories": [
+        {
+          "name": "Subcategory Name",
+          "keywords": ["Keyword1", "Keyword2", "Keyword3"]
+        }
+      ]
+    }
+  ],
+  "crossBranchEdges": [
+    {
+      "from": "Keyword1",
+      "to": "Keyword2",
+      "relationType": "CO_OCCURRENCE" | "LIFECYCLE" | "TOOL_OR_DIAGNOSTIC" | "CONTRAST",
+      "label": "Short reason for connection"
+    }
+  ],
+  "allKeywords": ["Sorted list of all unique extracted keywords"]
+}`
+
+  const userPrompt = `KEYWORD VOCABULARY TO STRUCTURE:
+${combined.map((k, i) => `${i + 1}. ${k}`).join('\n')}
+
+${tnauSpine ? `TNAU AGRITECH BENCHMARK CATEGORIES FOR REFERENCE:\n${tnauSpine.categories.map(c => `- ${c.name}: ${c.topics.slice(0, 3).join(', ')}`).join('\n')}` : ''}
+
+Reason deeply through taxonomy and generate the complete Mind Map & Taxonomy JSON.`
+
+  const result: ChapterMindMapTree = await callGemini({
+    systemPrompt,
+    userPrompt,
+    allowThinking: true,
+    thinkingBudget: 10000,
+    temperature: 0.3,
+    apiKeyOverride: apiKey,
+    fallbackApiKey
+  })
+
+  const collected = new Set<string>()
+  if (result.categories && Array.isArray(result.categories)) {
+    for (const cat of result.categories) {
+      for (const sub of cat.subCategories || []) {
+        for (const kw of sub.keywords || []) {
+          if (kw && kw.trim()) collected.add(kw.trim())
+        }
+      }
+    }
+  }
+  result.allKeywords = Array.from(collected)
+
+  const totalStandard = mustCoverTopics.length || 1
+  const coveredCount = Math.max(0, mustCoverTopics.length - gapTopics.length)
+  const scorePercent = Math.round((coveredCount / totalStandard) * 100)
+
+  result.syllabusAudit = {
+    scorePercent: Math.min(100, Math.max(0, scorePercent)),
+    totalBenchmarkTopics: mustCoverTopics.length,
+    coveredTopicsCount: coveredCount,
+    gapTopics,
+    tnauSourceUrl: tnauSpine?.sourceUrl
+  }
+
+  await prisma.chapterMindMap.upsert({
+    where: { chapterId },
+    create: {
+      chapterId,
+      treeData: result as any,
+      rawKeywords: result.allKeywords,
+      lastSyncAt: new Date()
+    },
+    update: {
+      treeData: result as any,
+      rawKeywords: result.allKeywords,
+      lastSyncAt: new Date()
+    }
+  })
+
+  return result
+}
+
+/**
  * STEP 1: Two-Phase "Map-Reduce" Chapter Mind Map & Taxonomy Pipeline (10k Thinking for Reduce)
  * Handles chapters with 500+ MCQs gracefully:
  * - Phase 1 (Map): Chunked mining across all questions (Thinking OFF, Fast).

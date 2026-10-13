@@ -19,7 +19,13 @@ import {
   Key,
   ShieldCheck,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Play,
+  Pause,
+  Sliders,
+  Trash2,
+  Tag,
+  RotateCcw
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { ConceptDossierModal } from '@/components/concepts/ConceptDossierModal'
@@ -54,6 +60,16 @@ export default function AdminChapterConceptsPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedConceptSlug, setSelectedConceptSlug] = useState<string | null>(null)
 
+  // Progressive Batch Mining states
+  const [totalQuestions, setTotalQuestions] = useState(0)
+  const [rawKeywords, setRawKeywords] = useState<string[]>([])
+  const [batchIndex, setBatchIndex] = useState(0)
+  const [batchMining, setBatchMining] = useState(false)
+  const [autoMining, setAutoMining] = useState(false)
+  const [pacingDelay, setPacingDelay] = useState(8) // seconds wait between auto-batches
+  const [showKeywordDrawer, setShowKeywordDrawer] = useState(false)
+  const autoMiningRef = React.useRef(false)
+
   // Generation status states
   const [mindMapGenerating, setMindMapGenerating] = useState(false)
   const [capsulesGenerating, setCapsulesGenerating] = useState(false)
@@ -62,6 +78,9 @@ export default function AdminChapterConceptsPage() {
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null)
   const [paidApiKey, setPaidApiKey] = useState('')
   const [showKeySettings, setShowKeySettings] = useState(false)
+
+  const batchSize = 50
+  const totalBatches = Math.max(1, Math.ceil(totalQuestions / batchSize))
 
   useEffect(() => {
     try {
@@ -90,6 +109,8 @@ export default function AdminChapterConceptsPage() {
         setChapterName(data.chapterName)
         setMindMap(data.mindMap?.treeData || null)
         setConcepts(data.existingConcepts || [])
+        setTotalQuestions(data.totalQuestions || 0)
+        setRawKeywords(data.rawKeywords || [])
       } else {
         setStatusMessage({ type: 'error', text: data.error || 'Failed to load chapter data' })
       }
@@ -104,13 +125,169 @@ export default function AdminChapterConceptsPage() {
     if (chapterId) loadData()
   }, [chapterId])
 
-  // STEP 1: Generate Mind Map with Thinking ON (10,000 tokens)
+  // PHASE 1: Progressive Mining of a Single MCQ Batch (~2s, Thinking OFF)
+  const handleMineSingleBatch = async (idx?: number) => {
+    const targetIdx = typeof idx === 'number' ? idx : batchIndex
+    try {
+      setBatchMining(true)
+      setStatusMessage({
+        type: 'info',
+        text: `⚡ Mining Batch ${targetIdx + 1} of ${totalBatches} (Questions ${targetIdx * batchSize + 1} to ${Math.min((targetIdx + 1) * batchSize, totalQuestions)})...`
+      })
+
+      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'mine_batch',
+          batchIndex: targetIdx,
+          batchSize,
+          paidApiKey: paidApiKey.trim() || undefined
+        })
+      })
+
+      const data = await res.json()
+      if (!res.ok) {
+        throw new Error(data.error || `Failed to mine batch ${targetIdx + 1}`)
+      }
+
+      setRawKeywords(data.allRawKeywords || [])
+      const nextIdx = (targetIdx + 1) % totalBatches
+      setBatchIndex(nextIdx)
+
+      setStatusMessage({
+        type: 'success',
+        text: `✅ Batch ${targetIdx + 1}/${totalBatches} mined! +${data.newKeywordsAdded} new terms added (Total Pool: ${data.totalKeywordsPool} keywords).`
+      })
+
+      return data
+    } catch (err: any) {
+      setStatusMessage({ type: 'error', text: `Error mining batch ${targetIdx + 1}: ${err.message}` })
+      throw err
+    } finally {
+      setBatchMining(false)
+    }
+  }
+
+  // PHASE 1: Auto-Mine Loop with Browser Pacing Delay (Zero Vercel Timeouts!)
+  const handleToggleAutoMine = async () => {
+    if (autoMining) {
+      autoMiningRef.current = false
+      setAutoMining(false)
+      setStatusMessage({ type: 'info', text: '⏸️ Auto-mining paused.' })
+      return
+    }
+
+    autoMiningRef.current = true
+    setAutoMining(true)
+    let currentIdx = batchIndex
+
+    setStatusMessage({
+      type: 'info',
+      text: `▶️ Starting Auto-Miner for chapter MCQs with ${pacingDelay}s delay between requests...`
+    })
+
+    try {
+      while (autoMiningRef.current && currentIdx < totalBatches) {
+        await handleMineSingleBatch(currentIdx)
+        currentIdx++
+        setBatchIndex(currentIdx % totalBatches)
+
+        if (currentIdx >= totalBatches) {
+          setStatusMessage({
+            type: 'success',
+            text: `🎉 Auto-mining complete across all ${totalBatches} batches! Ready to synthesize Master Mind Map in Phase 2.`
+          })
+          break
+        }
+
+        if (autoMiningRef.current) {
+          setStatusMessage({
+            type: 'info',
+            text: `⏳ Waiting ${pacingDelay}s to protect Free Tier limits before Batch ${currentIdx + 1}/${totalBatches}...`
+          })
+          await new Promise(r => setTimeout(r, pacingDelay * 1000))
+        }
+      }
+    } catch (err: any) {
+      console.error('Auto-mining error:', err)
+    } finally {
+      autoMiningRef.current = false
+      setAutoMining(false)
+      await loadData()
+    }
+  }
+
+  // PHASE 1: Reset Keyword Pool
+  const handleResetKeywordPool = async () => {
+    if (!window.confirm('Are you sure you want to clear the accumulated keyword pool and reset to Batch 1?')) {
+      return
+    }
+
+    try {
+      setLoading(true)
+      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'reset_keywords' })
+      })
+      if (res.ok) {
+        setRawKeywords([])
+        setBatchIndex(0)
+        setMindMap(null)
+        setStatusMessage({ type: 'success', text: 'Keyword pool reset. You can start mining from Batch 1.' })
+        await loadData()
+      }
+    } catch (err: any) {
+      setStatusMessage({ type: 'error', text: err.message || 'Failed to reset pool' })
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // PHASE 2: Synthesize Master Mind Map with Thinking ON (10,000 tokens)
+  const handleSynthesizeTaxonomy = async () => {
+    try {
+      setMindMapGenerating(true)
+      setStatusMessage({ 
+        type: 'info', 
+        text: '🧠 Phase 2: Architecting taxonomy with Gemini Thinking (10,000 tokens)... Structuring categories & syllabus audit.' 
+      })
+
+      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          action: 'synthesize',
+          paidApiKey: paidApiKey.trim() || undefined 
+        })
+      })
+
+      const data = await res.json()
+      if (res.ok) {
+        setMindMap(data.mindMap)
+        setStatusMessage({ 
+          type: 'success', 
+          text: `🎉 Master Mind Map created! Extracted ${data.totalKeywordsExtracted} key terminologies into structured branches.` 
+        })
+        loadData()
+      } else {
+        setStatusMessage({ type: 'error', text: data.error || 'Failed to synthesize taxonomy' })
+      }
+    } catch (err: any) {
+      setStatusMessage({ type: 'error', text: err.message || 'Unexpected error' })
+    } finally {
+      setMindMapGenerating(false)
+    }
+  }
+
+  // FAST 1-CLICK Mind Map Fallback (Samples up to 180 MCQs)
   const handleGenerateMindMap = async () => {
     try {
       setMindMapGenerating(true)
       setStatusMessage({ 
         type: 'info', 
-        text: 'Architecting taxonomy with Gemini Thinking (10,000 tokens)... Analyzing chapter questions.' 
+        text: 'Quick 1-Click: Sampling chapter questions and reasoning Mind Map with Gemini (10,000 thinking tokens)...' 
       })
 
       const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
@@ -429,97 +606,326 @@ export default function AdminChapterConceptsPage() {
           )}
         </div>
 
-        {/* 2-Step Workflow Guide Banner */}
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-400">
-              Workflow Guide: Which Button To Press?
-            </h3>
+        {/* 3-Phase Pipeline Architecture Banner */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div>
+              <h3 className="text-xs font-black uppercase tracking-wider text-slate-400">
+                Resilient 3-Phase Pipeline (Free Tier Safe • Zero Vercel Timeouts)
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Break large chapters into fast independent chunks. Run manually or with paced auto-execution.
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                {totalQuestions} Total Chapter MCQs
+              </span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Step 1 Card */}
-            <div className={`p-5 rounded-2xl border transition-all ${
-              mindMap 
-                ? 'border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/20 dark:bg-emerald-950/10' 
-                : 'border-blue-300 dark:border-blue-700 bg-blue-50/40 dark:bg-blue-950/20'
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {/* PHASE 1: MCQ CHUNK MINER */}
+            <div className={`p-5 rounded-2xl border flex flex-col justify-between transition-all ${
+              rawKeywords.length > 0 
+                ? 'border-blue-300 dark:border-blue-800/80 bg-blue-50/30 dark:bg-blue-950/20' 
+                : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40'
             }`}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-800 dark:text-blue-300">
-                  STEP 1: TAXONOMY & MIND MAP
-                </span>
-                {mindMap ? (
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Ready ({allKeywords.length} terms)
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
+                    PHASE 1: MCQ MINING
                   </span>
-                ) : (
-                  <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
-                    Press 1st
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
+                    Batch {Math.min(batchIndex + 1, totalBatches)}/{totalBatches}
                   </span>
+                </div>
+
+                <div>
+                  <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">
+                    Chunked Question Mining
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Extracts keywords from batches of 50 questions in ~2s (Thinking OFF). Never times out Vercel!
+                  </p>
+                </div>
+
+                {/* Progress Mini Bar */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-[11px] font-bold text-slate-400">
+                    <span>Mined: {Math.min(batchIndex * batchSize, totalQuestions)} / {totalQuestions} Qs</span>
+                    <span className="text-blue-600 dark:text-blue-400 font-extrabold">{rawKeywords.length} Terms</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-blue-600 transition-all duration-300"
+                      style={{ width: `${Math.min(100, Math.round(((batchIndex * batchSize) / (totalQuestions || 1)) * 100))}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Controls: Manual & Paced Auto */}
+                <div className="space-y-2 pt-1">
+                  {/* Manual Single Batch Button */}
+                  <button
+                    onClick={() => handleMineSingleBatch()}
+                    disabled={batchMining || autoMining || mindMapGenerating}
+                    className="w-full py-2 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50"
+                  >
+                    {batchMining ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        Mining Batch {batchIndex + 1}...
+                      </>
+                    ) : (
+                      <>
+                        <Zap className="w-3.5 h-3.5" />
+                        ⚡ Mine Next Batch (50 MCQs)
+                      </>
+                    )}
+                  </button>
+
+                  {/* Auto-Mine & Delay Pacing */}
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={handleToggleAutoMine}
+                      disabled={batchMining && !autoMining}
+                      className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50 ${
+                        autoMining
+                          ? 'bg-amber-600 hover:bg-amber-700 text-white'
+                          : 'border border-blue-200 dark:border-blue-800 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-slate-700'
+                      }`}
+                    >
+                      {autoMining ? (
+                        <>
+                          <Pause className="w-3.5 h-3.5" />
+                          Pause Auto-Mine
+                        </>
+                      ) : (
+                        <>
+                          <Play className="w-3.5 h-3.5" />
+                          Auto-Mine All
+                        </>
+                      )}
+                    </button>
+
+                    {/* Delay Selector */}
+                    <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-700 rounded-xl px-2 py-1 bg-white dark:bg-slate-800">
+                      <Sliders className="w-3 h-3 text-slate-400" />
+                      <select
+                        value={pacingDelay}
+                        onChange={e => setPacingDelay(Number(e.target.value))}
+                        disabled={autoMining}
+                        className="bg-transparent text-[11px] font-bold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer"
+                        title="Delay between batches to respect Google AI 15 RPM free tier limits"
+                      >
+                        <option value={5}>5s</option>
+                        <option value={8}>8s</option>
+                        <option value={10}>10s</option>
+                        <option value={15}>15s</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Keyword Drawer Toggle & Reset */}
+              <div className="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between text-xs">
+                <button
+                  onClick={() => setShowKeywordDrawer(!showKeywordDrawer)}
+                  className="font-bold text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <Tag className="w-3 h-3" />
+                  <span>{showKeywordDrawer ? 'Hide Pool' : `View Pool (${rawKeywords.length})`}</span>
+                </button>
+                {rawKeywords.length > 0 && (
+                  <button
+                    onClick={handleResetKeywordPool}
+                    className="text-[11px] text-slate-400 hover:text-red-500 inline-flex items-center gap-1 cursor-pointer"
+                    title="Clear keyword pool and restart mining from batch 0"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                    Reset
+                  </button>
                 )}
               </div>
-              <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">
-                Mine Keywords & Structure Mind Map
-              </h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
-                Scans all MCQs using <strong>Gemini 3.5 with 10k thinking tokens</strong> to group keywords into macro-branches. Once ready, you only press this if you upload new MCQs.
-              </p>
-
-              <button
-                onClick={handleGenerateMindMap}
-                disabled={mindMapGenerating || capsulesGenerating}
-                className="w-full py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50"
-              >
-                <Brain className="w-3.5 h-3.5 text-blue-500" />
-                {mindMapGenerating ? 'Reasoning (10k tokens)...' : mindMap ? 'Re-Sync Mind Map (Optional)' : 'Generate Mind Map'}
-              </button>
             </div>
 
-            {/* Step 2 Card */}
-            <div className={`p-5 rounded-2xl border transition-all ${
+            {/* PHASE 2: MASTER TAXONOMY & MIND MAP */}
+            <div className={`p-5 rounded-2xl border flex flex-col justify-between transition-all ${
+              mindMap 
+                ? 'border-indigo-300 dark:border-indigo-800/80 bg-indigo-50/30 dark:bg-indigo-950/20' 
+                : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40'
+            }`}>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
+                    PHASE 2: MASTER TAXONOMY
+                  </span>
+                  {mindMap ? (
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                      <CheckCircle2 className="w-3.5 h-3.5" /> Ready
+                    </span>
+                  ) : (
+                    <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                      Needs Synthesis
+                    </span>
+                  )}
+                </div>
+
+                <div>
+                  <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">
+                    Master Mind Map Structuring
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Uses <strong>10,000 thinking tokens</strong> to group accumulated keywords into branches & run TNAU Agritech syllabus gap audit.
+                  </p>
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-white/70 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-600 dark:text-slate-300 space-y-1">
+                  <div className="flex justify-between font-bold">
+                    <span>Input Vocabulary:</span>
+                    <span className="text-indigo-600 dark:text-indigo-400">{rawKeywords.length} keywords</span>
+                  </div>
+                  {mindMap?.syllabusAudit && (
+                    <div className="flex justify-between font-bold">
+                      <span>TNAU Audit:</span>
+                      <span className="text-emerald-600 dark:text-emerald-400">{mindMap.syllabusAudit.scorePercent}% coverage</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  <button
+                    onClick={handleSynthesizeTaxonomy}
+                    disabled={mindMapGenerating || rawKeywords.length === 0}
+                    className="w-full py-2 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50"
+                  >
+                    {mindMapGenerating ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        Synthesizing (10k thinking)...
+                      </>
+                    ) : (
+                      <>
+                        <Brain className="w-3.5 h-3.5" />
+                        {mindMap ? 'Re-Synthesize Mind Map' : '🧠 Synthesize Mind Map (10k Thinking)'}
+                      </>
+                    )}
+                  </button>
+
+                  <button
+                    onClick={handleGenerateMindMap}
+                    disabled={mindMapGenerating}
+                    className="w-full py-1.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-[11px] font-bold flex items-center justify-center gap-1 transition-colors cursor-pointer disabled:opacity-50"
+                    title="Samples up to 180 questions directly in one shot"
+                  >
+                    <Sparkles className="w-3 h-3 text-amber-500" />
+                    Quick 1-Click Mind Map (180 MCQs sample)
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 text-[11px] text-slate-400">
+                Runs cleanly in ~15s (Zero serverless timeout risk).
+              </div>
+            </div>
+
+            {/* PHASE 3: CONCEPT CAPSULES */}
+            <div className={`p-5 rounded-2xl border flex flex-col justify-between transition-all ${
               generatedCount === totalKeywords && totalKeywords > 0
-                ? 'border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/20 dark:bg-emerald-950/10'
+                ? 'border-emerald-300 dark:border-emerald-800/80 bg-emerald-50/30 dark:bg-emerald-950/20'
                 : 'border-amber-300 dark:border-amber-700/60 bg-amber-50/30 dark:bg-amber-950/20'
             }`}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300">
-                  STEP 2: CONCEPT CAPSULES
-                </span>
-                <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
-                  {generatedCount}/{totalKeywords} Live
-                </span>
-              </div>
-              <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">
-                Generate Comparative Notes & Traps
-              </h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
-                Synthesizes definitions, comparative tables & examiner traps for pending keywords. <strong>Thinking is OFF (Fast, ultra-reliable).</strong>
-              </p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">
+                    PHASE 3: CONCEPT CAPSULES
+                  </span>
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
+                    {generatedCount}/{totalKeywords} Live
+                  </span>
+                </div>
 
-              <button
-                onClick={handleGenerateAllCapsules}
-                disabled={capsulesGenerating || mindMapGenerating || !mindMap || totalKeywords <= generatedCount}
-                className="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50"
-              >
-                {capsulesGenerating ? (
-                  <>
-                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                    Generating Capsules...
-                  </>
-                ) : totalKeywords <= generatedCount ? (
-                  <>
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    All Capsules Published ({generatedCount})
-                  </>
-                ) : (
-                  <>
-                    <Zap className="w-3.5 h-3.5" />
-                    Batch Generate {totalKeywords - generatedCount} Pending Capsules
-                  </>
-                )}
-              </button>
+                <div>
+                  <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">
+                    High-Yield Dossiers & Traps
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Synthesizes definitions, comparative tables & exam traps. Generated in pairs of 2 with live UI mounting.
+                  </p>
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-white/70 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-600 dark:text-slate-300 space-y-1">
+                  <div className="flex justify-between font-bold">
+                    <span>Published Capsules:</span>
+                    <span className="text-emerald-600 dark:text-emerald-400">{generatedCount}</span>
+                  </div>
+                  <div className="flex justify-between font-bold">
+                    <span>Pending Terms:</span>
+                    <span className="text-amber-600 dark:text-amber-400">{Math.max(0, totalKeywords - generatedCount)}</span>
+                  </div>
+                </div>
+
+                <div className="pt-1">
+                  <button
+                    onClick={handleGenerateAllCapsules}
+                    disabled={capsulesGenerating || mindMapGenerating || !mindMap || totalKeywords <= generatedCount}
+                    className="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50"
+                  >
+                    {capsulesGenerating ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        Generating Capsules...
+                      </>
+                    ) : totalKeywords <= generatedCount ? (
+                      <>
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        All Capsules Published ({generatedCount})
+                      </>
+                    ) : (
+                      <>
+                        <Zap className="w-3.5 h-3.5" />
+                        Batch Generate {totalKeywords - generatedCount} Pending Capsules
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 text-[11px] text-slate-400">
+                Thinking is OFF (Fast, ~3-4s per batch).
+              </div>
             </div>
           </div>
+
+          {/* Expandable Keyword Pool Drawer */}
+          {showKeywordDrawer && (
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
+                  Accumulated Keywords Pool ({rawKeywords.length} distinct concepts extracted):
+                </span>
+                <span className="text-[11px] text-slate-400">
+                  Ready to be structured in Phase 2
+                </span>
+              </div>
+              {rawKeywords.length === 0 ? (
+                <p className="text-xs text-slate-400 italic">No keywords mined yet. Click &quot;⚡ Mine Next Batch (50 MCQs)&quot; above.</p>
+              ) : (
+                <div className="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto pr-1">
+                  {rawKeywords.map((kw, i) => (
+                    <span 
+                      key={i} 
+                      className="px-2 py-0.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[11px] font-medium text-slate-700 dark:text-slate-300"
+                    >
+                      {kw}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Alerts & Progress */}

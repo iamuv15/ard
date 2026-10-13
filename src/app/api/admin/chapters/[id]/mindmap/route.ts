@@ -1,7 +1,11 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { cookies } from 'next/headers'
-import { generateChapterMindMap } from '@/lib/terminologyEngine'
+import { 
+  generateChapterMindMap, 
+  mineSingleMCQBatch, 
+  synthesizeMindMapFromKeywords 
+} from '@/lib/terminologyEngine'
 
 export const maxDuration = 60
 export const dynamic = 'force-dynamic'
@@ -37,6 +41,10 @@ export async function GET(
       return NextResponse.json({ error: 'Chapter not found' }, { status: 404 })
     }
 
+    const totalQuestions = await prisma.question.count({
+      where: { quiz: { chapterId } }
+    })
+
     const concepts = await prisma.chapterConcept.findMany({
       where: { chapterId },
       select: {
@@ -53,7 +61,9 @@ export async function GET(
     return NextResponse.json({
       chapterId: chapter.id,
       chapterName: chapter.name,
+      totalQuestions,
       mindMap: chapter.mindMap,
+      rawKeywords: chapter.mindMap?.rawKeywords || [],
       conceptCount: chapter._count.concepts,
       existingConcepts: concepts
     })
@@ -86,10 +96,66 @@ export async function POST(
       // Optional body
     }
 
-    // STEP 1: Generate Mind Map with thinking enabled (crucial structural reasoning with failover)
+    const fallbackApiKey = body.paidApiKey || body.fallbackApiKey
+
+    // ACTION 0: Reset Raw Keywords pool (Optional)
+    if (body.action === 'reset_keywords') {
+      await prisma.chapterMindMap.upsert({
+        where: { chapterId },
+        create: {
+          chapterId,
+          rawKeywords: [],
+          treeData: { categories: [], crossBranchEdges: [], allKeywords: [] },
+          lastSyncAt: new Date()
+        },
+        update: {
+          rawKeywords: [],
+          treeData: { categories: [], crossBranchEdges: [], allKeywords: [] },
+          lastSyncAt: new Date()
+        }
+      })
+      return NextResponse.json({
+        success: true,
+        message: 'Keyword pool reset successfully',
+        rawKeywords: []
+      })
+    }
+
+    // ACTION 1: Progressive Mining of a single MCQ batch (~2 seconds)
+    if (body.action === 'mine_batch') {
+      const result = await mineSingleMCQBatch({
+        chapterId,
+        batchIndex: Number(body.batchIndex) || 0,
+        batchSize: Number(body.batchSize) || 55,
+        apiKey: body.apiKey,
+        fallbackApiKey
+      })
+      return NextResponse.json({
+        success: true,
+        ...result
+      })
+    }
+
+    // ACTION 2: Synthesize Master Mind Map from accumulated keywords (~12-18 seconds with 10k thinking)
+    if (body.action === 'synthesize') {
+      const mindMap = await synthesizeMindMapFromKeywords({
+        chapterId,
+        keywords: body.keywords,
+        apiKey: body.apiKey,
+        fallbackApiKey
+      })
+      return NextResponse.json({
+        success: true,
+        chapterId,
+        mindMap,
+        totalKeywordsExtracted: mindMap.allKeywords.length
+      })
+    }
+
+    // ACTION 3: Standard quick 1-click generation (samples up to 180 MCQs)
     const mindMap = await generateChapterMindMap(chapterId, {
       apiKey: body.apiKey,
-      fallbackApiKey: body.paidApiKey || body.fallbackApiKey,
+      fallbackApiKey,
       maxQuestionsSample: body.maxQuestionsSample || 180
     })
 
