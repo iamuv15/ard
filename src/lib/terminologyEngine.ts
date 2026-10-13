@@ -60,14 +60,9 @@ function slugify(text: string): string {
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /**
- * Helper to call Google Gemini API (gemini-3.5-flash).
- *
- * ROOT CAUSE FIX:
- * Do NOT send thinkingConfig at all when allowThinking is false.
- * Sending thinkingConfig (even thinkingLevel:'low') routes requests to Gemini's
- * internal thinking queue, causing 45-second hangs, client timeouts, and 503 high demand spikes.
- * Omitting thinkingConfig allows gemini-3.5-flash to run in standard inference mode,
- * completing in 1-2 seconds.
+ * Helper to call Google Gemini API (gemini-3.5-flash) with multi-tier resilience:
+ * - Phase 1 (Mining) & Phase 3 (Capsules): thinkingLevel = 'MINIMAL', Free Key runs first -> falls back to Paid Key on 503/429
+ * - Phase 2 (Deep Master MindMap Taxonomy): thinkingLevel = 'MEDIUM', Paid Key runs directly/first
  */
 async function callGemini({
   systemPrompt,
@@ -92,21 +87,37 @@ async function callGemini({
     throw new Error('GEMINI_API_KEY is not configured.')
   }
 
-  // Candidate keys: Temporarily prioritize Paid Key first as requested
+  // Candidate keys:
+  // - When thinking is required (Phase 2): Use Paid Key directly/first to avoid Free tier thinking TPU congestion
+  // - When thinking is minimal (Phase 1 & 3): Free Key runs first; on 503/429 falls back to Paid Key
   const candidateKeys: { key: string; isPaid: boolean }[] = []
-  if (paidKey) {
-    candidateKeys.push({ key: paidKey, isPaid: true })
-  }
-  if (primaryKey && primaryKey !== paidKey) {
-    candidateKeys.push({ key: primaryKey, isPaid: false })
-  }
-  if (candidateKeys.length === 0 && primaryKey) {
-    candidateKeys.push({ key: primaryKey, isPaid: false })
+  if (allowThinking) {
+    if (paidKey) {
+      candidateKeys.push({ key: paidKey, isPaid: true })
+    }
+    if (primaryKey && primaryKey !== paidKey) {
+      candidateKeys.push({ key: primaryKey, isPaid: false })
+    }
+    if (candidateKeys.length === 0 && primaryKey) {
+      candidateKeys.push({ key: primaryKey, isPaid: false })
+    }
+  } else {
+    if (primaryKey) {
+      candidateKeys.push({ key: primaryKey, isPaid: false })
+    }
+    if (paidKey && paidKey !== primaryKey) {
+      candidateKeys.push({ key: paidKey, isPaid: true })
+    }
+    if (candidateKeys.length === 0 && paidKey) {
+      candidateKeys.push({ key: paidKey, isPaid: true })
+    }
   }
 
   const model = 'gemini-3.5-flash'
 
-  // Build request body
+  // Build request body:
+  // - Phase 2 (Taxonomy Reasoning): thinkingLevel = 'MEDIUM'
+  // - Phase 1 & 3 (Mining & Capsules): thinkingLevel = 'MINIMAL' (suppresses extensive CoT, reduces thought tokens to near zero)
   const requestBody: any = {
     contents: [
       {
@@ -118,15 +129,10 @@ async function callGemini({
     ],
     generationConfig: {
       responseMimeType: 'application/json',
-      temperature: allowThinking ? Math.max(temperature, 0.4) : temperature
-    }
-  }
-
-  // Only attach thinkingConfig for Phase 2 (synthesizing deep taxonomy tree).
-  // For Phase 1 (mining) and Phase 3 (capsules), do NOT include thinkingConfig at all.
-  if (allowThinking) {
-    requestBody.generationConfig.thinkingConfig = {
-      thinkingLevel: 'HIGH'
+      temperature: allowThinking ? Math.max(temperature, 0.4) : temperature,
+      thinkingConfig: {
+        thinkingLevel: allowThinking ? 'MEDIUM' : 'MINIMAL'
+      }
     }
   }
 
@@ -136,7 +142,7 @@ async function callGemini({
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
     const keyLabel = isPaid ? 'PAID' : 'FREE'
 
-    console.log(`[Gemini] >> ${model} | ${keyLabel} key (${key.slice(0, 8)}...) | thinking: ${allowThinking ? 'HIGH' : 'OFF'} | prompt: ${userPrompt.length} chars`)
+    console.log(`[Gemini] >> ${model} | ${keyLabel} key (${key.slice(0, 8)}...) | thinking: ${allowThinking ? 'MEDIUM' : 'MINIMAL'} | prompt: ${userPrompt.length} chars`)
 
     const controller = new AbortController()
     const fetchTimeoutMs = 35000
