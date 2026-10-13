@@ -105,63 +105,89 @@ function robustJsonParse(jsonStr: string): any {
     return JSON.parse(str)
   } catch {}
 
-  // 3. Repair invalid backslash escapes
-  // In JSON, valid escape sequences after a backslash are: ", \, /, b, f, n, r, t, or uXXXX
-  // Any other backslash is an invalid escape and should be escaped as \\
-  let repaired = ''
+  // 3. State Machine Lexer: repair unescaped backslashes, control characters, and newlines
+  let insideString = false
+  let result = ''
+
   for (let i = 0; i < str.length; i++) {
-    const char = str[i]
-    if (char === '\\') {
-      const nextChar = str[i + 1]
-      if (
-        nextChar === '"' ||
-        nextChar === '\\' ||
-        nextChar === '/' ||
-        nextChar === 'b' ||
-        nextChar === 'f' ||
-        nextChar === 'n' ||
-        nextChar === 'r' ||
-        nextChar === 't'
-      ) {
-        repaired += char + nextChar
-        i++
-      } else if (nextChar === 'u' && /^[0-9a-fA-F]{4}$/.test(str.slice(i + 2, i + 6))) {
-        repaired += str.slice(i, i + 6)
-        i += 5
+    const c = str[i]
+
+    if (!insideString) {
+      if (c === '"') {
+        insideString = true
+        result += c
       } else {
-        // Turn invalid escape into a literal escaped backslash
-        repaired += '\\\\'
+        result += c
       }
     } else {
-      repaired += char
+      // Inside a string
+      if (c === '"') {
+        insideString = false
+        result += c
+      } else if (c === '\\') {
+        const next = str[i + 1]
+        if (
+          next === '"' ||
+          next === '\\' ||
+          next === '/' ||
+          next === 'b' ||
+          next === 'f' ||
+          next === 'n' ||
+          next === 'r' ||
+          next === 't'
+        ) {
+          // Valid JSON escape
+          result += c + next
+          i++
+        } else if (next === 'u' && /^[0-9a-fA-F]{4}$/.test(str.slice(i + 2, i + 6))) {
+          // Valid unicode escape \uXXXX
+          result += str.slice(i, i + 6)
+          i += 5
+        } else {
+          // Invalid escape: escape the backslash itself to prevent "Bad escaped character"
+          result += '\\\\'
+        }
+      } else if (c === '\n') {
+        result += '\\n'
+      } else if (c === '\r') {
+        result += '\\r'
+      } else if (c === '\t') {
+        result += '\\t'
+      } else if (c.charCodeAt(0) < 32) {
+        // Replace non-printable ASCII control characters with space
+        result += ' '
+      } else {
+        result += c
+      }
     }
   }
 
-  // 4. Remove trailing commas before } or ]
-  repaired = repaired.replace(/,\s*([}\]])/g, '$1')
+  // 4. Strip trailing commas before closing braces or brackets
+  result = result.replace(/,\s*([}\]])/g, '$1')
 
   try {
-    return JSON.parse(repaired)
-  } catch {
-    // 5. Escape raw unescaped newlines/tabs inside string literals
-    let insideString = false
-    let clean = ''
-    for (let i = 0; i < repaired.length; i++) {
-      const c = repaired[i]
-      if (c === '"' && (i === 0 || repaired[i - 1] !== '\\')) {
-        insideString = !insideString
-        clean += c
-      } else if (insideString && c === '\n') {
-        clean += '\\n'
-      } else if (insideString && c === '\r') {
-        clean += '\\r'
-      } else if (insideString && c === '\t') {
-        clean += '\\t'
-      } else {
-        clean += c
+    return JSON.parse(result)
+  } catch (err) {
+    // 5. Fallback regex extraction for concept capsules if full parse fails
+    const capsuleMatch = result.match(/\{\s*"term"\s*:\s*"[^"]+"/g)
+    if (capsuleMatch && capsuleMatch.length > 0) {
+      const capsules: any[] = []
+      const regex = /\{\s*"term"\s*:\s*"([^"]+)"[\s\S]*?"definition"\s*:\s*"([^"]+)"[\s\S]*?"content"\s*:\s*"((?:[^"\\]|\\.)*)"/g
+      let m: RegExpExecArray | null
+      while ((m = regex.exec(result)) !== null) {
+        try {
+          capsules.push({
+            term: m[1],
+            definition: m[2],
+            content: m[3].replace(/\\n/g, '\n').replace(/\\"/g, '"').replace(/\\\\/g, '\\')
+          })
+        } catch {}
+      }
+      if (capsules.length > 0) {
+        return { capsules }
       }
     }
-    return JSON.parse(clean)
+    throw err
   }
 }
 
