@@ -126,7 +126,7 @@ export async function POST(
       const result = await mineSingleMCQBatch({
         chapterId,
         batchIndex: Number(body.batchIndex) || 0,
-        batchSize: Number(body.batchSize) || 55,
+        batchSize: Number(body.batchSize) || 25,
         apiKey: body.apiKey,
         fallbackApiKey
       })

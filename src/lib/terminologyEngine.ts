@@ -207,7 +207,7 @@ async function callGemini({
 }
 
 /**
- * Helper: Phase 1 "MAP" - Mine keywords from an individual batch of 50-60 MCQs (Fast, Thinking OFF)
+ * Helper: Phase 1 "MAP" - Mine keywords from an individual batch of MCQs (Fast, Thinking OFF)
  */
 async function mineKeywordsFromMCQBatch(
   mcqs: Array<{ id: number; questionText: string; optionA: string; optionB: string; optionC: string; optionD: string; optionE?: string | null; correctAnswer: string; topic?: string | null; explanation?: string | null }>,
@@ -215,9 +215,10 @@ async function mineKeywordsFromMCQBatch(
   apiKeyOverride?: string,
   fallbackApiKey?: string
 ): Promise<string[]> {
-  const digest = mcqs.map((q, idx) => 
-    `[Q${idx + 1}] Stem: ${q.questionText} | Options: [A: ${q.optionA}, B: ${q.optionB}, C: ${q.optionC}, D: ${q.optionD}${q.optionE ? `, E: ${q.optionE}` : ''}] | Ans: ${q.correctAnswer} | Exp: ${q.explanation ? q.explanation.slice(0, 160) : ''}`
-  ).join('\n')
+  const digest = mcqs.map((q, idx) => {
+    const opts = [q.optionA, q.optionB, q.optionC, q.optionD, q.optionE].filter(Boolean).join(', ')
+    return `[Q${idx + 1}] ${q.questionText} | Ans: ${q.correctAnswer}${q.topic ? ` | Topic: ${q.topic}` : ''} | Options: ${opts}`
+  }).join('\n')
 
   const systemPrompt = `You are an expert exam entity extractor for Indian agricultural examinations (NABARD, IBPS AFO, ICAR).
 Analyze these multiple-choice questions for chapter "${chapterName}".
@@ -245,13 +246,13 @@ Output strictly valid JSON:
 
 /**
  * Progressive / Phased Mining:
- * Mines keywords from a SINGLE batch of 50-60 MCQs in ~2 seconds.
+ * Mines keywords from a SINGLE batch of MCQs in ~1.5-2 seconds.
  * Allows client-side manual clicking or timed batching to completely avoid Vercel timeouts.
  */
 export async function mineSingleMCQBatch({
   chapterId,
   batchIndex,
-  batchSize = 55,
+  batchSize = 25,
   apiKey,
   fallbackApiKey
 }: {

@@ -83,15 +83,32 @@ export default function AdminChapterConceptsPage() {
   const [paidApiKey, setPaidApiKey] = useState('')
   const [showKeySettings, setShowKeySettings] = useState(false)
 
-  const batchSize = 50
+  // User-configurable Phase 1 batch size (persisted in localStorage)
+  const [phase1BatchSize, setPhase1BatchSize] = useState<number>(20)
+  const batchSize = Math.max(5, Math.min(200, Number(phase1BatchSize) || 20))
   const totalBatches = Math.max(1, Math.ceil(totalQuestions / batchSize))
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem('gemini_paid_api_key') || ''
       if (saved) setPaidApiKey(saved)
+      const savedBatchSize = localStorage.getItem('phase1_batch_size')
+      if (savedBatchSize) {
+        const parsed = parseInt(savedBatchSize, 10)
+        if (!isNaN(parsed) && parsed >= 5 && parsed <= 200) {
+          setPhase1BatchSize(parsed)
+        }
+      }
     } catch {}
   }, [])
+
+  const handleUpdateBatchSize = (newSize: number) => {
+    const valid = Math.max(5, Math.min(200, newSize || 20))
+    setPhase1BatchSize(valid)
+    try {
+      localStorage.setItem('phase1_batch_size', String(valid))
+    } catch {}
+  }
 
   const handleUpdatePaidKey = (val: string) => {
     setPaidApiKey(val)
@@ -694,8 +711,60 @@ export default function AdminChapterConceptsPage() {
                     Chunked Question Mining
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Extracts keywords from batches of 50 questions in ~2s (Thinking OFF). Never times out Vercel!
+                    Extracts keywords from batches of {batchSize} questions in ~2s (Thinking OFF). Never times out Vercel!
                   </p>
+                </div>
+
+                {/* Configurable Batch Size Input */}
+                <div className="p-2.5 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 shadow-xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Batch Size:</span>
+                      <span className="text-[10px] text-slate-400 ml-1.5">(Questions / pass)</span>
+                    </div>
+                    {/* Number input box */}
+                    <div className="flex items-center gap-1.5">
+                      <input
+                        type="number"
+                        min={5}
+                        max={150}
+                        value={phase1BatchSize || ''}
+                        onChange={(e) => {
+                          const val = parseInt(e.target.value, 10)
+                          setPhase1BatchSize(isNaN(val) ? 0 : val)
+                        }}
+                        onBlur={() => {
+                          if (!phase1BatchSize || phase1BatchSize < 5) handleUpdateBatchSize(5)
+                          else if (phase1BatchSize > 200) handleUpdateBatchSize(200)
+                          else handleUpdateBatchSize(phase1BatchSize)
+                        }}
+                        disabled={batchMining || autoMining}
+                        className="w-14 px-2 py-1 text-center font-bold text-xs rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                        placeholder="20"
+                      />
+                      <span className="text-[11px] font-semibold text-slate-400">MCQs</span>
+                    </div>
+                  </div>
+
+                  {/* Preset Quick Chips */}
+                  <div className="flex items-center gap-1.5 pt-0.5">
+                    <span className="text-[10px] text-slate-400 font-semibold mr-1">Presets:</span>
+                    {[10, 15, 20, 25, 50].map((preset) => (
+                      <button
+                        key={preset}
+                        type="button"
+                        disabled={batchMining || autoMining}
+                        onClick={() => handleUpdateBatchSize(preset)}
+                        className={`flex-1 py-0.5 text-[11px] font-bold rounded-md transition-all cursor-pointer ${
+                          phase1BatchSize === preset
+                            ? 'bg-blue-600 text-white shadow-xs'
+                            : 'bg-slate-100 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                        } disabled:opacity-50`}
+                      >
+                        {preset}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Progress Mini Bar */}
@@ -728,7 +797,7 @@ export default function AdminChapterConceptsPage() {
                     ) : (
                       <>
                         <Zap className="w-3.5 h-3.5" />
-                        ⚡ Mine Next Batch (50 MCQs)
+                        ⚡ Mine Next Batch ({Math.min(batchSize, Math.max(1, totalQuestions - batchIndex * batchSize))} MCQs)
                       </>
                     )}
                   </button>
@@ -1024,7 +1093,7 @@ export default function AdminChapterConceptsPage() {
                 </span>
               </div>
               {rawKeywords.length === 0 ? (
-                <p className="text-xs text-slate-400 italic">No keywords mined yet. Click &quot;⚡ Mine Next Batch (50 MCQs)&quot; above.</p>
+                <p className="text-xs text-slate-400 italic">No keywords mined yet. Click &quot;⚡ Mine Next Batch ({batchSize} MCQs)&quot; above.</p>
               ) : (
                 <div className="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto pr-1">
                   {rawKeywords.map((kw, i) => (
