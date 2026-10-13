@@ -60,16 +60,19 @@ function slugify(text: string): string {
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /**
- * Helper to call Google Gemini API with multi-tier resilience:
- * 1. Model failover: gemini-3.5-flash-lite <-> gemini-3.5-flash on 503/429
- * 2. Key failover: Primary Key (Free) -> Paid Key (process.env.GEMINI_PAID_API_KEY or fallbackApiKey)
- * 3. Transient retries with exponential backoff on 503 (High demand) spikes
+ * Helper to call Google Gemini API (gemini-3.5-flash).
+ *
+ * ROOT CAUSE FIX:
+ * Do NOT send thinkingConfig at all when allowThinking is false.
+ * Sending thinkingConfig (even thinkingLevel:'low') routes requests to Gemini's
+ * internal thinking queue, causing 45-second hangs, client timeouts, and 503 high demand spikes.
+ * Omitting thinkingConfig allows gemini-3.5-flash to run in standard inference mode,
+ * completing in 1-2 seconds.
  */
 async function callGemini({
   systemPrompt,
   userPrompt,
   allowThinking = false,
-  thinkingBudget = 1024,
   temperature = 0.2,
   apiKeyOverride,
   fallbackApiKey
@@ -89,7 +92,7 @@ async function callGemini({
     throw new Error('GEMINI_API_KEY is not configured.')
   }
 
-  // Build candidate key list: Temporarily prioritize Paid Key first as requested
+  // Candidate keys: Temporarily prioritize Paid Key first as requested
   const candidateKeys: { key: string; isPaid: boolean }[] = []
   if (paidKey) {
     candidateKeys.push({ key: paidKey, isPaid: true })
@@ -101,11 +104,9 @@ async function callGemini({
     candidateKeys.push({ key: primaryKey, isPaid: false })
   }
 
-  console.log(`[Gemini Engine] Target Key Chain: ${candidateKeys.map(c => `${c.isPaid ? 'PAID KEY' : 'FREE KEY'} (prefix: ${c.key.slice(0, 8)}...)`).join(' -> ')}`)
+  const model = 'gemini-3.5-flash'
 
-  // Model is strictly gemini-3.5-flash as requested
-  const candidateModels = ['gemini-3.5-flash']
-
+  // Build request body
   const requestBody: any = {
     contents: [
       {
@@ -121,125 +122,112 @@ async function callGemini({
     }
   }
 
-  // Configure thinking strictly for Gemini models:
-  // Lowercase "high" for deep taxonomy planning; lowercase "low" for zero-delay mining & capsules
+  // Only attach thinkingConfig for Phase 2 (synthesizing deep taxonomy tree).
+  // For Phase 1 (mining) and Phase 3 (capsules), do NOT include thinkingConfig at all.
   if (allowThinking) {
     requestBody.generationConfig.thinkingConfig = {
-      thinkingLevel: 'high'
-    }
-  } else {
-    requestBody.generationConfig.thinkingConfig = {
-      thinkingLevel: 'low'
+      thinkingLevel: 'HIGH'
     }
   }
 
   let lastError: Error | null = null
 
-  // Generous overall deadline (55s) to allow gemini-3.5-flash ample time within maxDuration = 60
-  const overallDeadline = Date.now() + 55000
+  for (const { key, isPaid } of candidateKeys) {
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
+    const keyLabel = isPaid ? 'PAID' : 'FREE'
 
-  // Outer loop: Try keys (Paid key first, then Free key)
-  for (let k = 0; k < candidateKeys.length; k++) {
-    const { key, isPaid } = candidateKeys[k]
+    console.log(`[Gemini] >> ${model} | ${keyLabel} key (${key.slice(0, 8)}...) | thinking: ${allowThinking ? 'HIGH' : 'OFF'} | prompt: ${userPrompt.length} chars`)
 
-    // Middle loop: Model (strictly gemini-3.5-flash)
-    for (let m = 0; m < candidateModels.length; m++) {
-      const remainingMs = overallDeadline - Date.now()
-      if (remainingMs < 2000) {
-        break
+    const controller = new AbortController()
+    const fetchTimeoutMs = 35000
+    const timer = setTimeout(() => controller.abort(), fetchTimeoutMs)
+
+    try {
+      const t0 = Date.now()
+      let response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestBody),
+        signal: controller.signal
+      })
+      clearTimeout(timer)
+      const elapsed = Date.now() - t0
+
+      console.log(`[Gemini] << ${model} | ${keyLabel} | HTTP ${response.status} | ${elapsed}ms`)
+
+      // Auto-recovery: If thinkingConfig was rejected with 400 INVALID_ARGUMENT, retry without it
+      if (response.status === 400 && requestBody.generationConfig?.thinkingConfig) {
+        const errText = await response.text()
+        console.warn(`[Gemini] 400 from ${model} with thinkingConfig: ${errText.slice(0, 160)}. Retrying without thinkingConfig...`)
+        const fallbackBody = { ...requestBody, generationConfig: { ...requestBody.generationConfig } }
+        delete fallbackBody.generationConfig.thinkingConfig
+
+        const retryController = new AbortController()
+        const retryTimer = setTimeout(() => retryController.abort(), 25000)
+        try {
+          const retryRes = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(fallbackBody),
+            signal: retryController.signal
+          })
+          clearTimeout(retryTimer)
+          if (retryRes.ok) {
+            response = retryRes
+          }
+        } catch {
+          clearTimeout(retryTimer)
+        }
       }
 
-      const model = candidateModels[m]
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
-      const fetchTimeoutMs = Math.min(remainingMs - 1000, 45000)
-
-      const controller = new AbortController()
-      const timer = setTimeout(() => controller.abort(), fetchTimeoutMs)
-
-      try {
-        let response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(requestBody),
-          signal: controller.signal
-        })
-        clearTimeout(timer)
-
-        // Auto-recovery for 400 INVALID_ARGUMENT (e.g. if thinkingConfig parameter is rejected)
-        if (response.status === 400 && requestBody.generationConfig?.thinkingConfig) {
-          const fallbackBody = { ...requestBody, generationConfig: { ...requestBody.generationConfig } }
-          if (fallbackBody.generationConfig.thinkingConfig?.thinkingLevel && !allowThinking) {
-            // Try thinkingBudget: 0 for models requiring integer budget
-            fallbackBody.generationConfig.thinkingConfig = { thinkingBudget: 0 }
-          } else {
-            delete fallbackBody.generationConfig.thinkingConfig
-          }
-
-          const retryController = new AbortController()
-          const retryTimer = setTimeout(() => retryController.abort(), Math.min(Math.max(2000, overallDeadline - Date.now() - 1000), 30000))
-          try {
-            const retryRes = await fetch(endpoint, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(fallbackBody),
-              signal: retryController.signal
-            })
-            clearTimeout(retryTimer)
-            if (retryRes.ok) {
-              response = retryRes
-            }
-          } catch {
-            clearTimeout(retryTimer)
-          }
-        }
-
-        if (response.ok) {
-          const data = await response.json()
-          const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text
-          if (!candidateText) {
-            throw new Error(`Empty response content from ${model}`)
-          }
-
-          try {
-            return JSON.parse(candidateText)
-          } catch {
-            const cleaned = candidateText.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
-            return JSON.parse(cleaned)
-          }
-        }
-
-        // 503 (High Demand) or 429 (Rate Limit / Quota Exceeded)
-        if (response.status === 503 || response.status === 429) {
-          const errText = await response.text()
-          console.warn(`[Gemini ${response.status}] ${model} on ${isPaid ? 'Paid' : 'Free'} key: ${errText.slice(0, 160)}. Switching to alternate model/key...`)
-          lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
+      if (response.ok) {
+        const data = await response.json()
+        const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text
+        if (!candidateText) {
+          console.error(`[Gemini] Empty candidate text from ${model}:`, JSON.stringify(data).slice(0, 200))
+          lastError = new Error(`Empty response content from ${model}`)
           continue
         }
 
-        // 404 (Model not found)
-        if (response.status === 404) {
-          lastError = new Error(`Gemini model ${model} not found (404)`)
-          continue
+        try {
+          return JSON.parse(candidateText)
+        } catch {
+          const cleaned = candidateText.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
+          return JSON.parse(cleaned)
         }
+      }
 
-        // Other HTTP errors (e.g. 400 Bad Request)
-        const errText = await response.text()
+      const errText = await response.text()
+      console.warn(`[Gemini ${response.status}] ${model} on ${keyLabel} key: ${errText.slice(0, 200)}`)
+
+      // 503 (High Demand) or 429 (Rate Limit) -> try next candidate key
+      if (response.status === 503 || response.status === 429) {
         lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
         continue
-
-      } catch (fetchErr: any) {
-        clearTimeout(timer)
-        if (fetchErr.name === 'AbortError') {
-          console.warn(`[Gemini Timeout] ${model} timed out after ${fetchTimeoutMs}ms. Failing over to next candidate...`)
-          lastError = new Error(`Model ${model} timed out on Google AI Studio (${fetchTimeoutMs}ms).`)
-        } else {
-          lastError = fetchErr
-        }
       }
+
+      if (response.status === 404) {
+        lastError = new Error(`Gemini model ${model} not found (404)`)
+        continue
+      }
+
+      lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
+      continue
+
+    } catch (fetchErr: any) {
+      clearTimeout(timer)
+      if (fetchErr.name === 'AbortError') {
+        console.warn(`[Gemini Timeout] ${model} on ${keyLabel} key timed out after ${fetchTimeoutMs}ms`)
+        lastError = new Error(`Model ${model} timed out after ${fetchTimeoutMs}ms. Please try a smaller batch size.`)
+      } else {
+        console.error(`[Gemini Error] ${model} on ${keyLabel} key:`, fetchErr.message)
+        lastError = fetchErr
+      }
+      continue
     }
   }
 
-  throw lastError || new Error('Gemini API request timed out on Google servers. Please try a smaller batch size (10-15 questions).')
+  throw lastError || new Error('All Gemini API attempts failed.')
 }
 
 /**
