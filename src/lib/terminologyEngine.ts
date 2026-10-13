@@ -60,6 +60,112 @@ function slugify(text: string): string {
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /**
+ * Ultra-robust JSON parser that safely repairs invalid JSON escape sequences
+ * (e.g. \%, \|, \_, \*, \ , etc. commonly produced when LLMs write markdown in JSON strings),
+ * trailing commas, raw unescaped newlines/tabs inside string literals, and extraneous markdown text.
+ */
+function robustJsonParse(jsonStr: string): any {
+  if (!jsonStr || typeof jsonStr !== 'string') {
+    throw new Error('Invalid JSON input: empty or not a string')
+  }
+
+  // 1. Strip markdown wrappers
+  let str = jsonStr.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()
+
+  // Fast path: try standard parse first
+  try {
+    return JSON.parse(str)
+  } catch {
+    // Continue to repair
+  }
+
+  // 2. Extract balanced JSON block if there is extraneous text around it
+  const firstBrace = str.indexOf('{')
+  const firstBracket = str.indexOf('[')
+  let startIdx = -1
+  let isObject = false
+
+  if (firstBrace !== -1 && (firstBracket === -1 || firstBrace < firstBracket)) {
+    startIdx = firstBrace
+    isObject = true
+  } else if (firstBracket !== -1) {
+    startIdx = firstBracket
+    isObject = false
+  }
+
+  if (startIdx !== -1) {
+    const lastChar = isObject ? '}' : ']'
+    const lastIdx = str.lastIndexOf(lastChar)
+    if (lastIdx > startIdx) {
+      str = str.slice(startIdx, lastIdx + 1)
+    }
+  }
+
+  try {
+    return JSON.parse(str)
+  } catch {}
+
+  // 3. Repair invalid backslash escapes
+  // In JSON, valid escape sequences after a backslash are: ", \, /, b, f, n, r, t, or uXXXX
+  // Any other backslash is an invalid escape and should be escaped as \\
+  let repaired = ''
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i]
+    if (char === '\\') {
+      const nextChar = str[i + 1]
+      if (
+        nextChar === '"' ||
+        nextChar === '\\' ||
+        nextChar === '/' ||
+        nextChar === 'b' ||
+        nextChar === 'f' ||
+        nextChar === 'n' ||
+        nextChar === 'r' ||
+        nextChar === 't'
+      ) {
+        repaired += char + nextChar
+        i++
+      } else if (nextChar === 'u' && /^[0-9a-fA-F]{4}$/.test(str.slice(i + 2, i + 6))) {
+        repaired += str.slice(i, i + 6)
+        i += 5
+      } else {
+        // Turn invalid escape into a literal escaped backslash
+        repaired += '\\\\'
+      }
+    } else {
+      repaired += char
+    }
+  }
+
+  // 4. Remove trailing commas before } or ]
+  repaired = repaired.replace(/,\s*([}\]])/g, '$1')
+
+  try {
+    return JSON.parse(repaired)
+  } catch {
+    // 5. Escape raw unescaped newlines/tabs inside string literals
+    let insideString = false
+    let clean = ''
+    for (let i = 0; i < repaired.length; i++) {
+      const c = repaired[i]
+      if (c === '"' && (i === 0 || repaired[i - 1] !== '\\')) {
+        insideString = !insideString
+        clean += c
+      } else if (insideString && c === '\n') {
+        clean += '\\n'
+      } else if (insideString && c === '\r') {
+        clean += '\\r'
+      } else if (insideString && c === '\t') {
+        clean += '\\t'
+      } else {
+        clean += c
+      }
+    }
+    return JSON.parse(clean)
+  }
+}
+
+/**
  * Helper to call Google Gemini API with multi-tier resilience:
  * - Phase 1 (MCQ Mining) & Phase 3 (Capsules): gemini-3.5-flash-lite, thinkingLevel = 'MINIMAL', Free Keys first -> Paid Key fallback
  * - Phase 2 (Master MindMap Taxonomy): gemini-3.5-flash, thinkingLevel = 'MEDIUM', Free Keys first -> Paid Key fallback
@@ -207,10 +313,11 @@ async function callGemini({
         }
 
         try {
-          return JSON.parse(candidateText)
-        } catch {
-          const cleaned = candidateText.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
-          return JSON.parse(cleaned)
+          return robustJsonParse(candidateText)
+        } catch (jsonErr: any) {
+          console.error(`[Gemini JSON Parse Error] ${jsonErr.message}. Sample text:`, candidateText.slice(0, 300))
+          lastError = new Error(`Failed to parse AI JSON response: ${jsonErr.message}`)
+          continue
         }
       }
 
@@ -241,10 +348,9 @@ async function callGemini({
               if (fbCandidate) {
                 clearTimeout(timer)
                 try {
-                  return JSON.parse(fbCandidate)
-                } catch {
-                  const cleaned = fbCandidate.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
-                  return JSON.parse(cleaned)
+                  return robustJsonParse(fbCandidate)
+                } catch (fbJsonErr: any) {
+                  console.error(`[Gemini Fallback JSON Parse Error] ${fbJsonErr.message}`)
                 }
               }
             }
@@ -904,7 +1010,7 @@ export async function generateConceptCapsulesBatch({
 
   const systemPrompt = `You are an expert exam author and agriscience educator.
 Your task is to write high-yield, exam-focused CONCEPT CAPSULES for the specified keywords under chapter "${chapter.name}".
-Because this batch contains only 5 to 7 concepts, provide MAXIMUM RIGOR, HIGH DEPTH, and UNCOMPROMISED ACCURACY.
+Provide MAXIMUM RIGOR, HIGH DEPTH, and UNCOMPROMISED ACCURACY for every concept in this batch.
 
 STRICT GUIDELINES:
 1. DEFINITION: 1 to 2 sentences max. Crystal clear, rigorous, scientific.
@@ -918,6 +1024,7 @@ STRICT GUIDELINES:
 4. SIBLING & ADJACENT TERMS: List other keywords related to this term.
 5. NO VERBOSE FLUFF: Keep it dense, high-contrast, structured with bold keywords and bullet points.
 6. BENCHMARK AUTHORITY: Adhere strictly to authoritative ICAR and TNAU Agritech university benchmarks (e.g. standard livestock gestation days, silage moisture 65-70%, colostrum feeding within 1-2 hours, milk fat and SNF standards, Vertisol montmorillonite mineralogy).
+7. VALID JSON ESCAPING: Output strictly valid JSON. In markdown strings, do NOT escape standard characters like %, |, _, *, <, > with backslashes. Only use standard JSON escapes (\", \\, \n, \t). Do NOT produce illegal escape characters.
 
 Output strictly valid JSON with this schema:
 {

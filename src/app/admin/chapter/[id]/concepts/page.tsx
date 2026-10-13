@@ -431,31 +431,50 @@ export default function AdminChapterConceptsPage() {
     }
   }
 
-  // PHASE 3: Generate a Discrete, High-Yield Batch of 5-7 Concept Capsules (Thinking OFF, Maximum Quality)
-  const handleGenerateNextCapsuleBatch = async (customBatchSize?: number) => {
+  // PHASE 3: Generate a Discrete, High-Yield Batch of Concept Capsules (Thinking OFF, Maximum Quality)
+  const handleGenerateNextCapsuleBatch = async (
+    customBatchSize?: number,
+    explicitBatch?: { keyword: string; category: string; subCategory?: string }[]
+  ) => {
     if (!mindMap?.categories) return
 
     const size = customBatchSize || capsuleBatchSize
 
-    // Collect all pending tasks from mindmap
-    const tasks: { keyword: string; category: string; subCategory?: string }[] = []
-    mindMap.categories.forEach(cat => {
-      cat.subCategories.forEach(sub => {
-        sub.keywords.forEach(kw => {
-          tasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
+    let batch = explicitBatch
+    if (!batch || batch.length === 0) {
+      // Collect all pending tasks from mindmap
+      const tasks: { keyword: string; category: string; subCategory?: string }[] = []
+      mindMap.categories.forEach(cat => {
+        cat.subCategories.forEach(sub => {
+          sub.keywords.forEach(kw => {
+            tasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
+          })
         })
       })
-    })
 
-    const existingNames = new Set(concepts.map(c => c.term.toLowerCase().trim()))
-    const pendingTasks = tasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
+      // Fetch fresh existing concepts from server to avoid stale closure state
+      let existingNames = new Set(concepts.map(c => c.term.toLowerCase().trim()))
+      try {
+        const freshRes = await fetch(`/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
+        if (freshRes.ok) {
+          const freshData = await freshRes.json()
+          if (Array.isArray(freshData.existingConcepts)) {
+            existingNames = new Set(freshData.existingConcepts.map((c: any) => c.term.toLowerCase().trim()))
+            setConcepts(freshData.existingConcepts)
+          }
+        }
+      } catch {}
 
-    if (pendingTasks.length === 0) {
-      setStatusMessage({ type: 'success', text: 'All keywords in this chapter already have published capsules!' })
-      return
+      const pendingTasks = tasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
+
+      if (pendingTasks.length === 0) {
+        setStatusMessage({ type: 'success', text: 'All keywords in this chapter already have published capsules!' })
+        return
+      }
+
+      batch = pendingTasks.slice(0, size)
     }
 
-    const batch = pendingTasks.slice(0, size)
     const batchKeywords = batch.map(b => b.keyword)
 
     try {
@@ -489,7 +508,7 @@ export default function AdminChapterConceptsPage() {
     }
   }
 
-  // PHASE 3: Auto-Run Batches of 5-7 with Browser-Paced Delay (Free Tier Safe)
+  // PHASE 3: Auto-Run Batches with Browser-Paced Delay (Free Tier Safe)
   const handleToggleAutoCapsules = async () => {
     if (capsuleAutoRunning) {
       capsuleAutoRef.current = false
@@ -506,25 +525,26 @@ export default function AdminChapterConceptsPage() {
     try {
       setStatusMessage({
         type: 'info',
-        text: `▶️ Starting auto-generation in quality batches of ${capsuleBatchSize} with ${capsulePacingDelay}s delay between batches...`
+        text: `▶️ Starting auto-generation in batches of ${capsuleBatchSize} with ${capsulePacingDelay}s delay between batches...`
       })
+
+      // Always fetch fresh list of existing concepts at start
+      const initialRes = await fetch(`/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
+      const initialData = await initialRes.json()
+      const existingNames = new Set<string>((initialData.existingConcepts || []).map((c: any) => c.term.toLowerCase().trim()))
 
       while (capsuleAutoRef.current) {
         // Collect current pending tasks
-        const tasks: { keyword: string; category: string; subCategory?: string }[] = []
+        const allTasks: { keyword: string; category: string; subCategory?: string }[] = []
         mindMap.categories.forEach(cat => {
           cat.subCategories.forEach(sub => {
             sub.keywords.forEach(kw => {
-              tasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
+              allTasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
             })
           })
         })
 
-        const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`)
-        const data = await res.json()
-        const currentConcepts: any[] = data.existingConcepts || []
-        const existingNames = new Set(currentConcepts.map((c: any) => c.term.toLowerCase().trim()))
-        const pendingTasks = tasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
+        const pendingTasks = allTasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
 
         if (pendingTasks.length === 0) {
           setStatusMessage({ type: 'success', text: '🎉 All chapter capsules have been successfully generated!' })
@@ -533,14 +553,35 @@ export default function AdminChapterConceptsPage() {
 
         const batch = pendingTasks.slice(0, capsuleBatchSize)
         setProgress({
-          current: currentConcepts.length,
-          total: tasks.length,
+          current: allTasks.length - pendingTasks.length,
+          total: allTasks.length,
           currentTerm: batch.map(b => b.keyword).join(', ')
         })
 
-        await handleGenerateNextCapsuleBatch(capsuleBatchSize)
+        try {
+          // Pass the batch directly so there's zero chance of closure staleness
+          await handleGenerateNextCapsuleBatch(batch.length, batch)
 
-        if (pendingTasks.length <= capsuleBatchSize) {
+          // Mark this batch's terms as generated in our local set so the next iteration immediately advances!
+          batch.forEach(b => existingNames.add(b.keyword.toLowerCase().trim()))
+        } catch (batchErr: any) {
+          console.warn('Batch generation error during auto-run:', batchErr?.message)
+          if (!capsuleAutoRef.current) break
+          setStatusMessage({
+            type: 'error',
+            text: `⚠️ Batch failed: ${batchErr?.message || 'Error'}. Retrying in ${capsulePacingDelay}s...`
+          })
+          await new Promise(r => setTimeout(r, Math.max(5000, capsulePacingDelay * 1000)))
+          // Re-sync with server
+          try {
+            const reRes = await fetch(`/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
+            const reData = await reRes.json()
+            ;(reData.existingConcepts || []).forEach((c: any) => existingNames.add(c.term.toLowerCase().trim()))
+          } catch {}
+          continue
+        }
+
+        if (pendingTasks.length <= batch.length) {
           setStatusMessage({ type: 'success', text: '🎉 All chapter concepts have been published!' })
           break
         }
@@ -555,6 +596,7 @@ export default function AdminChapterConceptsPage() {
       }
     } catch (err: any) {
       console.error('Auto capsule generation error:', err)
+      setStatusMessage({ type: 'error', text: `Auto-run stopped: ${err.message}` })
     } finally {
       capsuleAutoRef.current = false
       setCapsuleAutoRunning(false)
