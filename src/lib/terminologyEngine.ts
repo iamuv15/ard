@@ -98,8 +98,8 @@ async function callGemini({
     candidateKeys.push({ key: paidKey, isPaid: true })
   }
 
-  // Primary model is strictly gemini-3.5-flash as requested, with gemini-3.5-flash-lite as resilient fallback
-  const candidateModels = ['gemini-3.5-flash', 'gemini-3.5-flash-lite']
+  // Primary model is strictly gemini-3.5-flash as requested, with gemini-3.5-flash-lite and gemini-2.5-flash as fast fallback
+  const candidateModels = ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-2.5-flash']
 
   const requestBody: any = {
     contents: [
@@ -116,48 +116,76 @@ async function callGemini({
     }
   }
 
-  // Configure thinking strictly for Gemini 3.5 models:
-  // Uses thinkingLevel ("HIGH" for crucial taxonomy/mind-map planning, "MINIMAL" for definitions & mining)
+  // Configure thinking strictly for Gemini models:
+  // Lowercase "high" for deep taxonomy planning; lowercase "low" for zero-delay mining & capsules
   if (allowThinking) {
     requestBody.generationConfig.thinkingConfig = {
-      thinkingLevel: 'HIGH'
+      thinkingLevel: 'high'
     }
   } else {
     requestBody.generationConfig.thinkingConfig = {
-      thinkingLevel: 'MINIMAL'
+      thinkingLevel: 'low'
     }
   }
 
   let lastError: Error | null = null
 
+  // Overall deadline (8.5s) to guarantee execution completes safely before Vercel Hobby's 10s kill switch
+  const overallDeadline = Date.now() + 8500
+
   // Outer loop: Try keys (Free key first, Paid key fallback)
   for (let k = 0; k < candidateKeys.length; k++) {
     const { key, isPaid } = candidateKeys[k]
 
-    // Middle loop: Try models (gemini-3.5-flash first, gemini-3.5-flash-lite fallback)
+    // Middle loop: Try models (gemini-3.5-flash first, then lite, then 2.5-flash)
     for (let m = 0; m < candidateModels.length; m++) {
+      const remainingMs = overallDeadline - Date.now()
+      if (remainingMs < 1200) {
+        // Stop before exceeding Vercel 10s function limit
+        break
+      }
+
       const model = candidateModels[m]
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
+      const fetchTimeoutMs = Math.min(remainingMs - 300, 5000)
 
-      // Single attempt per candidate to prevent burning free quota on congested servers
+      const controller = new AbortController()
+      const timer = setTimeout(() => controller.abort(), fetchTimeoutMs)
+
       try {
         let response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(requestBody)
+          body: JSON.stringify(requestBody),
+          signal: controller.signal
         })
+        clearTimeout(timer)
 
-        // Auto-recovery for 400 INVALID_ARGUMENT (e.g. if thinkingConfig has model incompatibilities)
+        // Auto-recovery for 400 INVALID_ARGUMENT (e.g. if thinkingConfig parameter is rejected)
         if (response.status === 400 && requestBody.generationConfig?.thinkingConfig) {
           const fallbackBody = { ...requestBody, generationConfig: { ...requestBody.generationConfig } }
-          delete fallbackBody.generationConfig.thinkingConfig
-          const retryRes = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(fallbackBody)
-          })
-          if (retryRes.ok) {
-            response = retryRes
+          if (fallbackBody.generationConfig.thinkingConfig?.thinkingLevel && !allowThinking) {
+            // Try thinkingBudget: 0 for models requiring integer budget
+            fallbackBody.generationConfig.thinkingConfig = { thinkingBudget: 0 }
+          } else {
+            delete fallbackBody.generationConfig.thinkingConfig
+          }
+
+          const retryController = new AbortController()
+          const retryTimer = setTimeout(() => retryController.abort(), Math.min(Math.max(1000, overallDeadline - Date.now() - 300), 3000))
+          try {
+            const retryRes = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(fallbackBody),
+              signal: retryController.signal
+            })
+            clearTimeout(retryTimer)
+            if (retryRes.ok) {
+              response = retryRes
+            }
+          } catch {
+            clearTimeout(retryTimer)
           }
         }
 
@@ -181,14 +209,13 @@ async function callGemini({
           const errText = await response.text()
           console.warn(`[Gemini ${response.status}] ${model} on ${isPaid ? 'Paid' : 'Free'} key: ${errText.slice(0, 160)}. Switching to alternate model/key...`)
           lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
-          // Failover immediately to next model or paid key without burning quota on retrying the same congested endpoint
           continue
         }
 
         // 404 (Model not found)
         if (response.status === 404) {
           lastError = new Error(`Gemini model ${model} not found (404)`)
-          continue // Switch to alternate model
+          continue
         }
 
         // Other HTTP errors (e.g. 400 Bad Request)
@@ -197,13 +224,18 @@ async function callGemini({
         continue
 
       } catch (fetchErr: any) {
-        lastError = fetchErr
-        await sleep(1000)
+        clearTimeout(timer)
+        if (fetchErr.name === 'AbortError') {
+          console.warn(`[Gemini Timeout] ${model} timed out after ${fetchTimeoutMs}ms. Failing over to next candidate...`)
+          lastError = new Error(`Model ${model} timed out on Google AI Studio (${fetchTimeoutMs}ms).`)
+        } else {
+          lastError = fetchErr
+        }
       }
     }
   }
 
-  throw lastError || new Error('All Gemini API attempts (free key, paid key fallback, and alternate models) failed.')
+  throw lastError || new Error('Gemini API request timed out on Google servers. Please try a smaller batch size (10-15 questions).')
 }
 
 /**

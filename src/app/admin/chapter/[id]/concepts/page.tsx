@@ -121,20 +121,33 @@ export default function AdminChapterConceptsPage() {
     } catch {}
   }
 
+  const safeParseResponse = async (res: Response) => {
+    const text = await res.text()
+    let data: any
+    try {
+      data = JSON.parse(text)
+    } catch {
+      if (res.status === 504 || text.includes('FUNCTION_INVOCATION_TIMEOUT') || text.includes('An error occurred')) {
+        throw new Error('Server request timed out on live server (HTTP 504). Please decrease your batch size (e.g. 10 or 15 questions) and retry.')
+      }
+      throw new Error(`Server returned HTTP ${res.status}: ${text.slice(0, 150)}`)
+    }
+    if (!res.ok) {
+      throw new Error(data.error || `Request failed with status ${res.status}`)
+    }
+    return data
+  }
+
   const loadData = async () => {
     try {
       setLoading(true)
       const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`)
-      const data = await res.json()
-      if (res.ok) {
-        setChapterName(data.chapterName)
-        setMindMap(data.mindMap?.treeData || null)
-        setConcepts(data.existingConcepts || [])
-        setTotalQuestions(data.totalQuestions || 0)
-        setRawKeywords(data.rawKeywords || [])
-      } else {
-        setStatusMessage({ type: 'error', text: data.error || 'Failed to load chapter data' })
-      }
+      const data = await safeParseResponse(res)
+      setChapterName(data.chapterName)
+      setMindMap(data.mindMap?.treeData || null)
+      setConcepts(data.existingConcepts || [])
+      setTotalQuestions(data.totalQuestions || 0)
+      setRawKeywords(data.rawKeywords || [])
     } catch (err: any) {
       setStatusMessage({ type: 'error', text: err.message || 'Error loading chapter' })
     } finally {
@@ -167,10 +180,7 @@ export default function AdminChapterConceptsPage() {
         })
       })
 
-      const data = await res.json()
-      if (!res.ok) {
-        throw new Error(data.error || `Failed to mine batch ${targetIdx + 1}`)
-      }
+      const data = await safeParseResponse(res)
 
       setRawKeywords(data.allRawKeywords || [])
       const nextIdx = (targetIdx + 1) % totalBatches
@@ -284,17 +294,13 @@ export default function AdminChapterConceptsPage() {
         })
       })
 
-      const data = await res.json()
-      if (res.ok) {
-        setMindMap(data.mindMap)
-        setStatusMessage({ 
-          type: 'success', 
-          text: `🎉 Master Mind Map created! Extracted ${data.totalKeywordsExtracted} key terminologies into structured branches.` 
-        })
-        loadData()
-      } else {
-        setStatusMessage({ type: 'error', text: data.error || 'Failed to synthesize taxonomy' })
-      }
+      const data = await safeParseResponse(res)
+      setMindMap(data.mindMap)
+      setStatusMessage({ 
+        type: 'success', 
+        text: `🎉 Master Mind Map created! Extracted ${data.totalKeywordsExtracted} key terminologies into structured branches.` 
+      })
+      loadData()
     } catch (err: any) {
       setStatusMessage({ type: 'error', text: err.message || 'Unexpected error' })
     } finally {
@@ -317,17 +323,13 @@ export default function AdminChapterConceptsPage() {
         body: JSON.stringify({ paidApiKey: paidApiKey.trim() || undefined })
       })
 
-      const data = await res.json()
-      if (res.ok) {
-        setMindMap(data.mindMap)
-        setStatusMessage({ 
-          type: 'success', 
-          text: `Mind Map created! Extracted ${data.totalKeywordsExtracted} key terminologies into structured branches.` 
-        })
-        loadData()
-      } else {
-        setStatusMessage({ type: 'error', text: data.error || 'Failed to generate Mind Map' })
-      }
+      const data = await safeParseResponse(res)
+      setMindMap(data.mindMap)
+      setStatusMessage({ 
+        type: 'success', 
+        text: `Mind Map created! Extracted ${data.totalKeywordsExtracted} key terminologies into structured branches.` 
+      })
+      loadData()
     } catch (err: any) {
       setStatusMessage({ type: 'error', text: err.message || 'Unexpected error' })
     } finally {
@@ -419,16 +421,7 @@ export default function AdminChapterConceptsPage() {
         })
       })
 
-      if (!res.ok) {
-        let errorText = `Failed with status ${res.status}`
-        try {
-          const errJson = await res.json()
-          errorText = errJson.error || errorText
-        } catch {}
-        throw new Error(errorText)
-      }
-
-      const data = await res.json()
+      const data = await safeParseResponse(res)
       setStatusMessage({
         type: 'success',
         text: `✅ Batch of ${data.generatedCount || batch.length} concepts generated with tables & exam traps! You can inspect them below.`
