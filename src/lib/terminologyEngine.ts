@@ -89,38 +89,26 @@ async function callGemini({
   }
 
   // Candidate keys:
-  // - When thinking is required (Phase 2): Use Paid Key directly/first to avoid Free tier thinking TPU congestion
-  // - When thinking is minimal (Phase 1 & 3): Free Key 1 -> Free Key 2 (GEMINI_API_KEY_2) -> Paid Key
+  // Universal 3-tier failover across all phases (including Phase 2 Deep Reasoning):
+  // 1. FREE 1 (GEMINI_API_KEY)
+  // 2. FREE 2 (GEMINI_API_KEY_2)
+  // 3. PAID (GEMINI_PAID_API_KEY / fallbackApiKey)
   const candidateKeys: { key: string; isPaid: boolean; label: string }[] = []
-  if (allowThinking) {
-    if (paidKey) {
-      candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
-    }
-    if (primaryKey && primaryKey !== paidKey) {
-      candidateKeys.push({ key: primaryKey, isPaid: false, label: 'FREE 1' })
-    }
-    if (secondFreeKey && secondFreeKey !== paidKey && secondFreeKey !== primaryKey) {
-      candidateKeys.push({ key: secondFreeKey, isPaid: false, label: 'FREE 2' })
-    }
-    if (candidateKeys.length === 0 && primaryKey) {
-      candidateKeys.push({ key: primaryKey, isPaid: false, label: 'FREE 1' })
-    }
-  } else {
-    // 1. First free key
-    if (primaryKey) {
-      candidateKeys.push({ key: primaryKey, isPaid: false, label: 'FREE 1' })
-    }
-    // 2. Second free key
-    if (secondFreeKey && secondFreeKey !== primaryKey) {
-      candidateKeys.push({ key: secondFreeKey, isPaid: false, label: 'FREE 2' })
-    }
-    // 3. Fallback to paid key
-    if (paidKey && paidKey !== primaryKey && paidKey !== secondFreeKey) {
-      candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
-    }
-    if (candidateKeys.length === 0 && paidKey) {
-      candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
-    }
+
+  // 1. First free key
+  if (primaryKey) {
+    candidateKeys.push({ key: primaryKey, isPaid: false, label: 'FREE 1' })
+  }
+  // 2. Second free key (GEMINI_API_KEY_2)
+  if (secondFreeKey && secondFreeKey !== primaryKey) {
+    candidateKeys.push({ key: secondFreeKey, isPaid: false, label: 'FREE 2' })
+  }
+  // 3. Fallback to paid key (used only if both free keys fail or are unavailable)
+  if (paidKey && paidKey !== primaryKey && paidKey !== secondFreeKey) {
+    candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
+  }
+  if (candidateKeys.length === 0 && paidKey) {
+    candidateKeys.push({ key: paidKey, isPaid: true, label: 'PAID' })
   }
 
   const model = 'gemini-3.5-flash'
