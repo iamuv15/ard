@@ -60,7 +60,10 @@ function slugify(text: string): string {
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /**
- * Helper to call Google Gemini API with fallback support and controlled thinking tokens.
+ * Helper to call Google Gemini API with multi-tier resilience:
+ * 1. Model failover: gemini-3.5-flash-lite <-> gemini-3.5-flash on 503/429
+ * 2. Key failover: Primary Key (Free) -> Paid Key (process.env.GEMINI_PAID_API_KEY or fallbackApiKey)
+ * 3. Transient retries with exponential backoff on 503 (High demand) spikes
  */
 async function callGemini({
   systemPrompt,
@@ -68,7 +71,8 @@ async function callGemini({
   allowThinking = false,
   thinkingBudget = 1024,
   temperature = 0.2,
-  apiKeyOverride
+  apiKeyOverride,
+  fallbackApiKey
 }: {
   systemPrompt: string
   userPrompt: string
@@ -76,14 +80,27 @@ async function callGemini({
   thinkingBudget?: number
   temperature?: number
   apiKeyOverride?: string
+  fallbackApiKey?: string
 }) {
-  const apiKey = apiKeyOverride || process.env.GEMINI_API_KEY
-  if (!apiKey || apiKey.trim() === '') {
+  const primaryKey = (apiKeyOverride || process.env.GEMINI_API_KEY || '').trim()
+  const paidKey = (fallbackApiKey || process.env.GEMINI_PAID_API_KEY || process.env.GEMINI_FALLBACK_API_KEY || '').trim()
+
+  if (!primaryKey && !paidKey) {
     throw new Error('GEMINI_API_KEY is not configured.')
   }
 
-  const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite'
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
+  // Build candidate key list: Free key first, then Paid key
+  const candidateKeys: { key: string; isPaid: boolean }[] = []
+  if (primaryKey) {
+    candidateKeys.push({ key: primaryKey, isPaid: false })
+  }
+  if (paidKey && paidKey !== primaryKey) {
+    candidateKeys.push({ key: paidKey, isPaid: true })
+  }
+
+  const defaultModel = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite'
+  const alternateModel = defaultModel === 'gemini-3.5-flash' ? 'gemini-3.5-flash-lite' : 'gemini-3.5-flash'
+  const candidateModels = [defaultModel, alternateModel]
 
   const requestBody: any = {
     contents: [
@@ -115,40 +132,76 @@ async function callGemini({
     }
   }
 
-  let response = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(requestBody)
-  })
+  let lastError: Error | null = null
 
-  // Fallbacks strictly between gemini-3.5-flash-lite and gemini-3.5-flash (no lower models)
-  if (response.status === 404 && model !== 'gemini-3.5-flash') {
-    const fallbackEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`
-    response = await fetch(fallbackEndpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(requestBody)
-    })
+  // Outer loop: Try keys (Free key first, Paid key fallback)
+  for (let k = 0; k < candidateKeys.length; k++) {
+    const { key, isPaid } = candidateKeys[k]
+
+    // Middle loop: Try models (Flash-Lite first, Flash fallback)
+    for (let m = 0; m < candidateModels.length; m++) {
+      const model = candidateModels[m]
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
+
+      // Inner loop: Retries with backoff on 503 / 429
+      for (let attempt = 0; attempt < 2; attempt++) {
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(requestBody)
+          })
+
+          if (response.ok) {
+            const data = await response.json()
+            const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text
+            if (!candidateText) {
+              throw new Error(`Empty response content from ${model}`)
+            }
+
+            try {
+              return JSON.parse(candidateText)
+            } catch {
+              const cleaned = candidateText.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
+              return JSON.parse(cleaned)
+            }
+          }
+
+          // 503 (High Demand) or 429 (Rate Limit / Quota Exceeded)
+          if (response.status === 503 || response.status === 429) {
+            const errText = await response.text()
+            console.warn(`[Gemini ${response.status}] ${model} on ${isPaid ? 'Paid' : 'Free'} key: ${errText.slice(0, 160)}. Attempting failover...`)
+            lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
+
+            if (attempt === 0) {
+              // Quick backoff before switching
+              await sleep(1500)
+              continue
+            } else {
+              break // Move to alternate model or paid key
+            }
+          }
+
+          // 404 (Model not found)
+          if (response.status === 404) {
+            lastError = new Error(`Gemini model ${model} not found (404)`)
+            break // Switch model immediately
+          }
+
+          // Other HTTP errors (e.g. 400 Bad Request)
+          const errText = await response.text()
+          lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
+          break
+
+        } catch (fetchErr: any) {
+          lastError = fetchErr
+          await sleep(1000)
+        }
+      }
+    }
   }
 
-  if (!response.ok) {
-    const errText = await response.text()
-    throw new Error(`Gemini API error (${response.status}): ${errText}`)
-  }
-
-  const data = await response.json()
-  const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text
-  if (!candidateText) {
-    throw new Error('No candidate content received from Gemini')
-  }
-
-  try {
-    return JSON.parse(candidateText)
-  } catch (err) {
-    // Attempt markdown clean
-    const cleaned = candidateText.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
-    return JSON.parse(cleaned)
-  }
+  throw lastError || new Error('All Gemini API attempts (free key, paid key fallback, and alternate models) failed.')
 }
 
 /**
@@ -157,7 +210,8 @@ async function callGemini({
 async function mineKeywordsFromMCQBatch(
   mcqs: Array<{ id: number; questionText: string; optionA: string; optionB: string; optionC: string; optionD: string; optionE?: string | null; correctAnswer: string; topic?: string | null; explanation?: string | null }>,
   chapterName: string,
-  apiKeyOverride?: string
+  apiKeyOverride?: string,
+  fallbackApiKey?: string
 ): Promise<string[]> {
   const digest = mcqs.map((q, idx) => 
     `[Q${idx + 1}] Stem: ${q.questionText} | Options: [A: ${q.optionA}, B: ${q.optionB}, C: ${q.optionC}, D: ${q.optionD}${q.optionE ? `, E: ${q.optionE}` : ''}] | Ans: ${q.correctAnswer} | Exp: ${q.explanation ? q.explanation.slice(0, 160) : ''}`
@@ -180,7 +234,8 @@ Output strictly valid JSON:
     userPrompt,
     allowThinking: false, // Fast mining, zero reasoning overhead
     temperature: 0.1,
-    apiKeyOverride
+    apiKeyOverride,
+    fallbackApiKey
   })
 
   return res.keywords || []
@@ -195,7 +250,7 @@ Output strictly valid JSON:
  */
 export async function generateChapterMindMap(
   chapterId: number,
-  options?: { apiKey?: string; maxQuestionsSample?: number }
+  options?: { apiKey?: string; fallbackApiKey?: string; maxQuestionsSample?: number }
 ): Promise<ChapterMindMapTree> {
   const chapter = await prisma.chapter.findUnique({
     where: { id: chapterId },
@@ -231,15 +286,26 @@ export async function generateChapterMindMap(
     throw new Error(`Chapter "${chapter.name}" has no questions to extract keywords from.`)
   }
 
-  // PHASE 1: MAP - Chunked Keyword Mining in batches of 50-60 (immune to mixed questions)
-  const batchSize = 55
-  const totalBatches = Math.ceil(allQuestions.length / batchSize)
+  // Sample high-yield MCQs (default 180 = ~3 batches) so generation finishes comfortably in 15-20s
+  const sampleLimit = options?.maxQuestionsSample || 180
+  const sampledQuestions = allQuestions.length > sampleLimit
+    ? allQuestions.slice(0, sampleLimit)
+    : allQuestions
+
+  // PHASE 1: MAP - Chunked Keyword Mining in batches of 55-60 (immune to mixed questions)
+  const batchSize = 60
+  const totalBatches = Math.ceil(sampledQuestions.length / batchSize)
   const minedKeywordsSet = new Set<string>()
 
   for (let b = 0; b < totalBatches; b++) {
-    const batchQuestions = allQuestions.slice(b * batchSize, (b + 1) * batchSize)
+    const batchQuestions = sampledQuestions.slice(b * batchSize, (b + 1) * batchSize)
     try {
-      const keywords = await mineKeywordsFromMCQBatch(batchQuestions, chapter.name, options?.apiKey)
+      const keywords = await mineKeywordsFromMCQBatch(
+        batchQuestions, 
+        chapter.name, 
+        options?.apiKey,
+        options?.fallbackApiKey
+      )
       keywords.forEach(kw => {
         if (kw && kw.trim()) minedKeywordsSet.add(kw.trim())
       })
@@ -247,9 +313,9 @@ export async function generateChapterMindMap(
       console.warn(`Mining warning on batch ${b + 1}:`, err?.message)
     }
 
-    // Pacing delay between mining calls to stay well within 15 RPM
+    // Pacing delay between mining calls
     if (b < totalBatches - 1) {
-      await sleep(1200)
+      await sleep(1000)
     }
   }
 
@@ -322,14 +388,15 @@ ${tnauSpine ? `TNAU AGRITECH BENCHMARK CATEGORIES FOR REFERENCE:\n${tnauSpine.ca
 
 Reason deeply through taxonomy and generate the complete Mind Map & Taxonomy JSON.`
 
-  // CRITICAL: Generous 10,000 thinking tokens for the Master Taxonomy Architect
+  // CRITICAL: Generous 10,000 thinking tokens for the Master Taxonomy Architect (with multi-key failover)
   const result: ChapterMindMapTree = await callGemini({
     systemPrompt,
     userPrompt,
     allowThinking: true,
     thinkingBudget: 10000,
     temperature: 0.3,
-    apiKeyOverride: options?.apiKey
+    apiKeyOverride: options?.apiKey,
+    fallbackApiKey: options?.fallbackApiKey
   })
 
   // Ensure allKeywords is deduplicated and flattened
@@ -388,6 +455,7 @@ export async function generateConceptCapsulesBatch({
   category,
   subCategory,
   apiKeyOverride,
+  fallbackApiKey,
   delayBetweenCallsMs = 1200
 }: {
   chapterId: number
@@ -395,6 +463,7 @@ export async function generateConceptCapsulesBatch({
   category: string
   subCategory?: string
   apiKeyOverride?: string
+  fallbackApiKey?: string
   delayBetweenCallsMs?: number
 }): Promise<ConceptCapsule[]> {
   // Fast chapter check
@@ -482,7 +551,8 @@ Generate the JSON capsules for each keyword above.`
     userPrompt,
     allowThinking: false, // ZERO thinking tokens spent here!
     temperature: 0.15,
-    apiKeyOverride
+    apiKeyOverride,
+    fallbackApiKey
   })
 
   // Robust parsing: accept array directly or property wrappers

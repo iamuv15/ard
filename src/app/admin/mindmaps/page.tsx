@@ -71,10 +71,15 @@ export default function AdminMindMapsHubPage() {
       setGeneratingId(chapterId)
       setStatusMessage(null)
 
+      let paidApiKey = ''
+      try {
+        paidApiKey = localStorage.getItem('gemini_paid_api_key') || ''
+      } catch {}
+
       const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({})
+        body: JSON.stringify({ paidApiKey: paidApiKey.trim() || undefined })
       })
 
       const data = await res.json()

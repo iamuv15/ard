@@ -73,7 +73,7 @@ export async function POST(
     }
 
     const body = await request.json()
-    const { keywords, category, subCategory, apiKey } = body
+    const { keywords, category, subCategory, apiKey, paidApiKey, fallbackApiKey } = body
 
     if (!keywords || !Array.isArray(keywords) || keywords.length === 0) {
       return NextResponse.json({ error: 'Keywords array is required' }, { status: 400 })
@@ -89,7 +89,8 @@ export async function POST(
       keywords: keywords.slice(0, 5), // Keep batch small for fast response and Vercel timeout safety
       category,
       subCategory,
-      apiKeyOverride: apiKey
+      apiKeyOverride: apiKey,
+      fallbackApiKey: paidApiKey || fallbackApiKey
     })
 
     return NextResponse.json({

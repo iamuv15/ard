@@ -86,10 +86,11 @@ export async function POST(
       // Optional body
     }
 
-    // STEP 1: Generate Mind Map with thinking enabled (crucial structural reasoning)
+    // STEP 1: Generate Mind Map with thinking enabled (crucial structural reasoning with failover)
     const mindMap = await generateChapterMindMap(chapterId, {
       apiKey: body.apiKey,
-      maxQuestionsSample: body.maxQuestionsSample || 120
+      fallbackApiKey: body.paidApiKey || body.fallbackApiKey,
+      maxQuestionsSample: body.maxQuestionsSample || 180
     })
 
     return NextResponse.json({

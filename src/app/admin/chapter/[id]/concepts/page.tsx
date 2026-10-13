@@ -15,7 +15,11 @@ import {
   BookOpen,
   RefreshCw,
   Zap,
-  ExternalLink
+  ExternalLink,
+  Key,
+  ShieldCheck,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { ConceptDossierModal } from '@/components/concepts/ConceptDossierModal'
@@ -56,6 +60,26 @@ export default function AdminChapterConceptsPage() {
   const [generatingSingleTerm, setGeneratingSingleTerm] = useState<string | null>(null)
   const [progress, setProgress] = useState<{ current: number; total: number; currentTerm?: string } | null>(null)
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null)
+  const [paidApiKey, setPaidApiKey] = useState('')
+  const [showKeySettings, setShowKeySettings] = useState(false)
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('gemini_paid_api_key') || ''
+      if (saved) setPaidApiKey(saved)
+    } catch {}
+  }, [])
+
+  const handleUpdatePaidKey = (val: string) => {
+    setPaidApiKey(val)
+    try {
+      if (val.trim()) {
+        localStorage.setItem('gemini_paid_api_key', val.trim())
+      } else {
+        localStorage.removeItem('gemini_paid_api_key')
+      }
+    } catch {}
+  }
 
   const loadData = async () => {
     try {
@@ -92,7 +116,7 @@ export default function AdminChapterConceptsPage() {
       const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({})
+        body: JSON.stringify({ paidApiKey: paidApiKey.trim() || undefined })
       })
 
       const data = await res.json()
@@ -125,7 +149,8 @@ export default function AdminChapterConceptsPage() {
         body: JSON.stringify({
           keywords: [keyword],
           category,
-          subCategory
+          subCategory,
+          paidApiKey: paidApiKey.trim() || undefined
         })
       })
 
@@ -204,7 +229,8 @@ export default function AdminChapterConceptsPage() {
           body: JSON.stringify({
             keywords,
             category: primaryCat,
-            subCategory: primarySub
+            subCategory: primarySub,
+            paidApiKey: paidApiKey.trim() || undefined
           })
         })
 
@@ -333,6 +359,74 @@ export default function AdminChapterConceptsPage() {
               )}
             </button>
           </div>
+        </div>
+
+        {/* Paid Key Resilience & Failover Strategy Banner */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className={`p-2.5 rounded-2xl ${
+                paidApiKey 
+                  ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400' 
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
+              }`}>
+                {paidApiKey ? <ShieldCheck className="w-5 h-5" /> : <Key className="w-5 h-5" />}
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">
+                    Gemini API Failover Strategy
+                  </h3>
+                  <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${
+                    paidApiKey 
+                      ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300' 
+                      : 'bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300'
+                  }`}>
+                    {paidApiKey ? '🟢 Free Tier Primary • Paid Fallback Armed' : '🔵 Free Tier Active'}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                  Always uses Free tier first. If Google encounters high demand (503) or rate limits (429), it automatically fails over to your Paid Key with 0 downtime.
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowKeySettings(!showKeySettings)}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors cursor-pointer flex-shrink-0"
+            >
+              <span>{paidApiKey ? 'Edit Paid Key' : '+ Add Paid Key Fallback'}</span>
+              {showKeySettings ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            </button>
+          </div>
+
+          {showKeySettings && (
+            <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <div className="relative flex-1">
+                  <Key className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <input
+                    type="password"
+                    value={paidApiKey}
+                    onChange={e => handleUpdatePaidKey(e.target.value)}
+                    placeholder="Paste Paid Gemini API Key (e.g. AIzaSy...)"
+                    className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/70 dark:bg-slate-800/60 text-xs font-mono text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  />
+                </div>
+                {paidApiKey && (
+                  <button
+                    onClick={() => handleUpdatePaidKey('')}
+                    className="px-3 py-2 text-xs font-bold text-red-600 dark:text-red-400 hover:underline cursor-pointer"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+              <p className="text-[11px] text-slate-400">
+                🔒 Saved locally in your browser. You can also configure <code className="font-mono text-slate-600 dark:text-slate-300">GEMINI_PAID_API_KEY</code> in Vercel environment variables.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* 2-Step Workflow Guide Banner */}
