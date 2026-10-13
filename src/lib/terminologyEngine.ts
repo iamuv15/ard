@@ -98,9 +98,8 @@ async function callGemini({
     candidateKeys.push({ key: paidKey, isPaid: true })
   }
 
-  const defaultModel = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite'
-  const alternateModel = defaultModel === 'gemini-3.5-flash' ? 'gemini-3.5-flash-lite' : 'gemini-3.5-flash'
-  const candidateModels = [defaultModel, alternateModel]
+  // Primary model is strictly gemini-3.5-flash as requested, with gemini-3.5-flash-lite as resilient fallback
+  const candidateModels = ['gemini-3.5-flash', 'gemini-3.5-flash-lite']
 
   const requestBody: any = {
     contents: [
@@ -138,65 +137,57 @@ async function callGemini({
   for (let k = 0; k < candidateKeys.length; k++) {
     const { key, isPaid } = candidateKeys[k]
 
-    // Middle loop: Try models (Flash-Lite first, Flash fallback)
+    // Middle loop: Try models (gemini-3.5-flash first, gemini-3.5-flash-lite fallback)
     for (let m = 0; m < candidateModels.length; m++) {
       const model = candidateModels[m]
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
 
-      // Inner loop: Retries with backoff on 503 / 429
-      for (let attempt = 0; attempt < 2; attempt++) {
-        try {
-          const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(requestBody)
-          })
+      // Single attempt per candidate to prevent burning free quota on congested servers
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(requestBody)
+        })
 
-          if (response.ok) {
-            const data = await response.json()
-            const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text
-            if (!candidateText) {
-              throw new Error(`Empty response content from ${model}`)
-            }
-
-            try {
-              return JSON.parse(candidateText)
-            } catch {
-              const cleaned = candidateText.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
-              return JSON.parse(cleaned)
-            }
+        if (response.ok) {
+          const data = await response.json()
+          const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text
+          if (!candidateText) {
+            throw new Error(`Empty response content from ${model}`)
           }
 
-          // 503 (High Demand) or 429 (Rate Limit / Quota Exceeded)
-          if (response.status === 503 || response.status === 429) {
-            const errText = await response.text()
-            console.warn(`[Gemini ${response.status}] ${model} on ${isPaid ? 'Paid' : 'Free'} key: ${errText.slice(0, 160)}. Attempting failover...`)
-            lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
-
-            if (attempt === 0) {
-              // Quick backoff before switching
-              await sleep(1500)
-              continue
-            } else {
-              break // Move to alternate model or paid key
-            }
+          try {
+            return JSON.parse(candidateText)
+          } catch {
+            const cleaned = candidateText.replace(/^```json\s*/, '').replace(/\s*```$/, '').trim()
+            return JSON.parse(cleaned)
           }
-
-          // 404 (Model not found)
-          if (response.status === 404) {
-            lastError = new Error(`Gemini model ${model} not found (404)`)
-            break // Switch model immediately
-          }
-
-          // Other HTTP errors (e.g. 400 Bad Request)
-          const errText = await response.text()
-          lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
-          break
-
-        } catch (fetchErr: any) {
-          lastError = fetchErr
-          await sleep(1000)
         }
+
+        // 503 (High Demand) or 429 (Rate Limit / Quota Exceeded)
+        if (response.status === 503 || response.status === 429) {
+          const errText = await response.text()
+          console.warn(`[Gemini ${response.status}] ${model} on ${isPaid ? 'Paid' : 'Free'} key: ${errText.slice(0, 160)}. Switching to alternate model/key...`)
+          lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
+          // Failover immediately to next model or paid key without burning quota on retrying the same congested endpoint
+          continue
+        }
+
+        // 404 (Model not found)
+        if (response.status === 404) {
+          lastError = new Error(`Gemini model ${model} not found (404)`)
+          continue // Switch to alternate model
+        }
+
+        // Other HTTP errors (e.g. 400 Bad Request)
+        const errText = await response.text()
+        lastError = new Error(`Gemini API error (${response.status}): ${errText}`)
+        continue
+
+      } catch (fetchErr: any) {
+        lastError = fetchErr
+        await sleep(1000)
       }
     }
   }

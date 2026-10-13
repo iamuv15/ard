@@ -66,7 +66,7 @@ export default function AdminChapterConceptsPage() {
   const [batchIndex, setBatchIndex] = useState(0)
   const [batchMining, setBatchMining] = useState(false)
   const [autoMining, setAutoMining] = useState(false)
-  const [pacingDelay, setPacingDelay] = useState(8) // seconds wait between auto-batches
+  const [pacingDelay, setPacingDelay] = useState(12) // seconds wait between auto-batches (safe for 5 RPM limit)
   const [showKeywordDrawer, setShowKeywordDrawer] = useState(false)
   const autoMiningRef = React.useRef(false)
 
@@ -74,7 +74,7 @@ export default function AdminChapterConceptsPage() {
   const [mindMapGenerating, setMindMapGenerating] = useState(false)
   const [capsulesGenerating, setCapsulesGenerating] = useState(false)
   const [capsuleBatchSize, setCapsuleBatchSize] = useState(5) // default 5, options 5, 6, 7 for quality
-  const [capsulePacingDelay, setCapsulePacingDelay] = useState(8) // seconds delay between auto batches
+  const [capsulePacingDelay, setCapsulePacingDelay] = useState(12) // seconds delay between auto batches
   const [capsuleAutoRunning, setCapsuleAutoRunning] = useState(false)
   const capsuleAutoRef = React.useRef(false)
   const [generatingSingleTerm, setGeneratingSingleTerm] = useState<string | null>(null)
@@ -767,10 +767,10 @@ export default function AdminChapterConceptsPage() {
                         className="bg-transparent text-[11px] font-bold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer"
                         title="Delay between batches to respect Google AI 15 RPM free tier limits"
                       >
-                        <option value={5}>5s</option>
-                        <option value={8}>8s</option>
                         <option value={10}>10s</option>
+                        <option value={12}>12s</option>
                         <option value={15}>15s</option>
+                        <option value={20}>20s</option>
                       </select>
                     </div>
                   </div>
@@ -996,10 +996,10 @@ export default function AdminChapterConceptsPage() {
                         className="bg-transparent text-[11px] font-bold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer"
                         title="Delay between batches to protect Free Tier quota"
                       >
-                        <option value={5}>5s</option>
-                        <option value={8}>8s</option>
                         <option value={10}>10s</option>
+                        <option value={12}>12s</option>
                         <option value={15}>15s</option>
+                        <option value={20}>20s</option>
                       </select>
                     </div>
                   </div>
