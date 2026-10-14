@@ -7,6 +7,7 @@ import {
   ArrowLeft,
   ChevronRight,
   ChevronLeft,
+  ChevronDown,
   ImageIcon,
   Play,
   ExternalLink,
@@ -126,13 +127,20 @@ export function TailwindDocsReader({
   )
   const [searchQuery, setSearchQuery] = useState('')
 
+  // Collapsible Sidebar States
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+  const [collapsedCategories, setCollapsedCategories] = useState<Record<string, boolean>>({})
+  const [collapsedSubCategories, setCollapsedSubCategories] = useState<Record<string, boolean>>({})
+
   // Detailed data for active concept
   const [conceptDetail, setConceptDetail] = useState<ConceptFullDetail | null>(null)
   const [galleryImages, setGalleryImages] = useState<Array<{ url: string; title: string; sourceUrl?: string }>>([])
   const [activeImageIdx, setActiveImageIdx] = useState(0)
   const [precisionVideo, setPrecisionVideo] = useState<{
     videoUrl: string
-    embedUrl: string
+    embedUrl: string | null
+    videoId?: string | null
+    thumbnailUrl?: string | null
     videoCaption: string
   } | null>(null)
   const [loadingDetail, setLoadingDetail] = useState(false)
@@ -158,6 +166,35 @@ export function TailwindDocsReader({
   const currentIndex = useMemo(() => {
     return flattenedConcepts.findIndex(c => c.slug === activeSummary?.slug)
   }, [flattenedConcepts, activeSummary])
+
+  // Automatically expand parent Category and SubCategory of the active concept
+  useEffect(() => {
+    if (activeSummary?.category) {
+      setCollapsedCategories(prev => ({ ...prev, [activeSummary.category]: false }))
+    }
+    if (activeSummary?.subCategory) {
+      setCollapsedSubCategories(prev => ({ ...prev, [activeSummary.subCategory!]: false }))
+    }
+  }, [activeSummary])
+
+  const toggleCategory = (catName: string) => {
+    setCollapsedCategories(prev => ({ ...prev, [catName]: !prev[catName] }))
+  }
+
+  const toggleSubCategory = (subName: string) => {
+    setCollapsedSubCategories(prev => ({ ...prev, [subName]: !prev[subName] }))
+  }
+
+  const handleCollapseAll = () => {
+    const allSubs: Record<string, boolean> = {}
+    categories.forEach(c => c.subCategories.forEach(s => { allSubs[s.name] = true }))
+    setCollapsedSubCategories(allSubs)
+  }
+
+  const handleExpandAll = () => {
+    setCollapsedSubCategories({})
+    setCollapsedCategories({})
+  }
 
   // Fetch full details whenever activeSlug changes
   useEffect(() => {
@@ -275,10 +312,23 @@ export function TailwindDocsReader({
     <div className="h-screen w-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-hidden font-sans">
       {/* 1. TOP NAVBAR (Tailwind Docs Style) */}
       <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between shrink-0 z-20">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Toggle Sidebar Collapse Button */}
+          <button
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            title={sidebarCollapsed ? 'Expand Navigation Sidebar' : 'Collapse Navigation Sidebar'}
+          >
+            {sidebarCollapsed ? (
+              <ChevronRight className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            ) : (
+              <ChevronLeft className="w-5 h-5" />
+            )}
+          </button>
+
           <Link
             href={`/chapter/${chapterId}`}
-            className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="hidden sm:inline">Chapter Quizzes</span>
@@ -316,85 +366,142 @@ export function TailwindDocsReader({
         {/* ======================================================== */}
         {/* COLUMN 1: LEFT SIDEBAR (Classification Taxonomy Links)   */}
         {/* ======================================================== */}
-        <aside className="w-72 sm:w-80 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-slate-50/50 dark:bg-slate-950 shrink-0">
-          {/* Search Box */}
-          <div className="p-3.5 border-b border-slate-200 dark:border-slate-800">
+        <aside
+          className={`border-r border-slate-200 dark:border-slate-800 flex flex-col bg-slate-50/50 dark:bg-slate-950 shrink-0 transition-all duration-300 ${
+            sidebarCollapsed ? 'w-0 opacity-0 overflow-hidden border-r-0' : 'w-72 sm:w-80 opacity-100'
+          }`}
+        >
+          {/* Search Box & Quick Expand/Collapse Toolbar */}
+          <div className="p-3 border-b border-slate-200 dark:border-slate-800 space-y-2">
             <div className="relative">
               <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
-                placeholder="Quick search keywords..."
+                placeholder="Filter 300+ concepts..."
                 className="w-full pl-9 pr-3 py-1.5 rounded-xl text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium transition-all"
               />
             </div>
+
+            <div className="flex items-center justify-between text-[10px] text-slate-400 font-bold px-1">
+              <span>{flattenedConcepts.length} terms</span>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleExpandAll}
+                  className="hover:text-emerald-600 dark:hover:text-emerald-400 cursor-pointer"
+                >
+                  Expand all
+                </button>
+                <span>•</span>
+                <button
+                  onClick={handleCollapseAll}
+                  className="hover:text-emerald-600 dark:hover:text-emerald-400 cursor-pointer"
+                >
+                  Collapse all
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* Grouped Category Tree */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-6 no-scrollbar">
-            {filteredNavCategories.map((cat, catIdx) => (
-              <div key={catIdx} className="space-y-3">
-                <h3 className="text-[11px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 px-2">
-                  {cat.name}
-                </h3>
+          {/* Grouped Collapsible Category Tree */}
+          <div className="flex-1 overflow-y-auto p-3 space-y-4 no-scrollbar">
+            {filteredNavCategories.map((cat, catIdx) => {
+              const isCatCollapsed = Boolean(collapsedCategories[cat.name])
 
-                <div className="space-y-4">
-                  {cat.subCategories.map((sub, subIdx) => (
-                    <div key={subIdx} className="space-y-1">
-                      <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 px-2 flex items-center justify-between">
-                        <span className="truncate">{sub.name}</span>
-                        <span className="text-[10px] text-slate-400 font-normal">
-                          {sub.keywords.length}
-                        </span>
-                      </div>
+              return (
+                <div key={catIdx} className="space-y-1">
+                  {/* Category Header with Collapse Toggle */}
+                  <div
+                    onClick={() => toggleCategory(cat.name)}
+                    className="flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 px-2 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 cursor-pointer select-none group transition-colors"
+                  >
+                    <span className="truncate">{cat.name}</span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 transition-transform duration-200 shrink-0 ${
+                        isCatCollapsed ? '-rotate-90' : ''
+                      }`}
+                    />
+                  </div>
 
-                      <div className="space-y-0.5 border-l border-slate-200 dark:border-slate-800 ml-3 pl-2">
-                        {sub.keywords.map((kw, kwIdx) => {
-                          const item = flattenedConcepts.find(
-                            c => c.term.toLowerCase().trim() === kw.toLowerCase().trim()
-                          )
-                          const itemSlug = item?.slug || kw.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-')
-                          const isActive = activeSlug === itemSlug
-                          const qCount = item?._count?.questions || 0
+                  {/* Subcategories (only if category not collapsed) */}
+                  {!isCatCollapsed && (
+                    <div className="space-y-2 pt-1 pl-1">
+                      {cat.subCategories.map((sub, subIdx) => {
+                        const isSubCollapsed = Boolean(collapsedSubCategories[sub.name])
 
-                          return (
-                            <button
-                              key={kwIdx}
-                              onClick={() => {
-                                setActiveSlug(itemSlug)
-                                document.getElementById('docs-main-content')?.scrollTo({ top: 0, behavior: 'smooth' })
-                              }}
-                              className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs transition-all flex items-center justify-between gap-2 cursor-pointer ${
-                                isActive
-                                  ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold border-l-2 border-emerald-500'
-                                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 font-medium'
-                              }`}
+                        return (
+                          <div key={subIdx} className="space-y-1">
+                            {/* SubCategory Header with Chevron & Count */}
+                            <div
+                              onClick={() => toggleSubCategory(sub.name)}
+                              className="text-[11px] font-bold text-slate-700 dark:text-slate-300 px-2 py-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 flex items-center justify-between cursor-pointer select-none transition-colors group"
                             >
-                              <span className="truncate">{kw}</span>
-                              <div className="flex items-center gap-1 shrink-0 text-[10px]">
-                                {item?.imageUrl && <span title="Photo available">🖼️</span>}
-                                {qCount > 0 && (
-                                  <span
-                                    className={`px-1.5 py-0.2 rounded-full font-bold ${
-                                      isActive
-                                        ? 'bg-emerald-200 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-200'
-                                        : 'bg-slate-200/70 dark:bg-slate-800 text-slate-500'
-                                    }`}
-                                  >
-                                    {qCount}
-                                  </span>
-                                )}
+                              <div className="flex items-center gap-1.5 min-w-0">
+                                <ChevronDown
+                                  className={`w-3.5 h-3.5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                                    isSubCollapsed ? '-rotate-90' : ''
+                                  }`}
+                                />
+                                <span className="truncate">{sub.name}</span>
                               </div>
-                            </button>
-                          )
-                        })}
-                      </div>
+                              <span className="text-[10px] text-slate-400 font-semibold px-1.5 py-0.2 rounded-full bg-slate-200/60 dark:bg-slate-800">
+                                {sub.keywords.length}
+                              </span>
+                            </div>
+
+                            {/* Keywords List (collapsible) */}
+                            {!isSubCollapsed && (
+                              <div className="space-y-0.5 border-l-2 border-slate-200 dark:border-slate-800 ml-3.5 pl-2">
+                                {sub.keywords.map((kw, kwIdx) => {
+                                  const item = flattenedConcepts.find(
+                                    c => c.term.toLowerCase().trim() === kw.toLowerCase().trim()
+                                  )
+                                  const itemSlug = item?.slug || kw.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-')
+                                  const isActive = activeSlug === itemSlug
+                                  const qCount = item?._count?.questions || 0
+
+                                  return (
+                                    <button
+                                      key={kwIdx}
+                                      onClick={() => {
+                                        setActiveSlug(itemSlug)
+                                        document.getElementById('docs-main-content')?.scrollTo({ top: 0, behavior: 'smooth' })
+                                      }}
+                                      className={`w-full text-left px-2 py-1.5 rounded-lg text-xs transition-all flex items-center justify-between gap-2 cursor-pointer ${
+                                        isActive
+                                          ? 'bg-emerald-50 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 font-bold border-l-2 border-emerald-500 shadow-2xs'
+                                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 font-medium'
+                                      }`}
+                                    >
+                                      <span className="truncate">{kw}</span>
+                                      <div className="flex items-center gap-1 shrink-0 text-[10px]">
+                                        {item?.imageUrl && <span title="Photo available">🖼️</span>}
+                                        {qCount > 0 && (
+                                          <span
+                                            className={`px-1.5 py-0.2 rounded-full font-bold ${
+                                              isActive
+                                                ? 'bg-emerald-200 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-200'
+                                                : 'bg-slate-200/70 dark:bg-slate-800 text-slate-500'
+                                            }`}
+                                          >
+                                            {qCount}
+                                          </span>
+                                        )}
+                                      </div>
+                                    </button>
+                                  )
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
                     </div>
-                  ))}
+                  )}
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </aside>
 
@@ -761,16 +868,37 @@ export function TailwindDocsReader({
 
             {precisionVideo ? (
               <div className="space-y-2.5">
-                {/* Responsive Embedded YouTube Player / Search Card */}
-                <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 aspect-video relative group">
-                  <iframe
-                    src={precisionVideo.embedUrl}
-                    title={`${activeSummary?.term} practical demonstration`}
-                    className="w-full h-full border-0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
+                {/* Responsive Embedded YouTube Player or Thumbnail Fallback */}
+                {precisionVideo.embedUrl ? (
+                  <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 aspect-video relative group shadow-xs">
+                    <iframe
+                      src={precisionVideo.embedUrl}
+                      title={`${activeSummary?.term} practical demonstration`}
+                      className="w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : precisionVideo.thumbnailUrl ? (
+                  <a
+                    href={precisionVideo.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 aspect-video relative group block shadow-xs"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={precisionVideo.thumbnailUrl}
+                      alt="YouTube Video Thumbnail"
+                      className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                      <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <Play className="w-5 h-5 fill-current ml-0.5" />
+                      </div>
+                    </div>
+                  </a>
+                ) : null}
 
                 {/* AI Viewing Guide Callout */}
                 <div className="p-3 rounded-xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40 text-[11px] space-y-1">
@@ -786,10 +914,10 @@ export function TailwindDocsReader({
                   href={precisionVideo.videoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2 px-3 rounded-xl border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-300 text-xs font-bold hover:bg-red-100 flex items-center justify-center gap-1.5 transition-colors"
+                  className="w-full py-2.5 px-3 rounded-xl border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-300 text-xs font-bold hover:bg-red-100 dark:hover:bg-red-900/40 flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
                 >
-                  <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>Open Full Curated Search on YouTube</span>
+                  <Play className="w-3.5 h-3.5 fill-current text-red-600" />
+                  <span>Watch Field Demonstration on YouTube</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>

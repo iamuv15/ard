@@ -150,18 +150,41 @@ async function fetchWikimediaMedia(
 }
 
 /**
+ * Resolve top real YouTube video ID from YouTube search HTML (zero cost, no API key required)
+ */
+export async function resolveYouTubeVideoId(query: string): Promise<string | null> {
+  try {
+    const res = await fetch(`https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9'
+      }
+    })
+    if (!res.ok) return null
+    const text = await res.text()
+    const match = text.match(/"videoId":"([a-zA-Z0-9_-]{11})"/)
+    return match ? match[1] : null
+  } catch (err: any) {
+    console.warn('Failed to resolve YouTube video ID for query:', query, err?.message)
+    return null
+  }
+}
+
+/**
  * Generate precision practical / clinical YouTube demo link with AI-curated viewing guidance
  */
-export function generatePrecisionYouTubeData(
+export async function generatePrecisionYouTubeData(
   term: string,
   category?: string | null,
   subCategory?: string | null,
   examTraps?: string | null
-): {
+): Promise<{
   videoUrl: string
-  embedUrl: string
+  embedUrl: string | null
+  videoId: string | null
+  thumbnailUrl: string | null
   videoCaption: string
-} {
+}> {
   const cleanTerm = cleanTermForWiki(term)
   const catLower = (category || '').toLowerCase()
   const subLower = (subCategory || '').toLowerCase()
@@ -189,10 +212,21 @@ export function generatePrecisionYouTubeData(
   }
 
   const query = `${cleanTerm} ${querySuffix}`
-  const videoUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
-  const embedUrl = `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(query)}`
+  const videoId = await resolveYouTubeVideoId(query)
 
-  return { videoUrl, embedUrl, videoCaption: caption }
+  const videoUrl = videoId
+    ? `https://www.youtube.com/watch?v=${videoId}`
+    : `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
+
+  const embedUrl = videoId
+    ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`
+    : null
+
+  const thumbnailUrl = videoId
+    ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+    : null
+
+  return { videoUrl, embedUrl, videoId, thumbnailUrl, videoCaption: caption }
 }
 
 /**
@@ -262,8 +296,8 @@ export async function fetchWikimediaGallery(
 /**
  * Generate structured practical / clinical YouTube demo link
  */
-function generateYouTubeDemoLink(term: string, category?: string | null): string | null {
-  const data = generatePrecisionYouTubeData(term, category)
+async function generateYouTubeDemoLink(term: string, category?: string | null): Promise<string | null> {
+  const data = await generatePrecisionYouTubeData(term, category)
   return data.videoUrl
 }
 
@@ -274,9 +308,9 @@ export async function enrichConceptTerm(
   term: string,
   category?: string | null
 ): Promise<EnrichedMediaResult> {
-  const [wikiMedia, videoUrl] = await Promise.all([
+  const [wikiMedia, videoData] = await Promise.all([
     fetchWikimediaMedia(term, category),
-    Promise.resolve(generateYouTubeDemoLink(term, category))
+    generatePrecisionYouTubeData(term, category)
   ])
 
   return {
@@ -284,7 +318,7 @@ export async function enrichConceptTerm(
     thumbnailUrl: wikiMedia?.thumbnailUrl || null,
     imageCaption: wikiMedia?.imageCaption || null,
     sourceUrl: wikiMedia?.sourceUrl || null,
-    videoUrl: videoUrl || null
+    videoUrl: videoData?.videoUrl || null
   }
 }
 

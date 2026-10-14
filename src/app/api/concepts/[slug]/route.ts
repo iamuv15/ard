@@ -50,7 +50,7 @@ export async function GET(
     const { fetchWikimediaGallery, generatePrecisionYouTubeData } = await import('@/lib/mediaEnrichment')
 
     // Generate precision video guidance
-    const precisionVideo = generatePrecisionYouTubeData(
+    const precisionVideo = await generatePrecisionYouTubeData(
       concept.term,
       concept.category,
       concept.subCategory,
