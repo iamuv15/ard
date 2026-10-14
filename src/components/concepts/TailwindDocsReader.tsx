@@ -19,6 +19,8 @@ import {
   BookOpen,
   Sparkles,
   Maximize2,
+  ZoomIn,
+  ZoomOut,
   X
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
@@ -155,6 +157,25 @@ export function TailwindDocsReader({
   const [reportSubmitting, setReportSubmitting] = useState(false)
   const [reportSuccess, setReportSuccess] = useState(false)
 
+  // E-commerce Image Zoom State & Lightbox
+  const [imageZoom, setImageZoom] = useState<{ active: boolean; x: number; y: number }>({
+    active: false,
+    x: 50,
+    y: 50
+  })
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+
+  const handleImageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100))
+    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100))
+    setImageZoom({ active: true, x, y })
+  }
+
+  const handleImageMouseLeave = () => {
+    setImageZoom({ active: false, x: 50, y: 50 })
+  }
+
   // Current active concept summary
   const activeSummary = useMemo(() => {
     return (
@@ -226,10 +247,23 @@ export function TailwindDocsReader({
     }
   }, [activeSlug, chapterId])
 
-  // Keyboard navigation (Left / Right arrow to navigate between concepts)
+  // Keyboard navigation (Left / Right arrow to navigate between concepts, Escape to close modals)
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
+
+      if (e.key === 'Escape') {
+        if (lightboxOpen) {
+          setLightboxOpen(false)
+          return
+        }
+        if (reportModalOpen) {
+          setReportModalOpen(false)
+          return
+        }
+      }
+
+      if (lightboxOpen || reportModalOpen) return
 
       if (e.key === 'ArrowRight' && currentIndex < flattenedConcepts.length - 1) {
         setActiveSlug(flattenedConcepts[currentIndex + 1].slug)
@@ -237,7 +271,7 @@ export function TailwindDocsReader({
         setActiveSlug(flattenedConcepts[currentIndex - 1].slug)
       }
     },
-    [currentIndex, flattenedConcepts]
+    [currentIndex, flattenedConcepts, lightboxOpen, reportModalOpen]
   )
 
   useEffect(() => {
@@ -784,17 +818,43 @@ export function TailwindDocsReader({
 
             {activeImage ? (
               <div className="space-y-2">
-                {/* Main Active Image */}
-                <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-xs relative group">
+                {/* Main Active Image with E-Commerce Zoom Lens */}
+                <div
+                  onMouseMove={handleImageMouseMove}
+                  onMouseEnter={() => setImageZoom(prev => ({ ...prev, active: true }))}
+                  onMouseLeave={handleImageMouseLeave}
+                  onClick={() => setLightboxOpen(true)}
+                  className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-xs relative group cursor-zoom-in select-none"
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={activeImage.url}
                     alt={activeImage.title}
-                    className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105"
+                    style={{
+                      transformOrigin: `${imageZoom.x}% ${imageZoom.y}%`,
+                      transform: imageZoom.active ? 'scale(2.4)' : 'scale(1)',
+                      transition: imageZoom.active ? 'transform 0.05s ease-out' : 'transform 0.25s ease-out'
+                    }}
+                    className="w-full h-56 object-cover pointer-events-none"
                   />
-                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[9px] font-bold bg-slate-950/80 text-white backdrop-blur-xs">
-                    Wikimedia CC
+
+                  {/* Lens Indicator Badge */}
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[9px] font-bold bg-slate-950/85 text-white backdrop-blur-xs flex items-center gap-1">
+                    <ZoomIn className="w-3 h-3 text-emerald-400" />
+                    <span>{imageZoom.active ? '2.4x Magnifier' : 'Hover to Zoom'}</span>
                   </div>
+
+                  {/* Lightbox Trigger Button */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setLightboxOpen(true)
+                    }}
+                    className="absolute top-2 right-2 p-1.5 rounded-lg bg-slate-950/80 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-emerald-600 cursor-pointer shadow-sm"
+                    title="Open Fullscreen Lightbox"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  </button>
                 </div>
 
                 {/* Multiple Images Selector Strip (1, 2, 3...) */}
@@ -1026,6 +1086,86 @@ export function TailwindDocsReader({
               </div>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Fullscreen Lightbox Modal */}
+      {lightboxOpen && activeImage && (
+        <div
+          onClick={() => setLightboxOpen(false)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col items-center justify-between p-4 sm:p-6 animate-in fade-in duration-200"
+        >
+          {/* Top Bar */}
+          <div
+            onClick={e => e.stopPropagation()}
+            className="w-full max-w-5xl flex items-center justify-between text-white pb-3 border-b border-slate-800"
+          >
+            <div>
+              <h3 className="font-bold text-sm sm:text-base text-white truncate max-w-md">
+                {activeImage.title}
+              </h3>
+              <p className="text-[11px] text-slate-400">
+                {activeSummary?.term} • Wikimedia Commons Reference ({activeImageIdx + 1} of {galleryImages.length || 1})
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              {activeImage.sourceUrl && (
+                <a
+                  href={activeImage.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-slate-800 text-xs font-bold text-emerald-400 hover:bg-slate-700 transition-colors"
+                >
+                  <span>Source</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              )}
+              <button
+                onClick={() => setLightboxOpen(false)}
+                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white transition-colors cursor-pointer"
+                title="Close Lightbox (Esc)"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Center High-Res Image */}
+          <div
+            onClick={e => e.stopPropagation()}
+            className="flex-1 flex items-center justify-center p-4 max-w-5xl w-full overflow-hidden"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={activeImage.url}
+              alt={activeImage.title}
+              className="max-h-[72vh] max-w-full object-contain rounded-2xl shadow-2xl border border-slate-800"
+            />
+          </div>
+
+          {/* Bottom Thumbnails Strip */}
+          {galleryImages.length > 1 && (
+            <div
+              onClick={e => e.stopPropagation()}
+              className="flex items-center gap-2 overflow-x-auto pb-2 max-w-md"
+            >
+              {galleryImages.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImageIdx(idx)}
+                  className={`h-14 w-14 rounded-xl overflow-hidden border-2 transition-all cursor-pointer shrink-0 ${
+                    activeImageIdx === idx
+                      ? 'border-emerald-500 scale-105 shadow-md shadow-emerald-500/20'
+                      : 'border-slate-800 opacity-50 hover:opacity-100'
+                  }`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={img.url} alt={img.title} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
