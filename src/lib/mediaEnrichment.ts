@@ -458,16 +458,30 @@ export async function enrichConceptTerm(
   chapterName?: string | null,
   examTraps?: string | null
 ): Promise<EnrichedMediaResult> {
-  const [wikiMedia, videoData] = await Promise.all([
+  const [wikiMedia, gallery, videoData] = await Promise.all([
     fetchWikimediaMedia(term, category),
+    fetchWikimediaGallery(term, category, subCategory, chapterName),
     generatePrecisionYouTubeData(term, category, subCategory, chapterName, examTraps)
   ])
 
+  // Prefer authentic gallery top result if direct wikiMedia is missing or generic
+  const topGalleryImg = gallery[0]
+  const chosenImg = wikiMedia?.imageUrl
+    ? wikiMedia
+    : (topGalleryImg
+        ? {
+            imageUrl: topGalleryImg.url,
+            thumbnailUrl: topGalleryImg.url,
+            imageCaption: topGalleryImg.title,
+            sourceUrl: topGalleryImg.sourceUrl || null
+          }
+        : null)
+
   return {
-    imageUrl: wikiMedia?.imageUrl || null,
-    thumbnailUrl: wikiMedia?.thumbnailUrl || null,
-    imageCaption: wikiMedia?.imageCaption || null,
-    sourceUrl: wikiMedia?.sourceUrl || null,
+    imageUrl: chosenImg?.imageUrl || null,
+    thumbnailUrl: chosenImg?.thumbnailUrl || null,
+    imageCaption: chosenImg?.imageCaption || null,
+    sourceUrl: chosenImg?.sourceUrl || null,
     videoUrl: videoData?.videoUrl || null
   }
 }
@@ -499,10 +513,20 @@ export async function enrichChapterConceptsMedia(
 
   let imagesFound = 0
   let videosGenerated = 0
+  let imagesPurged = 0
 
   for (const c of concepts) {
+    const isOldImageBad = c.imageUrl && isImageTitleIrrelevant(`${c.imageUrl} ${c.imageCaption || ''}`)
     const media = await enrichConceptTerm(c.term, c.category, c.subCategory, c.chapter?.name, c.examTraps)
     const updateData: any = {}
+
+    if (isOldImageBad) {
+      updateData.imageUrl = null
+      updateData.thumbnailUrl = null
+      updateData.imageCaption = null
+      updateData.sourceUrl = null
+      imagesPurged++
+    }
 
     if (media.imageUrl) {
       updateData.imageUrl = media.imageUrl
@@ -531,6 +555,7 @@ export async function enrichChapterConceptsMedia(
   return {
     totalScanned: concepts.length,
     imagesFound,
+    imagesPurged,
     videosGenerated
   }
 }
