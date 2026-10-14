@@ -47,25 +47,54 @@ export async function GET(
       return NextResponse.json({ error: 'Concept not found' }, { status: 404 })
     }
 
-    const { fetchWikimediaGallery, generatePrecisionYouTubeData } = await import('@/lib/mediaEnrichment')
+    const { fetchWikimediaGallery, generatePrecisionYouTubeData, isImageTitleIrrelevant } = await import('@/lib/mediaEnrichment')
 
-    // Generate precision video guidance
+    // Purge irrelevant / blacklisted images (e.g. heat sinks, human clinics, engine parts)
+    if (concept.imageUrl) {
+      const isBad = isImageTitleIrrelevant(
+        `${concept.imageUrl} ${concept.imageCaption || ''} ${concept.thumbnailUrl || ''}`
+      )
+      if (isBad) {
+        console.log(`[PURGE] Irrelevant image discarded for concept "${concept.term}": ${concept.imageUrl}`)
+        await prisma.chapterConcept.update({
+          where: { id: concept.id },
+          data: {
+            imageUrl: null,
+            thumbnailUrl: null,
+            imageCaption: null,
+            sourceUrl: null
+          }
+        }).catch(err => console.warn('Failed to purge bad image from DB:', err?.message))
+        concept.imageUrl = null
+        concept.thumbnailUrl = null
+        concept.imageCaption = null
+        concept.sourceUrl = null
+      }
+    }
+
+    // Generate precision video guidance with full academic context
     const precisionVideo = await generatePrecisionYouTubeData(
       concept.term,
       concept.category,
       concept.subCategory,
+      concept.chapter?.name,
       concept.examTraps
     )
 
-    // Fetch multiple images from Wikimedia
+    // Fetch multiple images from Wikimedia with biological/agricultural context
     let galleryImages: Array<{ url: string; title: string; sourceUrl?: string }> = []
     try {
-      galleryImages = await fetchWikimediaGallery(concept.term, concept.category)
+      galleryImages = await fetchWikimediaGallery(
+        concept.term,
+        concept.category,
+        concept.subCategory,
+        concept.chapter?.name
+      )
     } catch (e) {
       console.warn('Failed to fetch gallery for', concept.term, e)
     }
 
-    // Ensure primary image is at index 0 if available
+    // Ensure primary image is at index 0 if valid, or self-heal DB if authentic gallery found
     if (concept.imageUrl) {
       const alreadyHas = galleryImages.some(img => img.url === concept.imageUrl)
       if (!alreadyHas) {
@@ -75,6 +104,21 @@ export async function GET(
           sourceUrl: concept.sourceUrl || undefined
         })
       }
+    } else if (galleryImages.length > 0) {
+      const topImg = galleryImages[0]
+      await prisma.chapterConcept.update({
+        where: { id: concept.id },
+        data: {
+          imageUrl: topImg.url,
+          thumbnailUrl: topImg.url,
+          imageCaption: topImg.title,
+          sourceUrl: topImg.sourceUrl || null
+        }
+      }).catch(err => console.warn('Failed to save self-healed image:', err?.message))
+      concept.imageUrl = topImg.url
+      concept.thumbnailUrl = topImg.url
+      concept.imageCaption = topImg.title
+      concept.sourceUrl = topImg.sourceUrl || null
     }
 
     return NextResponse.json({

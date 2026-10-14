@@ -140,6 +140,7 @@ export function TailwindDocsReader({
   const [activeImageIdx, setActiveImageIdx] = useState(0)
   const [precisionVideo, setPrecisionVideo] = useState<{
     videoUrl: string
+    searchUrl?: string
     embedUrl: string | null
     videoId?: string | null
     thumbnailUrl?: string | null
@@ -977,9 +978,22 @@ export function TailwindDocsReader({
                   className="w-full py-2.5 px-3 rounded-xl border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-300 text-xs font-bold hover:bg-red-100 dark:hover:bg-red-900/40 flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
                 >
                   <Play className="w-3.5 h-3.5 fill-current text-red-600" />
-                  <span>Watch Field Demonstration on YouTube</span>
+                  <span>Watch Featured Video on YouTube</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
+
+                {precisionVideo.searchUrl && (
+                  <a
+                    href={precisionVideo.searchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center gap-1.5 transition-colors"
+                  >
+                    <Search className="w-3.5 h-3.5 text-slate-500" />
+                    <span>View Similar Results on YouTube</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
               </div>
             ) : (
               <div className="p-6 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">
