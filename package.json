@@ -9,7 +9,7 @@
     "lint": "eslint",
     "postinstall": "prisma generate",
     "sync:concepts": "tsx scripts/sync-chapter-concepts.ts",
-    "regenerate:concepts": "tsx scripts/regenerate-all-concepts.js"
+    "regenerate:concepts": "node scripts/regenerate-all-concepts.js"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.9.1",
