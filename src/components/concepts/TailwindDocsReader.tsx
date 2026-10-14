@@ -21,7 +21,13 @@ import {
   Maximize2,
   ZoomIn,
   ZoomOut,
-  X
+  X,
+  Upload,
+  Trash2,
+  PlusCircle,
+  Link2,
+  AlertCircle,
+  Check
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 
@@ -157,6 +163,20 @@ export function TailwindDocsReader({
   const [reportReason, setReportReason] = useState('Inaccurate entity / image')
   const [reportSubmitting, setReportSubmitting] = useState(false)
   const [reportSuccess, setReportSuccess] = useState(false)
+
+  // Community Image Contribution & Removal State
+  const [mediaModalOpen, setMediaModalOpen] = useState(false)
+  const [mediaTab, setMediaTab] = useState<'url' | 'upload'>('url')
+  const [inputImageUrl, setInputImageUrl] = useState('')
+  const [inputCaption, setInputCaption] = useState('')
+  const [inputSourceUrl, setInputSourceUrl] = useState('')
+  const [uploadFile, setUploadFile] = useState<File | null>(null)
+  const [uploadFilePreview, setUploadFilePreview] = useState<string | null>(null)
+  const [mediaSubmitting, setMediaSubmitting] = useState(false)
+  const [mediaError, setMediaError] = useState<string | null>(null)
+  const [mediaSuccess, setMediaSuccess] = useState<string | null>(null)
+  const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false)
+  const [deletingImage, setDeletingImage] = useState(false)
 
   // E-commerce Image Zoom State & Lightbox
   const [imageZoom, setImageZoom] = useState<{ active: boolean; x: number; y: number }>({
@@ -313,6 +333,148 @@ export function TailwindDocsReader({
       console.error(e)
     } finally {
       setReportSubmitting(false)
+    }
+  }
+
+  // Validate image URL format on client
+  const isUrlValid = useMemo(() => {
+    if (!inputImageUrl.trim()) return false
+    const trimmed = inputImageUrl.trim().toLowerCase()
+    if (!trimmed.startsWith('http://') && !trimmed.startsWith('https://')) return false
+    const exts = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg', '.avif', '.bmp']
+    const hasExt = exts.some(e => trimmed.split('?')[0].endsWith(e))
+    const isCdn = ['wikimedia.org', 'imgur.com', 'unsplash.com', 'cloudinary.com', 'githubusercontent.com'].some(d => trimmed.includes(d))
+    return hasExt || isCdn
+  }, [inputImageUrl])
+
+  const handleOpenAddImage = () => {
+    setInputImageUrl('')
+    setInputCaption(`${activeSummary?.term || ''} reference photo`)
+    setInputSourceUrl('')
+    setUploadFile(null)
+    setUploadFilePreview(null)
+    setMediaError(null)
+    setMediaSuccess(null)
+    setMediaModalOpen(true)
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      if (!['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'].includes(file.type)) {
+        setMediaError('Only JPEG, PNG, WebP, GIF, or SVG images are supported.')
+        return
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        setMediaError('Image file must be under 10MB.')
+        return
+      }
+      setMediaError(null)
+      setUploadFile(file)
+      const previewUrl = URL.createObjectURL(file)
+      setUploadFilePreview(previewUrl)
+    }
+  }
+
+  const handleSaveCommunityImage = async () => {
+    if (!activeSummary) return
+    setMediaSubmitting(true)
+    setMediaError(null)
+
+    try {
+      let resData: any = null
+
+      if (mediaTab === 'url') {
+        if (!isUrlValid) {
+          setMediaError('Please enter a valid image URL ending with .jpg, .jpeg, .png, .webp, .gif, or .svg')
+          setMediaSubmitting(false)
+          return
+        }
+
+        const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            imageUrl: inputImageUrl.trim(),
+            imageCaption: inputCaption.trim() || activeSummary.term,
+            sourceUrl: inputSourceUrl.trim() || undefined
+          })
+        })
+        resData = await res.json()
+        if (!res.ok) throw new Error(resData?.error || 'Failed to update image')
+      } else {
+        if (!uploadFile) {
+          setMediaError('Please select an image file to upload')
+          setMediaSubmitting(false)
+          return
+        }
+
+        const formData = new FormData()
+        formData.append('file', uploadFile)
+        formData.append('caption', inputCaption.trim() || activeSummary.term)
+        if (inputSourceUrl.trim()) formData.append('sourceUrl', inputSourceUrl.trim())
+
+        const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}`, {
+          method: 'POST',
+          body: formData
+        })
+        resData = await res.json()
+        if (!res.ok) throw new Error(resData?.error || 'Failed to upload image')
+      }
+
+      if (resData?.concept) {
+        setConceptDetail(prev => prev ? {
+          ...prev,
+          imageUrl: resData.concept.imageUrl,
+          thumbnailUrl: resData.concept.thumbnailUrl,
+          imageCaption: resData.concept.imageCaption,
+          sourceUrl: resData.concept.sourceUrl
+        } : prev)
+
+        setGalleryImages([
+          {
+            url: resData.concept.imageUrl,
+            title: resData.concept.imageCaption || activeSummary.term,
+            sourceUrl: resData.concept.sourceUrl || undefined
+          }
+        ])
+        setActiveImageIdx(0)
+        setMediaSuccess('Image successfully updated!')
+        setTimeout(() => {
+          setMediaModalOpen(false)
+          setMediaSuccess(null)
+        }, 1200)
+      }
+    } catch (err: any) {
+      setMediaError(err.message || 'Error saving image')
+    } finally {
+      setMediaSubmitting(false)
+    }
+  }
+
+  const handleRemoveImage = async () => {
+    if (!activeSummary) return
+    setDeletingImage(true)
+    try {
+      const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}`, {
+        method: 'DELETE'
+      })
+      if (res.ok) {
+        setConceptDetail(prev => prev ? {
+          ...prev,
+          imageUrl: null,
+          thumbnailUrl: null,
+          imageCaption: null,
+          sourceUrl: null
+        } : prev)
+        setGalleryImages([])
+        setActiveImageIdx(0)
+        setConfirmDeleteOpen(false)
+      }
+    } catch (err) {
+      console.error('Failed to remove image', err)
+    } finally {
+      setDeletingImage(false)
     }
   }
 
@@ -880,7 +1042,7 @@ export function TailwindDocsReader({
 
                 {/* Caption & Actions */}
                 <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
-                  <span className="truncate max-w-[200px]" title={activeImage.title}>
+                  <span className="truncate max-w-[190px]" title={activeImage.title}>
                     {activeImage.title}
                   </span>
                   <div className="flex items-center gap-2">
@@ -904,16 +1066,44 @@ export function TailwindDocsReader({
                     </button>
                   </div>
                 </div>
+
+                {/* Community Contribution & Remove Actions */}
+                <div className="flex items-center gap-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
+                  <button
+                    onClick={handleOpenAddImage}
+                    className="flex-1 py-1.5 px-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-[11px] font-bold hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center gap-1 transition-colors cursor-pointer"
+                  >
+                    <Upload className="w-3 h-3 text-emerald-500" />
+                    <span>Replace Image</span>
+                  </button>
+                  <button
+                    onClick={() => setConfirmDeleteOpen(true)}
+                    className="py-1.5 px-2.5 rounded-xl border border-rose-200 dark:border-rose-950/40 bg-rose-50/60 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 text-[11px] font-bold hover:bg-rose-100/70 transition-colors flex items-center gap-1 cursor-pointer"
+                    title="Remove unrelated or inaccurate image"
+                  >
+                    <Trash2 className="w-3 h-3" />
+                    <span>Remove</span>
+                  </button>
+                </div>
               </div>
             ) : (
-              <div className="p-8 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 text-center space-y-1 bg-slate-100/50 dark:bg-slate-900/30">
-                <ImageIcon className="w-6 h-6 text-slate-400 mx-auto mb-1" />
-                <p className="text-xs font-bold text-slate-600 dark:text-slate-400">
-                  No public domain photo available
-                </p>
-                <p className="text-[10px] text-slate-400">
-                  Concept relies on clinical definitions and metrics.
-                </p>
+              <div className="p-6 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 text-center space-y-2.5 bg-slate-100/50 dark:bg-slate-900/30">
+                <ImageIcon className="w-6 h-6 text-slate-400 mx-auto" />
+                <div>
+                  <p className="text-xs font-bold text-slate-600 dark:text-slate-400">
+                    No verified photo available
+                  </p>
+                  <p className="text-[10px] text-slate-400">
+                    Rely on ICAR metrics table or add a photo.
+                  </p>
+                </div>
+                <button
+                  onClick={handleOpenAddImage}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs cursor-pointer"
+                >
+                  <PlusCircle className="w-3.5 h-3.5" />
+                  <span>Add Authentic Photo</span>
+                </button>
               </div>
             )}
           </div>
@@ -1042,6 +1232,237 @@ export function TailwindDocsReader({
           </div>
         </aside>
       </div>
+
+      {/* Community Image Contribution Modal */}
+      {mediaModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 max-w-lg w-full border border-slate-200 dark:border-slate-800 space-y-4 shadow-2xl">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <div>
+                <h3 className="font-black text-sm sm:text-base text-slate-900 dark:text-white flex items-center gap-2">
+                  <Upload className="w-4 h-4 text-emerald-500" />
+                  <span>Add Community Image for &ldquo;{activeSummary?.term}&rdquo;</span>
+                </h3>
+                <p className="text-[11px] text-slate-400">
+                  Provide an authentic agricultural or veterinary photo.
+                </p>
+              </div>
+              <button
+                onClick={() => setMediaModalOpen(false)}
+                className="p-1 rounded-lg text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Tabs: Paste URL vs Upload File */}
+            <div className="flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold">
+              <button
+                onClick={() => { setMediaTab('url'); setMediaError(null); }}
+                className={`flex-1 py-1.5 rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  mediaTab === 'url'
+                    ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-xs'
+                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                <Link2 className="w-3.5 h-3.5" />
+                <span>Paste Image URL</span>
+              </button>
+              <button
+                onClick={() => { setMediaTab('upload'); setMediaError(null); }}
+                className={`flex-1 py-1.5 rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  mediaTab === 'upload'
+                    ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-xs'
+                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                <Upload className="w-3.5 h-3.5" />
+                <span>Upload Image File</span>
+              </button>
+            </div>
+
+            {mediaError && (
+              <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/40 text-rose-700 dark:text-rose-300 text-xs flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{mediaError}</span>
+              </div>
+            )}
+
+            {mediaSuccess && (
+              <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-xs flex items-center gap-2">
+                <Check className="w-4 h-4 shrink-0" />
+                <span>{mediaSuccess}</span>
+              </div>
+            )}
+
+            {mediaTab === 'url' ? (
+              <div className="space-y-3 text-xs">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                    Image URL: <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="url"
+                    placeholder="https://example.com/images/breed.jpg"
+                    value={inputImageUrl}
+                    onChange={e => {
+                      setInputImageUrl(e.target.value)
+                      setMediaError(null)
+                    }}
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-emerald-500 font-mono text-[11px]"
+                  />
+                  <div className="flex items-center justify-between pt-1 text-[10px]">
+                    <span className="text-slate-400">
+                      Supported: <span className="font-semibold text-slate-600 dark:text-slate-400">.jpg, .jpeg, .png, .webp, .gif, .svg</span>
+                    </span>
+                    {inputImageUrl.trim() && (
+                      isUrlValid ? (
+                        <span className="text-emerald-600 font-bold flex items-center gap-0.5">
+                          <Check className="w-3 h-3" /> Valid Image URL
+                        </span>
+                      ) : (
+                        <span className="text-amber-500 font-medium">
+                          Must be direct image link
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
+
+                {/* Live Preview Box */}
+                {inputImageUrl.trim() && isUrlValid && (
+                  <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 p-2 text-center">
+                    <p className="text-[10px] text-slate-400 mb-1">Image Preview</p>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={inputImageUrl}
+                      alt="URL Preview"
+                      className="max-h-32 mx-auto rounded-lg object-contain"
+                      onError={() => setMediaError('Unable to load image from this URL. Please verify the link is accessible.')}
+                    />
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="space-y-3 text-xs">
+                <div>
+                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                    Select Image File: <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp,image/gif,image/svg+xml"
+                    onChange={handleFileChange}
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 cursor-pointer"
+                  />
+                  <p className="text-[10px] text-slate-400 pt-1">
+                    Accepts JPEG, PNG, WebP, GIF, SVG (up to 10MB)
+                  </p>
+                </div>
+
+                {uploadFilePreview && (
+                  <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 p-2 text-center">
+                    <p className="text-[10px] text-slate-400 mb-1">Upload Preview ({((uploadFile?.size || 0) / (1024 * 1024)).toFixed(2)} MB)</p>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={uploadFilePreview}
+                      alt="Upload Preview"
+                      className="max-h-32 mx-auto rounded-lg object-contain"
+                    />
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Caption & Source inputs */}
+            <div className="space-y-2 text-xs pt-2 border-t border-slate-100 dark:border-slate-800">
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  Image Caption / Label:
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Surti buffalo cow at Anand Agricultural University"
+                  value={inputCaption}
+                  onChange={e => setInputCaption(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                />
+              </div>
+
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  Source / Credit Link (optional):
+                </label>
+                <input
+                  type="url"
+                  placeholder="e.g. https://agritech.tnau.ac.in or ICAR-NBAGR"
+                  value={inputSourceUrl}
+                  onChange={e => setInputSourceUrl(e.target.value)}
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-[11px]"
+                />
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <button
+                onClick={() => setMediaModalOpen(false)}
+                className="px-4 py-2 rounded-xl text-slate-500 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                disabled={mediaSubmitting || (mediaTab === 'url' ? !isUrlValid : !uploadFile)}
+                onClick={handleSaveCommunityImage}
+                className="px-5 py-2 rounded-xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 disabled:opacity-50 transition-all cursor-pointer flex items-center gap-1.5 shadow-xs"
+              >
+                {mediaSubmitting ? 'Saving...' : 'Save Community Image'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Confirmation Dialog to Remove Image */}
+      {confirmDeleteOpen && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 max-w-sm w-full border border-slate-200 dark:border-slate-800 space-y-4 shadow-2xl">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-rose-100 dark:bg-rose-950/40 text-rose-600 flex items-center justify-center shrink-0">
+                <Trash2 className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-slate-900 dark:text-white">
+                  Remove Image?
+                </h4>
+                <p className="text-[11px] text-slate-400">
+                  Concept: &ldquo;{activeSummary?.term}&rdquo;
+                </p>
+              </div>
+            </div>
+
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Are you sure this image is unrelated or inaccurate? Removing it will clear the image for all users so someone can contribute an authentic photo.
+            </p>
+
+            <div className="flex items-center justify-end gap-2 pt-2">
+              <button
+                onClick={() => setConfirmDeleteOpen(false)}
+                className="px-3.5 py-1.5 rounded-xl text-slate-500 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer text-xs"
+              >
+                Cancel
+              </button>
+              <button
+                disabled={deletingImage}
+                onClick={handleRemoveImage}
+                className="px-4 py-1.5 rounded-xl bg-rose-600 text-white font-bold hover:bg-rose-700 disabled:opacity-50 transition-all cursor-pointer text-xs"
+              >
+                {deletingImage ? 'Removing...' : 'Yes, Remove Image'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Flag Report Modal */}
       {reportModalOpen && (
