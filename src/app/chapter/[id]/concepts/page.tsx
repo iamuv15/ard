@@ -32,7 +32,11 @@ export default async function ChapterConceptsPage(props: { params: Promise<{ id:
           slug: true,
           category: true,
           subCategory: true,
+          definition: true,
+          examTraps: true,
           imageUrl: true,
+          thumbnailUrl: true,
+          imageCaption: true,
           videoUrl: true,
           _count: {
             select: { questions: true }
