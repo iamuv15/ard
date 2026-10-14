@@ -47,7 +47,7 @@ export function isValidImageUrl(url: string): { valid: boolean; reason?: string 
     if (!hasImageExt && !hasFormatParam && !isImageHost) {
       return {
         valid: false,
-        reason: 'URL must end with a valid image extension (.jpg, .jpeg, .png, .webp, .gif, .svg, .avif) or be an image CDN link.'
+        reason: 'URL must end with a valid image extension (.jpg, .jpeg, .png, .webp, .gif, .svg, .avif, .bmp) or be a direct image CDN link.'
       }
     }
 
@@ -75,7 +75,7 @@ export async function POST(
 
     const concept = await prisma.chapterConcept.findFirst({
       where,
-      select: { id: true, term: true, chapterId: true }
+      select: { id: true, term: true, chapterId: true, imageUrl: true, imageCaption: true, sourceUrl: true }
     })
 
     if (!concept) {
@@ -140,21 +140,60 @@ export async function POST(
       finalSourceUrl = sourceUrl ? sourceUrl.trim() : null
     }
 
-    // Save to database
+    // Parse existing gallery or single image
+    let currentGallery: Array<{ url: string; title: string; sourceUrl?: string }> = []
+    if (concept.imageUrl) {
+      if (concept.imageUrl.startsWith('[')) {
+        try {
+          currentGallery = JSON.parse(concept.imageUrl)
+        } catch {
+          currentGallery = []
+        }
+      } else {
+        currentGallery = [
+          {
+            url: concept.imageUrl,
+            title: concept.imageCaption || concept.term,
+            sourceUrl: concept.sourceUrl || undefined
+          }
+        ]
+      }
+    }
+
+    const newItem = {
+      url: finalImageUrl,
+      title: finalCaption || `${concept.term} reference photo`,
+      sourceUrl: finalSourceUrl || undefined
+    }
+
+    // Append to gallery or update if same URL exists
+    const existingIdx = currentGallery.findIndex(g => g.url === newItem.url)
+    if (existingIdx >= 0) {
+      currentGallery[existingIdx] = newItem
+    } else {
+      currentGallery.push(newItem)
+    }
+
+    // Save multi-image gallery to database
     const updated = await prisma.chapterConcept.update({
       where: { id: concept.id },
       data: {
-        imageUrl: finalImageUrl,
-        thumbnailUrl: finalImageUrl,
-        imageCaption: finalCaption,
-        sourceUrl: finalSourceUrl
+        imageUrl: JSON.stringify(currentGallery),
+        thumbnailUrl: currentGallery[0].url,
+        imageCaption: currentGallery[0].title,
+        sourceUrl: currentGallery[0].sourceUrl || null
       }
     })
 
     return NextResponse.json({
       success: true,
-      concept: updated,
-      message: 'Community image updated successfully'
+      galleryImages: currentGallery,
+      concept: {
+        ...updated,
+        imageUrl: currentGallery[0].url,
+        imageCaption: currentGallery[0].title
+      },
+      message: 'Image added to concept gallery successfully'
     })
   } catch (error: any) {
     console.error('Error adding community image:', error)
@@ -174,6 +213,8 @@ export async function DELETE(
     const slug = params.slug
     const { searchParams } = new URL(request.url)
     const chapterIdStr = searchParams.get('chapterId')
+    const indexStr = searchParams.get('index')
+    const targetUrl = searchParams.get('url')
 
     const where: any = { slug }
     if (chapterIdStr) {
@@ -183,28 +224,77 @@ export async function DELETE(
 
     const concept = await prisma.chapterConcept.findFirst({
       where,
-      select: { id: true, term: true }
+      select: { id: true, term: true, imageUrl: true, imageCaption: true, sourceUrl: true }
     })
 
     if (!concept) {
       return NextResponse.json({ error: 'Concept not found' }, { status: 404 })
     }
 
-    // Clear the image from the database
-    const updated = await prisma.chapterConcept.update({
-      where: { id: concept.id },
-      data: {
+    // Parse existing gallery
+    let currentGallery: Array<{ url: string; title: string; sourceUrl?: string }> = []
+    if (concept.imageUrl) {
+      if (concept.imageUrl.startsWith('[')) {
+        try {
+          currentGallery = JSON.parse(concept.imageUrl)
+        } catch {
+          currentGallery = []
+        }
+      } else {
+        currentGallery = [
+          {
+            url: concept.imageUrl,
+            title: concept.imageCaption || concept.term,
+            sourceUrl: concept.sourceUrl || undefined
+          }
+        ]
+      }
+    }
+
+    // Remove specific image by index or URL
+    if (indexStr !== null) {
+      const idx = parseInt(indexStr, 10)
+      if (!isNaN(idx) && idx >= 0 && idx < currentGallery.length) {
+        currentGallery.splice(idx, 1)
+      }
+    } else if (targetUrl) {
+      currentGallery = currentGallery.filter(g => g.url !== targetUrl)
+    } else {
+      // Clear all
+      currentGallery = []
+    }
+
+    let updateData: any = {}
+    if (currentGallery.length === 0) {
+      updateData = {
         imageUrl: null,
         thumbnailUrl: null,
         imageCaption: null,
         sourceUrl: null
       }
+    } else {
+      updateData = {
+        imageUrl: JSON.stringify(currentGallery),
+        thumbnailUrl: currentGallery[0].url,
+        imageCaption: currentGallery[0].title,
+        sourceUrl: currentGallery[0].sourceUrl || null
+      }
+    }
+
+    const updated = await prisma.chapterConcept.update({
+      where: { id: concept.id },
+      data: updateData
     })
 
     return NextResponse.json({
       success: true,
-      concept: updated,
-      message: `Image removed for concept "${concept.term}"`
+      galleryImages: currentGallery,
+      concept: {
+        ...updated,
+        imageUrl: currentGallery[0]?.url || null,
+        imageCaption: currentGallery[0]?.title || null
+      },
+      message: 'Image removed from concept gallery'
     })
   } catch (error: any) {
     console.error('Error removing concept image:', error)

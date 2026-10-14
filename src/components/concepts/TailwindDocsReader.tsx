@@ -27,7 +27,9 @@ import {
   PlusCircle,
   Link2,
   AlertCircle,
-  Check
+  Check,
+  Edit3,
+  RotateCcw
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 
@@ -151,6 +153,7 @@ export function TailwindDocsReader({
     videoId?: string | null
     thumbnailUrl?: string | null
     videoCaption: string
+    customSearchQuery?: string
   } | null>(null)
   const [loadingDetail, setLoadingDetail] = useState(false)
 
@@ -176,7 +179,19 @@ export function TailwindDocsReader({
   const [mediaError, setMediaError] = useState<string | null>(null)
   const [mediaSuccess, setMediaSuccess] = useState<string | null>(null)
   const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false)
+  const [imageToDelete, setImageToDelete] = useState<{
+    image: { url: string; title: string; sourceUrl?: string }
+    index: number
+  } | null>(null)
   const [deletingImage, setDeletingImage] = useState(false)
+
+  // Custom Video & Academic Search Query State
+  const [editVideoModalOpen, setEditVideoModalOpen] = useState(false)
+  const [inputVideoUrl, setInputVideoUrl] = useState('')
+  const [inputVideoQuery, setInputVideoQuery] = useState('')
+  const [videoSubmitting, setVideoSubmitting] = useState(false)
+  const [videoError, setVideoError] = useState<string | null>(null)
+  const [videoSuccess, setVideoSuccess] = useState<string | null>(null)
 
   // E-commerce Image Zoom State & Lightbox
   const [imageZoom, setImageZoom] = useState<{ active: boolean; x: number; y: number }>({
@@ -282,9 +297,22 @@ export function TailwindDocsReader({
           setReportModalOpen(false)
           return
         }
+        if (mediaModalOpen) {
+          setMediaModalOpen(false)
+          return
+        }
+        if (confirmDeleteOpen) {
+          setConfirmDeleteOpen(false)
+          setImageToDelete(null)
+          return
+        }
+        if (editVideoModalOpen) {
+          setEditVideoModalOpen(false)
+          return
+        }
       }
 
-      if (lightboxOpen || reportModalOpen) return
+      if (lightboxOpen || reportModalOpen || mediaModalOpen || confirmDeleteOpen || editVideoModalOpen) return
 
       if (e.key === 'ArrowRight' && currentIndex < flattenedConcepts.length - 1) {
         setActiveSlug(flattenedConcepts[currentIndex + 1].slug)
@@ -431,15 +459,16 @@ export function TailwindDocsReader({
           sourceUrl: resData.concept.sourceUrl
         } : prev)
 
-        setGalleryImages([
+        const newGallery = resData.galleryImages || [
           {
             url: resData.concept.imageUrl,
             title: resData.concept.imageCaption || activeSummary.term,
             sourceUrl: resData.concept.sourceUrl || undefined
           }
-        ])
-        setActiveImageIdx(0)
-        setMediaSuccess('Image successfully updated!')
+        ]
+        setGalleryImages(newGallery)
+        setActiveImageIdx(newGallery.length - 1)
+        setMediaSuccess('Image successfully added to gallery!')
         setTimeout(() => {
           setMediaModalOpen(false)
           setMediaSuccess(null)
@@ -452,29 +481,136 @@ export function TailwindDocsReader({
     }
   }
 
-  const handleRemoveImage = async () => {
-    if (!activeSummary) return
+  const handlePromptDeleteImage = (
+    img: { url: string; title: string; sourceUrl?: string },
+    index: number,
+    e?: React.MouseEvent
+  ) => {
+    if (e) e.stopPropagation()
+    setImageToDelete({ image: img, index })
+    setConfirmDeleteOpen(true)
+  }
+
+  const handleConfirmDeleteImage = async () => {
+    if (!activeSummary || !imageToDelete) return
     setDeletingImage(true)
     try {
-      const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}`, {
-        method: 'DELETE'
-      })
+      const res = await fetch(
+        `/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}&index=${imageToDelete.index}`,
+        { method: 'DELETE' }
+      )
+      const data = await res.json()
       if (res.ok) {
+        const updatedGallery = data.galleryImages || []
+        setGalleryImages(updatedGallery)
+        if (activeImageIdx >= updatedGallery.length) {
+          setActiveImageIdx(Math.max(0, updatedGallery.length - 1))
+        }
         setConceptDetail(prev => prev ? {
           ...prev,
-          imageUrl: null,
-          thumbnailUrl: null,
-          imageCaption: null,
-          sourceUrl: null
+          imageUrl: updatedGallery[0]?.url || null,
+          thumbnailUrl: updatedGallery[0]?.url || null,
+          imageCaption: updatedGallery[0]?.title || null,
+          sourceUrl: updatedGallery[0]?.sourceUrl || null
         } : prev)
-        setGalleryImages([])
-        setActiveImageIdx(0)
         setConfirmDeleteOpen(false)
+        setImageToDelete(null)
+      } else {
+        alert(data.error || 'Failed to remove image')
       }
     } catch (err) {
       console.error('Failed to remove image', err)
     } finally {
       setDeletingImage(false)
+    }
+  }
+
+  // Custom Video Link & Query Helpers
+  const parsedInputVideoId = useMemo(() => {
+    if (!inputVideoUrl.trim()) return null
+    const match = inputVideoUrl.trim().match(
+      /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/
+    )
+    return match ? match[1] : null
+  }, [inputVideoUrl])
+
+  const handleOpenEditVideo = () => {
+    const currentVideoId = precisionVideo?.videoId
+    const currentUrl = currentVideoId
+      ? `https://www.youtube.com/watch?v=${currentVideoId}`
+      : (precisionVideo?.videoUrl?.includes('watch?v=') || precisionVideo?.videoUrl?.includes('youtu.be') ? precisionVideo.videoUrl : '')
+
+    setInputVideoUrl(currentUrl)
+    setInputVideoQuery(
+      precisionVideo?.customSearchQuery ||
+      `${activeSummary?.term || ''} ${activeSummary?.subCategory || ''} veterinary demonstration ICAR`.trim()
+    )
+    setVideoError(null)
+    setVideoSuccess(null)
+    setEditVideoModalOpen(true)
+  }
+
+  const handleSaveVideoSettings = async () => {
+    if (!activeSummary) return
+    if (inputVideoUrl.trim() && !parsedInputVideoId) {
+      setVideoError('Please enter a valid YouTube video link (e.g., https://www.youtube.com/watch?v=... or https://youtu.be/...)')
+      return
+    }
+    setVideoSubmitting(true)
+    setVideoError(null)
+    try {
+      const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/video?chapterId=${chapterId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          videoUrl: inputVideoUrl.trim() || null,
+          searchQuery: inputVideoQuery.trim() || undefined
+        })
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data?.error || 'Failed to update video settings')
+
+      if (data?.precisionVideo) {
+        setPrecisionVideo(data.precisionVideo)
+      }
+      setVideoSuccess('Video & search query saved successfully!')
+      setTimeout(() => {
+        setEditVideoModalOpen(false)
+        setVideoSuccess(null)
+      }, 1200)
+    } catch (err: any) {
+      setVideoError(err.message || 'Error saving video settings')
+    } finally {
+      setVideoSubmitting(false)
+    }
+  }
+
+  const handleResetVideoDefaults = async () => {
+    if (!activeSummary) return
+    setVideoSubmitting(true)
+    setVideoError(null)
+    try {
+      const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/video?chapterId=${chapterId}`, {
+        method: 'DELETE'
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data?.error || 'Failed to reset video settings')
+
+      // Refetch concept details to reload automated precision query
+      const fetchRes = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}?chapterId=${chapterId}`)
+      const fetchData = await fetchRes.json()
+      if (fetchData?.precisionVideo) {
+        setPrecisionVideo(fetchData.precisionVideo)
+      }
+      setVideoSuccess('Reset to automated video & search query!')
+      setTimeout(() => {
+        setEditVideoModalOpen(false)
+        setVideoSuccess(null)
+      }, 1200)
+    } catch (err: any) {
+      setVideoError(err.message || 'Error resetting video settings')
+    } finally {
+      setVideoSubmitting(false)
     }
   }
 
@@ -972,7 +1108,7 @@ export function TailwindDocsReader({
                 <ImageIcon className="w-3.5 h-3.5 text-emerald-500" />
                 Authentic Image Reference
               </span>
-              {galleryImages.length > 1 && (
+              {galleryImages.length > 0 && (
                 <span className="text-[10px] text-slate-400 font-bold">
                   {activeImageIdx + 1} of {galleryImages.length}
                 </span>
@@ -980,7 +1116,7 @@ export function TailwindDocsReader({
             </div>
 
             {activeImage ? (
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {/* Main Active Image with E-Commerce Zoom Lens */}
                 <div
                   onMouseMove={handleImageMouseMove}
@@ -1020,28 +1156,53 @@ export function TailwindDocsReader({
                   </button>
                 </div>
 
-                {/* Multiple Images Selector Strip (1, 2, 3...) */}
-                {galleryImages.length > 1 && (
-                  <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
-                    {galleryImages.map((img, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveImageIdx(idx)}
-                        className={`h-12 w-12 rounded-lg overflow-hidden border transition-all cursor-pointer shrink-0 ${
-                          activeImageIdx === idx
-                            ? 'border-emerald-500 ring-2 ring-emerald-500/30'
-                            : 'border-slate-200 dark:border-slate-800 opacity-60 hover:opacity-100'
-                        }`}
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={img.url} alt={img.title} className="w-full h-full object-cover" />
-                      </button>
-                    ))}
-                  </div>
-                )}
+                {/* Multiple Images Selector Strip with Hover-To-Delete */}
+                <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-0.5">
+                  {galleryImages.map((img, idx) => {
+                    const isSelected = activeImageIdx === idx
+                    return (
+                      <div key={idx} className="relative group/thumb shrink-0">
+                        <button
+                          onClick={() => setActiveImageIdx(idx)}
+                          title={img.title || `Photo ${idx + 1}`}
+                          className={`h-13 w-13 rounded-xl overflow-hidden border-2 transition-all cursor-pointer block relative ${
+                            isSelected
+                              ? 'border-emerald-500 ring-2 ring-emerald-500/30 shadow-xs'
+                              : 'border-slate-200 dark:border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-400'
+                          }`}
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={img.url} alt={img.title} className="w-full h-full object-cover" />
+                          <span className="absolute bottom-0.5 right-0.5 px-1 rounded text-[8px] font-bold bg-black/75 text-white">
+                            {idx + 1}
+                          </span>
+                        </button>
+
+                        {/* Hover-to-Delete Trash Button on Thumbnail */}
+                        <button
+                          onClick={(e) => handlePromptDeleteImage(img, idx, e)}
+                          title={`Delete photo #${idx + 1}`}
+                          className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-rose-600 hover:bg-rose-700 text-white flex items-center justify-center opacity-0 group-hover/thumb:opacity-100 transition-opacity shadow-md cursor-pointer z-10"
+                        >
+                          <Trash2 className="w-3 h-3" />
+                        </button>
+                      </div>
+                    )
+                  })}
+
+                  {/* Add Photo Mini-Tile */}
+                  <button
+                    onClick={handleOpenAddImage}
+                    title="Add another photo to this gallery"
+                    className="h-13 w-13 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 flex flex-col items-center justify-center gap-0.5 shrink-0 transition-colors cursor-pointer"
+                  >
+                    <PlusCircle className="w-3.5 h-3.5" />
+                    <span className="text-[8px] font-bold">Add</span>
+                  </button>
+                </div>
 
                 {/* Caption & Actions */}
-                <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                <div className="flex items-center justify-between text-[11px] text-slate-500 pt-0.5">
                   <span className="truncate max-w-[190px]" title={activeImage.title}>
                     {activeImage.title}
                   </span>
@@ -1067,22 +1228,22 @@ export function TailwindDocsReader({
                   </div>
                 </div>
 
-                {/* Community Contribution & Remove Actions */}
+                {/* Community Contribution & Delete Active Photo Actions */}
                 <div className="flex items-center gap-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
                   <button
                     onClick={handleOpenAddImage}
                     className="flex-1 py-1.5 px-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-[11px] font-bold hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center gap-1 transition-colors cursor-pointer"
                   >
-                    <Upload className="w-3 h-3 text-emerald-500" />
-                    <span>Replace Image</span>
+                    <PlusCircle className="w-3 h-3 text-emerald-500" />
+                    <span>Add Photo</span>
                   </button>
                   <button
-                    onClick={() => setConfirmDeleteOpen(true)}
+                    onClick={() => handlePromptDeleteImage(activeImage, activeImageIdx)}
                     className="py-1.5 px-2.5 rounded-xl border border-rose-200 dark:border-rose-950/40 bg-rose-50/60 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 text-[11px] font-bold hover:bg-rose-100/70 transition-colors flex items-center gap-1 cursor-pointer"
-                    title="Remove unrelated or inaccurate image"
+                    title="Delete this specific photo from gallery"
                   >
                     <Trash2 className="w-3 h-3" />
-                    <span>Remove</span>
+                    <span>Delete Photo</span>
                   </button>
                 </div>
               </div>
@@ -1115,6 +1276,14 @@ export function TailwindDocsReader({
                 <Play className="w-3.5 h-3.5 text-red-500 fill-current" />
                 Field / Clinical Demo Video
               </span>
+              <button
+                onClick={handleOpenEditVideo}
+                className="text-[10px] font-bold text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center gap-1 px-2 py-0.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                title="Edit featured video link or YouTube search query"
+              >
+                <Edit3 className="w-3 h-3 text-emerald-500" />
+                <span>Edit Video & Query</span>
+              </button>
             </div>
 
             {precisionVideo ? (
@@ -1154,7 +1323,7 @@ export function TailwindDocsReader({
                 {/* AI Viewing Guide Callout */}
                 <div className="p-3 rounded-xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40 text-[11px] space-y-1">
                   <span className="font-black text-amber-800 dark:text-amber-300 block">
-                    💡 AI Exam Viewing Guide:
+                    💡 Practical Viewing Guide:
                   </span>
                   <p className="text-amber-900 dark:text-amber-200 leading-snug">
                     {precisionVideo.videoCaption}
@@ -1173,21 +1342,35 @@ export function TailwindDocsReader({
                 </a>
 
                 {precisionVideo.searchUrl && (
-                  <a
-                    href={precisionVideo.searchUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center gap-1.5 transition-colors"
-                  >
-                    <Search className="w-3.5 h-3.5 text-slate-500" />
-                    <span>View Similar Results on YouTube</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <div className="space-y-1">
+                    <a
+                      href={precisionVideo.searchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center gap-1.5 transition-colors"
+                    >
+                      <Search className="w-3.5 h-3.5 text-slate-500" />
+                      <span>View Similar Results on YouTube</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    {precisionVideo.customSearchQuery && (
+                      <p className="text-[10px] text-slate-400 text-center font-mono truncate px-1">
+                        Query: &quot;{precisionVideo.customSearchQuery}&quot;
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
             ) : (
-              <div className="p-6 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">
-                Generating video search query...
+              <div className="p-6 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 text-center space-y-2 text-xs text-slate-400">
+                <p>No video linked yet.</p>
+                <button
+                  onClick={handleOpenEditVideo}
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 cursor-pointer"
+                >
+                  <Edit3 className="w-3.5 h-3.5" />
+                  <span>Link YouTube Video</span>
+                </button>
               </div>
             )}
           </div>
@@ -1416,16 +1599,16 @@ export function TailwindDocsReader({
                 onClick={handleSaveCommunityImage}
                 className="px-5 py-2 rounded-xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 disabled:opacity-50 transition-all cursor-pointer flex items-center gap-1.5 shadow-xs"
               >
-                {mediaSubmitting ? 'Saving...' : 'Save Community Image'}
+                {mediaSubmitting ? 'Saving...' : 'Add Photo to Gallery'}
               </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Confirmation Dialog to Remove Image */}
-      {confirmDeleteOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+      {/* Visual Confirmation Dialog to Delete Specific Image */}
+      {confirmDeleteOpen && imageToDelete && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
           <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 max-w-sm w-full border border-slate-200 dark:border-slate-800 space-y-4 shadow-2xl">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-rose-100 dark:bg-rose-950/40 text-rose-600 flex items-center justify-center shrink-0">
@@ -1433,32 +1616,183 @@ export function TailwindDocsReader({
               </div>
               <div>
                 <h4 className="font-bold text-sm text-slate-900 dark:text-white">
-                  Remove Image?
+                  Remove This Photo?
                 </h4>
                 <p className="text-[11px] text-slate-400">
-                  Concept: &ldquo;{activeSummary?.term}&rdquo;
+                  Concept: &ldquo;{activeSummary?.term}&rdquo; • Photo #{imageToDelete.index + 1}
                 </p>
               </div>
             </div>
 
+            {/* Visual Photo Preview */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 p-2 text-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={imageToDelete.image.url}
+                alt={imageToDelete.image.title}
+                className="max-h-40 mx-auto rounded-xl object-contain"
+              />
+              <p className="text-[11px] font-bold text-slate-300 mt-2 truncate px-2">
+                {imageToDelete.image.title}
+              </p>
+            </div>
+
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-              Are you sure this image is unrelated or inaccurate? Removing it will clear the image for all users so someone can contribute an authentic photo.
+              Are you sure you want to remove this photo? It will be delinked from this concept gallery for all users.
             </p>
 
-            <div className="flex items-center justify-end gap-2 pt-2">
+            <div className="flex items-center justify-end gap-2 pt-1 border-t border-slate-100 dark:border-slate-800">
               <button
-                onClick={() => setConfirmDeleteOpen(false)}
+                onClick={() => {
+                  setConfirmDeleteOpen(false)
+                  setImageToDelete(null)
+                }}
                 className="px-3.5 py-1.5 rounded-xl text-slate-500 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer text-xs"
               >
                 Cancel
               </button>
               <button
                 disabled={deletingImage}
-                onClick={handleRemoveImage}
-                className="px-4 py-1.5 rounded-xl bg-rose-600 text-white font-bold hover:bg-rose-700 disabled:opacity-50 transition-all cursor-pointer text-xs"
+                onClick={handleConfirmDeleteImage}
+                className="px-4 py-1.5 rounded-xl bg-rose-600 text-white font-bold hover:bg-rose-700 disabled:opacity-50 transition-all cursor-pointer text-xs flex items-center gap-1.5"
               >
-                {deletingImage ? 'Removing...' : 'Yes, Remove Image'}
+                <Trash2 className="w-3.5 h-3.5" />
+                <span>{deletingImage ? 'Removing...' : 'Yes, Remove Photo'}</span>
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Video Link & Academic Search Query Modal */}
+      {editVideoModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 max-w-lg w-full border border-slate-200 dark:border-slate-800 space-y-4 shadow-2xl">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <div>
+                <h3 className="font-black text-sm sm:text-base text-slate-900 dark:text-white flex items-center gap-2">
+                  <Play className="w-4 h-4 text-red-500 fill-current" />
+                  <span>Customize Video & Query for &ldquo;{activeSummary?.term}&rdquo;</span>
+                </h3>
+                <p className="text-[11px] text-slate-400">
+                  Update the linked demonstration video and fine-tune YouTube search.
+                </p>
+              </div>
+              <button
+                onClick={() => setEditVideoModalOpen(false)}
+                className="p-1 rounded-lg text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {videoError && (
+              <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/40 text-rose-700 dark:text-rose-300 text-xs flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{videoError}</span>
+              </div>
+            )}
+
+            {videoSuccess && (
+              <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-xs flex items-center gap-2">
+                <Check className="w-4 h-4 shrink-0" />
+                <span>{videoSuccess}</span>
+              </div>
+            )}
+
+            <div className="space-y-4 text-xs">
+              {/* YouTube Video URL */}
+              <div>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                  Featured YouTube Video URL:
+                </label>
+                <input
+                  type="url"
+                  placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..."
+                  value={inputVideoUrl}
+                  onChange={e => {
+                    setInputVideoUrl(e.target.value)
+                    setVideoError(null)
+                  }}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-emerald-500 font-mono text-[11px]"
+                />
+                <p className="text-[10px] text-slate-400 pt-1">
+                  Accepts standard YouTube watch links, youtu.be short links, or embed links.
+                </p>
+              </div>
+
+              {/* Live Video Preview if valid ID */}
+              {parsedInputVideoId && (
+                <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 aspect-video">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${parsedInputVideoId}?rel=0`}
+                    title="Live Video Preview"
+                    className="w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+
+              {/* YouTube Search Query */}
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="font-bold text-slate-700 dark:text-slate-300">
+                    YouTube Search Query:
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setInputVideoQuery(`${activeSummary?.term || ''} ${activeSummary?.subCategory || ''} veterinary demonstration ICAR`.trim())
+                    }}
+                    className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline cursor-pointer"
+                  >
+                    Reset to Default Query
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  placeholder="e.g. Surti buffalo breed characteristics NDRI ICAR"
+                  value={inputVideoQuery}
+                  onChange={e => setInputVideoQuery(e.target.value)}
+                  className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-emerald-500 text-xs"
+                />
+                <p className="text-[10px] text-slate-400 pt-1">
+                  Powers the &ldquo;View Similar Results on YouTube&rdquo; button. Recommended format: [Term] [Breed/Subtopic] [ICAR / NDRI].
+                </p>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+              <button
+                type="button"
+                disabled={videoSubmitting}
+                onClick={handleResetVideoDefaults}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors"
+                title="Reset to automated AI recommendations"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>Reset to Automated</span>
+              </button>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setEditVideoModalOpen(false)}
+                  className="px-4 py-2 rounded-xl text-slate-500 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer text-xs"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  disabled={videoSubmitting}
+                  onClick={handleSaveVideoSettings}
+                  className="px-5 py-2 rounded-xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 disabled:opacity-50 transition-all cursor-pointer flex items-center gap-1.5 shadow-xs text-xs"
+                >
+                  {videoSubmitting ? 'Saving...' : 'Save Video & Query'}
+                </button>
+              </div>
             </div>
           </div>
         </div>
