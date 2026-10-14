@@ -197,7 +197,7 @@ function robustJsonParse(jsonStr: string): any {
  * - Phase 1 (MCQ Mining) & Phase 3 (Capsules): gemini-3.5-flash-lite, thinkingLevel = 'MINIMAL', Free Keys first -> Paid Key fallback
  * - Phase 2 (Master MindMap Taxonomy): gemini-3.5-flash, thinkingLevel = 'MEDIUM', Free Keys first -> Paid Key fallback
  */
-async function callGemini({
+export async function callGemini({
   systemPrompt,
   userPrompt,
   allowThinking = false,

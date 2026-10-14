@@ -37,13 +37,15 @@ function RedemptionQuizContent() {
   const chapterId = searchParams.get('chapterId')
   const quizId = searchParams.get('quizId')
   const questionIds = searchParams.get('questionIds')
+  const conceptIds = searchParams.get('conceptIds')
   const isCooldownMode = searchParams.get('cooldown') === 'true'
 
   useEffect(() => {
     let url = '/api/mistakes/quiz?'
-    if (questionIds) url += `questionIds=${encodeURIComponent(questionIds)}&`
+    if (conceptIds) url += `conceptIds=${encodeURIComponent(conceptIds)}&`
+    else if (questionIds) url += `questionIds=${encodeURIComponent(questionIds)}&`
     else if (quizId) url += `quizId=${encodeURIComponent(quizId)}&`
-    else if (chapterId) url += `chapterId=${encodeURIComponent(chapterId)}&`
+    if (chapterId) url += `chapterId=${encodeURIComponent(chapterId)}&`
     if (isCooldownMode) url += `cooldown=true&`
 
     fetch(url)

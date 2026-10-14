@@ -13,7 +13,28 @@ export async function GET(request: Request) {
     const chapterId = searchParams.get('chapterId')
     const quizId = searchParams.get('quizId')
     const questionIdsParam = searchParams.get('questionIds')
+    const conceptIdsParam = searchParams.get('conceptIds')
     const cooldown = searchParams.get('cooldown') === 'true'
+
+    // If conceptIds is specified, retrieve ALL questions for those concepts in the chapter
+    if (conceptIdsParam) {
+      const cIds = conceptIdsParam.split(',').map(s => parseInt(s.trim(), 10)).filter(n => !isNaN(n))
+      if (cIds.length > 0) {
+        const whereCond: any = {
+          concepts: {
+            some: { id: { in: cIds } }
+          }
+        }
+        if (chapterId) {
+          whereCond.quiz = { chapterId: parseInt(chapterId, 10) }
+        }
+        const questions = await prisma.question.findMany({
+          where: whereCond,
+          orderBy: { id: 'asc' }
+        })
+        return NextResponse.json({ questions })
+      }
+    }
 
     const whereClause: any = { 
       userId: session.id

@@ -14,6 +14,9 @@ export default async function Home() {
   const chapters = await prisma.chapter.findMany({
     where: cohort === 'ALPHA' ? {} : { cohort: 'BETA' },
     include: {
+      _count: {
+        select: { concepts: true }
+      },
       quizzes: {
         where: cohort === 'ALPHA' ? {} : { cohort: 'BETA' },
         include: {

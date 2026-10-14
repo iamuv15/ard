@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ChevronLeft, Search, BarChart2, ChevronUp, CheckCircle2, Menu, X, Settings, Maximize2, Bookmark, Share2 } from 'lucide-react'
+import { ChevronLeft, Search, BarChart2, ChevronUp, CheckCircle2, Menu, X, Settings, Maximize2, Bookmark, Share2, BookOpen, ArrowRight } from 'lucide-react'
 import LogOutButton from '@/components/LogOutButton'
 
 type Quiz = {
@@ -15,6 +15,7 @@ type Chapter = {
   id: number
   name: string
   quizzes: Quiz[]
+  _count?: { concepts?: number }
 }
 
 type CourseDashboardProps = {
@@ -143,48 +144,74 @@ export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount 
                     )}
                   </div>
                 )}
-                {!collapsedChapters[chapter.id] && chapter.quizzes.map(quiz => {
-                  const isActive = activeQuizId === quiz.id
-                  const isCompleted = completedQuizzesList.includes(quiz.id)
-                  
-                  return (
-                    <button
-                      key={quiz.id}
-                      onClick={() => {
-                        setActiveQuizId(quiz.id)
-                        if (window.innerWidth < 1024) setSidebarOpen(false)
-                      }}
-                      className={`
-                        w-full flex items-start gap-2.5 px-2 py-2.5 rounded-lg text-left transition-colors
-                        ${isActive ? 'bg-blue-50' : 'hover:bg-gray-50'}
-                      `}
+                {!collapsedChapters[chapter.id] && (
+                  <div className="space-y-1">
+                    {/* Chapter-Level Pinned Theory & Visual Docs Entry (Placement B) */}
+                    <Link
+                      href={`/chapter/${chapter.id}/concepts`}
+                      className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left bg-emerald-50/90 hover:bg-emerald-100 text-emerald-900 transition-all border border-emerald-200/80 mb-1.5 group shadow-2xs"
+                      title={`Open complete ${chapter.name} mind map, notes & photo gallery`}
                     >
-                      {/* Status circle */}
-                      <div className="mt-0.5 shrink-0">
-                        {isCompleted ? (
-                           <div className="w-[22px] h-[22px] rounded-full flex items-center justify-center bg-green-500">
-                             <CheckCircle2 className="w-4 h-4 text-white" />
-                           </div>
-                        ) : (
-                          <div className={`w-[22px] h-[22px] rounded-full border-2 flex items-center justify-center
-                            ${isActive ? 'border-blue-500 bg-blue-500' : 'border-gray-300'}
-                          `}>
-                            {isActive && <div className="w-2 h-2 bg-white rounded-full" />}
-                          </div>
-                        )}
+                      <div className="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                        <BookOpen className="w-3.5 h-3.5" />
                       </div>
-                      {/* Quiz info */}
                       <div className="flex-1 min-w-0">
-                        <div className={`text-[13px] font-semibold leading-snug truncate ${isActive ? 'text-blue-700' : 'text-gray-700'}`}>
-                          {quiz.name}
+                        <div className="text-[12px] font-extrabold leading-snug flex items-center justify-between">
+                          <span className="truncate">Chapter Notes & Docs</span>
+                          <span className="text-[9px] uppercase px-1.5 py-0.2 bg-emerald-200 text-emerald-900 rounded font-black shrink-0">
+                            DOCS
+                          </span>
                         </div>
-                        <div className="flex items-center gap-1.5 mt-0.5">
-                          <span className="text-[11px] text-gray-400">Test</span>
+                        <div className="text-[10px] text-emerald-700/80 font-medium truncate">
+                          {chapter._count?.concepts ? `${chapter._count.concepts} Concepts • ` : ''}Theory & Visuals
                         </div>
                       </div>
-                    </button>
-                  )
-                })}
+                    </Link>
+
+                    {chapter.quizzes.map(quiz => {
+                      const isActive = activeQuizId === quiz.id
+                      const isCompleted = completedQuizzesList.includes(quiz.id)
+                      
+                      return (
+                        <button
+                          key={quiz.id}
+                          onClick={() => {
+                            setActiveQuizId(quiz.id)
+                            if (window.innerWidth < 1024) setSidebarOpen(false)
+                          }}
+                          className={`
+                            w-full flex items-start gap-2.5 px-2 py-2.5 rounded-lg text-left transition-colors
+                            ${isActive ? 'bg-blue-50' : 'hover:bg-gray-50'}
+                          `}
+                        >
+                          {/* Status circle */}
+                          <div className="mt-0.5 shrink-0">
+                            {isCompleted ? (
+                               <div className="w-[22px] h-[22px] rounded-full flex items-center justify-center bg-green-500">
+                                 <CheckCircle2 className="w-4 h-4 text-white" />
+                               </div>
+                            ) : (
+                              <div className={`w-[22px] h-[22px] rounded-full border-2 flex items-center justify-center
+                                ${isActive ? 'border-blue-500 bg-blue-500' : 'border-gray-300'}
+                              `}>
+                                {isActive && <div className="w-2 h-2 bg-white rounded-full" />}
+                              </div>
+                            )}
+                          </div>
+                          {/* Quiz info */}
+                          <div className="flex-1 min-w-0">
+                            <div className={`text-[13px] font-semibold leading-snug truncate ${isActive ? 'text-blue-700' : 'text-gray-700'}`}>
+                              {quiz.name}
+                            </div>
+                            <div className="flex items-center gap-1.5 mt-0.5">
+                              <span className="text-[11px] text-gray-400">Test</span>
+                            </div>
+                          </div>
+                        </button>
+                      )
+                    })}
+                  </div>
+                )}
               </div>
             )
           })}
@@ -272,7 +299,40 @@ export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount 
                       </div>
                     </div>
 
-                    <p className="text-gray-400 text-sm mb-8">Ready when you are.</p>
+                    <p className="text-gray-400 text-sm mb-6">Ready when you are.</p>
+
+                    {/* Placement A: Big, prominent full-width emerald banner for Chapter Notes */}
+                    {activeChapter && (
+                      <Link
+                        href={`/chapter/${activeChapter.id}/concepts`}
+                        className="group block mb-6 p-4 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-950/40 border border-emerald-400/30 text-left transition-all hover:scale-[1.02] cursor-pointer"
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 text-white shadow-inner">
+                              <BookOpen className="w-5 h-5" />
+                            </div>
+                            <div className="min-w-0">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-black uppercase tracking-wider bg-white/25 px-2 py-0.5 rounded text-white shrink-0">
+                                  Chapter Theory
+                                </span>
+                                <span className="text-[11px] text-emerald-200 truncate font-medium">
+                                  {activeChapter._count?.concepts ? `${activeChapter._count.concepts} High-Yield Concepts` : 'Core Theory & Diagrams'}
+                                </span>
+                              </div>
+                              <div className="text-sm font-black text-white mt-1 truncate">
+                                Master {activeChapter.name} Notes & Visuals
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-1 text-xs font-black bg-white text-emerald-800 px-3.5 py-2 rounded-lg shrink-0 group-hover:bg-emerald-50 transition-colors shadow-sm">
+                            <span>Open Notes</span>
+                            <span>→</span>
+                          </div>
+                        </div>
+                      </Link>
+                    )}
 
                     <div className="flex items-center justify-center gap-4">
                       <Link
