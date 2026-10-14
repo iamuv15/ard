@@ -83,61 +83,113 @@ export async function POST(
     }
 
     const contentType = request.headers.get('content-type') || ''
+    const itemsToAdd: Array<{ url: string; title: string; sourceUrl?: string }> = []
 
-    let finalImageUrl = ''
-    let finalCaption = ''
-    let finalSourceUrl: string | null = null
-
-    // 1. FILE UPLOAD VIA FORMDATA
+    // 1. FILE UPLOAD VIA FORMDATA (Single or Multiple)
     if (contentType.includes('multipart/form-data')) {
       const formData = await request.formData()
-      const file = formData.get('file') as File | null
-      const caption = (formData.get('caption') as string) || ''
-      const sourceUrl = (formData.get('sourceUrl') as string) || ''
-
-      if (!file || typeof file === 'string') {
-        return NextResponse.json({ error: 'No image file uploaded' }, { status: 400 })
+      const files = (formData.getAll('files') as File[]).filter(f => f && typeof f !== 'string')
+      if (files.length === 0) {
+        const singleFile = formData.get('file') as File | null
+        if (singleFile && typeof singleFile !== 'string') {
+          files.push(singleFile)
+        }
       }
 
-      if (!ALLOWED_MIME_TYPES.includes(file.type)) {
+      if (files.length === 0) {
+        return NextResponse.json({ error: 'No image files uploaded' }, { status: 400 })
+      }
+
+      const caption = (formData.get('caption') as string) || ''
+      const sourceUrl = (formData.get('sourceUrl') as string) || ''
+      const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'concepts')
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i]
+        if (!ALLOWED_MIME_TYPES.includes(file.type)) {
+          continue
+        }
+        if (file.size > 10 * 1024 * 1024) {
+          continue
+        }
+
+        const buffer = Buffer.from(await file.arrayBuffer())
+        const ext = path.extname(file.name) || (file.type === 'image/png' ? '.png' : '.jpg')
+        const sanitizedSlug = slug.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 30)
+        const filename = `${Date.now()}_${i}_${sanitizedSlug}${ext}`
+        const filePath = path.join(uploadDir, filename)
+
+        await writeFile(filePath, buffer)
+        itemsToAdd.push({
+          url: `/uploads/concepts/${filename}`,
+          title: caption.trim()
+            ? (files.length > 1 ? `${caption.trim()} (${i + 1})` : caption.trim())
+            : `${concept.term} photo ${i + 1}`,
+          sourceUrl: sourceUrl.trim() || undefined
+        })
+      }
+
+      if (itemsToAdd.length === 0) {
         return NextResponse.json(
-          {
-            error: `Unsupported file type: ${file.type}. Allowed: JPEG, PNG, WebP, GIF, SVG.`
-          },
+          { error: 'No valid image files could be processed. Allowed types: JPEG, PNG, WebP, GIF, SVG under 10MB.' },
           { status: 400 }
         )
       }
-
-      // 10MB limit
-      if (file.size > 10 * 1024 * 1024) {
-        return NextResponse.json({ error: 'File size exceeds 10MB limit' }, { status: 400 })
-      }
-
-      const buffer = Buffer.from(await file.arrayBuffer())
-      const ext = path.extname(file.name) || (file.type === 'image/png' ? '.png' : '.jpg')
-      const sanitizedSlug = slug.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 30)
-      const filename = `${Date.now()}_${sanitizedSlug}${ext}`
-      const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'concepts')
-      const filePath = path.join(uploadDir, filename)
-
-      await writeFile(filePath, buffer)
-      finalImageUrl = `/uploads/concepts/${filename}`
-      finalCaption = caption.trim() || `${concept.term} community reference image`
-      finalSourceUrl = sourceUrl.trim() || null
     }
-    // 2. IMAGE URL VIA JSON
+    // 2. IMAGE URL VIA JSON (Single or Multiple)
     else {
       const body = await request.json()
-      const { imageUrl, imageCaption, sourceUrl } = body
+      const { imageUrl, imageUrls, images, imageCaption, sourceUrl } = body
 
-      const validation = isValidImageUrl(imageUrl)
-      if (!validation.valid) {
-        return NextResponse.json({ error: validation.reason }, { status: 400 })
+      const rawList: Array<{ url: string; title?: string; sourceUrl?: string }> = []
+
+      if (Array.isArray(images)) {
+        images.forEach(img => {
+          if (img && typeof img.imageUrl === 'string') {
+            rawList.push({
+              url: img.imageUrl.trim(),
+              title: img.imageCaption || imageCaption,
+              sourceUrl: img.sourceUrl || sourceUrl
+            })
+          }
+        })
+      } else if (Array.isArray(imageUrls)) {
+        imageUrls.forEach((u, i) => {
+          if (typeof u === 'string' && u.trim()) {
+            rawList.push({
+              url: u.trim(),
+              title: imageCaption
+                ? (imageUrls.length > 1 ? `${imageCaption} (${i + 1})` : imageCaption)
+                : undefined,
+              sourceUrl: sourceUrl || undefined
+            })
+          }
+        })
+      } else if (imageUrl && typeof imageUrl === 'string') {
+        rawList.push({
+          url: imageUrl.trim(),
+          title: imageCaption,
+          sourceUrl: sourceUrl
+        })
       }
 
-      finalImageUrl = imageUrl.trim()
-      finalCaption = (imageCaption || '').trim() || `${concept.term} reference image`
-      finalSourceUrl = sourceUrl ? sourceUrl.trim() : null
+      for (let i = 0; i < rawList.length; i++) {
+        const item = rawList[i]
+        const validation = isValidImageUrl(item.url)
+        if (validation.valid) {
+          itemsToAdd.push({
+            url: item.url,
+            title: (item.title || '').trim() || `${concept.term} reference photo`,
+            sourceUrl: item.sourceUrl ? item.sourceUrl.trim() : undefined
+          })
+        }
+      }
+
+      if (itemsToAdd.length === 0) {
+        return NextResponse.json({
+          error: 'No valid image URLs provided. URLs must start with http/https and end with .jpg, .png, .webp, .gif, or .svg'
+        }, { status: 400 })
+      }
     }
 
     // Parse existing gallery or single image
@@ -160,18 +212,14 @@ export async function POST(
       }
     }
 
-    const newItem = {
-      url: finalImageUrl,
-      title: finalCaption || `${concept.term} reference photo`,
-      sourceUrl: finalSourceUrl || undefined
-    }
-
-    // Append to gallery or update if same URL exists
-    const existingIdx = currentGallery.findIndex(g => g.url === newItem.url)
-    if (existingIdx >= 0) {
-      currentGallery[existingIdx] = newItem
-    } else {
-      currentGallery.push(newItem)
+    // Append new items to gallery (updating if identical URL exists)
+    for (const newItem of itemsToAdd) {
+      const existingIdx = currentGallery.findIndex(g => g.url === newItem.url)
+      if (existingIdx >= 0) {
+        currentGallery[existingIdx] = newItem
+      } else {
+        currentGallery.push(newItem)
+      }
     }
 
     // Save multi-image gallery to database
@@ -187,13 +235,14 @@ export async function POST(
 
     return NextResponse.json({
       success: true,
+      addedCount: itemsToAdd.length,
       galleryImages: currentGallery,
       concept: {
         ...updated,
         imageUrl: currentGallery[0].url,
         imageCaption: currentGallery[0].title
       },
-      message: 'Image added to concept gallery successfully'
+      message: `${itemsToAdd.length} photo${itemsToAdd.length > 1 ? 's' : ''} added to concept gallery successfully`
     })
   } catch (error: any) {
     console.error('Error adding community image:', error)

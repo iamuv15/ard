@@ -167,14 +167,13 @@ export function TailwindDocsReader({
   const [reportSubmitting, setReportSubmitting] = useState(false)
   const [reportSuccess, setReportSuccess] = useState(false)
 
-  // Community Image Contribution & Removal State
+  // Community Multi-Image Contribution & Removal State
   const [mediaModalOpen, setMediaModalOpen] = useState(false)
   const [mediaTab, setMediaTab] = useState<'url' | 'upload'>('url')
-  const [inputImageUrl, setInputImageUrl] = useState('')
+  const [inputImageUrlsText, setInputImageUrlsText] = useState('')
   const [inputCaption, setInputCaption] = useState('')
   const [inputSourceUrl, setInputSourceUrl] = useState('')
-  const [uploadFile, setUploadFile] = useState<File | null>(null)
-  const [uploadFilePreview, setUploadFilePreview] = useState<string | null>(null)
+  const [uploadFiles, setUploadFiles] = useState<Array<{ file: File; preview: string; id: string }>>([])
   const [mediaSubmitting, setMediaSubmitting] = useState(false)
   const [mediaError, setMediaError] = useState<string | null>(null)
   const [mediaSuccess, setMediaSuccess] = useState<string | null>(null)
@@ -364,44 +363,91 @@ export function TailwindDocsReader({
     }
   }
 
-  // Validate image URL format on client
-  const isUrlValid = useMemo(() => {
-    if (!inputImageUrl.trim()) return false
-    const trimmed = inputImageUrl.trim().toLowerCase()
+  // Validate single image URL format on client
+  const checkSingleUrlValid = (url: string) => {
+    if (!url) return false
+    const trimmed = url.trim().toLowerCase()
     if (!trimmed.startsWith('http://') && !trimmed.startsWith('https://')) return false
     const exts = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg', '.avif', '.bmp']
     const hasExt = exts.some(e => trimmed.split('?')[0].endsWith(e))
     const isCdn = ['wikimedia.org', 'imgur.com', 'unsplash.com', 'cloudinary.com', 'githubusercontent.com'].some(d => trimmed.includes(d))
     return hasExt || isCdn
-  }, [inputImageUrl])
+  }
+
+  // Parse lines of image URLs
+  const parsedImageUrls = useMemo(() => {
+    const lines = inputImageUrlsText
+      .split(/[\n,]+/)
+      .map(l => l.trim())
+      .filter(Boolean)
+    return lines.map((url, idx) => ({
+      idx,
+      url,
+      isValid: checkSingleUrlValid(url)
+    }))
+  }, [inputImageUrlsText])
+
+  const validUrls = useMemo(() => {
+    return parsedImageUrls.filter(u => u.isValid)
+  }, [parsedImageUrls])
 
   const handleOpenAddImage = () => {
-    setInputImageUrl('')
+    setInputImageUrlsText('')
     setInputCaption(`${activeSummary?.term || ''} reference photo`)
     setInputSourceUrl('')
-    setUploadFile(null)
-    setUploadFilePreview(null)
+    setUploadFiles([])
     setMediaError(null)
     setMediaSuccess(null)
     setMediaModalOpen(true)
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
+  const handleFilesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = e.target.files
+    if (!selected || selected.length === 0) return
+
+    const validList: Array<{ file: File; preview: string; id: string }> = []
+    let errorMsg: string | null = null
+
+    for (let i = 0; i < selected.length; i++) {
+      const file = selected[i]
       if (!['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'].includes(file.type)) {
-        setMediaError('Only JPEG, PNG, WebP, GIF, or SVG images are supported.')
-        return
+        errorMsg = `"${file.name}" skipped: only JPEG, PNG, WebP, GIF, or SVG supported.`
+        continue
       }
       if (file.size > 10 * 1024 * 1024) {
-        setMediaError('Image file must be under 10MB.')
-        return
+        errorMsg = `"${file.name}" skipped: file size exceeds 10MB.`
+        continue
       }
-      setMediaError(null)
-      setUploadFile(file)
-      const previewUrl = URL.createObjectURL(file)
-      setUploadFilePreview(previewUrl)
+      validList.push({
+        file,
+        preview: URL.createObjectURL(file),
+        id: `${file.name}-${file.size}-${Date.now()}-${i}`
+      })
     }
+
+    if (errorMsg) setMediaError(errorMsg)
+    else setMediaError(null)
+
+    if (validList.length > 0) {
+      setUploadFiles(prev => [...prev, ...validList])
+    }
+    e.target.value = ''
+  }
+
+  const handleRemoveUploadFile = (idToRemove: string) => {
+    setUploadFiles(prev => {
+      const item = prev.find(p => p.id === idToRemove)
+      if (item?.preview) {
+        URL.revokeObjectURL(item.preview)
+      }
+      return prev.filter(p => p.id !== idToRemove)
+    })
+  }
+
+  const handleRemoveUrlAt = (indexToRemove: number) => {
+    const lines = inputImageUrlsText.split(/[\n,]+/).map(l => l.trim()).filter(Boolean)
+    lines.splice(indexToRemove, 1)
+    setInputImageUrlsText(lines.join('\n'))
   }
 
   const handleSaveCommunityImage = async () => {
@@ -413,8 +459,9 @@ export function TailwindDocsReader({
       let resData: any = null
 
       if (mediaTab === 'url') {
-        if (!isUrlValid) {
-          setMediaError('Please enter a valid image URL ending with .jpg, .jpeg, .png, .webp, .gif, or .svg')
+        const toSubmit = validUrls.map(u => u.url)
+        if (toSubmit.length === 0) {
+          setMediaError('Please enter at least one valid image URL ending with .jpg, .jpeg, .png, .webp, .gif, or .svg')
           setMediaSubmitting(false)
           return
         }
@@ -423,7 +470,7 @@ export function TailwindDocsReader({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            imageUrl: inputImageUrl.trim(),
+            imageUrls: toSubmit,
             imageCaption: inputCaption.trim() || activeSummary.term,
             sourceUrl: inputSourceUrl.trim() || undefined
           })
@@ -431,14 +478,16 @@ export function TailwindDocsReader({
         resData = await res.json()
         if (!res.ok) throw new Error(resData?.error || 'Failed to update image')
       } else {
-        if (!uploadFile) {
-          setMediaError('Please select an image file to upload')
+        if (uploadFiles.length === 0) {
+          setMediaError('Please select at least one image file to upload')
           setMediaSubmitting(false)
           return
         }
 
         const formData = new FormData()
-        formData.append('file', uploadFile)
+        uploadFiles.forEach(item => {
+          formData.append('files', item.file)
+        })
         formData.append('caption', inputCaption.trim() || activeSummary.term)
         if (inputSourceUrl.trim()) formData.append('sourceUrl', inputSourceUrl.trim())
 
@@ -1481,48 +1530,80 @@ export function TailwindDocsReader({
             {mediaTab === 'url' ? (
               <div className="space-y-3 text-xs">
                 <div>
-                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                    Image URL: <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="url"
-                    placeholder="https://example.com/images/breed.jpg"
-                    value={inputImageUrl}
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="font-bold text-slate-700 dark:text-slate-300">
+                      Image URLs (one per line): <span className="text-red-500">*</span>
+                    </label>
+                    {validUrls.length > 0 && (
+                      <span className="text-[10px] text-emerald-600 font-bold flex items-center gap-0.5">
+                        <Check className="w-3 h-3" /> {validUrls.length} valid photo{validUrls.length === 1 ? '' : 's'}
+                      </span>
+                    )}
+                  </div>
+                  <textarea
+                    rows={4}
+                    placeholder={`https://upload.wikimedia.org/.../surti_buffalo.jpg\nhttps://upload.wikimedia.org/.../surti_horns.jpg`}
+                    value={inputImageUrlsText}
                     onChange={e => {
-                      setInputImageUrl(e.target.value)
+                      setInputImageUrlsText(e.target.value)
                       setMediaError(null)
                     }}
-                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-emerald-500 font-mono text-[11px]"
+                    className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-emerald-500 font-mono text-[11px] leading-relaxed resize-y"
                   />
                   <div className="flex items-center justify-between pt-1 text-[10px]">
                     <span className="text-slate-400">
-                      Supported: <span className="font-semibold text-slate-600 dark:text-slate-400">.jpg, .jpeg, .png, .webp, .gif, .svg</span>
+                      Paste 1 or multiple direct links (.jpg, .png, .webp, .svg)
                     </span>
-                    {inputImageUrl.trim() && (
-                      isUrlValid ? (
-                        <span className="text-emerald-600 font-bold flex items-center gap-0.5">
-                          <Check className="w-3 h-3" /> Valid Image URL
-                        </span>
-                      ) : (
-                        <span className="text-amber-500 font-medium">
-                          Must be direct image link
-                        </span>
-                      )
+                    {parsedImageUrls.length > validUrls.length && (
+                      <span className="text-amber-500 font-medium">
+                        {parsedImageUrls.length - validUrls.length} non-image link(s) skipped
+                      </span>
                     )}
                   </div>
                 </div>
 
-                {/* Live Preview Box */}
-                {inputImageUrl.trim() && isUrlValid && (
-                  <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 p-2 text-center">
-                    <p className="text-[10px] text-slate-400 mb-1">Image Preview</p>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={inputImageUrl}
-                      alt="URL Preview"
-                      className="max-h-32 mx-auto rounded-lg object-contain"
-                      onError={() => setMediaError('Unable to load image from this URL. Please verify the link is accessible.')}
-                    />
+                {/* Live Preview Strip for Valid URLs */}
+                {validUrls.length > 0 && (
+                  <div className="space-y-1.5 pt-1">
+                    <div className="flex items-center justify-between text-[10px] text-slate-400 font-bold">
+                      <span>Detected Photo Previews ({validUrls.length}):</span>
+                      <button
+                        type="button"
+                        onClick={() => setInputImageUrlsText('')}
+                        className="text-rose-500 hover:underline cursor-pointer"
+                      >
+                        Clear All
+                      </button>
+                    </div>
+                    <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
+                      {validUrls.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="relative group/prev shrink-0 w-20 h-20 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-950 shadow-xs"
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={item.url}
+                            alt={`URL Preview ${idx + 1}`}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              (e.target as HTMLElement).classList.add('opacity-30')
+                            }}
+                          />
+                          <span className="absolute bottom-1 left-1 px-1 rounded text-[8px] font-bold bg-black/75 text-white">
+                            #{idx + 1}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveUrlAt(item.idx)}
+                            className="absolute top-1 right-1 w-4 h-4 rounded-full bg-rose-600 text-white flex items-center justify-center opacity-80 hover:opacity-100 cursor-pointer shadow-xs"
+                            title="Remove this URL"
+                          >
+                            <X className="w-2.5 h-2.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -1530,28 +1611,58 @@ export function TailwindDocsReader({
               <div className="space-y-3 text-xs">
                 <div>
                   <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                    Select Image File: <span className="text-red-500">*</span>
+                    Select One or Multiple Files: <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="file"
+                    multiple
                     accept="image/jpeg,image/png,image/webp,image/gif,image/svg+xml"
-                    onChange={handleFileChange}
+                    onChange={handleFilesChange}
                     className="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 cursor-pointer"
                   />
                   <p className="text-[10px] text-slate-400 pt-1">
-                    Accepts JPEG, PNG, WebP, GIF, SVG (up to 10MB)
+                    Select 1 or more images (JPEG, PNG, WebP up to 10MB each).
                   </p>
                 </div>
 
-                {uploadFilePreview && (
-                  <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 p-2 text-center">
-                    <p className="text-[10px] text-slate-400 mb-1">Upload Preview ({((uploadFile?.size || 0) / (1024 * 1024)).toFixed(2)} MB)</p>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={uploadFilePreview}
-                      alt="Upload Preview"
-                      className="max-h-32 mx-auto rounded-lg object-contain"
-                    />
+                {/* Multiple Upload Previews Grid */}
+                {uploadFiles.length > 0 && (
+                  <div className="space-y-1.5 pt-1">
+                    <div className="flex items-center justify-between text-[10px] text-slate-400 font-bold">
+                      <span>Selected Photos ({uploadFiles.length} • {(uploadFiles.reduce((acc, f) => acc + f.file.size, 0) / (1024 * 1024)).toFixed(2)} MB):</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          uploadFiles.forEach(f => URL.revokeObjectURL(f.preview))
+                          setUploadFiles([])
+                        }}
+                        className="text-rose-500 hover:underline cursor-pointer"
+                      >
+                        Clear All
+                      </button>
+                    </div>
+                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-44 overflow-y-auto p-1.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800">
+                      {uploadFiles.map((item, idx) => (
+                        <div
+                          key={item.id}
+                          className="relative group rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-900 aspect-square shadow-2xs"
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={item.preview} alt={item.file.name} className="w-full h-full object-cover" />
+                          <div className="absolute inset-x-0 bottom-0 p-1 bg-black/75 text-[8px] text-white truncate font-mono">
+                            {item.file.name}
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveUploadFile(item.id)}
+                            className="absolute top-1 right-1 w-4 h-4 rounded-full bg-rose-600 text-white flex items-center justify-center opacity-90 hover:opacity-100 cursor-pointer shadow-xs"
+                            title="Remove this file"
+                          >
+                            <X className="w-2.5 h-2.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -1561,14 +1672,14 @@ export function TailwindDocsReader({
             <div className="space-y-2 text-xs pt-2 border-t border-slate-100 dark:border-slate-800">
               <div>
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                  Image Caption / Label:
+                  Base Caption / Label:
                 </label>
                 <input
                   type="text"
                   placeholder="e.g. Surti buffalo cow at Anand Agricultural University"
                   value={inputCaption}
                   onChange={e => setInputCaption(e.target.value)}
-                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                  className="w-full p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs"
                 />
               </div>
 
@@ -1590,16 +1701,24 @@ export function TailwindDocsReader({
             <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
               <button
                 onClick={() => setMediaModalOpen(false)}
-                className="px-4 py-2 rounded-xl text-slate-500 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+                className="px-4 py-2 rounded-xl text-slate-500 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer text-xs"
               >
                 Cancel
               </button>
               <button
-                disabled={mediaSubmitting || (mediaTab === 'url' ? !isUrlValid : !uploadFile)}
+                disabled={
+                  mediaSubmitting ||
+                  (mediaTab === 'url' ? validUrls.length === 0 : uploadFiles.length === 0)
+                }
                 onClick={handleSaveCommunityImage}
-                className="px-5 py-2 rounded-xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 disabled:opacity-50 transition-all cursor-pointer flex items-center gap-1.5 shadow-xs"
+                className="px-5 py-2 rounded-xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 disabled:opacity-50 transition-all cursor-pointer flex items-center gap-1.5 shadow-xs text-xs"
               >
-                {mediaSubmitting ? 'Saving...' : 'Add Photo to Gallery'}
+                {mediaSubmitting
+                  ? 'Saving Photos...'
+                  : mediaTab === 'url'
+                    ? (validUrls.length > 1 ? `Add ${validUrls.length} Photos to Gallery` : 'Add Photo to Gallery')
+                    : (uploadFiles.length > 1 ? `Upload ${uploadFiles.length} Photos to Gallery` : 'Upload Photo to Gallery')
+                }
               </button>
             </div>
           </div>
