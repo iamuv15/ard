@@ -38,22 +38,85 @@ export function isValidImageUrl(url: string): { valid: boolean; reason?: string 
 
     const hostname = parsed.hostname.toLowerCase()
     const isImageHost =
+      hostname.includes('gstatic.com') ||
+      hostname.includes('googleusercontent.com') ||
       hostname.includes('wikimedia.org') ||
       hostname.includes('imgur.com') ||
       hostname.includes('unsplash.com') ||
       hostname.includes('cloudinary.com') ||
-      hostname.includes('githubusercontent.com')
+      hostname.includes('githubusercontent.com') ||
+      hostname.includes('twimg.com') ||
+      hostname.includes('pinimg.com') ||
+      hostname.includes('redd.it')
 
     if (!hasImageExt && !hasFormatParam && !isImageHost) {
       return {
         valid: false,
-        reason: 'URL must end with a valid image extension (.jpg, .jpeg, .png, .webp, .gif, .svg, .avif, .bmp) or be a direct image CDN link.'
+        reason: 'URL must end with a valid image/GIF extension (.jpg, .jpeg, .png, .webp, .gif, .svg) or be from a trusted image CDN.'
       }
     }
 
     return { valid: true }
   } catch {
     return { valid: false, reason: 'Invalid URL format' }
+  }
+}
+
+export async function verifyUrlIsImage(url: string): Promise<{ valid: boolean; reason?: string }> {
+  // First syntactic check
+  const synCheck = isValidImageUrl(url)
+  if (!synCheck.valid) {
+    return synCheck
+  }
+
+  // Local uploads are already validated
+  if (url.startsWith('/uploads/')) {
+    return { valid: true }
+  }
+
+  // Live content-type probe via HEAD / partial GET to ensure it's an image or GIF, not an HTML page
+  try {
+    let res = await fetch(url, {
+      method: 'HEAD',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+      },
+      signal: AbortSignal.timeout(4000)
+    })
+
+    // If server rejects HEAD (405 Method Not Allowed), retry with GET range 0-2048
+    if (res.status === 405 || res.status === 403) {
+      res = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Range': 'bytes=0-2048',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        },
+        signal: AbortSignal.timeout(4000)
+      })
+    }
+
+    const contentType = (res.headers.get('content-type') || '').toLowerCase()
+    if (contentType.includes('text/html')) {
+      return {
+        valid: false,
+        reason: 'Link is an HTML web page and not a direct image or GIF file.'
+      }
+    }
+
+    if (contentType.startsWith('image/')) {
+      return { valid: true }
+    }
+
+    // If response was ok and had acceptable content-type or status
+    if (res.ok) {
+      return { valid: true }
+    }
+
+    return { valid: true } // allow if remote server blocked bot but host matched
+  } catch {
+    // If request timed out or network error, fallback to syntactic check result
+    return { valid: true }
   }
 }
 
@@ -173,21 +236,24 @@ export async function POST(
         })
       }
 
+      let lastInvalidReason: string | undefined
       for (let i = 0; i < rawList.length; i++) {
         const item = rawList[i]
-        const validation = isValidImageUrl(item.url)
+        const validation = await verifyUrlIsImage(item.url)
         if (validation.valid) {
           itemsToAdd.push({
             url: item.url,
             title: (item.title || '').trim() || `${concept.term} reference photo`,
             sourceUrl: item.sourceUrl ? item.sourceUrl.trim() : undefined
           })
+        } else {
+          lastInvalidReason = validation.reason
         }
       }
 
       if (itemsToAdd.length === 0) {
         return NextResponse.json({
-          error: 'No valid image URLs provided. URLs must start with http/https and end with .jpg, .png, .webp, .gif, or .svg'
+          error: lastInvalidReason || 'No valid image or GIF URLs provided. Only direct image links (.jpg, .png, .webp, .gif, .svg) or verified image hosts are allowed.'
         }, { status: 400 })
       }
     }

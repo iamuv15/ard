@@ -1,12 +1,35 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, CheckCircle2, XCircle, Clock, BarChart2, Target, Minus, Bookmark } from 'lucide-react'
+import {
+  ArrowLeft,
+  CheckCircle2,
+  XCircle,
+  Clock,
+  BarChart2,
+  Target,
+  Minus,
+  Bookmark,
+  Zap,
+  BookOpen,
+  Sparkles,
+  ExternalLink,
+  RotateCcw,
+  AlertTriangle
+} from 'lucide-react'
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
 import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
+
+type Concept = {
+  id: number
+  slug: string
+  term: string
+  category: string
+  chapterId: number
+}
 
 type Question = {
   id: number
@@ -19,16 +42,19 @@ type Question = {
   explanation?: string | null
   simpleExplanation?: string | null
   correctAnswer: string
+  topic?: string | null
+  concepts?: Concept[]
 }
-
 
 type Props = {
   quizId: number
   quizName: string
+  chapterId?: number
+  chapterName?: string
   questions: Question[]
 }
 
-export default function AnalysisClient({ quizId, quizName, questions }: Props) {
+export default function AnalysisClient({ quizId, quizName, chapterId, chapterName, questions }: Props) {
   const [questionList, setQuestionList] = useState(questions)
   const [result, setResult] = useState<{
     answers: Record<number, string>
@@ -110,13 +136,59 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
     return `${m}m ${s}s`
   }
 
+  // Aggregate weak concepts and missed question IDs
+  const { missedQuestionIds, weakConcepts } = useMemo(() => {
+    if (!result) return { missedQuestionIds: [], weakConcepts: [] }
+
+    const missedIds: number[] = []
+    const conceptMap = new Map<string, { concept: Concept; count: number; questionIds: number[] }>()
+
+    questionList.forEach((q, idx) => {
+      const userAns = result.answers[idx]
+      const correctAns = q.correctAnswer.toUpperCase()
+      const isCorrect = userAns === correctAns
+      if (!isCorrect) {
+        missedIds.push(q.id)
+        if (q.concepts && q.concepts.length > 0) {
+          q.concepts.forEach(c => {
+            const existing = conceptMap.get(c.slug)
+            if (existing) {
+              existing.count += 1
+              if (!existing.questionIds.includes(q.id)) existing.questionIds.push(q.id)
+            } else {
+              conceptMap.set(c.slug, { concept: c, count: 1, questionIds: [q.id] })
+            }
+          })
+        }
+      }
+    })
+
+    return {
+      missedQuestionIds: missedIds,
+      weakConcepts: Array.from(conceptMap.values()).sort((a, b) => b.count - a.count)
+    }
+  }, [result, questionList])
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       {/* Top bar */}
-      <div className="h-14 bg-white border-b border-gray-200 flex items-center px-6 sticky top-0 z-10">
-        <Link href="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm font-medium">
-          ← {quizName}
+      <div className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-6 sticky top-0 z-10">
+        <Link
+          href={chapterId ? `/chapter/${chapterId}` : '/'}
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm font-medium"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back to {chapterName || 'Chapter'}</span>
         </Link>
+        {chapterId && (
+          <Link
+            href={`/chapter/${chapterId}/concepts`}
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg transition-colors"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Chapter Theory & Notes</span>
+          </Link>
+        )}
       </div>
 
       <div className="max-w-4xl mx-auto px-6 py-8 space-y-8">
@@ -149,6 +221,116 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
             <div className="text-[11px] font-bold text-gray-400 uppercase mt-1">Skipped</div>
           </div>
         </div>
+
+        {/* Targeted Review & Weak Concepts Section */}
+        {missedQuestionIds.length > 0 ? (
+          <div className="bg-white rounded-2xl border border-rose-100 shadow-xs p-6 space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-rose-100">
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-rose-50 text-rose-600 border border-rose-200">
+                  <AlertTriangle className="w-3.5 h-3.5" />
+                  <span>Targeted Gap Analysis</span>
+                </div>
+                <h2 className="text-xl font-black text-gray-900 flex items-center gap-2">
+                  <span>Weak Concepts to Master</span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">
+                    {missedQuestionIds.length} Missed
+                  </span>
+                </h2>
+                <p className="text-xs text-gray-500 max-w-xl">
+                  You missed or skipped {missedQuestionIds.length} question{missedQuestionIds.length === 1 ? '' : 's'} in this test. Re-study the linked high-yield notes and visual documentation below, then test your retention immediately.
+                </p>
+              </div>
+
+              {/* 1-Click Retest Missed Questions Drill Button */}
+              <div className="flex flex-wrap items-center gap-2">
+                <Link
+                  href={`/redemption/quiz?quizId=${quizId}&questionIds=${missedQuestionIds.join(',')}&cooldown=true`}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-700 hover:to-red-700 text-white font-bold text-xs shadow-sm hover:shadow transition-all whitespace-nowrap"
+                >
+                  <Zap className="w-4 h-4 fill-current text-amber-300" />
+                  <span>Retest Missed Questions ({missedQuestionIds.length})</span>
+                </Link>
+
+                {chapterId && (
+                  <Link
+                    href={`/chapter/${chapterId}/concepts`}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors whitespace-nowrap"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Open Chapter Notes</span>
+                  </Link>
+                )}
+              </div>
+            </div>
+
+            {/* List of Weak Concepts */}
+            {weakConcepts.length > 0 ? (
+              <div className="space-y-3">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  High-Yield Concept Notes Requiring Attention:
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {weakConcepts.map(({ concept, count }) => (
+                    <div
+                      key={concept.id}
+                      className="group flex flex-col justify-between p-4 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white hover:border-emerald-500 hover:shadow-sm transition-all"
+                    >
+                      <div className="space-y-1.5 mb-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-md bg-slate-200/70 text-slate-600">
+                            {concept.category}
+                          </span>
+                          <span className="text-[11px] font-bold text-rose-600 flex items-center gap-1">
+                            <XCircle className="w-3 h-3" /> {count} question{count === 1 ? '' : 's'} missed
+                          </span>
+                        </div>
+                        <h3 className="font-extrabold text-slate-900 text-sm group-hover:text-emerald-700 transition-colors">
+                          {concept.term}
+                        </h3>
+                      </div>
+
+                      <Link
+                        href={`/chapter/${chapterId || concept.chapterId}/concepts?concept=${encodeURIComponent(concept.slug)}`}
+                        className="inline-flex items-center justify-between w-full px-3 py-2 rounded-lg bg-emerald-50 text-emerald-800 text-xs font-bold hover:bg-emerald-100 transition-colors"
+                      >
+                        <span className="flex items-center gap-1.5">
+                          <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+                          <span>Study Notes & Visuals</span>
+                        </span>
+                        <ExternalLink className="w-3 h-3" />
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <p className="text-xs text-slate-400 italic">
+                Questions missed in this quiz are general questions without specific concept tags.
+              </p>
+            )}
+          </div>
+        ) : (
+          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-emerald-100 rounded-xl text-emerald-600">
+                <Sparkles className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-black text-emerald-950 text-lg">Flawless Mastery!</h3>
+                <p className="text-xs text-emerald-700">You scored 100% on this quiz. All core concepts are solidly retained.</p>
+              </div>
+            </div>
+            {chapterId && (
+              <Link
+                href={`/chapter/${chapterId}`}
+                className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors whitespace-nowrap"
+              >
+                Back to Chapter Hub →
+              </Link>
+            )}
+          </div>
+        )}
 
         {/* Detailed Solutions */}
         <div>
@@ -324,6 +506,26 @@ export default function AnalysisClient({ quizId, quizName, questions }: Props) {
                         questionId={q.id}
                         initialSimpleExplanation={q.simpleExplanation}
                       />
+                    </div>
+                  )}
+
+                  {/* Linked High-Yield Concepts */}
+                  {q.concepts && q.concepts.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5 mt-3 pt-3 border-t border-slate-100">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Linked Concept Notes:
+                      </span>
+                      {q.concepts.map(c => (
+                        <Link
+                          key={c.id}
+                          href={`/chapter/${chapterId || c.chapterId}/concepts?concept=${encodeURIComponent(c.slug)}`}
+                          className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2.5 py-1 rounded-lg transition-colors"
+                        >
+                          <BookOpen className="w-3 h-3 text-emerald-600" />
+                          <span>{c.term}</span>
+                          <ExternalLink className="w-2.5 h-2.5 text-emerald-500" />
+                        </Link>
+                      ))}
                     </div>
                   )}
 

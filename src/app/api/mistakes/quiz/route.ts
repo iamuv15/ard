@@ -11,13 +11,27 @@ export async function GET(request: Request) {
 
     const { searchParams } = new URL(request.url)
     const chapterId = searchParams.get('chapterId')
+    const quizId = searchParams.get('quizId')
+    const questionIdsParam = searchParams.get('questionIds')
     const cooldown = searchParams.get('cooldown') === 'true'
 
     const whereClause: any = { 
-      userId: session.id,
-      nextReviewAt: cooldown ? { gt: new Date() } : { lte: new Date() }
+      userId: session.id
     }
-    if (chapterId) {
+
+    // Only apply time gate if not a targeted quiz/retest drill
+    if (!quizId && !questionIdsParam) {
+      whereClause.nextReviewAt = cooldown ? { gt: new Date() } : { lte: new Date() }
+    }
+
+    if (questionIdsParam) {
+      const ids = questionIdsParam.split(',').map(s => parseInt(s.trim(), 10)).filter(n => !isNaN(n))
+      if (ids.length > 0) {
+        whereClause.questionId = { in: ids }
+      }
+    } else if (quizId) {
+      whereClause.question = { quizId: parseInt(quizId, 10) }
+    } else if (chapterId) {
       whereClause.question = { quiz: { chapterId: parseInt(chapterId, 10) } }
     }
 

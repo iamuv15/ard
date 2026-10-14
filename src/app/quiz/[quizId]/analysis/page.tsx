@@ -14,7 +14,24 @@ export default async function AnalysisPage({ params }: { params: Promise<{ quizI
   const { quizId } = await params
   const quiz = await prisma.quiz.findUnique({
     where: { id: parseInt(quizId, 10) },
-    include: { questions: true }
+    include: {
+      chapter: {
+        select: { id: true, name: true }
+      },
+      questions: {
+        include: {
+          concepts: {
+            select: {
+              id: true,
+              slug: true,
+              term: true,
+              category: true,
+              chapterId: true
+            }
+          }
+        }
+      }
+    }
   })
 
   if (!quiz) notFound()
@@ -23,6 +40,8 @@ export default async function AnalysisPage({ params }: { params: Promise<{ quizI
     <AnalysisClient 
       quizId={quiz.id} 
       quizName={quiz.name} 
+      chapterId={quiz.chapter.id}
+      chapterName={quiz.chapter.name}
       questions={quiz.questions} 
     />
   )

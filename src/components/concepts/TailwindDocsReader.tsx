@@ -363,15 +363,44 @@ export function TailwindDocsReader({
     }
   }
 
-  // Validate single image URL format on client
+  // Validate single image/GIF URL format on client
   const checkSingleUrlValid = (url: string) => {
     if (!url) return false
-    const trimmed = url.trim().toLowerCase()
+    const trimmed = url.trim()
     if (!trimmed.startsWith('http://') && !trimmed.startsWith('https://')) return false
-    const exts = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg', '.avif', '.bmp']
-    const hasExt = exts.some(e => trimmed.split('?')[0].endsWith(e))
-    const isCdn = ['wikimedia.org', 'imgur.com', 'unsplash.com', 'cloudinary.com', 'githubusercontent.com'].some(d => trimmed.includes(d))
-    return hasExt || isCdn
+    try {
+      const parsed = new URL(trimmed)
+      const pathname = parsed.pathname.toLowerCase()
+      const exts = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg', '.avif', '.bmp']
+      if (exts.some(e => pathname.endsWith(e))) return true
+
+      const formatParam = (
+        parsed.searchParams.get('format') ||
+        parsed.searchParams.get('fm') ||
+        parsed.searchParams.get('ext') ||
+        ''
+      ).toLowerCase()
+      if (['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg', 'avif'].includes(formatParam)) return true
+
+      const host = parsed.hostname.toLowerCase()
+      if (
+        host.includes('gstatic.com') ||
+        host.includes('googleusercontent.com') ||
+        host.includes('wikimedia.org') ||
+        host.includes('imgur.com') ||
+        host.includes('unsplash.com') ||
+        host.includes('cloudinary.com') ||
+        host.includes('githubusercontent.com') ||
+        host.includes('twimg.com') ||
+        host.includes('pinimg.com') ||
+        host.includes('redd.it')
+      ) {
+        return true
+      }
+      return false
+    } catch {
+      return false
+    }
   }
 
   // Parse lines of image URLs
@@ -1553,7 +1582,7 @@ export function TailwindDocsReader({
                   />
                   <div className="flex items-center justify-between pt-1 text-[10px]">
                     <span className="text-slate-400">
-                      Paste 1 or multiple direct links (.jpg, .png, .webp, .svg)
+                      Paste 1 or multiple direct links (.jpg, .png, .gif, .webp, or Google/Wikimedia/Imgur photos)
                     </span>
                     {parsedImageUrls.length > validUrls.length && (
                       <span className="text-amber-500 font-medium">
