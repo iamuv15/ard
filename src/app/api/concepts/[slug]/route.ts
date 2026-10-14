@@ -47,6 +47,14 @@ export async function GET(
       return NextResponse.json({ error: 'Concept not found' }, { status: 404 })
     }
 
+    // Normalize correctAnswer on all returned practice questions to standardized uppercase
+    if (concept.questions && Array.isArray(concept.questions)) {
+      concept.questions = concept.questions.map(q => ({
+        ...q,
+        correctAnswer: (q.correctAnswer || '').trim().toUpperCase()
+      }))
+    }
+
     const { fetchWikimediaGallery, generatePrecisionYouTubeData, isImageTitleIrrelevant } = await import('@/lib/mediaEnrichment')
 
     // 1. Resolve Multi-Image Gallery or Single Image

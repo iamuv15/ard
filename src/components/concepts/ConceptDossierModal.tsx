@@ -377,26 +377,28 @@ export function ConceptDossierModal({
               <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
                 Multiple-Choice Questions Testing &ldquo;{concept.term}&rdquo;
               </p>
-              {concept.questions?.map((q, idx) => (
-                <div key={q.id} className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 space-y-3">
-                  <div className="flex items-start gap-2">
-                    <span className="font-bold text-emerald-600 dark:text-emerald-400 text-sm">Q{idx + 1}.</span>
-                    <p className="font-semibold text-slate-900 dark:text-slate-100 text-sm">{q.questionText}</p>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                    <div className={`p-2 rounded-lg border ${q.correctAnswer === 'A' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                      A: {q.optionA}
+              {concept.questions?.map((q, idx) => {
+                const correctAns = (q.correctAnswer || '').trim().toUpperCase()
+                return (
+                  <div key={q.id} className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 space-y-3">
+                    <div className="flex items-start gap-2">
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400 text-sm">Q{idx + 1}.</span>
+                      <p className="font-semibold text-slate-900 dark:text-slate-100 text-sm">{q.questionText}</p>
                     </div>
-                    <div className={`p-2 rounded-lg border ${q.correctAnswer === 'B' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                      B: {q.optionB}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                      <div className={`p-2 rounded-lg border ${correctAns === 'A' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
+                        A: {q.optionA}
+                      </div>
+                      <div className={`p-2 rounded-lg border ${correctAns === 'B' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
+                        B: {q.optionB}
+                      </div>
+                      <div className={`p-2 rounded-lg border ${correctAns === 'C' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
+                        C: {q.optionC}
+                      </div>
+                      <div className={`p-2 rounded-lg border ${correctAns === 'D' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
+                        D: {q.optionD}
+                      </div>
                     </div>
-                    <div className={`p-2 rounded-lg border ${q.correctAnswer === 'C' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                      C: {q.optionC}
-                    </div>
-                    <div className={`p-2 rounded-lg border ${q.correctAnswer === 'D' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                      D: {q.optionD}
-                    </div>
-                  </div>
                   {q.explanation && (
                     <div className="text-xs text-slate-600 dark:text-slate-400 p-2.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
                       <span className="font-bold text-emerald-600 dark:text-emerald-400">Explanation: </span>
@@ -404,8 +406,9 @@ export function ConceptDossierModal({
                     </div>
                   )}
                 </div>
-              ))}
-            </div>
+              )
+            })}
+          </div>
           )}
         </div>
       </div>

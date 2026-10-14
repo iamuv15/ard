@@ -1004,9 +1004,10 @@ export function TailwindDocsReader({
               ) : (
                 <div className="space-y-6">
                   {conceptDetail.questions.map((q, qIdx) => {
-                    const selected = userAnswers[q.id]
+                    const normalizedCorrectAnswer = (q.correctAnswer || '').trim().toUpperCase()
+                    const selected = userAnswers[q.id]?.trim().toUpperCase()
                     const isAnswered = Boolean(selected)
-                    const isCorrect = selected === q.correctAnswer
+                    const isCorrect = selected === normalizedCorrectAnswer
 
                     return (
                       <div
@@ -1032,7 +1033,7 @@ export function TailwindDocsReader({
                               'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-emerald-500'
 
                             if (isAnswered) {
-                              if (optKey === q.correctAnswer) {
+                              if (optKey === normalizedCorrectAnswer) {
                                 btnStyle =
                                   'bg-emerald-500 text-white border-emerald-600 font-bold shadow-xs'
                               } else if (selected === optKey) {
@@ -1075,7 +1076,7 @@ export function TailwindDocsReader({
                                   <span>Correct Answer!</span>
                                 </>
                               ) : (
-                                <span>Incorrect (Correct answer is: {q.correctAnswer})</span>
+                                <span>Incorrect (Correct answer is: Option {normalizedCorrectAnswer})</span>
                               )}
                             </div>
                             <p className="leading-relaxed font-medium">
