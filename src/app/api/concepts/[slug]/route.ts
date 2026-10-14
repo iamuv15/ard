@@ -47,7 +47,41 @@ export async function GET(
       return NextResponse.json({ error: 'Concept not found' }, { status: 404 })
     }
 
-    return NextResponse.json({ concept })
+    const { fetchWikimediaGallery, generatePrecisionYouTubeData } = await import('@/lib/mediaEnrichment')
+
+    // Generate precision video guidance
+    const precisionVideo = generatePrecisionYouTubeData(
+      concept.term,
+      concept.category,
+      concept.subCategory,
+      concept.examTraps
+    )
+
+    // Fetch multiple images from Wikimedia
+    let galleryImages: Array<{ url: string; title: string; sourceUrl?: string }> = []
+    try {
+      galleryImages = await fetchWikimediaGallery(concept.term, concept.category)
+    } catch (e) {
+      console.warn('Failed to fetch gallery for', concept.term, e)
+    }
+
+    // Ensure primary image is at index 0 if available
+    if (concept.imageUrl) {
+      const alreadyHas = galleryImages.some(img => img.url === concept.imageUrl)
+      if (!alreadyHas) {
+        galleryImages.unshift({
+          url: concept.imageUrl,
+          title: concept.imageCaption || concept.term,
+          sourceUrl: concept.sourceUrl || undefined
+        })
+      }
+    }
+
+    return NextResponse.json({
+      concept,
+      galleryImages,
+      precisionVideo
+    })
   } catch (error: any) {
     console.error('Error fetching concept by slug:', error)
     return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 })

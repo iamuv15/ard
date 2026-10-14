@@ -150,17 +150,121 @@ async function fetchWikimediaMedia(
 }
 
 /**
+ * Generate precision practical / clinical YouTube demo link with AI-curated viewing guidance
+ */
+export function generatePrecisionYouTubeData(
+  term: string,
+  category?: string | null,
+  subCategory?: string | null,
+  examTraps?: string | null
+): {
+  videoUrl: string
+  embedUrl: string
+  videoCaption: string
+} {
+  const cleanTerm = cleanTermForWiki(term)
+  const catLower = (category || '').toLowerCase()
+  const subLower = (subCategory || '').toLowerCase()
+
+  let querySuffix = 'agriculture veterinary demonstration ICAR'
+  let caption = `Comprehensive practical demonstration and exam guide for ${term}.`
+
+  if (catLower.includes('breed') || subLower.includes('breed') || catLower.includes('livestock')) {
+    querySuffix = 'breed physical characteristics identification ICAR NDRI dairy demonstration'
+    caption = `Observe key physical conformation, head/horn shape, dewlap, and distinctive breed identification marks.`
+    if (examTraps && examTraps.toLowerCase().includes('forehead')) {
+      caption = `Notice the prominent forehead shape and ear conformation highlighted in exam trap questions.`
+    } else if (examTraps && examTraps.toLowerCase().includes('fat')) {
+      caption = `Notice the coat color, body frame, and milk characteristics contrasted in competitive exams.`
+    }
+  } else if (catLower.includes('disease') || subLower.includes('disease') || catLower.includes('health') || catLower.includes('patholog')) {
+    querySuffix = 'clinical signs symptoms veterinary diagnosis post mortem ICAR'
+    caption = `Observe characteristic clinical symptoms, diagnostic tests, and disease lesions tested in exams.`
+  } else if (catLower.includes('reproduct') || subLower.includes('reproduct') || catLower.includes('oestrus') || catLower.includes('physiol')) {
+    querySuffix = 'veterinary physiology lecture animation clinical demonstration'
+    caption = `Educational demonstration of reproductive mechanisms, hormonal cycles, and management techniques.`
+  } else if (catLower.includes('nutrition') || subLower.includes('feed') || subLower.includes('fodder')) {
+    querySuffix = 'cattle feed formulation silage hay making livestock nutrition'
+    caption = `Practical demonstration of feed preparation, nutrient evaluation, and livestock feeding.`
+  }
+
+  const query = `${cleanTerm} ${querySuffix}`
+  const videoUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
+  const embedUrl = `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(query)}`
+
+  return { videoUrl, embedUrl, videoCaption: caption }
+}
+
+/**
+ * Fetch multiple authentic Wikimedia Commons images for a concept
+ */
+export async function fetchWikimediaGallery(
+  term: string,
+  category?: string | null
+): Promise<Array<{ url: string; title: string; sourceUrl?: string }>> {
+  const cleanTerm = cleanTermForWiki(term)
+  if (!cleanTerm) return []
+
+  const isBreed = (category || '').toLowerCase().includes('breed') || (category || '').toLowerCase().includes('livestock')
+  const searchQuery = isBreed ? `${cleanTerm} cattle OR ${cleanTerm} breed OR ${cleanTerm}` : cleanTerm
+
+  const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=${encodeURIComponent(searchQuery)}&gsrlimit=6&prop=imageinfo&iiprop=url|mime&format=json&origin=*`
+
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'User-Agent': 'AgriscienceExamPrep/1.0 (educational competitive exam platform)'
+      }
+    })
+
+    if (!res.ok) return []
+
+    const data = await res.json()
+    const pages = data.query?.pages || {}
+    const gallery: Array<{ url: string; title: string; sourceUrl?: string }> = []
+
+    for (const pageId of Object.keys(pages)) {
+      const page = pages[pageId]
+      const info = page.imageinfo?.[0]
+      if (info?.url) {
+        const mime = (info.mime || '').toLowerCase()
+        const title = (page.title || '').replace(/^File:/i, '').replace(/\.[^/.]+$/, '')
+        const titleLower = title.toLowerCase()
+
+        // Exclude icons, maps, flags, coats of arms, and non-photos
+        if (
+          mime.includes('jpeg') || mime.includes('png') || mime.includes('webp')
+        ) {
+          if (
+            !titleLower.includes('icon') &&
+            !titleLower.includes('logo') &&
+            !titleLower.includes('flag') &&
+            !titleLower.includes('map') &&
+            !titleLower.includes('coat_of_arms')
+          ) {
+            gallery.push({
+              url: info.url,
+              title: title.replace(/_/g, ' '),
+              sourceUrl: info.descriptionurl || `https://commons.wikimedia.org/wiki/${encodeURIComponent(page.title)}`
+            })
+          }
+        }
+      }
+    }
+
+    return gallery.slice(0, 4)
+  } catch (err: any) {
+    console.warn(`Wikimedia gallery lookup error for "${term}":`, err?.message)
+    return []
+  }
+}
+
+/**
  * Generate structured practical / clinical YouTube demo link
  */
 function generateYouTubeDemoLink(term: string, category?: string | null): string | null {
-  const termLower = term.toLowerCase()
-  const catLower = (category || '').toLowerCase()
-
-  const isDemo = PRACTICAL_DEMO_KEYWORDS.some(kw => termLower.includes(kw) || catLower.includes(kw))
-  if (!isDemo) return null
-
-  const query = `${cleanTermForWiki(term)} veterinary practical demonstration agriculture`
-  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
+  const data = generatePrecisionYouTubeData(term, category)
+  return data.videoUrl
 }
 
 /**
