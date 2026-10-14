@@ -304,6 +304,8 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                       <span>🧠 Generate 5 AI Trap Questions</span>
                     </>
                   )}
+                </button>
+
                 {chapterId && (
                   <Link
                     href={`/chapter/${chapterId}/concepts`}
