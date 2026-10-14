@@ -18,10 +18,6 @@ export default async function ChapterConceptsPage(props: { params: Promise<{ id:
     notFound()
   }
 
-  // Under construction: Only ADMIN can preview the note reader
-  if (session.role !== 'ADMIN') {
-    redirect(`/chapter/${chapterId}`)
-  }
 
   const chapter = await prisma.chapter.findUnique({
     where: { id: chapterId },

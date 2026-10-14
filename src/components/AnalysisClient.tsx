@@ -304,9 +304,16 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                       <span>🧠 Generate 5 AI Trap Questions</span>
                     </>
                   )}
-                </button>
-
-
+                {chapterId && (
+                  <Link
+                    href={`/chapter/${chapterId}/concepts`}
+                    className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold shadow-2xs transition-colors"
+                    title="Open 3-Column Notes Reader for this chapter"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Open Chapter Notes</span>
+                  </Link>
+                )}
               </div>
             </div>
 
@@ -351,7 +358,16 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                       </div>
 
                       <div className="flex items-center justify-between gap-2 pt-1">
-                        <span className="text-[10px] font-semibold text-slate-400 italic">Capsule notes under construction</span>
+                        <Link
+                          href={`/chapter/${chapterId || concept.chapterId}/concepts?concept=${encodeURIComponent(concept.slug)}`}
+                          className="flex-1 inline-flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-50 text-emerald-800 text-xs font-bold hover:bg-emerald-100 transition-colors"
+                        >
+                          <span className="flex items-center gap-1.5">
+                            <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>Study Notes</span>
+                          </span>
+                          <ExternalLink className="w-3 h-3" />
+                        </Link>
                         <button
                           type="button"
                           onClick={() => handleGenerateAiQuestions([concept.id])}
@@ -576,15 +592,18 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                   {q.concepts && q.concepts.length > 0 && (
                     <div className="flex flex-wrap items-center gap-1.5 mt-3 pt-3 border-t border-slate-100">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        Linked Concept:
+                        Linked Concept Notes:
                       </span>
                       {q.concepts.map(c => (
-                        <span
+                        <Link
                           key={c.id}
-                          className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg"
+                          href={`/chapter/${chapterId || c.chapterId}/concepts?concept=${encodeURIComponent(c.slug)}`}
+                          className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2.5 py-1 rounded-lg transition-colors"
                         >
+                          <BookOpen className="w-3 h-3 text-emerald-600" />
                           <span>{c.term}</span>
-                        </span>
+                          <ExternalLink className="w-2.5 h-2.5 text-emerald-500" />
+                        </Link>
                       ))}
                     </div>
                   )}

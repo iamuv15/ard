@@ -173,50 +173,101 @@ export default async function ChapterPage(props: { params: Promise<{ id: string 
           </div>
         )}
 
-        {/* Practice & Mock Tests Hero */}
-        <div className="group relative rounded-3xl bg-gradient-to-br from-indigo-600 via-blue-700 to-indigo-800 text-white p-6 sm:p-8 shadow-md hover:shadow-xl transition-all flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 overflow-hidden">
-          <div className="space-y-3 relative z-10 max-w-2xl">
-            <div className="flex items-center gap-2">
-              <div className="p-2.5 rounded-xl bg-white/10 backdrop-blur-md text-indigo-200">
-                <Target className="w-5 h-5" />
+        {/* Dual-Pathway Hero Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Pathway 1: Theory & Concept Notes */}
+          <div className="group relative rounded-3xl bg-gradient-to-br from-emerald-600 via-teal-700 to-emerald-800 text-white p-6 sm:p-8 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden">
+            <div className="space-y-4 relative z-10">
+              <div className="flex items-center justify-between">
+                <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-md text-emerald-200">
+                  <BookOpen className="w-7 h-7" />
+                </div>
+                <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/20 text-white backdrop-blur-md">
+                  Path 1 • Theory First
+                </span>
               </div>
-              <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/20 text-white backdrop-blur-md">
-                Active Recall Examination
-              </span>
+
+              <div className="space-y-2">
+                <h2 className="text-xl sm:text-2xl font-black tracking-tight">
+                  Master High-Yield Notes & Visual Docs
+                </h2>
+                <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed">
+                  Study reverse-engineered concept cards, species comparative matrices, community photo gallery, and exam traps built directly from {totalQuestions} questions.
+                </p>
+              </div>
+
+              {/* Feature Tags */}
+              <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
+                <span className="px-2.5 py-1 rounded-lg bg-black/20 text-emerald-100 font-medium">
+                  📸 Visual Photo Gallery
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-black/20 text-emerald-100 font-medium">
+                  ⚠️ Exam Traps
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-black/20 text-emerald-100 font-medium">
+                  🎥 Video Lectures
+                </span>
+              </div>
             </div>
 
-            <div className="space-y-1">
-              <h2 className="text-xl sm:text-2xl font-black tracking-tight">
-                Practice Quizzes & Timed Examination
-              </h2>
-              <p className="text-xs sm:text-sm text-indigo-100 leading-relaxed">
-                Test your active recall across {chapter.quizzes.length} quiz modules ({totalQuestions} total questions). Receive instant gap analysis, detailed solutions, and automatic mistake logging.
-              </p>
-            </div>
-
-            {/* Feature Tags */}
-            <div className="pt-1 flex flex-wrap gap-2 text-[11px]">
-              <span className="px-2.5 py-1 rounded-lg bg-black/20 text-indigo-100 font-medium">
-                ⏱️ Timed Mock Simulator
-              </span>
-              <span className="px-2.5 py-1 rounded-lg bg-black/20 text-indigo-100 font-medium">
-                📊 Instant Gap Analysis
-              </span>
-              <span className="px-2.5 py-1 rounded-lg bg-black/20 text-indigo-100 font-medium">
-                🔁 Spaced Redemption
-              </span>
+            <div className="pt-6 relative z-10">
+              <Link
+                href={`/chapter/${chapter.id}/concepts`}
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-white text-emerald-800 font-extrabold text-sm shadow-sm hover:bg-emerald-50 transition-colors cursor-pointer group-hover:scale-[1.01]"
+              >
+                <span>Launch 3-Column Docs Reader</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
 
-          <div className="relative z-10 shrink-0">
-            <a
-              href="#quiz-modules"
-              className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-white text-indigo-800 font-extrabold text-sm shadow-sm hover:bg-indigo-50 transition-colors cursor-pointer"
-            >
-              <span>Browse {chapter.quizzes.length} Quiz Modules</span>
-              <ChevronRight className="w-4 h-4" />
-            </a>
+          {/* Pathway 2: Practice & Mock Tests */}
+          <div className="group relative rounded-3xl bg-gradient-to-br from-indigo-600 via-blue-700 to-indigo-800 text-white p-6 sm:p-8 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden">
+            <div className="space-y-4 relative z-10">
+              <div className="flex items-center justify-between">
+                <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-md text-indigo-200">
+                  <Target className="w-7 h-7" />
+                </div>
+                <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/20 text-white backdrop-blur-md">
+                  Path 2 • Test Recall
+                </span>
+              </div>
+
+              <div className="space-y-2">
+                <h2 className="text-xl sm:text-2xl font-black tracking-tight">
+                  Practice Quizzes & Timed Examination
+                </h2>
+                <p className="text-xs sm:text-sm text-indigo-100 leading-relaxed">
+                  Test your active recall across {chapter.quizzes.length} quiz modules ({totalQuestions} total questions). Receive instant gap analysis, detailed solutions, and automatic mistake logging.
+                </p>
+              </div>
+
+              {/* Feature Tags */}
+              <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
+                <span className="px-2.5 py-1 rounded-lg bg-black/20 text-indigo-100 font-medium">
+                  ⏱️ Timed Mock Simulator
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-black/20 text-indigo-100 font-medium">
+                  📊 Instant Gap Analysis
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-black/20 text-indigo-100 font-medium">
+                  🔁 Spaced Redemption
+                </span>
+              </div>
+            </div>
+
+            <div className="pt-6 relative z-10">
+              <a
+                href="#quiz-modules"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-white text-indigo-800 font-extrabold text-sm shadow-sm hover:bg-indigo-50 transition-colors cursor-pointer group-hover:scale-[1.01]"
+              >
+                <span>Browse {chapter.quizzes.length} Quiz Modules</span>
+                <ChevronRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
+
         </div>
 
         {/* Quizzes Section */}
