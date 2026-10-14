@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { cookies } from 'next/headers'
 import { generateConceptCapsulesBatch } from '@/lib/terminologyEngine'
+import { enrichChapterConceptsMedia } from '@/lib/mediaEnrichment'
 
 export const maxDuration = 60
 export const dynamic = 'force-dynamic'
@@ -73,6 +74,19 @@ export async function POST(
     }
 
     const body = await request.json()
+
+    // Action: Automated Media Enrichment (Wikimedia + YouTube) - 100% Free
+    if (body.action === 'enrich_media') {
+      const result = await enrichChapterConceptsMedia(chapterId, {
+        limit: body.limit || 80,
+        forceRecheck: body.forceRecheck || false
+      })
+      return NextResponse.json({
+        success: true,
+        ...result
+      })
+    }
+
     const { keywords, items, category, subCategory, apiKey, paidApiKey, fallbackApiKey } = body
 
     if ((!items || !Array.isArray(items) || items.length === 0) && (!keywords || !Array.isArray(keywords) || keywords.length === 0)) {

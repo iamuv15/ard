@@ -41,6 +41,8 @@ interface ChapterMindMapViewProps {
     slug: string
     category: string
     subCategory?: string | null
+    imageUrl?: string | null
+    videoUrl?: string | null
     _count?: { questions: number }
   }[]
 }
@@ -58,12 +60,14 @@ export function ChapterMindMapView({
 
   // Map of created concept slugs for quick lookup
   const conceptMap = useMemo(() => {
-    const map = new Map<string, { id: number; slug: string; questionCount: number }>()
+    const map = new Map<string, { id: number; slug: string; questionCount: number; hasImage: boolean; hasVideo: boolean }>()
     existingConcepts.forEach(c => {
       map.set(c.term.toLowerCase().trim(), {
         id: c.id,
         slug: c.slug,
-        questionCount: c._count?.questions || 0
+        questionCount: c._count?.questions || 0,
+        hasImage: Boolean(c.imageUrl),
+        hasVideo: Boolean(c.videoUrl)
       })
     })
     return map
@@ -246,6 +250,16 @@ export function ChapterMindMapView({
                               }`}
                             >
                               <span>{kw}</span>
+                              {entry?.hasImage && (
+                                <span title="Reference image available" className="text-[10px] opacity-80 group-hover:opacity-100">
+                                  🖼️
+                                </span>
+                              )}
+                              {entry?.hasVideo && (
+                                <span title="Practical demo video available" className="text-[10px] opacity-80 group-hover:opacity-100">
+                                  ▶️
+                                </span>
+                              )}
                               {qCount > 0 && (
                                 <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-emerald-100 group-hover:bg-white group-hover:text-emerald-700 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 font-bold">
                                   {qCount}

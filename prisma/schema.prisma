@@ -51,6 +51,7 @@ model Question {
   explanation       String?
   simpleExplanation String?
   isEnriched        Boolean  @default(false)
+  isMined           Boolean  @default(false)
   correctAnswer     String
 
   quizId        Int
@@ -85,15 +86,40 @@ model ChapterConcept {
   content      String
   examTraps    String?
   relatedTerms String[]   @default([])
+  imageUrl     String?
+  thumbnailUrl String?
+  imageCaption String?
+  sourceUrl    String?
+  videoUrl     String?
   order        Int        @default(0)
   isPublished  Boolean    @default(true)
   questions    Question[]
+  mediaReports ConceptMediaReport[]
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 
   @@unique([chapterId, slug])
   @@index([chapterId])
   @@index([category])
+}
+
+model ConceptMediaReport {
+  id               Int            @id @default(autoincrement())
+  conceptId        Int
+  concept          ChapterConcept @relation(fields: [conceptId], references: [id], onDelete: Cascade)
+  reportedByUserId Int?
+  reportedBy       User?          @relation(fields: [reportedByUserId], references: [id], onDelete: SetNull)
+  mediaType        String         // "IMAGE" or "VIDEO"
+  reason           String         // "INACCURATE_BREED", "BROKEN_LINK", "IRRELEVANT", "OTHER"
+  userNote         String?
+  flaggedUrl       String?
+  status           String         @default("PENDING") // "PENDING", "RESOLVED", "DISMISSED"
+  resolvedAt       DateTime?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@index([conceptId])
+  @@index([status])
 }
 
 model User {
@@ -105,10 +131,11 @@ model User {
   cohort    String    @default("BETA") // "ALPHA" or "BETA"
   createdAt DateTime  @default(now())
 
-  mistakes  UserMistake[]
-  attempts  QuizAttempt[]
-  bookmarks UserBookmark[]
-  reports   QuestionReport[]
+  mistakes       UserMistake[]
+  attempts       QuizAttempt[]
+  bookmarks      UserBookmark[]
+  reports        QuestionReport[]
+  conceptReports ConceptMediaReport[]
 }
 
 model UserMistake {

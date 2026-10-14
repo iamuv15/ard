@@ -1,5 +1,6 @@
 import prisma from '@/lib/prisma'
 import { getTNAUSpine } from '@/lib/tnauSyllabusSpine'
+import { enrichConceptTerm } from '@/lib/mediaEnrichment'
 
 // Types for MindMap and Concept Capsules
 export interface MindMapEdge {
@@ -463,22 +464,147 @@ Output strictly valid JSON:
 }
 
 /**
- * Progressive / Phased Mining:
- * Mines keywords from a SINGLE batch of MCQs in ~1.5-2 seconds.
- * Allows client-side manual clicking or timed batching to completely avoid Vercel timeouts.
+ * Smart "Delta Append" (Option 2):
+ * When new MCQs are mined or added:
+ * 1. Links questions to matching existing concepts in the chapter (updating questionCount).
+ * 2. If a new question contains novel traps, numbers, or rules not present in concept.examTraps,
+ *    appends a single crisp bullet point to concept.examTraps without touching definition or tables.
  */
-export async function mineSingleMCQBatch({
+export async function applySmartDeltaAppend({
   chapterId,
-  batchIndex,
-  batchSize = 25,
+  questions,
   apiKey,
   fallbackApiKey
 }: {
   chapterId: number
-  batchIndex: number
+  questions: Array<{
+    id: number
+    questionText: string
+    optionA: string
+    optionB: string
+    optionC: string
+    optionD: string
+    optionE?: string | null
+    correctAnswer: string
+    explanation?: string | null
+  }>
+  apiKey?: string
+  fallbackApiKey?: string
+}) {
+  const existingConcepts = await prisma.chapterConcept.findMany({
+    where: { chapterId },
+    select: {
+      id: true,
+      term: true,
+      slug: true,
+      examTraps: true
+    }
+  })
+
+  if (existingConcepts.length === 0) return { linkedCount: 0, deltaAppendedCount: 0 }
+
+  let linkedCount = 0
+  let deltaAppendedCount = 0
+
+  for (const q of questions) {
+    const textToScan = `${q.questionText} ${q.optionA} ${q.optionB} ${q.optionC} ${q.optionD} ${q.explanation || ''}`.toLowerCase()
+
+    // Find concepts mentioned in this question
+    const matchedConcepts = existingConcepts.filter(c =>
+      c.term.length > 2 && textToScan.includes(c.term.toLowerCase())
+    )
+
+    if (matchedConcepts.length === 0) continue
+
+    // Connect question to matched concepts
+    await prisma.question.update({
+      where: { id: q.id },
+      data: {
+        concepts: {
+          connect: matchedConcepts.map(c => ({ id: c.id }))
+        }
+      }
+    })
+    linkedCount++
+
+    // For any matched concept that has an explanation with substantive text:
+    if (q.explanation && q.explanation.trim().length > 25) {
+      for (const concept of matchedConcepts) {
+        const currentTraps = concept.examTraps || ''
+        
+        // Fast heuristic check: if the explanation text is already contained in the trap, skip AI call
+        const snippet = q.explanation.slice(0, 35).toLowerCase()
+        if (currentTraps.toLowerCase().includes(snippet)) continue
+
+        try {
+          const prompt = `You are an expert agricultural competitive exam author.
+Concept: "${concept.term}"
+Current Exam Traps for this concept:
+"${currentTraps.slice(0, 500)}"
+
+Newly added exam question:
+Stem: ${q.questionText}
+Ans: ${q.correctAnswer}
+Explanation: ${q.explanation}
+
+Does this new question reveal a critical exam trap, numeric standard, or exception that is NOT already mentioned in the Current Exam Traps?
+If YES, provide a single concise bullet point (maximum 1 sentence) starting with "- ⚡ **Delta Update:** ".
+If NO or redundant, return strictly: {"newTrap": null}
+
+Return valid JSON: {"newTrap": string | null}`
+
+          const res = await callGemini({
+            systemPrompt: 'You are an expert agricultural competitive exam author.',
+            userPrompt: prompt,
+            allowThinking: false,
+            temperature: 0.1,
+            apiKeyOverride: apiKey,
+            fallbackApiKey,
+            modelOverride: 'gemini-3.5-flash-lite'
+          })
+
+          if (res?.newTrap && typeof res.newTrap === 'string' && res.newTrap.trim().length > 10) {
+            const updatedTraps = currentTraps
+              ? `${currentTraps.trim()}\n\n${res.newTrap.trim()}`
+              : res.newTrap.trim()
+
+            await prisma.chapterConcept.update({
+              where: { id: concept.id },
+              data: { examTraps: updatedTraps }
+            })
+            concept.examTraps = updatedTraps // update local copy
+            deltaAppendedCount++
+          }
+        } catch (err: any) {
+          console.warn(`Smart delta append skipped for concept "${concept.term}":`, err?.message)
+        }
+      }
+    }
+  }
+
+  return { linkedCount, deltaAppendedCount }
+}
+
+/**
+ * Incremental Delta Mining with Database Lock:
+ * Strictly processes UNMINED questions (isMined: false) in small batches.
+ * Once mined, questions are marked isMined: true so they are NEVER re-run through the AI.
+ * Also runs Smart Delta Append to link questions and update existing concept cards with new traps.
+ */
+export async function mineSingleMCQBatch({
+  chapterId,
+  batchIndex = 0,
+  batchSize = 25,
+  apiKey,
+  fallbackApiKey,
+  forceAll = false
+}: {
+  chapterId: number
+  batchIndex?: number
   batchSize?: number
   apiKey?: string
   fallbackApiKey?: string
+  forceAll?: boolean
 }) {
   const chapter = await prisma.chapter.findUnique({
     where: { id: chapterId },
@@ -490,8 +616,36 @@ export async function mineSingleMCQBatch({
     where: { quiz: { chapterId } }
   })
 
+  const minedQuestions = await prisma.question.count({
+    where: { quiz: { chapterId }, isMined: true }
+  })
+
+  const unminedQuestions = totalQuestions - minedQuestions
+
+  // If already 100% locked and user didn't explicitly force
+  if (!forceAll && unminedQuestions === 0) {
+    const existing = await prisma.chapterMindMap.findUnique({ where: { chapterId } })
+    return {
+      batchIndex: 0,
+      batchQuestionsCount: 0,
+      totalQuestions,
+      minedQuestions,
+      unminedQuestions: 0,
+      isLocked: true,
+      totalBatches: 0,
+      extractedKeywords: [],
+      newKeywordsAdded: 0,
+      totalKeywordsPool: existing?.rawKeywords?.length || 0,
+      allRawKeywords: existing?.rawKeywords || [],
+      message: 'All questions in this chapter are already mined and locked.'
+    }
+  }
+
+  // Fetch only unmined questions for targeted delta mining
   const batchQuestions = await prisma.question.findMany({
-    where: { quiz: { chapterId } },
+    where: forceAll 
+      ? { quiz: { chapterId } }
+      : { quiz: { chapterId }, isMined: false },
     select: {
       id: true,
       questionText: true,
@@ -505,7 +659,7 @@ export async function mineSingleMCQBatch({
       explanation: true
     },
     orderBy: { id: 'asc' },
-    skip: batchIndex * batchSize,
+    skip: forceAll ? batchIndex * batchSize : 0,
     take: batchSize
   })
 
@@ -515,7 +669,10 @@ export async function mineSingleMCQBatch({
       batchIndex,
       batchQuestionsCount: 0,
       totalQuestions,
-      totalBatches: Math.ceil(totalQuestions / batchSize),
+      minedQuestions,
+      unminedQuestions: 0,
+      isLocked: true,
+      totalBatches: 0,
       extractedKeywords: [],
       newKeywordsAdded: 0,
       totalKeywordsPool: existing?.rawKeywords?.length || 0,
@@ -523,6 +680,7 @@ export async function mineSingleMCQBatch({
     }
   }
 
+  // Phase 1: Extract keywords from this new batch of questions
   const minedKeywords = await mineKeywordsFromMCQBatch(
     batchQuestions,
     chapter.name,
@@ -560,15 +718,37 @@ export async function mineSingleMCQBatch({
     }
   })
 
+  // Mark processed questions as locked in database
+  const processedIds = batchQuestions.map(q => q.id)
+  await prisma.question.updateMany({
+    where: { id: { in: processedIds } },
+    data: { isMined: true }
+  })
+
+  // Smart Delta Append: link newly mined questions to existing cards & append new traps
+  const deltaResult = await applySmartDeltaAppend({
+    chapterId,
+    questions: batchQuestions,
+    apiKey,
+    fallbackApiKey
+  })
+
+  const newMinedCount = minedQuestions + batchQuestions.length
+  const newUnminedCount = Math.max(0, totalQuestions - newMinedCount)
+
   return {
     batchIndex,
     batchQuestionsCount: batchQuestions.length,
     totalQuestions,
-    totalBatches: Math.ceil(totalQuestions / batchSize),
+    minedQuestions: newMinedCount,
+    unminedQuestions: newUnminedCount,
+    isLocked: newUnminedCount === 0,
+    totalBatches: Math.ceil(newUnminedCount / batchSize),
     extractedKeywords: minedKeywords,
     newKeywordsAdded: newAdded,
     totalKeywordsPool: updatedList.length,
-    allRawKeywords: updatedList
+    allRawKeywords: updatedList,
+    deltaAppended: deltaResult
   }
 }
 
@@ -1117,6 +1297,20 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
       (q.explanation && q.explanation.toLowerCase().includes(term.toLowerCase()))
     )
 
+    // Enrich media via free Wikimedia REST API & YouTube practical demo link (Zero Cost)
+    let media: {
+      imageUrl?: string | null
+      thumbnailUrl?: string | null
+      imageCaption?: string | null
+      sourceUrl?: string | null
+      videoUrl?: string | null
+    } = {}
+    try {
+      media = await enrichConceptTerm(term, itemCategory)
+    } catch (mediaErr: any) {
+      console.warn(`Media enrichment skipped for "${term}":`, mediaErr?.message)
+    }
+
     await prisma.chapterConcept.upsert({
       where: {
         chapterId_slug: {
@@ -1134,6 +1328,11 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
         content,
         examTraps,
         relatedTerms,
+        imageUrl: media.imageUrl,
+        thumbnailUrl: media.thumbnailUrl,
+        imageCaption: media.imageCaption,
+        sourceUrl: media.sourceUrl,
+        videoUrl: media.videoUrl,
         questions: {
           connect: matchingQs.map(q => ({ id: q.id }))
         }
@@ -1146,6 +1345,13 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
         content,
         examTraps,
         relatedTerms,
+        ...(media.imageUrl ? {
+          imageUrl: media.imageUrl,
+          thumbnailUrl: media.thumbnailUrl,
+          imageCaption: media.imageCaption,
+          sourceUrl: media.sourceUrl
+        } : {}),
+        ...(media.videoUrl ? { videoUrl: media.videoUrl } : {}),
         questions: {
           set: matchingQs.map(q => ({ id: q.id }))
         }

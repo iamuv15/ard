@@ -60,8 +60,12 @@ export default function AdminChapterConceptsPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedConceptSlug, setSelectedConceptSlug] = useState<string | null>(null)
 
-  // Progressive Batch Mining states
+  // Progressive Batch Mining & Delta Lock states
   const [totalQuestions, setTotalQuestions] = useState(0)
+  const [minedQuestions, setMinedQuestions] = useState(0)
+  const [unminedQuestions, setUnminedQuestions] = useState(0)
+  const [isLocked, setIsLocked] = useState(false)
+  const [mediaEnriching, setMediaEnriching] = useState(false)
   const [rawKeywords, setRawKeywords] = useState<string[]>([])
   const [batchIndex, setBatchIndex] = useState(0)
   const [batchMining, setBatchMining] = useState(false)
@@ -154,25 +158,55 @@ export default function AdminChapterConceptsPage() {
       setMindMap(data.mindMap?.treeData || null)
       setConcepts(data.existingConcepts || [])
       setTotalQuestions(data.totalQuestions || 0)
+      setMinedQuestions(data.minedQuestions || 0)
+      setUnminedQuestions(data.unminedQuestions || 0)
+      setIsLocked(Boolean(data.isLocked))
       const currentKeywords = data.rawKeywords || []
       setRawKeywords(currentKeywords)
 
-      // Restore batch progress state without resetting to 0
-      try {
-        const savedBatch = localStorage.getItem(`chapter_${chapterId}_batch_index`)
-        if (savedBatch !== null) {
-          const parsed = parseInt(savedBatch, 10)
-          if (!isNaN(parsed)) setBatchIndex(parsed)
-        } else if (currentKeywords.length > 0 && data.totalQuestions > 0 && currentKeywords.length >= data.totalQuestions) {
-          // If keywords pool is already fully mined (e.g. 1101 terms for 612 questions), mark complete
-          const calcBatches = Math.max(1, Math.ceil(data.totalQuestions / batchSize))
-          setBatchIndex(calcBatches)
-        }
-      } catch {}
+      // Sync batch index with true PostgreSQL lock state
+      if (data.isLocked) {
+        setBatchIndex(Math.max(1, Math.ceil((data.totalQuestions || 1) / batchSize)))
+      } else {
+        const unmined = data.unminedQuestions || 0
+        const total = data.totalQuestions || 1
+        const completedBatches = Math.floor((total - unmined) / batchSize)
+        setBatchIndex(completedBatches)
+      }
     } catch (err: any) {
       setStatusMessage({ type: 'error', text: err.message || 'Error loading chapter' })
     } finally {
       setLoading(false)
+    }
+  }
+
+  const handleAutoEnrichMedia = async () => {
+    try {
+      setMediaEnriching(true)
+      setStatusMessage({
+        type: 'info',
+        text: '🖼️ Auto-enriching concepts with Wikimedia photos and YouTube practical demo links ($0 cost)...'
+      })
+
+      const res = await fetch(`/api/admin/chapters/${chapterId}/concepts`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'enrich_media',
+          limit: 150
+        })
+      })
+
+      const data = await safeParseResponse(res)
+      setStatusMessage({
+        type: 'success',
+        text: `🎉 Media Enrichment Complete! Found ${data.imagesFound} Wikimedia photos and ${data.videosGenerated} YouTube field demo links across concepts.`
+      })
+      await loadData()
+    } catch (err: any) {
+      setStatusMessage({ type: 'error', text: err.message || 'Error enriching media' })
+    } finally {
+      setMediaEnriching(false)
     }
   }
 
@@ -185,19 +219,22 @@ export default function AdminChapterConceptsPage() {
     let targetIdx = typeof idx === 'number' ? idx : batchIndex
 
     // If already complete, confirm if user wants to restart or re-mine
-    if (typeof idx !== 'number' && targetIdx >= totalBatches) {
-      if (!window.confirm('All questions have already been mined into the keyword pool. Do you want to re-mine from Batch 1?')) {
+    let forceAll = false
+    if (isLocked && unminedQuestions === 0) {
+      if (!window.confirm(`All ${totalQuestions} questions in this chapter are already mined and locked in PostgreSQL. Do you want to force re-mine?`)) {
         return
       }
+      forceAll = true
       targetIdx = 0
-      setBatchIndex(0)
     }
 
     try {
       setBatchMining(true)
       setStatusMessage({
         type: 'info',
-        text: `⚡ Mining Batch ${targetIdx + 1} of ${totalBatches} (Questions ${targetIdx * batchSize + 1} to ${Math.min((targetIdx + 1) * batchSize, totalQuestions)})...`
+        text: unminedQuestions > 0
+          ? `⚡ Mining ${Math.min(unminedQuestions, batchSize)} new delta questions (Thinking OFF, Gemini 3.5 Flash-Lite)...`
+          : `⚡ Mining Batch ${targetIdx + 1} of ${totalBatches}...`
       })
 
       const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
@@ -207,6 +244,7 @@ export default function AdminChapterConceptsPage() {
           action: 'mine_batch',
           batchIndex: targetIdx,
           batchSize,
+          forceAll,
           paidApiKey: paidApiKey.trim() || undefined
         })
       })
@@ -214,19 +252,24 @@ export default function AdminChapterConceptsPage() {
       const data = await safeParseResponse(res)
 
       setRawKeywords(data.allRawKeywords || [])
-      const isComplete = targetIdx + 1 >= totalBatches
+      setMinedQuestions(data.minedQuestions || 0)
+      setUnminedQuestions(data.unminedQuestions || 0)
+      setIsLocked(Boolean(data.isLocked))
+
+      const isComplete = data.isLocked || (data.unminedQuestions === 0)
       const nextIdx = isComplete ? totalBatches : targetIdx + 1
       setBatchIndex(nextIdx)
-      try {
-        localStorage.setItem(`chapter_${chapterId}_batch_index`, String(nextIdx))
-      } catch {}
 
       const sample = data.extractedKeywords?.slice(0, 6).join(', ') || ''
+      const deltaMsg = data.deltaAppended?.deltaAppendedCount > 0
+        ? ` • ⚡ Delta Update: ${data.deltaAppended.deltaAppendedCount} cards enriched with new exam traps!`
+        : ''
+
       setStatusMessage({
         type: 'success',
         text: isComplete
-          ? `🎉 All ${totalBatches} batches mined! Total Pool: ${data.totalKeywordsPool} keywords. Proceed to Phase 2 to synthesize the Master Mind Map.`
-          : `✅ Batch ${targetIdx + 1}/${totalBatches} mined! +${data.newKeywordsAdded} new terms added (Total Pool: ${data.totalKeywordsPool}). Extracted: [${sample}${data.extractedKeywords?.length > 6 ? ', ...' : ''}]`
+          ? `🔒 All ${data.totalQuestions || totalQuestions} MCQs Mined & Locked! Pool: ${data.totalKeywordsPool} keywords.${deltaMsg}`
+          : `✅ Delta batch mined! +${data.newKeywordsAdded} new terms added (${data.unminedQuestions} remaining). [${sample}${data.extractedKeywords?.length > 6 ? ', ...' : ''}]${deltaMsg}`
       })
 
       return data
@@ -667,6 +710,24 @@ export default function AdminChapterConceptsPage() {
             </Link>
 
             <button
+              onClick={handleAutoEnrichMedia}
+              disabled={mediaEnriching || capsulesGenerating}
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-purple-300 dark:border-purple-800 bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/60 text-xs font-bold transition-all disabled:opacity-50 cursor-pointer shadow-xs"
+              title="Automatically fetch Wikimedia Commons photos and YouTube practical demo links for all concepts ($0 added cost)"
+            >
+              {mediaEnriching ? (
+                <>
+                  <Loader2 className="w-3.5 h-3.5 animate-spin text-purple-600" />
+                  <span>Enriching Media...</span>
+                </>
+              ) : (
+                <>
+                  <span>🖼️ Auto-Enrich Media</span>
+                </>
+              )}
+            </button>
+
+            <button
               onClick={handleGenerateMindMap}
               disabled={mindMapGenerating || capsulesGenerating}
               className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all disabled:opacity-50 cursor-pointer ${
@@ -861,19 +922,26 @@ export default function AdminChapterConceptsPage() {
                   </div>
                 </div>
 
-                {/* Progress Mini Bar */}
+                {/* Progress Mini Bar with Database Lock */}
                 <div className="space-y-1">
                   <div className="flex justify-between text-[11px] font-bold text-slate-400">
                     <span>
-                      Mined: {batchIndex >= totalBatches ? totalQuestions : Math.min(batchIndex * batchSize, totalQuestions)} / {totalQuestions} Qs
-                      {batchIndex >= totalBatches && ' (Complete)'}
+                      {isLocked ? (
+                        <span className="text-emerald-600 dark:text-emerald-400 font-extrabold flex items-center gap-1">
+                          🔒 {minedQuestions} / {totalQuestions} Locked
+                        </span>
+                      ) : (
+                        <span>
+                          Mined: {minedQuestions} / {totalQuestions} ({unminedQuestions} unmined delta)
+                        </span>
+                      )}
                     </span>
                     <span className="text-blue-600 dark:text-blue-400 font-extrabold">{rawKeywords.length} Terms</span>
                   </div>
                   <div className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div 
-                      className={`h-full transition-all duration-300 ${batchIndex >= totalBatches ? 'bg-emerald-500' : 'bg-blue-600'}`}
-                      style={{ width: `${batchIndex >= totalBatches ? 100 : Math.min(100, Math.round(((batchIndex * batchSize) / (totalQuestions || 1)) * 100))}%` }}
+                      className={`h-full transition-all duration-300 ${isLocked ? 'bg-emerald-500' : 'bg-blue-600'}`}
+                      style={{ width: `${totalQuestions > 0 ? Math.min(100, Math.round((minedQuestions / totalQuestions) * 100)) : 100}%` }}
                     />
                   </div>
                 </div>
@@ -885,20 +953,27 @@ export default function AdminChapterConceptsPage() {
                     onClick={() => handleMineSingleBatch()}
                     disabled={batchMining || autoMining || mindMapGenerating}
                     className={`w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer disabled:opacity-50 ${
-                      batchIndex >= totalBatches
+                      isLocked
                         ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                        : unminedQuestions > 0
+                        ? 'bg-amber-600 hover:bg-amber-700 text-white'
                         : 'bg-blue-600 hover:bg-blue-700 text-white'
                     }`}
                   >
                     {batchMining ? (
                       <>
                         <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                        Mining Batch {Math.min(batchIndex + 1, totalBatches)}...
+                        Mining Delta Questions...
                       </>
-                    ) : batchIndex >= totalBatches ? (
+                    ) : isLocked ? (
                       <>
                         <CheckCircle2 className="w-3.5 h-3.5" />
-                        All {totalQuestions} MCQs Mined (Ready for Phase 2)
+                        🔒 All {totalQuestions} MCQs Locked (Re-mine)
+                      </>
+                    ) : unminedQuestions > 0 ? (
+                      <>
+                        <Zap className="w-3.5 h-3.5 fill-current" />
+                        ⚡ Mine {Math.min(unminedQuestions, batchSize)} New Questions
                       </>
                     ) : (
                       <>

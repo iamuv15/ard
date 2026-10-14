@@ -53,10 +53,36 @@ type QuestionReport = {
   createdAt: string
 }
 
+type ConceptMediaReport = {
+  id: number
+  conceptId: number
+  mediaType: string
+  flaggedUrl?: string | null
+  reason: string
+  userNote?: string | null
+  status: 'PENDING' | 'RESOLVED' | 'DISMISSED'
+  createdAt: string
+  resolvedAt?: string | null
+  concept: {
+    id: number
+    term: string
+    slug: string
+    category: string
+    imageUrl?: string | null
+    thumbnailUrl?: string | null
+    imageCaption?: string | null
+    sourceUrl?: string | null
+    videoUrl?: string | null
+    chapter?: { id: number; name: string }
+  }
+  reportedBy?: { id: number; name: string; email: string } | null
+}
+
 export function QuestionReportsHub() {
-  const [activeTab, setActiveTab] = useState<'auto' | 'review' | 'resolved'>('review')
+  const [activeTab, setActiveTab] = useState<'auto' | 'review' | 'resolved' | 'media'>('review')
   const [reports, setReports] = useState<QuestionReport[]>([])
-  const [counts, setCounts] = useState({ autoCorrected: 0, needsReview: 0, resolved: 0, total: 0 })
+  const [mediaReports, setMediaReports] = useState<ConceptMediaReport[]>([])
+  const [counts, setCounts] = useState({ autoCorrected: 0, needsReview: 0, resolved: 0, pendingMedia: 0, total: 0 })
   const [loading, setLoading] = useState(true)
   const [actionLoadingId, setActionLoadingId] = useState<number | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
@@ -81,7 +107,8 @@ export function QuestionReportsHub() {
       const data = await res.json()
       if (res.ok && data.success) {
         setReports(data.reports || [])
-        setCounts(data.counts || { autoCorrected: 0, needsReview: 0, resolved: 0, total: 0 })
+        setMediaReports(data.mediaReports || [])
+        setCounts(data.counts || { autoCorrected: 0, needsReview: 0, resolved: 0, pendingMedia: 0, total: 0 })
       }
     } catch (err) {
       console.error('Failed to load reports:', err)
@@ -151,6 +178,17 @@ export function QuestionReportsHub() {
     )
   })
 
+  const filteredMediaReports = mediaReports.filter(m => {
+    if (!searchQuery.trim()) return true
+    const q = searchQuery.toLowerCase()
+    return (
+      m.concept.term.toLowerCase().includes(q) ||
+      m.reason.toLowerCase().includes(q) ||
+      (m.userNote && m.userNote.toLowerCase().includes(q)) ||
+      (m.concept.chapter?.name && m.concept.chapter.name.toLowerCase().includes(q))
+    )
+  })
+
   return (
     <div className="space-y-6">
       {/* Tabs Header */}
@@ -209,6 +247,25 @@ export function QuestionReportsHub() {
             <span>Resolved History</span>
             <span className="text-xs opacity-75">({counts.resolved})</span>
           </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('media')}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all shadow-xs ${
+              activeTab === 'media'
+                ? 'bg-purple-600 text-white shadow-purple-500/20'
+                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
+            }`}
+          >
+            <span>🖼️ Flagged Media</span>
+            {counts.pendingMedia > 0 && (
+              <span className={`px-2 py-0.5 rounded-full text-xs font-black ${
+                activeTab === 'media' ? 'bg-white/20 text-white' : 'bg-red-100 text-red-800'
+              }`}>
+                {counts.pendingMedia}
+              </span>
+            )}
+          </button>
         </div>
 
         {/* Search & Refresh */}
@@ -240,6 +297,152 @@ export function QuestionReportsHub() {
           <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
           <p className="text-sm">Loading reported questions...</p>
         </div>
+      ) : activeTab === 'media' ? (
+        filteredMediaReports.length === 0 ? (
+          <div className="py-16 text-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
+            <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-3 opacity-80" />
+            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+              Clean Slate! No Flagged Media Reports
+            </h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 max-w-sm mx-auto">
+              When students flag an inaccurate breed image or broken video link, it will appear here for 1-click removal or review.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {filteredMediaReports.map((mReport) => {
+              const c = mReport.concept
+              const isBusy = actionLoadingId === mReport.id
+              const isResolved = mReport.status === 'RESOLVED' || mReport.status === 'DISMISSED'
+
+              return (
+                <div
+                  key={mReport.id}
+                  className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 shadow-xs space-y-4"
+                >
+                  {/* Meta Bar */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 dark:border-gray-700 pb-3">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300">
+                        {c.term}
+                      </span>
+                      <span className="text-xs text-gray-400">•</span>
+                      <span className="text-xs font-semibold text-gray-600 dark:text-gray-300">
+                        {c.category} {c.chapter?.name ? `(${c.chapter.name})` : ''}
+                      </span>
+                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200">
+                        Reason: {mReport.reason}
+                      </span>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                        mReport.status === 'PENDING'
+                          ? 'bg-amber-100 text-amber-800'
+                          : mReport.status === 'RESOLVED'
+                          ? 'bg-green-100 text-green-800'
+                          : 'bg-gray-100 text-gray-600'
+                      }`}>
+                        {mReport.status}
+                      </span>
+                    </div>
+
+                    <div className="text-xs text-gray-400">
+                      Reported {new Date(mReport.createdAt).toLocaleDateString()}
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                    {/* Media Preview */}
+                    <div className="flex flex-col gap-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Media Preview</span>
+                      {c.imageUrl ? (
+                        <div className="relative w-full h-32 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-900/5">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={c.imageUrl}
+                            alt={c.term}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : c.videoUrl ? (
+                        <a
+                          href={c.videoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-3 rounded-xl border border-red-200 bg-red-50 text-red-700 font-bold text-xs flex items-center gap-2 hover:bg-red-100"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Open YouTube Link</span>
+                        </a>
+                      ) : (
+                        <div className="p-3 text-xs text-gray-400 italic bg-gray-50 rounded-xl">
+                          Media already removed from concept card.
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Report Notes */}
+                    <div className="md:col-span-2 space-y-2">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Student Issue Description</span>
+                        <p className="text-xs text-gray-800 dark:text-gray-200 mt-0.5 font-medium">
+                          {mReport.userNote || 'No additional details provided by student.'}
+                        </p>
+                      </div>
+
+                      {mReport.reportedBy && (
+                        <div className="text-[11px] text-gray-400">
+                          Reported by: {mReport.reportedBy.name || mReport.reportedBy.email}
+                        </div>
+                      )}
+
+                      {/* Admin Actions */}
+                      {!isResolved && (
+                        <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-gray-100 dark:border-gray-700">
+                          {c.imageUrl && (
+                            <button
+                              type="button"
+                              disabled={isBusy}
+                              onClick={() => handleAction(mReport.id, 'media_remove_image')}
+                              className="px-3 py-1.5 text-xs font-bold rounded-xl bg-red-600 hover:bg-red-700 text-white shadow-xs transition-colors"
+                            >
+                              🗑️ Remove Image
+                            </button>
+                          )}
+                          {c.videoUrl && (
+                            <button
+                              type="button"
+                              disabled={isBusy}
+                              onClick={() => handleAction(mReport.id, 'media_remove_video')}
+                              className="px-3 py-1.5 text-xs font-bold rounded-xl bg-red-600 hover:bg-red-700 text-white shadow-xs transition-colors"
+                            >
+                              🗑️ Remove Video Link
+                            </button>
+                          )}
+                          <button
+                            type="button"
+                            disabled={isBusy}
+                            onClick={() => handleAction(mReport.id, 'media_dismiss')}
+                            className="px-3 py-1.5 text-xs font-semibold rounded-xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 text-gray-700 dark:text-gray-200 transition-colors"
+                          >
+                            Dismiss (Keep Media)
+                          </button>
+                          <button
+                            type="button"
+                            disabled={isBusy}
+                            onClick={() => handleAction(mReport.id, 'media_resolve')}
+                            className="px-3 py-1.5 text-xs font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-colors"
+                          >
+                            Mark Resolved
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )
       ) : filteredReports.length === 0 ? (
         <div className="py-16 text-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
           <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-3 opacity-80" />

@@ -55,15 +55,45 @@ export async function GET(request: Request) {
       where: { status: { in: ['ADMIN_RESOLVED', 'DISMISSED'] } }
     })
 
+    // Fetch Concept Media Reports
+    const mediaReports = await prisma.conceptMediaReport.findMany({
+      include: {
+        concept: {
+          select: {
+            id: true,
+            term: true,
+            slug: true,
+            category: true,
+            imageUrl: true,
+            thumbnailUrl: true,
+            imageCaption: true,
+            sourceUrl: true,
+            videoUrl: true,
+            chapter: { select: { id: true, name: true } }
+          }
+        },
+        reportedBy: {
+          select: { id: true, name: true, email: true }
+        }
+      },
+      orderBy: { createdAt: 'desc' }
+    })
+
+    const pendingMediaCount = await prisma.conceptMediaReport.count({
+      where: { status: 'PENDING' }
+    })
+
     return NextResponse.json({
       success: true,
       counts: {
         autoCorrected: autoCorrectedCount,
         needsReview: needsReviewCount,
         resolved: resolvedCount,
+        pendingMedia: pendingMediaCount,
         total: autoCorrectedCount + needsReviewCount + resolvedCount
       },
-      reports
+      reports,
+      mediaReports
     })
   } catch (error: any) {
     console.error('Error fetching admin reports:', error)
@@ -83,6 +113,62 @@ export async function PATCH(request: Request) {
 
     if (!reportId || !action) {
       return NextResponse.json({ error: 'reportId and action are required' }, { status: 400 })
+    }
+
+    if (action.startsWith('media_')) {
+      const mediaReport = await prisma.conceptMediaReport.findUnique({
+        where: { id: reportId },
+        include: { concept: true }
+      })
+
+      if (!mediaReport) {
+        return NextResponse.json({ error: 'Media report not found' }, { status: 404 })
+      }
+
+      if (action === 'media_dismiss') {
+        const updated = await prisma.conceptMediaReport.update({
+          where: { id: reportId },
+          data: { status: 'DISMISSED', resolvedAt: new Date() }
+        })
+        return NextResponse.json({ success: true, report: updated, message: 'Media report dismissed' })
+      }
+
+      if (action === 'media_resolve') {
+        const updated = await prisma.conceptMediaReport.update({
+          where: { id: reportId },
+          data: { status: 'RESOLVED', resolvedAt: new Date() }
+        })
+        return NextResponse.json({ success: true, report: updated, message: 'Media report marked resolved' })
+      }
+
+      if (action === 'media_remove_image') {
+        await prisma.chapterConcept.update({
+          where: { id: mediaReport.conceptId },
+          data: {
+            imageUrl: null,
+            thumbnailUrl: null,
+            imageCaption: null,
+            sourceUrl: null
+          }
+        })
+        const updated = await prisma.conceptMediaReport.update({
+          where: { id: reportId },
+          data: { status: 'RESOLVED', resolvedAt: new Date() }
+        })
+        return NextResponse.json({ success: true, report: updated, message: 'Concept image removed and report resolved' })
+      }
+
+      if (action === 'media_remove_video') {
+        await prisma.chapterConcept.update({
+          where: { id: mediaReport.conceptId },
+          data: { videoUrl: null }
+        })
+        const updated = await prisma.conceptMediaReport.update({
+          where: { id: reportId },
+          data: { status: 'RESOLVED', resolvedAt: new Date() }
+        })
+        return NextResponse.json({ success: true, report: updated, message: 'Concept video link removed and report resolved' })
+      }
     }
 
     const report = await prisma.questionReport.findUnique({

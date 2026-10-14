@@ -45,6 +45,12 @@ export async function GET(
       where: { quiz: { chapterId } }
     })
 
+    const minedQuestions = await prisma.question.count({
+      where: { quiz: { chapterId }, isMined: true }
+    })
+
+    const unminedQuestions = Math.max(0, totalQuestions - minedQuestions)
+
     const concepts = await prisma.chapterConcept.findMany({
       where: { chapterId },
       select: {
@@ -62,6 +68,9 @@ export async function GET(
       chapterId: chapter.id,
       chapterName: chapter.name,
       totalQuestions,
+      minedQuestions,
+      unminedQuestions,
+      isLocked: unminedQuestions === 0,
       mindMap: chapter.mindMap,
       rawKeywords: chapter.mindMap?.rawKeywords || [],
       conceptCount: chapter._count.concepts,
@@ -128,7 +137,8 @@ export async function POST(
         batchIndex: Number(body.batchIndex) || 0,
         batchSize: Number(body.batchSize) || 25,
         apiKey: body.apiKey,
-        fallbackApiKey
+        fallbackApiKey,
+        forceAll: Boolean(body.forceAll)
       })
       return NextResponse.json({
         success: true,
