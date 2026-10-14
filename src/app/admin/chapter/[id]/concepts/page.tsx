@@ -576,17 +576,28 @@ export default function AdminChapterConceptsPage() {
       const initialData = await initialRes.json()
       const existingNames = new Set<string>((initialData.existingConcepts || []).map((c: any) => c.term.toLowerCase().trim()))
 
-      while (capsuleAutoRef.current) {
-        // Collect current pending tasks
-        const allTasks: { keyword: string; category: string; subCategory?: string }[] = []
-        mindMap.categories.forEach(cat => {
-          cat.subCategories.forEach(sub => {
-            sub.keywords.forEach(kw => {
-              allTasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
-            })
+      // Collect all tasks from mindMap
+      const allTasks: { keyword: string; category: string; subCategory?: string }[] = []
+      mindMap.categories.forEach(cat => {
+        cat.subCategories.forEach(sub => {
+          sub.keywords.forEach(kw => {
+            allTasks.push({ keyword: kw, category: cat.name, subCategory: sub.name })
           })
         })
+      })
 
+      const initialPending = allTasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
+      if (initialPending.length === 0) {
+        if (!window.confirm(`All ${allTasks.length} capsules are already generated in DB. Do you want to force re-generate ALL concepts using the new Notes/*.md primary textbook files?`)) {
+          capsuleAutoRef.current = false
+          setCapsuleAutoRunning(false)
+          setStatusMessage({ type: 'info', text: '⏸️ Re-generation cancelled.' })
+          return
+        }
+        existingNames.clear() // Clear local tracker to force re-generation of all terms
+      }
+
+      while (capsuleAutoRef.current) {
         const pendingTasks = allTasks.filter(t => !existingNames.has(t.keyword.toLowerCase().trim()))
 
         if (pendingTasks.length === 0) {
@@ -1216,6 +1227,11 @@ export default function AdminChapterConceptsPage() {
                         <>
                           <Pause className="w-3.5 h-3.5" />
                           Pause Auto-Run
+                        </>
+                      ) : allPendingTasks.length === 0 && generatedCount > 0 ? (
+                        <>
+                          <RotateCcw className="w-3.5 h-3.5" />
+                          Re-Generate All
                         </>
                       ) : (
                         <>

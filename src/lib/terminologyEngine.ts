@@ -1,6 +1,83 @@
 import prisma from '@/lib/prisma'
 import { getTNAUSpine } from '@/lib/tnauSyllabusSpine'
 import { enrichConceptTerm } from '@/lib/mediaEnrichment'
+import fs from 'fs'
+import path from 'path'
+
+// Cache of loaded Notes/*.md files
+let notesCache: Record<string, string> | null = null
+
+function loadNotesKnowledge(): Record<string, string> {
+  if (notesCache) return notesCache
+  const cache: Record<string, string> = {}
+  try {
+    const notesDir = path.join(process.cwd(), 'Notes')
+    if (fs.existsSync(notesDir)) {
+      const files = fs.readdirSync(notesDir).filter(f => f.endsWith('.md'))
+      for (const file of files) {
+        cache[file] = fs.readFileSync(path.join(notesDir, file), 'utf-8')
+      }
+    }
+  } catch (err) {
+    console.warn('Failed to load notes knowledge:', err)
+  }
+  notesCache = cache
+  return cache
+}
+
+export function getGroundingContextForCategory(category: string, keywords: string[]): { primaryText: string; pyqText: string } {
+  const notes = loadNotesKnowledge()
+  const lowerCat = category.toLowerCase()
+
+  // Match corresponding category file
+  let matchingFile = ''
+  if (/breed|genetic|species|cattle|buffalo|goat|sheep|swine|pig|camel|rabbit|horse/i.test(lowerCat)) {
+    matchingFile = '01_livestock_breeds_and_genetics.md'
+  } else if (/reproduct|physiol|estrus|oestrus|heat|gestation|breeding|inseminat|castrat/i.test(lowerCat)) {
+    matchingFile = '02_reproductive_physiology_and_lifecycle.md'
+  } else if (/feed|fodder|nutrit|digest|rumen|ration/i.test(lowerCat)) {
+    matchingFile = '03_animal_feeds_fodder_and_nutrition.md'
+  } else if (/farm|hous|management|tool|dentition|census|institute|calf/i.test(lowerCat)) {
+    matchingFile = '04_farm_management_practices_and_housing.md'
+  } else if (/dairy|milk|process|technolog|ghee|pasteur/i.test(lowerCat)) {
+    matchingFile = '05_dairy_science_and_processing_technology.md'
+  } else if (/poultry|avian|chicken|egg|broiler|layer/i.test(lowerCat)) {
+    matchingFile = '06_poultry_husbandry_and_management.md'
+  } else if (/health|disease|vaccin|medicine|patholog/i.test(lowerCat)) {
+    matchingFile = '07_animal_healthcare_diseases_and_vaccination.md'
+  }
+
+  let primaryText = matchingFile && notes[matchingFile] ? notes[matchingFile] : ''
+  if (primaryText.length > 20000) {
+    primaryText = primaryText.slice(0, 20000)
+  }
+
+  // Cross-cutting PYQ matches from 08_important_exam_facts_and_one_liners.md
+  let pyqText = ''
+  const pyqFile = notes['08_important_exam_facts_and_one_liners.md'] || ''
+  if (pyqFile) {
+    const lines = pyqFile.split('\n')
+    const relevantLines: string[] = []
+    const kwTokens = keywords.flatMap(k => k.toLowerCase().split(/[\s-]+/)).filter(t => t.length > 3)
+
+    for (const line of lines) {
+      const lowerLine = line.toLowerCase()
+      if (kwTokens.some(token => lowerLine.includes(token))) {
+        relevantLines.push(line)
+        if (relevantLines.length >= 25) break
+      }
+    }
+
+    if (relevantLines.length > 0) {
+      pyqText = relevantLines.join('\n')
+    } else {
+      pyqText = lines.filter(l => l.startsWith('* **')).slice(0, 15).join('\n')
+    }
+  }
+
+  return { primaryText, pyqText }
+}
+
 
 // Types for MindMap and Concept Capsules
 export interface MindMapEdge {
@@ -1181,18 +1258,28 @@ export async function generateConceptCapsulesBatch({
 
   if (normalizedItems.length === 0) {
     return []
-  }
+  }  const targetKeywords = normalizedItems.map(it => it.keyword)
 
-  const targetKeywords = normalizedItems.map(it => it.keyword)
+  // Expand search terms with word stems and standard synonyms to prevent missing MCQs
+  const searchTerms = Array.from(new Set(targetKeywords.flatMap(kw => {
+    const terms = [kw]
+    const lower = kw.toLowerCase()
+    if (lower.includes('estrus') || lower.includes('oestrus')) {
+      terms.push('estrus', 'oestrus', 'estrous', 'heat period', 'heat')
+    }
+    const words = kw.split(/[\s-]+/).filter(w => w.length > 3 && !['phase', 'system', 'type', 'breed'].includes(w.toLowerCase()))
+    terms.push(...words)
+    return terms
+  })))
 
-  // Direct fast lookup of relevant questions without nested quiz scans
+  // Direct fast lookup of relevant questions across chapter with expanded search terms
   const relevantQuestions = await prisma.question.findMany({
     where: {
       quiz: { chapterId },
-      OR: targetKeywords.map(kw => ({
+      OR: searchTerms.map(term => ({
         OR: [
-          { questionText: { contains: kw, mode: 'insensitive' } },
-          { explanation: { contains: kw, mode: 'insensitive' } }
+          { questionText: { contains: term, mode: 'insensitive' } },
+          { explanation: { contains: term, mode: 'insensitive' } }
         ]
       }))
     },
@@ -1206,7 +1293,7 @@ export async function generateConceptCapsulesBatch({
       correctAnswer: true,
       explanation: true
     },
-    take: Math.max(20, normalizedItems.length * 3) // Rich question context scaled with batch size
+    take: Math.max(50, normalizedItems.length * 8) // Scaled question context to prevent MCQ truncation
   })
 
   // Format question context
@@ -1214,7 +1301,10 @@ export async function generateConceptCapsulesBatch({
     `[Q ID:${q.id}] Stem: ${q.questionText} | Options: [A:${q.optionA}, B:${q.optionB}, C:${q.optionC}, D:${q.optionD}] | Correct: ${q.correctAnswer} | Exp: ${q.explanation || ''}`
   ).join('\n')
 
-  const systemPrompt = `You are an expert exam author and agriscience educator.
+  // Load primary textbook ground truth and PYQs for this category
+  const { primaryText, pyqText } = getGroundingContextForCategory(normalizedItems[0]?.category || category || '', targetKeywords)
+
+  const systemPrompt = `You are a distinguished Veterinary and Agricultural Science professor preparing authoritative high-yield concept capsules for competitive examinations (ICAR, JRF, State AO/AAO, IBPS-AFO, NABARD).
 Your task is to write high-yield, exam-focused CONCEPT CAPSULES for the specified keywords under chapter "${chapter.name}".
 Provide MAXIMUM RIGOR, HIGH DEPTH, and UNCOMPROMISED ACCURACY for every concept in this batch.
 
@@ -1222,14 +1312,16 @@ STRICT GUIDELINES:
 1. DEFINITION: 1 to 2 sentences max. Crystal clear, rigorous, scientific.
 2. COMPARATIVE TABLE & NUMERICAL METRICS (Crucial!):
    - Whenever numbers, species variations, days, temperatures, percentages, or chemical attributes apply, YOU MUST format them into a clean GitHub Flavored Markdown (GFM) table!
-   - Example for Gestation Period: Table with Species | Average Days | Months Approximation.
+   - Example for Gestation Period: Table with Species | Average Days | Months Approximation | Heat Duration.
    - Example for Colostrum: Table with Parameter | Colostrum | Normal Milk.
-   - Example for Soil: Table with Soil Type | Clay Mineral | Predominant Nutrients | Deficiencies.
+   - Example for Soil/Feeds: Table with Parameter | Value.
 3. EXAM TRAPS & HIGH-PROBABILITY POINTERS:
-   - Detail exactly how exam examiners twist questions on this concept (e.g. classic distractor options, exceptions, standard ICAR/Govt values).
-4. SIBLING & ADJACENT TERMS: List other keywords related to this term.
-5. NO VERBOSE FLUFF: Keep it dense, high-contrast, structured with bold keywords and bullet points.
-6. BENCHMARK AUTHORITY: Adhere strictly to authoritative ICAR and TNAU Agritech university benchmarks (e.g. standard livestock gestation days, silage moisture 65-70%, colostrum feeding within 1-2 hours, milk fat and SNF standards, Vertisol montmorillonite mineralogy).
+   - Detail exactly how exam examiners twist questions on this concept (e.g. classic distractor options, exceptions, past AFO/RRB SO trivia).
+4. GROUND TRUTH MANDATE:
+   - Adhere strictly to the provided PRIMARY TEXTBOOK REFERENCE and AUTHORITATIVE PREVIOUS YEAR EXAM FACTS (PYQS).
+   - Do NOT alter standard numbers, durations, or legal percentages.
+5. SIBLING & ADJACENT TERMS: List other keywords related to this term.
+6. NO VERBOSE FLUFF: Keep it dense, high-contrast, structured with bold keywords and bullet points.
 7. VALID JSON ESCAPING: Output strictly valid JSON. In markdown strings, do NOT escape standard characters like %, |, _, *, <, > with backslashes. Only use standard JSON escapes (\", \\, \n, \t). Do NOT produce illegal escape characters.
 
 Output strictly valid JSON with this schema:
@@ -1239,7 +1331,7 @@ Output strictly valid JSON with this schema:
       "term": "Exact Keyword Name",
       "definition": "Crisp 1-2 sentence core definition",
       "content": "Rich markdown containing: ### High-Yield Exam Matrix \\n\\n| Column | Column | ... \\n\\n### Key Characteristics & Rules \\n- Bullet 1 ...",
-      "examTraps": "> ⚠️ **Exam Trap & High-Yield Rules:** ...",
+      "examTraps": "> [!WARNING]\\n> **Exam Trap & High-Yield Rules:** ...",
       "relatedTerms": ["RelatedTerm1", "RelatedTerm2"]
     }
   ]
@@ -1248,9 +1340,10 @@ Output strictly valid JSON with this schema:
   const userPrompt = `TARGET KEYWORDS (Batch of ${normalizedItems.length} concepts):
 ${normalizedItems.map((it, i) => `${i + 1}. "${it.keyword}" [Branch: ${it.category}${it.subCategory ? ` > ${it.subCategory}` : ''}]`).join('\n')}
 
-RELEVANT MCQS FROM THIS CHAPTER FOR CONTEXT:
-${questionContext || 'Use standard authoritative agricultural exam curriculum data (ICAR / TNAU).'}
+${primaryText ? `PRIMARY TEXTBOOK REFERENCE (GROUND TRUTH):\n${primaryText}\n` : ''}
+${pyqText ? `AUTHORITATIVE PREVIOUS YEAR EXAM FACTS & PYQS:\n${pyqText}\n` : ''}
 
+RELEVANT MCQS FROM THIS CHAPTER FOR CONTEXT:
 Generate the JSON capsules for each keyword above with full tables and traps.`
 
   // THINKING IS STRICTLY OFF FOR DEFINITIONS (Pure structured synthesis)
@@ -1291,11 +1384,18 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
     const itemCategory = matchedMeta?.category || category || 'General'
     const itemSubCategory = matchedMeta?.subCategory || subCategory || null
 
-    // Find questions that mention this term to link them
-    const matchingQs = relevantQuestions.filter(q => 
-      q.questionText.toLowerCase().includes(term.toLowerCase()) ||
-      (q.explanation && q.explanation.toLowerCase().includes(term.toLowerCase()))
-    )
+    // Build search tokens for matching (e.g. "estrus", "oestrus", "heat" for reproduction)
+    const termTokens = term.toLowerCase().split(/[\s-]+/).filter(t => t.length > 2)
+    if (term.toLowerCase().includes('estrus') || term.toLowerCase().includes('oestrus')) {
+      termTokens.push('estrus', 'oestrus', 'estrous', 'heat')
+    }
+
+    // Find questions that mention this term or its synonyms to link them
+    const matchingQs = relevantQuestions.filter(q => {
+      const qText = `${q.questionText} ${q.explanation || ''}`.toLowerCase()
+      if (qText.includes(term.toLowerCase())) return true
+      return termTokens.some(tok => qText.includes(tok))
+    })
 
     // Enrich media via free Wikimedia REST API & YouTube practical demo link (Zero Cost)
     let media: {

@@ -212,7 +212,7 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       {/* Top bar */}
-      <div className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-6 sticky top-0 z-10">
+      <div className="h-14 bg-white border-b border-gray-200 flex items-center px-6 sticky top-0 z-10">
         <Link
           href={chapterId ? `/chapter/${chapterId}` : '/'}
           className="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm font-medium"
@@ -220,15 +220,6 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
           <ArrowLeft className="w-4 h-4" />
           <span>Back to {chapterName || 'Chapter'}</span>
         </Link>
-        {chapterId && (
-          <Link
-            href={`/chapter/${chapterId}/concepts`}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg transition-colors"
-          >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>Chapter Theory & Notes</span>
-          </Link>
-        )}
       </div>
 
       <div className="max-w-4xl mx-auto px-6 py-8 space-y-8">
@@ -315,15 +306,7 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                   )}
                 </button>
 
-                {chapterId && (
-                  <Link
-                    href={`/chapter/${chapterId}/concepts`}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors whitespace-nowrap"
-                  >
-                    <BookOpen className="w-3.5 h-3.5 text-slate-500" />
-                    <span>Open Chapter Notes</span>
-                  </Link>
-                )}
+
               </div>
             </div>
 
@@ -367,17 +350,8 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                         </h3>
                       </div>
 
-                      <div className="flex items-center gap-2 pt-1">
-                        <Link
-                          href={`/chapter/${chapterId || concept.chapterId}/concepts?concept=${encodeURIComponent(concept.slug)}`}
-                          className="flex-1 inline-flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-50 text-emerald-800 text-xs font-bold hover:bg-emerald-100 transition-colors"
-                        >
-                          <span className="flex items-center gap-1.5">
-                            <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
-                            <span>Study Notes</span>
-                          </span>
-                          <ExternalLink className="w-3 h-3" />
-                        </Link>
+                      <div className="flex items-center justify-between gap-2 pt-1">
+                        <span className="text-[10px] font-semibold text-slate-400 italic">Capsule notes under construction</span>
                         <button
                           type="button"
                           onClick={() => handleGenerateAiQuestions([concept.id])}
@@ -602,18 +576,15 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                   {q.concepts && q.concepts.length > 0 && (
                     <div className="flex flex-wrap items-center gap-1.5 mt-3 pt-3 border-t border-slate-100">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        Linked Concept Notes:
+                        Linked Concept:
                       </span>
                       {q.concepts.map(c => (
-                        <Link
+                        <span
                           key={c.id}
-                          href={`/chapter/${chapterId || c.chapterId}/concepts?concept=${encodeURIComponent(c.slug)}`}
-                          className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2.5 py-1 rounded-lg transition-colors"
+                          className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg"
                         >
-                          <BookOpen className="w-3 h-3 text-emerald-600" />
                           <span>{c.term}</span>
-                          <ExternalLink className="w-2.5 h-2.5 text-emerald-500" />
-                        </Link>
+                        </span>
                       ))}
                     </div>
                   )}
