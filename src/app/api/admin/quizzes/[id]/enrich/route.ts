@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { cookies } from 'next/headers'
+import { callGemini } from '@/lib/terminologyEngine'
 
 async function checkAdminAuth() {
   const cookieStore = await cookies()
@@ -121,8 +122,6 @@ CONCEPT ATTRIBUTION RULES:
       })
     }
 
-    const model = process.env.GEMINI_MODEL || 'gemini-3.5-flash'
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
 
     const batchItems = targetQuestions.map((q, idx) => `
 [QUESTION_${idx + 1}]
@@ -189,94 +188,67 @@ Output strictly valid JSON matching this schema:
 QUESTIONS TO FORMAT:
 ${batchItems}`
 
-    let response = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-          responseMimeType: 'application/json',
-          temperature: 0.2
-        }
-      })
-    })
-
-    if (response.status === 404 && model !== 'gemini-3.5-flash') {
-      const fallback = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`
-      response = await fetch(fallback, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ role: 'user', parts: [{ text: prompt }] }],
-          generationConfig: { responseMimeType: 'application/json', temperature: 0.2 }
-        })
-      })
-    }
-
     let processedCount = 0
 
-    if (response.ok) {
-      const data = await response.json()
-      const text = data.candidates?.[0]?.content?.parts?.find((p: any) => p.text)?.text || data.candidates?.[0]?.content?.parts?.[0]?.text
-      if (text) {
-        try {
-          const parsed = JSON.parse(text)
-          if (Array.isArray(parsed.results)) {
-            const slugMap = new Map<string, number>()
-            for (const c of chapterConcepts) {
-              slugMap.set(c.slug.toLowerCase().trim(), c.id)
-              slugMap.set(c.term.toLowerCase().trim(), c.id)
-            }
+    try {
+      const parsed: any = await callGemini({
+        systemPrompt: 'You are an expert exam content editor and concept classifier.',
+        userPrompt: prompt,
+        allowThinking: false,
+        temperature: 0.15
+      })
 
-            for (const item of parsed.results) {
-              if (item.id) {
-                const matchedConceptIds: number[] = []
-                if (chapterConcepts.length > 0 && Array.isArray(item.testedConceptSlugs)) {
-                  for (const s of item.testedConceptSlugs) {
-                    const id = slugMap.get(String(s).toLowerCase().trim())
-                    if (id && !matchedConceptIds.includes(id)) {
-                      matchedConceptIds.push(id)
-                    }
-                  }
-                }
+      if (parsed && Array.isArray(parsed.results)) {
+        const slugMap = new Map<string, number>()
+        for (const c of chapterConcepts) {
+          slugMap.set(c.slug.toLowerCase().trim(), c.id)
+          slugMap.set(c.term.toLowerCase().trim(), c.id)
+        }
 
-                if (isTagOnly) {
-                  await prisma.question.update({
-                    where: { id: item.id },
-                    data: {
-                      ...(chapterConcepts.length > 0 ? {
-                        concepts: {
-                          set: matchedConceptIds.map(id => ({ id }))
-                        }
-                      } : {})
-                    }
-                  })
-                } else if (item.formattedExplanation) {
-                  await prisma.question.update({
-                    where: { id: item.id },
-                    data: {
-                      explanation: item.formattedExplanation.trim(),
-                      isEnriched: true,
-                      ...(chapterConcepts.length > 0 ? {
-                        concepts: {
-                          set: matchedConceptIds.map(id => ({ id }))
-                        }
-                      } : {})
-                    }
-                  })
+        for (const item of parsed.results) {
+          if (item.id) {
+            const matchedConceptIds: number[] = []
+            if (chapterConcepts.length > 0 && Array.isArray(item.testedConceptSlugs)) {
+              for (const s of item.testedConceptSlugs) {
+                const id = slugMap.get(String(s).toLowerCase().trim())
+                if (id && !matchedConceptIds.includes(id)) {
+                  matchedConceptIds.push(id)
                 }
-                processedCount++
               }
             }
+
+            if (isTagOnly) {
+              await prisma.question.update({
+                where: { id: item.id },
+                data: {
+                  ...(chapterConcepts.length > 0 ? {
+                    concepts: {
+                      set: matchedConceptIds.map(id => ({ id }))
+                    }
+                  } : {})
+                }
+              })
+            } else if (item.formattedExplanation) {
+              await prisma.question.update({
+                where: { id: item.id },
+                data: {
+                  explanation: item.formattedExplanation.trim(),
+                  isEnriched: true,
+                  ...(chapterConcepts.length > 0 ? {
+                    concepts: {
+                      set: matchedConceptIds.map(id => ({ id }))
+                    }
+                  } : {})
+                }
+              })
+            }
+            processedCount++
           }
-        } catch (parseErr) {
-          console.error('Error parsing Gemini JSON response:', parseErr)
         }
       }
-    } else {
-      const errText = await response.text()
-      console.error('Gemini API error during enrichment:', errText)
-      return NextResponse.json({ error: 'AI processing error. Please retry.' }, { status: 500 })
+    } catch (apiErr: any) {
+      console.error('Gemini API error during enrichment:', apiErr)
+      return NextResponse.json({ error: apiErr.message || 'AI processing error. Please retry.' }, { status: 500 })
     }
 
     const remainingCount = isTagOnly

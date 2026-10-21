@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Trash2, Edit, Loader2, Save, X, ChevronDown, ChevronRight, FileQuestion, Combine, Check, GripVertical, Brain } from 'lucide-react'
 import Link from 'next/link'
 import { EnrichQuizButton } from './EnrichQuizButton'
+import { RetagQuizButton } from './RetagQuizButton'
 
 type Quiz = {
   id: number
@@ -481,6 +482,7 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
                                     Questions
                                   </Link>
                                   <EnrichQuizButton quizId={quiz.id} totalQuestions={quiz._count.questions} compact />
+                                  <RetagQuizButton quizId={quiz.id} totalQuestions={quiz._count.questions} compact />
                                   <button
                                     onClick={() => handleEditQuiz(quiz)}
                                     className="p-1.5 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition-colors"

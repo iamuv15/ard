@@ -13,7 +13,9 @@ import {
   Flag,
   Play,
   ImageIcon,
-  CheckCircle2
+  CheckCircle2,
+  AlertCircle,
+  RotateCcw
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 
@@ -62,6 +64,7 @@ export function ConceptDossierModal({
   const [concept, setConcept] = useState<ConceptDetail | null>(null)
   const [loading, setLoading] = useState(false)
   const [activeTab, setActiveTab] = useState<'notes' | 'mcqs'>('notes')
+  const [userAnswers, setUserAnswers] = useState<Record<number, string>>({})
 
   // Media Report State
   const [reportModalOpen, setReportModalOpen] = useState(false)
@@ -71,11 +74,25 @@ export function ConceptDossierModal({
   const [reportSubmitting, setReportSubmitting] = useState(false)
   const [reportSuccess, setReportSuccess] = useState(false)
 
+  const handleSelectOption = (questionId: number, optKey: string) => {
+    if (userAnswers[questionId]) return // Locked once answered
+    setUserAnswers(prev => ({ ...prev, [questionId]: optKey }))
+  }
+
+  const handleResetQuestion = (questionId: number) => {
+    setUserAnswers(prev => {
+      const copy = { ...prev }
+      delete copy[questionId]
+      return copy
+    })
+  }
+
   useEffect(() => {
     if (!slug) return
 
     let cancelled = false
     setLoading(true)
+    setUserAnswers({})
     const url = `/api/concepts/${encodeURIComponent(slug)}${chapterId ? `?chapterId=${chapterId}` : ''}`
     fetch(url)
       .then(res => res.json())
@@ -379,35 +396,104 @@ export function ConceptDossierModal({
               </p>
               {concept.questions?.map((q, idx) => {
                 const correctAns = (q.correctAnswer || '').trim().toUpperCase()
+                const selected = userAnswers[q.id]?.trim().toUpperCase()
+                const isAnswered = Boolean(selected)
+                const isCorrect = selected === correctAns
+
                 return (
-                  <div key={q.id} className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 space-y-3">
-                    <div className="flex items-start gap-2">
-                      <span className="font-bold text-emerald-600 dark:text-emerald-400 text-sm">Q{idx + 1}.</span>
-                      <p className="font-semibold text-slate-900 dark:text-slate-100 text-sm">{q.questionText}</p>
+                  <div key={q.id} className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/40 space-y-3.5 shadow-2xs">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-start gap-2.5">
+                        <span className="font-black text-xs px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 shrink-0 mt-0.5">
+                          Q{idx + 1}
+                        </span>
+                        <p className="font-bold text-slate-900 dark:text-slate-100 text-sm leading-snug">
+                          {q.questionText}
+                        </p>
+                      </div>
+                      {isAnswered && (
+                        <button
+                          type="button"
+                          onClick={() => handleResetQuestion(q.id)}
+                          title="Try question again"
+                          className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 flex items-center gap-1 shrink-0 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                        >
+                          <RotateCcw className="w-3 h-3" />
+                          <span>Reset</span>
+                        </button>
+                      )}
                     </div>
+
+                    {/* Interactive Options */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                      <div className={`p-2 rounded-lg border ${correctAns === 'A' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                        A: {q.optionA}
-                      </div>
-                      <div className={`p-2 rounded-lg border ${correctAns === 'B' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                        B: {q.optionB}
-                      </div>
-                      <div className={`p-2 rounded-lg border ${correctAns === 'C' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                        C: {q.optionC}
-                      </div>
-                      <div className={`p-2 rounded-lg border ${correctAns === 'D' ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 font-bold text-emerald-800 dark:text-emerald-300' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                        D: {q.optionD}
-                      </div>
+                      {(['A', 'B', 'C', 'D', 'E'] as const).map(optKey => {
+                        const optText = (q as any)[`option${optKey}`]
+                        if (!optText) return null
+
+                        let btnStyle =
+                          'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-emerald-500 hover:bg-emerald-50/20'
+
+                        if (isAnswered) {
+                          if (optKey === correctAns) {
+                            btnStyle =
+                              'bg-emerald-500 text-white border-emerald-600 font-bold shadow-xs'
+                          } else if (selected === optKey) {
+                            btnStyle =
+                              'bg-rose-500 text-white border-rose-600 font-bold shadow-xs'
+                          } else {
+                            btnStyle = 'opacity-40 border-slate-200 dark:border-slate-800'
+                          }
+                        }
+
+                        return (
+                          <button
+                            key={optKey}
+                            type="button"
+                            disabled={isAnswered}
+                            onClick={() => handleSelectOption(q.id, optKey)}
+                            className={`p-2.5 rounded-xl border text-left font-medium transition-all flex items-start gap-2 cursor-pointer ${btnStyle}`}
+                          >
+                            <span className="font-black text-[11px] uppercase shrink-0 mt-0.5">
+                              {optKey}.
+                            </span>
+                            <span className="flex-1">{optText}</span>
+                          </button>
+                        )
+                      })}
                     </div>
-                  {q.explanation && (
-                    <div className="text-xs text-slate-600 dark:text-slate-400 p-2.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
-                      <span className="font-bold text-emerald-600 dark:text-emerald-400">Explanation: </span>
-                      {q.explanation}
-                    </div>
-                  )}
-                </div>
-              )
-            })}
+
+                    {/* Interactive Feedback & Explanation Reveal */}
+                    {isAnswered && (
+                      <div
+                        className={`p-3.5 rounded-xl border text-xs space-y-1.5 animate-in fade-in duration-200 ${
+                          isCorrect
+                            ? 'bg-emerald-50/70 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200'
+                            : 'bg-rose-50/70 dark:bg-rose-950/20 border-rose-200 dark:border-rose-800 text-rose-900 dark:text-rose-200'
+                        }`}
+                      >
+                        <div className="flex items-center gap-1.5 font-black uppercase text-[10px]">
+                          {isCorrect ? (
+                            <>
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                              <span>Correct!</span>
+                            </>
+                          ) : (
+                            <>
+                              <AlertCircle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+                              <span>Incorrect — Correct Answer: {correctAns}</span>
+                            </>
+                          )}
+                        </div>
+                        {q.explanation && (
+                          <div className="mt-1 pt-1.5 border-t border-current/10">
+                            <FormattedExplanation text={q.explanation} />
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
           </div>
           )}
         </div>
