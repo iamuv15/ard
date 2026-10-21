@@ -584,12 +584,15 @@ export async function applySmartDeltaAppend({
   let deltaAppendedCount = 0
 
   for (const q of questions) {
-    const textToScan = `${q.questionText} ${q.optionA} ${q.optionB} ${q.optionC} ${q.optionD} ${q.explanation || ''}`.toLowerCase()
+    const stemAndOptions = `${q.questionText} ${q.optionA} ${q.optionB} ${q.optionC} ${q.optionD}`.toLowerCase()
 
-    // Find concepts mentioned in this question
-    const matchedConcepts = existingConcepts.filter(c =>
-      c.term.length > 2 && textToScan.includes(c.term.toLowerCase())
-    )
+    // Find concepts mentioned in this question using whole-word boundary matching on stem and options
+    const matchedConcepts = existingConcepts.filter(c => {
+      if (!c.term || c.term.trim().length < 3) return false
+      const escaped = c.term.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      const regex = new RegExp(`\\b${escaped}\\b`, 'i')
+      return regex.test(stemAndOptions)
+    })
 
     if (matchedConcepts.length === 0) continue
 
@@ -1384,17 +1387,12 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
     const itemCategory = matchedMeta?.category || category || 'General'
     const itemSubCategory = matchedMeta?.subCategory || subCategory || null
 
-    // Build search tokens for matching (e.g. "estrus", "oestrus", "heat" for reproduction)
-    const termTokens = term.toLowerCase().split(/[\s-]+/).filter(t => t.length > 2)
-    if (term.toLowerCase().includes('estrus') || term.toLowerCase().includes('oestrus')) {
-      termTokens.push('estrus', 'oestrus', 'estrous', 'heat')
-    }
-
-    // Find questions that mention this term or its synonyms to link them
+    // Strict whole-phrase matching with word boundaries on question stem and options
+    const escapedTerm = term.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const termRegex = new RegExp(`\\b${escapedTerm}\\b`, 'i')
     const matchingQs = relevantQuestions.filter(q => {
-      const qText = `${q.questionText} ${q.explanation || ''}`.toLowerCase()
-      if (qText.includes(term.toLowerCase())) return true
-      return termTokens.some(tok => qText.includes(tok))
+      const stemAndOptions = `${q.questionText} ${q.optionA} ${q.optionB} ${q.optionC} ${q.optionD}`
+      return termRegex.test(stemAndOptions)
     })
 
     // Enrich media via free Wikimedia REST API & YouTube practical demo link (Zero Cost)
@@ -1452,9 +1450,11 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
           sourceUrl: media.sourceUrl
         } : {}),
         ...(media.videoUrl ? { videoUrl: media.videoUrl } : {}),
-        questions: {
-          set: matchingQs.map(q => ({ id: q.id }))
-        }
+        ...(matchingQs.length > 0 ? {
+          questions: {
+            connect: matchingQs.map(q => ({ id: q.id }))
+          }
+        } : {})
       }
     })
   }
@@ -1501,13 +1501,16 @@ export async function incrementalQuizSync(quizId: number) {
 
   const linkedCount: { questionId: number; matchedConcepts: string[] }[] = []
 
-  // Link questions to existing concepts via case-insensitive keyword match
+  // Link questions to existing concepts via case-insensitive whole-word match on stem and options
   for (const q of quiz.questions) {
-    const textToScan = `${q.questionText} ${q.optionA} ${q.optionB} ${q.optionC} ${q.optionD} ${q.explanation || ''}`.toLowerCase()
+    const stemAndOptions = `${q.questionText} ${q.optionA} ${q.optionB} ${q.optionC} ${q.optionD}`
     
-    const matched = existingConcepts.filter(c => 
-      textToScan.includes(c.term.toLowerCase())
-    )
+    const matched = existingConcepts.filter(c => {
+      if (!c.term || c.term.trim().length < 3) return false
+      const escaped = c.term.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      const regex = new RegExp(`\\b${escaped}\\b`, 'i')
+      return regex.test(stemAndOptions)
+    })
 
     if (matched.length > 0) {
       await prisma.question.update({

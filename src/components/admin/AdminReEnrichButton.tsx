@@ -5,7 +5,7 @@ import { Sparkles, Loader2, Check } from 'lucide-react'
 
 interface AdminReEnrichButtonProps {
   questionId: number
-  onEnriched?: (newExplanation: string) => void
+  onEnriched?: (newExplanation: string, newConcepts?: any[]) => void
 }
 
 export function AdminReEnrichButton({ questionId, onEnriched }: AdminReEnrichButtonProps) {
@@ -28,7 +28,7 @@ export function AdminReEnrichButton({ questionId, onEnriched }: AdminReEnrichBut
   if (!isAdmin) return null
 
   const handleReEnrich = async () => {
-    if (!confirm('Reformat this question explanation with AI tables & styling now?')) {
+    if (!confirm('Reformat this question explanation and re-evaluate concept tags with AI?')) {
       return
     }
 
@@ -44,7 +44,7 @@ export function AdminReEnrichButton({ questionId, onEnriched }: AdminReEnrichBut
       if (res.ok && data.success) {
         setSuccess(true)
         if (onEnriched && data.explanation) {
-          onEnriched(data.explanation)
+          onEnriched(data.explanation, data.concepts)
         }
         setTimeout(() => setSuccess(false), 3000)
       } else {

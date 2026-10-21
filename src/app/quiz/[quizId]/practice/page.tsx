@@ -421,8 +421,12 @@ export default function QuizPage() {
                       </h4>
                       <AdminReEnrichButton
                         questionId={currentQ.id}
-                        onEnriched={(newExp) => {
-                          setQuestions(prev => prev.map(q => q.id === currentQ.id ? { ...q, explanation: newExp } : q))
+                        onEnriched={(newExp, newConcepts) => {
+                          setQuestions(prev => prev.map(q => q.id === currentQ.id ? { 
+                            ...q, 
+                            explanation: newExp,
+                            ...(newConcepts ? { concepts: newConcepts } : {})
+                          } : q))
                         }}
                       />
                     </div>
