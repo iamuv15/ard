@@ -1388,11 +1388,14 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
     const itemSubCategory = matchedMeta?.subCategory || subCategory || null
 
     // Strict whole-phrase matching with word boundaries on question stem and options
-    const escapedTerm = term.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const termRegex = new RegExp(`\\b${escapedTerm}\\b`, 'i')
+    const termsToMatch = [term, ...relatedTerms].filter(t => t && t.trim().length >= 3)
     const matchingQs = relevantQuestions.filter(q => {
       const stemAndOptions = `${q.questionText} ${q.optionA} ${q.optionB} ${q.optionC} ${q.optionD}`
-      return termRegex.test(stemAndOptions)
+      return termsToMatch.some(t => {
+        const escaped = t.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        const regex = new RegExp(`\\b${escaped}\\b`, 'i')
+        return regex.test(stemAndOptions)
+      })
     })
 
     // Enrich media via free Wikimedia REST API & YouTube practical demo link (Zero Cost)
@@ -1507,9 +1510,12 @@ export async function incrementalQuizSync(quizId: number) {
     
     const matched = existingConcepts.filter(c => {
       if (!c.term || c.term.trim().length < 3) return false
-      const escaped = c.term.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-      const regex = new RegExp(`\\b${escaped}\\b`, 'i')
-      return regex.test(stemAndOptions)
+      const termsToTest = [c.term, ...(c.relatedTerms || [])].filter(t => t && t.trim().length >= 3)
+      return termsToTest.some(t => {
+        const escaped = t.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        const regex = new RegExp(`\\b${escaped}\\b`, 'i')
+        return regex.test(stemAndOptions)
+      })
     })
 
     if (matched.length > 0) {

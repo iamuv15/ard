@@ -17,7 +17,7 @@ export async function GET(
       if (!isNaN(chapterId)) where.chapterId = chapterId
     }
 
-    const concept = await prisma.chapterConcept.findFirst({
+    let concept = await prisma.chapterConcept.findFirst({
       where,
       include: {
         chapter: {
@@ -42,6 +42,47 @@ export async function GET(
         }
       }
     })
+
+    // Fallback: if not found by primary slug, search for consolidated/parent concept via relatedTerms or title
+    if (!concept) {
+      const normalizedQuery = slug.replace(/-/g, ' ').trim()
+      const fallbackWhere: any = {
+        OR: [
+          { relatedTerms: { hasSome: [normalizedQuery, slug] } },
+          { term: { contains: normalizedQuery, mode: 'insensitive' } }
+        ]
+      }
+      if (chapterIdStr) {
+        const chapterId = parseInt(chapterIdStr, 10)
+        if (!isNaN(chapterId)) fallbackWhere.chapterId = chapterId
+      }
+
+      concept = await prisma.chapterConcept.findFirst({
+        where: fallbackWhere,
+        include: {
+          chapter: {
+            select: { id: true, name: true }
+          },
+          questions: {
+            select: {
+              id: true,
+              questionText: true,
+              optionA: true,
+              optionB: true,
+              optionC: true,
+              optionD: true,
+              optionE: true,
+              correctAnswer: true,
+              explanation: true,
+              quiz: {
+                select: { id: true, name: true }
+              }
+            },
+            take: 10
+          }
+        }
+      })
+    }
 
     if (!concept) {
       return NextResponse.json({ error: 'Concept not found' }, { status: 404 })

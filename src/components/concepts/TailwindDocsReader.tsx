@@ -41,6 +41,7 @@ export interface ConceptSummaryItem {
   subCategory?: string | null
   definition?: string | null
   examTraps?: string | null
+  relatedTerms?: string[]
   imageUrl?: string | null
   thumbnailUrl?: string | null
   imageCaption?: string | null
@@ -692,6 +693,16 @@ export function TailwindDocsReader({
     }
   }
 
+  // Concept lookup map for fast relatedTerms check
+  const conceptLookupMap = useMemo(() => {
+    const map = new Map<string, ConceptSummaryItem>()
+    allConcepts.forEach(c => {
+      map.set(c.term.toLowerCase().trim(), c)
+      map.set(c.slug.toLowerCase().trim(), c)
+    })
+    return map
+  }, [allConcepts])
+
   // Filtered categories and keywords in left sidebar
   const filteredNavCategories = useMemo(() => {
     if (!searchQuery.trim()) return categories
@@ -701,9 +712,14 @@ export function TailwindDocsReader({
       .map(cat => {
         const matchingSub = cat.subCategories
           .map(sub => {
-            const matchingKeywords = sub.keywords.filter(kw =>
-              kw.toLowerCase().includes(q)
-            )
+            const matchingKeywords = sub.keywords.filter(kw => {
+              if (kw.toLowerCase().includes(q)) return true
+              const item = conceptLookupMap.get(kw.toLowerCase().trim())
+              if (item?.relatedTerms && item.relatedTerms.some(rt => rt.toLowerCase().includes(q))) {
+                return true
+              }
+              return false
+            })
             return { ...sub, keywords: matchingKeywords }
           })
           .filter(sub => sub.keywords.length > 0)
@@ -711,7 +727,7 @@ export function TailwindDocsReader({
         return { ...cat, subCategories: matchingSub }
       })
       .filter(cat => cat.subCategories.length > 0)
-  }, [categories, searchQuery])
+  }, [categories, conceptLookupMap, searchQuery])
 
   const activeImage = galleryImages[activeImageIdx] || (conceptDetail?.imageUrl ? {
     url: conceptDetail.imageUrl,
@@ -872,20 +888,54 @@ export function TailwindDocsReader({
                                   const isActive = activeSlug === itemSlug
                                   const qCount = item?._count?.questions || 0
 
+                                  const q = searchQuery.toLowerCase().trim()
+                                  let matchedSubTerm: string | null = null
+                                  if (q && item?.relatedTerms && !kw.toLowerCase().includes(q)) {
+                                    matchedSubTerm = item.relatedTerms.find(rt => rt.toLowerCase().includes(q)) || null
+                                  }
+
                                   return (
                                     <button
                                       key={kwIdx}
                                       onClick={() => {
                                         setActiveSlug(itemSlug)
-                                        document.getElementById('docs-main-content')?.scrollTo({ top: 0, behavior: 'smooth' })
+                                        if (matchedSubTerm) {
+                                          setTimeout(() => {
+                                            const container = document.getElementById('docs-main-content')
+                                            if (container) {
+                                              const headings = container.querySelectorAll('h2, h3, h4, strong')
+                                              const queryTerm = matchedSubTerm!.toLowerCase().trim()
+                                              for (const h of Array.from(headings)) {
+                                                if (
+                                                  h.textContent?.toLowerCase().includes(queryTerm) ||
+                                                  (h.id && h.id.includes(queryTerm.replace(/[^a-z0-9]+/g, '-')))
+                                                ) {
+                                                  h.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                                                  return
+                                                }
+                                              }
+                                            }
+                                            document.getElementById('docs-main-content')?.scrollTo({ top: 0, behavior: 'smooth' })
+                                          }, 150)
+                                        } else {
+                                          document.getElementById('docs-main-content')?.scrollTo({ top: 0, behavior: 'smooth' })
+                                        }
                                       }}
-                                      className={`w-full text-left px-2 py-1.5 rounded-lg text-xs transition-all flex items-center justify-between gap-2 cursor-pointer ${
+                                      className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs transition-all flex items-center justify-between gap-2 cursor-pointer ${
                                         isActive
                                           ? 'bg-emerald-50 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 font-bold border-l-2 border-emerald-500 shadow-2xs'
                                           : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 font-medium'
                                       }`}
                                     >
-                                      <span className="truncate">{kw}</span>
+                                      <div className="flex flex-col min-w-0 flex-1">
+                                        <span className="truncate">{kw}</span>
+                                        {matchedSubTerm && (
+                                          <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium truncate flex items-center gap-1 mt-0.5">
+                                            <span className="opacity-70">↳</span>
+                                            <span className="truncate">Sub-topic: {matchedSubTerm}</span>
+                                          </span>
+                                        )}
+                                      </div>
                                       <div className="flex items-center gap-1 shrink-0 text-[10px]">
                                         {item?.imageUrl && <span title="Photo available">🖼️</span>}
                                         {qCount > 0 && (

@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import prisma from '../src/lib/prisma'
+import { callGemini } from '../src/lib/terminologyEngine'
 
 async function main() {
   const quizId = parseInt(process.argv[2] || '43', 10)
@@ -65,14 +66,6 @@ async function main() {
     slugMap.set(c.term.toLowerCase().trim(), c.id)
   }
 
-  const apiKey = process.env.GEMINI_API_KEY
-  if (!apiKey) {
-    console.error(`❌ GEMINI_API_KEY is not defined in environment.`)
-    process.exit(1)
-  }
-
-  const primaryModel = process.env.GEMINI_MODEL || 'gemini-3.5-flash'
-  const fallbackModel = 'gemini-1.5-flash'
   const batchSize = 10
   let totalRetagged = 0
 
@@ -117,48 +110,14 @@ QUESTIONS TO CLASSIFY:
 ${batchDigest}`
 
     try {
-      let endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${primaryModel}:generateContent?key=${apiKey}`
-      let res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ role: 'user', parts: [{ text: prompt }] }],
-          generationConfig: {
-            responseMimeType: 'application/json',
-            temperature: 0.1
-          }
-        })
+      const parsed: any = await callGemini({
+        systemPrompt: 'You are an expert exam concept classifier for Indian agricultural examinations. Output valid JSON matching {"results": [{"id": number, "testedConceptSlugs": string[]}]}.',
+        userPrompt: prompt,
+        allowThinking: false,
+        temperature: 0.1
       })
 
-      if (!res.ok && (res.status === 503 || res.status === 429 || res.status === 404)) {
-        endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${fallbackModel}:generateContent?key=${apiKey}`
-        res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: {
-              responseMimeType: 'application/json',
-              temperature: 0.1
-            }
-          })
-        })
-      }
-
-      if (!res.ok) {
-        console.log(`⚠️ API returned ${res.status}: ${await res.text()}`)
-        continue
-      }
-
-      const data = await res.json()
-      const text = data.candidates?.[0]?.content?.parts?.find((p: any) => p.text)?.text || data.candidates?.[0]?.content?.parts?.[0]?.text
-      if (!text) {
-        console.log(`⚠️ Empty response`)
-        continue
-      }
-
-      const parsed = JSON.parse(text)
-      if (Array.isArray(parsed.results)) {
+      if (parsed && Array.isArray(parsed.results)) {
         for (const item of parsed.results) {
           const matchedConceptIds: number[] = []
           if (Array.isArray(item.testedConceptSlugs)) {
@@ -181,6 +140,8 @@ ${batchDigest}`
           totalRetagged++
         }
         console.log(`✅ Done (${parsed.results.length} questions updated)`)
+      } else {
+        console.log(`⚠️ Unexpected response format`)
       }
     } catch (err: any) {
       console.log(`❌ Error: ${err.message}`)

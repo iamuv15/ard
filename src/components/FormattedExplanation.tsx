@@ -72,16 +72,44 @@ export function FormattedExplanation({ text, className = '' }: FormattedExplanat
               {children}
             </blockquote>
           ),
-          h3: ({ children }) => (
-            <h3 className="font-black text-sm md:text-base text-slate-900 mt-4 mb-2 flex items-center gap-1.5 tracking-tight border-b border-slate-200/70 pb-1">
-              {children}
-            </h3>
-          ),
-          h4: ({ children }) => (
-            <h4 className="font-bold text-xs md:text-sm text-slate-900 mt-3 mb-1">
-              {children}
-            </h4>
-          ),
+          h3: ({ children }) => {
+            const textContent = React.Children.toArray(children)
+              .map(c => (typeof c === 'string' ? c : ''))
+              .join('')
+            const headingId = textContent
+              ? textContent
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, '-')
+                  .replace(/(^-|-$)/g, '')
+              : undefined
+            return (
+              <h3
+                id={headingId}
+                className="font-black text-sm md:text-base text-slate-900 mt-6 mb-2 flex items-center gap-1.5 tracking-tight border-b border-slate-200/70 pb-1 scroll-mt-24"
+              >
+                {children}
+              </h3>
+            )
+          },
+          h4: ({ children }) => {
+            const textContent = React.Children.toArray(children)
+              .map(c => (typeof c === 'string' ? c : ''))
+              .join('')
+            const headingId = textContent
+              ? textContent
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, '-')
+                  .replace(/(^-|-$)/g, '')
+              : undefined
+            return (
+              <h4
+                id={headingId}
+                className="font-bold text-xs md:text-sm text-slate-900 mt-3 mb-1 scroll-mt-24"
+              >
+                {children}
+              </h4>
+            )
+          },
           p: ({ children }) => (
             <p className="my-2 leading-relaxed text-xs md:text-sm text-slate-800 font-normal">
               {children}
