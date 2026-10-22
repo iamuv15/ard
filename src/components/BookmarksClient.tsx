@@ -17,6 +17,7 @@ import {
   ArrowRight
 } from 'lucide-react'
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 
 type BookmarkItem = {
@@ -311,7 +312,7 @@ export default function BookmarksClient({ initialBookmarks, userName }: Props) {
 
                     {/* Question text */}
                     <h3 className="text-base font-semibold text-gray-900 leading-relaxed mb-4">
-                      {q.questionText}
+                      {sanitizeQuestionText(q.questionText)}
                     </h3>
 
                     {/* Expand/Collapse Button */}

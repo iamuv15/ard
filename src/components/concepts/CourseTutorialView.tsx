@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { ConceptDossierModal } from './ConceptDossierModal'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 export interface ConceptSummary {
   id: number
@@ -712,7 +713,7 @@ export function CourseTutorialView({
                               {qIdx + 1}
                             </span>
                             <p className="text-sm font-bold text-slate-900 dark:text-white leading-snug">
-                              {q.questionText}
+                              {sanitizeQuestionText(q.questionText)}
                             </p>
                           </div>
 
@@ -747,7 +748,7 @@ export function CourseTutorialView({
                                   <span className="font-black text-[11px] uppercase shrink-0">
                                     {optKey}.
                                   </span>
-                                  <span className="flex-1">{optText}</span>
+                                  <span className="flex-1">{sanitizeQuestionText(optText)}</span>
                                 </button>
                               )
                             })}

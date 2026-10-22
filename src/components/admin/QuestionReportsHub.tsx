@@ -18,6 +18,7 @@ import {
   ChevronDown,
   X
 } from 'lucide-react'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 type Question = {
   id: number
@@ -499,17 +500,17 @@ export function QuestionReportsHub() {
                 {/* Question Text */}
                 <div className="space-y-3">
                   <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 leading-snug">
-                    {q.questionText}
+                    {sanitizeQuestionText(q.questionText)}
                   </h4>
 
                   {/* Options Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
                     {[
-                      { key: 'A', text: q.optionA },
-                      { key: 'B', text: q.optionB },
-                      { key: 'C', text: q.optionC },
-                      { key: 'D', text: q.optionD },
-                      ...(q.optionE ? [{ key: 'E', text: q.optionE }] : [])
+                      { key: 'A', text: sanitizeQuestionText(q.optionA) },
+                      { key: 'B', text: sanitizeQuestionText(q.optionB) },
+                      { key: 'C', text: sanitizeQuestionText(q.optionC) },
+                      { key: 'D', text: sanitizeQuestionText(q.optionD) },
+                      ...(q.optionE ? [{ key: 'E', text: sanitizeQuestionText(q.optionE) }] : [])
                     ].map((opt) => {
                       const isCurrentCorrect = opt.key === q.correctAnswer.toUpperCase()
                       const isPrevAnswer = opt.key === report.previousAnswer?.toUpperCase()

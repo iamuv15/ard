@@ -8,6 +8,7 @@ import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
 import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 type Question = {
   id: number
@@ -276,7 +277,7 @@ function RevisionPracticeContent() {
               </div>
 
               <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-relaxed mb-6">
-                {currentQ.questionText}
+                {sanitizeQuestionText(currentQ.questionText)}
               </h3>
 
               <div className="space-y-3">
@@ -313,7 +314,7 @@ function RevisionPracticeContent() {
                           {opt.key}
                         </div>
                         <span className={`font-medium text-[15px] leading-snug flex-1 ${!isAnswered ? 'text-gray-700 group-hover:text-gray-900' : ''}`}>
-                          {opt.value}
+                          {sanitizeQuestionText(opt.value)}
                         </span>
 
                         {isAnswered && opt.key === currentQ.correctAnswer.toUpperCase() && (

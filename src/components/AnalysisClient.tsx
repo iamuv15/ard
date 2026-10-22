@@ -24,6 +24,7 @@ import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
 import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 type Concept = {
   id: number
@@ -533,7 +534,7 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                     </div>
                   </div>
 
-                  <p className="text-[15px] font-medium mb-5 text-gray-800 leading-relaxed">{q.questionText}</p>
+                  <p className="text-[15px] font-medium mb-5 text-gray-800 leading-relaxed">{sanitizeQuestionText(q.questionText)}</p>
 
                   {/* Options */}
                   <div className="space-y-2 mb-4">
@@ -561,7 +562,7 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
                             w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold
                             ${isThisCorrect ? 'bg-green-500 text-white' : (isThisUserPick ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-500')}
                           `}>{opt.k}</div>
-                          <span className="text-sm text-gray-700">{opt.v}</span>
+                          <span className="text-sm text-gray-700">{sanitizeQuestionText(opt.v)}</span>
                           {isThisCorrect && <CheckCircle2 className="w-3.5 h-3.5 text-green-500 ml-auto shrink-0" />}
                           {isThisUserPick && !isThisCorrect && <XCircle className="w-3.5 h-3.5 text-red-500 ml-auto shrink-0" />}
                         </div>

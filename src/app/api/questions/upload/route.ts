@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import * as xlsx from 'xlsx'
 import { incrementalQuizSync } from '@/lib/terminologyEngine'
+import { sanitizeQuestionPayload } from '@/lib/sanitizeQuestion'
 
 function parseCorrectAnswer(rawAnswer: string, options: {A: string, B: string, C: string, D: string, E: string}): string {
   let ans = String(rawAnswer).toUpperCase().trim();
@@ -196,6 +197,8 @@ export async function POST(request: Request) {
       }
 
       if (mappedQuestions.length === 0) continue
+
+      mappedQuestions = mappedQuestions.map(sanitizeQuestionPayload)
 
       const quizName = customQuizName || fileName
 

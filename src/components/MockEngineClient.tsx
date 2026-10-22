@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { X, Pause, Flag, Trash2, ChevronLeft, ChevronRight, Bookmark } from 'lucide-react'
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 
 type Question = {
@@ -345,7 +346,7 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
 
 
             <p className="text-lg leading-relaxed font-medium text-gray-800">
-              {currentQ.questionText}
+              {sanitizeQuestionText(currentQ.questionText)}
             </p>
 
             <div className="space-y-3 pt-2">
@@ -372,7 +373,7 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
                     checked={answers[currentIndex] === opt.key}
                     onChange={() => handleSelectOption(opt.key)}
                   />
-                  <span className="text-[15px] text-gray-700">{opt.value}</span>
+                  <span className="text-[15px] text-gray-700">{sanitizeQuestionText(opt.value)}</span>
                 </label>
               ))}
             </div>

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Trash2, Edit, Save, X, Loader2 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 type Question = {
   id: number
@@ -276,24 +277,24 @@ export function QuestionManager({ initialQuestions }: { initialQuestions: Questi
             <div key={q.id} className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex gap-4">
               <div className="text-gray-400 font-bold shrink-0">{index + 1}.</div>
               <div className="flex-1">
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{q.questionText}</h3>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{sanitizeQuestionText(q.questionText)}</h3>
                 {q.topic && <span className="inline-block px-2 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded mb-4">{q.topic}</span>}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm mb-4">
                   <div className={`p-2 rounded border ${q.correctAnswer === 'A' ? 'bg-green-50 border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-300' : 'border-gray-100 dark:border-gray-700'}`}>
-                    <span className="font-bold mr-2">A:</span> {q.optionA}
+                    <span className="font-bold mr-2">A:</span> {sanitizeQuestionText(q.optionA)}
                   </div>
                   <div className={`p-2 rounded border ${q.correctAnswer === 'B' ? 'bg-green-50 border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-300' : 'border-gray-100 dark:border-gray-700'}`}>
-                    <span className="font-bold mr-2">B:</span> {q.optionB}
+                    <span className="font-bold mr-2">B:</span> {sanitizeQuestionText(q.optionB)}
                   </div>
                   <div className={`p-2 rounded border ${q.correctAnswer === 'C' ? 'bg-green-50 border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-300' : 'border-gray-100 dark:border-gray-700'}`}>
-                    <span className="font-bold mr-2">C:</span> {q.optionC}
+                    <span className="font-bold mr-2">C:</span> {sanitizeQuestionText(q.optionC)}
                   </div>
                   <div className={`p-2 rounded border ${q.correctAnswer === 'D' ? 'bg-green-50 border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-300' : 'border-gray-100 dark:border-gray-700'}`}>
-                    <span className="font-bold mr-2">D:</span> {q.optionD}
+                    <span className="font-bold mr-2">D:</span> {sanitizeQuestionText(q.optionD)}
                   </div>
                   {q.optionE && (
                     <div className={`p-2 rounded border ${q.correctAnswer === 'E' ? 'bg-green-50 border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-300' : 'border-gray-100 dark:border-gray-700'}`}>
-                      <span className="font-bold mr-2">E:</span> {q.optionE}
+                      <span className="font-bold mr-2">E:</span> {sanitizeQuestionText(q.optionE)}
                     </div>
                   )}
                 </div>

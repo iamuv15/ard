@@ -32,6 +32,7 @@ import {
   RotateCcw
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 export interface ConceptSummaryItem {
   id: number
@@ -1098,7 +1099,7 @@ export function TailwindDocsReader({
                             {qIdx + 1}
                           </span>
                           <p className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug">
-                            {q.questionText}
+                            {sanitizeQuestionText(q.questionText)}
                           </p>
                         </div>
 
@@ -1133,7 +1134,7 @@ export function TailwindDocsReader({
                                 <span className="font-black text-[11px] uppercase shrink-0 mt-0.5">
                                   {optKey}.
                                 </span>
-                                <span className="flex-1">{optText}</span>
+                                <span className="flex-1">{sanitizeQuestionText(optText)}</span>
                               </button>
                             )
                           })}

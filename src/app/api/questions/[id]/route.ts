@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { cookies } from 'next/headers'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 export async function DELETE(request: Request, props: { params: Promise<{ id: string }> }) {
   try {
@@ -57,18 +58,18 @@ export async function PUT(request: Request, props: { params: Promise<{ id: strin
     const updatedQuestion = await prisma.question.update({
       where: { id: questionId },
       data: {
-        questionText,
-        optionA,
-        optionB,
-        optionC: optionC || '',
-        optionD: optionD || '',
-        optionE: optionE || null,
+        questionText: sanitizeQuestionText(questionText),
+        optionA: sanitizeQuestionText(optionA),
+        optionB: sanitizeQuestionText(optionB),
+        optionC: sanitizeQuestionText(optionC || ''),
+        optionD: sanitizeQuestionText(optionD || ''),
+        optionE: optionE ? sanitizeQuestionText(optionE) : null,
         explanationA: explanationA || null,
         explanationB: explanationB || null,
         explanationC: explanationC || null,
         explanationD: explanationD || null,
         explanationE: explanationE || null,
-        topic: topic || null,
+        topic: topic ? sanitizeQuestionText(topic) : null,
         explanation: explanation || null,
         correctAnswer: correctAnswer.toUpperCase()
       }

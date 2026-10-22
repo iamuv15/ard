@@ -4,6 +4,7 @@ import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, ShieldAlert } from 'lucide-react'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 type Question = {
   id: number
@@ -202,7 +203,7 @@ function RedemptionQuizContent() {
               )}
               
               <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-relaxed mb-6">
-                {currentQ.questionText}
+                {sanitizeQuestionText(currentQ.questionText)}
               </h3>
 
               <div className="space-y-3">
@@ -238,7 +239,7 @@ function RedemptionQuizContent() {
                         `}>
                           {opt.key}
                         </div>
-                        <span className={`font-medium text-[15px] leading-snug flex-1 ${!isAnswered ? 'text-gray-700 group-hover:text-gray-900' : ''}`}>{opt.value}</span>
+                        <span className={`font-medium text-[15px] leading-snug flex-1 ${!isAnswered ? 'text-gray-700 group-hover:text-gray-900' : ''}`}>{sanitizeQuestionText(opt.value)}</span>
                         
                         {isAnswered && opt.key === currentQ.correctAnswer.toUpperCase() && (
                           <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />

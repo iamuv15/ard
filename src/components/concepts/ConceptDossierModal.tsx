@@ -18,6 +18,7 @@ import {
   RotateCcw
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
+import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 export interface ConceptDetail {
   id: number
@@ -408,7 +409,7 @@ export function ConceptDossierModal({
                           Q{idx + 1}
                         </span>
                         <p className="font-bold text-slate-900 dark:text-slate-100 text-sm leading-snug">
-                          {q.questionText}
+                          {sanitizeQuestionText(q.questionText)}
                         </p>
                       </div>
                       {isAnswered && (
@@ -456,7 +457,7 @@ export function ConceptDossierModal({
                             <span className="font-black text-[11px] uppercase shrink-0 mt-0.5">
                               {optKey}.
                             </span>
-                            <span className="flex-1">{optText}</span>
+                            <span className="flex-1">{sanitizeQuestionText(optText)}</span>
                           </button>
                         )
                       })}
