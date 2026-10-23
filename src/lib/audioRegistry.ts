@@ -31,6 +31,30 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Saprolite',
       'Soil Catena'
     ]
+  },
+  {
+    id: 'soil-rocks-and-minerals',
+    title: 'Rocks & Primary/Secondary Minerals',
+    subtitle: 'NotebookLM Deep Dive Masterclass • 13 Petrology & Mineralogy Keywords',
+    audioUrl: '/audio/soil/rocks-and-minerals.m4a',
+    chapterNamePattern: /soil/i,
+    categoryPattern: /fundamental|genesis|weathering/i,
+    subCategoryPattern: /rock|mineral/i,
+    keywords: [
+      'Igneous Rocks',
+      'Sedimentary Rocks',
+      'Metamorphic Rocks',
+      'Basalt',
+      'Granite',
+      'Quartz',
+      'Feldspar',
+      'Mica',
+      'Olivine',
+      'Amphiboles',
+      'Calcite',
+      'Primary Minerals',
+      'Secondary Minerals'
+    ]
   }
 ]
 
