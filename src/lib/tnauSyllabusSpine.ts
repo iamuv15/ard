@@ -123,67 +123,6 @@ export const TNAU_SYLLABUS_SPINES: Record<string, ChapterSyllabusSpine> = {
     }
   },
 
-  'soil': {
-    chapterKey: 'soil',
-    canonicalName: 'Soil Science & Agricultural Chemistry',
-    sourceUrl: 'http://www.agritech.tnau.ac.in/agriculture/agri_soil_index.html',
-    categories: [
-      {
-        name: 'Soil Physical Properties',
-        topics: [
-          'Soil Texture & Stokes Law (Sand, Silt, Clay particles)',
-          'Soil Structure (Platy, Prismatic, Columnar, Blocky, Granular)',
-          'Bulk Density vs Particle Density (Typical BD 1.33 g/cm³, PD 2.65 g/cm³)',
-          'Soil Porosity & Water Retention (Field Capacity, Permanent Wilting Point, Hygroscopic Coefficient)',
-          'Soil Color & Munsell Color Chart'
-        ]
-      },
-      {
-        name: 'Soil Chemical & Biological Properties',
-        topics: [
-          'Cation Exchange Capacity (CEC - Montmorillonite > Illite > Kaolinite)',
-          'Soil pH & Buffering Capacity',
-          'Soil Organic Matter & Humus (C:N Ratio of normal arable soil 10:1 to 12:1)',
-          'Electrical Conductivity (EC for salinity)',
-          'Clay Mineralogy (1:1 non-expanding Kaolinite, 2:1 expanding Montmorillonite, 2:1 non-expanding Illite)'
-        ]
-      },
-      {
-        name: 'Indian Soil Orders & Classification',
-        topics: [
-          'Alluvial Soils (Entisols / Inceptisols - Largest area in India)',
-          'Black Soils / Regur (Vertisols - Montmorillonite, self-ploughing, cracks, Maharashtra/MP/Gujarat)',
-          'Red Soils (Alfisols - Kaolinite dominant, iron oxides hematite/goethite)',
-          'Laterite Soils (Ultisols / Oxisols - High leaching of silica, rich in iron/aluminum sesquioxides)',
-          'Saline, Sodic & Alkali Soils',
-          'Desert / Arid Soils & Peaty Soils'
-        ]
-      },
-      {
-        name: 'Problem Soils & Reclamation',
-        topics: [
-          'Saline Soils (White Alkali - EC > 4 dS/m, ESP < 15%, pH < 8.5, Leaching reclamation)',
-          'Sodic / Alkali Soils (Black Alkali - EC < 4 dS/m, ESP > 15%, pH > 8.5, Gypsum CaSO4.2H2O reclamation)',
-          'Saline-Sodic Soils',
-          'Acid Soils (pH < 5.5, Lime CaCO3 reclamation, Al & Fe toxicity, Mo deficiency)'
-        ]
-      }
-    ],
-    mustCoverTopics: [
-      'Black Soil (Vertisols)', 'Alluvial Soil', 'Bulk Density', 'Particle Density',
-      'Montmorillonite', 'Kaolinite', 'C:N Ratio', 'Gypsum Reclamation', 'Acid Soil Liming',
-      'Field Capacity', 'Permanent Wilting Point', 'Cation Exchange Capacity (CEC)', 'Stokes Law',
-      'Electrical Conductivity (EC)', 'Exchangeable Sodium Percentage (ESP)'
-    ],
-    benchmarkFacts: {
-      'Average Particle Density': '2.65 g/cm³',
-      'Average Bulk Density': '1.33 g/cm³',
-      'Normal Soil C:N Ratio': '10:1 to 12:1',
-      'Saline Soil Threshold': 'EC > 4 dS/m, ESP < 15%, pH < 8.5',
-      'Sodic Soil Threshold': 'EC < 4 dS/m, ESP > 15%, pH > 8.5',
-      'Gypsum for Sodic Soil': 'Replaces exchangeable Na+ with Ca2+'
-    }
-  },
 
   'agronomy': {
     chapterKey: 'agronomy',
@@ -235,6 +174,149 @@ export const TNAU_SYLLABUS_SPINES: Record<string, ChapterSyllabusSpine> = {
       'Land Equivalent Ratio (LER)', 'Nipping in Chickpea', 'Pegging in Groundnut',
       'HCN / Dhurrin Toxicity in Sorghum', 'Aflatoxin', 'Phalaris minor',
       'Striga, Cuscuta, Orobanche (Parasitic Weeds)', 'Relay Cropping'
+    ]
+  },
+  'soil': {
+    chapterKey: 'soil-science',
+    canonicalName: 'Soil Science & Agricultural Chemistry',
+    sourceUrl: 'Notes/Soil_Science/ (Master Revision Notes & PYQs)',
+    categories: [
+      {
+        name: 'Fundamentals, Rocks & Minerals',
+        topics: [
+          'Pedology vs Edaphology',
+          'Earth Crust Mineral Abundance (Feldspar 48% > Quartz 36% > Mica 10%)',
+          'Igneous, Sedimentary & Metamorphic Rocks',
+          'Goldich Dissolution / Weathering Resistance Series',
+          'Soil Air vs Atmospheric Air (CO2 concentration)',
+          'National Soil Institutes (IISS Bhopal, NBSS&LUP, CSSRI Karnal)'
+        ]
+      },
+      {
+        name: 'Soil Formation, Weathering & Pedology',
+        topics: [
+          'Jenny Soil Forming Factors Equation (Active vs Passive)',
+          'Solum (A+E+B) vs Regolith (A+B+C)',
+          'Master Horizons (O, A, E, B, C, R Layers)',
+          'Eluviation (E Horizon) vs Illuviation (B Horizon)',
+          'Pedogenic Processes (Podzolization, Laterization, Calcification, Gleization)',
+          'Diagnostic Epipedons & Endopedons'
+        ]
+      },
+      {
+        name: 'Soil Physical Properties',
+        topics: [
+          'Soil Texture & Particle Size Fractions (ISSS vs USDA Systems)',
+          'Stokes Law & Terminal Sedimentation Velocity',
+          'Loam Textural Class Characteristics',
+          'Soil Structure Types (Platy, Prismatic, Columnar, Blocky, Granular)',
+          'Bulk Density (1.33 g/cm3) vs Particle Density (2.65 g/cm3)',
+          'Soil Porosity & Pore Space Calculation',
+          'Munsell Soil Color Chart (Hue, Value, Chroma)',
+          'Soil Consistency & Atterberg Limits (Liquid, Plastic, Shrinkage)'
+        ]
+      },
+      {
+        name: 'Soil Water Dynamics & Measurement',
+        topics: [
+          'Physical Forms (Gravitational <1/3 bar, Capillary 1/3-31 bar, Hygroscopic 31-10000 bar)',
+          'Biological Scheme (Available water 1/3-15 bar, Wilting point 15 bar)',
+          'Holard, Chresard & Echard Concepts',
+          'Schofield pF Curve & Tension Relationships',
+          'Darcy Law of Saturated Flow & Hydraulic Conductivity',
+          'Infiltration vs Percolation vs Seepage vs Leaching',
+          'Moisture Measurement Instruments (Tensiometer <=0.85 bar, Neutron Probe, TDR, Gypsum Block)'
+        ]
+      },
+      {
+        name: 'Soils of India & Soil Taxonomy',
+        topics: [
+          'Major Indian Soils (Alluvial 43%, Red 18.5%, Black 15%, Laterite 12%)',
+          'Alluvial Soil Sub-types (Khadar vs Bhangar)',
+          'Black Cotton Soil / Vertisols (Self-ploughing, Montmorillonite, Titaniferous magnetite)',
+          'Red Soils & Acidic Laterite Soils (Buchanan 1807)',
+          'USDA Comprehensive Soil Taxonomy (12 Orders)',
+          'India Order Distribution (Inceptisols 39.74% > Entisols > Alfisols > Vertisols)'
+        ]
+      },
+      {
+        name: 'Soil Chemistry, Colloids & Organic Matter',
+        topics: [
+          'Inorganic vs Organic Soil Colloids (<1 micron)',
+          'Layer Silicate Clays (1:1 Kaolinite vs 2:1 Montmorillonite vs 2:1 Illite vs 2:1:1 Chlorite)',
+          'Isomorphous Substitution & Permanent Negative Charge',
+          'Cation Exchange Capacity (CEC order: Humus > Vermiculite > Montmorillonite > Illite > Kaolinite)',
+          'Anion Exchange Capacity (AEC) & Base Saturation Percentage',
+          'Soil Organic Matter & Humus Fractions (Fulvic acid, Humic acid, Humin)',
+          'Soil C:N Ratio Benchmarks (10:1 to 12:1 in tropical soils)',
+          'Van Bemmelen Factor (OM = OC x 1.724)'
+        ]
+      },
+      {
+        name: 'Problematic Soils & Chemical Reclamation',
+        topics: [
+          'Saline Soils (White Alkali, Solan chalk: EC > 4 dS/m, ESP < 15%, pH < 8.5)',
+          'Sodic / Alkali Soils (Black Alkali, Solonetz: EC < 4 dS/m, ESP > 15%, pH 8.5-10.0)',
+          'Saline-Sodic Soils (EC > 4 dS/m, ESP > 15%, pH variable)',
+          'Sodium Adsorption Ratio (SAR) & Exchangeable Sodium Percentage (ESP)',
+          'Acid Soils & Acid Sulfate Soils (Cat-Clay, pH < 4.0)',
+          'Chemical Amendments: Gypsum Requirement for Sodic soils & Lime Requirement for Acid soils',
+          'Leaching Requirement & Drainage Management'
+        ]
+      },
+      {
+        name: 'Soil Erosion, USLE & Watershed Management',
+        topics: [
+          'Permissible Soil Loss Limit (12 t/ha/yr in India)',
+          'Water Erosion Mechanics & Stages (Splash -> Sheet -> Rill -> Gully -> Ravine)',
+          'Rill vs Gully Tillage Obliteration Distinction',
+          'Gully Classes (G1, G2, G3, G4)',
+          'Universal Soil Loss Equation (USLE: A = R x K x L x S x C x P)',
+          'Wind Erosion Mechanics (Saltation 50-75%, Surface Creep 5-25%, Suspension 3-4%)',
+          'Mechanical Soil Conservation (Contour bunding, Graded bunding, Bench terracing)',
+          'Watershed Hierarchy (Macro > 50000 ha, Sub, Milli, Micro, Mini)'
+        ]
+      },
+      {
+        name: 'Plant Nutrients, Fertilizers & Biofertilizers',
+        topics: [
+          '17 Essential Elements (Arnon & Stout Criteria of Essentiality 1939)',
+          'Nutrient Mobility in Plants vs Soils',
+          'Deficiency Symptoms (Khaira disease in rice, Whiptail in cauliflower, Marsh spot in peas)',
+          'Liebig Law of Minimum & Cate-Nelson Critical Levels',
+          'Bulky Organic Manures (FYM, Vermicompost, Compost: Bangalore vs Indore)',
+          'Fertilizer Control Order (FCO 1985) & Fertilizer Grades',
+          'Nitrogen Fertilizers (Urea, CAN / Kisan Khad, Ammonium Sulphate)',
+          'Phosphatic Fertilizers (SSP, DAP, Rock Phosphate for acidic soils)',
+          'Potassic Fertilizers (MOP, SOP)',
+          'Nitrogen Losses (Volatilization, Denitrification, Leaching)',
+          'Biofertilizers (Rhizobium, Azotobacter, Azospirillum, PSB, VAM, BGA, Azolla)'
+        ]
+      },
+      {
+        name: 'Tillage Systems & Soil Management',
+        topics: [
+          'Father of Tillage (Jethro Tull)',
+          'Tilth Characteristics & Optimum Moisture (60% Field Capacity)',
+          'Primary Tillage Implements (Mouldboard Plough, Disc Plough)',
+          'Secondary Tillage Implements (Harrows, Cultivators, Planking)',
+          'Puddling Dynamics in Wetland Rice (Bulk density increase, percolation reduction)',
+          'Conservation Tillage (Zero Tillage, Minimum Tillage, Stubble Mulching >30% residue)'
+        ]
+      }
+    ],
+    mustCoverTopics: [
+      'Stokes Law', 'Soil Texture ISSS vs USDA', 'Bulk Density vs Particle Density',
+      'Gravitational vs Capillary vs Hygroscopic Water', 'Field Capacity and Wilting Point',
+      'Schofield pF Curve', 'Tensiometer', 'Solum vs Regolith', 'Master Horizons O A E B C',
+      'Alluvial Soils Khadar vs Bhangar', 'Vertisols / Black Cotton Soil', 'Inceptisols',
+      '1:1 vs 2:1 Clay Minerals', 'Montmorillonite vs Kaolinite', 'Cation Exchange Capacity (CEC)',
+      'Van Bemmelen Factor (1.724)', 'Saline Soils vs Sodic Soils (EC, ESP, pH)',
+      'Gypsum Requirement', 'Acid Sulfate Soils / Cat-Clay', 'Water Erosion Stages Splash Sheet Rill Gully',
+      'Universal Soil Loss Equation (USLE)', '17 Essential Nutrients (Arnon Criteria)',
+      'Khaira Disease of Rice', 'Whiptail in Cauliflower', 'Urea & CAN (Kisan Khad)',
+      'Single Super Phosphate (SSP) & DAP', 'Rhizobium & Azospirillum', 'Jethro Tull',
+      'Puddling in Rice', 'Zero Tillage'
     ]
   }
 }

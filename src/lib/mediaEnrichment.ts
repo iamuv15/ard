@@ -96,11 +96,43 @@ export async function generatePrecisionYouTubeData(
   const cleanTerm = cleanTermForWiki(term)
   const catLower = (category || '').toLowerCase()
   const subLower = (subCategory || '').toLowerCase()
+  const chapLower = (chapterName || '').toLowerCase()
+
+  const isSoilContext = chapLower.includes('soil') || catLower.includes('soil') || catLower.includes('rock') || catLower.includes('mineral') || catLower.includes('texture') || catLower.includes('water') || catLower.includes('erosion') || catLower.includes('fertili') || catLower.includes('nutrient') || catLower.includes('tillage')
 
   let querySuffix = 'agriculture veterinary demonstration ICAR'
   let caption = `Comprehensive practical demonstration and exam guide for ${term}.`
 
-  if (catLower.includes('breed') || subLower.includes('breed') || catLower.includes('livestock')) {
+  if (isSoilContext) {
+    if (catLower.includes('rock') || catLower.includes('mineral') || catLower.includes('weathering') || catLower.includes('pedolog') || subLower.includes('mineral')) {
+      querySuffix = 'soil science pedology soil profile horizons rocks minerals geology practical ICAR'
+      caption = `Observe morphological characteristics, horizon differentiation, and mineral weathering properties.`
+    } else if (catLower.includes('physical') || catLower.includes('texture') || catLower.includes('structure') || catLower.includes('density') || subLower.includes('texture')) {
+      querySuffix = 'soil physical properties texture hydrometer method bulk density Stokes law ICAR lab'
+      caption = `Practical laboratory determination of soil physical properties, texture analysis, and soil structure.`
+    } else if (catLower.includes('water') || catLower.includes('moisture') || catLower.includes('tensiometer') || subLower.includes('moisture')) {
+      querySuffix = 'soil moisture measurement tensiometer neutron probe pressure plate apparatus ICAR'
+      caption = `Practical demonstration of soil moisture estimation instruments and soil-water energy relationships.`
+    } else if (catLower.includes('problem') || catLower.includes('salin') || catLower.includes('sodic') || catLower.includes('alkali') || catLower.includes('acid') || subLower.includes('salin')) {
+      querySuffix = 'saline sodic alkaline acid soil reclamation gypsum requirement leaching ICAR'
+      caption = `Field reclamation techniques, soil amendments (gypsum/lime application), and salt-affected soil management.`
+    } else if (catLower.includes('nutrient') || catLower.includes('fertilizer') || catLower.includes('manure') || subLower.includes('nutrient')) {
+      querySuffix = 'plant nutrient deficiency symptoms leaf diagnosis nitrogen phosphorus potassium fertilizers ICAR'
+      caption = `Visual identification of nutrient deficiency symptoms on indicator crops and fertilizer applications.`
+    } else if (catLower.includes('erosion') || catLower.includes('conservation') || catLower.includes('watershed') || subLower.includes('erosion')) {
+      querySuffix = 'soil erosion control contour bunding terracing watershed management agriscience'
+      caption = `Demonstration of soil and water conservation structures, bunding, and erosion mechanics.`
+    } else if (catLower.includes('tillage') || catLower.includes('tilth') || catLower.includes('puddl') || subLower.includes('tillage')) {
+      querySuffix = 'primary secondary tillage implements plough puddler conservation tillage agronomy'
+      caption = `Operation of tillage implements, seedbed preparation, and conservation tillage systems.`
+    } else if (catLower.includes('colloid') || catLower.includes('chemist') || catLower.includes('clay') || catLower.includes('mineral')) {
+      querySuffix = 'soil colloids cation exchange capacity CEC clay mineral structures 2:1 1:1 agriscience'
+      caption = `Visual explanation of silicate clay mineral lattices, cation exchange, and colloid chemistry.`
+    } else {
+      querySuffix = 'soil science agricultural chemistry ICAR practical lecture demonstration'
+      caption = `Authoritative soil science practical and competitive exam demonstration for ${term}.`
+    }
+  } else if (catLower.includes('breed') || subLower.includes('breed') || catLower.includes('livestock')) {
     querySuffix = 'breed physical characteristics identification ICAR NDRI dairy demonstration'
     caption = `Observe key physical conformation, head/horn shape, dewlap, and distinctive breed identification marks.`
     if (examTraps && examTraps.toLowerCase().includes('forehead')) {
@@ -180,6 +212,18 @@ export async function fetchCuratedWikipediaMedia(
     candidates.push('Mastitis', cleanTerm)
   } else if (tLower.includes('estrus') || tLower.includes('oestrus')) {
     candidates.push('Estrous cycle', cleanTerm)
+  } else if (tLower.includes('vertisol') || tLower.includes('inceptisol') || tLower.includes('entisol') || tLower.includes('alfisol') || tLower.includes('mollisol') || tLower.includes('oxisol') || tLower.includes('ultisol') || tLower.includes('aridisol') || tLower.includes('spodosol') || tLower.includes('histol') || tLower.includes('andisol') || tLower.includes('gelisol')) {
+    candidates.push(cleanTerm, `${cleanTerm} (soil)`)
+  } else if (tLower.includes('kaolinite') || tLower.includes('montmorillonite') || tLower.includes('illite') || tLower.includes('vermiculite') || tLower.includes('chlorite')) {
+    candidates.push(cleanTerm, `${cleanTerm} (mineral)`)
+  } else if (tLower.includes('tensiometer') || tLower.includes('pycnometer') || tLower.includes('hydrometer')) {
+    candidates.push(cleanTerm, `${cleanTerm} (device)`)
+  } else if (tLower.includes('alluvial') || tLower.includes('black soil') || tLower.includes('red soil') || tLower.includes('laterite') || tLower.includes('peat')) {
+    candidates.push(`${cleanTerm} soil`, cleanTerm)
+  } else if (tLower.includes('tillage') || tLower.includes('puddling') || tLower.includes('plough') || tLower.includes('plow')) {
+    candidates.push(cleanTerm, `${cleanTerm} (agriculture)`)
+  } else if (catLower.includes('soil') || subLower.includes('soil')) {
+    candidates.push(cleanTerm, `${cleanTerm} (soil)`, `${cleanTerm} (pedology)`)
   } else {
     candidates.push(cleanTerm)
   }

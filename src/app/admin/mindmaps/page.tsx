@@ -247,7 +247,7 @@ export default function AdminMindMapsHubPage() {
                         {chapter.mindMap?.syllabusAudit && (
                           <div className="flex items-center gap-2 pt-1 flex-wrap">
                             <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/40">
-                              🎯 TNAU Audit: {chapter.mindMap.syllabusAudit.scorePercent}%
+                              🎯 Syllabus Audit: {chapter.mindMap.syllabusAudit.scorePercent}%
                             </span>
                             {chapter.mindMap.syllabusAudit.gapTopics.length > 0 ? (
                               <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/40">

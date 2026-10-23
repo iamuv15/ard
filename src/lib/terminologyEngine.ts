@@ -907,35 +907,55 @@ export async function synthesizeMindMapFromKeywords({
 
   const combined = Array.from(new Set([...targetKeywords, ...gapTopics]))
 
+  const isSoil = /soil/i.test(chapter.name)
+  const isAnimal = /animal|husbandry|dairy|livestock|poultry/i.test(chapter.name)
+
+  const domainSubstantiveText = isSoil
+    ? `soil physical properties, separates & structures, soil water forms & potentials, weathering & master horizons, soil taxonomy orders, clay mineral lattices, chemical metrics (CEC, SAR, ESP, pH, EC), problematic soil types & chemical amendments, water & wind erosion stages, USLE factors, essential plant nutrients, deficiency symptoms, fertilizer grades (FCO 1985), and tillage systems.`
+    : isAnimal
+    ? `breeds, anatomical & physiological metrics, diseases & vaccines, breeding & reproduction techniques, feeds & nutritional values, housing & management systems, dairy/meat processing parameters, and diagnostic tools.`
+    : `core biological processes, classifications, physical/chemical metrics, diagnostic tools, management practices, and exam benchmarks.`
+
+  const domainEdgesText = isSoil
+    ? `      - SIBLING/CONTRAST (e.g. Khadar vs Bhangar; 1:1 Kaolinite vs 2:1 Montmorillonite; Saline vs Alkali Soil; Bulk Density vs Particle Density)
+      - LIFECYCLE/PROCESS (e.g. Weathering -> Regolith -> Solum; Splash -> Sheet -> Rill -> Gully -> Ravine; Ammonification -> Nitrification -> Denitrification)
+      - TOOL/DIAGNOSTIC/AMENDMENT (e.g. Soil Moisture Tension <-> Tensiometer; Sodic Soil <-> Gypsum; Acid Soil <-> Agricultural Lime; Groundwater Depth <-> Piezometer)
+      - CO_OCCURRENCE (terms frequently paired together in exam options, e.g. Montmorillonite <-> Vertisol; Stokes Law <-> Sedimentation Velocity)`
+    : `      - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
+      - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
+      - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
+      - CO_OCCURRENCE (terms frequently paired together in exam options)`
+
+  const deduplicationExamples = isSoil
+    ? `(e.g. "Stokes law" and "Stokes's law" -> "Stokes' Law"; "Vertisol" and "Vertisols" -> "Vertisols / Black Cotton Soil"; "Bulk density" and "Soil bulk density" -> "Bulk Density")`
+    : `(e.g. "Desi pig" and "Desi pigs" -> "Indigenous Pig Breeds"; "Colostrum feeding" and "Feeding colostrum" -> "Colostrum Management")`
+
   const systemPrompt = `You are a chief curriculum architect and competitive exam taxonomist specializing in agricultural examinations (NABARD Grade A, IBPS AFO, ICAR, State PSCs).
 Construct a rigorous, comprehensive CHAPTER MIND MAP and TAXONOMY TREE for "${chapter.name}".
-You are provided with a complete vocabulary of ${combined.length} keywords mined from chapter MCQs and benchmarked against TNAU Agritech university syllabus standards.
+You are provided with a complete vocabulary of ${combined.length} keywords mined from chapter MCQs and benchmarked against authoritative Master Curriculum Notes and standard syllabus standards.
 
 TAXONOMY & ARCHITECTURAL RULES:
 1. STRICT DOMAIN RELEVANCE & NOISE FILTERING:
-   - EXCLUDE all standalone administrative geographies (e.g. states like "Punjab", "Rajasthan", "Haryana", districts, or countries). Do NOT create concept nodes for geographic states. If a breed has an origin, keep the breed name (e.g., "Bikaneri Camel", "Murrah Buffalo"), not the state as an independent node.
+   - EXCLUDE all standalone administrative geographies (e.g. states like "Punjab", "Rajasthan", "Haryana", districts, or countries). Do NOT create concept nodes for geographic states. If a breed or soil has an origin, keep the specific subject entity (e.g., "Bikaneri Camel", "Black Cotton Soil"), not the state as an independent node.
    - EXCLUDE generic exam distractors, filler words, or general English words (e.g., "Group", "Band", "Trip", "True", "False", "None of the above", "Option A").
    - EXCLUDE any non-domain entities unrelated to ${chapter.name}.
-   - RETAIN only substantive, high-yield examination concepts: breeds, anatomical & physiological metrics, diseases & vaccines, breeding & reproduction techniques, feeds & nutritional values, housing & management systems, dairy/meat processing parameters, and diagnostic tools.
+   - RETAIN only substantive, high-yield examination concepts: ${domainSubstantiveText}
 
 2. COMPREHENSIVE COVERAGE (DO NOT ARTIFICIALLY BOTTLE-NECK OR TRUNCATE):
    - Do NOT restrict or compress the taxonomy to an arbitrary small number (e.g., do not bottle-neck to 50 concepts).
    - Retain ALL distinct, valid, non-repetitive, exam-relevant concepts found in the vocabulary. If there are 100, 150, 200, or more legitimate concepts across the chapter MCQs, include EVERY single one under its proper subcategory. Comprehensive syllabus coverage is paramount.
 
 3. CANONICAL DEDUPLICATION & MERGING:
-   - Merge synonymous, plural/singular, or slightly varied spellings into a single canonical professional term (e.g. "Desi pig" and "Desi pigs" -> "Indigenous Pig Breeds"; "Colostrum feeding" and "Feeding colostrum" -> "Colostrum Management").
+   - Merge synonymous, plural/singular, or slightly varied spellings into a single canonical professional term ${deduplicationExamples}.
    - Ensure every concept name is clean, Title-Cased, and free of formatting artifacts.
 
 4. COHERENT MACRO-BRANCHES & SUBCATEGORIES:
-   - Organize terms into 6 to 8 coherent, ICAR / TNAU-aligned macro-categories suitable for "${chapter.name}".
+   - Organize terms into 6 to 8 coherent, ICAR / syllabus-aligned macro-categories suitable for "${chapter.name}".
    - Under each macro-category, create clear sub-branches (subCategories) and distribute ALL valid deduplicated concepts into them.
 
 5. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
    - Identify critical exam linkages between terms:
-     - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
-     - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
-     - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
-     - CO_OCCURRENCE (terms frequently paired together in exam options)
+${domainEdgesText}
 
 Output strictly valid JSON conforming to this schema:
 {
@@ -1120,36 +1140,56 @@ export async function generateChapterMindMap(
     ...gapTopics
   ]))
 
+  const isSoil = /soil/i.test(chapter.name)
+  const isAnimal = /animal|husbandry|dairy|livestock|poultry/i.test(chapter.name)
+
+  const domainSubstantiveText = isSoil
+    ? `soil physical properties, separates & structures, soil water forms & potentials, weathering & master horizons, soil taxonomy orders, clay mineral lattices, chemical metrics (CEC, SAR, ESP, pH, EC), problematic soil types & chemical amendments, water & wind erosion stages, USLE factors, essential plant nutrients, deficiency symptoms, fertilizer grades (FCO 1985), and tillage systems.`
+    : isAnimal
+    ? `breeds, anatomical & physiological metrics, diseases & vaccines, breeding & reproduction techniques, feeds & nutritional values, housing & management systems, dairy/meat processing parameters, and diagnostic tools.`
+    : `core biological processes, classifications, physical/chemical metrics, diagnostic tools, management practices, and exam benchmarks.`
+
+  const domainEdgesText = isSoil
+    ? `      - SIBLING/CONTRAST (e.g. Khadar vs Bhangar; 1:1 Kaolinite vs 2:1 Montmorillonite; Saline vs Alkali Soil; Bulk Density vs Particle Density)
+      - LIFECYCLE/PROCESS (e.g. Weathering -> Regolith -> Solum; Splash -> Sheet -> Rill -> Gully -> Ravine; Ammonification -> Nitrification -> Denitrification)
+      - TOOL/DIAGNOSTIC/AMENDMENT (e.g. Soil Moisture Tension <-> Tensiometer; Sodic Soil <-> Gypsum; Acid Soil <-> Agricultural Lime; Groundwater Depth <-> Piezometer)
+      - CO_OCCURRENCE (terms frequently paired together in exam options, e.g. Montmorillonite <-> Vertisol; Stokes Law <-> Sedimentation Velocity)`
+    : `      - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
+      - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
+      - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
+      - CO_OCCURRENCE (terms frequently paired together in exam options)`
+
+  const deduplicationExamples = isSoil
+    ? `(e.g. "Stokes law" and "Stokes's law" -> "Stokes' Law"; "Vertisol" and "Vertisols" -> "Vertisols / Black Cotton Soil"; "Bulk density" and "Soil bulk density" -> "Bulk Density")`
+    : `(e.g. "Desi pig" and "Desi pigs" -> "Indigenous Pig Breeds"; "Colostrum feeding" and "Feeding colostrum" -> "Colostrum Management")`
+
   // PHASE 2: REDUCE - Master Taxonomy Structuring with 10,000 Thinking Tokens
   const systemPrompt = `You are a chief curriculum architect and competitive exam taxonomist specializing in agricultural examinations (NABARD Grade A, IBPS AFO, ICAR, State PSCs).
 Construct a rigorous, comprehensive CHAPTER MIND MAP and TAXONOMY TREE for "${chapter.name}".
-You are provided with a complete vocabulary of ${combinedKeywordsForTaxonomy.length} keywords mined from all chapter MCQs and benchmarked against TNAU Agritech university syllabus standards.
+You are provided with a complete vocabulary of ${combinedKeywordsForTaxonomy.length} keywords mined from all chapter MCQs and benchmarked against authoritative Master Curriculum Notes and standard syllabus standards.
 
 TAXONOMY & ARCHITECTURAL RULES:
 1. STRICT DOMAIN RELEVANCE & NOISE FILTERING:
-   - EXCLUDE all standalone administrative geographies (e.g. states like "Punjab", "Rajasthan", "Haryana", districts, or countries). Do NOT create concept nodes for geographic states. If a breed has an origin, keep the breed name (e.g., "Bikaneri Camel", "Murrah Buffalo"), not the state as an independent node.
+   - EXCLUDE all standalone administrative geographies (e.g. states like "Punjab", "Rajasthan", "Haryana", districts, or countries). Do NOT create concept nodes for geographic states. If a breed or soil has an origin, keep the specific subject entity (e.g., "Bikaneri Camel", "Black Cotton Soil"), not the state as an independent node.
    - EXCLUDE generic exam distractors, filler words, or general English words (e.g., "Group", "Band", "Trip", "True", "False", "None of the above", "Option A").
    - EXCLUDE any non-domain entities unrelated to ${chapter.name}.
-   - RETAIN only substantive, high-yield examination concepts: breeds, anatomical & physiological metrics, diseases & vaccines, breeding & reproduction techniques, feeds & nutritional values, housing & management systems, dairy/meat processing parameters, and diagnostic tools.
+   - RETAIN only substantive, high-yield examination concepts: ${domainSubstantiveText}
 
 2. COMPREHENSIVE COVERAGE (DO NOT ARTIFICIALLY BOTTLE-NECK OR TRUNCATE):
    - Do NOT restrict or compress the taxonomy to an arbitrary small number (e.g., do not bottle-neck to 50 concepts).
    - Retain ALL distinct, valid, non-repetitive, exam-relevant concepts found in the vocabulary. If there are 100, 150, 200, or more legitimate concepts across the chapter MCQs, include EVERY single one under its proper subcategory. Comprehensive syllabus coverage is paramount.
 
 3. CANONICAL DEDUPLICATION & MERGING:
-   - Merge synonymous, plural/singular, or slightly varied spellings into a single canonical professional term (e.g. "Desi pig" and "Desi pigs" -> "Indigenous Pig Breeds"; "Colostrum feeding" and "Feeding colostrum" -> "Colostrum Management").
+   - Merge synonymous, plural/singular, or slightly varied spellings into a single canonical professional term ${deduplicationExamples}.
    - Ensure every concept name is clean, Title-Cased, and free of formatting artifacts.
 
 4. COHERENT MACRO-BRANCHES & SUBCATEGORIES:
-   - Organize terms into 6 to 8 coherent, ICAR / TNAU-aligned macro-categories suitable for "${chapter.name}".
+   - Organize terms into 6 to 8 coherent, ICAR / syllabus-aligned macro-categories suitable for "${chapter.name}".
    - Under each macro-category, create clear sub-branches (subCategories) and distribute ALL valid deduplicated concepts into them.
 
 5. ADJACENT RELATIONSHIPS (Cross-Branch Edges):
    - Identify critical exam linkages between terms:
-     - SIBLING/CONTRAST (e.g. Steaming up vs Flushing; A1 Milk vs A2 Milk)
-     - LIFECYCLE (e.g. Oestrus -> Gestation -> Parturition -> Lactation -> Dry Period)
-     - TOOL/DIAGNOSTIC (e.g. Castration <-> Burdizzo; Mastitis <-> California Mastitis Test)
-     - CO_OCCURRENCE (terms frequently paired together in exam options)
+${domainEdgesText}
 
 Output strictly valid JSON conforming to this schema:
 {
@@ -1291,16 +1331,18 @@ export async function generateConceptCapsulesBatch({
 
   if (normalizedItems.length === 0) {
     return []
-  }  const targetKeywords = normalizedItems.map(it => it.keyword)
-
-  // Expand search terms with word stems and standard synonyms to prevent missing MCQs
+  }  const targetKeywords = normalizedItems.map(it => it.keyword)  // Expand search terms with word stems and standard synonyms to prevent missing MCQs
   const searchTerms = Array.from(new Set(targetKeywords.flatMap(kw => {
     const terms = [kw]
     const lower = kw.toLowerCase()
     if (lower.includes('estrus') || lower.includes('oestrus')) {
       terms.push('estrus', 'oestrus', 'estrous', 'heat period', 'heat')
+    } else if (lower.includes('saline') || lower.includes('sodic') || lower.includes('alkali')) {
+      terms.push('salinity', 'sodicity', 'esp', 'sar', 'gypsum')
+    } else if (lower.includes('texture') || lower.includes('stokes')) {
+      terms.push('hydrometer', 'international pipet', 'isss', 'usda', 'sand', 'silt', 'clay')
     }
-    const words = kw.split(/[\s-]+/).filter(w => w.length > 3 && !['phase', 'system', 'type', 'breed'].includes(w.toLowerCase()))
+    const words = kw.split(/[\s-]+/).filter(w => w.length > 3 && !['phase', 'system', 'type', 'breed', 'order', 'soil', 'soils', 'plant', 'water', 'management'].includes(w.toLowerCase()))
     terms.push(...words)
     return terms
   })))
@@ -1337,7 +1379,46 @@ export async function generateConceptCapsulesBatch({
   // Load primary textbook ground truth and PYQs for this category
   const { primaryText, pyqText } = getGroundingContextForCategory(normalizedItems[0]?.category || category || '', targetKeywords)
 
-  const systemPrompt = `You are a distinguished Veterinary and Agricultural Science professor preparing authoritative high-yield concept capsules for competitive examinations (ICAR, JRF, State AO/AAO, IBPS-AFO, NABARD).
+  const isSoilChapter = /soil|earth|pedol|fertili|agronomy|land/i.test(chapter.name) ||
+    /soil|rock|mineral|weathering|pedolog|profile|texture|water|alluvial|vertisol|salin|sodic|erosion|nutrient|fertilizer|manure|biofertilizer|tillage/i.test(normalizedItems[0]?.category || category || '')
+
+  const systemPrompt = isSoilChapter
+    ? `You are a distinguished Soil Science and Agricultural Chemistry professor preparing authoritative high-yield concept capsules for competitive examinations (ICAR-AIEEA/JRF, State AO/AAO, IBPS-AFO, NABARD, UPSC-Agriculture).
+Your task is to write high-yield, exam-focused CONCEPT CAPSULES for the specified keywords under chapter "${chapter.name}".
+Provide MAXIMUM RIGOR, HIGH DEPTH, and UNCOMPROMISED ACCURACY for every concept in this batch.
+
+STRICT GUIDELINES:
+1. DEFINITION: 1 to 2 sentences max. Crystal clear, rigorous, scientific (incorporating pedological, physical, or chemical mechanisms).
+2. COMPARATIVE TABLE & NUMERICAL METRICS (Crucial!):
+   - Whenever numbers, size fractions, EC/ESP/pH thresholds, bulk density, pF values, clay expandability/CEC, or fertilizer N:P:K percentages apply, YOU MUST format them into a clean GitHub Flavored Markdown (GFM) table!
+   - Example for Problematic Soils: Table with Soil Class | pH | EC (dS/m) | ESP (%) | SAR | Dominant Cation/Anion | Reclamation Amendment.
+   - Example for Soil Texture: Table with Fraction | ISSS Size (mm) | USDA Size (mm) | Specific Surface Area | Cohesion/Plasticity.
+   - Example for Clay Minerals: Table with Mineral Group | Lattice Type (1:1 / 2:1) | Basal Spacing (Å) | Swelling/Shrinkage | CEC (cmol(p+)/kg).
+   - Example for Soil Water Potentials: Table with Category | Suction (bars / atm) | pF Value | Availability to Plants | Measurement Instrument.
+   - Example for Plant Nutrients: Table with Nutrient | Available Ionic Form | Mobility in Plant | Classic Deficiency Symptom / Indicator Crop | Critical Concentration.
+   - Example for Fertilizers: Table with Fertilizer | Total N% | P2O5% / K2O% | Form | Acidity/Basicity Equivalent | Precautions.
+3. EXAM TRAPS & HIGH-PROBABILITY POINTERS:
+   - Detail exactly how exam examiners twist questions on this concept (e.g. bulk density vs particle density vs porosity formula traps; Stokes' Law assumptions/limitations; saline vs sodic leaching vs gypsum order; Khaira disease vs Whiptail vs Marsh spot; FCO 1985 biuret limits; Vertisol self-ploughing).
+4. GROUND TRUTH MANDATE:
+   - Adhere strictly to the provided PRIMARY TEXTBOOK REFERENCE and AUTHORITATIVE PREVIOUS YEAR EXAM FACTS (PYQS).
+   - Do NOT alter standard numbers, constants (e.g. bulk density 1.33 g/cm³, particle density 2.65 g/cm³, pF 2.54 field capacity, pF 4.18 PWP), or legal percentages.
+5. SIBLING & ADJACENT TERMS: List other keywords related to this term.
+6. NO VERBOSE FLUFF: Keep it dense, high-contrast, structured with bold keywords and bullet points.
+7. VALID JSON ESCAPING: Output strictly valid JSON. In markdown strings, do NOT escape standard characters like %, |, _, *, <, > with backslashes. Only use standard JSON escapes (\", \\, \n, \t). Do NOT produce illegal escape characters.
+
+Output strictly valid JSON with this schema:
+{
+  "capsules": [
+    {
+      "term": "Exact Keyword Name",
+      "definition": "Crisp 1-2 sentence core definition",
+      "content": "Rich markdown containing: ### High-Yield Exam Matrix \\n\\n| Column | Column | ... \\n\\n### Key Characteristics & Rules \\n- Bullet 1 ...",
+      "examTraps": "> [!WARNING]\\n> **Exam Trap & High-Yield Rules:** ...",
+      "relatedTerms": ["RelatedTerm1", "RelatedTerm2"]
+    }
+  ]
+}`
+    : `You are a distinguished Veterinary and Agricultural Science professor preparing authoritative high-yield concept capsules for competitive examinations (ICAR, JRF, State AO/AAO, IBPS-AFO, NABARD).
 Your task is to write high-yield, exam-focused CONCEPT CAPSULES for the specified keywords under chapter "${chapter.name}".
 Provide MAXIMUM RIGOR, HIGH DEPTH, and UNCOMPROMISED ACCURACY for every concept in this batch.
 
@@ -1347,7 +1428,7 @@ STRICT GUIDELINES:
    - Whenever numbers, species variations, days, temperatures, percentages, or chemical attributes apply, YOU MUST format them into a clean GitHub Flavored Markdown (GFM) table!
    - Example for Gestation Period: Table with Species | Average Days | Months Approximation | Heat Duration.
    - Example for Colostrum: Table with Parameter | Colostrum | Normal Milk.
-   - Example for Soil/Feeds: Table with Parameter | Value.
+   - Example for Feeds & Nutrition: Table with Feed Type | DCP % | TDN % | Moisture %.
 3. EXAM TRAPS & HIGH-PROBABILITY POINTERS:
    - Detail exactly how exam examiners twist questions on this concept (e.g. classic distractor options, exceptions, past AFO/RRB SO trivia).
 4. GROUND TRUTH MANDATE:
@@ -1376,7 +1457,7 @@ ${normalizedItems.map((it, i) => `${i + 1}. "${it.keyword}" [Branch: ${it.catego
 ${primaryText ? `PRIMARY TEXTBOOK REFERENCE (GROUND TRUTH):\n${primaryText}\n` : ''}
 ${pyqText ? `AUTHORITATIVE PREVIOUS YEAR EXAM FACTS & PYQS:\n${pyqText}\n` : ''}
 
-RELEVANT MCQS FROM THIS CHAPTER FOR CONTEXT:
+${questionContext ? `RELEVANT MCQS FROM THIS CHAPTER FOR CONTEXT:\n${questionContext.slice(0, 10000)}\n` : ''}
 Generate the JSON capsules for each keyword above with full tables and traps.`
 
   // THINKING IS STRICTLY OFF FOR DEFINITIONS (Pure structured synthesis)
@@ -1437,7 +1518,7 @@ Generate the JSON capsules for each keyword above with full tables and traps.`
       videoUrl?: string | null
     } = {}
     try {
-      media = await enrichConceptTerm(term, itemCategory)
+      media = await enrichConceptTerm(term, itemCategory, itemSubCategory, chapter.name, examTraps)
     } catch (mediaErr: any) {
       console.warn(`Media enrichment skipped for "${term}":`, mediaErr?.message)
     }
