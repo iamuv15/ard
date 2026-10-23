@@ -55,6 +55,27 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Primary Minerals',
       'Secondary Minerals'
     ]
+  },
+  {
+    id: 'soil-weathering-processes',
+    title: 'Weathering Processes',
+    subtitle: 'NotebookLM Deep Dive Masterclass • 10 Physical & Chemical Weathering Keywords',
+    audioUrl: '/audio/soil/weathering-processes.m4a',
+    chapterNamePattern: /soil/i,
+    categoryPattern: /fundamental|genesis|weathering/i,
+    subCategoryPattern: /weathering/i,
+    keywords: [
+      'Physical Weathering',
+      'Chemical Weathering',
+      'Exfoliation',
+      'Frost Wedging',
+      'Carbonation',
+      'Hydration',
+      'Oxidation',
+      'Reduction',
+      'Solution',
+      'Hydrolysis'
+    ]
   }
 ]
 
