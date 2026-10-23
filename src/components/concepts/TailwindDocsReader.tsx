@@ -33,6 +33,8 @@ import {
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
+import { findMatchingAudioTrack } from '@/lib/audioRegistry'
+import { ConceptAudioPlayer } from '@/components/concepts/ConceptAudioPlayer'
 
 export interface ConceptSummaryItem {
   id: number
@@ -224,6 +226,16 @@ export function TailwindDocsReader({
   const currentIndex = useMemo(() => {
     return flattenedConcepts.findIndex(c => c.slug === activeSummary?.slug)
   }, [flattenedConcepts, activeSummary])
+
+  // Active audio track for the current category / subcategory / keyword
+  const activeAudioTrack = useMemo(() => {
+    return findMatchingAudioTrack(
+      chapterName,
+      activeSummary?.category,
+      activeSummary?.subCategory,
+      conceptDetail?.term || activeSummary?.term
+    )
+  }, [chapterName, activeSummary, conceptDetail])
 
   // Automatically expand parent Category and SubCategory of the active concept
   useEffect(() => {
@@ -872,6 +884,14 @@ export function TailwindDocsReader({
                                   }`}
                                 />
                                 <span className="truncate">{sub.name}</span>
+                                {findMatchingAudioTrack(chapterName, cat.name, sub.name) && (
+                                  <span
+                                    title="Audio Masterclass Available"
+                                    className="text-[9px] font-bold px-1.5 py-0.2 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-800/60 shrink-0 flex items-center gap-0.5"
+                                  >
+                                    🎧 Audio
+                                  </span>
+                                )}
                               </div>
                               <span className="text-[10px] text-slate-400 font-semibold px-1.5 py-0.2 rounded-full bg-slate-200/60 dark:bg-slate-800">
                                 {sub.keywords.length}
@@ -985,6 +1005,23 @@ export function TailwindDocsReader({
                 {activeSummary?.subCategory || 'Core Concepts'}
               </span>
             </div>
+
+            {/* Macro / SubCategory Audio Guide Player */}
+            {activeAudioTrack && (
+              <ConceptAudioPlayer
+                track={activeAudioTrack}
+                currentKeyword={conceptDetail?.term || activeSummary?.term}
+                onSelectKeyword={(kw) => {
+                  const item = flattenedConcepts.find(
+                    c => c.term.toLowerCase().trim() === kw.toLowerCase().trim()
+                  )
+                  if (item) {
+                    setActiveSlug(item.slug)
+                    document.getElementById('docs-main-content')?.scrollTo({ top: 0, behavior: 'smooth' })
+                  }
+                }}
+              />
+            )}
 
             {/* Concept Title */}
             <div>
