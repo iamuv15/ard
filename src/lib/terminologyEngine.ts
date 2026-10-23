@@ -18,6 +18,13 @@ function loadNotesKnowledge(): Record<string, string> {
         cache[file] = fs.readFileSync(path.join(notesDir, file), 'utf-8')
       }
     }
+    const soilDir = path.join(process.cwd(), 'Notes', 'Soil_Science')
+    if (fs.existsSync(soilDir)) {
+      const soilFiles = fs.readdirSync(soilDir).filter(f => f.endsWith('.md'))
+      for (const file of soilFiles) {
+        cache[file] = fs.readFileSync(path.join(soilDir, file), 'utf-8')
+      }
+    }
   } catch (err) {
     console.warn('Failed to load notes knowledge:', err)
   }
@@ -29,7 +36,7 @@ export function getGroundingContextForCategory(category: string, keywords: strin
   const notes = loadNotesKnowledge()
   const lowerCat = category.toLowerCase()
 
-  // Match corresponding category file
+  // Match corresponding category file (Animal Husbandry or Soil Science)
   let matchingFile = ''
   if (/breed|genetic|species|cattle|buffalo|goat|sheep|swine|pig|camel|rabbit|horse/i.test(lowerCat)) {
     matchingFile = '01_livestock_breeds_and_genetics.md'
@@ -45,6 +52,26 @@ export function getGroundingContextForCategory(category: string, keywords: strin
     matchingFile = '06_poultry_husbandry_and_management.md'
   } else if (/health|disease|vaccin|medicine|patholog/i.test(lowerCat)) {
     matchingFile = '07_animal_healthcare_diseases_and_vaccination.md'
+  } else if (/rock|mineral|weathering|fundamental|crust|geolog/i.test(lowerCat)) {
+    matchingFile = '01_soil_science_fundamentals_rocks_and_minerals.md'
+  } else if (/formation|pedolog|profile|horizon|jenny|epipedon|endopedon/i.test(lowerCat)) {
+    matchingFile = '02_soil_formation_weathering_and_pedology.md'
+  } else if (/physical|texture|stokes|structure|density|porosity|bulk density|particle density|color|munsell|consistency/i.test(lowerCat)) {
+    matchingFile = '03_soil_physical_properties.md'
+  } else if (/water|moisture|hygroscopic|wilting|field capacity|pf|tensiometer|percolat|darcy|infiltration/i.test(lowerCat)) {
+    matchingFile = '04_soil_water_dynamics_and_measurement.md'
+  } else if (/alluvial|black soil|vertisol|red soil|laterite|taxonomy|usda order|inceptisol|entisol|alfisol/i.test(lowerCat)) {
+    matchingFile = '05_soils_of_india_and_soil_taxonomy.md'
+  } else if (/colloid|chemistry|cec|anion exchange|clay mineral|montmorillonite|kaolinite|humus|c:n ratio|organic matter/i.test(lowerCat)) {
+    matchingFile = '06_soil_chemistry_colloids_and_organic_matter.md'
+  } else if (/problem|salin|sodic|alkali|acid soil|gypsum requirement|liming|sar|esp|cat clay/i.test(lowerCat)) {
+    matchingFile = '07_problematic_soils_and_reclamation.md'
+  } else if (/erosion|usle|conservation|wind erosion|water erosion|gully|rill|sheet|watershed/i.test(lowerCat)) {
+    matchingFile = '08_soil_erosion_conservation_and_watershed.md'
+  } else if (/nutrient|fertilizer|manure|fym|compost|biofertilizer|arnon|deficiency|khaira|whiptail|urea|dap|can|fco/i.test(lowerCat)) {
+    matchingFile = '09_plant_nutrients_manures_and_fertilizers.md'
+  } else if (/tillage|tilth|puddling|plough|zero tillage|conservation tillage|minimum tillage/i.test(lowerCat)) {
+    matchingFile = '10_tillage_and_soil_management.md'
   }
 
   let primaryText = matchingFile && notes[matchingFile] ? notes[matchingFile] : ''
@@ -52,9 +79,12 @@ export function getGroundingContextForCategory(category: string, keywords: strin
     primaryText = primaryText.slice(0, 20000)
   }
 
-  // Cross-cutting PYQ matches from 08_important_exam_facts_and_one_liners.md
+  // Cross-cutting PYQ matches: select appropriate master PYQ file based on domain
+  const isSoilDomain = /soil|rock|mineral|weathering|pedolog|profile|texture|water|alluvial|vertisol|salin|sodic|erosion|nutrient|fertilizer|manure|biofertilizer|tillage/i.test(lowerCat)
   let pyqText = ''
-  const pyqFile = notes['08_important_exam_facts_and_one_liners.md'] || ''
+  const pyqFile = isSoilDomain
+    ? (notes['00_master_exam_facts_and_pyqs.md'] || notes['08_important_exam_facts_and_one_liners.md'] || '')
+    : (notes['08_important_exam_facts_and_one_liners.md'] || notes['00_master_exam_facts_and_pyqs.md'] || '')
   if (pyqFile) {
     const lines = pyqFile.split('\n')
     const relevantLines: string[] = []
@@ -71,7 +101,7 @@ export function getGroundingContextForCategory(category: string, keywords: strin
     if (relevantLines.length > 0) {
       pyqText = relevantLines.join('\n')
     } else {
-      pyqText = lines.filter(l => l.startsWith('* **')).slice(0, 15).join('\n')
+      pyqText = lines.filter(l => l.startsWith('* **') || l.startsWith('- **') || l.startsWith('*')).slice(0, 15).join('\n')
     }
   }
 
