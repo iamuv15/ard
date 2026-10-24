@@ -102,6 +102,27 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Pedoturbation',
       'Sodification'
     ]
+  },
+  {
+    id: 'soil-texture-and-mechanical-analysis',
+    title: 'Soil Texture & Mechanical Analysis',
+    subtitle: 'NotebookLM Deep Dive Masterclass • 10 Texture & Sedimentation Keywords',
+    audioUrl: '/audio/soil/soil-texture-and-mechanical-analysis.m4a',
+    chapterNamePattern: /soil/i,
+    categoryPattern: /physical|physics/i,
+    subCategoryPattern: /texture|mechanical/i,
+    keywords: [
+      'Soil Texture',
+      'Sand',
+      'Silt',
+      'Clay',
+      'Coarse Sand',
+      'Soil Textural Triangle',
+      'Mechanical Analysis',
+      "Stokes' Law",
+      'Bouyoucos Hydrometer Method',
+      'Sedimentation Velocity'
+    ]
   }
 ]
 
