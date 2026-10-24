@@ -76,6 +76,32 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Solution',
       'Hydrolysis'
     ]
+  },
+  {
+    id: 'soil-horizons-and-processes',
+    title: 'Soil Horizons & Pedogenic Processes',
+    subtitle: 'NotebookLM Deep Dive Masterclass • 15 Horizons & Pedogenic Processes Keywords',
+    audioUrl: '/audio/soil/soil-horizons-and-processes.m4a',
+    chapterNamePattern: /soil/i,
+    categoryPattern: /fundamental|genesis|weathering/i,
+    subCategoryPattern: /horizon|pedogenic/i,
+    keywords: [
+      'O Horizon',
+      'A Horizon',
+      'E Horizon',
+      'B Horizon',
+      'C Horizon',
+      'R Horizon',
+      'Eluviation',
+      'Illuviation',
+      'Humification',
+      'Podzolization',
+      'Laterization',
+      'Calcification',
+      'Gleization',
+      'Pedoturbation',
+      'Sodification'
+    ]
   }
 ]
 
