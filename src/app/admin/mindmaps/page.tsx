@@ -14,7 +14,8 @@ import {
   ExternalLink,
   ChevronRight,
   Zap,
-  HelpCircle
+  HelpCircle,
+  Headphones
 } from 'lucide-react'
 
 interface ChapterData {
@@ -293,8 +294,17 @@ export default function AdminMindMapsHubPage() {
                       href={`/admin/chapter/${chapter.id}/concepts`}
                       className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/60 text-xs font-bold border border-blue-200/60 dark:border-blue-800/40 transition-colors"
                     >
-                      <span>Manage Capsules</span>
+                      <span>Capsules</span>
                       <ChevronRight className="w-3.5 h-3.5" />
+                    </Link>
+
+                    <Link
+                      href={`/admin/chapter/${chapter.id}/audio`}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/60 text-xs font-bold border border-purple-200/60 dark:border-purple-800/40 transition-colors"
+                      title="Audio Masterclasses Studio"
+                    >
+                      <Headphones className="w-3.5 h-3.5 text-purple-500" />
+                      <span>Audio Studio</span>
                     </Link>
                   </div>
                 </div>

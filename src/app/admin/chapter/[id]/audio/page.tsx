@@ -24,7 +24,9 @@ import {
   Sparkle,
   Radio,
   Sliders,
-  Check
+  Check,
+  Zap,
+  Square
 } from 'lucide-react'
 
 interface AudioTrack {
@@ -79,8 +81,20 @@ export default function ChapterAudioAdminPage() {
   // Planning state
   const [planningSubCat, setPlanningSubCat] = useState<string | null>(null)
   const [proposedClusters, setProposedClusters] = useState<Record<string, ProposedCluster[]>>({})
+  const [isBulkPlanning, setIsBulkPlanning] = useState(false)
 
-  // Generation state
+  // Bulk Generation state
+  const [bulkState, setBulkState] = useState<{
+    isRunning: boolean
+    total: number
+    completed: number
+    currentTrackTitle: string
+    currentSubCategory: string
+    step: string
+  } | null>(null)
+  const bulkCancelRef = useRef(false)
+
+  // Single Generation state
   const [generatingCluster, setGeneratingCluster] = useState<string | null>(null)
   const [generationStep, setGenerationStep] = useState<string>('')
   const [errorModal, setErrorModal] = useState<string | null>(null)
@@ -195,6 +209,150 @@ export default function ChapterAudioAdminPage() {
       setGeneratingCluster(null)
       setGenerationStep('')
     }
+  }
+
+  // Bulk Plan all subcategories that have pending concepts
+  const handleBulkPlanAll = async () => {
+    const pendingGroups = subcategories.filter(s => s.pendingConcepts.length > 0)
+    if (pendingGroups.length === 0) {
+      alert('All concepts already have audio masterclasses! Nothing pending to plan.')
+      return
+    }
+
+    setIsBulkPlanning(true)
+    try {
+      for (const group of pendingGroups) {
+        if (!proposedClusters[group.subCategory] || proposedClusters[group.subCategory].length === 0) {
+          const res = await fetch(`/api/admin/chapters/${chapterId}/audio/plan`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subCategory: group.subCategory })
+          })
+          if (res.ok) {
+            const data = await res.json()
+            setProposedClusters(prev => ({
+              ...prev,
+              [group.subCategory]: data.clusters
+            }))
+          }
+        }
+      }
+    } catch (err: any) {
+      setErrorModal(err.message || 'Error occurred during bulk planning')
+    } finally {
+      setIsBulkPlanning(false)
+    }
+  }
+
+  // Bulk Generate sequential audio queue
+  const handleBulkGenerate = async (
+    targetQueue?: { subCategory: string; cluster: ProposedCluster }[]
+  ) => {
+    let queue: { subCategory: string; cluster: ProposedCluster }[] = []
+
+    if (targetQueue && targetQueue.length > 0) {
+      queue = targetQueue
+    } else {
+      // Gather already planned clusters across all subcategories
+      const currentProposed = { ...proposedClusters }
+
+      // Auto-plan any subcategory that hasn't been planned yet
+      const pendingGroups = subcategories.filter(s => s.pendingConcepts.length > 0)
+      for (const group of pendingGroups) {
+        if (!currentProposed[group.subCategory] || currentProposed[group.subCategory].length === 0) {
+          try {
+            const planRes = await fetch(`/api/admin/chapters/${chapterId}/audio/plan`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ subCategory: group.subCategory })
+            })
+            if (planRes.ok) {
+              const data = await planRes.json()
+              currentProposed[group.subCategory] = data.clusters
+              setProposedClusters(prev => ({ ...prev, [group.subCategory]: data.clusters }))
+            }
+          } catch {}
+        }
+      }
+
+      for (const [subCat, clusters] of Object.entries(currentProposed)) {
+        if (Array.isArray(clusters)) {
+          for (const cluster of clusters) {
+            queue.push({ subCategory: subCat, cluster })
+          }
+        }
+      }
+    }
+
+    if (queue.length === 0) {
+      alert('No pending concept clusters found to generate!')
+      return
+    }
+
+    bulkCancelRef.current = false
+    setBulkState({
+      isRunning: true,
+      total: queue.length,
+      completed: 0,
+      currentTrackTitle: queue[0].cluster.title,
+      currentSubCategory: queue[0].subCategory,
+      step: 'Starting bulk audio generation...'
+    })
+
+    for (let i = 0; i < queue.length; i++) {
+      if (bulkCancelRef.current) {
+        break
+      }
+
+      const item = queue[i]
+      setBulkState(prev => prev ? {
+        ...prev,
+        currentTrackTitle: item.cluster.title,
+        currentSubCategory: item.subCategory,
+        step: `Drafting dialogue script for "${item.cluster.title}" (${i + 1}/${queue.length})...`
+      } : null)
+
+      try {
+        const res = await fetch(`/api/admin/chapters/${chapterId}/audio/generate`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            subCategory: item.subCategory,
+            title: item.cluster.title,
+            conceptIds: item.cluster.conceptIds
+          })
+        })
+
+        if (!res.ok) {
+          const errData = await res.json()
+          throw new Error(errData.error || 'Generation failed')
+        }
+
+        // Remove generated cluster from proposed list
+        setProposedClusters(prev => {
+          const next = { ...prev }
+          if (next[item.subCategory]) {
+            next[item.subCategory] = next[item.subCategory].filter(c => c.title !== item.cluster.title)
+          }
+          return next
+        })
+
+        setBulkState(prev => prev ? {
+          ...prev,
+          completed: prev.completed + 1,
+          step: `Saved "${item.cluster.title}" to Supabase! (${i + 1}/${queue.length})`
+        } : null)
+
+        await fetchChapterAudio()
+      } catch (err: any) {
+        console.error(`Bulk generation stopped on "${item.cluster.title}":`, err)
+        setErrorModal(`Bulk Generation halted at "${item.cluster.title}": ${err.message}`)
+        break
+      }
+    }
+
+    setBulkState(null)
+    await fetchChapterAudio()
   }
 
   const handleDeleteTrack = async (trackId: string, title: string) => {
@@ -366,6 +524,58 @@ export default function ChapterAudioAdminPage() {
           </div>
         </div>
 
+        {/* Bulk Audio Generator Command Center */}
+        <div className="p-6 rounded-2xl border border-indigo-500/30 bg-gradient-to-r from-indigo-950/40 via-purple-950/20 to-slate-900/60 backdrop-blur space-y-4 shadow-xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/30 flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                  Bulk Audio Automation
+                </span>
+                <span className="text-xs text-slate-400">
+                  {subcategories.reduce((acc, s) => acc + s.pendingConcepts.length, 0)} concepts pending audio
+                </span>
+              </div>
+              <h2 className="text-lg font-bold text-white">
+                Chapter Audio Automation Studio
+              </h2>
+              <p className="text-xs text-slate-300 max-w-2xl">
+                Batch generate masterclasses across the entire chapter in one click. The AI intelligently clusters unassigned concepts by subcategory, drafts multi-speaker Devanagari Hinglish scripts, and synthesizes 32 kbps Opus audio.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={handleBulkPlanAll}
+                disabled={isBulkPlanning || Boolean(bulkState) || subcategories.every(s => s.pendingConcepts.length === 0)}
+                className="px-4 py-2.5 rounded-xl border border-purple-500/40 bg-purple-900/20 hover:bg-purple-900/40 text-purple-200 text-xs font-bold flex items-center gap-2 transition disabled:opacity-40 cursor-pointer"
+              >
+                {isBulkPlanning ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-purple-400" />
+                    <span>Planning All Clusters...</span>
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-4 h-4 text-purple-400" />
+                    <span>1-Click Plan All Clusters</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                onClick={() => handleBulkGenerate()}
+                disabled={Boolean(bulkState) || subcategories.every(s => s.pendingConcepts.length === 0)}
+                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500 hover:from-emerald-500 hover:to-teal-400 text-white text-xs font-bold flex items-center gap-2 shadow-lg shadow-emerald-950/50 transition disabled:opacity-40 cursor-pointer"
+              >
+                <Zap className="w-4 h-4 text-amber-300 fill-amber-300" />
+                <span>⚡ Bulk Generate All Audio</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Subcategories List */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
@@ -420,20 +630,31 @@ export default function ChapterAudioAdminPage() {
                   </div>
 
                   <div className="flex items-center gap-3" onClick={e => e.stopPropagation()}>
+                    {proposed && proposed.length > 0 && (
+                      <button
+                        onClick={() => handleBulkGenerate(proposed.map(c => ({ subCategory: group.subCategory, cluster: c })))}
+                        disabled={Boolean(bulkState) || Boolean(generatingCluster)}
+                        className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 disabled:opacity-50 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition cursor-pointer"
+                      >
+                        <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+                        <span>Generate {proposed.length} {proposed.length === 1 ? 'Track' : 'Tracks'}</span>
+                      </button>
+                    )}
+
                     {hasPending && (
                       <button
                         onClick={() => handlePlanClusters(group.subCategory)}
                         disabled={isPlanning}
-                        className="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition"
+                        className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 disabled:opacity-50 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition cursor-pointer"
                       >
                         {isPlanning ? (
                           <>
-                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                            <Loader2 className="w-3.5 h-3.5 animate-spin text-purple-400" />
                             <span>Planning Arcs with AI...</span>
                           </>
                         ) : (
                           <>
-                            <Sparkles className="w-3.5 h-3.5" />
+                            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
                             <span>Plan Missing Clusters</span>
                           </>
                         )}
@@ -711,6 +932,76 @@ export default function ChapterAudioAdminPage() {
           >
             Close
           </button>
+        </div>
+      )}
+
+      {/* Live Bulk Audio Generation Modal */}
+      {bulkState && bulkState.isRunning && (
+        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+          <div className="bg-slate-900 border border-emerald-500/40 rounded-3xl p-8 max-w-lg w-full space-y-6 shadow-2xl relative overflow-hidden">
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                  <Zap className="w-5 h-5 fill-emerald-400 animate-pulse" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-white">Bulk Audio Studio In Progress</h3>
+                  <p className="text-xs text-slate-400">
+                    Queue {bulkState.completed} of {bulkState.total} tracks completed ({Math.round((bulkState.completed / bulkState.total) * 100)}%)
+                  </p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => {
+                  bulkCancelRef.current = true
+                  setBulkState(prev => prev ? { ...prev, step: 'Stopping queue after current track...' } : null)
+                }}
+                className="px-3 py-1.5 rounded-xl border border-red-500/30 bg-red-950/20 hover:bg-red-900/40 text-red-300 text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer"
+              >
+                <Square className="w-3.5 h-3.5 fill-red-400" />
+                <span>Stop Queue</span>
+              </button>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="space-y-1.5">
+              <div className="flex justify-between text-xs text-slate-400 font-medium">
+                <span>Progress: Track {bulkState.completed + 1} of {bulkState.total}</span>
+                <span className="text-emerald-400 font-bold">{Math.round((bulkState.completed / bulkState.total) * 100)}%</span>
+              </div>
+              <div className="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden p-0.5 border border-slate-700">
+                <div
+                  className="bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 h-full rounded-full transition-all duration-500 shadow-sm"
+                  style={{ width: `${Math.max(5, (bulkState.completed / bulkState.total) * 100)}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Current Track Info */}
+            <div className="p-4 rounded-2xl border border-slate-800 bg-slate-950/60 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/30 uppercase">
+                  {bulkState.currentSubCategory}
+                </span>
+              </div>
+              <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                <Headphones className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <span className="truncate">{bulkState.currentTrackTitle}</span>
+              </h4>
+              <div className="flex items-center gap-2 text-xs text-emerald-400 font-medium pt-1">
+                <Loader2 className="w-3.5 h-3.5 animate-spin flex-shrink-0" />
+                <span className="truncate">{bulkState.step}</span>
+              </div>
+            </div>
+
+            <p className="text-[11px] text-slate-500 text-center">
+              Multi-speaker script generation and Opus 32 kbps synthesis takes ~15–20s per track. Please keep this tab open until the queue completes.
+            </p>
+          </div>
         </div>
       )}
 
