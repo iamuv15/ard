@@ -105,50 +105,6 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
     ]
   },
   {
-    id: 'soil-texture-and-mechanical-analysis',
-    title: 'Soil Texture & Mechanical Analysis',
-    subtitle: 'NotebookLM Deep Dive Masterclass • 10 Texture & Sedimentation Keywords',
-    audioUrl: '/audio/soil/soil-texture-and-mechanical-analysis.m4a',
-    chapterNamePattern: /soil/i,
-    categoryPattern: /physical|physics/i,
-    subCategoryPattern: /texture|mechanical/i,
-    keywords: [
-      'Soil Texture',
-      'Sand',
-      'Silt',
-      'Clay',
-      'Coarse Sand',
-      'Soil Textural Triangle',
-      'Mechanical Analysis',
-      "Stokes' Law",
-      'Bouyoucos Hydrometer Method',
-      'Sedimentation Velocity'
-    ]
-  },
-  {
-    id: 'soil-structure-and-aggregation',
-    title: 'Soil Structure & Aggregation',
-    subtitle: 'NotebookLM Deep Dive Masterclass • 12 Structural Types & Aggregation Keywords',
-    audioUrl: '/audio/soil/soil-structure-and-aggregation.m4a',
-    chapterNamePattern: /soil/i,
-    categoryPattern: /physical|physics/i,
-    subCategoryPattern: /structure|aggregation/i,
-    keywords: [
-      'Soil Structure',
-      'Peds',
-      'Aggregates',
-      'Granular Structure',
-      'Crumb Structure',
-      'Platy Structure',
-      'Blocky Structure',
-      'Prismatic Structure',
-      'Columnar Structure',
-      'Single-Grained Condition',
-      'Massive Condition',
-      'Soil Aggregation'
-    ]
-  },
-  {
     id: 'soil-texture-field-analysis',
     title: 'Soil Separates & Textural Triangle',
     subtitle: 'Kokoro-82M Field Masterclass • Interactive Timestamps • 5 mins',
