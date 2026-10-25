@@ -1,10 +1,16 @@
 import sys
 import os
+import io
 import json
 import time
 import numpy as np
 import soundfile as sf
 import kokoro_onnx
+
+# Fix Windows console UTF-8 encoding for Devanagari text
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), '..', 'models', 'kokoro', 'kokoro-v1.0.onnx')
 VOICES_PATH = os.path.join(os.path.dirname(__file__), '..', 'models', 'kokoro', 'voices-v1.0.bin')

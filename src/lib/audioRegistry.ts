@@ -107,7 +107,7 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       {
     id: 'soil-texture-field-analysis',
     title: 'Soil Separates & Textural Triangle',
-    subtitle: 'Kokoro-82M Field Masterclass • Interactive Timestamps • 4 mins',
+    subtitle: 'Kokoro-82M Field Masterclass • Interactive Timestamps • 3.7 mins',
     audioUrl: '/audio/soil/soil-texture-and-triangle.mp3',
     chapterNamePattern: /soil/i,
     categoryPattern: /physical|physics/i,
@@ -121,12 +121,12 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Soil Textural Triangle'
     ],
     keywordTimestamps: {
-          "Soil Texture": 0,
-          "Sand": 39.27,
-          "Coarse Sand": 76.8,
-          "Silt": 97.12,
-          "Clay": 134.12,
-          "Soil Textural Triangle": 171.55
+      "Soil Texture": 0,
+      "Sand": 52.57,
+      "Silt": 83.27,
+      "Clay": 114.05,
+      "Coarse Sand": 149.56,
+      "Soil Textural Triangle": 181.58
     }
   }
 ]

@@ -37,18 +37,19 @@ Keyword ${idx + 1}: ${c.term}
 `).join('\n')}
 
 PEDAGOGICAL & DIALOGUE RULES:
-1. LANGUAGE (Conversational Hinglish):
-   - Dialogue must be in natural, fluent Hinglish—the authentic way Indian scientists converse.
-   - All scientific keywords and technical terms MUST remain in clean English (e.g. "Soil Texture", "Silt", "Quartz", "Eluviation", "Pore Space", "Montmorillonite", "Bulk Density").
-   - Explanations, analogies, and conversational glue must flow in warm, natural Hindi (e.g., "dekhiye", "khet me jab hum...", "iska simple matlab hai...", "paani ke flow se...").
-   - Use clean Latin script for Hinglish so it reads naturally.
+1. SCRIPT & LANGUAGE RULES (CRITICAL FOR TTS SYNTHESIZER):
+   - You MUST write all Hindi conversational text in DEVANAGARI SCRIPT (e.g., "नमस्ते काव्या!", "खेत में जब हम मिट्टी को हाथ में उठाते हैं...", "इसका सीधा मतलब है...", "पानी का flow...").
+   - You MUST keep all scientific keywords and technical terms in ENGLISH / Latin script (e.g. "Soil Texture", "Sand", "Silt", "Clay", "Quartz", "Macropores", "Cation Exchange Capacity", "Specific Surface Area", "Soil Textural Triangle").
+   - DO NOT USE ROMAN HINDI (do NOT write "Namaste Kavya, aaj hum baat karenge"). Writing Roman Hindi breaks the text-to-speech pronunciation!
+   - Example style:
+     "नमस्ते काव्या! आज हम बात करेंगे Soil Texture के बारे में। खेत में जब आप मिट्टी को हाथ में उठाते हैं, तो उसका जो feel होता है—वो Sand, Silt और Clay के relative proportion की वजह से होता है।"
 
 2. STRICT RULE: ZERO EXAM MENTIONS:
    - Do NOT mention "IBPS", "AFO", "JRF", "ICAR", "exams", "marks", "examiner", "questions", or "traps".
    - The focus is 100% on conceptual understanding, scientific intuition, and physical reality.
 
 3. ETYMOLOGICAL & FIRST-PRINCIPLES ANCHOR (Suggestion 1):
-   - Wherever applicable, briefly unpack the linguistic root or first principles of the word (e.g., Eluviation = Ex [out] + Lavere [to wash]; Saprolite = Sapros [rotten] + Lithos [rock]; Pedoturbation = Pedon [soil] + Turbare [to churn]). This gives a lasting mental anchor.
+   - Wherever applicable, briefly unpack the linguistic root or first principles of the word (e.g., Soil Texture: Latin word 'texere' meaning 'to weave' yaani bunna; Eluviation: 'Ex' [out] + 'Lavere' [to wash]; Saprolite: 'Sapros' [rotten] + 'Lithos' [rock]). This gives a lasting mental anchor.
 
 4. SIMPLE PHYSICAL MECHANISM (Suggestion 2):
    - Explain the physical cause-and-effect mechanism ONLY when it makes the concept simpler and clearer to visualize.
@@ -58,13 +59,16 @@ PEDAGOGICAL & DIALOGUE RULES:
    - If a related concept is genuinely needed to understand the keyword (e.g., explaining Eluviation & Illuviation when discussing E Horizon, or Flocculation when discussing Aggregation), explain it clearly so the student sees the whole picture.
    - The primary spotlight must remain firmly on the main keyword under discussion. Do NOT force a related term in if it doesn't make the explanation easier.
 
-6. JSON FORMAT:
+6. SPOKEN UNITS & SYMBOLS:
+   - Always write units and symbols as spoken words for clear TTS pronunciation (e.g. write "millimeter" instead of "mm", "percent" instead of "%", "microns" instead of "µm").
+   - Avoid special punctuation like slashes, brackets, or asterisks in dialogue text.
+
+7. JSON FORMAT:
    - Output must be a valid JSON array of dialogue objects.
    - Each object must have:
      * "keyword": Exact name of the keyword being discussed (e.g. "${concepts[0].term}")
      * "speaker": Either "Dr. Rao" or "Kavya"
-     * "voice": "hm_omega" (for Dr. Rao) or "hf_alpha" (for Kavya)
-     * "text": The spoken Hinglish dialogue line.
+     * "text": The spoken dialogue line in Devanagari Hindi with English technical terms.
 
 Total dialogue length should be around 450 - 650 words (approx 3 to 4.5 minutes of spoken audio).`;
 
@@ -254,7 +258,11 @@ async function main() {
   const pyScript = path.join(__dirname, 'synthesize_kokoro.py');
   const pythonCmd = `python "${pyScript}" "${dialoguePath}" "${outputAudioPath}"`;
   
-  const stdout = execSync(pythonCmd, { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 });
+  const stdout = execSync(pythonCmd, { 
+    encoding: 'utf8', 
+    maxBuffer: 10 * 1024 * 1024,
+    env: { ...process.env, PYTHONIOENCODING: 'utf-8' }
+  });
   console.log(stdout);
 
   // Extract result JSON from stdout
