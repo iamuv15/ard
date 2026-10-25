@@ -17,11 +17,13 @@ const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 async function generateDialogueScript(clusterTitle, concepts, subCategoryName) {
   console.log(`[Gemini] Calling ${GEMINI_MODEL} for cluster: "${clusterTitle}" (${concepts.length} concepts)...`);
 
-  const prompt = `You are a curriculum director and master dialogue writer for premier agricultural competitive examinations (ICAR-AIEEA/JRF, IBPS-AFO, State AO/AAO, NABARD Grade A).
+  const prompt = `You are a master science educator and dialogue writer creating an illuminating audio masterclass on agricultural science.
 
-Write an authoritative, high-yield, engaging audio masterclass podcast script between two agricultural experts:
-1. "Dr. Rao" (voice: "am_adam"): A veteran ICAR Emeritus Soil Scientist & Field Agronomist with 30 years of diagnostic field experience. He speaks with practical wisdom, connecting every book fact to farmer realities in the field.
-2. "Kavya" (voice: "af_heart"): A brilliant ICAR-JRF / Agricultural Research Scholar preparing students for high-stakes exams. She calls out exact numerical cutoffs, formulas, and classic "examiner traps".
+Your goal is to help students DEEPLY UNDERSTAND what each technical keyword means, its scientific mechanism, and its essential companion concepts.
+
+SPEAKERS:
+1. "Dr. Rao" (voice: "hm_omega"): A senior agricultural scientist with decades of field and soil diagnostic experience. He speaks warmly and naturally, connecting scientific concepts to real, observable physical phenomena on the ground.
+2. "Kavya" (voice: "hf_alpha"): An agricultural researcher who explores the underlying scientific principles and etymological roots of terms.
 
 CLUSTER TITLE: "${clusterTitle}"
 SUBCATEGORY: "${subCategoryName}"
@@ -31,22 +33,40 @@ ${concepts.map((c, idx) => `
 Keyword ${idx + 1}: ${c.term}
 - Definition: ${c.definition}
 - Study Notes: ${c.content ? c.content.slice(0, 400).replace(/\n+/g, ' ') : 'N/A'}
-- Exam Traps / Alert: ${c.examTraps || 'N/A'}
+- Related Terms: ${c.relatedTerms ? JSON.stringify(c.relatedTerms) : 'N/A'}
 `).join('\n')}
 
-PEDAGOGICAL & FIELD EXPERT DIRECTIVES:
-1. Sequence: Cover each keyword in numerical order. Each keyword MUST have 2 to 4 back-and-forth turns between Dr. Rao and Kavya.
-2. Field-Level Realism: Dr. Rao MUST explain how the concept actually behaves in the field (e.g. soil feel, ribbon test between fingers, tractor draft power, plow pan smearing, irrigation water sedimentation, salt crusted domes, crop root response).
-3. Exam Rigor: Kavya MUST emphasize exact size boundaries (USDA vs ISSS), chemical formulas (Calgon, H2O2, HCl), mathematical relations (Stokes v proportional to r^2), and call out deceptive exam questions.
-4. Smooth Continuity: Transitions between keywords must feel like a continuous masterclass story, not isolated robotic flashcards.
-5. JSON Format: You must output a JSON array of objects.
-Each object must have exactly these keys:
-- "keyword": Exact name of the keyword being discussed (e.g. "${concepts[0].term}")
-- "speaker": Either "Dr. Rao" or "Kavya"
-- "voice": Either "am_adam" (for Dr. Rao) or "af_heart" (for Kavya)
-- "text": The spoken line (clean, natural English; spell tricky acronyms or non-English words phonetically if needed).
+PEDAGOGICAL & DIALOGUE RULES:
+1. LANGUAGE (Conversational Hinglish):
+   - Dialogue must be in natural, fluent Hinglish—the authentic way Indian scientists converse.
+   - All scientific keywords and technical terms MUST remain in clean English (e.g. "Soil Texture", "Silt", "Quartz", "Eluviation", "Pore Space", "Montmorillonite", "Bulk Density").
+   - Explanations, analogies, and conversational glue must flow in warm, natural Hindi (e.g., "dekhiye", "khet me jab hum...", "iska simple matlab hai...", "paani ke flow se...").
+   - Use clean Latin script for Hinglish so it reads naturally.
 
-Total dialogue length should be around 500 - 800 words (approx 3.5 to 5 minutes of spoken audio).`;
+2. STRICT RULE: ZERO EXAM MENTIONS:
+   - Do NOT mention "IBPS", "AFO", "JRF", "ICAR", "exams", "marks", "examiner", "questions", or "traps".
+   - The focus is 100% on conceptual understanding, scientific intuition, and physical reality.
+
+3. ETYMOLOGICAL & FIRST-PRINCIPLES ANCHOR (Suggestion 1):
+   - Wherever applicable, briefly unpack the linguistic root or first principles of the word (e.g., Eluviation = Ex [out] + Lavere [to wash]; Saprolite = Sapros [rotten] + Lithos [rock]; Pedoturbation = Pedon [soil] + Turbare [to churn]). This gives a lasting mental anchor.
+
+4. SIMPLE PHYSICAL MECHANISM (Suggestion 2):
+   - Explain the physical cause-and-effect mechanism ONLY when it makes the concept simpler and clearer to visualize.
+   - Avoid unnecessary academic complexity that makes it hard. Keep it intuitive and elegant.
+
+5. HOLISTIC COMPANION TERMS (Suggestion 4):
+   - If a related concept is genuinely needed to understand the keyword (e.g., explaining Eluviation & Illuviation when discussing E Horizon, or Flocculation when discussing Aggregation), explain it clearly so the student sees the whole picture.
+   - The primary spotlight must remain firmly on the main keyword under discussion. Do NOT force a related term in if it doesn't make the explanation easier.
+
+6. JSON FORMAT:
+   - Output must be a valid JSON array of dialogue objects.
+   - Each object must have:
+     * "keyword": Exact name of the keyword being discussed (e.g. "${concepts[0].term}")
+     * "speaker": Either "Dr. Rao" or "Kavya"
+     * "voice": "hm_omega" (for Dr. Rao) or "hf_alpha" (for Kavya)
+     * "text": The spoken Hinglish dialogue line.
+
+Total dialogue length should be around 450 - 650 words (approx 3 to 4.5 minutes of spoken audio).`;
 
   const keys = [process.env.GEMINI_API_KEY, process.env.GEMINI_API_KEY_2].filter(Boolean);
   let lastError = null;
@@ -77,6 +97,12 @@ Total dialogue length should be around 500 - 800 words (approx 3.5 to 5 minutes 
 
         const rawJson = data.candidates[0].content.parts[0].text;
         const dialogue = JSON.parse(rawJson);
+        for (const turn of dialogue) {
+          if (!turn.text && turn.voice && turn.voice.length > 20) {
+            turn.text = turn.voice;
+          }
+          turn.voice = (turn.speaker && (turn.speaker.includes('Rao') || turn.speaker.includes('Dr'))) ? 'hm_omega' : 'hf_alpha';
+        }
         console.log(`[Gemini] Successfully generated script with ${dialogue.length} dialogue turns!`);
         return dialogue;
       } catch (err) {
@@ -96,16 +122,32 @@ function updateAudioRegistry(trackInfo) {
   const registryPath = path.join(__dirname, '..', 'src', 'lib', 'audioRegistry.ts');
   let content = fs.readFileSync(registryPath, 'utf8');
 
-  // Check if track already exists
-  const existingRegex = new RegExp(`id:\\s*['"]${trackInfo.id}['"]`);
-  if (existingRegex.test(content)) {
-    console.log(`[Registry] Track ${trackInfo.id} already exists in registry. Updating timestamps...`);
-    // Replace existing entry
-    const trackBlockRegex = new RegExp(`\\{\\s*id:\\s*['"]${trackInfo.id}['"][\\s\\S]*?\\n\\s*\\},?`, 'm');
-    content = content.replace(trackBlockRegex, formatTrackEntry(trackInfo) + ',');
+  const idStr = `id: '${trackInfo.id}'`;
+  const idIdx = content.indexOf(idStr);
+  if (idIdx !== -1) {
+    console.log(`[Registry] Track ${trackInfo.id} already exists in registry. Updating entry...`);
+    const startBrace = content.lastIndexOf('{', idIdx);
+    let braceCount = 0;
+    let endBrace = -1;
+    for (let i = startBrace; i < content.length; i++) {
+      if (content[i] === '{') braceCount++;
+      else if (content[i] === '}') {
+        braceCount--;
+        if (braceCount === 0) {
+          endBrace = i;
+          break;
+        }
+      }
+    }
+    if (endBrace !== -1) {
+      // Check if followed by comma
+      const after = content.slice(endBrace + 1);
+      const commaFollows = after.trimStart().startsWith(',');
+      const sliceEnd = commaFollows ? endBrace + 1 + after.indexOf(',') + 1 : endBrace + 1;
+      content = content.slice(0, startBrace) + formatTrackEntry(trackInfo) + (commaFollows ? ',' : '') + content.slice(sliceEnd);
+    }
   } else {
     console.log(`[Registry] Adding new track ${trackInfo.id} to registry...`);
-    // Insert before the closing bracket of CHAPTER_AUDIO_REGISTRY
     const insertPoint = content.lastIndexOf(']');
     if (insertPoint !== -1) {
       content = content.slice(0, insertPoint).trimEnd() + ',\n' + formatTrackEntry(trackInfo) + '\n' + content.slice(insertPoint);

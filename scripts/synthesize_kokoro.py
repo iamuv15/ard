@@ -30,10 +30,19 @@ def synthesize_podcast(dialogue_json_path, output_mp3_path):
 
     for idx, turn in enumerate(dialogue):
         kw = turn.get('keyword', '').strip()
-        voice = turn.get('voice', 'am_adam')
+        speaker = turn.get('speaker', 'Dr. Rao')
+        voice = turn.get('voice', '').strip()
         text = turn.get('text', '').strip()
-        speaker = turn.get('speaker', 'Expert')
-        speed = float(turn.get('speed', 1.05))
+        speed = float(turn.get('speed', 1.02))
+
+        # Handle edge case where LLM swapped text into voice key
+        if not text and len(voice) > 20:
+            text = voice
+            voice = ''
+
+        # Assign voice by speaker identity
+        if not voice or len(voice) > 15:
+            voice = 'hm_omega' if ('Rao' in speaker or 'Dr' in speaker) else 'hf_alpha'
 
         if not text:
             continue
@@ -50,8 +59,9 @@ def synthesize_podcast(dialogue_json_path, output_mp3_path):
             print(f"[Timestamp] {kw} -> {round(current_time_sec, 2)}s ({speaker})")
 
         print(f"[Kokoro] Synthesizing ({voice}) [{speaker}]: \"{text[:60]}...\"")
+        lang = turn.get('lang', 'hi' if voice.startswith('h') else 'en-us')
         try:
-            samples, sr = kokoro.create(text, voice=voice, speed=speed, lang='en-us')
+            samples, sr = kokoro.create(text, voice=voice, speed=speed, lang=lang)
             sample_rate = sr
             all_samples.append(samples)
             current_time_sec += len(samples) / sample_rate
