@@ -38,6 +38,7 @@ export default async function ChapterConceptsPage(props: { params: Promise<{ id:
           thumbnailUrl: true,
           imageCaption: true,
           videoUrl: true,
+          audioTrackId: true,
           _count: {
             select: { questions: true }
           }

@@ -49,6 +49,7 @@ export interface ConceptSummaryItem {
   thumbnailUrl?: string | null
   imageCaption?: string | null
   videoUrl?: string | null
+  audioTrackId?: string | null
   _count?: { questions: number }
 }
 
@@ -84,6 +85,7 @@ interface ConceptFullDetail {
   imageCaption?: string | null
   sourceUrl?: string | null
   videoUrl?: string | null
+  audioTrackId?: string | null
   questions?: {
     id: number
     questionText: string
@@ -243,7 +245,10 @@ export function TailwindDocsReader({
             audioUrl: t.audioUrl,
             chapterNamePattern: new RegExp(chapterName.replace(/[^a-zA-Z0-9]/g, '.'), 'i'),
             subCategoryPattern: t.subCategory ? new RegExp(t.subCategory.replace(/[^a-zA-Z0-9]/g, '.'), 'i') : undefined,
-            keywords: t.concepts?.map((c: any) => c.term) || Object.keys(t.keywordTimestamps || {}),
+            keywords: Array.from(new Set([
+              ...(t.concepts?.map((c: any) => c.term) || []),
+              ...Object.keys(t.keywordTimestamps || {})
+            ])),
             keywordTimestamps: t.keywordTimestamps
           }))
           setDbAudioTracks(mapped)
@@ -259,7 +264,8 @@ export function TailwindDocsReader({
       activeSummary?.category,
       activeSummary?.subCategory,
       conceptDetail?.term || activeSummary?.term,
-      dbAudioTracks
+      dbAudioTracks,
+      conceptDetail?.audioTrackId || activeSummary?.audioTrackId
     )
   }, [chapterName, activeSummary, conceptDetail, dbAudioTracks])
 
@@ -910,7 +916,7 @@ export function TailwindDocsReader({
                                   }`}
                                 />
                                 <span className="truncate">{sub.name}</span>
-                                {findMatchingAudioTrack(chapterName, cat.name, sub.name) && (
+                                {findMatchingAudioTrack(chapterName, cat.name, sub.name, undefined, dbAudioTracks) && (
                                   <span
                                     title="Audio Masterclass Available"
                                     className="text-[9px] font-bold px-1.5 py-0.2 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-800/60 shrink-0 flex items-center gap-0.5"

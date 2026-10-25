@@ -132,34 +132,59 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
 ]
 
 /**
- * Find matching audio track for current viewing context
+ * Find matching audio track for current viewing context.
+ * Uses a strict multi-pass matching hierarchy:
+ * Pass 0: Direct Track ID Match (if concept has audioTrackId)
+ * Pass 1: Exact Keyword Match across ALL tracks in the chapter
+ * Pass 2: Subcategory Fallback Match
+ * Pass 3: Category Fallback Match
  */
 export function findMatchingAudioTrack(
   chapterName: string,
   category?: string | null,
   subCategory?: string | null,
   currentKeyword?: string | null,
-  dynamicTracks?: AudioTrack[]
+  dynamicTracks?: AudioTrack[],
+  audioTrackId?: string | null
 ): AudioTrack | null {
   const allTracks = [...(dynamicTracks || []), ...CHAPTER_AUDIO_REGISTRY]
 
-  for (const track of allTracks) {
-    if (track.chapterNamePattern && !track.chapterNamePattern.test(chapterName)) continue
+  // Filter tracks for this chapter
+  const chapterTracks = allTracks.filter(
+    track => !track.chapterNamePattern || track.chapterNamePattern.test(chapterName)
+  )
 
-    // 1. Specific Keyword match (highest priority for multi-cluster subcategories)
-    if (currentKeyword && track.keywords.some(k => k.toLowerCase() === currentKeyword.toLowerCase())) {
-      return track
-    }
+  // Pass 0: Direct ID match if concept has explicit audioTrackId from database
+  if (audioTrackId) {
+    const directMatch = chapterTracks.find(t => t.id === audioTrackId)
+    if (directMatch) return directMatch
+  }
 
-    // 2. Subcategory match (fallback if current keyword not specifically registered)
-    if (subCategory && track.subCategoryPattern && track.subCategoryPattern.test(subCategory)) {
-      return track
-    }
+  // Pass 1: Exact Keyword match across ALL tracks in the chapter
+  // In multi-track subcategories (e.g. Track 1 for pioneers, Track 2 for solum/regolith),
+  // this guarantees that the specific track containing this keyword is selected!
+  if (currentKeyword) {
+    const cleanKw = currentKeyword.trim().toLowerCase()
+    const keywordMatch = chapterTracks.find(track =>
+      track.keywords && track.keywords.some(k => k.trim().toLowerCase() === cleanKw)
+    )
+    if (keywordMatch) return keywordMatch
+  }
 
-    // 3. Category match (broadest fallback)
-    if (category && track.categoryPattern && track.categoryPattern.test(category) && !track.subCategoryPattern) {
-      return track
-    }
+  // Pass 2: Subcategory match (fallback ONLY if current keyword was not matched in any track)
+  if (subCategory) {
+    const subCatMatch = chapterTracks.find(
+      track => track.subCategoryPattern && track.subCategoryPattern.test(subCategory)
+    )
+    if (subCatMatch) return subCatMatch
+  }
+
+  // Pass 3: Category match (broadest fallback)
+  if (category) {
+    const catMatch = chapterTracks.find(
+      track => track.categoryPattern && track.categoryPattern.test(category) && !track.subCategoryPattern
+    )
+    if (catMatch) return catMatch
   }
 
   return null
