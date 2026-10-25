@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Trash2, Edit, Loader2, Save, X, ChevronDown, ChevronRight, FileQuestion, Combine, Check, GripVertical, Brain } from 'lucide-react'
+import { Trash2, Edit, Loader2, Save, X, ChevronDown, ChevronRight, FileQuestion, Combine, Check, GripVertical, Brain, Headphones } from 'lucide-react'
 import Link from 'next/link'
 import { EnrichQuizButton } from './EnrichQuizButton'
 import { RetagQuizButton } from './RetagQuizButton'
@@ -310,6 +310,15 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
                 >
                   <Brain className="w-3.5 h-3.5" />
                   <span>Mind Map</span>
+                </Link>
+
+                <Link
+                  href={`/admin/chapter/${chapter.id}/audio`}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-900/60 font-bold text-xs border border-purple-200 dark:border-purple-800 transition-colors"
+                  title="Manage Chapter Audio Masterclasses & Studio TTS"
+                >
+                  <Headphones className="w-3.5 h-3.5" />
+                  <span>Audio</span>
                 </Link>
 
                 <button

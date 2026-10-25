@@ -33,7 +33,7 @@ import {
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
-import { findMatchingAudioTrack } from '@/lib/audioRegistry'
+import { findMatchingAudioTrack, AudioTrack } from '@/lib/audioRegistry'
 import { ConceptAudioPlayer } from '@/components/concepts/ConceptAudioPlayer'
 
 export interface ConceptSummaryItem {
@@ -227,15 +227,41 @@ export function TailwindDocsReader({
     return flattenedConcepts.findIndex(c => c.slug === activeSummary?.slug)
   }, [flattenedConcepts, activeSummary])
 
+  // Dynamically loaded database audio tracks
+  const [dbAudioTracks, setDbAudioTracks] = useState<AudioTrack[]>([])
+
+  useEffect(() => {
+    if (!chapterId) return
+    fetch(`/api/chapters/${chapterId}/audio`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.tracks && Array.isArray(data.tracks)) {
+          const mapped: AudioTrack[] = data.tracks.map((t: any) => ({
+            id: t.id,
+            title: t.title,
+            subtitle: t.subtitle || '',
+            audioUrl: t.audioUrl,
+            chapterNamePattern: new RegExp(chapterName.replace(/[^a-zA-Z0-9]/g, '.'), 'i'),
+            subCategoryPattern: t.subCategory ? new RegExp(t.subCategory.replace(/[^a-zA-Z0-9]/g, '.'), 'i') : undefined,
+            keywords: t.concepts?.map((c: any) => c.term) || Object.keys(t.keywordTimestamps || {}),
+            keywordTimestamps: t.keywordTimestamps
+          }))
+          setDbAudioTracks(mapped)
+        }
+      })
+      .catch(() => {})
+  }, [chapterId, chapterName])
+
   // Active audio track for the current category / subcategory / keyword
   const activeAudioTrack = useMemo(() => {
     return findMatchingAudioTrack(
       chapterName,
       activeSummary?.category,
       activeSummary?.subCategory,
-      conceptDetail?.term || activeSummary?.term
+      conceptDetail?.term || activeSummary?.term,
+      dbAudioTracks
     )
-  }, [chapterName, activeSummary, conceptDetail])
+  }, [chapterName, activeSummary, conceptDetail, dbAudioTracks])
 
   // Automatically expand parent Category and SubCategory of the active concept
   useEffect(() => {

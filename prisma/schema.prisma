@@ -16,10 +16,11 @@ model Chapter {
   name      String           @unique
   cohort    String           @default("BETA") // "ALPHA" or "BETA"
   order     Int              @default(0)
-  quizzes   Quiz[]
-  concepts  ChapterConcept[]
-  mindMap   ChapterMindMap?
-  createdAt DateTime         @default(now())
+  quizzes     Quiz[]
+  concepts    ChapterConcept[]
+  mindMap     ChapterMindMap?
+  audioTracks ChapterAudioTrack[]
+  createdAt   DateTime         @default(now())
 }
 
 model Quiz {
@@ -95,12 +96,37 @@ model ChapterConcept {
   isPublished  Boolean    @default(true)
   questions    Question[]
   mediaReports ConceptMediaReport[]
+  audioTrackId String?
+  audioTrack   ChapterAudioTrack? @relation(fields: [audioTrackId], references: [id], onDelete: SetNull)
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 
   @@unique([chapterId, slug])
   @@index([chapterId])
   @@index([category])
+  @@index([audioTrackId])
+}
+
+model ChapterAudioTrack {
+  id                String           @id @default(cuid())
+  chapterId         Int
+  chapter           Chapter          @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  subCategory       String           // Strict subcategory boundary
+  title             String           // e.g. "Soil Separates & Textural Triangle"
+  subtitle          String?          // e.g. "Gemini 3.8 Studio TTS • 6.4 mins"
+  audioUrl          String           // Supabase Storage public CDN URL
+  storagePath       String           // "chapter-16/soil-texture/track-xyz.mp3"
+  durationSec       Float            // Audio duration in seconds
+  fileSizeBytes     Int?             // File size in bytes
+  keywordTimestamps Json             // { "Soil Texture": 0.0, "Sand": 82.07, ... }
+  status            String           @default("COMPLETED") // PENDING, GENERATING, COMPLETED, FAILED
+  errorMessage      String?
+  concepts          ChapterConcept[]
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  @@index([chapterId])
+  @@index([subCategory])
 }
 
 model ConceptMediaReport {

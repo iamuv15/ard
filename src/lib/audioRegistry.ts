@@ -138,10 +138,13 @@ export function findMatchingAudioTrack(
   chapterName: string,
   category?: string | null,
   subCategory?: string | null,
-  currentKeyword?: string | null
+  currentKeyword?: string | null,
+  dynamicTracks?: AudioTrack[]
 ): AudioTrack | null {
-  for (const track of CHAPTER_AUDIO_REGISTRY) {
-    if (!track.chapterNamePattern.test(chapterName)) continue
+  const allTracks = [...(dynamicTracks || []), ...CHAPTER_AUDIO_REGISTRY]
+
+  for (const track of allTracks) {
+    if (track.chapterNamePattern && !track.chapterNamePattern.test(chapterName)) continue
 
     // 1. Specific Keyword match (highest priority for multi-cluster subcategories)
     if (currentKeyword && track.keywords.some(k => k.toLowerCase() === currentKeyword.toLowerCase())) {

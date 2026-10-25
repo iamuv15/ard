@@ -25,7 +25,8 @@ import {
   Sliders,
   Trash2,
   Tag,
-  RotateCcw
+  RotateCcw,
+  Headphones
 } from 'lucide-react'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { ConceptDossierModal } from '@/components/concepts/ConceptDossierModal'
@@ -711,6 +712,14 @@ export default function AdminChapterConceptsPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href={`/admin/chapter/${chapterId}/audio`}
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20 text-xs font-bold transition-all shadow-xs"
+            >
+              <Headphones className="w-3.5 h-3.5" />
+              <span>🎙️ Audio Masterclasses</span>
+            </Link>
+
             <Link
               href={`/chapter/${chapterId}/concepts`}
               target="_blank"
