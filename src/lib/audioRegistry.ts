@@ -123,6 +123,29 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Bouyoucos Hydrometer Method',
       'Sedimentation Velocity'
     ]
+  },
+  {
+    id: 'soil-structure-and-aggregation',
+    title: 'Soil Structure & Aggregation',
+    subtitle: 'NotebookLM Deep Dive Masterclass • 12 Structural Types & Aggregation Keywords',
+    audioUrl: '/audio/soil/soil-structure-and-aggregation.m4a',
+    chapterNamePattern: /soil/i,
+    categoryPattern: /physical|physics/i,
+    subCategoryPattern: /structure|aggregation/i,
+    keywords: [
+      'Soil Structure',
+      'Peds',
+      'Aggregates',
+      'Granular Structure',
+      'Crumb Structure',
+      'Platy Structure',
+      'Blocky Structure',
+      'Prismatic Structure',
+      'Columnar Structure',
+      'Single-Grained Condition',
+      'Massive Condition',
+      'Soil Aggregation'
+    ]
   }
 ]
 
