@@ -7,6 +7,7 @@ export interface AudioTrack {
   categoryPattern?: RegExp
   subCategoryPattern?: RegExp
   keywords: string[]
+  keywordTimestamps?: Record<string, number>
 }
 
 export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
@@ -146,6 +147,31 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Massive Condition',
       'Soil Aggregation'
     ]
+  },
+  {
+    id: 'soil-texture-field-analysis',
+    title: 'Soil Separates & Textural Triangle',
+    subtitle: 'Kokoro-82M Field Masterclass • Interactive Timestamps • 5 mins',
+    audioUrl: '/audio/soil/soil-texture-and-triangle.mp3',
+    chapterNamePattern: /soil/i,
+    categoryPattern: /physical|physics/i,
+    subCategoryPattern: /texture|mechanical/i,
+    keywords: [
+      'Soil Texture',
+      'Sand',
+      'Silt',
+      'Clay',
+      'Coarse Sand',
+      'Soil Textural Triangle'
+    ],
+    keywordTimestamps: {
+          "Soil Texture": 0,
+          "Sand": 59.74,
+          "Silt": 103.28,
+          "Clay": 148.43,
+          "Coarse Sand": 193.9,
+          "Soil Textural Triangle": 233.13
+    },
   }
 ]
 
@@ -161,17 +187,17 @@ export function findMatchingAudioTrack(
   for (const track of CHAPTER_AUDIO_REGISTRY) {
     if (!track.chapterNamePattern.test(chapterName)) continue
 
-    // 1. Direct subcategory match
-    if (subCategory && track.subCategoryPattern && track.subCategoryPattern.test(subCategory)) {
-      return track
-    }
-
-    // 2. Keyword match
+    // 1. Specific Keyword match (highest priority for multi-cluster subcategories)
     if (currentKeyword && track.keywords.some(k => k.toLowerCase() === currentKeyword.toLowerCase())) {
       return track
     }
 
-    // 3. Category match (if no subcategory constraint)
+    // 2. Subcategory match (fallback if current keyword not specifically registered)
+    if (subCategory && track.subCategoryPattern && track.subCategoryPattern.test(subCategory)) {
+      return track
+    }
+
+    // 3. Category match (broadest fallback)
     if (category && track.categoryPattern && track.categoryPattern.test(category) && !track.subCategoryPattern) {
       return track
     }

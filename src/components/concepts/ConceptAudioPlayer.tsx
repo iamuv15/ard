@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import {
   Play,
   Pause,
@@ -42,6 +42,59 @@ export function ConceptAudioPlayer({
   const [isMuted, setIsMuted] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
+
+  // Active playing keyword computed from timestamps
+  const activePlayingKeyword = useMemo(() => {
+    if (!track.keywordTimestamps) return null
+    const entries = Object.entries(track.keywordTimestamps).sort((a, b) => a[1] - b[1])
+    let current: string | null = null
+    for (const [kw, time] of entries) {
+      if (currentTime >= time) {
+        current = kw
+      } else {
+        break
+      }
+    }
+    return current
+  }, [track.keywordTimestamps, currentTime])
+
+  const jumpToKeyword = useCallback(
+    (kw: string) => {
+      if (track.keywordTimestamps && track.keywordTimestamps[kw] !== undefined) {
+        const targetTime = track.keywordTimestamps[kw]
+        if (audioRef.current) {
+          audioRef.current.currentTime = targetTime
+          setCurrentTime(targetTime)
+          if (!isPlaying) {
+            audioRef.current
+              .play()
+              .then(() => setIsPlaying(true))
+              .catch(console.warn)
+          }
+        }
+      }
+      onSelectKeyword?.(kw)
+    },
+    [track.keywordTimestamps, isPlaying, onSelectKeyword]
+  )
+
+  // Auto-sync audio if user switches keyword while audio is already actively playing
+  const lastSelectedKeywordRef = useRef<string | null>(null)
+  useEffect(() => {
+    if (
+      currentKeyword &&
+      currentKeyword !== lastSelectedKeywordRef.current &&
+      track.keywordTimestamps &&
+      track.keywordTimestamps[currentKeyword] !== undefined
+    ) {
+      lastSelectedKeywordRef.current = currentKeyword
+      if (audioRef.current && isPlaying) {
+        const targetTime = track.keywordTimestamps[currentKeyword]
+        audioRef.current.currentTime = targetTime
+        setCurrentTime(targetTime)
+      }
+    }
+  }, [currentKeyword, track.keywordTimestamps, isPlaying])
 
   // Sync playback rate when rate changes
   useEffect(() => {
@@ -262,27 +315,57 @@ export function ConceptAudioPlayer({
               </div>
             </div>
 
-            {/* Keyword Chips: Follow-Along Revision Badges */}
+            {/* Keyword Chips: Follow-Along Revision Badges with Interactive Skipping */}
             {track.keywords && track.keywords.length > 0 && (
               <div className="pt-3 border-t border-emerald-200/50 dark:border-slate-800/80">
-                <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-2">
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>Keywords Covered in this Episode (Click to view notes):</span>
+                <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-2">
+                  <div className="flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
+                    <span>Keywords Covered {track.keywordTimestamps ? '(Click to jump audio & notes)' : '(Click to view notes)'}:</span>
+                  </div>
+                  {track.keywordTimestamps && (
+                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                      ⚡ Tap any topic to jump
+                    </span>
+                  )}
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {track.keywords.map((kw, i) => {
                     const isSelected = (currentKeyword || '').toLowerCase() === kw.toLowerCase()
+                    const isNowPlaying = (activePlayingKeyword || '').toLowerCase() === kw.toLowerCase()
+                    const hasTimestamp = track.keywordTimestamps && track.keywordTimestamps[kw] !== undefined
+
                     return (
                       <button
                         key={i}
-                        onClick={() => onSelectKeyword && onSelectKeyword(kw)}
-                        className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
-                          isSelected
-                            ? 'bg-emerald-600 text-white shadow-xs font-bold scale-102'
+                        onClick={() => jumpToKeyword(kw)}
+                        title={
+                          hasTimestamp
+                            ? `Jump audio to ${kw} (${formatTime(track.keywordTimestamps![kw])})`
+                            : `View notes for ${kw}`
+                        }
+                        className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+                          isNowPlaying
+                            ? 'bg-emerald-600 text-white shadow-sm ring-2 ring-emerald-400 font-bold scale-105'
+                            : isSelected
+                            ? 'bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700 font-bold'
                             : 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700 hover:border-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300'
                         }`}
                       >
-                        {kw}
+                        {isNowPlaying && isPlaying && (
+                          <span className="flex h-2 w-2 relative">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                          </span>
+                        )}
+                        <span>{kw}</span>
+                        {hasTimestamp && (
+                          <span className={`text-[9px] font-mono px-1 py-0.2 rounded ${
+                            isNowPlaying ? 'bg-emerald-700/80 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                          }`}>
+                            {formatTime(track.keywordTimestamps![kw])}
+                          </span>
+                        )}
                       </button>
                     )
                   })}
