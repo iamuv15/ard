@@ -17,18 +17,18 @@ const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 async function generateDialogueScript(clusterTitle, concepts, subCategoryName) {
   console.log(`[Gemini] Calling ${GEMINI_MODEL} for cluster: "${clusterTitle}" (${concepts.length} concepts)...`);
 
-  const prompt = `You are a master science educator and dialogue writer creating an illuminating audio masterclass on agricultural science.
+  const prompt = `You are a world-class science communicator and dialogue writer creating a cheerful, energetic, and engaging audio podcast overview on agricultural science—in the signature lively style of Google NotebookLM.
 
-Your goal is to help students DEEPLY UNDERSTAND what each technical keyword means, its scientific mechanism, and its essential companion concepts.
+Your goal is to help students DEEPLY UNDERSTAND what each technical keyword means through crystal-clear everyday English, vivid physical analogies, and infectious enthusiasm. Make the dialogue feel vibrant, joyful, and easy to follow—never dry, monotone, or dull!
 
-SPEAKERS:
-1. "Dr. Rao" (voice: "hm_omega"): A senior agricultural scientist with decades of field and soil diagnostic experience. He speaks warmly and naturally, connecting scientific concepts to real, observable physical phenomena on the ground.
-2. "Kavya" (voice: "hf_alpha"): An agricultural researcher who explores the underlying scientific principles and etymological roots of terms.
+CO-HOSTS:
+1. "Sarah" (voice: "af_heart"): Super enthusiastic, curious, and expressive co-host. She asks the questions every student is wondering, reacts with genuine wonder ("Oh wow!", "Wait, that's wild!", "Haha, right?!"), and connects ideas to daily life.
+2. "Adam" (voice: "am_adam"): Warm, cheerful, and encouraging science educator. He speaks with a smile in his voice, breaks down complex mechanisms into simple, vivid mental pictures, and loves sharing "aha!" moments.
 
 CLUSTER TITLE: "${clusterTitle}"
 SUBCATEGORY: "${subCategoryName}"
 
-CONCEPTS TO COVER IN ORDER:
+CONCEPTS TO COVER IN EXACT ORDER:
 ${concepts.map((c, idx) => `
 Keyword ${idx + 1}: ${c.term}
 - Definition: ${c.definition}
@@ -37,40 +37,36 @@ Keyword ${idx + 1}: ${c.term}
 `).join('\n')}
 
 PEDAGOGICAL & DIALOGUE RULES:
-1. SCRIPT & LANGUAGE RULES (CRITICAL FOR TTS SYNTHESIZER):
-   - You MUST write all Hindi conversational text in DEVANAGARI SCRIPT (e.g., "नमस्ते काव्या!", "खेत में जब हम मिट्टी को हाथ में उठाते हैं...", "इसका सीधा मतलब है...", "पानी का flow...").
-   - You MUST keep all scientific keywords and technical terms in ENGLISH / Latin script (e.g. "Soil Texture", "Sand", "Silt", "Clay", "Quartz", "Macropores", "Cation Exchange Capacity", "Specific Surface Area", "Soil Textural Triangle").
-   - DO NOT USE ROMAN HINDI (do NOT write "Namaste Kavya, aaj hum baat karenge"). Writing Roman Hindi breaks the text-to-speech pronunciation!
-   - Example style:
-     "नमस्ते काव्या! आज हम बात करेंगे Soil Texture के बारे में। खेत में जब आप मिट्टी को हाथ में उठाते हैं, तो उसका जो feel होता है—वो Sand, Silt और Clay के relative proportion की वजह से होता है।"
+1. CHEERFUL & ENGAGING CONVERSATIONAL ENGLISH:
+   - Write in simple, crystal-clear, modern conversational English.
+   - Inject genuine enthusiasm, warmth, and cheerful energy throughout. Use natural vocal interjections ("Oh, wow!", "Exactly!", "Haha, yes!", "Think of it this way...", "Picture this...").
+   - Avoid dry, academic textbook lecturing. Keep sentences punchy, rhythmic, and fun to listen to!
 
-2. STRICT RULE: ZERO EXAM MENTIONS:
-   - Do NOT mention "IBPS", "AFO", "JRF", "ICAR", "exams", "marks", "examiner", "questions", or "traps".
-   - The focus is 100% on conceptual understanding, scientific intuition, and physical reality.
+2. SIMPLE ANALOGIES & FIRST-PRINCIPLES ANCHORS (Suggestion 1 & 2):
+   - Unpack etymological roots playfully when helpful (e.g. "Texture comes from the Latin word 'texere'—which literally means 'to weave', like the weave of a shirt!").
+   - Use vivid everyday comparisons (e.g. comparing Sand grains to beach pebbles or basketballs, Silt to smooth baking flour, and Clay to microscopic sticky sheets of paper; comparing specific surface area to football fields).
+   - Explain physical mechanisms simply and intuitively. Do NOT make it unnecessarily complex.
 
-3. ETYMOLOGICAL & FIRST-PRINCIPLES ANCHOR (Suggestion 1):
-   - Wherever applicable, briefly unpack the linguistic root or first principles of the word (e.g., Soil Texture: Latin word 'texere' meaning 'to weave' yaani bunna; Eluviation: 'Ex' [out] + 'Lavere' [to wash]; Saprolite: 'Sapros' [rotten] + 'Lithos' [rock]). This gives a lasting mental anchor.
+3. HOLISTIC COMPANION TERMS (Suggestion 4):
+   - Mention companion terms (like Eluviation, Illuviation, or Pore Space) only when they genuinely illuminate the main keyword.
+   - Keep the spotlight firmly on the target keyword.
 
-4. SIMPLE PHYSICAL MECHANISM (Suggestion 2):
-   - Explain the physical cause-and-effect mechanism ONLY when it makes the concept simpler and clearer to visualize.
-   - Avoid unnecessary academic complexity that makes it hard. Keep it intuitive and elegant.
+4. STRICT RULE: ZERO EXAM MENTIONS:
+   - Do NOT mention "IBPS", "AFO", "JRF", "ICAR", "exams", "marks", "questions", or "traps".
+   - The aim is 100% conceptual clarity and curiosity.
 
-5. HOLISTIC COMPANION TERMS (Suggestion 4):
-   - If a related concept is genuinely needed to understand the keyword (e.g., explaining Eluviation & Illuviation when discussing E Horizon, or Flocculation when discussing Aggregation), explain it clearly so the student sees the whole picture.
-   - The primary spotlight must remain firmly on the main keyword under discussion. Do NOT force a related term in if it doesn't make the explanation easier.
+5. SPOKEN UNITS & PUNCTUATION FOR TTS:
+   - Write all numbers and units as spoken words (e.g. write "point zero zero two millimeters", "percent", "microns").
+   - Kokoro's neural synthesizer responds dynamically to punctuation: use exclamation marks for enthusiasm, commas and dashes for natural breathing pauses, and question marks for upbeat curiosity.
 
-6. SPOKEN UNITS & SYMBOLS:
-   - Always write units and symbols as spoken words for clear TTS pronunciation (e.g. write "millimeter" instead of "mm", "percent" instead of "%", "microns" instead of "µm").
-   - Avoid special punctuation like slashes, brackets, or asterisks in dialogue text.
-
-7. JSON FORMAT:
+6. JSON FORMAT:
    - Output must be a valid JSON array of dialogue objects.
    - Each object must have:
      * "keyword": Exact name of the keyword being discussed (e.g. "${concepts[0].term}")
-     * "speaker": Either "Dr. Rao" or "Kavya"
-     * "text": The spoken dialogue line in Devanagari Hindi with English technical terms.
+     * "speaker": Either "Sarah" or "Adam"
+     * "text": The spoken dialogue line in cheerful English.
 
-Total dialogue length should be around 450 - 650 words (approx 3 to 4.5 minutes of spoken audio).`;
+Total dialogue length should be around 450 - 650 words (approx 3 to 4 minutes of lively audio).`;
 
   const keys = [process.env.GEMINI_API_KEY, process.env.GEMINI_API_KEY_2].filter(Boolean);
   let lastError = null;
@@ -86,7 +82,7 @@ Total dialogue length should be around 450 - 650 words (approx 3 to 4.5 minutes 
             contents: [{ parts: [{ text: prompt }] }],
             generationConfig: {
               responseMimeType: 'application/json',
-              temperature: 0.7
+              temperature: 0.75
             }
           })
         });
@@ -105,7 +101,7 @@ Total dialogue length should be around 450 - 650 words (approx 3 to 4.5 minutes 
           if (!turn.text && turn.voice && turn.voice.length > 20) {
             turn.text = turn.voice;
           }
-          turn.voice = (turn.speaker && (turn.speaker.includes('Rao') || turn.speaker.includes('Dr'))) ? 'hm_omega' : 'hf_alpha';
+          turn.voice = (turn.speaker && turn.speaker.includes('Adam')) ? 'am_adam' : 'af_heart';
         }
         console.log(`[Gemini] Successfully generated script with ${dialogue.length} dialogue turns!`);
         return dialogue;
@@ -199,7 +195,7 @@ async function main() {
   ];
   let clusterId = 'soil-texture-field-analysis';
   let clusterTitle = 'Soil Separates & Textural Triangle';
-  let subtitle = 'Kokoro-82M Field Masterclass • Interactive Timestamps';
+  let subtitle = 'NotebookLM-Style Cheerful Masterclass • Interactive Timestamps';
   let outputFilename = 'soil-texture-and-triangle.mp3';
 
   // Parse custom args if provided

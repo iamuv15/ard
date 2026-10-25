@@ -48,7 +48,10 @@ def synthesize_podcast(dialogue_json_path, output_mp3_path):
 
         # Assign voice by speaker identity
         if not voice or len(voice) > 15:
-            voice = 'hm_omega' if ('Rao' in speaker or 'Dr' in speaker) else 'hf_alpha'
+            if any(m in speaker for m in ['Adam', 'Michael', 'Rao', 'Dr', 'Male']):
+                voice = 'am_adam'
+            else:
+                voice = 'af_heart'
 
         if not text:
             continue

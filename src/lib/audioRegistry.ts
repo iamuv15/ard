@@ -104,10 +104,10 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Sodification'
     ]
   },
-      {
+        {
     id: 'soil-texture-field-analysis',
     title: 'Soil Separates & Textural Triangle',
-    subtitle: 'Kokoro-82M Field Masterclass • Interactive Timestamps • 3.7 mins',
+    subtitle: 'NotebookLM-Style Cheerful Masterclass • Interactive Timestamps • 3 mins',
     audioUrl: '/audio/soil/soil-texture-and-triangle.mp3',
     chapterNamePattern: /soil/i,
     categoryPattern: /physical|physics/i,
@@ -121,13 +121,13 @@ export const CHAPTER_AUDIO_REGISTRY: AudioTrack[] = [
       'Soil Textural Triangle'
     ],
     keywordTimestamps: {
-      "Soil Texture": 0,
-      "Sand": 52.57,
-      "Silt": 83.27,
-      "Clay": 114.05,
-      "Coarse Sand": 149.56,
-      "Soil Textural Triangle": 181.58
-    }
+          "Soil Texture": 0,
+          "Sand": 33.27,
+          "Silt": 60.25,
+          "Clay": 83.16,
+          "Coarse Sand": 115.16,
+          "Soil Textural Triangle": 142.89
+    },
   }
 ]
 
