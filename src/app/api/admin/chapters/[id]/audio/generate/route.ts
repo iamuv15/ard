@@ -16,7 +16,7 @@ export async function POST(
     }
 
     const body = await req.json();
-    const { subCategory, title, conceptIds } = body;
+    const { subCategory, title, conceptIds, engine } = body;
 
     if (!subCategory || !title || !Array.isArray(conceptIds) || conceptIds.length === 0) {
       return NextResponse.json(
@@ -29,7 +29,8 @@ export async function POST(
       chapterId,
       subCategory,
       title,
-      conceptIds
+      conceptIds,
+      engine
     });
 
     return NextResponse.json(result);

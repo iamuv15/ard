@@ -83,6 +83,9 @@ export default function ChapterAudioAdminPage() {
   const [proposedClusters, setProposedClusters] = useState<Record<string, ProposedCluster[]>>({})
   const [isBulkPlanning, setIsBulkPlanning] = useState(false)
 
+  // Engine state
+  const [selectedEngine, setSelectedEngine] = useState<'google-cloud' | 'gemini'>('google-cloud')
+
   // Bulk Generation state
   const [bulkState, setBulkState] = useState<{
     isRunning: boolean
@@ -176,7 +179,9 @@ export default function ChapterAudioAdminPage() {
 
       const stepInterval = setInterval(() => {
         setGenerationStep(prev => {
-          if (prev.includes('script')) return 'Synthesizing with Gemini 3.8 Flash-Lite TTS (Aoede & Fenrir)...'
+          if (prev.includes('script')) return selectedEngine === 'google-cloud'
+            ? 'Synthesizing with Google Cloud Neural2 (hi-IN-Neural2-A & B)...'
+            : 'Synthesizing with Gemini 3.8 Flash-Lite TTS (Aoede & Fenrir)...'
           if (prev.includes('Synthesizing')) return 'Encoding & uploading to Supabase Storage bucket...'
           return 'Registering audio track & concept timestamps in database...'
         })
@@ -188,7 +193,8 @@ export default function ChapterAudioAdminPage() {
         body: JSON.stringify({
           subCategory,
           title: cluster.title,
-          conceptIds: cluster.conceptIds
+          conceptIds: cluster.conceptIds,
+          engine: selectedEngine
         })
       })
 
@@ -326,7 +332,8 @@ export default function ChapterAudioAdminPage() {
           body: JSON.stringify({
             subCategory: item.subCategory,
             title: item.cluster.title,
-            conceptIds: item.cluster.conceptIds
+            conceptIds: item.cluster.conceptIds,
+            engine: selectedEngine
           })
         })
 
@@ -544,12 +551,18 @@ export default function ChapterAudioAdminPage() {
 
           <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur">
             <div className="flex items-center justify-between text-slate-400 text-xs font-medium mb-1">
-              <span>Synthesis Engine</span>
-              <Sparkles className="w-4 h-4 text-purple-400" />
+              <span>Active Engine</span>
+              <Sparkles className={`w-4 h-4 ${selectedEngine === 'google-cloud' ? 'text-emerald-400' : 'text-purple-400'}`} />
             </div>
-            <div className="text-sm font-semibold text-white">Gemini 3.8 Flash-Lite TTS</div>
-            <div className="text-xs text-purple-300/80 mt-1">Multi-Speaker: Aoede & Fenrir</div>
-            <div className="text-xs text-emerald-400 font-medium mt-1">Opus Mono 32 kbps (~1.2 MB / 5 min)</div>
+            <div className="text-sm font-semibold text-white">
+              {selectedEngine === 'google-cloud' ? 'Google Cloud Neural2' : 'Gemini 3.8 Flash-Lite'}
+            </div>
+            <div className="text-xs text-purple-300/80 mt-1">
+              {selectedEngine === 'google-cloud' ? 'Voices: hi-IN-Neural2-A & B' : 'Multi-Speaker: Aoede & Fenrir'}
+            </div>
+            <div className="text-xs text-emerald-400 font-medium mt-1">
+              {selectedEngine === 'google-cloud' ? '1M chars/mo free • GCP Credits' : 'Opus Mono 32 kbps (~1.2 MB / 5 min)'}
+            </div>
           </div>
         </div>
 
@@ -572,6 +585,36 @@ export default function ChapterAudioAdminPage() {
               <p className="text-xs text-slate-300 max-w-2xl">
                 Batch generate masterclasses across the entire chapter in one click. The AI intelligently clusters unassigned concepts by subcategory, drafts multi-speaker Devanagari Hinglish scripts, and synthesizes 32 kbps Opus audio.
               </p>
+
+              {/* Engine Toggle Selection */}
+              <div className="pt-2 flex flex-wrap items-center gap-2">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Engine:</span>
+                <button
+                  type="button"
+                  onClick={() => setSelectedEngine('google-cloud')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border ${
+                    selectedEngine === 'google-cloud'
+                      ? 'bg-emerald-600 text-white border-emerald-400 shadow-sm'
+                      : 'text-slate-400 hover:text-white bg-slate-900/80 border-slate-700/80'
+                  }`}
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
+                  <span>Google Cloud Neural2 (1M Free/Mo • Credits)</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedEngine('gemini')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border ${
+                    selectedEngine === 'gemini'
+                      ? 'bg-purple-600 text-white border-purple-400 shadow-sm'
+                      : 'text-slate-400 hover:text-white bg-slate-900/80 border-slate-700/80'
+                  }`}
+                >
+                  <Headphones className="w-3.5 h-3.5 text-purple-300" />
+                  <span>Gemini 3.8 Flash-Lite (Aoede & Fenrir)</span>
+                </button>
+              </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-3">

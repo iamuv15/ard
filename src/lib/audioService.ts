@@ -99,6 +99,69 @@ async function encodePcmToOpus(pcmBuffer: Buffer, sampleRate = 24000, bitrateKbp
 }
 
 /**
+ * Synthesizes a batch of dialogue turns to raw 16-bit PCM samples using Google Cloud Text-to-Speech Neural2
+ * (Kavya: hi-IN-Neural2-A, Dr. Rao: hi-IN-Neural2-B)
+ * Draws directly from Google Cloud credits, with first 1,000,000 characters/month free.
+ */
+async function synthesizeTurnsWithGoogleCloudTts(turns: any[]): Promise<Buffer> {
+  const apiKey = process.env.Cloud_ARD_Static_Key || process.env.GOOGLE_CLOUD_TTS_API_KEY;
+  if (!apiKey) {
+    throw new Error('No Cloud_ARD_Static_Key or GOOGLE_CLOUD_TTS_API_KEY configured in environment');
+  }
+
+  const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
+  const pcmChunks: Buffer[] = [];
+  const pauseBetweenTurns = Buffer.alloc(Math.round(24000 * 0.25) * 2); // 250ms natural conversational pause
+
+  for (let i = 0; i < turns.length; i++) {
+    const turn = turns[i];
+    const isFemale = (turn.speaker || '').toLowerCase().includes('kavya');
+    const voiceName = isFemale ? 'hi-IN-Neural2-A' : 'hi-IN-Neural2-B';
+    const ssmlGender = isFemale ? 'FEMALE' : 'MALE';
+
+    const payload = {
+      input: { text: turn.text },
+      voice: {
+        languageCode: 'hi-IN',
+        name: voiceName,
+        ssmlGender
+      },
+      audioConfig: {
+        audioEncoding: 'LINEAR16',
+        sampleRateHertz: 24000,
+        speakingRate: 1.0
+      }
+    };
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+    if (data.error) {
+      throw new Error(`Google Cloud TTS error (${voiceName}): ${data.error.message || JSON.stringify(data.error)}`);
+    }
+
+    if (!data.audioContent) {
+      throw new Error(`No audioContent received from Google Cloud TTS for turn ${i + 1}`);
+    }
+
+    const wavBuffer = Buffer.from(data.audioContent, 'base64');
+    // Strip 44-byte WAV header to get raw 16-bit PCM
+    const rawPcm = wavBuffer.length > 44 ? wavBuffer.subarray(44) : wavBuffer;
+    pcmChunks.push(rawPcm);
+
+    if (i < turns.length - 1) {
+      pcmChunks.push(pauseBetweenTurns);
+    }
+  }
+
+  return Buffer.concat(pcmChunks);
+}
+
+/**
  * Synthesizes a batch of dialogue turns to raw 16-bit PCM samples using Gemini 3.8 Flash-Lite TTS
  */
 async function synthesizeTurnsToPcm(turns: any[]): Promise<Buffer> {
@@ -569,6 +632,8 @@ ${malformedText.slice(0, 4500)}`;
   return null;
 }
 
+export type AudioEngine = 'google-cloud' | 'gemini';
+
 /**
  * Generate full audio track for a cluster of concepts and store in Supabase Bucket
  */
@@ -577,8 +642,16 @@ export async function generateAudioForCluster(params: {
   subCategory: string;
   title: string;
   conceptIds: number[];
+  engine?: AudioEngine;
 }) {
-  const { chapterId, subCategory, title, conceptIds } = params;
+  const hasGcpKey = Boolean(process.env.Cloud_ARD_Static_Key || process.env.GOOGLE_CLOUD_TTS_API_KEY);
+  const {
+    chapterId,
+    subCategory,
+    title,
+    conceptIds,
+    engine = hasGcpKey ? 'google-cloud' : 'gemini'
+  } = params;
 
   // 1. Fetch concepts
   const concepts = await prisma.chapterConcept.findMany({
@@ -598,7 +671,7 @@ export async function generateAudioForCluster(params: {
   // 2. Generate Script
   const dialogue = await generateDialogueScript(title, subCategory, concepts);
 
-  // 3. Synthesize via pure Node.js Gemini 3.8 Flash-Lite TTS (with automatic key rotation)
+  // 3. Synthesize via selected engine (Google Cloud Neural2 or Gemini 3.8 Flash-Lite)
   // Group dialogue turns by keyword
   const keywordGroups: { keyword: string; turns: any[] }[] = [];
   let currentKw = '';
@@ -620,7 +693,7 @@ export async function generateAudioForCluster(params: {
     keywordGroups.push({ keyword: currentKw, turns: currentTurns });
   }
 
-  console.log(`[Gemini TTS] Synthesizing ${keywordGroups.length} keyword clusters in Node.js...`);
+  console.log(`[Audio Synthesis] Synthesizing ${keywordGroups.length} keyword clusters using engine: "${engine}"...`);
 
   const sampleRate = 24000;
   const pcmBuffers: Buffer[] = [];
@@ -632,9 +705,21 @@ export async function generateAudioForCluster(params: {
     const { keyword, turns } = keywordGroups[idx];
     const timestampSec = Math.round((currentPcmBytes / (sampleRate * 2)) * 100) / 100;
     keywordTimestamps[keyword] = timestampSec;
-    console.log(`[Gemini TTS] (${idx + 1}/${keywordGroups.length}) "${keyword}" -> ${timestampSec}s (${turns.length} turns)`);
 
-    const pcmChunk = await synthesizeTurnsToPcm(turns);
+    let pcmChunk: Buffer;
+    if (engine === 'google-cloud') {
+      try {
+        console.log(`[Google Cloud TTS] (${idx + 1}/${keywordGroups.length}) "${keyword}" -> ${timestampSec}s (${turns.length} turns)`);
+        pcmChunk = await synthesizeTurnsWithGoogleCloudTts(turns);
+      } catch (gcpErr: any) {
+        console.warn(`[Google Cloud TTS] Error for "${keyword}": ${gcpErr.message}. Falling back to Gemini TTS...`);
+        pcmChunk = await synthesizeTurnsToPcm(turns);
+      }
+    } else {
+      console.log(`[Gemini TTS] (${idx + 1}/${keywordGroups.length}) "${keyword}" -> ${timestampSec}s (${turns.length} turns)`);
+      pcmChunk = await synthesizeTurnsToPcm(turns);
+    }
+
     pcmBuffers.push(pcmChunk);
     currentPcmBytes += pcmChunk.length;
 
@@ -661,12 +746,13 @@ export async function generateAudioForCluster(params: {
   const uploadResult = await uploadAudioBuffer(opusBuffer, storagePath, 'audio/ogg');
 
   // 5. Save ChapterAudioTrack record in Postgres
+  const engineLabel = engine === 'google-cloud' ? 'Google Cloud Neural2' : 'Gemini 3.8 Flash-Lite';
   const track = await prisma.chapterAudioTrack.create({
     data: {
       chapterId,
       subCategory,
       title,
-      subtitle: `Gemini 3.8 Flash-Lite • Opus 32 kbps • Natural Hinglish • ${Math.round(totalDurationSec / 60)} mins`,
+      subtitle: `${engineLabel} • Opus 32 kbps • Natural Hinglish • ${(totalDurationSec / 60).toFixed(1)} mins`,
       audioUrl: uploadResult.url,
       storagePath: uploadResult.storagePath,
       durationSec: totalDurationSec,
