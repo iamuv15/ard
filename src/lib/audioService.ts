@@ -1,10 +1,34 @@
 import prisma from './prisma';
 import { uploadAudioBuffer, deleteAudioFile } from './storageService';
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_API_KEY_2 = process.env.GEMINI_API_KEY_2;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 const GEMINI_TTS_MODEL = process.env.GEMINI_TTS_MODEL || 'gemini-3.8-flash-lite-tts';
+
+// In-memory set of keys that have hit 429 quota exhaustion to prevent futile retries
+const exhaustedKeys = new Set<string>();
+
+/**
+ * Returns available Gemini API keys with working keys first, skipping exhausted keys.
+ */
+function getGeminiApiKeys(): string[] {
+  const candidates = [
+    process.env.GEMINI_API_KEY,          // Primary active key
+    process.env.GEMINI_API_KEY_FALLBACK, // Explicit fallback
+    process.env.GEMINI_API_KEY_2,        // Secondary key
+    process.env.GEMINI_API_KEY_3,
+    process.env.GEMINI_API_KEY_4,
+    process.env.GOOGLE_API_KEY
+  ].filter(Boolean) as string[];
+
+  const unique = Array.from(new Set(candidates));
+  // Filter out known exhausted keys
+  const available = unique.filter(k => !exhaustedKeys.has(k));
+  if (available.length > 0) return available;
+
+  // If all are marked exhausted, reset cache and try all
+  exhaustedKeys.clear();
+  return unique;
+}
 
 export interface ProposedCluster {
   title: string;
@@ -45,9 +69,14 @@ async function encodePcmToOpus(pcmBuffer: Buffer, sampleRate = 24000, bitrateKbp
 }
 
 /**
- * Synthesizes a batch of dialogue turns to raw 16-bit PCM samples using Gemini 3.8 Flash TTS
+ * Synthesizes a batch of dialogue turns to raw 16-bit PCM samples using Gemini 3.8 Flash-Lite TTS
  */
-async function synthesizeTurnsToPcm(turns: any[], apiKeys: string[]): Promise<Buffer> {
+async function synthesizeTurnsToPcm(turns: any[]): Promise<Buffer> {
+  const apiKeys = getGeminiApiKeys();
+  if (apiKeys.length === 0) {
+    throw new Error('No GEMINI_API_KEY configured in environment variables');
+  }
+
   const payload = {
     contents: [{
       parts: turns.map(t => ({
@@ -73,8 +102,10 @@ async function synthesizeTurnsToPcm(turns: any[], apiKeys: string[]): Promise<Bu
 
   let lastErr: any = null;
   for (const key of apiKeys) {
+    const masked = `${key.slice(0, 6)}...${key.slice(-4)}`;
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TTS_MODEL}:generateContent?key=${key}`;
-    for (let attempt = 1; attempt <= 3; attempt++) {
+
+    for (let attempt = 1; attempt <= 2; attempt++) {
       try {
         const res = await fetch(url, {
           method: 'POST',
@@ -82,9 +113,20 @@ async function synthesizeTurnsToPcm(turns: any[], apiKeys: string[]): Promise<Bu
           body: JSON.stringify(payload)
         });
         const data = await res.json();
+
         if (data.error) {
+          const isQuota = data.error.code === 429 ||
+                          data.error.status === 'RESOURCE_EXHAUSTED' ||
+                          (data.error.message && data.error.message.includes('quota'));
+          if (isQuota) {
+            console.warn(`[Gemini TTS] Key ${masked} quota limit exceeded (429). Instantly falling back to next available key...`);
+            exhaustedKeys.add(key);
+            lastErr = new Error(`Key ${masked}: ${data.error.message}`);
+            break; // Break inner loop immediately to try the next key!
+          }
           throw new Error(data.error.message || JSON.stringify(data.error));
         }
+
         if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.inlineData?.data) {
           const rawWav = Buffer.from(data.candidates[0].content.parts[0].inlineData.data, 'base64');
           return rawWav.subarray(44);
@@ -92,13 +134,15 @@ async function synthesizeTurnsToPcm(turns: any[], apiKeys: string[]): Promise<Bu
         throw new Error('No audio data in Gemini TTS response');
       } catch (err: any) {
         lastErr = err;
-        console.warn(`[Gemini TTS] Attempt ${attempt} with key failed: ${err.message}`);
-        await new Promise(r => setTimeout(r, 1200 * attempt));
+        if (!exhaustedKeys.has(key) && attempt < 2) {
+          console.warn(`[Gemini TTS] Attempt ${attempt} on ${masked} failed: ${err.message}. Retrying...`);
+          await new Promise(r => setTimeout(r, 800));
+        }
       }
     }
   }
 
-  throw new Error(`All Gemini TTS attempts failed: ${lastErr?.message || lastErr}`);
+  throw new Error(`All Gemini TTS attempts failed across ${apiKeys.length} keys: ${lastErr?.message || lastErr}`);
 }
 
 /**
@@ -171,10 +215,11 @@ Return a valid JSON array of cluster objects:
   }
 ]`;
 
-  const keys = [GEMINI_API_KEY, GEMINI_API_KEY_2].filter(Boolean);
+  const keys = getGeminiApiKeys();
   let lastError = null;
 
   for (const key of keys) {
+    const masked = `${key.slice(0, 6)}...${key.slice(-4)}`;
     try {
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${key}`;
       const response = await fetch(url, {
@@ -190,7 +235,15 @@ Return a valid JSON array of cluster objects:
       });
 
       const data = await response.json();
-      if (data.error) throw new Error(data.error.message);
+      if (data.error) {
+        if (data.error.code === 429 || data.error.status === 'RESOURCE_EXHAUSTED') {
+          console.warn(`[Audio Planner] Key ${masked} quota limit exceeded. Falling back to next available key...`);
+          exhaustedKeys.add(key);
+          lastError = new Error(data.error.message);
+          continue;
+        }
+        throw new Error(data.error.message);
+      }
 
       const rawJson = data.candidates[0].content.parts[0].text;
       const parsedClusters: { title: string; rationale: string; conceptIds: number[] }[] = JSON.parse(rawJson);
@@ -293,10 +346,11 @@ PEDAGOGICAL & DIALOGUE RULES:
      * "style": Vocal acting instruction (e.g. "warm and conversational", "curious and thoughtful")
      * "text": Spoken line in Devanagari Hindi with English technical terms.`;
 
-  const keys = [GEMINI_API_KEY, GEMINI_API_KEY_2].filter(Boolean);
+  const keys = getGeminiApiKeys();
   let lastError = null;
 
   for (const key of keys) {
+    const masked = `${key.slice(0, 6)}...${key.slice(-4)}`;
     try {
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${key}`;
       const response = await fetch(url, {
@@ -312,11 +366,19 @@ PEDAGOGICAL & DIALOGUE RULES:
       });
 
       const data = await response.json();
-      if (data.error) throw new Error(data.error.message);
+      if (data.error) {
+        if (data.error.code === 429 || data.error.status === 'RESOURCE_EXHAUSTED') {
+          console.warn(`[Gemini Script] Key ${masked} quota limit exceeded. Falling back to next available key...`);
+          exhaustedKeys.add(key);
+          lastError = new Error(data.error.message);
+          continue;
+        }
+        throw new Error(data.error.message);
+      }
 
       const rawJson = data.candidates[0].content.parts[0].text;
       const dialogue = JSON.parse(rawJson);
-      console.log(`[Gemini] Script generated successfully with ${dialogue.length} dialogue turns!`);
+      console.log(`[Gemini] Script generated successfully with ${dialogue.length} dialogue turns using key ${masked}!`);
       return dialogue;
     } catch (err) {
       lastError = err;
@@ -355,12 +417,7 @@ export async function generateAudioForCluster(params: {
   // 2. Generate Script
   const dialogue = await generateDialogueScript(title, subCategory, concepts);
 
-  // 3. Synthesize via pure Node.js Gemini 3.8 Flash TTS
-  const apiKeys = [GEMINI_API_KEY_2, GEMINI_API_KEY, process.env.GEMINI_API_KEY].filter(Boolean) as string[];
-  if (apiKeys.length === 0) {
-    throw new Error('No GEMINI_API_KEY found for TTS synthesis');
-  }
-
+  // 3. Synthesize via pure Node.js Gemini 3.8 Flash-Lite TTS (with automatic key rotation)
   // Group dialogue turns by keyword
   const keywordGroups: { keyword: string; turns: any[] }[] = [];
   let currentKw = '';
@@ -396,7 +453,7 @@ export async function generateAudioForCluster(params: {
     keywordTimestamps[keyword] = timestampSec;
     console.log(`[Gemini TTS] (${idx + 1}/${keywordGroups.length}) "${keyword}" -> ${timestampSec}s (${turns.length} turns)`);
 
-    const pcmChunk = await synthesizeTurnsToPcm(turns, apiKeys);
+    const pcmChunk = await synthesizeTurnsToPcm(turns);
     pcmBuffers.push(pcmChunk);
     currentPcmBytes += pcmChunk.length;
 
