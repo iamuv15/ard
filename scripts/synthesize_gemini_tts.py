@@ -83,11 +83,20 @@ def call_gemini_tts(parts, api_keys):
 
 def synthesize_podcast(dialogue_json_path, output_mp3_path):
     env_vars = load_env()
-    api_keys = [env_vars.get('GEMINI_API_KEY'), env_vars.get('GEMINI_API_KEY_2'), os.getenv('GEMINI_API_KEY')]
-    api_keys = [k for k in api_keys if k]
+    free_keys = [
+        env_vars.get('GEMINI_API_KEY') or os.getenv('GEMINI_API_KEY'),
+        env_vars.get('GEMINI_API_KEY_2') or os.getenv('GEMINI_API_KEY_2'),
+        env_vars.get('GEMINI_API_KEY_3') or os.getenv('GEMINI_API_KEY_3'),
+        env_vars.get('GEMINI_API_KEY_4') or os.getenv('GEMINI_API_KEY_4'),
+        env_vars.get('GEMINI_API_KEY_5') or os.getenv('GEMINI_API_KEY_5'),
+    ]
+    paid_key = env_vars.get('GEMINI_PAID_API_KEY') or os.getenv('GEMINI_PAID_API_KEY')
+    api_keys = [k for k in free_keys if k]
+    if paid_key:
+        api_keys.append(paid_key)
 
     if not api_keys:
-        raise ValueError("No GEMINI_API_KEY found in .env or environment!")
+        raise ValueError("No Gemini API keys found in .env or environment!")
 
     print(f"[Gemini TTS] Loading dialogue from: {dialogue_json_path}")
     with open(dialogue_json_path, 'r', encoding='utf-8') as f:

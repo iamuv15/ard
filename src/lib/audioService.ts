@@ -8,26 +8,56 @@ const GEMINI_TTS_MODEL = process.env.GEMINI_TTS_MODEL || 'gemini-3.8-flash-lite-
 const exhaustedKeys = new Set<string>();
 
 /**
- * Returns available Gemini API keys with working keys first, skipping exhausted keys.
+ * Human-readable label for logging key transitions
+ */
+function getKeyLabel(key: string): string {
+  if (key === process.env.GEMINI_PAID_API_KEY || key === process.env.GEMINI_API_KEY_PAID) {
+    return 'GEMINI_PAID_API_KEY (Paid Tier)';
+  }
+  if (key === process.env.GEMINI_API_KEY) return 'GEMINI_API_KEY (Free #1)';
+  if (key === process.env.GEMINI_API_KEY_2) return 'GEMINI_API_KEY_2 (Free #2)';
+  if (key === process.env.GEMINI_API_KEY_3) return 'GEMINI_API_KEY_3 (Free #3)';
+  if (key === process.env.GEMINI_API_KEY_4) return 'GEMINI_API_KEY_4 (Free #4)';
+  if (key === process.env.GEMINI_API_KEY_5) return 'GEMINI_API_KEY_5 (Free #5)';
+  return `${key.slice(0, 6)}...${key.slice(-4)}`;
+}
+
+/**
+ * Returns Gemini API keys in strict priority:
+ * 1. Free keys in exact numerical order (GEMINI_API_KEY -> GEMINI_API_KEY_2 -> GEMINI_API_KEY_3 -> GEMINI_API_KEY_4 -> GEMINI_API_KEY_5)
+ * 2. Only if ALL free keys fail/exhaust quota, GEMINI_PAID_API_KEY is activated as the ultimate fallback.
  */
 function getGeminiApiKeys(): string[] {
-  const candidates = [
-    process.env.GEMINI_API_KEY,          // Primary active key
-    process.env.GEMINI_API_KEY_FALLBACK, // Explicit fallback
-    process.env.GEMINI_API_KEY_2,        // Secondary key
-    process.env.GEMINI_API_KEY_3,
-    process.env.GEMINI_API_KEY_4,
-    process.env.GOOGLE_API_KEY
+  const freeKeys = [
+    process.env.GEMINI_API_KEY,    // Free Key #1
+    process.env.GEMINI_API_KEY_2,  // Free Key #2
+    process.env.GEMINI_API_KEY_3,  // Free Key #3
+    process.env.GEMINI_API_KEY_4,  // Free Key #4
+    process.env.GEMINI_API_KEY_5   // Free Key #5
   ].filter(Boolean) as string[];
 
-  const unique = Array.from(new Set(candidates));
-  // Filter out known exhausted keys
-  const available = unique.filter(k => !exhaustedKeys.has(k));
-  if (available.length > 0) return available;
+  const paidKey = process.env.GEMINI_PAID_API_KEY || process.env.GEMINI_API_KEY_PAID;
 
-  // If all are marked exhausted, reset cache and try all
+  // Filter out exhausted free keys
+  const availableFreeKeys = freeKeys.filter(k => !exhaustedKeys.has(k));
+
+  if (availableFreeKeys.length > 0) {
+    // Return available free keys in strict numerical order first, appending paid key at the end as final resort
+    return paidKey && !exhaustedKeys.has(paidKey) 
+      ? [...availableFreeKeys, paidKey] 
+      : availableFreeKeys;
+  }
+
+  // All free keys are exhausted! Activate the paid API key
+  if (paidKey && !exhaustedKeys.has(paidKey)) {
+    console.warn('[Gemini Auth] All free tier API keys exhausted! Activating GEMINI_PAID_API_KEY...');
+    return [paidKey];
+  }
+
+  // If even the paid key is exhausted or everything is marked, reset cache
+  console.warn('[Gemini Auth] All free and paid keys exhausted or marked. Resetting cache...');
   exhaustedKeys.clear();
-  return unique;
+  return paidKey ? [...freeKeys, paidKey] : freeKeys;
 }
 
 export interface ProposedCluster {
@@ -102,7 +132,7 @@ async function synthesizeTurnsToPcm(turns: any[]): Promise<Buffer> {
 
   let lastErr: any = null;
   for (const key of apiKeys) {
-    const masked = `${key.slice(0, 6)}...${key.slice(-4)}`;
+    const keyLabel = getKeyLabel(key);
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TTS_MODEL}:generateContent?key=${key}`;
 
     for (let attempt = 1; attempt <= 2; attempt++) {
@@ -119,9 +149,9 @@ async function synthesizeTurnsToPcm(turns: any[]): Promise<Buffer> {
                           data.error.status === 'RESOURCE_EXHAUSTED' ||
                           (data.error.message && data.error.message.includes('quota'));
           if (isQuota) {
-            console.warn(`[Gemini TTS] Key ${masked} quota limit exceeded (429). Instantly falling back to next available key...`);
+            console.warn(`[Gemini TTS] ${keyLabel} quota limit exceeded (429). Instantly falling back to next available key...`);
             exhaustedKeys.add(key);
-            lastErr = new Error(`Key ${masked}: ${data.error.message}`);
+            lastErr = new Error(`${keyLabel}: ${data.error.message}`);
             break; // Break inner loop immediately to try the next key!
           }
           throw new Error(data.error.message || JSON.stringify(data.error));
@@ -135,7 +165,7 @@ async function synthesizeTurnsToPcm(turns: any[]): Promise<Buffer> {
       } catch (err: any) {
         lastErr = err;
         if (!exhaustedKeys.has(key) && attempt < 2) {
-          console.warn(`[Gemini TTS] Attempt ${attempt} on ${masked} failed: ${err.message}. Retrying...`);
+          console.warn(`[Gemini TTS] Attempt ${attempt} on ${keyLabel} failed: ${err.message}. Retrying...`);
           await new Promise(r => setTimeout(r, 800));
         }
       }
@@ -219,7 +249,7 @@ Return a valid JSON array of cluster objects:
   let lastError = null;
 
   for (const key of keys) {
-    const masked = `${key.slice(0, 6)}...${key.slice(-4)}`;
+    const keyLabel = getKeyLabel(key);
     try {
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${key}`;
       const response = await fetch(url, {
@@ -237,7 +267,7 @@ Return a valid JSON array of cluster objects:
       const data = await response.json();
       if (data.error) {
         if (data.error.code === 429 || data.error.status === 'RESOURCE_EXHAUSTED') {
-          console.warn(`[Audio Planner] Key ${masked} quota limit exceeded. Falling back to next available key...`);
+          console.warn(`[Audio Planner] ${keyLabel} quota limit exceeded. Falling back to next available key...`);
           exhaustedKeys.add(key);
           lastError = new Error(data.error.message);
           continue;
@@ -350,7 +380,7 @@ PEDAGOGICAL & DIALOGUE RULES:
   let lastError = null;
 
   for (const key of keys) {
-    const masked = `${key.slice(0, 6)}...${key.slice(-4)}`;
+    const keyLabel = getKeyLabel(key);
     try {
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${key}`;
       const response = await fetch(url, {
@@ -368,7 +398,7 @@ PEDAGOGICAL & DIALOGUE RULES:
       const data = await response.json();
       if (data.error) {
         if (data.error.code === 429 || data.error.status === 'RESOURCE_EXHAUSTED') {
-          console.warn(`[Gemini Script] Key ${masked} quota limit exceeded. Falling back to next available key...`);
+          console.warn(`[Gemini Script] ${keyLabel} quota limit exceeded. Falling back to next available key...`);
           exhaustedKeys.add(key);
           lastError = new Error(data.error.message);
           continue;
@@ -378,7 +408,7 @@ PEDAGOGICAL & DIALOGUE RULES:
 
       const rawJson = data.candidates[0].content.parts[0].text;
       const dialogue = JSON.parse(rawJson);
-      console.log(`[Gemini] Script generated successfully with ${dialogue.length} dialogue turns using key ${masked}!`);
+      console.log(`[Gemini Script] Generated successfully with ${dialogue.length} dialogue turns using ${keyLabel}!`);
       return dialogue;
     } catch (err) {
       lastError = err;
