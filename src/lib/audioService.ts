@@ -18,29 +18,30 @@ export interface ProposedCluster {
 }
 
 /**
- * Creates a valid RIFF/WAVE header for 16-bit Mono PCM audio
+ * Encodes 16-bit Mono PCM audio into ultra-compressed Ogg Opus at 32 kbps mono
  */
-function createWavBuffer(pcmData: Buffer, sampleRate = 24000): Buffer {
-  const header = Buffer.alloc(44);
-  const totalDataLen = pcmData.length;
-  const totalChunkLen = totalDataLen + 36;
+async function encodePcmToOpus(pcmBuffer: Buffer, sampleRate = 24000, bitrateKbps = 32): Promise<Buffer> {
+  const opusModule = (await import('@audio/encode-opus')).default;
+  const numSamples = Math.floor(pcmBuffer.length / 2);
+  const floatSamples = new Float32Array(numSamples);
 
-  header.write('RIFF', 0);
-  header.writeUInt32LE(totalChunkLen, 4);
-  header.write('WAVE', 8);
+  for (let i = 0; i < numSamples; i++) {
+    const int16 = pcmBuffer.readInt16LE(i * 2);
+    floatSamples[i] = int16 < 0 ? int16 / 32768 : int16 / 32767;
+  }
 
-  header.write('fmt ', 12);
-  header.writeUInt32LE(16, 16); // Subchunk1Size
-  header.writeUInt16LE(1, 20);  // AudioFormat (1 = PCM)
-  header.writeUInt16LE(1, 22);  // NumChannels (1 = Mono)
-  header.writeUInt32LE(sampleRate, 24); // SampleRate (24000)
-  header.writeUInt32LE(sampleRate * 2, 28); // ByteRate (24000 * 2 = 48000)
-  header.writeUInt16LE(2, 32);  // BlockAlign
-  header.writeUInt16LE(16, 34); // BitsPerSample
-  header.write('data', 36);
-  header.writeUInt32LE(totalDataLen, 40);
+  const encoder = await opusModule({
+    sampleRate,
+    channels: 1,
+    bitrate: bitrateKbps, // 32 kbps mono
+    application: 'audio'
+  });
 
-  return Buffer.concat([header, pcmData]);
+  const chunk = encoder.encode([floatSamples]);
+  const tail = encoder.flush();
+  encoder.free();
+
+  return Buffer.concat([Buffer.from(chunk), Buffer.from(tail)]);
 }
 
 /**
@@ -408,15 +409,18 @@ export async function generateAudioForCluster(params: {
 
   const combinedPcm = Buffer.concat(pcmBuffers);
   const totalDurationSec = Math.round((combinedPcm.length / (sampleRate * 2)) * 100) / 100;
-  const wavBuffer = createWavBuffer(combinedPcm, sampleRate);
+
+  console.log(`[Opus Encoder] Compressing ${combinedPcm.length} bytes of raw PCM to 32 kbps Opus...`);
+  const opusBuffer = await encodePcmToOpus(combinedPcm, sampleRate, 32);
+  console.log(`[Opus Encoder] Compressed to ${opusBuffer.length} bytes (~${(opusBuffer.length / (1024 * 1024)).toFixed(2)} MB)!`);
 
   // 4. Upload to Supabase Storage
   const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   const subCategorySlug = subCategory.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  const storagePath = `chapter-${chapterId}/${subCategorySlug}/${slug}.wav`;
-  console.log(`[Storage] Uploading audio to destination: ${storagePath} (${wavBuffer.length} bytes)...`);
+  const storagePath = `chapter-${chapterId}/${subCategorySlug}/${slug}.opus`;
+  console.log(`[Storage] Uploading audio to destination: ${storagePath} (${opusBuffer.length} bytes)...`);
 
-  const uploadResult = await uploadAudioBuffer(wavBuffer, storagePath, 'audio/wav');
+  const uploadResult = await uploadAudioBuffer(opusBuffer, storagePath, 'audio/ogg');
 
   // 5. Save ChapterAudioTrack record in Postgres
   const track = await prisma.chapterAudioTrack.create({
@@ -424,7 +428,7 @@ export async function generateAudioForCluster(params: {
       chapterId,
       subCategory,
       title,
-      subtitle: `Gemini 3.8 Flash-Lite TTS • Natural Hinglish • ${Math.round(totalDurationSec / 60)} mins`,
+      subtitle: `Gemini 3.8 Flash-Lite • Opus 32 kbps • Natural Hinglish • ${Math.round(totalDurationSec / 60)} mins`,
       audioUrl: uploadResult.url,
       storagePath: uploadResult.storagePath,
       durationSec: totalDurationSec,

@@ -362,7 +362,7 @@ export default function ChapterAudioAdminPage() {
             </div>
             <div className="text-sm font-semibold text-white">Gemini 3.8 Flash-Lite TTS</div>
             <div className="text-xs text-purple-300/80 mt-1">Multi-Speaker: Aoede & Fenrir</div>
-            <div className="text-xs text-slate-500 mt-1">Authentic Devanagari Hinglish</div>
+            <div className="text-xs text-emerald-400 font-medium mt-1">Opus Mono 32 kbps (~1.2 MB / 5 min)</div>
           </div>
         </div>
 
