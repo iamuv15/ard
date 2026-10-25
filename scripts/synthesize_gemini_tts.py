@@ -61,8 +61,9 @@ def call_gemini_tts(parts, api_keys):
     body = json.dumps(payload).encode('utf-8')
     last_err = None
 
+    tts_model = os.getenv('GEMINI_TTS_MODEL', 'gemini-3.8-flash-lite-tts')
     for key in api_keys:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:generateContent?key={key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{tts_model}:generateContent?key={key}"
         for attempt in range(1, 4):
             try:
                 req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})

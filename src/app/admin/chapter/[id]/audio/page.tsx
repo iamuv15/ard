@@ -157,7 +157,7 @@ export default function ChapterAudioAdminPage() {
 
       const stepInterval = setInterval(() => {
         setGenerationStep(prev => {
-          if (prev.includes('script')) return 'Synthesizing with Gemini 3.8 Flash TTS (Aoede & Fenrir)...'
+          if (prev.includes('script')) return 'Synthesizing with Gemini 3.8 Flash-Lite TTS (Aoede & Fenrir)...'
           if (prev.includes('Synthesizing')) return 'Encoding & uploading to Supabase Storage bucket...'
           return 'Registering audio track & concept timestamps in database...'
         })
@@ -360,7 +360,7 @@ export default function ChapterAudioAdminPage() {
               <span>Synthesis Engine</span>
               <Sparkles className="w-4 h-4 text-purple-400" />
             </div>
-            <div className="text-sm font-semibold text-white">Gemini 3.8 Flash TTS</div>
+            <div className="text-sm font-semibold text-white">Gemini 3.8 Flash-Lite TTS</div>
             <div className="text-xs text-purple-300/80 mt-1">Multi-Speaker: Aoede & Fenrir</div>
             <div className="text-xs text-slate-500 mt-1">Authentic Devanagari Hinglish</div>
           </div>
@@ -560,7 +560,7 @@ export default function ChapterAudioAdminPage() {
                       <div className="space-y-3 pt-2">
                         <div className="text-xs font-semibold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
                           <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                          <span>AI Proposed Teaching Arcs (Ready for Gemini 3.8 Synthesis)</span>
+                          <span>AI Proposed Teaching Arcs (Ready for Gemini 3.8 Flash-Lite Synthesis)</span>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -615,7 +615,7 @@ export default function ChapterAudioAdminPage() {
                                   className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 disabled:opacity-50 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-lg transition"
                                 >
                                   <Sparkles className="w-4 h-4" />
-                                  <span>Generate Studio Audio (Gemini 3.8 Flash TTS)</span>
+                                  <span>Generate Studio Audio (Gemini 3.8 Flash-Lite TTS)</span>
                                 </button>
                               </div>
                             )

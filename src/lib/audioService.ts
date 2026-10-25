@@ -4,6 +4,7 @@ import { uploadAudioBuffer, deleteAudioFile } from './storageService';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_API_KEY_2 = process.env.GEMINI_API_KEY_2;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+const GEMINI_TTS_MODEL = process.env.GEMINI_TTS_MODEL || 'gemini-3.8-flash-lite-tts';
 
 export interface ProposedCluster {
   title: string;
@@ -71,7 +72,7 @@ async function synthesizeTurnsToPcm(turns: any[], apiKeys: string[]): Promise<Bu
 
   let lastErr: any = null;
   for (const key of apiKeys) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:generateContent?key=${key}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_TTS_MODEL}:generateContent?key=${key}`;
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
         const res = await fetch(url, {
@@ -423,7 +424,7 @@ export async function generateAudioForCluster(params: {
       chapterId,
       subCategory,
       title,
-      subtitle: `Gemini 3.8 Studio TTS • Natural Hinglish • ${Math.round(totalDurationSec / 60)} mins`,
+      subtitle: `Gemini 3.8 Flash-Lite TTS • Natural Hinglish • ${Math.round(totalDurationSec / 60)} mins`,
       audioUrl: uploadResult.url,
       storagePath: uploadResult.storagePath,
       durationSec: totalDurationSec,
