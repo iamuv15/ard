@@ -98,6 +98,11 @@ export default function ChapterAudioAdminPage() {
   const [generatingCluster, setGeneratingCluster] = useState<string | null>(null)
   const [generationStep, setGenerationStep] = useState<string>('')
   const [errorModal, setErrorModal] = useState<string | null>(null)
+  const [bulkSummaryModal, setBulkSummaryModal] = useState<{
+    total: number
+    succeeded: number
+    failed: { title: string; subCategory: string; error: string }[]
+  } | null>(null)
 
   // Audio player state
   const [activeTrackUrl, setActiveTrackUrl] = useState<string | null>(null)
@@ -290,6 +295,8 @@ export default function ChapterAudioAdminPage() {
     }
 
     bulkCancelRef.current = false
+    const failedClusters: { title: string; subCategory: string; error: string }[] = []
+
     setBulkState({
       isRunning: true,
       total: queue.length,
@@ -345,14 +352,36 @@ export default function ChapterAudioAdminPage() {
 
         await fetchChapterAudio()
       } catch (err: any) {
-        console.error(`Bulk generation stopped on "${item.cluster.title}":`, err)
-        setErrorModal(`Bulk Generation halted at "${item.cluster.title}": ${err.message}`)
-        break
+        console.error(`Bulk generation error on "${item.cluster.title}":`, err)
+        failedClusters.push({
+          title: item.cluster.title,
+          subCategory: item.subCategory,
+          error: err.message || 'Unknown error'
+        })
+
+        // Inform user on progress bar that this track was skipped, and continue with remaining tracks
+        setBulkState(prev => prev ? {
+          ...prev,
+          step: `⚠️ Could not generate "${item.cluster.title}". Skipped, proceeding to next track...`
+        } : null)
+
+        // Brief visual pause before next track
+        await new Promise(r => setTimeout(r, 1500))
+        continue
       }
     }
 
     setBulkState(null)
     await fetchChapterAudio()
+
+    // Show completion summary modal if not manually cancelled
+    if (!bulkCancelRef.current) {
+      setBulkSummaryModal({
+        total: queue.length,
+        succeeded: queue.length - failedClusters.length,
+        failed: failedClusters
+      })
+    }
   }
 
   const handleDeleteTrack = async (trackId: string, title: string) => {
@@ -1001,6 +1030,61 @@ export default function ChapterAudioAdminPage() {
             <p className="text-[11px] text-slate-500 text-center">
               Multi-speaker script generation and Opus 32 kbps synthesis takes ~15–20s per track. Please keep this tab open until the queue completes.
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* Bulk Completion Summary Modal */}
+      {bulkSummaryModal && (
+        <div className="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-6 shadow-2xl relative overflow-hidden">
+            <div className="flex items-center gap-3">
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
+                bulkSummaryModal.failed.length === 0
+                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                  : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+              }`}>
+                {bulkSummaryModal.failed.length === 0 ? (
+                  <CheckCircle2 className="w-6 h-6" />
+                ) : (
+                  <AlertCircle className="w-6 h-6" />
+                )}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">
+                  {bulkSummaryModal.failed.length === 0
+                    ? 'Bulk Generation Complete!'
+                    : 'Bulk Generation Finished'}
+                </h3>
+                <p className="text-xs text-slate-400">
+                  {bulkSummaryModal.succeeded} of {bulkSummaryModal.total} masterclasses generated successfully.
+                </p>
+              </div>
+            </div>
+
+            {bulkSummaryModal.failed.length > 0 && (
+              <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
+                <div className="text-xs font-semibold text-amber-300">
+                  {bulkSummaryModal.failed.length} track(s) were skipped and can be retried individually:
+                </div>
+                {bulkSummaryModal.failed.map((f, idx) => (
+                  <div key={idx} className="p-3 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1 text-xs">
+                    <div className="font-bold text-white flex items-center justify-between">
+                      <span>{f.title}</span>
+                      <span className="text-[10px] text-slate-400 uppercase">{f.subCategory}</span>
+                    </div>
+                    <div className="text-[11px] text-slate-400 truncate">{f.error}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <button
+              onClick={() => setBulkSummaryModal(null)}
+              className="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition cursor-pointer"
+            >
+              Done & View Masterclasses
+            </button>
           </div>
         </div>
       )}

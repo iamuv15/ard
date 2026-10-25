@@ -374,28 +374,57 @@ PEDAGOGICAL & DIALOGUE RULES:
      * "keyword": Exact name of the keyword being discussed (e.g. "${concepts[0].term}")
      * "speaker": Either "Dr. Rao" or "Kavya"
      * "style": Vocal acting instruction (e.g. "warm and conversational", "curious and thoughtful")
-     * "text": Spoken line in Devanagari Hindi with English technical terms.`;
+     * "text": Spoken line in Devanagari Hindi with English technical terms.
+   - Do NOT include any trailing commas or unescaped quotes inside dialogue strings.`;
 
   const keys = getGeminiApiKeys();
-  let lastError = null;
+  let lastError: any = null;
 
   for (const key of keys) {
     const keyLabel = getKeyLabel(key);
     try {
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${key}`;
-      const response = await fetch(url, {
+      
+      const payload: any = {
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          responseMimeType: 'application/json',
+          responseSchema: {
+            type: 'ARRAY',
+            items: {
+              type: 'OBJECT',
+              properties: {
+                keyword: { type: 'STRING' },
+                speaker: { type: 'STRING', enum: ['Dr. Rao', 'Kavya'] },
+                style: { type: 'STRING' },
+                text: { type: 'STRING' }
+              },
+              required: ['keyword', 'speaker', 'style', 'text']
+            }
+          },
+          temperature: 0.7
+        }
+      };
+
+      let response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            responseMimeType: 'application/json',
-            temperature: 0.7
-          }
-        })
+        body: JSON.stringify(payload)
       });
 
-      const data = await response.json();
+      let data = await response.json();
+
+      // If model version does not support responseSchema (HTTP 400), fall back gracefully
+      if (data.error && data.error.code === 400 && data.error.message?.toLowerCase().includes('schema')) {
+        delete payload.generationConfig.responseSchema;
+        response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        data = await response.json();
+      }
+
       if (data.error) {
         if (data.error.code === 429 || data.error.status === 'RESOURCE_EXHAUSTED') {
           console.warn(`[Gemini Script] ${keyLabel} quota limit exceeded. Falling back to next available key...`);
@@ -406,16 +435,138 @@ PEDAGOGICAL & DIALOGUE RULES:
         throw new Error(data.error.message);
       }
 
-      const rawJson = data.candidates[0].content.parts[0].text;
-      const dialogue = JSON.parse(rawJson);
-      console.log(`[Gemini Script] Generated successfully with ${dialogue.length} dialogue turns using ${keyLabel}!`);
-      return dialogue;
-    } catch (err) {
+      const rawJson = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!rawJson) {
+        throw new Error('Empty response received from Gemini dialogue model');
+      }
+
+      // Step 1: Clean and parse locally
+      try {
+        const dialogue = cleanAndParseJson(rawJson);
+        if (Array.isArray(dialogue) && dialogue.length > 0) {
+          console.log(`[Gemini Script] Generated successfully with ${dialogue.length} dialogue turns using ${keyLabel}!`);
+          return dialogue;
+        }
+      } catch (parseErr: any) {
+        console.warn(`[Gemini Script] Direct JSON parse failed (${parseErr.message}). Triggering bounded 1-shot AI repair with ${keyLabel}...`);
+        
+        // Step 2: 1-Shot AI Repair with strict infinite-loop protection (0 recursion, max 1 fetch)
+        const repaired = await repairJsonWithAi(rawJson, parseErr.message, key);
+        if (repaired && Array.isArray(repaired) && repaired.length > 0) {
+          console.log(`[Gemini Script] Successfully parsed dialogue after 1-shot AI repair (${repaired.length} turns)!`);
+          return repaired;
+        }
+
+        // If repair failed, proceed to next fallback key
+        lastError = parseErr;
+      }
+    } catch (err: any) {
       lastError = err;
     }
   }
 
-  throw new Error(`Failed to generate dialogue script: ${lastError}`);
+  throw new Error(`Failed to generate dialogue script: ${lastError?.message || lastError}`);
+}
+
+/**
+ * Robust JSON Sanitization & Parsing Helper
+ * Strips markdown code fences, trailing commas, comments, and isolates valid array bounds.
+ */
+function cleanAndParseJson(raw: string): any {
+  if (!raw || typeof raw !== 'string') {
+    throw new Error('Empty response string');
+  }
+
+  let text = raw.trim();
+
+  // Strip markdown code fences (```json ... ``` or ``` ...)
+  text = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
+
+  // Locate the outermost array boundaries
+  const firstBracket = text.indexOf('[');
+  const lastBracket = text.lastIndexOf(']');
+  if (firstBracket !== -1 && lastBracket !== -1 && lastBracket > firstBracket) {
+    text = text.substring(firstBracket, lastBracket + 1);
+  }
+
+  // Strip single-line JS comments (// ...)
+  text = text.replace(/\/\/[^\n\r]*/g, '');
+
+  // Remove trailing commas before } or ]
+  text = text.replace(/,\s*([\]}])/g, '$1');
+
+  try {
+    return JSON.parse(text);
+  } catch (err: any) {
+    // Attempt secondary regex fix for unescaped inner quotes in Devanagari text values
+    try {
+      const relaxed = text.replace(
+        /("text"\s*:\s*")((?:[^"\\]|\\.)*)(")/g,
+        (_, p1, p2, p3) => p1 + p2.replace(/"/g, "'") + p3
+      );
+      return JSON.parse(relaxed);
+    } catch {
+      throw err;
+    }
+  }
+}
+
+/**
+ * 1-Shot Bounded AI JSON Repair
+ * Will execute AT MOST 1 attempt. Zero recursion, zero while-loops, zero infinite-loop traps.
+ */
+async function repairJsonWithAi(
+  malformedText: string,
+  parseError: string,
+  key: string
+): Promise<any[] | null> {
+  const keyLabel = getKeyLabel(key);
+  try {
+    const repairPrompt = `You are a strict JSON repair engine.
+The following JSON text produced a syntax error: "${parseError}".
+Repair it so that it is a 100% syntactically valid JSON array of objects.
+Each object in the array must have the following keys:
+- "keyword": string
+- "speaker": string ("Dr. Rao" or "Kavya")
+- "style": string
+- "text": string
+
+DO NOT CHANGE any of the Devanagari Hindi or English dialogue content. Just fix the broken quotes, commas, brackets, or unquoted keys so that JSON.parse() succeeds.
+OUTPUT ONLY THE RAW VALID JSON ARRAY. ZERO EXPLANATION, ZERO MARKDOWN FENCES.
+
+BROKEN TEXT:
+${malformedText.slice(0, 4500)}`;
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${key}`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: repairPrompt }] }],
+        generationConfig: {
+          responseMimeType: 'application/json',
+          temperature: 0.1 // strictly deterministic
+        }
+      })
+    });
+
+    const data = await response.json();
+    if (data.error) {
+      console.warn(`[JSON Repair] Model returned error: ${data.error.message}`);
+      return null;
+    }
+
+    const repairedRaw = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!repairedRaw) return null;
+
+    const parsed = cleanAndParseJson(repairedRaw);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return parsed;
+    }
+  } catch (err: any) {
+    console.warn(`[JSON Repair] 1-shot repair failed with ${keyLabel}: ${err.message}`);
+  }
+  return null;
 }
 
 /**
