@@ -1,8 +1,5 @@
-import fs from 'fs';
-import path from 'path';
-import { execSync } from 'child_process';
 import prisma from './prisma';
-import { uploadAudioFile, deleteAudioFile } from './storageService';
+import { uploadAudioBuffer, deleteAudioFile } from './storageService';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_API_KEY_2 = process.env.GEMINI_API_KEY_2;
@@ -17,6 +14,89 @@ export interface ProposedCluster {
     term: string;
     definition: string;
   }[];
+}
+
+/**
+ * Creates a valid RIFF/WAVE header for 16-bit Mono PCM audio
+ */
+function createWavBuffer(pcmData: Buffer, sampleRate = 24000): Buffer {
+  const header = Buffer.alloc(44);
+  const totalDataLen = pcmData.length;
+  const totalChunkLen = totalDataLen + 36;
+
+  header.write('RIFF', 0);
+  header.writeUInt32LE(totalChunkLen, 4);
+  header.write('WAVE', 8);
+
+  header.write('fmt ', 12);
+  header.writeUInt32LE(16, 16); // Subchunk1Size
+  header.writeUInt16LE(1, 20);  // AudioFormat (1 = PCM)
+  header.writeUInt16LE(1, 22);  // NumChannels (1 = Mono)
+  header.writeUInt32LE(sampleRate, 24); // SampleRate (24000)
+  header.writeUInt32LE(sampleRate * 2, 28); // ByteRate (24000 * 2 = 48000)
+  header.writeUInt16LE(2, 32);  // BlockAlign
+  header.writeUInt16LE(16, 34); // BitsPerSample
+  header.write('data', 36);
+  header.writeUInt32LE(totalDataLen, 40);
+
+  return Buffer.concat([header, pcmData]);
+}
+
+/**
+ * Synthesizes a batch of dialogue turns to raw 16-bit PCM samples using Gemini 3.8 Flash TTS
+ */
+async function synthesizeTurnsToPcm(turns: any[], apiKeys: string[]): Promise<Buffer> {
+  const payload = {
+    contents: [{
+      parts: turns.map(t => ({
+        text: t.text,
+        speech_metadata: {
+          speaker: t.speaker || 'Kavya',
+          style: t.style || 'warm and conversational'
+        }
+      }))
+    }],
+    generationConfig: {
+      responseModalities: ['AUDIO'],
+      speechConfig: {
+        multiSpeakerVoiceConfig: {
+          speakerVoiceConfigs: [
+            { speaker: 'Kavya', voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Aoede' } } },
+            { speaker: 'Dr. Rao', voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Fenrir' } } }
+          ]
+        }
+      }
+    }
+  };
+
+  let lastErr: any = null;
+  for (const key of apiKeys) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:generateContent?key=${key}`;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.error) {
+          throw new Error(data.error.message || JSON.stringify(data.error));
+        }
+        if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.inlineData?.data) {
+          const rawWav = Buffer.from(data.candidates[0].content.parts[0].inlineData.data, 'base64');
+          return rawWav.subarray(44);
+        }
+        throw new Error('No audio data in Gemini TTS response');
+      } catch (err: any) {
+        lastErr = err;
+        console.warn(`[Gemini TTS] Attempt ${attempt} with key failed: ${err.message}`);
+        await new Promise(r => setTimeout(r, 1200 * attempt));
+      }
+    }
+  }
+
+  throw new Error(`All Gemini TTS attempts failed: ${lastErr?.message || lastErr}`);
 }
 
 /**
@@ -273,58 +353,87 @@ export async function generateAudioForCluster(params: {
   // 2. Generate Script
   const dialogue = await generateDialogueScript(title, subCategory, concepts);
 
-  // 3. Save dialogue to scratch
-  const scratchDir = path.join(process.cwd(), 'scratch');
-  if (!fs.existsSync(scratchDir)) fs.mkdirSync(scratchDir, { recursive: true });
-
-  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  const dialoguePath = path.join(scratchDir, `${slug}_dialogue.json`);
-  fs.writeFileSync(dialoguePath, JSON.stringify(dialogue, null, 2), 'utf8');
-
-  // 4. Synthesize with Gemini 3.8 Flash TTS via Python script
-  const tempWavPath = path.join(scratchDir, `${slug}.mp3`);
-  const pyScript = path.join(process.cwd(), 'scripts', 'synthesize_gemini_tts.py');
-  const pythonCmd = `python "${pyScript}" "${dialoguePath}" "${tempWavPath}"`;
-
-  console.log(`[Gemini TTS] Synthesizing audio via python...`);
-  const stdout = execSync(pythonCmd, {
-    encoding: 'utf8',
-    maxBuffer: 10 * 1024 * 1024,
-    env: { ...process.env, PYTHONIOENCODING: 'utf-8' }
-  });
-
-  const resultMatch = stdout.match(/---RESULT_START---([\s\S]*?)---RESULT_END---/);
-  if (!resultMatch) {
-    throw new Error(`Failed to parse synthesis result from Python output: ${stdout}`);
+  // 3. Synthesize via pure Node.js Gemini 3.8 Flash TTS
+  const apiKeys = [GEMINI_API_KEY_2, GEMINI_API_KEY, process.env.GEMINI_API_KEY].filter(Boolean) as string[];
+  if (apiKeys.length === 0) {
+    throw new Error('No GEMINI_API_KEY found for TTS synthesis');
   }
 
-  const result = JSON.parse(resultMatch[1].trim());
-  const { total_duration, keyword_timestamps } = result;
+  // Group dialogue turns by keyword
+  const keywordGroups: { keyword: string; turns: any[] }[] = [];
+  let currentKw = '';
+  let currentTurns: any[] = [];
 
-  // 5. Upload to Supabase Storage
+  for (const turn of dialogue) {
+    const kw = (turn.keyword || '').trim() || currentKw || 'Introduction';
+    if (kw !== currentKw) {
+      if (currentTurns.length > 0) {
+        keywordGroups.push({ keyword: currentKw, turns: currentTurns });
+      }
+      currentKw = kw;
+      currentTurns = [turn];
+    } else {
+      currentTurns.push(turn);
+    }
+  }
+  if (currentTurns.length > 0) {
+    keywordGroups.push({ keyword: currentKw, turns: currentTurns });
+  }
+
+  console.log(`[Gemini TTS] Synthesizing ${keywordGroups.length} keyword clusters in Node.js...`);
+
+  const sampleRate = 24000;
+  const pcmBuffers: Buffer[] = [];
+  const keywordTimestamps: Record<string, number> = {};
+  let currentPcmBytes = 0;
+  const transitionPause = Buffer.alloc(Math.round(sampleRate * 0.55) * 2); // 550ms silence
+
+  for (let idx = 0; idx < keywordGroups.length; idx++) {
+    const { keyword, turns } = keywordGroups[idx];
+    const timestampSec = Math.round((currentPcmBytes / (sampleRate * 2)) * 100) / 100;
+    keywordTimestamps[keyword] = timestampSec;
+    console.log(`[Gemini TTS] (${idx + 1}/${keywordGroups.length}) "${keyword}" -> ${timestampSec}s (${turns.length} turns)`);
+
+    const pcmChunk = await synthesizeTurnsToPcm(turns, apiKeys);
+    pcmBuffers.push(pcmChunk);
+    currentPcmBytes += pcmChunk.length;
+
+    // Transition pause between concepts (except after final concept)
+    if (idx < keywordGroups.length - 1) {
+      pcmBuffers.push(transitionPause);
+      currentPcmBytes += transitionPause.length;
+    }
+  }
+
+  const combinedPcm = Buffer.concat(pcmBuffers);
+  const totalDurationSec = Math.round((combinedPcm.length / (sampleRate * 2)) * 100) / 100;
+  const wavBuffer = createWavBuffer(combinedPcm, sampleRate);
+
+  // 4. Upload to Supabase Storage
+  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   const subCategorySlug = subCategory.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  const storagePath = `chapter-${chapterId}/${subCategorySlug}/${slug}.mp3`;
-  console.log(`[Storage] Uploading audio to destination: ${storagePath}...`);
+  const storagePath = `chapter-${chapterId}/${subCategorySlug}/${slug}.wav`;
+  console.log(`[Storage] Uploading audio to destination: ${storagePath} (${wavBuffer.length} bytes)...`);
 
-  const uploadResult = await uploadAudioFile(tempWavPath, storagePath);
+  const uploadResult = await uploadAudioBuffer(wavBuffer, storagePath, 'audio/wav');
 
-  // 6. Save ChapterAudioTrack record in Postgres
+  // 5. Save ChapterAudioTrack record in Postgres
   const track = await prisma.chapterAudioTrack.create({
     data: {
       chapterId,
       subCategory,
       title,
-      subtitle: `Gemini 3.8 Studio TTS • Natural Hinglish • ${Math.round(total_duration / 60)} mins`,
+      subtitle: `Gemini 3.8 Studio TTS • Natural Hinglish • ${Math.round(totalDurationSec / 60)} mins`,
       audioUrl: uploadResult.url,
       storagePath: uploadResult.storagePath,
-      durationSec: total_duration,
+      durationSec: totalDurationSec,
       fileSizeBytes: uploadResult.sizeBytes,
-      keywordTimestamps: keyword_timestamps,
+      keywordTimestamps: keywordTimestamps,
       status: 'COMPLETED'
     }
   });
 
-  // 7. Lock concepts to this track (enforcing primary explanation non-duplication)
+  // 6. Lock concepts to this track (enforcing primary explanation non-duplication)
   await prisma.chapterConcept.updateMany({
     where: { id: { in: concepts.map(c => c.id) } },
     data: { audioTrackId: track.id }

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { planSubCategoryClusters } from '@/lib/audioService';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(
   req: NextRequest,
   context: { params: Promise<{ id: string }> }
