@@ -17,13 +17,14 @@ const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 async function generateDialogueScript(clusterTitle, concepts, subCategoryName) {
   console.log(`[Gemini] Calling ${GEMINI_MODEL} for cluster: "${clusterTitle}" (${concepts.length} concepts)...`);
 
-  const prompt = `You are a world-class science communicator and dialogue writer creating a cheerful, energetic, and engaging audio podcast overview on agricultural science—in the signature lively style of Google NotebookLM.
+  const prompt = `You are a master science communicator and dialogue writer creating a deeply engaging, 4 to 5 minutes audio masterclass on agricultural science.
 
-Your goal is to help students DEEPLY UNDERSTAND what each technical keyword means through crystal-clear everyday English, vivid physical analogies, and infectious enthusiasm. Make the dialogue feel vibrant, joyful, and easy to follow—never dry, monotone, or dull!
+Your goal is to help students DEEPLY UNDERSTAND what each technical keyword means, its physical mechanism, and its essential scientific intuition. 
+The dialogue must sound like two genuine human scientists speaking warmly, thoughtfully, and naturally together in conversational Hinglish.
 
 CO-HOSTS:
-1. "Sarah" (voice: "af_heart"): Super enthusiastic, curious, and expressive co-host. She asks the questions every student is wondering, reacts with genuine wonder ("Oh wow!", "Wait, that's wild!", "Haha, right?!"), and connects ideas to daily life.
-2. "Adam" (voice: "am_adam"): Warm, cheerful, and encouraging science educator. He speaks with a smile in his voice, breaks down complex mechanisms into simple, vivid mental pictures, and loves sharing "aha!" moments.
+1. "Dr. Rao": A veteran senior soil scientist with decades of field and diagnostic experience. He speaks warmly and calmly, with rich human vocal modulation, connecting science to observable ground reality.
+2. "Kavya": An insightful agricultural researcher who explores first-principles mechanisms, etymology, and asks deep, thoughtful questions.
 
 CLUSTER TITLE: "${clusterTitle}"
 SUBCATEGORY: "${subCategoryName}"
@@ -32,41 +33,44 @@ CONCEPTS TO COVER IN EXACT ORDER:
 ${concepts.map((c, idx) => `
 Keyword ${idx + 1}: ${c.term}
 - Definition: ${c.definition}
-- Study Notes: ${c.content ? c.content.slice(0, 400).replace(/\n+/g, ' ') : 'N/A'}
+- Study Notes: ${c.content ? c.content.slice(0, 500).replace(/\n+/g, ' ') : 'N/A'}
 - Related Terms: ${c.relatedTerms ? JSON.stringify(c.relatedTerms) : 'N/A'}
 `).join('\n')}
 
 PEDAGOGICAL & DIALOGUE RULES:
-1. CHEERFUL & ENGAGING CONVERSATIONAL ENGLISH:
-   - Write in simple, crystal-clear, modern conversational English.
-   - Inject genuine enthusiasm, warmth, and cheerful energy throughout. Use natural vocal interjections ("Oh, wow!", "Exactly!", "Haha, yes!", "Think of it this way...", "Picture this...").
-   - Avoid dry, academic textbook lecturing. Keep sentences punchy, rhythmic, and fun to listen to!
+1. NATURAL CONVERSATIONAL HINGLISH & SCRIPT RULES:
+   - Write all conversational Hindi in DEVANAGARI SCRIPT (e.g., "नमस्ते काव्या!", "खेत में जब हम मिट्टी को हाथ में लेते हैं...", "इसका सीधा भौतिक कारण है...", "पानी की निकासी...").
+   - Keep all scientific keywords and technical terms in ENGLISH Latin script (e.g. "Soil Texture", "Sand", "Silt", "Clay", "Quartz", "Macropores", "Specific Surface Area", "Cation Exchange Capacity", "Soil Textural Triangle").
+   - DO NOT USE ROMANIZED HINDI ("Namaste Kavya" -> WRONG. Use "नमस्ते काव्या!").
+   - Make sentences flow naturally with real human cadence, reflective pauses, and conversational warmth.
 
-2. SIMPLE ANALOGIES & FIRST-PRINCIPLES ANCHORS (Suggestion 1 & 2):
-   - Unpack etymological roots playfully when helpful (e.g. "Texture comes from the Latin word 'texere'—which literally means 'to weave', like the weave of a shirt!").
-   - Use vivid everyday comparisons (e.g. comparing Sand grains to beach pebbles or basketballs, Silt to smooth baking flour, and Clay to microscopic sticky sheets of paper; comparing specific surface area to football fields).
-   - Explain physical mechanisms simply and intuitively. Do NOT make it unnecessarily complex.
+2. VOICE MODULATION & STYLE TAGS:
+   - For every dialogue turn, provide a specific "style" instruction for Gemini's neural voice engine (e.g. "warm and conversational, speaking thoughtfully", "curious and engaged, inquiring", "calm, authoritative educator with a smile", "reflective with emphasis on key mechanism").
+   - You may use inline tags like <short pause> or <chuckle> where appropriate to make speech cadence sound completely human.
 
-3. HOLISTIC COMPANION TERMS (Suggestion 4):
-   - Mention companion terms (like Eluviation, Illuviation, or Pore Space) only when they genuinely illuminate the main keyword.
-   - Keep the spotlight firmly on the target keyword.
+3. DURATION & DEPTH (4 to 5 MINUTES):
+   - Total dialogue length must be approximately 750 to 950 words (aiming for 4 to 5 minutes of spoken audio).
+   - Give each of the 6 keywords sufficient depth (at least 2 to 4 back-and-forth turns per keyword) so the student truly grasps the concept, rather than a rushed summary.
 
-4. STRICT RULE: ZERO EXAM MENTIONS:
+4. ETYMOLOGY & PHYSICAL MECHANISMS (Suggestions 1 & 2):
+   - Unpack etymological origins when helpful (e.g. Soil Texture: Latin 'texere' meaning 'to weave' yaani bunna).
+   - Explain the physical cause-and-effect mechanism clearly (e.g. why sand drains fast, why silt erodes easily, why clay has enormous surface area). Keep it visual and simple.
+
+5. HOLISTIC COMPANION TERMS (Suggestion 4):
+   - Mention companion terms (like Eluviation, Illuviation, or Pore Space) only when they genuinely clarify the main keyword.
+   - The primary spotlight must remain firmly on the main keyword under discussion.
+
+6. STRICT RULE: ZERO EXAM MENTIONS:
    - Do NOT mention "IBPS", "AFO", "JRF", "ICAR", "exams", "marks", "questions", or "traps".
-   - The aim is 100% conceptual clarity and curiosity.
+   - The focus is 100% on conceptual intuition and real-world understanding.
 
-5. SPOKEN UNITS & PUNCTUATION FOR TTS:
-   - Write all numbers and units as spoken words (e.g. write "point zero zero two millimeters", "percent", "microns").
-   - Kokoro's neural synthesizer responds dynamically to punctuation: use exclamation marks for enthusiasm, commas and dashes for natural breathing pauses, and question marks for upbeat curiosity.
-
-6. JSON FORMAT:
+7. JSON FORMAT:
    - Output must be a valid JSON array of dialogue objects.
    - Each object must have:
      * "keyword": Exact name of the keyword being discussed (e.g. "${concepts[0].term}")
-     * "speaker": Either "Sarah" or "Adam"
-     * "text": The spoken dialogue line in cheerful English.
-
-Total dialogue length should be around 450 - 650 words (approx 3 to 4 minutes of lively audio).`;
+     * "speaker": Either "Dr. Rao" or "Kavya"
+     * "style": Vocal acting instruction (e.g. "warm and conversational", "curious and thoughtful")
+     * "text": Spoken line in Devanagari Hindi with English technical terms.`;
 
   const keys = [process.env.GEMINI_API_KEY, process.env.GEMINI_API_KEY_2].filter(Boolean);
   let lastError = null;
@@ -82,7 +86,7 @@ Total dialogue length should be around 450 - 650 words (approx 3 to 4 minutes of
             contents: [{ parts: [{ text: prompt }] }],
             generationConfig: {
               responseMimeType: 'application/json',
-              temperature: 0.75
+              temperature: 0.7
             }
           })
         });
@@ -97,12 +101,6 @@ Total dialogue length should be around 450 - 650 words (approx 3 to 4 minutes of
 
         const rawJson = data.candidates[0].content.parts[0].text;
         const dialogue = JSON.parse(rawJson);
-        for (const turn of dialogue) {
-          if (!turn.text && turn.voice && turn.voice.length > 20) {
-            turn.text = turn.voice;
-          }
-          turn.voice = (turn.speaker && turn.speaker.includes('Adam')) ? 'am_adam' : 'af_heart';
-        }
         console.log(`[Gemini] Successfully generated script with ${dialogue.length} dialogue turns!`);
         return dialogue;
       } catch (err) {
@@ -195,7 +193,7 @@ async function main() {
   ];
   let clusterId = 'soil-texture-field-analysis';
   let clusterTitle = 'Soil Separates & Textural Triangle';
-  let subtitle = 'NotebookLM-Style Cheerful Masterclass • Interactive Timestamps';
+  let subtitle = 'Gemini 3.8 Studio TTS • Natural Hinglish Dialogue • Interactive Timestamps';
   let outputFilename = 'soil-texture-and-triangle.mp3';
 
   // Parse custom args if provided
@@ -247,11 +245,11 @@ async function main() {
   fs.writeFileSync(dialoguePath, JSON.stringify(dialogue, null, 2), 'utf8');
   console.log(`[Script] Dialogue saved to ${dialoguePath}`);
 
-  // 3. Synthesize with Kokoro-82M
+  // 3. Synthesize with Gemini 3.8 Flash TTS
   const outputAudioPath = path.join(__dirname, '..', 'public', 'audio', 'soil', outputFilename);
-  console.log(`[Kokoro] Launching Kokoro-82M multi-voice synthesis...`);
+  console.log(`[Gemini TTS] Launching Gemini 3.8 Flash TTS multi-voice synthesis...`);
 
-  const pyScript = path.join(__dirname, 'synthesize_kokoro.py');
+  const pyScript = path.join(__dirname, 'synthesize_gemini_tts.py');
   const pythonCmd = `python "${pyScript}" "${dialoguePath}" "${outputAudioPath}"`;
   
   const stdout = execSync(pythonCmd, { 
@@ -264,7 +262,7 @@ async function main() {
   // Extract result JSON from stdout
   const resultMatch = stdout.match(/---RESULT_START---([\s\S]*?)---RESULT_END---/);
   if (!resultMatch) {
-    throw new Error('Failed to parse result from Kokoro synthesis.');
+    throw new Error('Failed to parse result from Gemini TTS synthesis.');
   }
 
   const result = JSON.parse(resultMatch[1].trim());
