@@ -53,6 +53,11 @@ model Question {
   simpleExplanation String?
   isEnriched        Boolean  @default(false)
   isMined           Boolean  @default(false)
+  voiceQuestion       String?
+  voiceOptions        String?
+  voiceExplanation    String?
+  voiceScriptVersion  Int?     @default(1)
+  detailedAiExplanation Json?
   correctAnswer     String
 
   quizId        Int

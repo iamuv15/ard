@@ -36,6 +36,9 @@ export async function GET(request: NextRequest) {
         explanationD: true,
         explanationE: true,
         explanation: true,
+        voiceQuestion: true,
+        voiceOptions: true,
+        voiceExplanation: true,
         correctAnswer: true, 
         concepts: {
           select: {

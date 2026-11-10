@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
-import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, Bookmark } from 'lucide-react'
+import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, Bookmark, Sparkles, Volume2, Check, ExternalLink } from 'lucide-react'
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
@@ -11,6 +11,8 @@ import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
 import { ConceptDossierModal } from '@/components/concepts/ConceptDossierModal'
 import { BookOpen } from 'lucide-react'
 import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
+import { VoiceTutorBar } from '@/components/voice/VoiceTutorBar'
+import { useVoiceTutor } from '@/lib/useVoiceTutor'
 
 type Question = {
   id: number
@@ -29,6 +31,9 @@ type Question = {
   explanation?: string | null
   simpleExplanation?: string | null
   correctAnswer: string
+  voiceQuestion?: string | null
+  voiceOptions?: string | null
+  voiceExplanation?: string | null
   concepts?: { id: number; term: string; slug: string; category: string }[]
 }
 
@@ -45,8 +50,79 @@ export default function QuizPage() {
   const [isFinished, setIsFinished] = useState(false)
   const [bookmarks, setBookmarks] = useState<Record<number, string>>({})
   const [bookmarkDropdownOpen, setBookmarkDropdownOpen] = useState<number | null>(null)
+  const [geminiToast, setGeminiToast] = useState(false)
   const router = useRouter()
   const params = useParams()
+
+  const currentQ = questions[currentIndex] as Question | undefined
+
+  const options = currentQ ? [
+    { key: 'A', value: currentQ.optionA, explanation: currentQ.explanationA },
+    { key: 'B', value: currentQ.optionB, explanation: currentQ.explanationB },
+    { key: 'C', value: currentQ.optionC, explanation: currentQ.explanationC },
+    { key: 'D', value: currentQ.optionD, explanation: currentQ.explanationD },
+    ...(currentQ.optionE ? [{ key: 'E', value: currentQ.optionE, explanation: currentQ.explanationE }] : [])
+  ].filter(opt => opt.value !== 'undefined' && opt.value !== '' && opt.value !== null) : []
+
+  // Dynamic Document Title to steer Chrome's Native Gemini Side Panel (Alt + G)
+  useEffect(() => {
+    if (currentQ) {
+      document.title = `Question ${currentIndex + 1}: ${currentQ.topic || 'Agriculture Engineering'} - LiveShala ARD`
+    }
+    return () => {
+      document.title = 'LiveShala ARD Practice'
+    }
+  }, [currentIndex, currentQ])
+
+  const handleOpenGeminiInChrome = () => {
+    if (!currentQ) return
+
+    const correctOptionLetter = currentQ.correctAnswer.toUpperCase()
+    const correctOptionVal = options.find(o => o.key === correctOptionLetter)?.value || ''
+    const otherOptionVals = options.filter(o => o.key !== correctOptionLetter).map(o => `${o.key}: ${sanitizeQuestionText(o.value)}`).join(', ')
+
+    const prompt = `Please provide a deep conceptual explanation with diagrams/schematics and practical field demonstration video suggestions for this question:
+
+📌 Topic: ${currentQ.topic || 'Agriculture Engineering'}
+❓ Question: ${sanitizeQuestionText(currentQ.questionText)}
+
+Options:
+${options.map(o => `${o.key}) ${sanitizeQuestionText(o.value)}`).join('\n')}
+
+✅ Correct Answer: Option ${correctOptionLetter} (${correctOptionVal})
+
+Please break down:
+1. Core Concept & Mechanism: Explain in detail how ${correctOptionVal} works, its engineering/agronomic principles, and why it is the correct answer.
+2. Conceptual Comparison & Option Differentiation: Define and contrast the other options (${otherOptionVals}) so their individual definitions and roles are completely clear.
+3. Visuals & Field Practice: Describe what this looks like in practice (schematics/diagrams) and suggest exact search terms or topics for field machinery demonstration videos.`
+
+    if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(prompt).catch(err => {
+        console.error('Failed to write prompt to clipboard:', err)
+      })
+    }
+    setGeminiToast(true)
+    setTimeout(() => setGeminiToast(false), 7000)
+  }
+
+  // Keyboard shortcut listener: Auto-copy prompt to clipboard when student presses Alt + G
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.altKey && (e.key === 'g' || e.key === 'G')) {
+        handleOpenGeminiInChrome()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [currentQ, currentIndex, options])
+
+  const isQuiz12 = params.quizId === '12'
+  const voiceTutor = useVoiceTutor({ isQuiz12 })
+
+  // Stop audio and abort pending TTS when moving between questions or finishing
+  useEffect(() => {
+    voiceTutor.stopAudio()
+  }, [currentIndex, isFinished])
 
   useEffect(() => {
     fetch('/api/bookmarks')
@@ -128,20 +204,17 @@ export default function QuizPage() {
     )
   }
 
-  const currentQ = questions[currentIndex]
-  
-  const options = [
-    { key: 'A', value: currentQ.optionA, explanation: currentQ.explanationA },
-    { key: 'B', value: currentQ.optionB, explanation: currentQ.explanationB },
-    { key: 'C', value: currentQ.optionC, explanation: currentQ.explanationC },
-    { key: 'D', value: currentQ.optionD, explanation: currentQ.explanationD },
-    ...(currentQ.optionE ? [{ key: 'E', value: currentQ.optionE, explanation: currentQ.explanationE }] : [])
-  ].filter(opt => opt.value !== 'undefined' && opt.value !== '' && opt.value !== null)
+  if (!currentQ) return null
 
   const handleSelect = async (key: string) => {
     if (isAnswered) return
     setSelectedOption(key)
     setIsAnswered(true)
+
+    // Trigger Voice Tutor explanation immediately
+    if (voiceTutor.isEnabled) {
+      voiceTutor.speakExplanation(currentQ, key)
+    }
 
     if (key === currentQ.correctAnswer.toUpperCase()) {
       setScore(s => s + 1)
@@ -193,6 +266,7 @@ export default function QuizPage() {
   }
 
   const handleNext = async () => {
+    voiceTutor.stopAudio()
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(curr => curr + 1)
       setSelectedOption(null)
@@ -230,6 +304,21 @@ export default function QuizPage() {
 
       <div className="max-w-6xl w-full mx-auto p-4 md:p-6 lg:p-8 flex-1">
         
+        {/* Voice Tutor Header Bar */}
+        <VoiceTutorBar
+          isEnabled={voiceTutor.isEnabled}
+          onToggleEnabled={voiceTutor.setIsEnabled}
+          status={voiceTutor.status}
+          voice={voiceTutor.voice}
+          onChangeVoice={voiceTutor.setVoice}
+          speed={voiceTutor.speed}
+          onChangeSpeed={voiceTutor.changeSpeed}
+          onActivate={() => voiceTutor.activateAudio(currentQ)}
+          onReplay={voiceTutor.replayAudio}
+          onStop={voiceTutor.stopAudio}
+          spokenHinglishScript={isAnswered ? (currentQ.voiceExplanation || null) : null}
+        />
+
         {/* Progress bar */}
         <div className="mb-8">
           <div className="flex justify-between text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
@@ -249,6 +338,23 @@ export default function QuizPage() {
           {/* Main Content (Question & Options) */}
           <div className="flex-1">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 lg:p-8 mb-6">
+              
+              {/* Semantic Prompt block for Chrome's Native Gemini Side Panel */}
+              <div className="sr-only" aria-hidden="false">
+                <h2>Topic: {currentQ.topic || 'Agriculture Engineering'} - LiveShala ARD Practice</h2>
+                <h3>Question {currentIndex + 1}: {sanitizeQuestionText(currentQ.questionText)}</h3>
+                <h2>Key Conceptual Comparison: {options.map(o => sanitizeQuestionText(o.value)).join(' vs ')}</h2>
+                <p>
+                  Ask Gemini to explain working principles, seed placement or soil manipulation mechanisms, biological or engineering concepts, sowing depth uniformity, and visual diagrams.
+                </p>
+                <p>
+                  Compare and differentiate definitions of all options: {options.map(o => `Option ${o.key}: ${sanitizeQuestionText(o.value)}`).join(' | ')}.
+                </p>
+                <p>
+                  Correct answer is Option {currentQ.correctAnswer.toUpperCase()} ({options.find(o => o.key === currentQ.correctAnswer.toUpperCase())?.value || ''}). Provide visual schematics and practical field demonstration video search terms.
+                </p>
+              </div>
+
               <div className="flex items-center justify-between gap-3 mb-4">
                 {currentQ.topic ? (
                   <span className="inline-block px-2.5 py-1 bg-gray-100 text-gray-600 text-[10px] font-black uppercase tracking-widest rounded">
@@ -257,6 +363,16 @@ export default function QuizPage() {
                 ) : <span />}
 
                 <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleOpenGeminiInChrome}
+                    title="Copy prompt for Chrome Gemini Side Panel (Alt + G)"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border shadow-sm bg-gradient-to-r from-blue-50 to-indigo-50 border-indigo-200 text-indigo-700 hover:from-blue-100 hover:to-indigo-100 hover:border-indigo-300 cursor-pointer group"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-indigo-600 group-hover:scale-110 transition-transform" />
+                    <span>Ask Gemini</span>
+                    <span className="text-[10px] bg-white text-indigo-800 px-1.5 py-0.5 rounded font-mono border border-indigo-200/80 shadow-2xs">Alt+G</span>
+                  </button>
                   <ReportQuestionButton key={currentQ.id} questionId={currentQ.id} />
                   <div className="relative">
                     <button
@@ -441,6 +557,55 @@ export default function QuizPage() {
                       initialSimpleExplanation={currentQ.simpleExplanation}
                     />
 
+                    {/* Ask Gemini in Chrome Helper */}
+                    <div className="mt-3 pt-3 border-t border-slate-200/80 space-y-2">
+                      <button
+                        onClick={handleOpenGeminiInChrome}
+                        className="w-full flex items-center justify-between px-3.5 py-2.5 bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 hover:from-blue-800 hover:to-indigo-800 text-white rounded-xl font-bold text-xs shadow-sm hover:shadow-md transition-all cursor-pointer group"
+                      >
+                        <div className="flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-yellow-300 animate-pulse group-hover:scale-110 transition-transform" />
+                          <span>Ask Gemini in Chrome Side Panel</span>
+                        </div>
+                        <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-md text-blue-100 font-mono tracking-wider">
+                          Alt + G
+                        </span>
+                      </button>
+
+                      {geminiToast && (
+                        <div className="p-3 bg-amber-50 border border-amber-200 text-amber-950 rounded-xl text-xs space-y-1.5 animate-in fade-in duration-200">
+                          <div className="flex items-center gap-1.5 font-bold text-amber-900">
+                            <Check className="w-3.5 h-3.5 text-green-600" />
+                            <span>Prompt copied to clipboard!</span>
+                          </div>
+                          <p className="text-[11px] leading-relaxed text-amber-800">
+                            Press <kbd className="px-1.5 py-0.5 bg-white border border-amber-300 rounded text-amber-900 font-mono font-bold">Alt + G</kbd> on Windows (or click Chrome Menu <strong>⋮ &gt; Open Gemini in Chrome</strong>) to chat side-by-side with zero cost!
+                          </p>
+                          <div className="pt-1">
+                            <a
+                              href="https://gemini.google.com/app"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[11px] font-bold text-indigo-700 hover:underline inline-flex items-center gap-1"
+                            >
+                              <span>Or open Gemini Web App</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </div>
+                        </div>
+                      )}
+
+                      {voiceTutor.isEnabled && (
+                        <button
+                          onClick={() => voiceTutor.speakExplanation(currentQ, selectedOption)}
+                          className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200/80 rounded-xl font-bold text-xs transition-colors cursor-pointer"
+                        >
+                          <Volume2 className="w-3.5 h-3.5 text-indigo-600" />
+                          <span>🎧 Listen to Spoken Solution (Hinglish)</span>
+                        </button>
+                      )}
+                    </div>
+
                     {/* Linked High-Yield Concepts */}
                     {currentQ.concepts && currentQ.concepts.length > 0 && (
                       <div className="mt-3 pt-3 border-t border-slate-200/80">
@@ -521,6 +686,23 @@ export default function QuizPage() {
         onClose={() => setActiveConceptSlug(null)}
         onSelectRelatedTerm={termSlug => setActiveConceptSlug(termSlug)}
       />
+
+      {/* Floating Toast Notification for Gemini Auto-Copy (Alt + G) */}
+      {geminiToast && (
+        <div className="fixed bottom-24 right-6 z-50 max-w-sm bg-slate-900 text-white p-4 rounded-2xl shadow-2xl border border-slate-700 animate-in slide-in-from-bottom-5 fade-in duration-200">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+              <Check className="w-4 h-4" />
+            </div>
+            <div className="space-y-1">
+              <p className="text-xs font-bold text-white">Copied Gemini Deep-Dive Prompt!</p>
+              <p className="text-[11px] text-slate-300 leading-snug">
+                Press <kbd className="px-1.5 py-0.5 bg-slate-800 border border-slate-600 rounded text-yellow-300 font-mono text-[10px] font-bold">Alt + G</kbd> to open Chrome's Gemini side panel, then press <kbd className="px-1.5 py-0.5 bg-slate-800 border border-slate-600 rounded text-yellow-300 font-mono text-[10px] font-bold">Ctrl + V</kbd>.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
