@@ -41,6 +41,7 @@ export function useVoiceTutor(options: {
   const audioCtxRef = useRef<AudioContext | null>(null);
   const currentSourceRef = useRef<AudioBufferSourceNode | null>(null);
   const audioCacheRef = useRef<Map<string, AudioBuffer>>(new Map());
+  const inFlightFetchesRef = useRef<Map<string, Promise<AudioBuffer | null>>>(new Map());
   const activePlayIdRef = useRef<number>(0);
   const abortControllerRef = useRef<AbortController | null>(null);
   const currentAudioBufferRef = useRef<AudioBuffer | null>(null);
@@ -121,6 +122,48 @@ export function useVoiceTutor(options: {
     }
   }, [voice, getAudioContext]);
 
+  // Background pre-fetch explanation audio to ensure 0ms instantaneous playback upon answer click
+  const preloadExplanation = useCallback(async (q?: QuestionLike | null) => {
+    if (!isEnabled || !q) return null;
+    const text = (q.voiceExplanation || q.explanation || '').trim();
+    if (!text) return null;
+
+    const cacheKey = `body_${q.id}`;
+    const fullCacheKey = `${voice}_${cacheKey}`;
+
+    if (audioCacheRef.current.has(fullCacheKey)) {
+      return audioCacheRef.current.get(fullCacheKey)!;
+    }
+
+    if (inFlightFetchesRef.current.has(fullCacheKey)) {
+      return inFlightFetchesRef.current.get(fullCacheKey)!;
+    }
+
+    const fetchPromise = (async () => {
+      try {
+        const res = await fetch('/api/tts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, voice }),
+        });
+
+        if (!res.ok) return null;
+        const arrayBuffer = await res.arrayBuffer();
+        const audioCtx = getAudioContext();
+        const decoded = await audioCtx.decodeAudioData(arrayBuffer);
+        audioCacheRef.current.set(fullCacheKey, decoded);
+        return decoded;
+      } catch {
+        return null;
+      } finally {
+        inFlightFetchesRef.current.delete(fullCacheKey);
+      }
+    })();
+
+    inFlightFetchesRef.current.set(fullCacheKey, fetchPromise);
+    return fetchPromise;
+  }, [isEnabled, voice, getAudioContext]);
+
   // Play a specific buffer
   const playBuffer = useCallback((buffer: AudioBuffer, onEnded?: () => void) => {
     if (currentSourceRef.current) {
@@ -156,7 +199,7 @@ export function useVoiceTutor(options: {
     source.start(0);
   }, [speed, getAudioContext]);
 
-  // Start explanation narration on answer submission or manual button click
+  // Start explanation narration with INSTANTANEOUS playback (0-10ms)
   const speakExplanation = useCallback(async (q: QuestionLike, selectedKey?: string | null) => {
     if (!isEnabled) return;
 
@@ -166,43 +209,62 @@ export function useVoiceTutor(options: {
     // Assign a new playId for this specific playback turn
     const playId = activePlayIdRef.current;
 
-    // Create a new AbortController for this fetch
-    const abortController = new AbortController();
-    abortControllerRef.current = abortController;
-
     const audioCtx = getAudioContext();
     if (audioCtx.state === 'suspended') {
       await audioCtx.resume();
       setHasUserActivated(true);
     }
 
-    setStatus('loading_explanation');
-
-    let prefix = '';
-    let isCorrect = false;
+    // Play instant tactile chime at 0ms
     if (selectedKey) {
-      isCorrect = selectedKey.toUpperCase() === q.correctAnswer.toUpperCase();
-      prefix = isCorrect
-        ? "बहुत अच्छा! आपका answer बिल्कुल सही है। "
-        : `गलत जवाब। सही answer Option ${q.correctAnswer.toUpperCase()} है। `;
+      const isCorrect = selectedKey.toUpperCase() === q.correctAnswer.toUpperCase();
+      playTactileChime(audioCtx, isCorrect);
     }
 
-    let explanationBody = q.voiceExplanation || '';
-    if (!explanationBody && q.explanation) {
-      explanationBody = q.explanation;
-    }
-
-    const fullText = `${prefix}\n\n${explanationBody}`.trim();
-    if (!fullText) {
+    const text = (q.voiceExplanation || q.explanation || '').trim();
+    if (!text) {
       setStatus('awaiting_next');
       return;
     }
 
-    const cacheKey = `exp_${q.id}_${selectedKey ? (isCorrect ? 'C' : 'I') : 'SOL'}`;
+    const cacheKey = `body_${q.id}`;
+    const fullCacheKey = `${voice}_${cacheKey}`;
 
-    const buffer = await fetchAudioBuffer(fullText, cacheKey, abortController.signal);
+    // 1. Instant Cache Hit: pre-buffered in RAM while user read the question
+    if (audioCacheRef.current.has(fullCacheKey)) {
+      const buffer = audioCacheRef.current.get(fullCacheKey)!;
+      setStatus('speaking_explanation');
+      playBuffer(buffer, () => {
+        if (playId === activePlayIdRef.current) {
+          setStatus('awaiting_next');
+        }
+      });
+      return;
+    }
 
-    // If another question was navigated to, stopAudio() was called, or request aborted: DO NOT PLAY!
+    // 2. In-flight fetch hit: user tapped quickly before background preload finished
+    if (inFlightFetchesRef.current.has(fullCacheKey)) {
+      setStatus('loading_explanation');
+      const buffer = await inFlightFetchesRef.current.get(fullCacheKey);
+      if (playId !== activePlayIdRef.current) return;
+      if (buffer) {
+        setStatus('speaking_explanation');
+        playBuffer(buffer, () => {
+          if (playId === activePlayIdRef.current) {
+            setStatus('awaiting_next');
+          }
+        });
+        return;
+      }
+    }
+
+    // 3. Fallback: Direct synthesis
+    setStatus('loading_explanation');
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
+
+    const buffer = await fetchAudioBuffer(text, cacheKey, abortController.signal);
+
     if (playId !== activePlayIdRef.current || abortController.signal.aborted) {
       return;
     }
@@ -218,7 +280,7 @@ export function useVoiceTutor(options: {
         setStatus('awaiting_next');
       }
     });
-  }, [isEnabled, getAudioContext, stopAudio, fetchAudioBuffer, playBuffer]);
+  }, [isEnabled, getAudioContext, stopAudio, fetchAudioBuffer, playBuffer, voice]);
 
   // User activates audio via click
   const activateAudio = useCallback((currentQ?: QuestionLike) => {
@@ -278,8 +340,42 @@ export function useVoiceTutor(options: {
     changeSpeed,
     hasUserActivated,
     activateAudio,
+    preloadExplanation,
     speakExplanation,
     stopAudio,
     replayAudio,
   };
+}
+
+// Generate subtle instantaneous 0ms audio chime on option tap
+function playTactileChime(audioCtx: AudioContext, isCorrect: boolean) {
+  try {
+    const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = 'sine';
+    gain.connect(audioCtx.destination);
+    osc.connect(gain);
+
+    if (isCorrect) {
+      // Pleasant rising major chord tone (E5 to A5)
+      osc.frequency.setValueAtTime(659.25, now);
+      osc.frequency.exponentialRampToValueAtTime(880.0, now + 0.12);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+      osc.start(now);
+      osc.stop(now + 0.16);
+    } else {
+      // Soft gentle tone (C4 to G3)
+      osc.frequency.setValueAtTime(261.63, now);
+      osc.frequency.exponentialRampToValueAtTime(196.0, now + 0.14);
+      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+      osc.start(now);
+      osc.stop(now + 0.18);
+    }
+  } catch {
+    // Non-critical, ignore if audio context error
+  }
 }

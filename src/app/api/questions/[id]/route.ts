@@ -48,7 +48,7 @@ export async function PUT(request: Request, props: { params: Promise<{ id: strin
     const { 
       questionText, optionA, optionB, optionC, optionD, optionE, correctAnswer,
       explanationA, explanationB, explanationC, explanationD, explanationE,
-      topic, explanation
+      topic, explanation, simpleExplanation, voiceExplanation, voiceQuestion, voiceOptions, voiceScriptVersion
     } = body
 
     if (!questionText || !optionA || !optionB || !correctAnswer) {
@@ -71,6 +71,11 @@ export async function PUT(request: Request, props: { params: Promise<{ id: strin
         explanationE: explanationE || null,
         topic: topic ? sanitizeQuestionText(topic) : null,
         explanation: explanation || null,
+        simpleExplanation: simpleExplanation !== undefined ? (simpleExplanation || null) : undefined,
+        voiceExplanation: voiceExplanation !== undefined ? (voiceExplanation || null) : undefined,
+        voiceQuestion: voiceQuestion !== undefined ? (voiceQuestion || null) : undefined,
+        voiceOptions: voiceOptions !== undefined ? (voiceOptions || null) : undefined,
+        voiceScriptVersion: typeof voiceScriptVersion === 'number' ? voiceScriptVersion : 2,
         correctAnswer: correctAnswer.toUpperCase()
       }
     })

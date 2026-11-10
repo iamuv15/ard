@@ -122,7 +122,19 @@ Please break down:
   // Stop audio and abort pending TTS when moving between questions or finishing
   useEffect(() => {
     voiceTutor.stopAudio()
-  }, [currentIndex, isFinished])
+    if (currentQ && voiceTutor.isEnabled && !isFinished) {
+      // Instantaneously pre-buffer current question audio in background while student reads
+      voiceTutor.preloadExplanation(currentQ)
+
+      // Opportunistically pre-buffer next question in background
+      if (questions[currentIndex + 1]) {
+        const timer = setTimeout(() => {
+          voiceTutor.preloadExplanation(questions[currentIndex + 1])
+        }, 1200)
+        return () => clearTimeout(timer)
+      }
+    }
+  }, [currentIndex, isFinished, currentQ?.id, voiceTutor.isEnabled])
 
   useEffect(() => {
     fetch('/api/bookmarks')

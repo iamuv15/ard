@@ -5,6 +5,7 @@ import prisma from '@/lib/prisma'
 import { QuestionManager } from '@/components/admin/QuestionManager'
 import { EnrichQuizButton } from '@/components/admin/EnrichQuizButton'
 import { RetagQuizButton } from '@/components/admin/RetagQuizButton'
+import { BulkVoiceScriptsButton } from '@/components/admin/BulkVoiceScriptsButton'
 import LogOutButton from '@/components/LogOutButton'
 
 export const dynamic = 'force-dynamic'
@@ -31,6 +32,9 @@ export default async function AdminQuizPage(props: { params: Promise<{ id: strin
     notFound()
   }
 
+  const voiceReadyCount = quiz.questions.filter(q => Boolean(q.voiceExplanation)).length
+  const easyReadyCount = quiz.questions.filter(q => Boolean(q.simpleExplanation)).length
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8">
       <div className="max-w-6xl mx-auto">
@@ -55,6 +59,13 @@ export default async function AdminQuizPage(props: { params: Promise<{ id: strin
           </div>
         </div>
 
+        {/* Bulk Voice & Easy Explanations Studio */}
+        <BulkVoiceScriptsButton
+          quizId={quiz.id}
+          totalQuestions={quiz.questions.length}
+          voiceReadyCount={voiceReadyCount}
+          easyReadyCount={easyReadyCount}
+        />
 
         <QuestionManager initialQuestions={quiz.questions} />
       </div>

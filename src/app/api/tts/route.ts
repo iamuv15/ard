@@ -82,6 +82,9 @@ function sanitizeSpeechText(raw: string): string {
   return cleaned;
 }
 
+// In-memory server-side audio cache to return instantaneous responses for frequent scripts
+const ttsMemoryCache = new Map<string, Buffer>();
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -94,6 +97,21 @@ export async function POST(req: NextRequest) {
     const cleanedText = sanitizeSpeechText(text);
     if (!cleanedText) {
       return NextResponse.json({ error: 'Text is empty after sanitization' }, { status: 400 });
+    }
+
+    // Instant server-side cache hit (0-2ms response)
+    const cacheKey = `${voice}_${rate}_${cleanedText}`;
+    if (ttsMemoryCache.has(cacheKey)) {
+      const cached = ttsMemoryCache.get(cacheKey)!;
+      return new Response(cached as unknown as BodyInit, {
+        status: 200,
+        headers: {
+          'Content-Type': 'audio/mpeg',
+          'Content-Length': cached.length.toString(),
+          'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+          'X-TTS-Cache': 'HIT',
+        },
+      });
     }
 
     // Synthesize audio via MsEdgeTTS
@@ -127,6 +145,15 @@ export async function POST(req: NextRequest) {
         reject(err);
       }
     });
+
+    if (buffer && buffer.length > 0) {
+      // LRU evict if over 600 items (~60MB RAM)
+      if (ttsMemoryCache.size > 600) {
+        const firstKey = ttsMemoryCache.keys().next().value;
+        if (firstKey) ttsMemoryCache.delete(firstKey);
+      }
+      ttsMemoryCache.set(cacheKey, buffer);
+    }
 
     return new Response(buffer as unknown as BodyInit, {
       status: 200,
