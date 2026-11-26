@@ -13,7 +13,7 @@ function getSupabaseUrl(key?: string) {
     } catch {}
   }
   if (process.env.NEXT_PUBLIC_SUPABASE_URL) return process.env.NEXT_PUBLIC_SUPABASE_URL;
-  return 'https://nvcbchefumrcdkvjvquw.supabase.co';
+  return 'https://luqqevfwgjpmvuyeyvzv.supabase.co';
 }
 
 function getSupabaseClient() {
