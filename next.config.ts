@@ -23,12 +23,6 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
-        source: '/ARD/:path*',
-        destination: `${BASE_PATH}/:path*`,
-        basePath: false,
-        permanent: false,
-      },
-      {
         source: `/:path((?!${APP_SLUG}(?:/|$)|_next(?:/|$)).*)`,
         destination: `${BASE_PATH}/:path`,
         basePath: false,
