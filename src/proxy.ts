@@ -52,11 +52,17 @@ export async function proxy(request: NextRequest) {
   const { pathname, search, basePath } = request.nextUrl;
   const effectiveBasePath = basePath || BASE_PATH;
 
-  // Note: When basePath is set, Next.js strips it from request.nextUrl.pathname
+  // Handle both with and without effectiveBasePath prefix
+  const normalizedPath = pathname.startsWith(effectiveBasePath)
+    ? pathname.slice(effectiveBasePath.length)
+    : pathname;
+
+  // Skip auth callback, logout and _next internal requests
   if (
-    pathname.startsWith('/api/auth/sso-callback') ||
-    pathname.startsWith('/api/auth/sso-logout') ||
-    pathname.startsWith('/_next/')
+    normalizedPath.startsWith('/api/auth/sso-callback') ||
+    normalizedPath.startsWith('/api/auth/sso-logout') ||
+    normalizedPath.startsWith('/_next/') ||
+    normalizedPath === '/favicon.ico'
   ) {
     return NextResponse.next();
   }
@@ -75,36 +81,50 @@ export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request });
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://luqqevfwgjpmvuyeyvzv.supabase.co';
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE || '';
+  const anonKey =
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.SUPABASE_SERVICE_ROLE ||
+    '';
 
-  const supabase = createServerClient(
-    supabaseUrl,
-    anonKey,
-    {
-      cookieOptions: { path: effectiveBasePath },
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
-          );
-          response = NextResponse.next({ request });
-          cookiesToSet.forEach(({ name, value, options }) =>
-            response.cookies.set(name, value, {
-              ...options,
-              path: effectiveBasePath,
-            })
-          );
-        },
-      },
-    }
-  );
+  if (!supabaseUrl || !anonKey) {
+    return response;
+  }
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user = null;
+  try {
+    const supabase = createServerClient(
+      supabaseUrl,
+      anonKey,
+      {
+        cookieOptions: { path: effectiveBasePath },
+        cookies: {
+          getAll() {
+            return request.cookies.getAll();
+          },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value }) =>
+              request.cookies.set(name, value)
+            );
+            response = NextResponse.next({ request });
+            cookiesToSet.forEach(({ name, value, options }) =>
+              response.cookies.set(name, value, {
+                ...options,
+                path: effectiveBasePath,
+              })
+            );
+          },
+        },
+      }
+    );
+
+    const {
+      data: { user: authUser },
+    } = await supabase.auth.getUser();
+    user = authUser;
+  } catch (err) {
+    console.error('[proxy] Supabase auth check error:', err);
+  }
 
   if (isFromHub) {
     const expectedUid = request.headers.get('x-hub-expected-uid');
