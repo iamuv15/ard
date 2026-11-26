@@ -100,19 +100,8 @@ export async function GET(request: NextRequest) {
       .insert({ jti, expires_at: expiresAt });
 
     if (nonceErr) {
-      let ref = null;
-      try {
-        ref = JSON.parse(Buffer.from(serviceRoleKey.split('.')[1], 'base64').toString()).ref;
-      } catch {}
       return NextResponse.json(
-        {
-          error: 'SSO token already used',
-          detail: nonceErr.message,
-          debug: {
-            url: supabaseUrl,
-            keyRef: ref,
-          },
-        },
+        { error: 'SSO token already used' },
         { status: 401 }
       );
     }
