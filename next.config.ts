@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next';
 
-const APP_SLUG = process.env.APP_SLUG || 'ard';
+const APP_SLUG = (process.env.APP_SLUG || 'ard').toLowerCase();
 const BASE_PATH = `/${APP_SLUG}`;
 
 const nextConfig: NextConfig = {
@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
       {
         source: '/',
         destination: BASE_PATH,
+        basePath: false,
+        permanent: false,
+      },
+      {
+        source: '/ARD/:path*',
+        destination: `${BASE_PATH}/:path*`,
         basePath: false,
         permanent: false,
       },

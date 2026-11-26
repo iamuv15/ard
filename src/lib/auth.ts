@@ -47,7 +47,7 @@ export async function getUserSession(): Promise<TokenPayload | null> {
 
   if (anonKey) {
     try {
-      const APP_SLUG = process.env.APP_SLUG || 'ard'
+      const APP_SLUG = (process.env.APP_SLUG || 'ard').toLowerCase()
       const supabase = createServerClient(supabaseUrl, anonKey, {
         cookieOptions: { path: `/${APP_SLUG}` },
         cookies: {

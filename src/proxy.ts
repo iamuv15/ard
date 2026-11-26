@@ -1,7 +1,7 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-const APP_SLUG = process.env.APP_SLUG || 'ard';
+const APP_SLUG = (process.env.APP_SLUG || 'ard').toLowerCase();
 const BASE_PATH = `/${APP_SLUG}`;
 const DASHBOARD_PATH = process.env.APP_DASHBOARD_PATH || '/';
 const HUB_PROXY_SECRET = process.env.HUB_PROXY_SECRET || '';

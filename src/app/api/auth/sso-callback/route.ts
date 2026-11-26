@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { importSPKI, jwtVerify } from 'jose';
 import { NextResponse, type NextRequest } from 'next/server';
 
-const APP_SLUG = process.env.APP_SLUG || 'ard';
+const APP_SLUG = (process.env.APP_SLUG || 'ard').toLowerCase();
 const BASE_PATH = `/${APP_SLUG}`;
 const DASHBOARD_PATH = process.env.APP_DASHBOARD_PATH || '/';
 
