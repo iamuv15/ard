@@ -78,7 +78,10 @@ export async function GET(request: NextRequest) {
       .insert({ jti, expires_at: expiresAt });
 
     if (nonceErr) {
-      return NextResponse.json({ error: 'SSO token already used' }, { status: 401 });
+      return NextResponse.json(
+        { error: 'SSO token already used', detail: nonceErr.message },
+        { status: 401 }
+      );
     }
 
     // 2. Resolve downstream user email & mint magiclink OTP
@@ -87,7 +90,7 @@ export async function GET(request: NextRequest) {
 
     if (userErr || !userData.user?.email) {
       return NextResponse.json(
-        { error: 'Downstream user not found' },
+        { error: 'Downstream user not found', detail: userErr?.message },
         { status: 404 }
       );
     }
