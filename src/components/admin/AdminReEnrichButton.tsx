@@ -15,7 +15,7 @@ export function AdminReEnrichButton({ questionId, onEnriched }: AdminReEnrichBut
 
   useEffect(() => {
     // Check if the current viewer is an admin
-    fetch('/api/auth/me')
+    fetch('/ard/api/auth/me')
       .then(res => res.json())
       .then(data => {
         if (data.isAdmin) {
@@ -36,7 +36,7 @@ export function AdminReEnrichButton({ questionId, onEnriched }: AdminReEnrichBut
     setSuccess(false)
 
     try {
-      const res = await fetch(`/api/admin/questions/${questionId}/enrich`, {
+      const res = await fetch(`/ard/api/admin/questions/${questionId}/enrich`, {
         method: 'POST'
       })
 

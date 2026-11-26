@@ -40,7 +40,7 @@ export function BulkVoiceScriptsButton({
       let completedQuestions = target === 'voice' ? voiceReadyCount : easyReadyCount
 
       while (!isCompleted) {
-        const res = await fetch(`/api/admin/quizzes/${quizId}/voice-scripts`, {
+        const res = await fetch(`/ard/api/admin/quizzes/${quizId}/voice-scripts`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ batchSize: 5, target, overwriteExisting: false })
@@ -176,3 +176,4 @@ export function BulkVoiceScriptsButton({
     </div>
   )
 }
+

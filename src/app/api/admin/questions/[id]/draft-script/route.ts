@@ -93,3 +93,4 @@ Return a valid JSON object in this exact format:
     return NextResponse.json({ error: error?.message || 'Failed to generate script' }, { status: 500 })
   }
 }
+

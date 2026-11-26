@@ -104,7 +104,7 @@ export function QuestionReportsHub() {
   const loadReports = async () => {
     setLoading(true)
     try {
-      const res = await fetch(`/api/admin/reports?type=${activeTab}`)
+      const res = await fetch(`/ard/api/admin/reports?type=${activeTab}`)
       const data = await res.json()
       if (res.ok && data.success) {
         setReports(data.reports || [])
@@ -125,7 +125,7 @@ export function QuestionReportsHub() {
   const handleAction = async (reportId: number, action: string, customData?: any) => {
     setActionLoadingId(reportId)
     try {
-      const res = await fetch('/api/admin/reports', {
+      const res = await fetch('/ard/api/admin/reports', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ reportId, action, customData })

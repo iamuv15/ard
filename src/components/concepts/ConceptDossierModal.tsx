@@ -128,7 +128,7 @@ export function ConceptDossierModal({
     if (!concept) return
     try {
       setReportSubmitting(true)
-      const res = await fetch('/api/reports/media', {
+      const res = await fetch('/ard/api/reports/media', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

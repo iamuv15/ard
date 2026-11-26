@@ -20,7 +20,7 @@ export function UserManagement({ initialUsers }: { initialUsers: User[] }) {
     const newCohort = currentCohort === 'BETA' ? 'ALPHA' : 'BETA'
     
     try {
-      const res = await fetch('/api/admin/users', {
+      const res = await fetch('/ard/api/admin/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, cohort: newCohort })

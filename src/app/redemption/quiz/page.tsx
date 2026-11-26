@@ -137,7 +137,7 @@ function RedemptionQuizContent() {
       // Only clear the mistake from the queue if we are NOT in cooldown mode
       if (!isCooldownMode) {
         try {
-          await fetch('/api/mistakes', {
+          await fetch('/ard/api/mistakes', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ questionId: currentQ.id })

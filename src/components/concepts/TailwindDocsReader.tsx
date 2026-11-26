@@ -234,7 +234,7 @@ export function TailwindDocsReader({
 
   useEffect(() => {
     if (!chapterId) return
-    fetch(`/api/chapters/${chapterId}/audio`)
+    fetch(`/ard/api/chapters/${chapterId}/audio`)
       .then(r => r.json())
       .then(data => {
         if (data.tracks && Array.isArray(data.tracks)) {
@@ -385,7 +385,7 @@ export function TailwindDocsReader({
     if (!conceptDetail) return
     try {
       setReportSubmitting(true)
-      const res = await fetch('/api/reports/media', {
+      const res = await fetch('/ard/api/reports/media', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -541,7 +541,7 @@ export function TailwindDocsReader({
           return
         }
 
-        const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}`, {
+        const res = await fetch(`/ard/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -566,7 +566,7 @@ export function TailwindDocsReader({
         formData.append('caption', inputCaption.trim() || activeSummary.term)
         if (inputSourceUrl.trim()) formData.append('sourceUrl', inputSourceUrl.trim())
 
-        const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}`, {
+        const res = await fetch(`/ard/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}`, {
           method: 'POST',
           body: formData
         })
@@ -619,8 +619,7 @@ export function TailwindDocsReader({
     if (!activeSummary || !imageToDelete) return
     setDeletingImage(true)
     try {
-      const res = await fetch(
-        `/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}&index=${imageToDelete.index}`,
+      const res = await fetch(`/ard/api/concepts/${encodeURIComponent(activeSummary.slug)}/image?chapterId=${chapterId}&index=${imageToDelete.index}`,
         { method: 'DELETE' }
       )
       const data = await res.json()
@@ -683,7 +682,7 @@ export function TailwindDocsReader({
     setVideoSubmitting(true)
     setVideoError(null)
     try {
-      const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/video?chapterId=${chapterId}`, {
+      const res = await fetch(`/ard/api/concepts/${encodeURIComponent(activeSummary.slug)}/video?chapterId=${chapterId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -714,14 +713,14 @@ export function TailwindDocsReader({
     setVideoSubmitting(true)
     setVideoError(null)
     try {
-      const res = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}/video?chapterId=${chapterId}`, {
+      const res = await fetch(`/ard/api/concepts/${encodeURIComponent(activeSummary.slug)}/video?chapterId=${chapterId}`, {
         method: 'DELETE'
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data?.error || 'Failed to reset video settings')
 
       // Refetch concept details to reload automated precision query
-      const fetchRes = await fetch(`/api/concepts/${encodeURIComponent(activeSummary.slug)}?chapterId=${chapterId}`)
+      const fetchRes = await fetch(`/ard/api/concepts/${encodeURIComponent(activeSummary.slug)}?chapterId=${chapterId}`)
       const fetchData = await fetchRes.json()
       if (fetchData?.precisionVideo) {
         setPrecisionVideo(fetchData.precisionVideo)

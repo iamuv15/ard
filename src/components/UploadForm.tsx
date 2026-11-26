@@ -34,7 +34,7 @@ export function UploadForm({ chapters }: { chapters: { id: number, name: string 
     })
 
     try {
-      const res = await fetch('/api/questions/upload', {
+      const res = await fetch('/ard/api/questions/upload', {
         method: 'POST',
         body: formData,
       })

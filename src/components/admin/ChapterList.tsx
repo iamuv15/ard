@@ -61,7 +61,7 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
     setTogglingCohortId(chapter.id)
     try {
       const newCohort = chapter.cohort === 'ALPHA' ? 'BETA' : 'ALPHA'
-      const res = await fetch(`/api/chapters/${chapter.id}/cohort`, {
+      const res = await fetch(`/ard/api/chapters/${chapter.id}/cohort`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ cohort: newCohort })
@@ -83,7 +83,7 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
     setTogglingQuizCohortId(quiz.id)
     try {
       const newCohort = quiz.cohort === 'ALPHA' ? 'BETA' : 'ALPHA'
-      const res = await fetch(`/api/quizzes/${quiz.id}/cohort`, {
+      const res = await fetch(`/ard/api/quizzes/${quiz.id}/cohort`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ cohort: newCohort })
@@ -112,7 +112,7 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
     setIsChapterDeleteModalOpen(false)
     
     try {
-      const res = await fetch(`/api/chapters/${chapterToDelete.id}`, { method: 'DELETE' })
+      const res = await fetch(`/ard/api/chapters/${chapterToDelete.id}`, { method: 'DELETE' })
       if (res.ok) {
         setChapters(chapters.filter(c => c.id !== chapterToDelete.id))
         router.refresh()
@@ -133,7 +133,7 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
     setIsQuizDeleteModalOpen(false)
 
     try {
-      const res = await fetch(`/api/quizzes/${quizToDelete.id}`, { method: 'DELETE' })
+      const res = await fetch(`/ard/api/quizzes/${quizToDelete.id}`, { method: 'DELETE' })
       if (res.ok) {
         setChapters(chapters.map(c => {
           if (c.id === quizToDelete.chapterId) {
@@ -163,7 +163,7 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
     setSavingQuizId(quizId)
     
     try {
-      const res = await fetch(`/api/quizzes/${quizId}`, {
+      const res = await fetch(`/ard/api/quizzes/${quizId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: editQuizName.trim() })
@@ -193,7 +193,7 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
     setIsSavingMerge(true)
     
     try {
-      const res = await fetch(`/api/quizzes/${sourceQuizId}/merge`, {
+      const res = await fetch(`/ard/api/quizzes/${sourceQuizId}/merge`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ targetQuizId: mergeTargetQuizId })
@@ -250,7 +250,7 @@ export function ChapterList({ initialChapters }: { initialChapters: Chapter[] })
 
     // Persist reorder to database
     try {
-      const res = await fetch('/api/quizzes/reorder', {
+      const res = await fetch('/ard/api/quizzes/reorder', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ quizIds: updatedQuizzes.map(q => q.id) })

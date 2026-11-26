@@ -85,7 +85,7 @@ export function QuestionManager({ initialQuestions }: { initialQuestions: Questi
     setAudioLoadingId(id)
 
     try {
-      const res = await fetch('/api/tts', {
+      const res = await fetch('/ard/api/tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, voice: 'hi-IN-MadhurNeural' }),
@@ -120,7 +120,7 @@ export function QuestionManager({ initialQuestions }: { initialQuestions: Questi
   const handleAiDraft = async (id: number, target: 'voice' | 'simple') => {
     setDraftingTarget({ id, target })
     try {
-      const res = await fetch(`/api/admin/questions/${id}/draft-script`, {
+      const res = await fetch(`/ard/api/admin/questions/${id}/draft-script`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ target }),
@@ -146,7 +146,7 @@ export function QuestionManager({ initialQuestions }: { initialQuestions: Questi
     handleStopTts()
     setLoadingId(id)
     try {
-      const res = await fetch(`/api/questions/${id}`, {
+      const res = await fetch(`/ard/api/questions/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editForm),
@@ -179,7 +179,7 @@ export function QuestionManager({ initialQuestions }: { initialQuestions: Questi
     setLoadingId(questionToDelete)
     setIsDeleteModalOpen(false)
     try {
-      const res = await fetch(`/api/questions/${questionToDelete}`, {
+      const res = await fetch(`/ard/api/questions/${questionToDelete}`, {
         method: 'DELETE',
       })
 

@@ -137,7 +137,7 @@ Please break down:
   }, [currentIndex, isFinished, currentQ?.id, voiceTutor.isEnabled])
 
   useEffect(() => {
-    fetch('/api/bookmarks')
+    fetch('/ard/api/bookmarks')
       .then(res => res.json())
       .then(data => {
         if (data.bookmarksRecord) {
@@ -152,7 +152,7 @@ Please break down:
     
     if (!quizId) return;
 
-    fetch(`/api/questions?quizId=${quizId}`)
+    fetch(`/ard/api/questions?quizId=${quizId}`)
       .then(res => res.json())
       .then(data => {
         if (data.questions) {
@@ -233,7 +233,7 @@ Please break down:
     } else {
       // Log mistake
       try {
-        await fetch('/api/mistakes', {
+        await fetch('/ard/api/mistakes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ questionId: currentQ.id })
@@ -263,7 +263,7 @@ Please break down:
     })
 
     try {
-      await fetch('/api/bookmarks', {
+      await fetch('/ard/api/bookmarks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -288,7 +288,7 @@ Please break down:
     } else {
       // Save final score
       try {
-        await fetch('/api/attempts', {
+        await fetch('/ard/api/attempts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

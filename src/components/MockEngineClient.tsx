@@ -40,7 +40,7 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
   const [bookmarkDropdownOpen, setBookmarkDropdownOpen] = useState<number | null>(null)
 
   useEffect(() => {
-    fetch('/api/bookmarks')
+    fetch('/ard/api/bookmarks')
       .then(res => res.json())
       .then(data => {
         if (data.bookmarksRecord) {
@@ -131,7 +131,7 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
     })
 
     try {
-      await fetch('/api/bookmarks', {
+      await fetch('/ard/api/bookmarks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -191,7 +191,7 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
 
     for (const qId of mistakesToLog) {
       try {
-        await fetch('/api/mistakes', {
+        await fetch('/ard/api/mistakes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ questionId: qId })

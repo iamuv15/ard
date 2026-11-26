@@ -96,7 +96,7 @@ export function useVoiceTutor(options: {
         return audioCacheRef.current.get(fullCacheKey)!;
       }
 
-      const res = await fetch('/api/tts', {
+      const res = await fetch('/ard/api/tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, voice }),
@@ -141,7 +141,7 @@ export function useVoiceTutor(options: {
 
     const fetchPromise = (async () => {
       try {
-        const res = await fetch('/api/tts', {
+        const res = await fetch('/ard/api/tts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text, voice }),

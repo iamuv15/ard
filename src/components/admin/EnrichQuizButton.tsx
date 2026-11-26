@@ -36,7 +36,7 @@ export function EnrichQuizButton({ quizId, totalQuestions, compact = false }: En
       let total = totalQuestions
 
       while (!isCompleted) {
-        const res = await fetch(`/api/admin/quizzes/${quizId}/enrich`, {
+        const res = await fetch(`/ard/api/admin/quizzes/${quizId}/enrich`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ batchSize: 6 })

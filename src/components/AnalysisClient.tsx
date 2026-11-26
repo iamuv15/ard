@@ -69,7 +69,7 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
   const [bookmarkDropdownOpen, setBookmarkDropdownOpen] = useState<number | null>(null)
 
   useEffect(() => {
-    fetch('/api/bookmarks')
+    fetch('/ard/api/bookmarks')
       .then(res => res.json())
       .then(data => {
         if (data.bookmarksRecord) {
@@ -98,7 +98,7 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
     })
 
     try {
-      await fetch('/api/bookmarks', {
+      await fetch('/ard/api/bookmarks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -185,7 +185,7 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
     setAiError(null)
 
     try {
-      const res = await fetch('/api/concepts/generate-questions', {
+      const res = await fetch('/ard/api/concepts/generate-questions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -201,7 +201,7 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
 
       setAiMessage(`✓ Generated and saved ${data.count} AI exam-trap questions to database! Loading practice drill...`)
       setTimeout(() => {
-        window.location.href = `/redemption/quiz?conceptIds=${ids.join(',')}&chapterId=${chapterId}&cooldown=true`
+        window.location.href = `/ard/redemption/quiz?conceptIds=${ids.join(',')}&chapterId=${chapterId}&cooldown=true`
       }, 1200)
     } catch (err: any) {
       setAiError(err.message || 'Error generating questions with Gemini 3.5 Flash Lite')

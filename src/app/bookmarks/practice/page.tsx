@@ -85,7 +85,7 @@ function RevisionPracticeContent() {
     setBookmarkedIds(nextSet)
 
     try {
-      await fetch('/api/bookmarks', {
+      await fetch('/ard/api/bookmarks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ questionId: qId })

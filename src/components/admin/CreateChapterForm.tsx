@@ -19,7 +19,7 @@ export function CreateChapterForm() {
     setStatus(null)
 
     try {
-      const res = await fetch('/api/chapters', {
+      const res = await fetch('/ard/api/chapters', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -51,7 +51,7 @@ export function SimplifyExplanationButton({
 
     setLoading(true)
     try {
-      const res = await fetch('/api/questions/simplify', {
+      const res = await fetch('/ard/api/questions/simplify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ questionId })

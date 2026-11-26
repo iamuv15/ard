@@ -48,7 +48,7 @@ export default function AdminMindMapsHubPage() {
   const loadChapters = async () => {
     try {
       setLoading(true)
-      const res = await fetch('/api/admin/mindmaps')
+      const res = await fetch('/ard/api/admin/mindmaps')
       const data = await res.json()
       if (res.ok) {
         setChapters(data.chapters || [])
@@ -77,7 +77,7 @@ export default function AdminMindMapsHubPage() {
         paidApiKey = localStorage.getItem('gemini_paid_api_key') || ''
       } catch {}
 
-      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ paidApiKey: paidApiKey.trim() || undefined })

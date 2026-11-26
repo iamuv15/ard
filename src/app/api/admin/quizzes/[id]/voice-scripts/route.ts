@@ -162,3 +162,4 @@ Respond with a JSON array:
     return NextResponse.json({ error: error?.message || 'Failed batch generation' }, { status: 500 })
   }
 }
+

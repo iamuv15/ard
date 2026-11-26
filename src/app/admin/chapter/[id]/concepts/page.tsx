@@ -153,7 +153,7 @@ export default function AdminChapterConceptsPage() {
   const loadData = async () => {
     try {
       setLoading(true)
-      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`)
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap`)
       const data = await safeParseResponse(res)
       setChapterName(data.chapterName)
       setMindMap(data.mindMap?.treeData || null)
@@ -189,7 +189,7 @@ export default function AdminChapterConceptsPage() {
         text: '🖼️ Auto-enriching concepts with Wikimedia photos and YouTube practical demo links ($0 cost)...'
       })
 
-      const res = await fetch(`/api/admin/chapters/${chapterId}/concepts`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/concepts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -238,7 +238,7 @@ export default function AdminChapterConceptsPage() {
           : `⚡ Mining Batch ${targetIdx + 1} of ${totalBatches}...`
       })
 
-      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -351,7 +351,7 @@ export default function AdminChapterConceptsPage() {
 
     try {
       setLoading(true)
-      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'reset_keywords' })
@@ -382,7 +382,7 @@ export default function AdminChapterConceptsPage() {
         text: '🧠 Phase 2: Architecting taxonomy with Gemini Thinking (10,000 tokens)... Structuring categories & syllabus audit.' 
       })
 
-      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -414,7 +414,7 @@ export default function AdminChapterConceptsPage() {
         text: 'Quick 1-Click: Sampling chapter questions and reasoning Mind Map with Gemini (10,000 thinking tokens)...' 
       })
 
-      const res = await fetch(`/api/admin/chapters/${chapterId}/mindmap`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ paidApiKey: paidApiKey.trim() || undefined })
@@ -440,7 +440,7 @@ export default function AdminChapterConceptsPage() {
       setGeneratingSingleTerm(keyword)
       setStatusMessage(null)
 
-      const res = await fetch(`/api/admin/chapters/${chapterId}/concepts`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/concepts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -499,7 +499,7 @@ export default function AdminChapterConceptsPage() {
       // Fetch fresh existing concepts from server to avoid stale closure state
       let existingNames = new Set(concepts.map(c => c.term.toLowerCase().trim()))
       try {
-        const freshRes = await fetch(`/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
+        const freshRes = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
         if (freshRes.ok) {
           const freshData = await freshRes.json()
           if (Array.isArray(freshData.existingConcepts)) {
@@ -528,7 +528,7 @@ export default function AdminChapterConceptsPage() {
         text: `⚡ Generating high-yield batch of ${batch.length} concepts: ${batchKeywords.join(', ')}...`
       })
 
-      const res = await fetch(`/api/admin/chapters/${chapterId}/concepts`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/concepts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -573,7 +573,7 @@ export default function AdminChapterConceptsPage() {
       })
 
       // Always fetch fresh list of existing concepts at start
-      const initialRes = await fetch(`/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
+      const initialRes = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
       const initialData = await initialRes.json()
       const existingNames = new Set<string>((initialData.existingConcepts || []).map((c: any) => c.term.toLowerCase().trim()))
 
@@ -629,7 +629,7 @@ export default function AdminChapterConceptsPage() {
           await new Promise(r => setTimeout(r, Math.max(5000, capsulePacingDelay * 1000)))
           // Re-sync with server
           try {
-            const reRes = await fetch(`/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
+            const reRes = await fetch(`/ard/api/admin/chapters/${chapterId}/mindmap?_t=${Date.now()}`, { cache: 'no-store' })
             const reData = await reRes.json()
             ;(reData.existingConcepts || []).forEach((c: any) => existingNames.add(c.term.toLowerCase().trim()))
           } catch {}

@@ -48,7 +48,7 @@ export function ReportQuestionButton({
 
     let isMounted = true
     // Fetch this question's specific report status
-    fetch(`/api/reports?questionId=${questionId}`)
+    fetch(`/ard/api/reports?questionId=${questionId}`)
       .then(res => res.json())
       .then(data => {
         if (isMounted && data?.isReported) {
@@ -85,7 +85,7 @@ export function ReportQuestionButton({
     setLoading(true)
     setFeedbackMessage(null)
     try {
-      const res = await fetch('/api/reports', {
+      const res = await fetch('/ard/api/reports', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

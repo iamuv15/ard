@@ -39,7 +39,7 @@ export function RetagQuizButton({ quizId, totalQuestions, compact = false }: Ret
       const batchSize = 10
 
       while (!isCompleted) {
-        const res = await fetch(`/api/admin/quizzes/${quizId}/enrich`, {
+        const res = await fetch(`/ard/api/admin/quizzes/${quizId}/enrich`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -85,7 +85,7 @@ export function RetagQuizButton({ quizId, totalQuestions, compact = false }: Ret
     setProgressText('Syncing keywords...')
 
     try {
-      const res = await fetch(`/api/admin/quizzes/${quizId}/retag`, {
+      const res = await fetch(`/ard/api/admin/quizzes/${quizId}/retag`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mode: 'regex_sync' })

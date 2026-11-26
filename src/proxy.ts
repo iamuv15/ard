@@ -1,53 +1,192 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import { jwtVerify } from 'jose'
+import { createServerClient } from '@supabase/ssr';
+import { NextResponse, type NextRequest } from 'next/server';
+
+const APP_SLUG = process.env.APP_SLUG || 'ard';
+const BASE_PATH = `/${APP_SLUG}`;
+const DASHBOARD_PATH = process.env.APP_DASHBOARD_PATH || '/';
+const HUB_PROXY_SECRET = process.env.HUB_PROXY_SECRET || '';
+const HUB_ORIGIN = process.env.HUB_ORIGIN || 'https://liveshala.com';
+const ENFORCE_HUB_PROXY = process.env.ENFORCE_HUB_PROXY === 'true';
+
+function timingSafeEqualString(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let mismatch = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return mismatch === 0;
+}
+
+async function verifyHubHeaderSignature(
+  expectedUid: string,
+  tsRaw: string,
+  sig: string
+): Promise<boolean> {
+  if (!HUB_PROXY_SECRET) return false;
+  const ts = Number(tsRaw);
+  if (!Number.isFinite(ts)) return false;
+  const ageSeconds = Math.abs(Math.floor(Date.now() / 1000) - ts);
+  if (ageSeconds > 60) return false;
+
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    'raw',
+    enc.encode(HUB_PROXY_SECRET),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  const macBuf = await crypto.subtle.sign(
+    'HMAC',
+    key,
+    enc.encode(`${APP_SLUG}:${expectedUid}:${ts}`)
+  );
+  const expectedSig = Array.from(new Uint8Array(macBuf))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+
+  return timingSafeEqualString(sig, expectedSig);
+}
 
 export async function proxy(request: NextRequest) {
-  const { pathname } = request.nextUrl
+  const { pathname, search, basePath } = request.nextUrl;
+  const effectiveBasePath = basePath || BASE_PATH;
 
-  // Define paths that require authentication
-  const protectedPaths = ['/quiz', '/redemption', '/chapter', '/bookmarks']
-  
-  const isProtectedPath = protectedPaths.some(path => pathname.startsWith(path))
+  // Note: When basePath is set, Next.js strips it from request.nextUrl.pathname
+  if (
+    pathname.startsWith('/api/auth/sso-callback') ||
+    pathname.startsWith('/api/auth/sso-logout') ||
+    pathname.startsWith('/_next/')
+  ) {
+    return NextResponse.next();
+  }
 
-  if (isProtectedPath) {
-    const token = request.cookies.get('auth_token')?.value
+  const proxySecret = request.headers.get('x-hub-proxy-secret') ?? '';
+  const isFromHub = Boolean(
+    proxySecret &&
+      HUB_PROXY_SECRET &&
+      timingSafeEqualString(proxySecret, HUB_PROXY_SECRET)
+  );
 
-    if (!token) {
-      const loginUrl = new URL('/login', request.url)
-      loginUrl.searchParams.set('redirect', pathname)
-      return NextResponse.redirect(loginUrl)
+  if (ENFORCE_HUB_PROXY && !isFromHub) {
+    return new NextResponse('Not Found', { status: 404 });
+  }
+
+  let response = NextResponse.next({ request });
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://nvcbchefumrcdkvjvquw.supabase.co';
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE || '';
+
+  const supabase = createServerClient(
+    supabaseUrl,
+    anonKey,
+    {
+      cookieOptions: { path: effectiveBasePath },
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) =>
+            request.cookies.set(name, value)
+          );
+          response = NextResponse.next({ request });
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, {
+              ...options,
+              path: effectiveBasePath,
+            })
+          );
+        },
+      },
     }
+  );
 
-    try {
-      const secret = process.env.JWT_SECRET || 'fallback-secret-key-change-me'
-      await jwtVerify(token, new TextEncoder().encode(secret))
-    } catch (err) {
-      // Invalid token
-      const loginUrl = new URL('/login', request.url)
-      loginUrl.searchParams.set('redirect', pathname)
-      const response = NextResponse.redirect(loginUrl)
-      response.cookies.delete('auth_token')
-      return response
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (isFromHub) {
+    const expectedUid = request.headers.get('x-hub-expected-uid');
+    const expectedTs = request.headers.get('x-hub-expected-ts');
+    const expectedSig = request.headers.get('x-hub-expected-sig');
+
+    if (
+      expectedUid &&
+      expectedTs &&
+      expectedSig &&
+      (await verifyHubHeaderSignature(expectedUid, expectedTs, expectedSig))
+    ) {
+      if (!user || user.id !== expectedUid) {
+        const fullReturnPath = `${effectiveBasePath}${pathname === '/' ? '' : pathname}${search}`;
+        const ssoLaunch = new URL('/auth/sso-launch', HUB_ORIGIN);
+        ssoLaunch.searchParams.set('slug', APP_SLUG);
+        ssoLaunch.searchParams.set('next', fullReturnPath);
+
+        const healResponse = NextResponse.redirect(ssoLaunch, 302);
+        for (const c of request.cookies.getAll()) {
+          if (c.name.startsWith('sb-')) {
+            healResponse.cookies.set(c.name, '', {
+              path: effectiveBasePath,
+              maxAge: 0,
+            });
+          }
+        }
+        return healResponse;
+      }
+
+      if (pathname === '/' && DASHBOARD_PATH !== '/') {
+        const publicHost =
+          request.headers.get('x-forwarded-host') || request.nextUrl.host;
+        const publicProto = request.headers.get('x-forwarded-proto') || 'https';
+        return NextResponse.redirect(
+          new URL(
+            `${effectiveBasePath}${DASHBOARD_PATH}`,
+            `${publicProto}://${publicHost}`
+          ),
+          302
+        );
+      }
     }
   }
 
   // Admin protection
-  const isAdminPath = pathname.startsWith('/admin')
-  const isAdminPublicPath = pathname === '/admin/login'
-  const adminToken = request.cookies.get('admin_session')?.value || request.cookies.get('admin_token')?.value
+  const isAdminPath = pathname.startsWith('/admin');
+  const isAdminPublicPath = pathname === '/admin/login';
+  const adminToken =
+    request.cookies.get('admin_session')?.value ||
+    request.cookies.get('admin_token')?.value;
 
-  if (isAdminPath && !isAdminPublicPath && (!adminToken || (adminToken !== 'true' && adminToken !== 'authenticated'))) {
-    return NextResponse.redirect(new URL('/admin/login', request.url))
+  if (
+    isAdminPath &&
+    !isAdminPublicPath &&
+    (!adminToken || (adminToken !== 'true' && adminToken !== 'authenticated'))
+  ) {
+    return NextResponse.redirect(new URL(`${effectiveBasePath}/admin/login`, request.url));
   }
 
   if (isAdminPublicPath && adminToken) {
-    return NextResponse.redirect(new URL('/admin', request.url))
+    return NextResponse.redirect(new URL(`${effectiveBasePath}/admin`, request.url));
   }
 
-  return NextResponse.next()
+  // Protected student routes for standalone mode
+  const protectedPaths = ['/quiz', '/redemption', '/chapter', '/bookmarks'];
+  const isProtectedPath = protectedPaths.some((p) => pathname.startsWith(p));
+
+  if (isProtectedPath) {
+    const hasStandaloneToken = Boolean(request.cookies.get('auth_token')?.value);
+    const hasSupabaseUser = Boolean(user);
+
+    if (!hasStandaloneToken && !hasSupabaseUser) {
+      const loginUrl = new URL(`${effectiveBasePath}/login`, request.url);
+      loginUrl.searchParams.set('redirect', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+  }
+
+  return response;
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
-}
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+};

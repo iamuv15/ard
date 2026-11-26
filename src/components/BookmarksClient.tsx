@@ -99,7 +99,7 @@ export default function BookmarksClient({ initialBookmarks, userName }: Props) {
     setBookmarks(prev => prev.filter(b => b.questionId !== questionId))
 
     try {
-      await fetch('/api/bookmarks', {
+      await fetch('/ard/api/bookmarks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ questionId })

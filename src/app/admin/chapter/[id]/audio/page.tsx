@@ -117,7 +117,7 @@ export default function ChapterAudioAdminPage() {
   const fetchChapterAudio = async () => {
     try {
       setLoading(true)
-      const res = await fetch(`/api/admin/chapters/${chapterId}/audio`)
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/audio`)
       if (!res.ok) throw new Error('Failed to fetch audio data')
       const data = await res.json()
       setChapter(data.chapter)
@@ -148,7 +148,7 @@ export default function ChapterAudioAdminPage() {
   const handlePlanClusters = async (subCategory: string) => {
     try {
       setPlanningSubCat(subCategory)
-      const res = await fetch(`/api/admin/chapters/${chapterId}/audio/plan`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/audio/plan`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ subCategory })
@@ -187,7 +187,7 @@ export default function ChapterAudioAdminPage() {
         })
       }, 7000)
 
-      const res = await fetch(`/api/admin/chapters/${chapterId}/audio/generate`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/audio/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -234,7 +234,7 @@ export default function ChapterAudioAdminPage() {
     try {
       for (const group of pendingGroups) {
         if (!proposedClusters[group.subCategory] || proposedClusters[group.subCategory].length === 0) {
-          const res = await fetch(`/api/admin/chapters/${chapterId}/audio/plan`, {
+          const res = await fetch(`/ard/api/admin/chapters/${chapterId}/audio/plan`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ subCategory: group.subCategory })
@@ -272,7 +272,7 @@ export default function ChapterAudioAdminPage() {
       for (const group of pendingGroups) {
         if (!currentProposed[group.subCategory] || currentProposed[group.subCategory].length === 0) {
           try {
-            const planRes = await fetch(`/api/admin/chapters/${chapterId}/audio/plan`, {
+            const planRes = await fetch(`/ard/api/admin/chapters/${chapterId}/audio/plan`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ subCategory: group.subCategory })
@@ -326,7 +326,7 @@ export default function ChapterAudioAdminPage() {
       } : null)
 
       try {
-        const res = await fetch(`/api/admin/chapters/${chapterId}/audio/generate`, {
+        const res = await fetch(`/ard/api/admin/chapters/${chapterId}/audio/generate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -397,7 +397,7 @@ export default function ChapterAudioAdminPage() {
     }
 
     try {
-      const res = await fetch(`/api/admin/chapters/${chapterId}/audio/${trackId}`, {
+      const res = await fetch(`/ard/api/admin/chapters/${chapterId}/audio/${trackId}`, {
         method: 'DELETE'
       })
       if (!res.ok) throw new Error('Failed to delete track')
