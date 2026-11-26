@@ -42,7 +42,10 @@ export async function getUserSession(): Promise<TokenPayload | null> {
   }
 
   // Check Supabase Auth session (SSO via Liveshala Hub)
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://luqqevfwgjpmvuyeyvzv.supabase.co'
+  let supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://luqqevfwgjpmvuyeyvzv.supabase.co'
+  if (supabaseUrl.includes('nvcbchefumrcdkvjvquw')) {
+    supabaseUrl = 'https://luqqevfwgjpmvuyeyvzv.supabase.co'
+  }
   let anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE
 
   const HARDCODED_LUQQ_KEY =

@@ -53,7 +53,10 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Malformed SSO claims' }, { status: 400 });
     }
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://luqqevfwgjpmvuyeyvzv.supabase.co';
+    let supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://luqqevfwgjpmvuyeyvzv.supabase.co';
+    if (supabaseUrl.includes('nvcbchefumrcdkvjvquw')) {
+      supabaseUrl = 'https://luqqevfwgjpmvuyeyvzv.supabase.co';
+    }
     let serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE || '';
     
     // Fallback to active ARD Supabase project (luqqevfwgjpmvuyeyvzv) if env contains legacy project key
