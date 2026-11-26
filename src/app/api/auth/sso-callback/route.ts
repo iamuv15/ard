@@ -53,21 +53,30 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Malformed SSO claims' }, { status: 400 });
     }
 
-    let supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://luqqevfwgjpmvuyeyvzv.supabase.co';
-    if (supabaseUrl.includes('nvcbchefumrcdkvjvquw')) {
-      supabaseUrl = 'https://luqqevfwgjpmvuyeyvzv.supabase.co';
-    }
-    let serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE || '';
-    
-    // Fallback to active ARD Supabase project (luqqevfwgjpmvuyeyvzv) if env contains legacy project key
-    const HARDCODED_LUQQ_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1cXFldmZ3Z2pwbXZ1eWV5dnp2Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MDY3MDcxNiwiZXhwIjoyMTA2MjQ2NzE2fQ.1E2pDpkj4bjpRrYx25PZj_pvCIKfvPZx23-NpE722i4';
-    if (!serviceRoleKey || serviceRoleKey.includes('nvcbchefumrcdkvjvquw')) {
-      serviceRoleKey = HARDCODED_LUQQ_KEY;
+    const HARDCODED_LUQQ_KEY =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1cXFldmZ3Z2pwbXZ1eWV5dnp2Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MDY3MDcxNiwiZXhwIjoyMTA2MjQ2NzE2fQ.1E2pDpkj4bjpRrYx25PZj_pvCIKfvPZx23-NpE722i4';
+
+    let supabaseUrl = 'https://luqqevfwgjpmvuyeyvzv.supabase.co';
+    if (
+      process.env.NEXT_PUBLIC_SUPABASE_URL &&
+      !process.env.NEXT_PUBLIC_SUPABASE_URL.includes('nvcbchefumrcdkvjvquw')
+    ) {
+      supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     }
 
-    let anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || serviceRoleKey;
-    if (!anonKey || anonKey.includes('nvcbchefumrcdkvjvquw')) {
-      anonKey = HARDCODED_LUQQ_KEY;
+    let serviceRoleKey = HARDCODED_LUQQ_KEY;
+    const envKey =
+      process.env.SUPABASE_SERVICE_ROLE_KEY ||
+      process.env.SUPABASE_SERVICE_ROLE ||
+      '';
+    if (envKey && envKey.includes('luqqevfwgjpmvuyeyvzv')) {
+      serviceRoleKey = envKey;
+    }
+
+    let anonKey = HARDCODED_LUQQ_KEY;
+    const envAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+    if (envAnon && envAnon.includes('luqqevfwgjpmvuyeyvzv')) {
+      anonKey = envAnon;
     }
 
     if (!supabaseUrl || !serviceRoleKey) {
