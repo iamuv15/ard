@@ -43,7 +43,13 @@ export async function getUserSession(): Promise<TokenPayload | null> {
 
   // Check Supabase Auth session (SSO via Liveshala Hub)
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://luqqevfwgjpmvuyeyvzv.supabase.co'
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE
+  let anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE
+
+  const HARDCODED_LUQQ_KEY =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1cXFldmZ3Z2pwbXZ1eWV5dnp2Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MDY3MDcxNiwiZXhwIjoyMTA2MjQ2NzE2fQ.1E2pDpkj4bjpRrYx25PZj_pvCIKfvPZx23-NpE722i4'
+  if (!anonKey || anonKey.includes('nvcbchefumrcdkvjvquw')) {
+    anonKey = HARDCODED_LUQQ_KEY
+  }
 
   if (anonKey) {
     try {
