@@ -683,3 +683,153 @@ export async function loadFullDailyQuiz(dailyQuizId: string) {
     },
   })
 }
+
+export function shiftIstPeriodKey(periodKey: string, deltaDays: number): string {
+  const [y, m, d] = periodKey.split('-').map(Number)
+  const dt = new Date(Date.UTC(y, m - 1, d + deltaDays))
+  return dt.toISOString().slice(0, 10)
+}
+
+export type StreakStats = {
+  currentStreak: number
+  longestStreak: number
+  totalCompleted: number
+  totalAttempted: number
+  averageAccuracy: number
+  bestScore: number | null
+  todayCompleted: boolean
+}
+
+export type DailyHistoryEntry = {
+  id: string
+  periodKey: string
+  status: string
+  score: number | null
+  totalQuestions: number
+  answeredCount: number
+  focusChapters: string[]
+  completedAt: Date | null
+  createdAt: Date
+}
+
+export async function getUserDailyHistoryAndStreaks(userId: number) {
+  const todayKey = getIstPeriodKey()
+  const yesterdayKey = shiftIstPeriodKey(todayKey, -1)
+
+  const rows = await prisma.dailyRetentionQuiz.findMany({
+    where: { userId },
+    orderBy: { periodKey: 'desc' },
+    include: {
+      questions: {
+        select: { selectedOption: true, isCorrect: true },
+      },
+    },
+  })
+
+  const history: DailyHistoryEntry[] = rows.map((r) => {
+    const answeredCount = r.questions.filter((q) => q.selectedOption !== null).length
+    const calculatedScore =
+      r.status === 'completed'
+        ? (r.score ?? r.questions.filter((q) => q.isCorrect === true).length)
+        : r.score
+
+    return {
+      id: r.id,
+      periodKey: r.periodKey,
+      status: r.status,
+      score: calculatedScore,
+      totalQuestions: r.totalQuestions,
+      answeredCount,
+      focusChapters: r.focusChapters,
+      completedAt: r.completedAt,
+      createdAt: r.createdAt,
+    }
+  })
+
+  const completedEntries = history.filter((h) => h.status === 'completed')
+  const completedKeys = new Set(completedEntries.map((h) => h.periodKey))
+  const todayCompleted = completedKeys.has(todayKey)
+
+  // Current streak: counts consecutive days ending today OR yesterday (if today hasn't been completed yet)
+  let currentStreak = 0
+  let cursor = todayCompleted ? todayKey : completedKeys.has(yesterdayKey) ? yesterdayKey : null
+  while (cursor && completedKeys.has(cursor)) {
+    currentStreak++
+    cursor = shiftIstPeriodKey(cursor, -1)
+  }
+
+  // Longest streak across all historical completed dates
+  let longestStreak = 0
+  const sortedAsc = Array.from(completedKeys).sort()
+  let run = 0
+  let prevKey: string | null = null
+  for (const key of sortedAsc) {
+    if (prevKey && shiftIstPeriodKey(prevKey, 1) === key) {
+      run++
+    } else {
+      run = 1
+    }
+    if (run > longestStreak) longestStreak = run
+    prevKey = key
+  }
+
+  // Average accuracy & best score
+  let totalScoreSum = 0
+  let totalQuestionsSum = 0
+  let bestScore: number | null = null
+  for (const h of completedEntries) {
+    const s = h.score ?? 0
+    totalScoreSum += s
+    totalQuestionsSum += h.totalQuestions || 20
+    if (bestScore === null || s > bestScore) bestScore = s
+  }
+  const averageAccuracy =
+    totalQuestionsSum > 0 ? Math.round((totalScoreSum / totalQuestionsSum) * 100) : 0
+
+  // 14-day IST activity calendar (oldest -> today)
+  const byKey = new Map(history.map((h) => [h.periodKey, h]))
+  const activityCalendar: {
+    periodKey: string
+    status: 'completed' | 'in_progress' | 'none'
+    score: number | null
+    totalQuestions: number
+    isToday: boolean
+  }[] = []
+
+  for (let offset = -13; offset <= 0; offset++) {
+    const key = shiftIstPeriodKey(todayKey, offset)
+    const entry = byKey.get(key)
+    let calStatus: 'completed' | 'in_progress' | 'none' = 'none'
+    if (entry?.status === 'completed') calStatus = 'completed'
+    else if (entry && (entry.answeredCount > 0 || entry.status === 'in_progress')) calStatus = 'in_progress'
+
+    activityCalendar.push({
+      periodKey: key,
+      status: calStatus,
+      score: entry?.score ?? null,
+      totalQuestions: entry?.totalQuestions ?? 20,
+      isToday: key === todayKey,
+    })
+  }
+
+  const stats: StreakStats = {
+    currentStreak,
+    longestStreak,
+    totalCompleted: completedEntries.length,
+    totalAttempted: history.length,
+    averageAccuracy,
+    bestScore,
+    todayCompleted,
+  }
+
+  return { stats, history, activityCalendar }
+}
+
+export async function loadDailyQuizByPeriodKey(userId: number, periodKey: string) {
+  const row = await prisma.dailyRetentionQuiz.findUnique({
+    where: { userId_periodKey: { userId, periodKey } },
+    select: { id: true },
+  })
+  if (!row) return null
+  return loadFullDailyQuiz(row.id)
+}

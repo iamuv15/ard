@@ -17,6 +17,10 @@ import {
   Calendar,
   ArrowRight,
   RotateCcw,
+  History,
+  BarChart3,
+  Target,
+  Award,
 } from 'lucide-react'
 import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
@@ -85,6 +89,48 @@ type EligibilityInfo = {
   mistakeCount: number
 }
 
+type StreakStats = {
+  currentStreak: number
+  longestStreak: number
+  totalCompleted: number
+  totalAttempted: number
+  averageAccuracy: number
+  bestScore: number | null
+  todayCompleted: boolean
+}
+
+type DailyHistoryEntry = {
+  id: string
+  periodKey: string
+  status: string
+  score: number | null
+  totalQuestions: number
+  answeredCount: number
+  focusChapters: string[]
+  completedAt: string | null
+  createdAt: string
+}
+
+type CalendarDay = {
+  periodKey: string
+  status: 'completed' | 'in_progress' | 'none'
+  score: number | null
+  totalQuestions: number
+  isToday: boolean
+}
+
+function formatFriendlyDate(periodKey: string, todayKey: string): string {
+  if (periodKey === todayKey) return 'Today'
+  const [y, m, d] = periodKey.split('-').map(Number)
+  const dt = new Date(Date.UTC(y, m - 1, d))
+  return dt.toLocaleDateString('en-IN', {
+    timeZone: 'UTC',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
+}
+
 function getBucketBadge(bucket: DailyQuestionItem['sourceBucket']) {
   switch (bucket) {
     case 'RECENT_WRONG':
@@ -111,6 +157,12 @@ export default function DailyQuizPage() {
   const [savingAnswer, setSavingAnswer] = useState<boolean>(false)
   const [activeConceptSlug, setActiveConceptSlug] = useState<string | null>(null)
   const [reviewFilter, setReviewFilter] = useState<'ALL' | 'INCORRECT' | 'FLAGGED'>('ALL')
+  const [activeTab, setActiveTab] = useState<'TODAY' | 'HISTORY'>('TODAY')
+  const [streakStats, setStreakStats] = useState<StreakStats | null>(null)
+  const [historyList, setHistoryList] = useState<DailyHistoryEntry[]>([])
+  const [activityCalendar, setActivityCalendar] = useState<CalendarDay[]>([])
+  const [pastQuiz, setPastQuiz] = useState<DailyQuizData | null>(null)
+  const [loadingPast, setLoadingPast] = useState<boolean>(false)
 
   const voiceTutor = useVoiceTutor({ isQuiz12: false })
 
@@ -129,6 +181,9 @@ export default function DailyQuizPage() {
       setPeriodKey(data.periodKey || '')
       setEligibility(data.eligibility || null)
       setUnlocked(Boolean(data.unlocked))
+      if (data.streakStats) setStreakStats(data.streakStats)
+      if (Array.isArray(data.history)) setHistoryList(data.history)
+      if (Array.isArray(data.activityCalendar)) setActivityCalendar(data.activityCalendar)
 
       if (data.generating) {
         setTimeout(() => loadQuiz(), 1500)
@@ -149,6 +204,30 @@ export default function DailyQuizPage() {
     } catch {
       setError('Network error while loading your daily quiz.')
       setLoading(false)
+    }
+  }
+
+  const handleOpenPastQuiz = async (targetPeriodKey: string) => {
+    if (targetPeriodKey === periodKey && quiz) {
+      setPastQuiz(null)
+      setActiveTab('TODAY')
+      return
+    }
+    setLoadingPast(true)
+    setReviewFilter('ALL')
+    try {
+      const res = await fetch(`/ard/api/daily-quiz?periodKey=${encodeURIComponent(targetPeriodKey)}`, {
+        cache: 'no-store',
+      })
+      const data = await res.json()
+      if (res.ok && data.quiz) {
+        setPastQuiz(data.quiz)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    } catch (e) {
+      console.error('Failed to load past quiz', e)
+    } finally {
+      setLoadingPast(false)
     }
   }
 
@@ -301,6 +380,9 @@ export default function DailyQuizPage() {
       const data = await res.json()
       if (res.ok && data.quiz) {
         setQuiz(data.quiz)
+        if (data.streakStats) setStreakStats(data.streakStats)
+        if (Array.isArray(data.history)) setHistoryList(data.history)
+        if (Array.isArray(data.activityCalendar)) setActivityCalendar(data.activityCalendar)
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     } catch (e) {
@@ -332,10 +414,58 @@ export default function DailyQuizPage() {
         </div>
       </div>
 
-      <div className="flex items-center gap-2.5 shrink-0">
-        {quiz && quiz.status !== 'completed' && (
+      <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        {streakStats && (
+          <button
+            type="button"
+            onClick={() => {
+              setPastQuiz(null)
+              setActiveTab(activeTab === 'HISTORY' ? 'TODAY' : 'HISTORY')
+            }}
+            className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1.5 rounded-lg border transition-colors cursor-pointer ${
+              streakStats.currentStreak > 0
+                ? 'bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100'
+                : 'bg-stone-100 text-stone-600 border-stone-200 hover:bg-stone-200'
+            }`}
+            title="View streaks & past daily quiz history"
+          >
+            <Flame className={`w-3.5 h-3.5 ${streakStats.currentStreak > 0 ? 'fill-amber-500 text-amber-500' : 'text-stone-400'}`} />
+            <span>{streakStats.currentStreak}d Streak</span>
+          </button>
+        )}
+
+        <div className="hidden md:flex items-center bg-stone-100 p-0.5 rounded-lg border border-stone-200">
+          <button
+            type="button"
+            onClick={() => {
+              setPastQuiz(null)
+              setActiveTab('TODAY')
+            }}
+            className={`px-2.5 py-1 rounded-md text-xs font-bold transition-colors cursor-pointer ${
+              activeTab === 'TODAY' ? 'bg-white text-stone-900 shadow-2xs' : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            Today
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setPastQuiz(null)
+              setActiveTab('HISTORY')
+            }}
+            className={`px-2.5 py-1 rounded-md text-xs font-bold transition-colors cursor-pointer flex items-center gap-1 ${
+              activeTab === 'HISTORY' ? 'bg-white text-stone-900 shadow-2xs' : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <History className="w-3 h-3" />
+            <span>History ({historyList.length})</span>
+          </button>
+        </div>
+
+        {activeTab === 'TODAY' && quiz && quiz.status !== 'completed' && (
           <div className="text-xs font-bold text-stone-700 bg-stone-100 px-3 py-1.5 rounded-lg border border-stone-200">
-            Answered: <span className="text-stone-900">{answeredCount}/{quiz.totalQuestions}</span>
+            <span className="hidden sm:inline">Answered: </span>
+            <span className="text-stone-900">{answeredCount}/{quiz.totalQuestions}</span>
           </div>
         )}
         <Link
@@ -462,14 +592,17 @@ export default function DailyQuizPage() {
     )
   }
 
-  // 3. Completed State (Score + Chapter Breakdown + Detailed Review)
-  if (quiz && quiz.status === 'completed') {
-    const finalScore = quiz.score ?? currentCorrectCount
-    const accuracy = quiz.totalQuestions > 0 ? Math.round((finalScore / quiz.totalQuestions) * 100) : 0
+  // Reusable Completed / Past-Day Quiz Review Renderer
+  const renderQuizReview = (targetQuiz: DailyQuizData, isPastReview: boolean) => {
+    const computedScore =
+      targetQuiz.status === 'completed'
+        ? targetQuiz.score ?? targetQuiz.questions.filter((q) => q.isCorrect === true).length
+        : targetQuiz.questions.filter((q) => q.isCorrect === true).length
+    const totalQs = targetQuiz.totalQuestions || targetQuiz.questions.length || 20
+    const accuracy = totalQs > 0 ? Math.round((computedScore / totalQs) * 100) : 0
 
-    // Chapter breakdown
     const chapterStats = new Map<string, { total: number; correct: number }>()
-    for (const q of quiz.questions) {
+    for (const q of targetQuiz.questions) {
       const ch = q.chapterName || 'General'
       const cur = chapterStats.get(ch) || { total: 0, correct: 0 }
       cur.total++
@@ -477,7 +610,7 @@ export default function DailyQuizPage() {
       chapterStats.set(ch, cur)
     }
 
-    const filteredReview = quiz.questions.filter((q) => {
+    const filteredReview = targetQuiz.questions.filter((q) => {
       if (reviewFilter === 'INCORRECT') return q.isCorrect !== true
       if (reviewFilter === 'FLAGGED') return q.isFlagged
       return true
@@ -488,19 +621,42 @@ export default function DailyQuizPage() {
         {renderHeader()}
 
         <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 space-y-6">
+          {isPastReview && (
+            <button
+              type="button"
+              onClick={() => setPastQuiz(null)}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-stone-600 hover:text-stone-900 bg-white border border-stone-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+            >
+              <ChevronLeft className="w-3.5 h-3.5" />
+              <span>Back to Streaks &amp; History</span>
+            </button>
+          )}
+
           {/* Score Hero Card */}
           <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-xs">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
-                  <Trophy className="w-3.5 h-3.5" />
-                  <span>Daily Retention Complete • {quiz.periodKey}</span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                    <Trophy className="w-3.5 h-3.5" />
+                    <span>
+                      {targetQuiz.status === 'completed' ? 'Daily Retention Complete' : 'Partial / Past Attempt'} • {targetQuiz.periodKey}
+                    </span>
+                  </div>
+                  {!isPastReview && streakStats && streakStats.currentStreak > 0 && (
+                    <div className="inline-flex items-center gap-1 text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+                      <Flame className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                      <span>{streakStats.currentStreak}-Day Streak!</span>
+                    </div>
+                  )}
                 </div>
                 <h1 className="text-3xl sm:text-4xl font-black text-stone-900">
-                  {finalScore} / {quiz.totalQuestions} Correct ({accuracy}%)
+                  {computedScore} / {totalQs} Correct ({accuracy}%)
                 </h1>
                 <p className="text-sm text-stone-600">
-                  Any missed questions have been queued in <strong>The Forge</strong>, and redeemed mistakes advanced their retention interval.
+                  {isPastReview
+                    ? `Archived review from ${formatFriendlyDate(targetQuiz.periodKey, periodKey)}.`
+                    : 'Any missed questions have been queued in The Forge, and redeemed mistakes advanced their retention interval.'}
                 </p>
               </div>
 
@@ -511,12 +667,17 @@ export default function DailyQuizPage() {
                 >
                   ← Back to Liveshala
                 </a>
-                <Link
-                  href="/"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 text-sm font-bold transition-colors"
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPastQuiz(null)
+                    setActiveTab('HISTORY')
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 text-sm font-bold transition-colors cursor-pointer"
                 >
-                  ARD Syllabus
-                </Link>
+                  <History className="w-4 h-4" />
+                  <span>View History</span>
+                </button>
               </div>
             </div>
 
@@ -564,14 +725,14 @@ export default function DailyQuizPage() {
               <div className="flex items-center gap-1.5 bg-white border border-stone-200 p-1 rounded-xl">
                 {(
                   [
-                    { key: 'ALL', label: `All (${quiz.questions.length})` },
+                    { key: 'ALL', label: `All (${targetQuiz.questions.length})` },
                     {
                       key: 'INCORRECT',
-                      label: `Missed (${quiz.questions.filter((q) => q.isCorrect !== true).length})`,
+                      label: `Missed (${targetQuiz.questions.filter((q) => q.isCorrect !== true).length})`,
                     },
                     {
                       key: 'FLAGGED',
-                      label: `Flagged (${quiz.questions.filter((q) => q.isFlagged).length})`,
+                      label: `Flagged (${targetQuiz.questions.filter((q) => q.isFlagged).length})`,
                     },
                   ] as const
                 ).map((tab) => (
@@ -674,6 +835,266 @@ export default function DailyQuizPage() {
         </div>
       </div>
     )
+  }
+
+  // 2.5 History & Streaks Tab View
+  if (activeTab === 'HISTORY') {
+    if (pastQuiz) {
+      return renderQuizReview(pastQuiz, true)
+    }
+
+    return (
+      <div className="min-h-screen bg-[#FBF9F5] flex flex-col font-sans text-stone-900 pb-16">
+        {renderHeader()}
+
+        <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 space-y-6">
+          {/* Mobile Tab Switcher */}
+          <div className="flex md:hidden items-center bg-white p-1 rounded-xl border border-stone-200">
+            <button
+              type="button"
+              onClick={() => setActiveTab('TODAY')}
+              className="flex-1 py-2 rounded-lg text-xs font-bold text-stone-600 cursor-pointer"
+            >
+              Today&apos;s Quiz
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('HISTORY')}
+              className="flex-1 py-2 rounded-lg text-xs font-bold bg-stone-900 text-white cursor-pointer"
+            >
+              History &amp; Streaks
+            </button>
+          </div>
+
+          {/* 4 Streak & Performance Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs font-bold text-stone-500 mb-1.5">
+                <Flame className="w-4 h-4 text-amber-500 fill-amber-500" />
+                <span>Current Streak</span>
+              </div>
+              <div className="text-2xl sm:text-3xl font-black text-stone-900">
+                {streakStats?.currentStreak ?? 0} <span className="text-sm font-bold text-stone-500">days</span>
+              </div>
+              <p className="text-[11px] text-stone-500 mt-1">
+                {streakStats?.todayCompleted
+                  ? 'Today completed!'
+                  : unlocked
+                  ? 'Finish today to extend!'
+                  : 'Complete 1 quiz to start'}
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs font-bold text-stone-500 mb-1.5">
+                <Award className="w-4 h-4 text-indigo-600" />
+                <span>Longest Streak</span>
+              </div>
+              <div className="text-2xl sm:text-3xl font-black text-stone-900">
+                {streakStats?.longestStreak ?? 0} <span className="text-sm font-bold text-stone-500">days</span>
+              </div>
+              <p className="text-[11px] text-stone-500 mt-1">
+                {streakStats?.totalCompleted ?? 0} quizzes finished
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs font-bold text-stone-500 mb-1.5">
+                <Target className="w-4 h-4 text-emerald-600" />
+                <span>Avg Accuracy</span>
+              </div>
+              <div className="text-2xl sm:text-3xl font-black text-stone-900">
+                {streakStats?.averageAccuracy ?? 0}%
+              </div>
+              <p className="text-[11px] text-stone-500 mt-1">Across completed dailies</p>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center gap-2 text-xs font-bold text-stone-500 mb-1.5">
+                <BarChart3 className="w-4 h-4 text-rose-600" />
+                <span>Best Score</span>
+              </div>
+              <div className="text-2xl sm:text-3xl font-black text-stone-900">
+                {streakStats?.bestScore !== null && streakStats?.bestScore !== undefined
+                  ? `${streakStats.bestScore}/20`
+                  : '—'}
+              </div>
+              <p className="text-[11px] text-stone-500 mt-1">Personal daily high</p>
+            </div>
+          </div>
+
+          {/* 14-Day Activity Calendar */}
+          {activityCalendar.length > 0 && (
+            <div className="bg-white rounded-2xl border border-stone-200 p-5 shadow-2xs space-y-3">
+              <div className="flex items-center justify-between">
+                <h2 className="text-sm font-black text-stone-900">Last 14 Days Consistency (IST)</h2>
+                <div className="flex items-center gap-3 text-[11px] text-stone-500 font-semibold">
+                  <span className="flex items-center gap-1">
+                    <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block" /> Done
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <span className="w-2.5 h-2.5 rounded-sm bg-amber-400 inline-block" /> Partial
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <span className="w-2.5 h-2.5 rounded-sm bg-stone-200 inline-block" /> Missed
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-7 sm:grid-cols-14 gap-2">
+                {activityCalendar.map((day) => {
+                  const dayNum = day.periodKey.slice(8, 10)
+                  let boxCls = 'bg-stone-100 border-stone-200 text-stone-500'
+                  if (day.status === 'completed') {
+                    boxCls = 'bg-emerald-500 border-emerald-600 text-white'
+                  } else if (day.status === 'in_progress') {
+                    boxCls = 'bg-amber-400 border-amber-500 text-amber-950'
+                  }
+
+                  return (
+                    <div
+                      key={day.periodKey}
+                      title={`${day.periodKey}${day.score !== null ? `: ${day.score}/${day.totalQuestions}` : ''}`}
+                      className={`h-11 rounded-xl border flex flex-col items-center justify-center text-[11px] font-bold ${boxCls} ${
+                        day.isToday ? 'ring-2 ring-stone-900 ring-offset-1' : ''
+                      }`}
+                    >
+                      <span>{dayNum}</span>
+                      {day.score !== null && (
+                        <span className="text-[9px] opacity-90">{day.score}/{day.totalQuestions}</span>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Full Attempt History Timeline */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-black text-stone-900">
+                Daily Quiz Attempt Archive ({historyList.length})
+              </h2>
+              <button
+                type="button"
+                onClick={() => setActiveTab('TODAY')}
+                className="text-xs font-bold text-stone-700 hover:text-stone-900 bg-white border border-stone-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+              >
+                Go to Today&apos;s Quiz →
+              </button>
+            </div>
+
+            {loadingPast && (
+              <div className="bg-white rounded-2xl border border-stone-200 p-6 flex items-center justify-center gap-2 text-sm text-stone-500">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Loading archived quiz review...</span>
+              </div>
+            )}
+
+            {historyList.length === 0 ? (
+              <div className="bg-white rounded-2xl border border-stone-200 p-8 text-center space-y-3">
+                <p className="text-sm font-semibold text-stone-600">
+                  No daily retention quizzes recorded yet.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('TODAY')}
+                  className="px-5 py-2.5 rounded-xl bg-stone-900 text-white text-xs font-bold cursor-pointer"
+                >
+                  Start Today&apos;s 20Q Quiz
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {historyList.map((entry) => {
+                  const isTodayEntry = entry.periodKey === periodKey
+                  const isCompleted = entry.status === 'completed'
+                  const pct =
+                    isCompleted && entry.score !== null && entry.totalQuestions > 0
+                      ? Math.round((entry.score / entry.totalQuestions) * 100)
+                      : null
+
+                  return (
+                    <div
+                      key={entry.id}
+                      className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                    >
+                      <div className="space-y-1.5 min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-sm font-black text-stone-900">
+                            {formatFriendlyDate(entry.periodKey, periodKey)}
+                          </span>
+                          <span className="text-[11px] font-semibold text-stone-400">
+                            ({entry.periodKey})
+                          </span>
+                          {isCompleted ? (
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                              Completed
+                            </span>
+                          ) : (
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200">
+                              {entry.answeredCount}/{entry.totalQuestions} answered
+                            </span>
+                          )}
+                        </div>
+
+                        {entry.focusChapters.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5">
+                            {entry.focusChapters.map((ch) => (
+                              <span
+                                key={ch}
+                                className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#FBF9F5] text-stone-600 border border-stone-200"
+                              >
+                                {ch}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0">
+                        {isCompleted && entry.score !== null ? (
+                          <div className="text-right">
+                            <div className="text-base font-black text-stone-900">
+                              {entry.score} / {entry.totalQuestions}
+                            </div>
+                            <div className="text-[11px] font-bold text-emerald-700">{pct}% accuracy</div>
+                          </div>
+                        ) : (
+                          <div className="text-right">
+                            <div className="text-xs font-bold text-stone-500">
+                              {entry.answeredCount} / {entry.totalQuestions} saved
+                            </div>
+                          </div>
+                        )}
+
+                        <button
+                          type="button"
+                          onClick={() => handleOpenPastQuiz(entry.periodKey)}
+                          className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
+                            isTodayEntry && !isCompleted
+                              ? 'bg-stone-900 hover:bg-stone-800 text-white'
+                              : 'bg-stone-100 hover:bg-stone-200 text-stone-800'
+                          }`}
+                        >
+                          {isTodayEntry && !isCompleted ? 'Resume →' : 'Review →'}
+                        </button>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // 3. Completed State (Score + Chapter Breakdown + Detailed Review)
+  if (quiz && quiz.status === 'completed') {
+    return renderQuizReview(quiz, false)
   }
 
   // 4. Active Quiz Runner (pending / in_progress)

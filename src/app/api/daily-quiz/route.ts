@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { getUserSession } from '@/lib/auth'
-import { generateOrFetchDailyQuiz, loadFullDailyQuiz } from '@/lib/dailyQuizEngine'
+import {
+  generateOrFetchDailyQuiz,
+  loadFullDailyQuiz,
+  getUserDailyHistoryAndStreaks,
+  loadDailyQuizByPeriodKey,
+} from '@/lib/dailyQuizEngine'
 
 function serializeDailyQuiz(quiz: Awaited<ReturnType<typeof loadFullDailyQuiz>>) {
   if (!quiz) return null
@@ -57,13 +62,35 @@ function serializeDailyQuiz(quiz: Awaited<ReturnType<typeof loadFullDailyQuiz>>)
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     const session = await getUserSession()
     if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
+    const searchParams = request.nextUrl.searchParams
+    const historyOnly = searchParams.get('history') === 'true'
+    const requestedPeriodKey = searchParams.get('periodKey')
+
+    // 1. Review a specific past date's quiz
+    if (requestedPeriodKey) {
+      const pastQuiz = await loadDailyQuizByPeriodKey(session.id, requestedPeriodKey)
+      if (!pastQuiz) {
+        return NextResponse.json({ error: 'Quiz for that date not found' }, { status: 404 })
+      }
+      return NextResponse.json({
+        quiz: serializeDailyQuiz(pastQuiz),
+      })
+    }
+
+    // 2. Fetch full streaks + history timeline
+    const historyData = await getUserDailyHistoryAndStreaks(session.id)
+    if (historyOnly) {
+      return NextResponse.json(historyData)
+    }
+
+    // 3. Default: Load/generate today's quiz + attach streakStats
     const result = await generateOrFetchDailyQuiz(session.id)
 
     if (!result.unlocked) {
@@ -71,6 +98,9 @@ export async function GET() {
         unlocked: false,
         periodKey: result.periodKey,
         eligibility: result.eligibility,
+        streakStats: historyData.stats,
+        activityCalendar: historyData.activityCalendar,
+        history: historyData.history,
         quiz: null,
       })
     }
@@ -80,6 +110,9 @@ export async function GET() {
         unlocked: true,
         periodKey: result.periodKey,
         eligibility: result.eligibility,
+        streakStats: historyData.stats,
+        activityCalendar: historyData.activityCalendar,
+        history: historyData.history,
         generating: true,
         quiz: null,
       })
@@ -89,6 +122,9 @@ export async function GET() {
       unlocked: true,
       periodKey: result.periodKey,
       eligibility: result.eligibility,
+      streakStats: historyData.stats,
+      activityCalendar: historyData.activityCalendar,
+      history: historyData.history,
       quiz: serializeDailyQuiz(result.quiz as any),
     })
   } catch (error) {
@@ -299,8 +335,17 @@ export async function POST(request: NextRequest) {
     }
 
     if (quiz.status === 'completed') {
-      const full = await loadFullDailyQuiz(quiz.id)
-      return NextResponse.json({ success: true, quiz: serializeDailyQuiz(full) })
+      const [full, historyData] = await Promise.all([
+        loadFullDailyQuiz(quiz.id),
+        getUserDailyHistoryAndStreaks(session.id),
+      ])
+      return NextResponse.json({
+        success: true,
+        quiz: serializeDailyQuiz(full),
+        streakStats: historyData.stats,
+        activityCalendar: historyData.activityCalendar,
+        history: historyData.history,
+      })
     }
 
     const score = quiz.questions.filter((q) => q.isCorrect === true).length
@@ -314,10 +359,16 @@ export async function POST(request: NextRequest) {
       },
     })
 
-    const full = await loadFullDailyQuiz(quiz.id)
+    const [full, historyData] = await Promise.all([
+      loadFullDailyQuiz(quiz.id),
+      getUserDailyHistoryAndStreaks(session.id),
+    ])
     return NextResponse.json({
       success: true,
       quiz: serializeDailyQuiz(full),
+      streakStats: historyData.stats,
+      activityCalendar: historyData.activityCalendar,
+      history: historyData.history,
     })
   } catch (error) {
     console.error('POST /api/daily-quiz error:', error)
