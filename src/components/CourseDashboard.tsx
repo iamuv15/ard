@@ -405,6 +405,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "Solar pump schemes (PM-KUSUM), biogas plant basic parts & cleaner/grader functions",
     medDesc: "Farm power availability in India (kW/ha), custom hiring centre (CHC) norms & biogas gas ratios",
     hardDesc: "Drying air psychrometrics, heat transfer thermodynamics in solar dryers & mechanization index math"
+  },
+  // ─── Plant Nutrition ───
+  "Essential Plant Nutrients & Criteria of Essentiality": {
+    desc: "Arnon & Stout criteria of essentiality (17 elements), structural nutrients (C, H, O), macronutrients vs micronutrients, beneficial elements (Co, Si, Na, V) & functional nutrients.",
+    easyDesc: "Essential nutrient count (17), basic structural elements & criteria of essentiality",
+    medDesc: "Beneficial elements (Co, Si, Na, V), functional nutrient concepts & Nicholas criteria",
+    hardDesc: "Criteria of essentiality exceptions, non-mineral nutrient assimilation & metabolic specificity"
+  },
+  "Primary Macronutrients: Functions & Dynamics (N, P, K)": {
+    desc: "Nitrogen (vegetative growth, proteins, chlorophyll), Phosphorus (ATP, root growth, key of life) & Potassium (stomatal regulation, enzyme activation, disease resistance).",
+    easyDesc: "Primary nutrient names (N, P, K), vegetative growth roles & general deficiency signs",
+    medDesc: "Forms absorbed (NO3- vs NH4+, H2PO4-), luxury consumption & stomatal regulation dynamics",
+    hardDesc: "Rubisco nitrogen partitioning, ATP phosphorylation thermodynamics & K+/Na+ antiporter genetics"
+  },
+  "Secondary Macronutrients: Functions & Chemistry (Ca, Mg, S)": {
+    desc: "Calcium (calcium pectate in middle lamella), Magnesium (central atom of chlorophyll), Sulphur (methionine/cysteine amino acids, oil content in oilseeds).",
+    easyDesc: "Secondary nutrient names (Ca, Mg, S), middle lamella calcium & green chlorophyll magnesium",
+    medDesc: "Sulphur role in mustard oil synthesis, glucosinolate pathways & calcium root elongation",
+    hardDesc: "Chlorophyll porphyrin ring coordination chemistry, Ca2+ calmodulin signalling & S-adenosylmethionine flux"
+  },
+  "Micronutrients: Functions & Trace Elements": {
+    desc: "Functions of trace elements: Iron (ferredoxin), Manganese (Hill's reaction photolysis), Zinc (IAA/auxin synthesis), Copper (plastocyanin), Boron (sugar transport), Molybdenum (nitrogenase) & Nickel (urease).",
+    easyDesc: "Micronutrient names, Zinc role in auxins & Boron pollen germination",
+    medDesc: "Specific enzyme activators (Mo in nitrate reductase, Ni in urease, Mn in photolysis of water)",
+    hardDesc: "Metalloenzyme active site coordination, electron transport redox potentials & micronutrient chelation"
+  },
+  "Nutrient Mobility, Deficiency Symptoms & Plant Disorders": {
+    desc: "Nutrient mobility in plants: mobile (N, P, K, Mg - older leaves), moderate (Zn), less mobile (S, Fe, Mn, Cu), immobile (Ca, B - terminal bud); Khaira disease, Whiptail, Blossom end rot.",
+    easyDesc: "Older vs younger leaf symptom locations, Khaira disease (Zn) & Blossom end rot (Ca)",
+    medDesc: "Whiptail of cauliflower (Mo), Marsh spot of pea (Mn) & Internal necrosis of aonla (B)",
+    hardDesc: "Phloem retranslocation biochemistry, nutrient synergy/antagonism interactions & diagnostic keys"
+  },
+  "Commercial Chemical Fertilizers & Formulations": {
+    desc: "Commercial fertilizers: Urea (46% N), DAP (18% N, 46% P2O5), SSP (16% P2O5, 12% S, 19% Ca), MOP (60% K2O), SOP (50% K2O), nano urea & neem coated urea.",
+    easyDesc: "Urea nitrogen percentage (46%), DAP composition & straight vs complex fertilizers",
+    medDesc: "SSP sulphur and calcium contents (12% S, 19% Ca), biuret toxicity limits & MOP vs SOP",
+    hardDesc: "Fertilizer equivalent salt index, urea hydrolysis kinetics & volatilization loss mathematics"
+  },
+  "Integrated Nutrient Management (INM) & Biofertilizers": {
+    desc: "INM 4R stewardship (right source, rate, time, place), biofertilizers (Rhizobium, Azotobacter, Azospirillum, BGA, Azolla, PSB, VAM mycorrhiza) & foliar feeding.",
+    easyDesc: "Biofertilizer definitions, Rhizobium legume association & Azolla in paddy",
+    medDesc: "Free living vs symbiotic nitrogen fixers, VAM phosphorus mobilization & foliar spray rates",
+    hardDesc: "Nitrogenase enzyme acetylene reduction biochemistry & mycorrhizal hyphal phosphorus uptake kinetics"
   }
 }
 

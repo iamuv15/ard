@@ -1,0 +1,242 @@
+{
+  "2015": {
+    "id": 2015,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates the specific Arnon and Stout criteria of essentiality by testing understanding of requirements for plant life cycle completion."
+  },
+  "2016": {
+    "id": 2016,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall question asking for the scientists who proposed the criteria of plant nutrient essentiality."
+  },
+  "2017": {
+    "id": 2017,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "EASY",
+    "reasoning": "Standard fundamental knowledge question about the total number of essential plant nutrients."
+  },
+  "2018": {
+    "id": 2018,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "EASY",
+    "reasoning": "Asks for the 17th essential nutrient (Nickel) which is a standard syllabus definition."
+  },
+  "2019": {
+    "id": 2019,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests the distinction between macronutrients (Phosphorus) and functional nutrients (Sodium, Cobalt, Vanadium, Silicon)."
+  },
+  "2020": {
+    "id": 2020,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "EASY",
+    "reasoning": "Identifies basic or structural elements (Carbon, Hydrogen, Oxygen)."
+  },
+  "2021": {
+    "id": 2021,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific concentration thresholds (>500 mg/kg dry matter) that define macronutrients."
+  },
+  "2022": {
+    "id": 2022,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "EASY",
+    "reasoning": "Straightforward classification test between macronutrients and micronutrients (Zinc)."
+  },
+  "2023": {
+    "id": 2023,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "EASY",
+    "reasoning": "Basic factual question about the macronutrient absorbed in the largest quantity by plants (Nitrogen)."
+  },
+  "2024": {
+    "id": 2024,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the biochemical role of Phosphorus as a central component of ATP."
+  },
+  "2025": {
+    "id": 2025,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of primary macronutrients (Potassium)."
+  },
+  "2026": {
+    "id": 2026,
+    "topic": "Secondary Macronutrients: Functions & Chemistry (Ca, Mg, S)",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of secondary macronutrients (Sulphur)."
+  },
+  "2027": {
+    "id": 2027,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "EASY",
+    "reasoning": "Basic count of the total number of macronutrients."
+  },
+  "2028": {
+    "id": 2028,
+    "topic": "Essential Plant Nutrients & Criteria of Essentiality",
+    "difficulty": "EASY",
+    "reasoning": "Basic count of structural/basic nutrients (C, H, O)."
+  },
+  "2029": {
+    "id": 2029,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates mobility classification of nutrients (N, P, K as highly mobile)."
+  },
+  "2030": {
+    "id": 2030,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "EASY",
+    "reasoning": "Covers general functions of nitrogen in amino acids, proteins, and chlorophyll."
+  },
+  "2031": {
+    "id": 2031,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Describes specific V-shaped chlorosis on older leaves characteristic of nitrogen deficiency."
+  },
+  "2032": {
+    "id": 2032,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "EASY",
+    "reasoning": "Identifies phosphorus as the key nutrient for energy production and ATP transfer."
+  },
+  "2033": {
+    "id": 2033,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Describes characteristic dark/blue-green to reddish-brown coloration on older leaves caused by phosphorus deficiency."
+  },
+  "2034": {
+    "id": 2034,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "HARD",
+    "reasoning": "Examines nutrient antagonism, specifically how excess phosphorus induces iron and zinc deficiency."
+  },
+  "2035": {
+    "id": 2035,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the physiological role of potassium in disease resistance and prevention of crop lodging."
+  },
+  "2036": {
+    "id": 2036,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies marginal scorching/browning of older leaves as a primary symptom of potassium deficiency."
+  },
+  "2037": {
+    "id": 2037,
+    "topic": "Secondary Macronutrients: Functions & Chemistry (Ca, Mg, S)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers calcium's structural role in forming calcium pectate in the middle lamella and cell wall integrity."
+  },
+  "2038": {
+    "id": 2038,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Links calcium deficiency to distorted, small growing points and terminal bud issues due to its immobility."
+  },
+  "2039": {
+    "id": 2039,
+    "topic": "Secondary Macronutrients: Functions & Chemistry (Ca, Mg, S)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on magnesium acting as the central atom in the chlorophyll porphyrin ring."
+  },
+  "2040": {
+    "id": 2040,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies specific magnesium deficiency symptoms and their appearance on older leaves."
+  },
+  "2041": {
+    "id": 2041,
+    "topic": "Secondary Macronutrients: Functions & Chemistry (Ca, Mg, S)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers primary metabolic functions of sulphur in amino acid synthesis and oilseed crop quality."
+  },
+  "2042": {
+    "id": 2042,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Addresses sulphur immobility and the resultant pale green chlorosis on younger leaves."
+  },
+  "2043": {
+    "id": 2043,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on iron deficiency symptoms and its immobility causing interveinal chlorosis in young leaves."
+  },
+  "2044": {
+    "id": 2044,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers specific manganese deficiency disorder in sugarcane (Phala blight)."
+  },
+  "2045": {
+    "id": 2045,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies zinc deficiency symptoms and its occurrence on younger leaves."
+  },
+  "2046": {
+    "id": 2046,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers the classic Khaira disease of rice caused by zinc deficiency."
+  },
+  "2047": {
+    "id": 2047,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the specific plant disorder (white tip or reclamation disease) caused by copper deficiency."
+  },
+  "2048": {
+    "id": 2048,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "HARD",
+    "reasoning": "Requires detailed multi-faceted knowledge of copper deficiency symptoms and ruling out incorrect mobility characteristics."
+  },
+  "2049": {
+    "id": 2049,
+    "topic": "Micronutrients: Functions & Trace Elements",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests detailed functional roles of boron in plant metabolism and structure."
+  },
+  "2050": {
+    "id": 2050,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "EASY",
+    "reasoning": "Direct question on the primary macronutrient responsible for providing disease resistance (Potassium)."
+  },
+  "2051": {
+    "id": 2051,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates specific visual symptoms of boron deficiency in plants."
+  },
+  "2052": {
+    "id": 2052,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers the classic molybdenum deficiency disorder 'whiptail of cauliflower'."
+  },
+  "2053": {
+    "id": 2053,
+    "topic": "Nutrient Mobility, Deficiency Symptoms & Plant Disorders",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies specific visual deficiency symptoms of chlorine in plants."
+  },
+  "2054": {
+    "id": 2054,
+    "topic": "Primary Macronutrients: Functions & Dynamics (N, P, K)",
+    "difficulty": "HARD",
+    "reasoning": "Examines advanced nutritional interactions regarding nitrogen deficiency and amino acid content reduction in cereals like barley."
+  }
+}
