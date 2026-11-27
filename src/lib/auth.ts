@@ -85,10 +85,16 @@ export async function getUserSession(): Promise<TokenPayload | null> {
           dbUser = await prisma.user.create({
             data: {
               email: user.email,
+              supabaseUserId: user.id,
               name,
               password: '',
               role: 'USER',
             },
+          })
+        } else if (dbUser.supabaseUserId !== user.id) {
+          dbUser = await prisma.user.update({
+            where: { id: dbUser.id },
+            data: { supabaseUserId: user.id },
           })
         }
         return {

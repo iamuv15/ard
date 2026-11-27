@@ -12,15 +12,16 @@ datasource db {
 }
 
 model Chapter {
-  id        Int              @id @default(autoincrement())
-  name      String           @unique
-  cohort    String           @default("BETA") // "ALPHA" or "BETA"
-  order     Int              @default(0)
+  id          Int                 @id @default(autoincrement())
+  name        String              @unique
+  cohort      String              @default("BETA") // "ALPHA" or "BETA"
+  order       Int                 @default(0)
   quizzes     Quiz[]
   concepts    ChapterConcept[]
   mindMap     ChapterMindMap?
   audioTracks ChapterAudioTrack[]
-  createdAt   DateTime         @default(now())
+  attemptLogs QuestionAttemptLog[]
+  createdAt   DateTime            @default(now())
 }
 
 model Quiz {
@@ -66,10 +67,12 @@ model Question {
   quizId        Int
   quiz          Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
   createdAt     DateTime @default(now())
-  mistakes      UserMistake[]
-  bookmarks     UserBookmark[]
-  reports       QuestionReport[]
-  concepts      ChapterConcept[]
+  mistakes       UserMistake[]
+  bookmarks      UserBookmark[]
+  reports        QuestionReport[]
+  concepts       ChapterConcept[]
+  attemptLogs    QuestionAttemptLog[]
+  dailyQuestions DailyRetentionQuestion[]
 }
 
 model ChapterMindMap {
@@ -157,19 +160,22 @@ model ConceptMediaReport {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  email     String    @unique
-  password  String
-  name      String
-  role      String    @default("USER")
-  cohort    String    @default("BETA") // "ALPHA" or "BETA"
-  createdAt DateTime  @default(now())
+  id             Int       @id @default(autoincrement())
+  email          String    @unique
+  supabaseUserId String?   @unique
+  password       String
+  name           String
+  role           String    @default("USER")
+  cohort         String    @default("BETA") // "ALPHA" or "BETA"
+  createdAt      DateTime  @default(now())
 
-  mistakes       UserMistake[]
-  attempts       QuizAttempt[]
-  bookmarks      UserBookmark[]
-  reports        QuestionReport[]
-  conceptReports ConceptMediaReport[]
+  mistakes              UserMistake[]
+  attempts              QuizAttempt[]
+  bookmarks             UserBookmark[]
+  reports               QuestionReport[]
+  conceptReports        ConceptMediaReport[]
+  questionAttempts      QuestionAttemptLog[]
+  dailyRetentionQuizzes DailyRetentionQuiz[]
 }
 
 model UserMistake {
@@ -235,4 +241,64 @@ model QuestionReport {
 
   @@index([questionId])
   @@index([status])
+}
+
+model QuestionAttemptLog {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  questionId Int
+  chapterId  Int
+  isCorrect  Boolean
+  sourceType String   @default("PRACTICE") // "PRACTICE", "MOCK", "CHAPTER_DRILL", "AI_CUSTOM", "DAILY_QUIZ"
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  chapter  Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([userId, chapterId, createdAt])
+  @@index([userId, questionId])
+}
+
+model DailyRetentionQuiz {
+  id                  String                   @id @default(uuid()) @db.Uuid
+  userId              Int
+  periodKey           String                   // IST YYYY-MM-DD
+  status              String                   @default("generating") // "generating", "pending", "in_progress", "completed"
+  generationStartedAt DateTime                 @default(now())
+  focusChapters       String[]                 @default([])
+  totalQuestions      Int                      @default(20)
+  currentIndex        Int                      @default(0)
+  score               Int?
+  completedAt         DateTime?
+  createdAt           DateTime                 @default(now())
+  updatedAt           DateTime                 @updatedAt
+
+  user      User                     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questions DailyRetentionQuestion[]
+
+  @@unique([userId, periodKey])
+  @@index([userId, periodKey])
+}
+
+model DailyRetentionQuestion {
+  id             Int       @id @default(autoincrement())
+  dailyQuizId    String    @db.Uuid
+  orderIndex     Int
+  questionId     Int?
+  chapterId      Int?
+  chapterName    String?
+  sourceBucket   String    // "RECENT_WRONG", "RECENT_FRESH", "OLDER_WRONG", "OLDER_FRESH", "AI_REFRAMED"
+  snapshotJson   Json?     // Used when AI reframes a repeat-wrong question
+  selectedOption String?
+  isCorrect      Boolean?
+  isFlagged      Boolean   @default(false)
+  answeredAt     DateTime?
+
+  dailyQuiz DailyRetentionQuiz @relation(fields: [dailyQuizId], references: [id], onDelete: Cascade)
+  question  Question?          @relation(fields: [questionId], references: [id], onDelete: SetNull)
+
+  @@unique([dailyQuizId, orderIndex])
+  @@index([dailyQuizId])
 }

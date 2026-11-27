@@ -204,7 +204,7 @@ export async function proxy(request: NextRequest) {
   }
 
   // Protected student routes for standalone mode
-  const protectedPaths = ['/quiz', '/redemption', '/chapter', '/bookmarks'];
+  const protectedPaths = ['/quiz', '/redemption', '/chapter', '/bookmarks', '/daily-quiz'];
   const isProtectedPath = protectedPaths.some((p) => pathname.startsWith(p));
 
   if (isProtectedPath) {

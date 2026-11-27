@@ -184,16 +184,38 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
   const handleSubmitTest = async () => {
     setIsSubmitting(true)
     const mistakesToLog: number[] = []
+    const questionResults: { questionId: number; isCorrect: boolean }[] = []
     let correctCount = 0
 
     questions.forEach((q, idx) => {
       const userAns = answers[idx]
-      if (userAns && userAns === q.correctAnswer.toUpperCase()) {
+      const isCorrect = Boolean(userAns && userAns === q.correctAnswer.toUpperCase())
+      if (userAns) {
+        questionResults.push({ questionId: q.id, isCorrect })
+      }
+      if (isCorrect) {
         correctCount++
       } else {
         mistakesToLog.push(q.id)
       }
     })
+
+    // Record QuizAttempt + per-question attempts in database
+    try {
+      await fetch('/ard/api/attempts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          quizId: customAnalysis ? undefined : quizId,
+          score: correctCount,
+          total: questions.length,
+          questionResults,
+          sourceType: customAnalysis ? 'CHAPTER_DRILL' : 'MOCK'
+        })
+      })
+    } catch (e) {
+      console.error('Failed to save attempts', e)
+    }
 
     for (const qId of mistakesToLog) {
       try {

@@ -874,6 +874,14 @@ export default function CourseDashboard({
 
           <div className="flex items-center gap-3">
             <Link
+              href="/daily-quiz"
+              className="flex items-center gap-1.5 text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3 py-1.5 rounded-lg hover:bg-indigo-100 transition-colors shadow-2xs"
+              title="Today's personalized 20Q retention quiz"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+              <span>Daily 20Q</span>
+            </Link>
+            <Link
               href="/bookmarks"
               className="flex items-center gap-1.5 text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1.5 rounded-lg hover:bg-amber-100 transition-colors shadow-2xs"
               title="Practice marked questions"

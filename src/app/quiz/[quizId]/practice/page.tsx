@@ -296,7 +296,19 @@ Please break down:
       voiceTutor.speakExplanation(currentQ, key)
     }
 
-    if (key === currentQ.correctAnswer.toUpperCase()) {
+    const isCorrect = key === currentQ.correctAnswer.toUpperCase()
+    const rawQuizId = String(params.quizId || '')
+    const sourceType = rawQuizId.startsWith('chapter-')
+      ? (searchParams.get('customKey') ? 'AI_CUSTOM' : 'CHAPTER_DRILL')
+      : 'PRACTICE'
+
+    fetch('/ard/api/question-attempt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ questionId: currentQ.id, isCorrect, sourceType })
+    }).catch(() => {})
+
+    if (isCorrect) {
       setScore(s => s + 1)
     } else {
       // Log mistake
