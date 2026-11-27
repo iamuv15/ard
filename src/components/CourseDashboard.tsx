@@ -147,6 +147,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "Incubation periods (21 days), basic poultry breeds & swine terms",
     medDesc: "Incubation temp/humidity constants, brooding floor space & disease symptoms",
     hardDesc: "Broiler Feed Conversion Ratio (FCR) calculations & hatchery management traps"
+  },
+  // ─── Horticulture ───
+  "Horticulture Fundamentals & Orchard Establishment": {
+    desc: "Branches of horticulture (pomology, olericulture, floriculture), planting design systems (square, quincunx, hexagonal, contour), windbreaks & HDP.",
+    easyDesc: "Horticulture branches, layout system names & basic definitions",
+    medDesc: "Plant density calculation comparisons (hexagonal has 15% more plants) & layout geometry",
+    hardDesc: "High Density Planting (HDP) population formulas & orchard engineering traps"
+  },
+  "Plant Propagation, Rootstocks & Nursery Management": {
+    desc: "Sexual vs asexual propagation, grafting, budding, layering, cutting, rootstocks & specialized vegetative structures (suckers, slips, runners).",
+    easyDesc: "Basic propagation terms, organ names (banana suckers, pineapple slips) & seed types",
+    medDesc: "Specific budding/grafting methods for major crops (T-budding in citrus, veneer in mango)",
+    hardDesc: "Polyembryony genetics, rootstock-scion incompatibility mechanisms & tissue culture stages"
+  },
+  "Canopy Management, Pruning, Bahar Treatment & PGRs": {
+    desc: "Training & pruning systems (heading back, thinning out, girdling), Bahar treatment (Ambe, Mrig, Hasta) & plant growth regulators (NAA, GA3, Ethrel, Paclobutrazol).",
+    easyDesc: "Pruning vs training definitions & basic Bahar names",
+    medDesc: "Bahar treatment months (flowering vs harvesting) & recommended PGR concentrations (ppm)",
+    hardDesc: "Paclobutrazol biochemical action, C:N ratio shifts & off-season flowering triggers"
+  },
+  "Tropical & Subtropical Pomology (Mango, Banana, Citrus, Papaya)": {
+    desc: "Major tropical fruits: Mango, Banana, Citrus & Papaya - varieties, parentage, physiological disorders (spongy tissue, malformation) & management.",
+    easyDesc: "Famous varieties, botanical names & obvious disorder symptoms",
+    medDesc: "Hybrid parent crosses (Neelum x Dashehari = Amrapali), Sigatoka/Bunchy top & spacing",
+    hardDesc: "Spongy tissue calcium transport biochemistry, malformation etiology & pedigree traps"
+  },
+  "Arid, Temperate Fruits & Plantation Crops": {
+    desc: "Guava, Grape, Pineapple, Pomegranate, Ber, Aonla, Apple, Coconut, Cashew, Tea, Coffee & Rubber - commercial management & varieties.",
+    easyDesc: "Fruit types, states of origin & common harvest practices",
+    medDesc: "Grape training systems (Bower, Kniffin), Apple chilling hours & Cashew/Coconut botany",
+    hardDesc: "Temperate rest-breaking chemistry, plantation tapping physiology & multi-crop traps"
+  },
+  "Olericulture (Vegetable Crops) & Floriculture": {
+    desc: "Solanaceous, cole, cucurbit, root & bulb vegetables; commercial flowers (rose, marigold, jasmine, gladiolus), lawns & landscaping.",
+    easyDesc: "Edible parts, vegetable families & popular flower types",
+    medDesc: "Maturity indices, seed rates, isolation distances & flower pulsing/preservatives",
+    hardDesc: "Sex expression genetics in cucurbits, photoperiodic floral induction & bonsai techniques"
+  },
+  "Post-Harvest Technology, Maturity Indices & Preservation": {
+    desc: "Harvest maturity indicators, TSS, Brix, climacteric vs non-climacteric ripening, cold storage, fruit preservation (jam, jelly, squash) & FSSAI specs.",
+    easyDesc: "Definitions of climacteric fruits, jam vs jelly & shelf-life basics",
+    medDesc: "Minimum TSS/Brix values, pectin requirements, acidity percentages & storage temperatures",
+    hardDesc: "Thermal death time kinetics in canning, syneresis chemistry & preservation calculations"
   }
 }
 
