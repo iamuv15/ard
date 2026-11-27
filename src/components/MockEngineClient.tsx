@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { X, Pause, Flag, Trash2, ChevronLeft, ChevronRight, Bookmark } from 'lucide-react'
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
+import { AdminDeleteQuestionButton } from '@/components/admin/AdminDeleteQuestionButton'
 import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 
@@ -258,6 +259,14 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
               <h2 className="text-sm font-bold text-gray-500">Q. {currentIndex + 1} of {questions.length}</h2>
               <div className="flex items-center gap-2">
                 <ReportQuestionButton key={currentQ.id} questionId={currentQ.id} />
+                <AdminDeleteQuestionButton
+                  key={`del-${currentQ.id}`}
+                  questionId={currentQ.id}
+                  questionSnippet={currentQ.questionText}
+                  onDeleted={() => {
+                    window.location.reload()
+                  }}
+                />
                 <div className="relative">
                   <button
                     type="button"

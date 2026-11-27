@@ -1,16 +1,34 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { cookies } from 'next/headers'
+import { jwtVerify } from 'jose'
 import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
+
+async function checkIsAdmin(): Promise<boolean> {
+  const cookieStore = await cookies()
+  const adminSession = cookieStore.get('admin_session')?.value
+  if (adminSession === 'true' || adminSession === 'authenticated') return true
+
+  const token = cookieStore.get('auth_token')?.value
+  if (token) {
+    try {
+      const secret = process.env.JWT_SECRET || 'fallback-secret-key-change-me'
+      const { payload } = await jwtVerify(token, new TextEncoder().encode(secret))
+      if (payload && payload.role === 'ADMIN') return true
+    } catch {
+      // ignore
+    }
+  }
+  return false
+}
 
 export async function DELETE(request: Request, props: { params: Promise<{ id: string }> }) {
   try {
     const params = await props.params;
-    const cookieStore = await cookies()
-    const sessionCookie = cookieStore.get('admin_session')
+    const isAdmin = await checkIsAdmin()
 
-    if (!sessionCookie || sessionCookie.value !== 'true') {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    if (!isAdmin) {
+      return NextResponse.json({ error: 'Unauthorized. Admin privileges required.' }, { status: 401 })
     }
 
     const questionId = parseInt(params.id, 10)
@@ -22,7 +40,7 @@ export async function DELETE(request: Request, props: { params: Promise<{ id: st
       where: { id: questionId }
     })
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true, message: 'Question permanently deleted' })
   } catch (error) {
     console.error('Error deleting question:', error)
     return NextResponse.json({ error: 'Failed to delete question' }, { status: 500 })

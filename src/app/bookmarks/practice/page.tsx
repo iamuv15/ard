@@ -8,6 +8,7 @@ import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
 import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
+import { AdminDeleteQuestionButton } from '@/components/admin/AdminDeleteQuestionButton'
 import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
 
 type Question = {
@@ -254,6 +255,26 @@ function RevisionPracticeContent() {
 
                 <div className="flex items-center gap-2">
                   <ReportQuestionButton key={currentQ.id} questionId={currentQ.id} />
+                  <AdminDeleteQuestionButton
+                    key={`del-${currentQ.id}`}
+                    questionId={currentQ.id}
+                    questionSnippet={currentQ.questionText}
+                    onDeleted={(deletedId) => {
+                      setQuestions(prev => {
+                        const updated = prev.filter(q => q.id !== deletedId)
+                        if (updated.length === 0) {
+                          setIsFinished(true)
+                          return []
+                        }
+                        if (currentIndex >= updated.length) {
+                          setCurrentIndex(Math.max(0, updated.length - 1))
+                        }
+                        setSelectedOption(null)
+                        setIsAnswered(false)
+                        return updated
+                      })
+                    }}
+                  />
                   {/* Bookmark Toggle */}
                   <button
                     type="button"

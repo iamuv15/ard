@@ -35,6 +35,8 @@ export async function GET(request: NextRequest) {
         explanationC: true,
         explanationD: true,
         explanationE: true,
+        topic: true,
+        difficulty: true,
         explanation: true,
         voiceQuestion: true,
         voiceOptions: true,

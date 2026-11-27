@@ -30,6 +30,8 @@ model Quiz {
   chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   cohort    String   @default("BETA") // "ALPHA" or "BETA"
   order     Int      @default(0)
+  topic      String?
+  difficulty String?  // "EASY", "MEDIUM", "HARD"
   questions Question[]
   attempts  QuizAttempt[]
   createdAt DateTime @default(now())
@@ -49,6 +51,7 @@ model Question {
   explanationD  String?
   explanationE  String?
   topic             String?
+  difficulty        String?  // "EASY", "MEDIUM", "HARD"
   explanation       String?
   simpleExplanation String?
   isEnriched        Boolean  @default(false)

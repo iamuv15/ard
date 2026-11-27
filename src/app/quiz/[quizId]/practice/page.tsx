@@ -8,6 +8,7 @@ import { ReportQuestionButton } from '@/components/ReportQuestionButton'
 import { FormattedExplanation } from '@/components/FormattedExplanation'
 import { SimplifyExplanationButton } from '@/components/SimplifyExplanationButton'
 import { AdminReEnrichButton } from '@/components/admin/AdminReEnrichButton'
+import { AdminDeleteQuestionButton } from '@/components/admin/AdminDeleteQuestionButton'
 import { ConceptDossierModal } from '@/components/concepts/ConceptDossierModal'
 import { BookOpen } from 'lucide-react'
 import { sanitizeQuestionText } from '@/lib/sanitizeQuestion'
@@ -28,6 +29,7 @@ type Question = {
   explanationD?: string | null
   explanationE?: string | null
   topic?: string | null
+  difficulty?: string | null
   explanation?: string | null
   simpleExplanation?: string | null
   correctAnswer: string
@@ -368,11 +370,28 @@ Please break down:
               </div>
 
               <div className="flex items-center justify-between gap-3 mb-4">
-                {currentQ.topic ? (
-                  <span className="inline-block px-2.5 py-1 bg-gray-100 text-gray-600 text-[10px] font-black uppercase tracking-widest rounded">
-                    {currentQ.topic}
-                  </span>
-                ) : <span />}
+                <div className="flex items-center gap-2 flex-wrap">
+                  {currentQ.topic && (
+                    <span className="inline-block px-2.5 py-1 bg-gray-100 text-gray-700 text-[10px] font-black uppercase tracking-widest rounded">
+                      {currentQ.topic}
+                    </span>
+                  )}
+                  {currentQ.difficulty === 'EASY' && (
+                    <span className="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-wider rounded">
+                      🟢 Easy
+                    </span>
+                  )}
+                  {currentQ.difficulty === 'MEDIUM' && (
+                    <span className="inline-block px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-black uppercase tracking-wider rounded">
+                      🟡 Medium
+                    </span>
+                  )}
+                  {currentQ.difficulty === 'HARD' && (
+                    <span className="inline-block px-2 py-0.5 bg-rose-100 text-rose-800 text-[10px] font-black uppercase tracking-wider rounded">
+                      🔴 Hard
+                    </span>
+                  )}
+                </div>
 
                 <div className="flex items-center gap-2">
                   <button
@@ -386,6 +405,27 @@ Please break down:
                     <span className="text-[10px] bg-white text-indigo-800 px-1.5 py-0.5 rounded font-mono border border-indigo-200/80 shadow-2xs">Alt+G</span>
                   </button>
                   <ReportQuestionButton key={currentQ.id} questionId={currentQ.id} />
+                  <AdminDeleteQuestionButton
+                    key={`del-${currentQ.id}`}
+                    questionId={currentQ.id}
+                    questionSnippet={currentQ.questionText}
+                    onDeleted={(deletedId) => {
+                      setQuestions(prev => {
+                        const updated = prev.filter(q => q.id !== deletedId)
+                        if (updated.length === 0) {
+                          setIsFinished(true)
+                          return []
+                        }
+                        if (currentIndex >= updated.length) {
+                          setCurrentIndex(Math.max(0, updated.length - 1))
+                        }
+                        setSelectedOption(null)
+                        setIsAnswered(false)
+                        setExpanded({})
+                        return updated
+                      })
+                    }}
+                  />
                   <div className="relative">
                     <button
                       type="button"
