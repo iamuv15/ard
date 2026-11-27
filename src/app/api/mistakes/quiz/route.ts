@@ -15,6 +15,7 @@ export async function GET(request: Request) {
     const questionIdsParam = searchParams.get('questionIds')
     const conceptIdsParam = searchParams.get('conceptIds')
     const cooldown = searchParams.get('cooldown') === 'true'
+    const retention = searchParams.get('retention') === 'true'
 
     // If conceptIds is specified, retrieve ALL questions for those concepts in the chapter
     if (conceptIdsParam) {
@@ -41,10 +42,27 @@ export async function GET(request: Request) {
     }
 
     const includeAll = searchParams.get('all') === 'true'
+    const now = new Date()
 
-    // Only apply time gate if not a targeted quiz/retest drill and not all=true
-    if (!quizId && !questionIdsParam && !includeAll) {
-      whereClause.nextReviewAt = cooldown ? { gt: new Date() } : { lte: new Date() }
+    if (!quizId && !questionIdsParam) {
+      if (includeAll) {
+        // Chapter Forge drill: include unresolved mistakes (reviewLevel === 0) OR due retention reviews
+        whereClause.OR = [
+          { reviewLevel: 0 },
+          { nextReviewAt: { lte: now } }
+        ]
+      } else if (cooldown) {
+        // Only recent failures (reviewLevel === 0) waiting out 24h cooldown
+        whereClause.reviewLevel = 0
+        whereClause.nextReviewAt = { gt: now }
+      } else if (retention) {
+        // Only redeemed questions (reviewLevel >= 1) scheduled for future retention checks
+        whereClause.reviewLevel = { gte: 1 }
+        whereClause.nextReviewAt = { gt: now }
+      } else {
+        // Default Redemption queue: anything due for review right now
+        whereClause.nextReviewAt = { lte: now }
+      }
     }
 
     if (questionIdsParam) {

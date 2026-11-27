@@ -40,15 +40,17 @@ function RedemptionQuizContent() {
   const questionIds = searchParams.get('questionIds')
   const conceptIds = searchParams.get('conceptIds')
   const isCooldownMode = searchParams.get('cooldown') === 'true'
+  const isRetentionMode = searchParams.get('retention') === 'true'
   const isAllMode = searchParams.get('all') === 'true'
 
   useEffect(() => {
-    let url = '/api/mistakes/quiz?'
+    let url = '/ard/api/mistakes/quiz?'
     if (conceptIds) url += `conceptIds=${encodeURIComponent(conceptIds)}&`
     else if (questionIds) url += `questionIds=${encodeURIComponent(questionIds)}&`
     else if (quizId) url += `quizId=${encodeURIComponent(quizId)}&`
     if (chapterId) url += `chapterId=${encodeURIComponent(chapterId)}&`
     if (isCooldownMode) url += `cooldown=true&`
+    if (isRetentionMode) url += `retention=true&`
     if (isAllMode) url += `all=true&`
 
     fetch(url)
@@ -66,7 +68,7 @@ function RedemptionQuizContent() {
         setLoading(false)
       })
       .catch(() => setLoading(false))
-  }, [chapterId, isCooldownMode, isAllMode])
+  }, [chapterId, quizId, questionIds, conceptIds, isCooldownMode, isRetentionMode, isAllMode])
 
   if (loading) {
     return (
@@ -135,9 +137,10 @@ function RedemptionQuizContent() {
 
     if (key === currentQ.correctAnswer.toUpperCase()) {
       setScore(s => s + 1)
-      
-      // Only clear the mistake from the queue if we are NOT in cooldown mode
-      if (!isCooldownMode) {
+
+      // Advance spaced repetition (moves out of active mistakes into scheduled retention)
+      // when NOT practicing inside the 24h cooldown or early retention mode
+      if (!isCooldownMode && !isRetentionMode) {
         try {
           await fetch('/ard/api/mistakes', {
             method: 'PATCH',
@@ -147,6 +150,17 @@ function RedemptionQuizContent() {
         } catch (e) {
           console.error('Failed to clear mistake', e)
         }
+      }
+    } else {
+      // Answered incorrectly: reset reviewLevel to 0 and place into 24h cooldown
+      try {
+        await fetch('/ard/api/mistakes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ questionId: currentQ.id })
+        })
+      } catch (e) {
+        console.error('Failed to update mistake cooldown', e)
       }
     }
   }
@@ -180,7 +194,7 @@ function RedemptionQuizContent() {
         {/* Progress bar */}
         <div className="mb-8">
           <div className="flex justify-between text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
-            <span>{isCooldownMode ? 'Cooldown Practice' : 'Redemption'} {currentIndex + 1} of {questions.length}</span>
+            <span>{isCooldownMode ? 'Cooldown Practice' : isRetentionMode ? 'Early Retention Check' : 'Redemption'} {currentIndex + 1} of {questions.length}</span>
             <span>{Math.round((currentIndex / questions.length) * 100)}%</span>
           </div>
           <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -269,9 +283,11 @@ function RedemptionQuizContent() {
                 </div>
                 
                 <div className="text-sm text-gray-600 leading-relaxed mb-6">
-                  {selectedOption === currentQ.correctAnswer.toUpperCase() 
-                    ? "Great job! You got the right answer." 
-                    : `The correct answer was Option ${currentQ.correctAnswer.toUpperCase()}.`}
+                  {selectedOption === currentQ.correctAnswer.toUpperCase()
+                    ? isCooldownMode
+                      ? 'Correct! Still in 24h cooldown — clear it once the cooldown finishes.'
+                      : 'Great job! Cleared from active mistakes and scheduled for future retention review.'
+                    : `Incorrect — moved to 24-hour cooldown. The correct answer was Option ${currentQ.correctAnswer.toUpperCase()}.`}
                 </div>
 
                 {currentQ.explanation && (

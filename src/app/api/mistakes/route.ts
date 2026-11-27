@@ -90,3 +90,28 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const session = await getUserSession()
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const { questionId } = await request.json()
+    if (!questionId) {
+      return NextResponse.json({ error: 'questionId is required' }, { status: 400 })
+    }
+
+    await prisma.userMistake.deleteMany({
+      where: {
+        userId: session.id,
+        questionId: Number(questionId)
+      }
+    })
+
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+  }
+}

@@ -41,11 +41,20 @@ export default async function Home() {
   const chapterMistakesCount: Record<number, number> = {}
 
   if (session) {
+    const now = new Date()
+    const activeMistakeWhere = {
+      userId: session.id,
+      OR: [
+        { reviewLevel: 0 },
+        { nextReviewAt: { lte: now } }
+      ]
+    }
+
     const [mCount, bCount, userMistakes] = await Promise.all([
-      prisma.userMistake.count({ where: { userId: session.id } }),
+      prisma.userMistake.count({ where: activeMistakeWhere }),
       prisma.userBookmark.count({ where: { userId: session.id } }),
       prisma.userMistake.findMany({
-        where: { userId: session.id },
+        where: activeMistakeWhere,
         select: {
           question: {
             select: {
