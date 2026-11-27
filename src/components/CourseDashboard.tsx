@@ -491,6 +491,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "Seeds Act year (1966), NSC establishment & Seed Village Programme objectives",
     medDesc: "Seed village scheme storage bin subsidy percentages (10 qtl capacity) & PPV&FR rights",
     hardDesc: "Compulsory licensing, DUS testing parameters & farmers' rights under PPV&FR statutory law"
+  },
+  // ─── Agriculture Extension ───
+  "Fundamentals, Principles & Philosophy of Extension": {
+    desc: "Agricultural extension definition, scope, philosophy, core principles (learning by doing, seeing is believing, need-based) & pioneer founders (J.P. Leagans, Seaman Knapp).",
+    easyDesc: "Extension definitions, core principles (learning by doing) & basic objectives",
+    medDesc: "Father of extension education (J.P. Leagans) & philosophical pillars of rural sociology",
+    hardDesc: "Extension educational psychology, adult learning pedagogy & behavioral change models"
+  },
+  "Extension Teaching Methods: Individual, Group & Mass Contact": {
+    desc: "Classification of extension teaching methods: Individual (farm visits, office calls), Group (discussions, field trips, study tours) & Mass contact (radio, exhibitions, campaigns, Kisan Melas).",
+    easyDesc: "Individual, group, and mass contact method categorizations & Kisan Mela definitions",
+    medDesc: "Study tour objectives, circular letter criteria & group discussion leadership roles",
+    hardDesc: "Communication channel effectiveness indices, noise entropy & media mix optimization"
+  },
+  "Demonstration Methods: Method vs Result Demonstration": {
+    desc: "Method demonstration (Dr. Seaman Knapp - skill teaching / how to do) vs Result demonstration (showing superiority of innovation / why to do, conducted by farmer).",
+    easyDesc: "Definitions of method demonstration vs result demonstration",
+    medDesc: "Seaman Knapp contributions, step-by-step layout & who conducts the demonstration",
+    hardDesc: "Comparative evaluation of demonstration impact, farmer risk aversion & adoption speed"
+  },
+  "Programme Planning, PRA & Extension Evaluation": {
+    desc: "Extension programme planning process (Leagans 5 steps: situation, objectives, teaching, evaluation, reconsideration), SMART goals, PRA & RRA tools.",
+    easyDesc: "Steps in programme planning, SMART acronym & basic evaluation terms",
+    medDesc: "Participatory Rural Appraisal (PRA) matrix ranking, transect walks & timeline mapping",
+    hardDesc: "Ex-ante vs ex-post econometric impact evaluations & participatory monitoring frameworks"
+  },
+  "Diffusion & Adoption of Agricultural Innovations": {
+    desc: "Everett Rogers diffusion theory, AIETA 5 stages (Awareness, Interest, Evaluation, Trial, Adoption), 5 adopter categories (Innovators 2.5%, Early Adopters 13.5%, Majority 68%, Laggards 16%).",
+    easyDesc: "AIETA adoption stages & innovator definitions",
+    medDesc: "Adopter percentages (Innovators 2.5%, Early Adopters 13.5%, Early Majority 34%, Laggards 16%)",
+    hardDesc: "Innovation attribute perception metrics (relative advantage, trialability) & diffusion curves"
+  },
+  "Historical Extension Programmes & Rural Development": {
+    desc: "Pre-independence schemes (Sriniketan, Gurgaon, Sevagram, Marthandam) & post-independence milestones (Etawah Project, CDP 1952, NES 1953, Panchayati Raj, T&V system 1974, Lab to Land 1979).",
+    easyDesc: "Historical programme names, Tagore (Sriniketan), Gandhi (Sevagram) & Spencer Hatch",
+    medDesc: "Launch years (CDP 1952, NES 1953, T&V 1974), Balwant Rai Mehta committee & Etawah Project",
+    hardDesc: "Institutional evolutions of rural development administration & comparative scheme critique"
+  },
+  "Modern Extension Systems: KVK, ATMA & Digital ICT": {
+    desc: "Krishi Vigyan Kendra (KVK - Mohan Singh Mehta 1974), ATMA (district level, SREP), Kisan Call Centres (1800-180-1551), mKisan, ACABC & digital extension technologies.",
+    easyDesc: "KVK full form & location of first KVK (Puducherry 1974), Kisan Call Center toll-free number",
+    medDesc: "ATMA operational structure, Strategic Research and Extension Plan (SREP) & ACABC norms",
+    hardDesc: "Digital extension knowledge delivery architectures, expert systems & ICT efficacy metrics"
   }
 }
 
