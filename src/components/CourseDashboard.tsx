@@ -276,6 +276,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "CCA limits for Major, Medium, Minor projects & PMKSY full forms/components",
     medDesc: "Component ministry mappings, Command Area Development Programme (CADP) years & targets",
     hardDesc: "Water duty-delta-base period numerical problems & irrigation policy evaluation"
+  },
+  // ─── Agroforestry ───
+  "Agroforestry Fundamentals, Scope & Classification": {
+    desc: "Agroforestry concepts, history, ICRAF, classification systems (P.K. Nair structural, functional, ecological, socioeconomic), spatial/temporal arrangements & environmental benefits.",
+    easyDesc: "Agroforestry definitions, ICRAF location & basic classification criteria",
+    medDesc: "Structural vs functional system types & ecological interaction categories",
+    hardDesc: "Microclimate modification energetics & multi-tier system light interception physics"
+  },
+  "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture": {
+    desc: "Agrisilvicultural practices (alley cropping, hedgerow intercropping), Silvopasture (trees + grasses/grazing), Horti-pasture, Agrosilvopastoral combinations & protein banks.",
+    easyDesc: "Definitions of agrisilviculture, silvopasture, alley cropping & homegardens",
+    medDesc: "Alley spacing widths, compatible grass-tree combinations & lopping cycles",
+    hardDesc: "Root architecture stratification, resource complementarity & nutrient pump dynamics"
+  },
+  "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)": {
+    desc: "Taungya system origins and plantation forestry methods, shifting/Jhum cultivation alternatives, aquaforestry/mangrove silvofisheries, apiculture & sericulture.",
+    easyDesc: "Taungya definitions, Jhum/shifting cultivation states & apiculture terms",
+    medDesc: "Taungya crop withdrawal periods, mangrove species in aquaculture & honey-yielding tree species",
+    hardDesc: "Socio-tenurial dynamics of Taungya, nutrient cycling in slash-and-burn recovery phases"
+  },
+  "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees": {
+    desc: "Characteristics of ideal MPTS, nitrogen-fixing trees: Subabul (Leucaena), Khejri (Prosopis cineraria), Babul (Acacia nilotica), Shisham (Dalbergia), Casuarina & Neem.",
+    easyDesc: "Common names, state tree matches (Khejri in Rajasthan) & basic nitrogen fixing trees",
+    medDesc: "Botanical names, mimosine toxicity in Subabul & specific ecological niches",
+    hardDesc: "Frankia actinorhizal symbioses, nodulation genetics & allelopathic exudate chemistry"
+  },
+  "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)": {
+    desc: "Poplar (Populus deltoides), Eucalyptus tereticornis, Bamboo botany, culm management, National Bamboo Mission, Melia dubia, Teak, Sandalwood & rotation cycles.",
+    easyDesc: "Fast growing tree names, Bamboo grass taxonomy & commercial uses",
+    medDesc: "Poplar & Eucalyptus rotation ages (6-8 yrs), planting geometry & Bamboo flowering types",
+    hardDesc: "Bamboo monocarpic mass flowering physiology, Melia dubia pulp yield mathematics"
+  },
+  "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts": {
+    desc: "Canopy management (pruning, pollarding, lopping, coppicing), root competition, allelopathy; Windbreaks vs Shelterbelts design, permeability & 2H-20H protection zones.",
+    easyDesc: "Definitions of pollarding, coppicing, windbreaks vs shelterbelts",
+    medDesc: "Shelterbelt orientation, width standards, height multiplier protection distances (2H to 20H)",
+    hardDesc: "Aerodynamic wind velocity displacement profiles & allelochemical bioassay mechanisms"
+  },
+  "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management": {
+    desc: "National Forest Policy 1988 (33% overall, 66% hills), ISFR forest cover status, Social forestry (farm/extension forestry), Joint Forest Management (JFM), CAMPA & tree mensuration (DBH at 1.37m).",
+    easyDesc: "National Forest Policy target percentages & DBH standard height (1.37m / 4.5 ft)",
+    medDesc: "Quarter girth formula, Indian State of Forest Report (ISFR) biennial metrics & JFM rules",
+    hardDesc: "Form factor calculations, tree volume estimations & CAMPA fund statutory compliance"
   }
 }
 

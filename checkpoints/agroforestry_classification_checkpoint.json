@@ -1,0 +1,638 @@
+{
+  "916": {
+    "id": 916,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question asking for the general concept of agroforestry."
+  },
+  "917": {
+    "id": 917,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates fundamental criteria of agroforestry systems such as species involvement and competition."
+  },
+  "918": {
+    "id": 918,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "EASY",
+    "reasoning": "Straightforward multiple-choice question on the core definition of agroforestry."
+  },
+  "919": {
+    "id": 919,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall question distinguishing positive ecological benefits from negative impacts like groundwater depletion."
+  },
+  "920": {
+    "id": 920,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Definitional question regarding the integration of trees and livestock (Silvopastoral system)."
+  },
+  "921": {
+    "id": 921,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall concerning the primary purpose of alley cropping."
+  },
+  "922": {
+    "id": 922,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Direct question identifying nitrogen-fixing tree species commonly utilized in agroforestry."
+  },
+  "923": {
+    "id": 923,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition and objective recall for windbreaks."
+  },
+  "924": {
+    "id": 924,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "EASY",
+    "reasoning": "Simple identification of a disadvantage associated with agroforestry investments."
+  },
+  "925": {
+    "id": 925,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the specific objectives and historical practice of the Taungya system."
+  },
+  "926": {
+    "id": 926,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "EASY",
+    "reasoning": "Basic principle-based multiple-choice question on sustainable agroforestry components."
+  },
+  "927": {
+    "id": 927,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests the specific classification criteria established by P.K. Nair by ruling out non-criteria."
+  },
+  "928": {
+    "id": 928,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional recall about structural classification based on components."
+  },
+  "929": {
+    "id": 929,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Direct system identification combining trees and agricultural crops."
+  },
+  "930": {
+    "id": 930,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Simple recall of the term for systems integrating trees, crops, and livestock."
+  },
+  "931": {
+    "id": 931,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of the system focusing on trees and livestock."
+  },
+  "932": {
+    "id": 932,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Categorizes agroforestry systems based on their environmental and ecological role (functional classification)."
+  },
+  "933": {
+    "id": 933,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Links the Taungya system specifically to the broader agrisilvicultural classification."
+  },
+  "934": {
+    "id": 934,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the classification criteria based on time sequence and establishment (temporal classification)."
+  },
+  "935": {
+    "id": 935,
+    "topic": "Agroforestry Fundamentals, Scope & Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishes between ecological and socioeconomic classification parameters."
+  },
+  "936": {
+    "id": 936,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic naming convention for tree and crop integration without livestock or fruit trees."
+  },
+  "937": {
+    "id": 937,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Identifies boundary plantation layout within agroforestry systems."
+  },
+  "938": {
+    "id": 938,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Simple recall defining block plantations where components are separated in distinct blocks."
+  },
+  "939": {
+    "id": 939,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Definitional identification of alley cropping involving hedgerows and intercrops."
+  },
+  "940": {
+    "id": 940,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic term recognition for the integration of fruit (horticultural) trees with crops."
+  },
+  "941": {
+    "id": 941,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the specific combination of trees, fruit trees, and crops, which falls under agrisilviculture/multistrata agroforestry systems."
+  },
+  "942": {
+    "id": 942,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests specialized terminology for combining trees and vegetable cultivation (Silvi-olericulture)."
+  },
+  "943": {
+    "id": 943,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Compares definitions and components between two different agroforestry sub-systems (Agri-Horticulture vs Horti-Pasture)."
+  },
+  "944": {
+    "id": 944,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of the combination of trees, crops, and livestock (Agrisilvipasture)."
+  },
+  "945": {
+    "id": 945,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition question identifying the silvopasture system involving trees, pasture, and animals."
+  },
+  "946": {
+    "id": 946,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the specialized integration term 'Horti-Apiculture' involving fruit trees and bee farming."
+  },
+  "947": {
+    "id": 947,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall concerning the primary purpose of shelter belts in agroforestry."
+  },
+  "948": {
+    "id": 948,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "EASY",
+    "reasoning": "Definitional question regarding aquaforestry (trees integrated with fish farming)."
+  },
+  "949": {
+    "id": 949,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of live fence components on farm boundaries."
+  },
+  "950": {
+    "id": 950,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Explains the functional purpose of improved fallows using fast-growing or nitrogen-fixing trees."
+  },
+  "951": {
+    "id": 951,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition of the Taungya system."
+  },
+  "952": {
+    "id": 952,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the economic and establishment rationale of the Taungya system."
+  },
+  "953": {
+    "id": 953,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Explores tree-crop competition dynamics causing the discontinuation of agricultural crops in Taungya."
+  },
+  "954": {
+    "id": 954,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic conceptual definition of alley cropping."
+  },
+  "955": {
+    "id": 955,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates negative tree-crop interactions like competition for water, light, and nutrients in alley cropping."
+  },
+  "956": {
+    "id": 956,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Definitional question on home gardens in agroforestry."
+  },
+  "957": {
+    "id": 957,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the core socio-economic benefit (food security) of home gardens."
+  },
+  "958": {
+    "id": 958,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Defines protein banks utilizing nitrogen-fixing fodder trees for livestock."
+  },
+  "959": {
+    "id": 959,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall of the primary purpose of protein banks during dry seasons."
+  },
+  "960": {
+    "id": 960,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition of Aqua Forestry."
+  },
+  "961": {
+    "id": 961,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies specific tree species (Mangroves) commonly associated with coastal aquaforestry."
+  },
+  "962": {
+    "id": 962,
+    "topic": "Agroforestry Systems: Agrisilviculture, Silvopasture & Agrosilvopasture",
+    "difficulty": "EASY",
+    "reasoning": "Definitional question regarding multipurpose woodlots."
+  },
+  "963": {
+    "id": 963,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Discusses species-specific challenges like invasiveness associated with certain MPTS such as Leucaena and Prosopis."
+  },
+  "964": {
+    "id": 964,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition of shifting cultivation."
+  },
+  "965": {
+    "id": 965,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the regional synonym (Jhum cultivation) for shifting cultivation in India."
+  },
+  "966": {
+    "id": 966,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "EASY",
+    "reasoning": "Basic conceptual question regarding the environmental problems caused by shifting cultivation."
+  },
+  "967": {
+    "id": 967,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "EASY",
+    "reasoning": "Straightforward identification of the land-clearing method used in shifting cultivation (slash-and-burn)."
+  },
+  "968": {
+    "id": 968,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question identifying apiculture (beekeeping) integrated with forestry/agriculture settings."
+  },
+  "969": {
+    "id": 969,
+    "topic": "Specialized Agroforestry Systems (Taungya, Shifting Cultivation & Aquaforestry)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Refers to a specific regional traditional agroforestry system (Alder-based agriculture in Northeast India)."
+  },
+  "970": {
+    "id": 970,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the biological mechanism of nitrogen fixation by Alnus nepalensis (Alder trees) via Frankia bacteria."
+  },
+  "971": {
+    "id": 971,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires recalling the scientific name of Subabul (Leucaena leucocephala), a prominent MPTS."
+  },
+  "972": {
+    "id": 972,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall of the primary uses of Subabul (fuelwood and fodder)."
+  },
+  "973": {
+    "id": 973,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of a major drawback associated with Eucalyptus cultivation (high water consumption)."
+  },
+  "974": {
+    "id": 974,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires knowing the scientific name of Eucalyptus."
+  },
+  "975": {
+    "id": 975,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "EASY",
+    "reasoning": "Basic application question on the primary commercial use of Eucalyptus."
+  },
+  "976": {
+    "id": 976,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "EASY",
+    "reasoning": "Simple recall of why Eucalyptus is popular among growers (fast growth and high economic returns)."
+  },
+  "977": {
+    "id": 977,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires knowing the scientific name of Neem (Azadirachta indica)."
+  },
+  "978": {
+    "id": 978,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall of Neem's primary use as a natural pesticide and for essential oils."
+  },
+  "979": {
+    "id": 979,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires knowing the scientific name of Babul (Acacia nilotica)."
+  },
+  "980": {
+    "id": 980,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall regarding the uses of Babul wood and pods."
+  },
+  "981": {
+    "id": 981,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests knowledge of Babul's family characteristics (legume/nitrogen fixation) within agroforestry."
+  },
+  "982": {
+    "id": 982,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires knowing the scientific name of Teak (Tectona grandis)."
+  },
+  "983": {
+    "id": 983,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of Teak's durability and primary use in furniture and construction."
+  },
+  "984": {
+    "id": 984,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests botanical knowledge regarding Bamboo's taxonomy (subfamily Bambusoideae under Poaceae)."
+  },
+  "985": {
+    "id": 985,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "EASY",
+    "reasoning": "Fundamental fact about bamboo belonging to the grass family."
+  },
+  "986": {
+    "id": 986,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires identifying the scientific name of Tamarind (Tamarindus indica)."
+  },
+  "987": {
+    "id": 987,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic culinary and botanical recall regarding the fruit pulp of Tamarind."
+  },
+  "988": {
+    "id": 988,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires knowing the scientific name of Shisham (Dalbergia sissoo)."
+  },
+  "989": {
+    "id": 989,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall of Shisham's primary application as quality timber."
+  },
+  "990": {
+    "id": 990,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests knowledge of Dalbergia sissoo as a leguminous, nitrogen-fixing tree beneficial in agroforestry systems."
+  },
+  "991": {
+    "id": 991,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for the botanical/scientific name of a specific multipurpose tree species (Mahua)."
+  },
+  "992": {
+    "id": 992,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Simple objective recall regarding the primary use of Mahua flowers."
+  },
+  "993": {
+    "id": 993,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall about Mahua's contribution to agroforestry as an MPTS providing NTFPs."
+  },
+  "994": {
+    "id": 994,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for the scientific name of Karanj."
+  },
+  "995": {
+    "id": 995,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall regarding the commercial application of Karanj seed oil."
+  },
+  "996": {
+    "id": 996,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for the scientific name of a commercial fast-growing tree (Poplar)."
+  },
+  "997": {
+    "id": 997,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall regarding the wood uses of Poplar."
+  },
+  "998": {
+    "id": 998,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for the scientific name of Ber."
+  },
+  "999": {
+    "id": 999,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for the scientific name of Jamun."
+  },
+  "1000": {
+    "id": 1000,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall of the medicinal use/health benefit of Jamun."
+  },
+  "1001": {
+    "id": 1001,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "EASY",
+    "reasoning": "Basic conceptual question on general benefits of tree-crop integration."
+  },
+  "1002": {
+    "id": 1002,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "EASY",
+    "reasoning": "Definitional question regarding negative tree-crop interactions (allelopathy)."
+  },
+  "1003": {
+    "id": 1003,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Understanding spatial root distribution effects on belowground competition."
+  },
+  "1004": {
+    "id": 1004,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of shelterbelt effects on wind damage."
+  },
+  "1005": {
+    "id": 1005,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of the role of leguminous trees in nitrogen fixation."
+  },
+  "1006": {
+    "id": 1006,
+    "topic": "Multipurpose Tree Species (MPTS) & Nitrogen-Fixing Trees",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of nitrogen-fixing tree genus (Acacia)."
+  },
+  "1007": {
+    "id": 1007,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "EASY",
+    "reasoning": "Definitional question regarding resource competition types in agroforestry."
+  },
+  "1008": {
+    "id": 1008,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Management strategy application for minimizing tree-crop belowground competition."
+  },
+  "1009": {
+    "id": 1009,
+    "topic": "Commercial & Fast-Growing Trees (Bamboo, Poplar & Eucalyptus)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific association of Eucalyptus with allelopathic traits."
+  },
+  "1010": {
+    "id": 1010,
+    "topic": "Tree-Crop Interactions, Canopy Management, Windbreaks & Shelterbelts",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition and function of windbreaks."
+  },
+  "1011": {
+    "id": 1011,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall of social forestry goals."
+  },
+  "1012": {
+    "id": 1012,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Definitional question on social forestry scope."
+  },
+  "1013": {
+    "id": 1013,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic stakeholder identification in social forestry."
+  },
+  "1014": {
+    "id": 1014,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic environmental benefit identification of social forestry."
+  },
+  "1015": {
+    "id": 1015,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic objective recall of community forestry."
+  },
+  "1016": {
+    "id": 1016,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "This is a basic definitional question about farm forestry, which is a core component of social forestry."
+  },
+  "1017": {
+    "id": 1017,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "This question tests the basic objective of extension forestry under social forestry programs."
+  },
+  "1018": {
+    "id": 1018,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall question regarding the definition and goal of recreation and amenity forestry."
+  },
+  "1019": {
+    "id": 1019,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Simple definitional question about the purpose of rehabilitation forestry for degraded lands."
+  },
+  "1020": {
+    "id": 1020,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall regarding compensatory plantations and CAMPA-related afforestation objectives."
+  },
+  "1021": {
+    "id": 1021,
+    "topic": "Forestry Policy, Social Forestry, Tree Mensuration & Forest Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question covering the purpose and scope of urban forestry."
+  }
+}
