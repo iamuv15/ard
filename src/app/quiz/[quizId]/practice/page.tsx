@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useRouter, useParams } from 'next/navigation'
+import { useState, useEffect, Suspense } from 'react'
+import { useRouter, useParams, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Loader2, ArrowRight, CheckCircle2, XCircle, HelpCircle, ChevronLeft, Bookmark, Sparkles, Volume2, Check, ExternalLink } from 'lucide-react'
 import { ReportQuestionButton } from '@/components/ReportQuestionButton'
@@ -40,7 +40,7 @@ type Question = {
 }
 
 
-export default function QuizPage() {
+function QuizPageContent() {
   const [questions, setQuestions] = useState<Question[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
@@ -53,8 +53,10 @@ export default function QuizPage() {
   const [bookmarks, setBookmarks] = useState<Record<number, string>>({})
   const [bookmarkDropdownOpen, setBookmarkDropdownOpen] = useState<number | null>(null)
   const [geminiToast, setGeminiToast] = useState(false)
+  const [sessionTitle, setSessionTitle] = useState<string | null>(null)
   const router = useRouter()
   const params = useParams()
+  const searchParams = useSearchParams()
 
   const currentQ = questions[currentIndex] as Question | undefined
 
@@ -151,32 +153,89 @@ Please break down:
 
   useEffect(() => {
     const quizId = params.quizId as string
-    
-    if (!quizId) return;
+    if (!quizId) return
 
     const isChapterMode = quizId.startsWith('chapter-')
     const cId = isChapterMode ? quizId.replace('chapter-', '') : null
+    const customKey = searchParams.get('customKey')
+    const difficultyParam = searchParams.get('difficulty')
+    const orderParam = searchParams.get('order')
+    const limitParam = searchParams.get('limit')
 
-    const fetchUrl = isChapterMode
-      ? `/ard/api/questions?chapterId=${cId}&random=true&limit=50`
-      : `/ard/api/questions?quizId=${quizId}`
+    if (isChapterMode && customKey) {
+      try {
+        const raw = localStorage.getItem(`custom_quiz_${customKey}`)
+        if (raw) {
+          const parsed = JSON.parse(raw)
+          if (parsed.title) setSessionTitle(parsed.title)
+          fetch('/ard/api/questions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ids: parsed.ids || [],
+              chapterId: cId ? parseInt(cId, 10) : undefined,
+              shuffle: (parsed.order || orderParam) !== 'chronological',
+              order: parsed.order || orderParam || 'relevance',
+              limit: parsed.limit || limitParam || 'all'
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.questions) {
+                setQuestions(data.questions)
+              }
+              setLoading(false)
+            })
+            .catch(() => setLoading(false))
+          return
+        }
+      } catch (e) {
+        console.error('Failed to load custom quiz session', e)
+      }
+    }
+
+    let fetchUrl = `/ard/api/questions?quizId=${quizId}`
+    if (isChapterMode) {
+      const qs = new URLSearchParams()
+      qs.set('chapterId', cId || '')
+      if (difficultyParam) {
+        qs.set('difficulty', difficultyParam)
+        setSessionTitle(`Chapter ${difficultyParam.charAt(0) + difficultyParam.slice(1).toLowerCase()} Sweep`)
+      } else {
+        setSessionTitle('Chapter Random Practice')
+      }
+      if (orderParam === 'chronological') {
+        qs.set('order', 'chronological')
+      } else {
+        qs.set('random', 'true')
+      }
+      if (limitParam) {
+        qs.set('limit', limitParam)
+      } else if (!difficultyParam) {
+        qs.set('limit', '50')
+      }
+      fetchUrl = `/ard/api/questions?${qs.toString()}`
+    }
 
     fetch(fetchUrl)
       .then(res => res.json())
       .then(data => {
         if (data.questions) {
-          const shuffled = [...data.questions]
-          // Simple shuffle
-          for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+          if (orderParam === 'chronological') {
+            setQuestions(data.questions)
+          } else {
+            const shuffled = [...data.questions]
+            for (let i = shuffled.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+            }
+            setQuestions(shuffled)
           }
-          setQuestions(shuffled)
         }
         setLoading(false)
       })
       .catch(() => setLoading(false))
-  }, [params.quizId])
+  }, [params.quizId, searchParams])
 
   if (loading) {
     return (
@@ -320,10 +379,18 @@ Please break down:
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans text-gray-900 pb-24">
       {/* Top Header */}
       <div className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-6 sticky top-0 z-10 shrink-0 shadow-sm">
-        <Link href="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
-          <ChevronLeft className="w-4 h-4" /> Exit Practice
-        </Link>
-        <div className="text-sm font-bold text-gray-800">Score: <span className="text-blue-600">{score}</span></div>
+        <div className="flex items-center gap-3 min-w-0">
+          <Link href="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors shrink-0">
+            <ChevronLeft className="w-4 h-4" /> Exit Practice
+          </Link>
+          {sessionTitle && (
+            <span className="hidden sm:inline-flex items-center gap-1 text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200/70 px-2.5 py-0.5 rounded-full truncate max-w-md">
+              <Sparkles className="w-3 h-3 shrink-0" />
+              <span className="truncate">{sessionTitle}</span>
+            </span>
+          )}
+        </div>
+        <div className="text-sm font-bold text-gray-800 shrink-0">Score: <span className="text-blue-600">{score}</span></div>
       </div>
 
       <div className="max-w-6xl w-full mx-auto p-4 md:p-6 lg:p-8 flex-1">
@@ -766,5 +833,19 @@ Please break down:
         </div>
       )}
     </div>
+  )
+}
+
+export default function QuizPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+        </div>
+      }
+    >
+      <QuizPageContent />
+    </Suspense>
   )
 }

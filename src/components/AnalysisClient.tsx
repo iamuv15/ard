@@ -55,9 +55,10 @@ type Props = {
   chapterId?: number
   chapterName?: string
   questions: Question[]
+  customStorageKey?: string
 }
 
-export default function AnalysisClient({ quizId, quizName, chapterId, chapterName, questions }: Props) {
+export default function AnalysisClient({ quizId, quizName, chapterId, chapterName, questions, customStorageKey }: Props) {
   const [questionList, setQuestionList] = useState(questions)
   const [result, setResult] = useState<{
     answers: Record<number, string>
@@ -113,11 +114,12 @@ export default function AnalysisClient({ quizId, quizName, chapterId, chapterNam
   }
 
   useEffect(() => {
-    const data = localStorage.getItem(`mock_result_${quizId}`)
+    const key = customStorageKey ? `chapter_mock_result_${customStorageKey}` : `mock_result_${quizId}`
+    const data = localStorage.getItem(key)
     if (data) {
       setResult(JSON.parse(data))
     }
-  }, [quizId])
+  }, [quizId, customStorageKey])
 
   if (!result) {
     return (

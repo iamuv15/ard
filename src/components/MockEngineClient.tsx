@@ -24,11 +24,16 @@ type Props = {
   quizName: string
   questions: Question[]
   userName: string | null
+  customAnalysis?: {
+    chapterId: number
+    chapterName: string
+    storageKey: string
+  }
 }
 
 type QuestionStatus = 'not_visited' | 'not_answered' | 'answered' | 'marked' | 'answered_marked'
 
-export default function MockEngineClient({ quizId, quizName, questions, userName }: Props) {
+export default function MockEngineClient({ quizId, quizName, questions, userName, customAnalysis }: Props) {
   const router = useRouter()
 
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -200,6 +205,21 @@ export default function MockEngineClient({ quizId, quizName, questions, userName
       } catch (e) {
         console.error('Failed to log mistake', e)
       }
+    }
+
+    if (customAnalysis) {
+      localStorage.setItem(`chapter_mock_result_${customAnalysis.storageKey}`, JSON.stringify({
+        answers,
+        score: correctCount,
+        total: questions.length,
+        timeTaken: (questions.length * 60) - timeLeft,
+        questionIds: questions.map(q => q.id),
+        quizName,
+        chapterId: customAnalysis.chapterId,
+        chapterName: customAnalysis.chapterName
+      }))
+      router.push(`/chapter/${customAnalysis.chapterId}/analysis?key=${encodeURIComponent(customAnalysis.storageKey)}`)
+      return
     }
 
     localStorage.setItem(`mock_result_${quizId}`, JSON.stringify({

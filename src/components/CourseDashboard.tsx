@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { 
   ChevronLeft, 
@@ -19,7 +20,10 @@ import {
   Award,
   Layers,
   Shuffle,
-  Flame
+  Flame,
+  Search,
+  Loader2,
+  RotateCcw
 } from 'lucide-react'
 import LogOutButton from '@/components/LogOutButton'
 
@@ -556,6 +560,102 @@ export default function CourseDashboard({
   // Collapsible Accordion State: by default, all topics are collapsed for clean navigation
   const [openTopics, setOpenTopics] = useState<Record<string, boolean>>({})
 
+  const router = useRouter()
+  const [aiPrompt, setAiPrompt] = useState('')
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiError, setAiError] = useState<string | null>(null)
+  const [aiMatchResult, setAiMatchResult] = useState<{
+    chapterId: number
+    matchedIds: number[]
+    totalMatched: number
+    breakdown: { easy: number; medium: number; hard: number }
+    summary: string
+    topicsCovered: string[]
+    previews: { id: number; questionText: string; topic: string | null; difficulty: string | null }[]
+  } | null>(null)
+  const [sweepDifficulty, setSweepDifficulty] = useState<'EASY' | 'MEDIUM' | 'HARD' | null>(null)
+  const [customLimit, setCustomLimit] = useState<string>('all')
+  const [customOrder, setCustomOrder] = useState<'shuffle' | 'chronological'>('shuffle')
+
+  const handleSelectChapter = (chapterId: number) => {
+    setActiveChapterId(chapterId)
+    setAiPrompt('')
+    setAiError(null)
+    setAiMatchResult(null)
+    setSweepDifficulty(null)
+    setCustomLimit('all')
+    if (window.innerWidth < 1024) setSidebarOpen(false)
+  }
+
+  const handleBuildAiQuiz = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault()
+    if (!activeChapter || aiPrompt.trim().length < 2) return
+
+    setAiLoading(true)
+    setAiError(null)
+    setSweepDifficulty(null)
+    setAiMatchResult(null)
+
+    try {
+      const res = await fetch(`/ard/api/chapters/${activeChapter.id}/custom-ai-quiz`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: aiPrompt.trim() })
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setAiError(data.error || 'Failed to build custom quiz.')
+      } else {
+        setAiMatchResult(data)
+        setCustomLimit(data.totalMatched > 50 ? '50' : 'all')
+        setCustomOrder('shuffle')
+      }
+    } catch {
+      setAiError('Network error while scanning chapter questions. Please try again.')
+    } finally {
+      setAiLoading(false)
+    }
+  }
+
+  const handleSelectDifficultySweep = (diff: 'EASY' | 'MEDIUM' | 'HARD', count: number) => {
+    setAiMatchResult(null)
+    setAiError(null)
+    if (sweepDifficulty === diff) {
+      setSweepDifficulty(null)
+    } else {
+      setSweepDifficulty(diff)
+      setCustomLimit(count > 50 ? '50' : 'all')
+      setCustomOrder('shuffle')
+    }
+  }
+
+  const handleLaunchCustomSession = (mode: 'practice' | 'mock') => {
+    if (!activeChapter) return
+
+    if (aiMatchResult && aiMatchResult.matchedIds.length > 0) {
+      const customKey = `ai_${activeChapter.id}_${Date.now()}`
+      localStorage.setItem(
+        `custom_quiz_${customKey}`,
+        JSON.stringify({
+          ids: aiMatchResult.matchedIds,
+          title: `${activeChapter.name}: ${aiPrompt.trim().slice(0, 40)}${aiPrompt.trim().length > 40 ? '...' : ''}`,
+          limit: customLimit,
+          order: customOrder
+        })
+      )
+      router.push(`/chapter/${activeChapter.id}/${mode}?customKey=${encodeURIComponent(customKey)}`)
+      return
+    }
+
+    if (sweepDifficulty) {
+      const qs = new URLSearchParams()
+      qs.set('difficulty', sweepDifficulty)
+      qs.set('limit', customLimit)
+      qs.set('order', customOrder)
+      router.push(`/chapter/${activeChapter.id}/${mode}?${qs.toString()}`)
+    }
+  }
+
   const toggleTopic = (topic: string) => {
     setOpenTopics(prev => ({
       ...prev,
@@ -636,6 +736,16 @@ export default function CourseDashboard({
     ? activeChapter.quizzes.reduce((acc, q) => acc + q._count.questions, 0)
     : 0
 
+  const easyCount = activeChapter
+    ? activeChapter.quizzes.filter(q => q.difficulty === 'EASY').reduce((acc, q) => acc + q._count.questions, 0)
+    : 0
+  const mediumCount = activeChapter
+    ? activeChapter.quizzes.filter(q => q.difficulty === 'MEDIUM').reduce((acc, q) => acc + q._count.questions, 0)
+    : 0
+  const hardCount = activeChapter
+    ? activeChapter.quizzes.filter(q => q.difficulty === 'HARD').reduce((acc, q) => acc + q._count.questions, 0)
+    : 0
+
   return (
     <div className="flex h-screen bg-[#F8FAFC] text-gray-900 overflow-hidden font-sans">
 
@@ -703,10 +813,7 @@ export default function CourseDashboard({
             return (
               <button
                 key={chapter.id}
-                onClick={() => {
-                  setActiveChapterId(chapter.id)
-                  if (window.innerWidth < 1024) setSidebarOpen(false)
-                }}
+                onClick={() => handleSelectChapter(chapter.id)}
                 className={`
                   w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all cursor-pointer group
                   ${isSelected 
@@ -908,6 +1015,349 @@ export default function CourseDashboard({
                   </div>
                 </div>
               </Link>
+            </div>
+
+            {/* ─── Chapter-Scoped AI Custom Quiz Builder & Difficulty Sweeps ─── */}
+            <div className="bg-white rounded-2xl border border-indigo-200/80 shadow-2xs p-4 sm:p-5 space-y-3.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200/70 text-indigo-600 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-black text-gray-900">
+                      AI Custom Quiz Builder <span className="text-xs font-semibold text-indigo-600">({activeChapter.name} only)</span>
+                    </h3>
+                    <p className="text-[11px] text-gray-500">
+                      Type the exact sub-topics, keywords, or difficulty levels you want to test yourself on.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Quick 1-Click Difficulty Sweeps for This Chapter */}
+                {(easyCount > 0 || mediumCount > 0 || hardCount > 0) && (
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {easyCount > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => handleSelectDifficultySweep('EASY', easyCount)}
+                        className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer flex items-center gap-1.5 ${
+                          sweepDifficulty === 'EASY'
+                            ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                            : 'bg-emerald-50/70 text-emerald-800 border-emerald-200 hover:bg-emerald-100'
+                        }`}
+                      >
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 border border-white/60" />
+                        <span>All Easy ({easyCount})</span>
+                      </button>
+                    )}
+                    {mediumCount > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => handleSelectDifficultySweep('MEDIUM', mediumCount)}
+                        className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer flex items-center gap-1.5 ${
+                          sweepDifficulty === 'MEDIUM'
+                            ? 'bg-amber-500 text-white border-amber-500 shadow-xs'
+                            : 'bg-amber-50/70 text-amber-800 border-amber-200 hover:bg-amber-100'
+                        }`}
+                      >
+                        <span className="w-2 h-2 rounded-full bg-amber-400 border border-white/60" />
+                        <span>All Med ({mediumCount})</span>
+                      </button>
+                    )}
+                    {hardCount > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => handleSelectDifficultySweep('HARD', hardCount)}
+                        className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer flex items-center gap-1.5 ${
+                          sweepDifficulty === 'HARD'
+                            ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                            : 'bg-rose-50/70 text-rose-800 border-rose-200 hover:bg-rose-100'
+                        }`}
+                      >
+                        <span className="w-2 h-2 rounded-full bg-rose-400 border border-white/60" />
+                        <span>All Hard ({hardCount})</span>
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Input Box Form */}
+              <form onSubmit={handleBuildAiQuiz} className="flex flex-col sm:flex-row gap-2.5">
+                <div className="relative flex-1">
+                  <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <input
+                    type="text"
+                    value={aiPrompt}
+                    onChange={(e) => setAiPrompt(e.target.value)}
+                    placeholder={`Type topics from ${activeChapter.name} (e.g. "formulas & numericals, medium and hard only")...`}
+                    className="w-full pl-10 pr-9 py-2.5 rounded-xl border border-gray-200 bg-slate-50/70 focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/15 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 outline-none transition-all"
+                  />
+                  {aiPrompt && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setAiPrompt('')
+                        setAiMatchResult(null)
+                        setAiError(null)
+                      }}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  disabled={aiLoading || aiPrompt.trim().length < 2}
+                  className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-xs sm:text-sm transition-all shadow-xs flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+                >
+                  {aiLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Scanning {activeChapterTotalQuestions} Qs...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="w-4 h-4" />
+                      <span>Find & Build Quiz</span>
+                    </>
+                  )}
+                </button>
+              </form>
+
+              {aiError && (
+                <div className="text-xs font-medium text-red-600 bg-red-50 border border-red-200 rounded-xl px-3.5 py-2.5">
+                  {aiError}
+                </div>
+              )}
+
+              {/* Preview Card for Difficulty Sweep Selection */}
+              {sweepDifficulty && (
+                <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5 space-y-3 animate-in fade-in duration-150">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="text-xs font-bold text-gray-900">
+                      🎯 Ready to launch:{' '}
+                      <span className="text-indigo-700">
+                        All {sweepDifficulty.charAt(0) + sweepDifficulty.slice(1).toLowerCase()} Questions in {activeChapter.name}
+                      </span>{' '}
+                      <span className="text-gray-500 font-semibold">
+                        ({sweepDifficulty === 'EASY' ? easyCount : sweepDifficulty === 'MEDIUM' ? mediumCount : hardCount} available)
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setSweepDifficulty(null)}
+                      className="text-[11px] font-semibold text-gray-500 hover:text-gray-800 cursor-pointer"
+                    >
+                      Dismiss
+                    </button>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-slate-200/80">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <div className="flex items-center gap-1.5 text-[11px]">
+                        <span className="font-bold text-gray-500">Count:</span>
+                        {['15', '25', '50', 'all'].map((lim) => (
+                          <button
+                            key={lim}
+                            type="button"
+                            onClick={() => setCustomLimit(lim)}
+                            className={`px-2 py-0.5 rounded-md font-bold transition-colors cursor-pointer ${
+                              customLimit === lim
+                                ? 'bg-slate-800 text-white'
+                                : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100'
+                            }`}
+                          >
+                            {lim === 'all' ? 'All' : `${lim} Qs`}
+                          </button>
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-1.5 text-[11px]">
+                        <span className="font-bold text-gray-500">Order:</span>
+                        <button
+                          type="button"
+                          onClick={() => setCustomOrder('shuffle')}
+                          className={`px-2 py-0.5 rounded-md font-bold transition-colors cursor-pointer ${
+                            customOrder === 'shuffle'
+                              ? 'bg-slate-800 text-white'
+                              : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100'
+                          }`}
+                        >
+                          Shuffled
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setCustomOrder('chronological')}
+                          className={`px-2 py-0.5 rounded-md font-bold transition-colors cursor-pointer ${
+                            customOrder === 'chronological'
+                              ? 'bg-slate-800 text-white'
+                              : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100'
+                          }`}
+                        >
+                          Topic Order
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => handleLaunchCustomSession('practice')}
+                        className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
+                      >
+                        <Play className="w-3.5 h-3.5 fill-white" />
+                        <span>Practice Mode</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleLaunchCustomSession('mock')}
+                        className="px-3.5 py-1.5 rounded-xl bg-white hover:bg-indigo-50 text-indigo-700 border border-indigo-300 text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
+                      >
+                        <Zap className="w-3.5 h-3.5" />
+                        <span>Timed Exam</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Preview Card for AI Prompt Matches */}
+              {aiMatchResult && (
+                <div className="rounded-xl border border-indigo-200 bg-indigo-50/40 p-4 space-y-3 animate-in fade-in duration-150">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                    <div className="space-y-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-xs font-black text-indigo-950">
+                          {aiMatchResult.totalMatched > 0
+                            ? `🎯 Found ${aiMatchResult.totalMatched} Matching Questions`
+                            : 'No Matching Questions Found'}
+                        </span>
+                        {aiMatchResult.totalMatched > 0 && (
+                          <div className="flex items-center gap-1.5 text-[10px] font-bold">
+                            {aiMatchResult.breakdown.easy > 0 && (
+                              <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                                {aiMatchResult.breakdown.easy} Easy
+                              </span>
+                            )}
+                            {aiMatchResult.breakdown.medium > 0 && (
+                              <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
+                                {aiMatchResult.breakdown.medium} Med
+                              </span>
+                            )}
+                            {aiMatchResult.breakdown.hard > 0 && (
+                              <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-800">
+                                {aiMatchResult.breakdown.hard} Hard
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-600">{aiMatchResult.summary}</p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setAiMatchResult(null)}
+                      className="text-[11px] font-semibold text-gray-500 hover:text-gray-800 self-start cursor-pointer flex items-center gap-1"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                      <span>Clear</span>
+                    </button>
+                  </div>
+
+                  {aiMatchResult.previews.length > 0 && (
+                    <div className="bg-white/90 rounded-lg border border-indigo-100 p-2.5 space-y-1.5">
+                      <div className="text-[10px] font-black text-gray-400 uppercase tracking-wider">Sample Matched Questions</div>
+                      {aiMatchResult.previews.map((p) => (
+                        <div key={p.id} className="text-[11px] text-gray-700 flex items-start gap-2 leading-snug">
+                          <span className={`shrink-0 px-1.5 py-0.2 rounded text-[9px] font-black uppercase mt-0.5 ${
+                            p.difficulty === 'EASY'
+                              ? 'bg-emerald-100 text-emerald-800'
+                              : p.difficulty === 'HARD'
+                                ? 'bg-rose-100 text-rose-800'
+                                : 'bg-amber-100 text-amber-800'
+                          }`}>
+                            {p.difficulty || 'MED'}
+                          </span>
+                          <span className="line-clamp-1">{p.questionText}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {aiMatchResult.totalMatched > 0 && (
+                    <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-indigo-200/60">
+                      <div className="flex flex-wrap items-center gap-3">
+                        {aiMatchResult.totalMatched > 15 && (
+                          <div className="flex items-center gap-1.5 text-[11px]">
+                            <span className="font-bold text-gray-600">Size:</span>
+                            {['15', '25', '50', 'all'].map((lim) => (
+                              <button
+                                key={lim}
+                                type="button"
+                                onClick={() => setCustomLimit(lim)}
+                                className={`px-2 py-0.5 rounded-md font-bold transition-colors cursor-pointer ${
+                                  customLimit === lim
+                                    ? 'bg-indigo-700 text-white'
+                                    : 'bg-white border border-indigo-200 text-gray-700 hover:bg-indigo-50'
+                                }`}
+                              >
+                                {lim === 'all' ? `All (${aiMatchResult.totalMatched})` : `${lim} Qs`}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                        <div className="flex items-center gap-1.5 text-[11px]">
+                          <span className="font-bold text-gray-600">Order:</span>
+                          <button
+                            type="button"
+                            onClick={() => setCustomOrder('shuffle')}
+                            className={`px-2 py-0.5 rounded-md font-bold transition-colors cursor-pointer ${
+                              customOrder === 'shuffle'
+                                ? 'bg-indigo-700 text-white'
+                                : 'bg-white border border-indigo-200 text-gray-700 hover:bg-indigo-50'
+                            }`}
+                          >
+                            Shuffled
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setCustomOrder('chronological')}
+                            className={`px-2 py-0.5 rounded-md font-bold transition-colors cursor-pointer ${
+                              customOrder === 'chronological'
+                                ? 'bg-indigo-700 text-white'
+                                : 'bg-white border border-indigo-200 text-gray-700 hover:bg-indigo-50'
+                            }`}
+                          >
+                            Topic Order
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => handleLaunchCustomSession('practice')}
+                          className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
+                        >
+                          <Play className="w-3.5 h-3.5 fill-white" />
+                          <span>Start Practice Mode</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleLaunchCustomSession('mock')}
+                          className="px-4 py-2 rounded-xl bg-white hover:bg-indigo-100 text-indigo-700 border border-indigo-300 text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
+                        >
+                          <Zap className="w-3.5 h-3.5" />
+                          <span>Start Timed Exam</span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* ─── Section Header with Expand / Collapse All Controls ─── */}
