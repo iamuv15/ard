@@ -362,6 +362,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "Definitions of harvest index & basic harvesting tools",
     medDesc: "Safe storage moisture percentages (10-12% cereals, 8-9% oilseeds) & drying standards",
     hardDesc: "Harvest Index mathematical problems, equilibrium relative humidity & respiration thermodynamics"
+  },
+  // ─── Agriculture Engineering ───
+  "Farm Power Sources, IC Engines & Tractor Mechanics": {
+    desc: "Farm power sources (mechanical, electrical, animal), IC engines (diesel vs petrol, 2-stroke vs 4-stroke, thermal efficiency), tractor systems (clutch, differential, PTO at standard 540 rpm & cooling).",
+    easyDesc: "Engine types, basic tractor components (clutch, radiator, PTO) & power sources",
+    medDesc: "Compression ratios, thermal efficiencies & standard PTO speeds (540 / 1000 rpm)",
+    hardDesc: "Indicated vs brake horsepower calculations, valve timing diagrams & governor mechanics"
+  },
+  "Primary Tillage Implements & Ploughs": {
+    desc: "Primary tillage implements: indigenous plough, mouldboard (MB) plough components (share, mouldboard, landside, frog), disc plough (disc angle 40-45°, tilt angle 15-25°), subsoiler & rotavator.",
+    easyDesc: "MB plough parts, primary tillage definitions & implement identification",
+    medDesc: "Disc plough angles (disc angle 40-45°, tilt angle 15-25°) & subsoiling depths",
+    hardDesc: "Specific draft force calculations (kg/cm²), centre of resistance geometry & mouldboard curves"
+  },
+  "Secondary Tillage, Land Levelling & Laser Levellers": {
+    desc: "Secondary tillage machinery: disc harrows, spike/spring tooth harrows, cultivators, land levelers & laser land leveling systems (transmitter, receiver, control box & bucket).",
+    easyDesc: "Harrow types, secondary tillage definitions & laser leveller basic components",
+    medDesc: "Laser beam accuracy ranges, water saving percentages (20-30%) & disc gang angles",
+    hardDesc: "Cut-and-fill volume survey calculations, tractor pull mechanics & grading ergonomics"
+  },
+  "Sowing, Planting Equipment & Seed Drills": {
+    desc: "Seed-cum-fertilizer drill mechanics (hopper, fluted roller / cup feed metering, furrow openers: shoe/disc/shovel), seed drill calibration, precision planters & paddy transplanters.",
+    easyDesc: "Seed drill functions, metering mechanism names & planter vs seed drill differences",
+    medDesc: "Calibration formulas (wheel circumference, revolutions, seed rate kg/ha) & furrow opener depths",
+    hardDesc: "Seed damage percentage optimization, pneumatic metering vacuum dynamics & drop velocity physics"
+  },
+  "Intercultural, Weeding & Plant Protection Machinery": {
+    desc: "Weeders (wheel hoe, cono-weeder for SRI paddy, power weeders), earthing-up equipment (ridgers) & sprayers/dusters (knapsack, foot sprayers, power sprayers, nozzle types & calibration).",
+    easyDesc: "Cono-weeder use in SRI rice, sprayer names & common nozzle types",
+    medDesc: "Sprayer operating pressures, nozzle discharge rates & droplet size classifications (VMD)",
+    hardDesc: "Drift reduction aerodynamics, spray swath deposit uniformity & electrostatic nozzle mechanics"
+  },
+  "Harvesting, Threshing & Combine Harvesters": {
+    desc: "Harvesting equipment (sickles, reapers, mower cutter bar), threshers (spike tooth, rasp bar cylinders) & self-propelled combine harvesters (cutting, threshing, separation & cleaning).",
+    easyDesc: "Reaper vs thresher functions, combine harvester operations & sickle serration types",
+    medDesc: "Cylinder-concave clearance standards, peripheral cylinder speeds & grain loss thresholds",
+    hardDesc: "Threshing efficiency mathematics, concave separation equations & grain shatter physics"
+  },
+  "Renewable Energy, Post-Harvest Machinery & Farm Mechanization": {
+    desc: "Solar water pumping (PM-KUSUM), biogas plants (KVIC vs Deenbandhu models), post-harvest machinery (cleaners, graders, dryers, excavators) & farm mechanization status (kW/ha & SMAM).",
+    easyDesc: "Solar pump schemes (PM-KUSUM), biogas plant basic parts & cleaner/grader functions",
+    medDesc: "Farm power availability in India (kW/ha), custom hiring centre (CHC) norms & biogas gas ratios",
+    hardDesc: "Drying air psychrometrics, heat transfer thermodynamics in solar dryers & mechanization index math"
   }
 }
 

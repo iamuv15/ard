@@ -1,0 +1,506 @@
+{
+  "797": {
+    "id": 797,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Basic conversion factor between horsepower and kilowatts."
+  },
+  "798": {
+    "id": 798,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires knowledge of 4-stroke engine cycle mechanics and crankshaft rotation degrees."
+  },
+  "799": {
+    "id": 799,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the appropriate farm power source for small holdings and hilly regions."
+  },
+  "800": {
+    "id": 800,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Basic functional advantage of diesel engines over petrol engines."
+  },
+  "801": {
+    "id": 801,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Definition of drawbar horsepower in farm power budgeting."
+  },
+  "802": {
+    "id": 802,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Identification of SI unit for torque."
+  },
+  "803": {
+    "id": 803,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Identifies where brake horsepower is measured in an engine."
+  },
+  "804": {
+    "id": 804,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the most efficient stationary power source for irrigation."
+  },
+  "805": {
+    "id": 805,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "MEDIUM",
+    "reasoning": "Compares energy conversion efficiencies across different farm power sources."
+  },
+  "806": {
+    "id": 806,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "MEDIUM",
+    "reasoning": "Simple physics calculation of power given force and velocity."
+  },
+  "807": {
+    "id": 807,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "MEDIUM",
+    "reasoning": "Multifactor evaluation of factors affecting tractor fuel consumption."
+  },
+  "808": {
+    "id": 808,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "MEDIUM",
+    "reasoning": "Physics calculation involving force, speed, work, and time."
+  },
+  "809": {
+    "id": 809,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "HARD",
+    "reasoning": "Involves multi-step calculation to find drawbar power and convert it into horsepower."
+  },
+  "810": {
+    "id": 810,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "EASY",
+    "reasoning": "General benefit of farm mechanization."
+  },
+  "811": {
+    "id": 811,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Basic function of a tractor's differential."
+  },
+  "812": {
+    "id": 812,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Basic purpose of the Power Take-Off (PTO)."
+  },
+  "813": {
+    "id": 813,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Identifies typical fuel used in modern tractors."
+  },
+  "814": {
+    "id": 814,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "MEDIUM",
+    "reasoning": "Knowledge of advanced transmission types used in tractors."
+  },
+  "815": {
+    "id": 815,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Basic function of a tractor radiator."
+  },
+  "816": {
+    "id": 816,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the main advantage of 4WD tractors."
+  },
+  "817": {
+    "id": 817,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Basic mechanical function of a tractor clutch."
+  },
+  "818": {
+    "id": 818,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates comprehensive braking systems employed in tractors."
+  },
+  "819": {
+    "id": 819,
+    "topic": "Farm Power Sources, IC Engines & Tractor Mechanics",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the component used to control tractor speed/gear ratios."
+  },
+  "820": {
+    "id": 820,
+    "topic": "Sowing, Planting Equipment & Seed Drills",
+    "difficulty": "EASY",
+    "reasoning": "Identifies implement used for sowing seeds in rows."
+  },
+  "821": {
+    "id": 821,
+    "topic": "Sowing, Planting Equipment & Seed Drills",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the dual function of a seed-cum-fertilizer drill."
+  },
+  "822": {
+    "id": 822,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the basic use of a knapsack sprayer for applying pesticides manually."
+  },
+  "823": {
+    "id": 823,
+    "topic": "Harvesting, Threshing & Combine Harvesters",
+    "difficulty": "MEDIUM",
+    "reasoning": "Compares specific thresher types (axial flow vs others) for paddy threshing efficiency and grain safety."
+  },
+  "824": {
+    "id": 824,
+    "topic": "Harvesting, Threshing & Combine Harvesters",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers operating conditions like grain moisture content and its effect on mechanical threshing breakage."
+  },
+  "825": {
+    "id": 825,
+    "topic": "Harvesting, Threshing & Combine Harvesters",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves specific numerical values for optimal grain moisture content during wheat threshing."
+  },
+  "826": {
+    "id": 826,
+    "topic": "Harvesting, Threshing & Combine Harvesters",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the performance evaluation parameter (cleaning efficiency) for a thresher."
+  },
+  "827": {
+    "id": 827,
+    "topic": "Harvesting, Threshing & Combine Harvesters",
+    "difficulty": "MEDIUM",
+    "reasoning": "Explains operational parameters like cylinder speed and the mechanical consequence of excessive speed."
+  },
+  "828": {
+    "id": 828,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition of intercultural operations such as weeding and soil aeration."
+  },
+  "829": {
+    "id": 829,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the appropriate weeding tool (wheel hoe) for closely spaced row crops."
+  },
+  "830": {
+    "id": 830,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers specific timing guidelines (15-20 DAS) for first weeding in cereal crops."
+  },
+  "831": {
+    "id": 831,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies specialized mechanical weeders used specifically for wetland paddy fields."
+  },
+  "832": {
+    "id": 832,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the cono-weeder as the standard tool for wetland paddy fields."
+  },
+  "833": {
+    "id": 833,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "EASY",
+    "reasoning": "Matches the wheel hoe implement to specific crop types like groundnut and soybean."
+  },
+  "834": {
+    "id": 834,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of power-operated weeding machinery for large farms."
+  },
+  "835": {
+    "id": 835,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "EASY",
+    "reasoning": "Links the System of Rice Intensification (SRI) to the cono-weeder."
+  },
+  "836": {
+    "id": 836,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies animal-drawn intercultural implements like the blade hoe for medium-sized farms."
+  },
+  "837": {
+    "id": 837,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "EASY",
+    "reasoning": "Identifies drip irrigation as the most water-efficient irrigation system."
+  },
+  "838": {
+    "id": 838,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the hydraulic ram as a non-electric, renewable energy water-lifting device."
+  },
+  "839": {
+    "id": 839,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "MEDIUM",
+    "reasoning": "Recalls specific numerical efficiency ranges (90-95%) for drip irrigation systems."
+  },
+  "840": {
+    "id": 840,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "EASY",
+    "reasoning": "Identifies submersible pumps for deep tube wells exceeding 30 meters."
+  },
+  "841": {
+    "id": 841,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "EASY",
+    "reasoning": "Basic functional identification of a foot valve in a centrifugal pump."
+  },
+  "842": {
+    "id": 842,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers fluid mechanics principles regarding friction losses in sprinkler irrigation pipes."
+  },
+  "843": {
+    "id": 843,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "EASY",
+    "reasoning": "Identifies HDPE material characteristics for portable irrigation pipelines."
+  },
+  "844": {
+    "id": 844,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "EASY",
+    "reasoning": "Explains the basic filtration purpose of sand filters in drip systems."
+  },
+  "845": {
+    "id": 845,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "MEDIUM",
+    "reasoning": "Categorizes pump operational characteristics for low discharge and high head requirements."
+  },
+  "846": {
+    "id": 846,
+    "topic": "Sowing, Planting Equipment & Seed Drills",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies a specific component (tracer blade) and its function in a seed drill."
+  },
+  "847": {
+    "id": 847,
+    "topic": "Renewable Energy, Post-Harvest Machinery & Farm Mechanization",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the use of an excavator in agricultural engineering, which falls under heavy earthmoving machinery and farm mechanization."
+  },
+  "848": {
+    "id": 848,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the core function of a hydraulic scraper, which is used for land shaping, scraping, and levelling."
+  },
+  "849": {
+    "id": 849,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the specific hydraulic components (hydraulic cylinder) utilized in scrapers for land leveling systems."
+  },
+  "850": {
+    "id": 850,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "EASY",
+    "reasoning": "Covers the primary benefit of laser-guided land levelers in agriculture."
+  },
+  "851": {
+    "id": 851,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for a specific component name (laser transmitter) within a laser land leveling system."
+  },
+  "852": {
+    "id": 852,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests detailed knowledge of laser land leveling system components by identifying the outlier (pneumatic jack)."
+  },
+  "853": {
+    "id": 853,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition question describing soil tillage and its objective to loosen soil."
+  },
+  "854": {
+    "id": 854,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishes conventional or clean tillage from other types of tillage practices."
+  },
+  "855": {
+    "id": 855,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the definition and concept of conservation tillage in agricultural management."
+  },
+  "856": {
+    "id": 856,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Explains the primary objective of minimum tillage in reducing soil disturbance."
+  },
+  "857": {
+    "id": 857,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies rotary tillage based on the rotary action of tools used to cut, break, and mix soil."
+  },
+  "858": {
+    "id": 858,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers preparatory tillage definitions and timing before sowing."
+  },
+  "859": {
+    "id": 859,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition question introducing primary tillage operations."
+  },
+  "860": {
+    "id": 860,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "EASY",
+    "reasoning": "Identifies ploughing as a primary tillage operation."
+  },
+  "861": {
+    "id": 861,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests classification of subsoiling under primary tillage operations."
+  },
+  "862": {
+    "id": 862,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "EASY",
+    "reasoning": "Explains the objective of earthing up as an intercultural operation."
+  },
+  "863": {
+    "id": 863,
+    "topic": "Intercultural, Weeding & Plant Protection Machinery",
+    "difficulty": "MEDIUM",
+    "reasoning": "Matches specific machinery (ridger) to crops like potatoes and sugarcane for earthing up."
+  },
+  "864": {
+    "id": 864,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "HARD",
+    "reasoning": "Comprehensive multi-statement/detailed definition question evaluating the complete objectives of primary tillage."
+  },
+  "865": {
+    "id": 865,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves specific depth figures (25-30 cm vs 15-20 cm) required for different crop root systems."
+  },
+  "866": {
+    "id": 866,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the rationale and objective behind deep tillage practices."
+  },
+  "867": {
+    "id": 867,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests the functions of a mouldboard plough, distinguishing its primary actions from soil leveling."
+  },
+  "868": {
+    "id": 868,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "EASY",
+    "reasoning": "Basic grouping question identifying primary tillage implements."
+  },
+  "869": {
+    "id": 869,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Describes disc plough mechanics and soil conditions where it is most effective."
+  },
+  "870": {
+    "id": 870,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "HARD",
+    "reasoning": "Complex application question explaining why reversible disc ploughs are suited for contour ploughing and reducing idle runs."
+  },
+  "871": {
+    "id": 871,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "HARD",
+    "reasoning": "Advanced question detailing the mechanical and traction benefits of a rotary cultivator/rotavator."
+  },
+  "872": {
+    "id": 872,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of the purpose of a chisel plough, which belongs to primary tillage."
+  },
+  "873": {
+    "id": 873,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "EASY",
+    "reasoning": "Direct question on the main function of a sub-soil plough, a primary tillage tool."
+  },
+  "874": {
+    "id": 874,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition and identification of secondary tillage operations."
+  },
+  "875": {
+    "id": 875,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of harrows and cultivators as secondary tillage implements."
+  },
+  "876": {
+    "id": 876,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "EASY",
+    "reasoning": "Standard definition-based question identifying the harrows under secondary tillage."
+  },
+  "877": {
+    "id": 877,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifying inter-cultivation characteristics and tine/disc adjustments specific to cultivators."
+  },
+  "878": {
+    "id": 878,
+    "topic": "Secondary Tillage, Land Levelling & Laser Levellers",
+    "difficulty": "MEDIUM",
+    "reasoning": "Conceptual differentiation between primary inversion tillage and secondary cultivation functions."
+  },
+  "879": {
+    "id": 879,
+    "topic": "Primary Tillage Implements & Ploughs",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies puddling machinery used in wetland preparation associated with tillage practices."
+  },
+  "880": {
+    "id": 880,
+    "topic": "Sowing, Planting Equipment & Seed Drills",
+    "difficulty": "MEDIUM",
+    "reasoning": "Explains operational details and soil disturbance characteristics of zero-till and bed planters."
+  }
+}
