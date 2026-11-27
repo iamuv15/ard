@@ -104,6 +104,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "Macronutrient vs micronutrient basic classifications",
     medDesc: "Nutrient percentages in Urea, DAP, MOP & organic manures",
     hardDesc: "Fertilizer dose calculation formulas & hidden hunger traps"
+  },
+  // ─── Animal Husbandry ───
+  "Animal Terminology & Livestock Breeds": {
+    desc: "Zootechnical terminology, indigenous & exotic breeds of cattle, buffalo, sheep & goat, native tracts & physical characteristics.",
+    easyDesc: "Core terms (heifer, ewe, doe, ram, steer) & basic breed identification",
+    medDesc: "Origin states, lactation yields, fat percentages & horn/ear shapes",
+    hardDesc: "Exotic breed inheritance, dual-purpose comparisons & tricky classification traps"
+  },
+  "Anatomy, Digestive Physiology & Dentition": {
+    desc: "Ruminant four-compartment stomach (rumen, reticulum, omasum, abomasum), dental formulas, aging by teeth & vital physiological constants.",
+    easyDesc: "Compartment names, true stomach & basic digestive definitions",
+    medDesc: "Dental formulas of cattle/goat, normal temperature, pulse & respiration constants",
+    hardDesc: "Eructation/rumination mechanisms, age deduction by incisors & physiological traps"
+  },
+  "Feeds, Fodder & Animal Nutrition": {
+    desc: "Roughages vs concentrates, silage fermentation, hay curing, TDN, CP, DCP & anti-nutritional factors (HCN, gossypol).",
+    easyDesc: "Definitions of roughage, concentrate, silage & hay crops",
+    medDesc: "Silage moisture/pH limits, TDN/DCP values in cakes & anti-nutritional toxins",
+    hardDesc: "Pearson square feed mixing calculations & nutritional deficiency traps"
+  },
+  "Animal Genetics, Breeding & Reproduction": {
+    desc: "Systems of breeding (inbreeding, crossbreeding, grading up), estrous cycle, AI technique, semen evaluation & cryopreservation.",
+    easyDesc: "Gestation periods, estrous cycle length & basic breeding terms",
+    medDesc: "AI straw specs, liquid nitrogen temperature (-196°C) & estrus signs",
+    hardDesc: "Grading up inheritance fractions & reproductive hormone feedback traps"
+  },
+  "Dairy Science, Milk Processing & Housing": {
+    desc: "Clean milk production, housing types (stanchion, loose), milk composition (fat, SNF, casein), pasteurization (LTLT, HTST, UHT) & dairy products.",
+    easyDesc: "Basic milk composition, colostrum facts & housing terms",
+    medDesc: "FSSAI legal standards (cow vs buffalo fat/SNF) & pasteurization time/temp constants",
+    hardDesc: "Pearson square milk standardization math, Gerber test calculations & dairy chemistry"
+  },
+  "Animal Diseases, Vaccination & Healthcare": {
+    desc: "Bacterial (Anthrax, BQ, HS, Mastitis), viral (FMD, Rinderpest, Rabies), metabolic (Milk fever, Bloat) diseases & vaccination schedules.",
+    easyDesc: "Disease symptoms, causal pathogen types & common names",
+    medDesc: "Causative organisms (Clostridium, Pasteurella, Bacillus) & diagnostic tests",
+    hardDesc: "Zoonotic transmission dynamics, post-mortem findings & complex pathology traps"
+  },
+  "Poultry Science & Swine Management": {
+    desc: "Poultry breeds (egg vs broiler, Aseel, Kadaknath), incubation & candling, poultry diseases (Ranikhet, Marek's) & pig/swine rearing.",
+    easyDesc: "Incubation periods (21 days), basic poultry breeds & swine terms",
+    medDesc: "Incubation temp/humidity constants, brooding floor space & disease symptoms",
+    hardDesc: "Broiler Feed Conversion Ratio (FCR) calculations & hatchery management traps"
   }
 }
 
@@ -407,10 +450,9 @@ export default function CourseDashboard({
               {/* 1. Random Practice Across All Topics */}
               <Link
                 href={`/chapter/${activeChapter.id}/practice`}
-                className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-blue-200/80 shadow-2xs hover:border-blue-400 hover:shadow-md transition-all group cursor-pointer"
-                title="Practice random shuffled questions across all sub-topics with Edge-TTS voice tutor"
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-blue-200/80 shadow-2xs hover:border-blue-400 hover:shadow-sm hover:bg-blue-50/20 transition-all group cursor-pointer"
               >
-                <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-2xs">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200/60 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-100 group-hover:scale-105 transition-all shadow-2xs">
                   <Shuffle className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
@@ -428,10 +470,9 @@ export default function CourseDashboard({
               {activeChapterMistakes > 0 ? (
                 <Link
                   href={`/redemption/quiz?chapterId=${activeChapter.id}&all=true`}
-                  className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-rose-200/90 shadow-2xs hover:border-rose-400 hover:shadow-md transition-all group cursor-pointer"
-                  title="Drill and clear mistakes specifically from this chapter"
+                  className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-rose-200/90 shadow-2xs hover:border-rose-400 hover:shadow-sm hover:bg-rose-50/20 transition-all group cursor-pointer"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 group-hover:bg-rose-600 group-hover:text-white transition-colors shadow-2xs">
+                  <div className="w-11 h-11 rounded-xl bg-rose-50 border border-rose-200/60 text-rose-600 flex items-center justify-center shrink-0 group-hover:bg-rose-100 group-hover:scale-105 transition-all shadow-2xs">
                     <Flame className="w-5 h-5 fill-rose-500/30 text-rose-600" />
                   </div>
                   <div className="min-w-0">
@@ -447,9 +488,8 @@ export default function CourseDashboard({
               ) : (
                 <div
                   className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-gray-200/70 shadow-2xs opacity-85"
-                  title="No mistakes currently in The Forge for this chapter"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-600 flex items-center justify-center shrink-0">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
@@ -466,10 +506,9 @@ export default function CourseDashboard({
               {/* 3. Random Mock Exam (Timed) */}
               <Link
                 href={`/chapter/${activeChapter.id}/mock`}
-                className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-indigo-200/80 shadow-2xs hover:border-indigo-400 hover:shadow-md transition-all group cursor-pointer"
-                title="Take a timed mock exam with 50 questions across all topics"
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-indigo-200/80 shadow-2xs hover:border-indigo-400 hover:shadow-sm hover:bg-indigo-50/20 transition-all group cursor-pointer"
               >
-                <div className="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors shadow-2xs">
+                <div className="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-200/60 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-100 group-hover:scale-105 transition-all shadow-2xs">
                   <Zap className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
