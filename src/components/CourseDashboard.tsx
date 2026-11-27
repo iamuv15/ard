@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { 
   ChevronLeft, 
   ChevronRight, 
+  ChevronDown,
+  ChevronUp,
   CheckCircle2, 
   Menu, 
   X, 
@@ -15,7 +17,9 @@ import {
   FileText,
   Sparkles,
   Award,
-  Layers
+  Layers,
+  Shuffle,
+  Flame
 } from 'lucide-react'
 import LogOutButton from '@/components/LogOutButton'
 
@@ -38,6 +42,7 @@ type CourseDashboardProps = {
   chapters: Chapter[]
   mistakeCount: number
   bookmarkCount?: number
+  chapterMistakesCount?: Record<number, number>
   userName: string | null
 }
 
@@ -102,7 +107,13 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
   }
 }
 
-export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount = 0, userName }: CourseDashboardProps) {
+export default function CourseDashboard({ 
+  chapters, 
+  mistakeCount, 
+  bookmarkCount = 0, 
+  chapterMistakesCount = {},
+  userName 
+}: CourseDashboardProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
   // Default to Chapter 16 (Soil) if present, or first available chapter
@@ -111,6 +122,29 @@ export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount 
   const activeChapter = chapters.find(c => c.id === activeChapterId) || defaultChapter || chapters[0]
 
   const [completedQuizzesList, setCompletedQuizzesList] = useState<number[]>([])
+  
+  // Collapsible Accordion State: by default, all topics are collapsed for clean navigation
+  const [openTopics, setOpenTopics] = useState<Record<string, boolean>>({})
+
+  const toggleTopic = (topic: string) => {
+    setOpenTopics(prev => ({
+      ...prev,
+      [topic]: !prev[topic]
+    }))
+  }
+
+  const expandAll = () => {
+    const all: Record<string, boolean> = {}
+    topicGroups.forEach(g => { all[g.topic] = true })
+    setOpenTopics(all)
+  }
+
+  const collapseAll = () => {
+    setOpenTopics({})
+  }
+
+  // Mistakes for currently selected chapter in The Forge
+  const activeChapterMistakes = activeChapter ? (chapterMistakesCount[activeChapter.id] || 0) : 0
 
   useEffect(() => {
     // Read from localStorage to find which quizzes are completed
@@ -368,7 +402,89 @@ export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount 
               </div>
             </div>
 
-            {/* ─── Section Header ─── */}
+            {/* ─── Chapter Fast-Action Command Hub (Random Practice, Forge Mistakes, Timed Mock) ─── */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+              {/* 1. Random Practice Across All Topics */}
+              <Link
+                href={`/chapter/${activeChapter.id}/practice`}
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-blue-200/80 shadow-2xs hover:border-blue-400 hover:shadow-md transition-all group cursor-pointer"
+                title="Practice random shuffled questions across all sub-topics with Edge-TTS voice tutor"
+              >
+                <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-2xs">
+                  <Shuffle className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-black text-gray-900 group-hover:text-blue-600 transition-colors flex items-center gap-1.5">
+                    <span>Random Practice</span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.2 bg-blue-100 text-blue-800 rounded">Shuffle</span>
+                  </div>
+                  <div className="text-[11px] text-gray-500 font-medium truncate mt-0.5">
+                    Random Qs across all sub-topics
+                  </div>
+                </div>
+              </Link>
+
+              {/* 2. Chapter Forge Mistakes */}
+              {activeChapterMistakes > 0 ? (
+                <Link
+                  href={`/redemption/quiz?chapterId=${activeChapter.id}&all=true`}
+                  className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-rose-200/90 shadow-2xs hover:border-rose-400 hover:shadow-md transition-all group cursor-pointer"
+                  title="Drill and clear mistakes specifically from this chapter"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 group-hover:bg-rose-600 group-hover:text-white transition-colors shadow-2xs">
+                    <Flame className="w-5 h-5 fill-rose-500/30 text-rose-600" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-rose-700 group-hover:text-rose-800 transition-colors flex items-center gap-1.5">
+                      <span>The Forge ({activeChapterMistakes})</span>
+                      <span className="text-[10px] font-bold px-1.5 py-0.2 bg-rose-100 text-rose-800 rounded">Gaps</span>
+                    </div>
+                    <div className="text-[11px] text-gray-500 font-medium truncate mt-0.5">
+                      Drill {activeChapter.name} mistakes
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <div
+                  className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-gray-200/70 shadow-2xs opacity-85"
+                  title="No mistakes currently in The Forge for this chapter"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-gray-800">
+                      The Forge (0 Mistakes)
+                    </div>
+                    <div className="text-[11px] text-emerald-600 font-bold truncate mt-0.5">
+                      Chapter is 100% clean!
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* 3. Random Mock Exam (Timed) */}
+              <Link
+                href={`/chapter/${activeChapter.id}/mock`}
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-white border border-indigo-200/80 shadow-2xs hover:border-indigo-400 hover:shadow-md transition-all group cursor-pointer"
+                title="Take a timed mock exam with 50 questions across all topics"
+              >
+                <div className="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors shadow-2xs">
+                  <Zap className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-black text-gray-900 group-hover:text-indigo-600 transition-colors flex items-center gap-1.5">
+                    <span>Random Mock Exam</span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.2 bg-indigo-100 text-indigo-800 rounded">Timed</span>
+                  </div>
+                  <div className="text-[11px] text-gray-500 font-medium truncate mt-0.5">
+                    50 Qs • Negative Marking
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* ─── Section Header with Expand / Collapse All Controls ─── */}
             <div className="flex items-center justify-between pt-2">
               <div>
                 <h2 className="text-lg font-black text-gray-900 flex items-center gap-2">
@@ -376,15 +492,33 @@ export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount 
                   <span>Topic Modules & Difficulty Quizzes</span>
                 </h2>
                 <p className="text-xs text-gray-500 mt-0.5">
-                  Launch Practice Mode with Voice Tutor or attempt a Timed Exam in just 1 click.
+                  Click any topic to expand its 3 difficulty levels (Easy, Medium, Hard).
                 </p>
               </div>
+
+              {hasTopicGrouped && (
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={expandAll}
+                    className="text-[11px] font-bold text-blue-600 hover:text-blue-800 px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer"
+                  >
+                    Expand All
+                  </button>
+                  <button
+                    onClick={collapseAll}
+                    className="text-[11px] font-bold text-gray-500 hover:text-gray-800 px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+                  >
+                    Collapse All
+                  </button>
+                </div>
+              )}
             </div>
 
-            {/* ─── Direct-Action Topic Cards Grid (Idea 2) ─── */}
+            {/* ─── Collapsible Accordion Topic Cards Grid ─── */}
             {hasTopicGrouped ? (
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {topicGroups.map((group, tIdx) => {
+                  const isOpen = !!openTopics[group.topic]
                   const meta = TOPIC_METADATA[group.topic] || {
                     desc: "Comprehensive question set covering this syllabus topic.",
                     easyDesc: "Core definitions & foundational terminology",
@@ -392,14 +526,26 @@ export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount 
                     hardDesc: "Formulas, calculations & tricky exam traps"
                   }
 
+                  const easyQuiz = group.quizzes.find(q => q.difficulty === 'EASY')
+                  const medQuiz = group.quizzes.find(q => q.difficulty === 'MEDIUM')
+                  const hardQuiz = group.quizzes.find(q => q.difficulty === 'HARD')
+
                   return (
                     <div 
                       key={group.topic}
-                      className="bg-white rounded-2xl border border-gray-200/90 shadow-xs hover:border-gray-300 transition-all overflow-hidden"
+                      className={`bg-white rounded-2xl border transition-all overflow-hidden ${
+                        isOpen 
+                          ? 'border-blue-300 shadow-sm ring-1 ring-blue-500/10' 
+                          : 'border-gray-200/90 shadow-2xs hover:border-gray-300'
+                      }`}
                     >
-                      {/* Topic Card Top Header */}
-                      <div className="p-5 lg:p-6 bg-slate-50/60 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                        <div className="space-y-1 min-w-0">
+                      {/* Accordion Trigger Header */}
+                      <button 
+                        type="button"
+                        onClick={() => toggleTopic(group.topic)}
+                        className="w-full text-left p-5 lg:p-6 bg-slate-50/60 hover:bg-slate-100/70 transition-colors flex items-center justify-between gap-4 cursor-pointer"
+                      >
+                        <div className="space-y-1 min-w-0 flex-1">
                           <div className="flex items-center gap-2.5">
                             <span className="w-6 h-6 rounded-lg bg-blue-600/10 text-blue-700 text-xs font-black flex items-center justify-center shrink-0">
                               {tIdx + 1}
@@ -408,87 +554,113 @@ export default function CourseDashboard({ chapters, mistakeCount, bookmarkCount 
                               {group.topic}
                             </h3>
                           </div>
-                          <p className="text-xs text-gray-500 font-medium pl-8.5">
+                          <p className="text-xs text-gray-500 font-medium pl-8.5 line-clamp-1 sm:line-clamp-none">
                             {meta.desc}
                           </p>
                         </div>
-                        <div className="pl-8.5 sm:pl-0 shrink-0">
+
+                        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+                          {/* Mini Level Indicators (visible when collapsed) */}
+                          <div className="hidden sm:flex items-center gap-1 text-[11px] font-bold">
+                            {easyQuiz && (
+                              <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
+                                🟢 {easyQuiz._count.questions}
+                              </span>
+                            )}
+                            {medQuiz && (
+                              <span className="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">
+                                🟡 {medQuiz._count.questions}
+                              </span>
+                            )}
+                            {hardQuiz && (
+                              <span className="px-2 py-0.5 rounded-md bg-rose-50 text-rose-800 border border-rose-200">
+                                🔴 {hardQuiz._count.questions}
+                              </span>
+                            )}
+                          </div>
+
                           <span className="inline-block px-3 py-1 rounded-full bg-white border border-gray-200 text-xs font-bold text-gray-700 shadow-2xs">
-                            {group.totalQuestions} Questions Total
+                            {group.totalQuestions} Qs
                           </span>
+
+                          <div className={`w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-blue-50 text-blue-600 border-blue-200' : ''}`}>
+                            <ChevronDown className="w-4 h-4" />
+                          </div>
                         </div>
-                      </div>
+                      </button>
 
-                      {/* 3 Difficulty Level Rows with Direct Action Buttons */}
-                      <div className="divide-y divide-gray-100">
-                        {group.quizzes.map((quiz) => {
-                          const isEasy = quiz.difficulty === 'EASY'
-                          const isMed = quiz.difficulty === 'MEDIUM'
-                          const isHard = quiz.difficulty === 'HARD'
-                          const isCompleted = completedQuizzesList.includes(quiz.id)
+                      {/* 3 Difficulty Level Rows with Direct Action Buttons (Revealed when open) */}
+                      {isOpen && (
+                        <div className="divide-y divide-gray-100 border-t border-gray-100 bg-white">
+                          {group.quizzes.map((quiz) => {
+                            const isEasy = quiz.difficulty === 'EASY'
+                            const isMed = quiz.difficulty === 'MEDIUM'
+                            const isHard = quiz.difficulty === 'HARD'
+                            const isCompleted = completedQuizzesList.includes(quiz.id)
 
-                          const levelLabel = isEasy ? 'Level 1: Easy' : isMed ? 'Level 2: Medium' : 'Level 3: Hard'
-                          const levelBadgeBg = isEasy 
-                            ? 'bg-emerald-50 text-emerald-800 border-emerald-200' 
-                            : isMed 
-                            ? 'bg-amber-50 text-amber-800 border-amber-200' 
-                            : 'bg-rose-50 text-rose-800 border-rose-200'
+                            const levelLabel = isEasy ? 'Level 1: Easy' : isMed ? 'Level 2: Medium' : 'Level 3: Hard'
+                            const levelBadgeBg = isEasy 
+                              ? 'bg-emerald-50 text-emerald-800 border-emerald-200' 
+                              : isMed 
+                              ? 'bg-amber-50 text-amber-800 border-amber-200' 
+                              : 'bg-rose-50 text-rose-800 border-rose-200'
 
-                          const levelIcon = isEasy ? '🟢' : isMed ? '🟡' : '🔴'
-                          const levelScope = isEasy ? meta.easyDesc : isMed ? meta.medDesc : meta.hardDesc
+                            const levelIcon = isEasy ? '🟢' : isMed ? '🟡' : '🔴'
+                            const levelScope = isEasy ? meta.easyDesc : isMed ? meta.medDesc : meta.hardDesc
 
-                          return (
-                            <div 
-                              key={quiz.id}
-                              className="p-4 lg:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50/40 transition-colors"
-                            >
-                              {/* Level Identity & Info */}
-                              <div className="flex items-start gap-3 min-w-0">
-                                <span className="text-base shrink-0 mt-0.5">{levelIcon}</span>
-                                <div className="space-y-0.5 min-w-0">
-                                  <div className="flex items-center gap-2 flex-wrap">
-                                    <span className={`text-[11px] font-black uppercase px-2 py-0.5 rounded border ${levelBadgeBg}`}>
-                                      {levelLabel}
-                                    </span>
-                                    <span className="text-xs font-bold text-gray-800">
-                                      {quiz._count.questions} Questions ({quiz._count.questions} Marks)
-                                    </span>
-                                    {isCompleted && (
-                                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded-full border border-green-200">
-                                        <CheckCircle2 className="w-3 h-3 text-green-600" /> Completed
+                            return (
+                              <div 
+                                key={quiz.id}
+                                className="p-4 lg:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50/40 transition-colors"
+                              >
+                                {/* Level Identity & Info */}
+                                <div className="flex items-start gap-3 min-w-0">
+                                  <span className="text-base shrink-0 mt-0.5">{levelIcon}</span>
+                                  <div className="space-y-0.5 min-w-0">
+                                    <div className="flex items-center gap-2 flex-wrap">
+                                      <span className={`text-[11px] font-black uppercase px-2 py-0.5 rounded border ${levelBadgeBg}`}>
+                                        {levelLabel}
                                       </span>
-                                    )}
+                                      <span className="text-xs font-bold text-gray-800">
+                                        {quiz._count.questions} Questions ({quiz._count.questions} Marks)
+                                      </span>
+                                      {isCompleted && (
+                                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded-full border border-green-200">
+                                          <CheckCircle2 className="w-3 h-3 text-green-600" /> Completed
+                                        </span>
+                                      )}
+                                    </div>
+                                    <p className="text-xs text-gray-500 font-medium">
+                                      {levelScope}
+                                    </p>
                                   </div>
-                                  <p className="text-xs text-gray-500 font-medium">
-                                    {levelScope}
-                                  </p>
+                                </div>
+
+                                {/* Direct Launch Buttons (Practice & Exam) */}
+                                <div className="flex items-center gap-2 pl-7 md:pl-0 shrink-0">
+                                  <Link
+                                    href={`/quiz/${quiz.id}/practice`}
+                                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 hover:bg-blue-600 hover:text-white transition-all shadow-2xs group"
+                                    title="Practice with instant Edge-TTS voice explanations and bookmarks"
+                                  >
+                                    <Play className="w-3.5 h-3.5 fill-current transition-transform group-hover:scale-110" />
+                                    <span>Practice Mode</span>
+                                  </Link>
+
+                                  <Link
+                                    href={`/quiz/${quiz.id}/instructions`}
+                                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-gray-700 bg-gray-50 border border-gray-200 hover:bg-gray-800 hover:text-white transition-all shadow-2xs"
+                                    title="Attempt as timed mock test with negative marking"
+                                  >
+                                    <Zap className="w-3.5 h-3.5" />
+                                    <span>Timed Exam</span>
+                                  </Link>
                                 </div>
                               </div>
-
-                              {/* Direct Launch Buttons (Practice & Exam) */}
-                              <div className="flex items-center gap-2 pl-7 md:pl-0 shrink-0">
-                                <Link
-                                  href={`/quiz/${quiz.id}/practice`}
-                                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 hover:bg-blue-600 hover:text-white transition-all shadow-2xs group"
-                                  title="Practice with instant Edge-TTS voice explanations and bookmarks"
-                                >
-                                  <Play className="w-3.5 h-3.5 fill-current transition-transform group-hover:scale-110" />
-                                  <span>Practice Mode</span>
-                                </Link>
-
-                                <Link
-                                  href={`/quiz/${quiz.id}/instructions`}
-                                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-gray-700 bg-gray-50 border border-gray-200 hover:bg-gray-800 hover:text-white transition-all shadow-2xs"
-                                  title="Attempt as timed mock test with negative marking"
-                                >
-                                  <Zap className="w-3.5 h-3.5" />
-                                  <span>Timed Exam</span>
-                                </Link>
-                              </div>
-                            </div>
-                          )
-                        })}
-                      </div>
+                            )
+                          })}
+                        </div>
+                      )}
                     </div>
                   )
                 })}

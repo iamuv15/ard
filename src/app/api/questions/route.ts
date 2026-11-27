@@ -12,15 +12,23 @@ export async function GET(request: NextRequest) {
 
     const searchParams = request.nextUrl.searchParams
     const quizIdParam = searchParams.get('quizId')
+    const chapterIdParam = searchParams.get('chapterId')
+    const isRandom = searchParams.get('random') === 'true' || searchParams.get('shuffle') === 'true'
+    const limitParam = searchParams.get('limit')
     
-    if (!quizIdParam) {
-       return NextResponse.json({ error: 'quizId is required' }, { status: 400 })
+    if (!quizIdParam && !chapterIdParam) {
+       return NextResponse.json({ error: 'quizId or chapterId is required' }, { status: 400 })
     }
 
-    const quizId = parseInt(quizIdParam, 10)
+    const whereClause: any = {}
+    if (quizIdParam) {
+      whereClause.quizId = parseInt(quizIdParam, 10)
+    } else if (chapterIdParam) {
+      whereClause.quiz = { chapterId: parseInt(chapterIdParam, 10) }
+    }
 
-    const questions = await prisma.question.findMany({
-      where: { quizId },
+    let questions = await prisma.question.findMany({
+      where: whereClause,
       orderBy: { id: 'asc' },
       select: {
         id: true,
@@ -52,6 +60,21 @@ export async function GET(request: NextRequest) {
         }
       }
     })
+
+    if (isRandom) {
+      // Fisher-Yates shuffle
+      for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+      }
+    }
+
+    if (limitParam) {
+      const limit = parseInt(limitParam, 10)
+      if (!isNaN(limit) && limit > 0) {
+        questions = questions.slice(0, limit)
+      }
+    }
 
     return NextResponse.json({ success: true, questions })
   } catch (error) {

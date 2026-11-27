@@ -150,11 +150,18 @@ Please break down:
   }, [])
 
   useEffect(() => {
-    const quizId = params.quizId
+    const quizId = params.quizId as string
     
     if (!quizId) return;
 
-    fetch(`/ard/api/questions?quizId=${quizId}`)
+    const isChapterMode = quizId.startsWith('chapter-')
+    const cId = isChapterMode ? quizId.replace('chapter-', '') : null
+
+    const fetchUrl = isChapterMode
+      ? `/ard/api/questions?chapterId=${cId}&random=true&limit=50`
+      : `/ard/api/questions?quizId=${quizId}`
+
+    fetch(fetchUrl)
       .then(res => res.json())
       .then(data => {
         if (data.questions) {
@@ -288,19 +295,22 @@ Please break down:
       setExpanded({})
       window.scrollTo(0, 0)
     } else {
-      // Save final score
-      try {
-        await fetch('/ard/api/attempts', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            quizId: parseInt(params.quizId as string, 10),
-            score: score + (selectedOption === currentQ.correctAnswer.toUpperCase() ? 1 : 0),
-            total: questions.length
+      // Save final score if numeric quizId
+      const numericQuizId = parseInt(params.quizId as string, 10)
+      if (!isNaN(numericQuizId)) {
+        try {
+          await fetch('/ard/api/attempts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              quizId: numericQuizId,
+              score: score + (selectedOption === currentQ.correctAnswer.toUpperCase() ? 1 : 0),
+              total: questions.length
+            })
           })
-        })
-      } catch (e) {
-        console.error('Failed to save attempt', e)
+        } catch (e) {
+          console.error('Failed to save attempt', e)
+        }
       }
       setIsFinished(true)
     }

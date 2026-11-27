@@ -38,13 +38,34 @@ export default async function Home() {
   // If logged in: Show the actual course dashboard with full quiz access
   let mistakeCount = 0
   let bookmarkCount = 0
+  const chapterMistakesCount: Record<number, number> = {}
+
   if (session) {
-    const [mCount, bCount] = await Promise.all([
+    const [mCount, bCount, userMistakes] = await Promise.all([
       prisma.userMistake.count({ where: { userId: session.id } }),
-      prisma.userBookmark.count({ where: { userId: session.id } })
+      prisma.userBookmark.count({ where: { userId: session.id } }),
+      prisma.userMistake.findMany({
+        where: { userId: session.id },
+        select: {
+          question: {
+            select: {
+              quiz: {
+                select: { chapterId: true }
+              }
+            }
+          }
+        }
+      })
     ])
     mistakeCount = mCount
     bookmarkCount = bCount
+
+    for (const m of userMistakes) {
+      const cId = m.question?.quiz?.chapterId
+      if (cId) {
+        chapterMistakesCount[cId] = (chapterMistakesCount[cId] || 0) + 1
+      }
+    }
   }
 
   return (
@@ -52,7 +73,8 @@ export default async function Home() {
       chapters={chapters} 
       mistakeCount={mistakeCount} 
       bookmarkCount={bookmarkCount} 
-      userName={session.name || null} 
+      chapterMistakesCount={chapterMistakesCount}
+      userName={session?.name || null} 
     />
   )
 }

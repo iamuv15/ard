@@ -40,8 +40,10 @@ export async function GET(request: Request) {
       userId: session.id
     }
 
-    // Only apply time gate if not a targeted quiz/retest drill
-    if (!quizId && !questionIdsParam) {
+    const includeAll = searchParams.get('all') === 'true'
+
+    // Only apply time gate if not a targeted quiz/retest drill and not all=true
+    if (!quizId && !questionIdsParam && !includeAll) {
       whereClause.nextReviewAt = cooldown ? { gt: new Date() } : { lte: new Date() }
     }
 
