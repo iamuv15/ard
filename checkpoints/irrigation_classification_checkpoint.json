@@ -1,0 +1,668 @@
+{
+  "1904": {
+    "id": 1904,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires recalling specific percentage distribution and sequential ranking of Earth's water resources."
+  },
+  "1905": {
+    "id": 1905,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Direct foundational question about saturated soil water flow and its primary driving force."
+  },
+  "1906": {
+    "id": 1906,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional recall identifying gravity as the driver for saturated flow."
+  },
+  "1907": {
+    "id": 1907,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Standard soil physics recall regarding the driving force of unsaturated flow."
+  },
+  "1908": {
+    "id": 1908,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Simple definitional question about the state of water in vapour movement."
+  },
+  "1909": {
+    "id": 1909,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Direct factual recall regarding the direction of saturated flow under gravity."
+  },
+  "1910": {
+    "id": 1910,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishing the multidirectional nature of vapour movement compared to gravity-driven flow."
+  },
+  "1911": {
+    "id": 1911,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question defining saturated flow in terms of pore occupancy."
+  },
+  "1912": {
+    "id": 1912,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific conceptual recall of the characteristics and direction of unsaturated flow."
+  },
+  "1913": {
+    "id": 1913,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "MEDIUM",
+    "reasoning": "Comparative analysis of the relative rates of different types of water movement in soil."
+  },
+  "1914": {
+    "id": 1914,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Standard multiple-choice recall regarding characteristics of unsaturated flow."
+  },
+  "1915": {
+    "id": 1915,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "MEDIUM",
+    "reasoning": "Understanding the transition to vapour movement when pores are empty of liquid water."
+  },
+  "1916": {
+    "id": 1916,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Standard botanical and agronomic recall identifying transpiration pull as the driver for passive absorption."
+  },
+  "1917": {
+    "id": 1917,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "MEDIUM",
+    "reasoning": "Core physiological distinction between active and passive water absorption mechanisms."
+  },
+  "1918": {
+    "id": 1918,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Direct factual recall linking high transpiration rates to dominance of passive absorption."
+  },
+  "1919": {
+    "id": 1919,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "MEDIUM",
+    "reasoning": "Detailed physiological mechanism recall regarding active absorption and ATP requirement."
+  },
+  "1920": {
+    "id": 1920,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "MEDIUM",
+    "reasoning": "Environmental conditions analysis determining when active absorption dominates over passive absorption."
+  },
+  "1921": {
+    "id": 1921,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Basic climatological factor identification influencing evapotranspiration rates."
+  },
+  "1922": {
+    "id": 1922,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Fundamental agronomic application of understanding evapotranspiration in irrigation."
+  },
+  "1923": {
+    "id": 1923,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Direct factual recall of the primary meteorological drivers of ET."
+  },
+  "1924": {
+    "id": 1924,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Standard definitional question explaining the components of evapotranspiration."
+  },
+  "1925": {
+    "id": 1925,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Practical farm-level water management question on reducing evaporation through mulching."
+  },
+  "1926": {
+    "id": 1926,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Basic soil physics definition distinguishing adhesion from cohesion."
+  },
+  "1927": {
+    "id": 1927,
+    "topic": "Water Resources, Soil-Water Movement & Plant Absorption",
+    "difficulty": "EASY",
+    "reasoning": "Direct conceptual recall of the role of cohesion in water molecule interactions."
+  },
+  "1928": {
+    "id": 1928,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Standard definitional question outlining the complete components of consumptive use."
+  },
+  "1929": {
+    "id": 1929,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on factors influencing consumptive use of water, connecting solar radiation and temperature to evaporation and transpiration."
+  },
+  "1930": {
+    "id": 1930,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Direct definitional question regarding irrigation requirement and how it excludes effective rainfall and soil contribution."
+  },
+  "1931": {
+    "id": 1931,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Identifies factors influencing irrigation requirement through simple exclusion."
+  },
+  "1932": {
+    "id": 1932,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of the definition of irrigation interval."
+  },
+  "1933": {
+    "id": 1933,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks about the primary drivers determining the irrigation interval for crops (root zone depth and ET rate)."
+  },
+  "1934": {
+    "id": 1934,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional recall of effective rainfall."
+  },
+  "1935": {
+    "id": 1935,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "MEDIUM",
+    "reasoning": "Explores soil properties (texture and water-holding capacity) in relation to effective rainfall."
+  },
+  "1936": {
+    "id": 1936,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves specific numerical percentage moisture depletion levels for millet and pulse crops."
+  },
+  "1937": {
+    "id": 1937,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves specific numerical soil moisture depletion criteria for cereal crops like maize and wheat."
+  },
+  "1938": {
+    "id": 1938,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "EASY",
+    "reasoning": "Standard direct recall of the Crown Root Initiation (CRI) stage in wheat."
+  },
+  "1939": {
+    "id": 1939,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of the critical irrigation stage (tasseling and silking) in maize."
+  },
+  "1940": {
+    "id": 1940,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Recalls the specific critical stage (panicle initiation) for rice."
+  },
+  "1941": {
+    "id": 1941,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Recalls the specific critical stage (flowering and peg formation) for groundnut."
+  },
+  "1942": {
+    "id": 1942,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the highest irrigation demand stage for sugarcane."
+  },
+  "1943": {
+    "id": 1943,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the critical irrigation stage for cotton."
+  },
+  "1944": {
+    "id": 1944,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the critical irrigation stage for mustard."
+  },
+  "1945": {
+    "id": 1945,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the critical irrigation stage for potato."
+  },
+  "1946": {
+    "id": 1946,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the critical irrigation stage for sunflower."
+  },
+  "1947": {
+    "id": 1947,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the critical irrigation stage for chickpea."
+  },
+  "1948": {
+    "id": 1948,
+    "topic": "Irrigation Scheduling & Critical Growth Stages of Crops",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the critical irrigation stage for tomato."
+  },
+  "1949": {
+    "id": 1949,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Basic conceptual definition of the flooding method of irrigation."
+  },
+  "1950": {
+    "id": 1950,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Identifies a standard disadvantage of surface flooding methods (runoff and deep percolation losses)."
+  },
+  "1951": {
+    "id": 1951,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Compares structural and operational differences between border irrigation and free flooding."
+  },
+  "1952": {
+    "id": 1952,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Matches the check basin method to suitable close-growing crops like finger millet."
+  },
+  "1953": {
+    "id": 1953,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on the agronomic and engineering advantages of check and basin irrigation in leveled fields."
+  },
+  "1954": {
+    "id": 1954,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question asking for the main characteristic of basin irrigation."
+  },
+  "1955": {
+    "id": 1955,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Direct factual recall of the crop type most commonly irrigated using basin irrigation."
+  },
+  "1956": {
+    "id": 1956,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests operational understanding of land leveling requirements and limitations in basin irrigation."
+  },
+  "1957": {
+    "id": 1957,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of the key feature of border strip irrigation."
+  },
+  "1958": {
+    "id": 1958,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific factual recall regarding crop suitability for border strip irrigation (close-growing crops like wheat and barley)."
+  },
+  "1959": {
+    "id": 1959,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Basic advantage identification of the border strip method compared to flood irrigation."
+  },
+  "1960": {
+    "id": 1960,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Direct conceptual recall of furrow irrigation characteristics."
+  },
+  "1961": {
+    "id": 1961,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific agronomic knowledge required to match furrow irrigation with row crops like maize, cotton, and sugarcane."
+  },
+  "1962": {
+    "id": 1962,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates understanding of efficiency benefits such as reduced evaporation and runoff in furrow irrigation."
+  },
+  "1963": {
+    "id": 1963,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of corrugation irrigation."
+  },
+  "1964": {
+    "id": 1964,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests the functional purpose of corrugation methods in supplemental/rainfed systems."
+  },
+  "1965": {
+    "id": 1965,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Operational advantage identification concerning water savings in alternate furrow irrigation."
+  },
+  "1966": {
+    "id": 1966,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Detailed layout feature question on within-row irrigation."
+  },
+  "1967": {
+    "id": 1967,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Agronomic benefit assessment of within-row irrigation regarding seed germination."
+  },
+  "1968": {
+    "id": 1968,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "EASY",
+    "reasoning": "Basic working principle of surge irrigation (intermittent flow cycles)."
+  },
+  "1969": {
+    "id": 1969,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Operational mechanism question detailing the use of automatic valves and timers in surge irrigation."
+  },
+  "1970": {
+    "id": 1970,
+    "topic": "Surface Irrigation Methods & Field Layouts",
+    "difficulty": "MEDIUM",
+    "reasoning": "Technical definition test of cablegation irrigation components (gated pipe, moving plug, cable)."
+  },
+  "1971": {
+    "id": 1971,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional recall of subsurface irrigation."
+  },
+  "1972": {
+    "id": 1972,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Comparative engineering/agronomy evaluation associating subsurface irrigation with drip irrigation efficiency."
+  },
+  "1973": {
+    "id": 1973,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Agronomic advantage identification regarding weed control dynamics in subsurface irrigation."
+  },
+  "1974": {
+    "id": 1974,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of the primary objective of subsurface irrigation."
+  },
+  "1975": {
+    "id": 1975,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Suitability matching question identifying orchards and deep-rooted crops as ideal for subsurface irrigation."
+  },
+  "1976": {
+    "id": 1976,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "General advantage recall regarding sprinkler irrigation efficiency."
+  },
+  "1977": {
+    "id": 1977,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Core hardware identification question for sprinkler irrigation systems."
+  },
+  "1978": {
+    "id": 1978,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Site suitability identification question noting sandy or uneven terrain for sprinkler systems."
+  },
+  "1979": {
+    "id": 1979,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "The question asks about the impact of sprinkler irrigation on irrigable area, specifically mentioning the numerical factor of 1.5 to 2 times."
+  },
+  "1980": {
+    "id": 1980,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves specific water saving percentage figures (25-50%) associated with sprinkler irrigation."
+  },
+  "1981": {
+    "id": 1981,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Covers the standard limitation (high initial cost and power requirement) of sprinkler irrigation methods."
+  },
+  "1982": {
+    "id": 1982,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional recall question describing what micro-irrigation is."
+  },
+  "1983": {
+    "id": 1983,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Simple classification question identifying which system is not a type of micro-irrigation."
+  },
+  "1984": {
+    "id": 1984,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Basic factual recall regarding the drop-by-drop water delivery characteristic of drip irrigation."
+  },
+  "1985": {
+    "id": 1985,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of the primary advantage of drip irrigation."
+  },
+  "1986": {
+    "id": 1986,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Identifies an essential structural component (drippers/emitters) of a drip irrigation system."
+  },
+  "1987": {
+    "id": 1987,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Standard agricultural application knowledge identifying crops best suited for drip irrigation."
+  },
+  "1988": {
+    "id": 1988,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of a common operational disadvantage (emitter clogging) in drip systems."
+  },
+  "1989": {
+    "id": 1989,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Basic operational knowledge concerning the causes of emitter clogging in drip irrigation."
+  },
+  "1990": {
+    "id": 1990,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the standard method (filtration) used to prevent clogging in drip systems."
+  },
+  "1991": {
+    "id": 1991,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves specific maintenance practices such as acid treatment for dissolving mineral deposits."
+  },
+  "1992": {
+    "id": 1992,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Deals with technical specifications of emitter types, specifically pressure-compensating and self-flushing mechanisms."
+  },
+  "1993": {
+    "id": 1993,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for specific operational pressure values (1 bar) for microjet irrigation systems."
+  },
+  "1994": {
+    "id": 1994,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves specific engineering metrics like throw distance (1 to 4 meters) for microjet systems."
+  },
+  "1995": {
+    "id": 1995,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Factual recall concerning crop suitability for microjet irrigation."
+  },
+  "1996": {
+    "id": 1996,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Comparative engineering drawback analysis between microjet and drip irrigation regarding evaporation and wind drift."
+  },
+  "1997": {
+    "id": 1997,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Technical distinction between micro-sprinklers and microjets based on moving parts and rotating water jets."
+  },
+  "1998": {
+    "id": 1998,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific operational pressure range figures (0.8 to 4.0 bar) for micro-sprinklers."
+  },
+  "1999": {
+    "id": 1999,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for specific numerical discharge rate values (28 to 223 liters per hour)."
+  },
+  "2000": {
+    "id": 2000,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates performance advantages of micro-sprinklers over microjets based on uniformity."
+  },
+  "2001": {
+    "id": 2001,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall regarding the primary purpose of bubbler irrigation."
+  },
+  "2002": {
+    "id": 2002,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves specific quantitative discharge rate figures (100-250 liters per hour) for bubbler irrigation."
+  },
+  "2003": {
+    "id": 2003,
+    "topic": "Irrigation Efficiencies, Water Quality & Agricultural Drainage",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of Water Use Efficiency (WUE) in agriculture."
+  },
+  "2004": {
+    "id": 2004,
+    "topic": "Irrigation Efficiencies, Water Quality & Agricultural Drainage",
+    "difficulty": "EASY",
+    "reasoning": "Direct conceptual recall question regarding the impact of micro-irrigation like drip and sprinkler on Water Use Efficiency."
+  },
+  "2005": {
+    "id": 2005,
+    "topic": "Irrigation Efficiencies, Water Quality & Agricultural Drainage",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves knowing the standard formula for Water Use Efficiency (Crop yield divided by total water used)."
+  },
+  "2006": {
+    "id": 2006,
+    "topic": "Irrigation Efficiencies, Water Quality & Agricultural Drainage",
+    "difficulty": "EASY",
+    "reasoning": "Basic factual recall regarding the factors that negatively impact Water Use Efficiency in agriculture."
+  },
+  "2007": {
+    "id": 2007,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Fundamental agronomic fact that rice requires the highest amount of water for growth and yield production."
+  },
+  "2008": {
+    "id": 2008,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific comparative knowledge regarding water use efficiency and drought tolerance among cereal crops like pearl millet."
+  },
+  "2009": {
+    "id": 2009,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires comparative quantitative knowledge of seasonal water requirement ranges for major crops like sugarcane."
+  },
+  "2010": {
+    "id": 2010,
+    "topic": "Crop Water Requirement, Evapotranspiration & Consumptive Use",
+    "difficulty": "EASY",
+    "reasoning": "Basic agronomic knowledge identifying sorghum as a drought-tolerant crop suitable for dry regions."
+  },
+  "2011": {
+    "id": 2011,
+    "topic": "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation",
+    "difficulty": "EASY",
+    "reasoning": "Direct application of drip irrigation to improve efficiency in high water-consuming crops like sugarcane."
+  },
+  "2012": {
+    "id": 2012,
+    "topic": "Irrigation Projects Classification, PMKSY & Water Policy",
+    "difficulty": "MEDIUM",
+    "reasoning": "Direct factual recall of the Culturable Command Area (CCA) threshold for Major Irrigation Projects (>10,000 ha)."
+  },
+  "2013": {
+    "id": 2013,
+    "topic": "Irrigation Projects Classification, PMKSY & Water Policy",
+    "difficulty": "MEDIUM",
+    "reasoning": "Application of Culturable Command Area classification limits (<2,000 ha) to identify a Minor Irrigation Project."
+  },
+  "2014": {
+    "id": 2014,
+    "topic": "Irrigation Projects Classification, PMKSY & Water Policy",
+    "difficulty": "MEDIUM",
+    "reasoning": "Direct recall of numerical range (2,000 to 10,000 hectares) for Medium Irrigation Projects in India."
+  }
+}

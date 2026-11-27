@@ -233,6 +233,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "Basic precision farming definitions, drone uses & hydroponics/aeroponics terms",
     medDesc: "Sensor types (optical, dielectric soil moisture), VRT components & protected cultivation specs",
     hardDesc: "Spatial variability geostatistics, multispectral/NDVI indices & sensor calibration engineering"
+  },
+  // ─── Irrigation ───
+  "Water Resources, Soil-Water Movement & Plant Absorption": {
+    desc: "Global water distribution, saturated vs unsaturated flow, gravitational and capillary movement, Darcy's law, vapour transfer, active vs passive absorption & transpiration pull.",
+    easyDesc: "Water resources distribution, saturated vs unsaturated flow definitions & absorption types",
+    medDesc: "Darcy's law parameters, capillary movement constants & water potential components",
+    hardDesc: "Soil moisture tension curves, matric flux potential & thermodynamic water relations"
+  },
+  "Crop Water Requirement, Evapotranspiration & Consumptive Use": {
+    desc: "Evapotranspiration (ET), reference crop ET, potential ET (PET), lysimeters, open pan evaporimeter, crop coefficient (Kc), effective rainfall & crop water requirements (rice, sugarcane, wheat).",
+    easyDesc: "ET definitions, pan evaporimeter basics & relative water requirement rankings",
+    medDesc: "Crop water requirement ranges (rice 1200mm, sugarcane 1500-2500mm) & Kc stages",
+    hardDesc: "Penman-Monteith equation factors, Blaney-Criddle formula & consumptive use math"
+  },
+  "Irrigation Scheduling & Critical Growth Stages of Crops": {
+    desc: "Critical stages for irrigation (CRI in wheat, tasseling/silking in maize, tillering in rice, rosette in mustard), IW/CPE ratio, soil moisture depletion percentage, tensiometers & infrared thermometry.",
+    easyDesc: "Crown root initiation (CRI), critical stages of major crops & tensiometer uses",
+    medDesc: "IW/CPE ratio values for different crops & soil moisture tension bar limits (-0.8 bar)",
+    hardDesc: "Stress-degree-day (SDD) calculations, CWSI indices & deficit irrigation strategies"
+  },
+  "Surface Irrigation Methods & Field Layouts": {
+    desc: "Surface irrigation methods: check basin, ring basin (orchards), border strip, furrow (corrugation, alternate furrow, broad bed furrow), wild flooding, surge irrigation & hydraulics.",
+    easyDesc: "Definitions of border, furrow, ring basin and check basin methods",
+    medDesc: "Stream size, slope limits for border strips & furrow length/spacing standards",
+    hardDesc: "Advance and recession curve hydraulics, cutback irrigation & intake rate equations"
+  },
+  "Micro-Irrigation Systems (Drip & Sprinkler) & Fertigation": {
+    desc: "Drip/trickle irrigation components (emitters, laterals, sand filters, venturi), operating pressures (1-1.5 kg/cm²), sprinkler types (center pivot, raingun, 2.5-4 kg/cm²), microjets & fertigation.",
+    easyDesc: "Drip vs sprinkler definitions, water saving percentages & emitter types",
+    medDesc: "Operating pressures, discharge rates (Lph), uniformity coefficient & filtration types",
+    hardDesc: "Emitter clogging chemical chemistry, lateral friction loss formulas & fertigation solubility"
+  },
+  "Irrigation Efficiencies, Water Quality & Agricultural Drainage": {
+    desc: "Conveyance, application, storage & water use efficiencies (WUE); irrigation water quality standards (SAR, RSC, Boron, EC) & agricultural drainage (surface vs subsurface tile drainage).",
+    easyDesc: "Water use efficiency definitions, salinity/sodicity basic terms & drainage benefits",
+    medDesc: "SAR formula components, RSC threshold limits (meq/L) & standard efficiency ranges",
+    hardDesc: "SAR and ESP equilibrium chemistry, Hooghoudt's drainage spacing equation & salt balance"
+  },
+  "Irrigation Projects Classification, PMKSY & Water Policy": {
+    desc: "Classification of irrigation projects by CCA (Major >10,000 ha, Medium 2,000-10,000 ha, Minor <2,000 ha), PMKSY (Per Drop More Crop, Har Khet Ko Pani, AIBP), CADP & water governance.",
+    easyDesc: "CCA limits for Major, Medium, Minor projects & PMKSY full forms/components",
+    medDesc: "Component ministry mappings, Command Area Development Programme (CADP) years & targets",
+    hardDesc: "Water duty-delta-base period numerical problems & irrigation policy evaluation"
   }
 }
 
