@@ -1,0 +1,1268 @@
+[
+  {
+    "id": 1334,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Directly asks about the specific Planning Commission agro-climatic zone suitable for oil palm cultivation."
+  },
+  {
+    "id": 1335,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Multi-statement evaluation question regarding the parameters used by the Planning Commission to classify the 15 agro-climatic zones."
+  },
+  {
+    "id": 1336,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Identifies standard temperate plantation crops associated with the Western Himalayan agro-climatic zone."
+  },
+  {
+    "id": 1337,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific regional knowledge about livestock and goat breeds native to the Western Himalayan zone."
+  },
+  {
+    "id": 1338,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Directly links tea plantation as the major crop of the Eastern Himalayan region."
+  },
+  {
+    "id": 1339,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests knowledge of characteristic soil types (podzolic & skeletal) specific to the Western Himalayan agroclimatic zone."
+  },
+  {
+    "id": 1340,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for identification of an agroclimatic region based on unique features like high forest cover, shifting cultivation, and heavy rainfall."
+  },
+  {
+    "id": 1341,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Simple factual recall question about the geographical region where Zaffran (saffron) cultivation is practiced."
+  },
+  {
+    "id": 1342,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Directly associates jute cultivation with the Lower Gangetic plains agro-climatic zone."
+  },
+  {
+    "id": 1343,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires precise knowledge of states and sub-zones comprising the Western Himalayan agroclimatic region."
+  },
+  {
+    "id": 1344,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Straightforward location-based question mapping West Bengal to its respective agroclimatic zone."
+  },
+  {
+    "id": 1345,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Basic factual question about the flood-prone nature of the Lower Gangetic plains due to major river systems."
+  },
+  {
+    "id": 1346,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific district distribution knowledge across Uttar Pradesh and Bihar for the Middle Gangetic plains zone."
+  },
+  {
+    "id": 1347,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies specific irrigation infrastructure characteristics (canals and tube wells in UP) linked to an agroclimatic zone."
+  },
+  {
+    "id": 1348,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Directly links Punjab and Haryana to the Trans-Gangetic plains agro-climatic zone."
+  },
+  {
+    "id": 1349,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Geographical mapping question identifying the Eastern Plateau and hill zone based on bordering states."
+  },
+  {
+    "id": 1350,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Combines topographic slope percentages with agro-climatic zone identification."
+  },
+  {
+    "id": 1351,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Standard agricultural census data recall question regarding the top producing state of cotton."
+  },
+  {
+    "id": 1352,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks to identify a zone based on specific rainfall dependency and cereal cropping patterns."
+  },
+  {
+    "id": 1353,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific statistical recall question regarding dryland farming percentage and cropping intensity in a southern zone."
+  },
+  {
+    "id": 1354,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific geographic mapping of Madhya Pradesh, UP, and Rajasthan districts to the Central plateau and hills zone."
+  },
+  {
+    "id": 1355,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Combines average annual rainfall values (904 mm) with agroclimatic zone classification."
+  },
+  {
+    "id": 1356,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Simple coastal state mapping to the East coast plains and hills agroclimatic zone."
+  },
+  {
+    "id": 1357,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Factual recall regarding Gujarat being the leading producer of cumin in India."
+  },
+  {
+    "id": 1358,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "EASY",
+    "reasoning": "Associates plantation crops like cashew with the Western coast and Western Ghat region."
+  },
+  {
+    "id": 1359,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Associates a specific cattle breed (Kankrej) with its native agro-climatic region/state, requiring specific regional knowledge."
+  },
+  {
+    "id": 1360,
+    "topic": "Agro-Climatic & Agro-Ecological Zones of India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for specific agricultural practices (rice-field fishery) mapped to a particular agro-climatic zone in India."
+  },
+  {
+    "id": 1361,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Direct foundational definition of soil erosion."
+  },
+  {
+    "id": 1362,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall question on the primary detaching agents in soil erosion."
+  },
+  {
+    "id": 1363,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Simple classification question distinguishing between water and wind erosion types."
+  },
+  {
+    "id": 1364,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Standard definitional question identifying the most dangerous and unnoticed form of water erosion (sheet erosion)."
+  },
+  {
+    "id": 1365,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Direct multiple-choice statement evaluation regarding sheet erosion characteristics."
+  },
+  {
+    "id": 1366,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Direct conceptual recall regarding rill erosion and channel formation."
+  },
+  {
+    "id": 1367,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires analytical evaluation of statements concerning gully erosion and its progression from rills."
+  },
+  {
+    "id": 1368,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for the specific sequential stage (4th stage) of water erosion."
+  },
+  {
+    "id": 1369,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Multi-statement evaluation covering mechanisms, detachment, transport, and vegetative impacts in water erosion."
+  },
+  {
+    "id": 1370,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Conceptual question differentiating long-term impacts of climatic factors versus short-term agronomic inputs on crop production."
+  },
+  {
+    "id": 1371,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Direct terminology recall distinguishing between erodibility and erosivity."
+  },
+  {
+    "id": 1372,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of the factors influencing soil erosion."
+  },
+  {
+    "id": 1373,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific technical understanding of detachability versus transportability in light versus heavy soils."
+  },
+  {
+    "id": 1374,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Broad categorization of soil conservation methods."
+  },
+  {
+    "id": 1375,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests specific technical criteria such as slope percentage thresholds (<2%) for adopting agronomic conservation measures."
+  },
+  {
+    "id": 1376,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Standard categorization identifying strip cropping as an agronomic measure."
+  },
+  {
+    "id": 1377,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for specific quantitative parameters (slope percentage and rainfall thresholds) for contour bunding."
+  },
+  {
+    "id": 1378,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific association test matching a mechanical terrace type to black or heavy soils."
+  },
+  {
+    "id": 1379,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires exact numerical slope percentage range (16 to 33%) for bench terracing."
+  },
+  {
+    "id": 1380,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Matches a specific slope range (3-10%) to the correct mechanical soil conservation structure."
+  },
+  {
+    "id": 1381,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of the primary mechanisms/stages of wind erosion."
+  },
+  {
+    "id": 1382,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests specific particle size ranges (0.1 to 0.5 mm) associated with saltation in wind erosion."
+  },
+  {
+    "id": 1383,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests specific particle size ranges (0.5 to 3 mm) and mechanical behavior for surface creep in wind erosion."
+  },
+  {
+    "id": 1384,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "The question requires specific knowledge about the suspension stage of wind erosion, including particle size thresholds and percentage loss."
+  },
+  {
+    "id": 1385,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Direct conceptual recall regarding factors affecting wind erosion such as bulk density, organic matter, and vegetation."
+  },
+  {
+    "id": 1386,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Basic agronomic knowledge regarding the primary causes of accelerated soil erosion like overgrazing and deforestation."
+  },
+  {
+    "id": 1387,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Definitional question identifying splash erosion based on the action of falling raindrops dislodging soil particles."
+  },
+  {
+    "id": 1388,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires identifying the most effective specific conservation measure (shelterbelts) for controlling wind erosion."
+  },
+  {
+    "id": 1389,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Standard factual recall regarding USDA land capability class best suited for regular cultivation (Class I)."
+  },
+  {
+    "id": 1390,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires understanding the specific land use limitations and recommendations associated with higher LCC classes like Class VII."
+  },
+  {
+    "id": 1391,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Fundamental conceptual definition of what the Land Capability Classification (LCC) evaluates."
+  },
+  {
+    "id": 1392,
+    "topic": "Soil Erosion, Conservation & Land Capability Classification",
+    "difficulty": "EASY",
+    "reasoning": "Direct numerical recall of the total number of main classes in the USDA Land Capability Classification system."
+  },
+  {
+    "id": 1393,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of multi-storied cropping based on plant height differentiation."
+  },
+  {
+    "id": 1394,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires applying multiple cropping definitions and sequence understanding to a specific seasonal crop rotation example."
+  },
+  {
+    "id": 1395,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic definition of a farming system involving interconnected components like crops, dairying, and poultry."
+  },
+  {
+    "id": 1396,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishing between mixed farming and mixed cropping definitions applied to smallholder farm sustainability."
+  },
+  {
+    "id": 1397,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Definitional distinction between cropping pattern, cropping system, and crop rotation."
+  },
+  {
+    "id": 1398,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct factual recall defining crop rotation as the recurrent succession of crops over time."
+  },
+  {
+    "id": 1399,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Applying the concept of crop rotation to the classic rice-wheat seasonal succession system."
+  },
+  {
+    "id": 1400,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "HARD",
+    "reasoning": "Requires specific numerical recall of rainfall thresholds and soil moisture storage capacity values for double cropping feasibility."
+  },
+  {
+    "id": 1401,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of the definition of mono cropping under rainfed conditions."
+  },
+  {
+    "id": 1402,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Simple definitional recall for multiple cropping."
+  },
+  {
+    "id": 1403,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishing mixed cropping from intercropping based on the absence of a fixed row and pattern."
+  },
+  {
+    "id": 1404,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Conceptual understanding of intensification in time and space dimensions through multiple cropping."
+  },
+  {
+    "id": 1405,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Applying intercropping definition and row ratio examples (e.g., Setaria + red gram in 5:1)."
+  },
+  {
+    "id": 1406,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Standard definitional recall of intercropping involving definite rows and patterns."
+  },
+  {
+    "id": 1407,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Classifying intercropping types based on plant population dynamics (additive vs replacement series)."
+  },
+  {
+    "id": 1408,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Applying the concept of additive intercropping where the base crop population is maintained at 100% while introducing an intercrop."
+  },
+  {
+    "id": 1409,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct definitional question about replacement series intercropping."
+  },
+  {
+    "id": 1410,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Application-based question identifying base and intercrop given population percentages."
+  },
+  {
+    "id": 1411,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Application-based question requiring understanding of base crop vs intercrop populations."
+  },
+  {
+    "id": 1412,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires analytical understanding of 50:50 population sharing in intercropping systems."
+  },
+  {
+    "id": 1413,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Standard conceptual requirement for successful intercropping."
+  },
+  {
+    "id": 1414,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct identification of parallel cropping based on growth habits and zero competition."
+  },
+  {
+    "id": 1415,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct definitional recall for companion cropping."
+  },
+  {
+    "id": 1416,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Simple recall of multi-storeyed cropping based on height strata."
+  },
+  {
+    "id": 1417,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishes synergistic cropping where yields increase mutually."
+  },
+  {
+    "id": 1418,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Standard conceptual principles of intercropping."
+  },
+  {
+    "id": 1419,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Fundamental definition distinguishing mixed cropping from intercropping."
+  },
+  {
+    "id": 1420,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct definition of sequence cropping."
+  },
+  {
+    "id": 1421,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Common agronomic fact regarding sugarcane ratooning."
+  },
+  {
+    "id": 1422,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of ratooning."
+  },
+  {
+    "id": 1423,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct definition of relay cropping."
+  },
+  {
+    "id": 1424,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Application question identifying relay cropping from a real-world crop timing example."
+  },
+  {
+    "id": 1425,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct identification of alley cropping involving trees and arable crops."
+  },
+  {
+    "id": 1426,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Focuses on contingency crop planning associated with weather aberrations and delayed rainfall."
+  },
+  {
+    "id": 1427,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires understanding specific polyculture and companion interactions."
+  },
+  {
+    "id": 1428,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional recall of repellent crops."
+  },
+  {
+    "id": 1429,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional recall of trap crops."
+  },
+  {
+    "id": 1430,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific association test regarding basil and tomato."
+  },
+  {
+    "id": 1431,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishes specialized pest-evasion crop classifications like camouflage plants."
+  },
+  {
+    "id": 1432,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishes specialized pest-evasion crop classifications like masking plants."
+  },
+  {
+    "id": 1433,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Standard core definition of crop rotation."
+  },
+  {
+    "id": 1434,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct definitional question identifying guard crops by their characteristics and examples."
+  },
+  {
+    "id": 1435,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Straightforward recall question about augmenting crops in a cropping system."
+  },
+  {
+    "id": 1436,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for specific crop residue characteristics (C:N ratio in sorghum stubble) affecting nitrogen immobilization."
+  },
+  {
+    "id": 1437,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question regarding edaphic factors in crop production."
+  },
+  {
+    "id": 1438,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Direct factual recall of what physiographic factors represent in agriculture."
+  },
+  {
+    "id": 1439,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires understanding physiological and chemical roles of soil moisture in nutrient availability."
+  },
+  {
+    "id": 1440,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific factual association of chemical properties (calcium carbonate & phosphate concentration) with desert/sandy soils."
+  },
+  {
+    "id": 1441,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "General agronomic knowledge regarding soil aeration impacts on plant growth and microbial activity."
+  },
+  {
+    "id": 1442,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of the benefits of organic matter on soil properties like water holding capacity."
+  },
+  {
+    "id": 1443,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Standard direct identification of Rhizobium bacteria in symbiotic nitrogen fixation with legumes."
+  },
+  {
+    "id": 1444,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires knowing the specific optimal soil pH range for general nutrient availability."
+  },
+  {
+    "id": 1445,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic concept of complementary crop combinations like cereals and legumes."
+  },
+  {
+    "id": 1446,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of cardinal temperatures (minimum, optimum, maximum)."
+  },
+  {
+    "id": 1447,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "HARD",
+    "reasoning": "Asks for a specific physiological numerical constant (optimum temperature for CO2 uptake in wheat & barley)."
+  },
+  {
+    "id": 1448,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates specific climatic/abiotic factor impacts (high wind velocity effects on delicate rice leaves)."
+  },
+  {
+    "id": 1449,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Common agricultural moniker recall ('poor man's friend' refers to potato)."
+  },
+  {
+    "id": 1450,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Basic classification of crop seasons (Kharif crops tied to monsoon)."
+  },
+  {
+    "id": 1451,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Definitional distinction of intercropping as growing crops in definite row patterns."
+  },
+  {
+    "id": 1452,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Factual recall of official certification tag colors (blue for certified seeds)."
+  },
+  {
+    "id": 1453,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitions distinguishing mixed cropping from intercropping and crop rotation."
+  },
+  {
+    "id": 1454,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires exact rainfall threshold knowledge for dryland farming classification (<75 cm)."
+  },
+  {
+    "id": 1455,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Direct institutional location recall (Indian Institute of Vegetable Research is in Varanasi)."
+  },
+  {
+    "id": 1456,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Basic terminology recall for branches of agriculture (Pomology for fruit cultivation)."
+  },
+  {
+    "id": 1457,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Standard definitional recall of agricultural scientific disciplines (Nematology for roundworms)."
+  },
+  {
+    "id": 1458,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific naming convention recall for complex agroforestry systems combining trees, crops, and grasses."
+  },
+  {
+    "id": 1459,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Standard definitional question regarding cropping intensity formula."
+  },
+  {
+    "id": 1460,
+    "topic": "Cropping Systems, Patterns & Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of the definition of mixed cropping."
+  },
+  {
+    "id": 1461,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of a 'Seeds Village'."
+  },
+  {
+    "id": 1462,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Asks for a specific financial assistance percentage (50%) under the seed village programme."
+  },
+  {
+    "id": 1463,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic conceptual question regarding reasons for dryland farming in India."
+  },
+  {
+    "id": 1464,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Regional distribution recall of where dry farming is extensively practiced in India."
+  },
+  {
+    "id": 1465,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific factual knowledge about Seed Replacement Rate (SRR) values among crops."
+  },
+  {
+    "id": 1466,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Direct definitional recall of Seed Multiplication Ratio."
+  },
+  {
+    "id": 1467,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Compares specific seed multiplication ratio constants among different crops."
+  },
+  {
+    "id": 1468,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of seed classes and their progeny relations."
+  },
+  {
+    "id": 1469,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of sub-surface irrigation."
+  },
+  {
+    "id": 1470,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of sprinkler irrigation system."
+  },
+  {
+    "id": 1471,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall of drip/trickle irrigation."
+  },
+  {
+    "id": 1472,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "IMD weather color code definitions (note: option text in snippet/key discusses yellow/orange warnings)."
+  },
+  {
+    "id": 1473,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Factual recall of IMD weather warning definitions."
+  },
+  {
+    "id": 1474,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Numerical threshold recall for minor irrigation schemes based on CCA."
+  },
+  {
+    "id": 1475,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Numerical threshold recall for medium irrigation schemes based on CCA."
+  },
+  {
+    "id": 1476,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Numerical threshold recall for major irrigation schemes based on CCA."
+  },
+  {
+    "id": 1477,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific constant recall (2.5 mm threshold for water budgeting)."
+  },
+  {
+    "id": 1478,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific IMD definition of a rainy day (2.5 mm)."
+  },
+  {
+    "id": 1479,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific numerical rainfall threshold classification by IMD."
+  },
+  {
+    "id": 1480,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific numerical rainfall threshold classification by IMD."
+  },
+  {
+    "id": 1481,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific percentage threshold for normal all-India rainfall categories (±10%)."
+  },
+  {
+    "id": 1482,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Direct definition of transpiration."
+  },
+  {
+    "id": 1483,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires knowledge of water requirement ranges for specific crops."
+  },
+  {
+    "id": 1484,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific knowledge of crop water requirement categories."
+  },
+  {
+    "id": 1485,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves categorization of crops based on their specific water requirements."
+  },
+  {
+    "id": 1486,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional recall of surface irrigation methods."
+  },
+  {
+    "id": 1487,
+    "topic": "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires exact IMD numerical definition and percentage criteria for deficient rainfall."
+  },
+  {
+    "id": 1488,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "General conceptual understanding of the problems associated with modern intensive agriculture."
+  },
+  {
+    "id": 1489,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct definitional question regarding sustainable agriculture."
+  },
+  {
+    "id": 1490,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates specific practices associated with sustainable agriculture including tillage depth and green manuring."
+  },
+  {
+    "id": 1491,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Identifies anti-sustainable practices like frequent tillage based on general principles."
+  },
+  {
+    "id": 1492,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires factual recall of multiple government schemes promoting organic farming in India."
+  },
+  {
+    "id": 1493,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of standard components of Zero Budget Natural Farming (ZBNF)."
+  },
+  {
+    "id": 1494,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests the specific concept of 'Whapasa' in natural farming related to microclimate and moisture."
+  },
+  {
+    "id": 1495,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates matching pairs of ZBNF components and their specific functions."
+  },
+  {
+    "id": 1496,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic institutional recall regarding organic export promotion and certification."
+  },
+  {
+    "id": 1497,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific administrative knowledge of the parent ministry for APEDA."
+  },
+  {
+    "id": 1498,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific terminological recall of standards setting bodies for organic production (NSOP)."
+  },
+  {
+    "id": 1499,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Differentiates between export and domestic organic certification systems in India."
+  },
+  {
+    "id": 1500,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests understanding of the Participatory Guarantee System (PGS) for domestic organic certification."
+  },
+  {
+    "id": 1501,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Factual recall of the governing ministry for the National Programme for Organic Production."
+  },
+  {
+    "id": 1502,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Standard definition of precision agriculture."
+  },
+  {
+    "id": 1503,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of the core principles of precision farming regarding time and space variability."
+  },
+  {
+    "id": 1504,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Basic conceptual recall of the primary objective of precision farming."
+  },
+  {
+    "id": 1505,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of core technologies (GPS and GIS) used in precision agriculture mapping."
+  },
+  {
+    "id": 1506,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires technical knowledge of specific sensors (TDR and capacitive sensors) used for soil moisture measurement."
+  },
+  {
+    "id": 1507,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Common knowledge application of drones in modern agriculture."
+  },
+  {
+    "id": 1508,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "MEDIUM",
+    "reasoning": "Definitional understanding of Variable Rate Technology (VRT) and its input application mechanism."
+  },
+  {
+    "id": 1509,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Direct foundational question about machine learning and AI usage in precision agriculture for yield prediction."
+  },
+  {
+    "id": 1510,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Straightforward recall question about the benefits of IoT in precision farming."
+  },
+  {
+    "id": 1511,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Basic conceptual question regarding how precision agriculture promotes environmental sustainability."
+  },
+  {
+    "id": 1512,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires understanding specific implementation challenges of precision agriculture such as high initial costs."
+  },
+  {
+    "id": 1513,
+    "topic": "Precision Agriculture, Hi-Tech Farming & Modern Innovations",
+    "difficulty": "EASY",
+    "reasoning": "Simple recall regarding the application of satellite imagery in precision farming."
+  },
+  {
+    "id": 1514,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests specific knowledge of IFOAM organic farming principles."
+  },
+  {
+    "id": 1515,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question regarding what is prohibited in certified organic farming (GMOs)."
+  },
+  {
+    "id": 1516,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific biological function question about mycorrhizal fungi and phosphorus availability."
+  },
+  {
+    "id": 1517,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of the term 'companion planting'."
+  },
+  {
+    "id": 1518,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves understanding the multi-faceted benefits of crop rotation in organic systems."
+  },
+  {
+    "id": 1519,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific factual question regarding the active compound azadirachtin in neem-based pesticides."
+  },
+  {
+    "id": 1520,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Basic conceptual comparison between biofertilizers and synthetic fertilizers."
+  },
+  {
+    "id": 1521,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall regarding practices that help in carbon sequestration (cover crops and green manure)."
+  },
+  {
+    "id": 1522,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Definitional recall regarding vermicomposting and earthworms."
+  },
+  {
+    "id": 1523,
+    "topic": "Sustainable Agriculture & Organic Farming Systems",
+    "difficulty": "EASY",
+    "reasoning": "Standard general knowledge question identifying USDA Organic as a global certification standard."
+  },
+  {
+    "id": 1524,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests specific numerical rainfall threshold (<750 mm) for dry farming."
+  },
+  {
+    "id": 1525,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Multi-characteristic evaluation question requiring detailed understanding of dry farming regions."
+  },
+  {
+    "id": 1526,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Associates specific geographical regions (Western Rajasthan, Bundelkhand) with dry farming."
+  },
+  {
+    "id": 1527,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests specific rainfall range (750-1150 mm) for dryland farming."
+  },
+  {
+    "id": 1528,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires regional knowledge linking states like Madhya Pradesh and Tamil Nadu to dryland farming."
+  },
+  {
+    "id": 1529,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests specific rainfall threshold (>1150 mm) for rainfed farming."
+  },
+  {
+    "id": 1530,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates negative characteristics and exceptions associated with rainfed farming."
+  },
+  {
+    "id": 1531,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Comprehensive multi-constraint evaluation for dryland agriculture."
+  },
+  {
+    "id": 1532,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Tests exact IMD percentage threshold (25% deficit) for meteorological drought."
+  },
+  {
+    "id": 1533,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Definitional distinction between meteorological, hydrological, and agricultural drought."
+  },
+  {
+    "id": 1534,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific numerical recall of the rainless period threshold (15 days for heavy soil) in dryland management."
+  },
+  {
+    "id": 1535,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "EASY",
+    "reasoning": "Direct foundational recall of the permanent wilting point defined at -15 bar soil moisture tension."
+  },
+  {
+    "id": 1536,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic recall of common soil moisture conservation practices in dryland agriculture."
+  },
+  {
+    "id": 1537,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "EASY",
+    "reasoning": "Straightforward conceptual question checking familiarity with multiple soil moisture conservation strategies."
+  },
+  {
+    "id": 1538,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific chemical classification knowledge matching Phenyl mercuric acetate to stomata-closing anti-transpirants."
+  },
+  {
+    "id": 1539,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific factual identification test regarding trade names/chemicals of film-forming anti-transpirants like Mobileaf."
+  },
+  {
+    "id": 1540,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "EASY",
+    "reasoning": "Direct physiological consequence recall of anti-transpirants reducing the rate of photosynthesis."
+  },
+  {
+    "id": 1541,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "EASY",
+    "reasoning": "Basic agronomic knowledge regarding drought-tolerant crops suited for arid and semi-arid conditions like Sorghum."
+  },
+  {
+    "id": 1542,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires accurate statistical data recall of India's total rainfed agricultural area (65.5 mha)."
+  },
+  {
+    "id": 1543,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "HARD",
+    "reasoning": "Specific government scheme initiative recall (NWDPRA launched in 1990-91) testing detailed syllabus points for competitive exams."
+  },
+  {
+    "id": 1544,
+    "topic": "Dryland Agriculture, Rainfed Farming & Drought Management",
+    "difficulty": "EASY",
+    "reasoning": "Simple, general knowledge on crop adaptability under dryland farming conditions."
+  }
+]

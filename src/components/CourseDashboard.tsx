@@ -190,6 +190,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "Definitions of climacteric fruits, jam vs jelly & shelf-life basics",
     medDesc: "Minimum TSS/Brix values, pectin requirements, acidity percentages & storage temperatures",
     hardDesc: "Thermal death time kinetics in canning, syneresis chemistry & preservation calculations"
+  },
+  // ─── Basics of Agriculture ───
+  "Introduction to Agriculture, Agronomy & Factors Affecting Crop Production": {
+    desc: "Foundations of agriculture, history, branches, institutes (IIVR etc.), seasons (Kharif, Rabi, Zaid), weather & climate (cardinal temperatures, IMD definitions, weather warnings), climatic, edaphic, physiographic & biotic factors.",
+    easyDesc: "Agricultural branches, crop seasons, basic institute locations & weather terms",
+    medDesc: "Cardinal temperature ranges, IMD rainfall definitions & specific environmental thresholds",
+    hardDesc: "Photoperiodic response mechanisms, heat unit calculations & microclimate dynamics"
+  },
+  "Agro-Climatic & Agro-Ecological Zones of India": {
+    desc: "Planning Commission 15 Agro-climatic zones, Western/Eastern Himalayas, Gangetic Plains, Plateau & Hills, coastal regions, NARP 127 zones, dominant cropping systems, soils & rainfall patterns.",
+    easyDesc: "Zone names, total number of zones (15 ACZs / 127 NARP) & major regional crops",
+    medDesc: "Specific state-to-zone allocations, soil characteristics & annual rainfall parameters",
+    hardDesc: "Agro-ecological sub-region distinctions, resource constraints & comparative zone analysis"
+  },
+  "Soil Erosion, Conservation & Land Capability Classification": {
+    desc: "Mechanisms of soil erosion, water erosion stages (splash, sheet, rill, gully, ravine), wind erosion (saltation, suspension, creep), conservation engineering (bunding, terracing) & USDA Land Capability Classes (I to VIII).",
+    easyDesc: "Erosion stage definitions, water vs wind erosion types & common conservation terms",
+    medDesc: "Slope percentages for contour/graded bunding vs bench terracing & LCC class limits",
+    hardDesc: "Universal Soil Loss Equation (USLE) factor mechanics & advanced ravine reclamation"
+  },
+  "Cropping Systems, Patterns & Farming Systems": {
+    desc: "Monoculture, multiple cropping, intercropping (additive, replacement, strip, relay, alley, multi-storeyed), crop rotation, Cropping Intensity (CI), Land Equivalent Ratio (LER) & Integrated Farming Systems (IFS).",
+    easyDesc: "Definitions of intercropping, mixed cropping, crop rotation & farming systems",
+    medDesc: "Specific crop compatibility pairs, spatial arrangements & standard rotation rules",
+    hardDesc: "Cropping Intensity & LER numerical calculations, Land Equivalent Ratio interpretations"
+  },
+  "Dryland Agriculture, Rainfed Farming & Drought Management": {
+    desc: "Classification by rainfall (Dry farming <750mm, Dryland 750-1150mm, Rainfed >1150mm), drought types (meteorological, hydrological, agricultural), dry spells, anti-transpirants (PMA, Kaolin, Cycocel) & watershed management.",
+    easyDesc: "Dryland vs rainfed definitions, drought types & basic anti-transpirant categories",
+    medDesc: "Rainfall boundary figures (750mm, 1150mm), dry spell day limits & chemical anti-transpirants",
+    hardDesc: "Moisture stress physiological adaptations, water budgeting & watershed hydrology"
+  },
+  "Sustainable Agriculture & Organic Farming Systems": {
+    desc: "Sustainable agriculture principles, LEISA, Zero Budget Natural Farming (ZBNF - Bijamrit, Jiwamrit, Mulching, Waaphasa), green manuring, biofertilizers, vermiculture, NPOP, APEDA & PGS-India certification.",
+    easyDesc: "Organic farming definitions, ZBNF pillars & biofertilizer organism names",
+    medDesc: "APEDA/NPOP certification standards, PGS-India operational rules & C:N ratio shifts",
+    hardDesc: "Regulatory compliance under NPOP vs PGS, organic soil chemistry & bio-inoculant biochemistry"
+  },
+  "Precision Agriculture, Hi-Tech Farming & Modern Innovations": {
+    desc: "Precision farming tools, GPS, GIS, remote sensing, Variable Rate Technology (VRT), soil sensors, agricultural drones, IoT, protected cultivation (polyhouses/greenhouses) & soilless culture (hydroponics, aeroponics).",
+    easyDesc: "Basic precision farming definitions, drone uses & hydroponics/aeroponics terms",
+    medDesc: "Sensor types (optical, dielectric soil moisture), VRT components & protected cultivation specs",
+    hardDesc: "Spatial variability geostatistics, multispectral/NDVI indices & sensor calibration engineering"
   }
 }
 
