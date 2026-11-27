@@ -1,0 +1,590 @@
+{
+  "2480": {
+    "id": 2480,
+    "topic": "Weed Science, Weed Biology & Chemical Weed Control",
+    "difficulty": "EASY",
+    "reasoning": "Identifies the fundamental term 'allelochemicals' associated with allelopathy and weed suppression, falling under weed biology."
+  },
+  "2481": {
+    "id": 2481,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific numerical values for tillage depth associated with specific crops like pigeon pea and maize."
+  },
+  "2482": {
+    "id": 2482,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "EASY",
+    "reasoning": "Tests common names and classification of millets (Shree Anna), specifically identifying Bajra as pearl millet rather than white millet."
+  },
+  "2483": {
+    "id": 2483,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question covering botanical and agricultural terminology (arboriculture vs silviculture)."
+  },
+  "2484": {
+    "id": 2484,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific state-level initiative question regarding millet promotion (Millet Shakti in Odisha)."
+  },
+  "2485": {
+    "id": 2485,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic photoperiodic classification of crops (Rice as a Short-Day Plant)."
+  },
+  "2486": {
+    "id": 2486,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "EASY",
+    "reasoning": "Identifies types of maize and specifically the most commonly cultivated type in India (Flint corn)."
+  },
+  "2487": {
+    "id": 2487,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Relates a specialized soil management and moisture-conservation practice (vertical mulching) to its specific soil type (Black soil)."
+  },
+  "2488": {
+    "id": 2488,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic classification of biofertilizers and nitrogen-fixing bacteria (Azotobacter as aerobic non-symbiotic)."
+  },
+  "2489": {
+    "id": 2489,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "EASY",
+    "reasoning": "Historical agronomy fact identifying the primary crop associated with the initial launch of the Green Revolution in India (Wheat)."
+  },
+  "2490": {
+    "id": 2490,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific policy and scheme-based question relating to millet price protection in India."
+  },
+  "2491": {
+    "id": 2491,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies functional crop classifications, specifically defining a 'smothering crop' (Cowpea)."
+  },
+  "2492": {
+    "id": 2492,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Common agronomic term and crop usage (Eucalyptus as a biodrainage crop)."
+  },
+  "2493": {
+    "id": 2493,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "HARD",
+    "reasoning": "Complex multi-statement evaluation question covering carbon assimilation pathways (C3, C4) and Kranz anatomy."
+  },
+  "2494": {
+    "id": 2494,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Diagnostic question on nutrient deficiencies in rice (Zinc deficiency / Khaira disease under submerged conditions)."
+  },
+  "2495": {
+    "id": 2495,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "EASY",
+    "reasoning": "Basic scientific nomenclature for oilseed crops (Glycine max for soybean)."
+  },
+  "2496": {
+    "id": 2496,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Links a specific nutrient requirement (Sulphur as the 'oil nutrient') to oilseed crop quality and yield enhancement."
+  },
+  "2497": {
+    "id": 2497,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific definitional question on specialized tillage practices ('blind tillage')."
+  },
+  "2498": {
+    "id": 2498,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies specific biofertilizers and their symbiotic roles, such as VAM for phosphorus uptake."
+  },
+  "2499": {
+    "id": 2499,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Matching question pairing major ICAR crop research institutes with their correct geographic locations."
+  },
+  "2500": {
+    "id": 2500,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires specific numerical temperature ranges for the optimal vegetative growth of wheat."
+  },
+  "2501": {
+    "id": 2501,
+    "topic": "Weed Science, Weed Biology & Chemical Weed Control",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question regarding weed classification bases (ontogenic classification based on life cycle duration)."
+  },
+  "2502": {
+    "id": 2502,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "EASY",
+    "reasoning": "Classification of fodder crops into legume versus non-legume categories (Berseem as legume fodder)."
+  },
+  "2503": {
+    "id": 2503,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "HARD",
+    "reasoning": "Multi-statement ecological and agro-climatic evaluation question regarding high-altitude/tundra vegetation zones."
+  },
+  "2504": {
+    "id": 2504,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific numerical soil-water tension value associated with field capacity (1/3 bar)."
+  },
+  "2505": {
+    "id": 2505,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Standard formula for calculating cropping intensity in agronomy."
+  },
+  "2506": {
+    "id": 2506,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies principles of agronomy versus forestry (silviculture)."
+  },
+  "2507": {
+    "id": 2507,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers specific processing techniques (parboiling) related to rice milling."
+  },
+  "2508": {
+    "id": 2508,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "HARD",
+    "reasoning": "Complex integrated farming system involving rice field land modification."
+  },
+  "2509": {
+    "id": 2509,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific geographic latitude ranges for world wheat production belts."
+  },
+  "2510": {
+    "id": 2510,
+    "topic": "Weed Science, Weed Biology & Chemical Weed Control",
+    "difficulty": "EASY",
+    "reasoning": "General knowledge on biological control agents used in agriculture."
+  },
+  "2511": {
+    "id": 2511,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic crop classification distinguishing condiment crops."
+  },
+  "2512": {
+    "id": 2512,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Soil physics concept regarding soil water retention strength."
+  },
+  "2513": {
+    "id": 2513,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Soil requirements for geocarpic crops like groundnut."
+  },
+  "2514": {
+    "id": 2514,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "HARD",
+    "reasoning": "Historical introduction year of sunflower into India."
+  },
+  "2515": {
+    "id": 2515,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Identification of biological fertilizer organisms."
+  },
+  "2516": {
+    "id": 2516,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Differentiating industrial oils from edible oils (castor)."
+  },
+  "2517": {
+    "id": 2517,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "HARD",
+    "reasoning": "Advanced agro-ecological term (annidation) in intercropping."
+  },
+  "2518": {
+    "id": 2518,
+    "topic": "Weed Science, Weed Biology & Chemical Weed Control",
+    "difficulty": "MEDIUM",
+    "reasoning": "Mimicry weeds associated with cereal crop cultivation."
+  },
+  "2519": {
+    "id": 2519,
+    "topic": "Commercial, Cash & Fiber Crops (Sugarcane, Cotton & Jute)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Commercial part harvested from medicinal/cash crops like Isabgol."
+  },
+  "2520": {
+    "id": 2520,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Optimum soil pH range for most agricultural crops."
+  },
+  "2521": {
+    "id": 2521,
+    "topic": "Commercial, Cash & Fiber Crops (Sugarcane, Cotton & Jute)",
+    "difficulty": "EASY",
+    "reasoning": "Definition of ginning in cotton processing."
+  },
+  "2522": {
+    "id": 2522,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of agricultural sciences (entomology)."
+  },
+  "2523": {
+    "id": 2523,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Origin and specifics of the Dapog rice nursery method."
+  },
+  "2524": {
+    "id": 2524,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Appropriate crop pairings for erosion-control strip cropping."
+  },
+  "2525": {
+    "id": 2525,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Definition of rouging in seed production."
+  },
+  "2526": {
+    "id": 2526,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic physiological definition of vernalization."
+  },
+  "2527": {
+    "id": 2527,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Botanical and commercial classification of pulse and legume crops."
+  },
+  "2528": {
+    "id": 2528,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Standard agronomic depth recommendations for primary ploughing."
+  },
+  "2529": {
+    "id": 2529,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishing holistic farming systems (regenerative agriculture)."
+  },
+  "2530": {
+    "id": 2530,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question regarding the classification of agricultural activities (primary vs secondary agriculture)."
+  },
+  "2531": {
+    "id": 2531,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "EASY",
+    "reasoning": "Direct identification of sesame as the queen of oilseeds based on common agricultural nomenclature."
+  },
+  "2532": {
+    "id": 2532,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Application of foundational agronomy principles regarding crop production factors, specifically distinguishing edaphic factors (soil properties)."
+  },
+  "2533": {
+    "id": 2533,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Fact-based question identifying the chairperson of an important agricultural committee (Doubling Farmers' Income)."
+  },
+  "2534": {
+    "id": 2534,
+    "topic": "Weed Science, Weed Biology & Chemical Weed Control",
+    "difficulty": "EASY",
+    "reasoning": "Standard identification of a common weed (Cyperus rotundus) and its biological classification as a perennial sedge."
+  },
+  "2535": {
+    "id": 2535,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Botanical terminology question specific to oilseed crops in the Brassicaceae family having a siliqua fruit type."
+  },
+  "2536": {
+    "id": 2536,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Conceptual question evaluating the primary objectives of sustainable farming approaches involving minimum tillage and cover crops."
+  },
+  "2537": {
+    "id": 2537,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic botanical morphology question linking caryopsis grain type to the Poaceae family."
+  },
+  "2538": {
+    "id": 2538,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific physiological trait comparison among cereal crops regarding waterlogging and drought tolerance."
+  },
+  "2539": {
+    "id": 2539,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identification of advanced farming systems (perpermature/permaculture) based on integrated resource recycling descriptions."
+  },
+  "2540": {
+    "id": 2540,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "EASY",
+    "reasoning": "Standard agronomic fact identifying maize as the premier crop for silage production."
+  },
+  "2541": {
+    "id": 2541,
+    "topic": "Weed Science, Weed Biology & Chemical Weed Control",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional concept of Integrated Pest Management (IPM) focusing on control tactics and chemical use as a last resort."
+  },
+  "2542": {
+    "id": 2542,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Statistical/numerical question regarding India's contribution to global and regional millet production."
+  },
+  "2543": {
+    "id": 2543,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "HARD",
+    "reasoning": "Complex multi-statement evaluation linking Climate-Smart Agriculture (CSA) initiatives across multiple Indian government schemes."
+  },
+  "2544": {
+    "id": 2544,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic classification question distinguishing between Kharif and Rabi crop seasons."
+  },
+  "2545": {
+    "id": 2545,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Agronomic evaluation comparing aerobic rice practices against traditional transplanted rice, highlighting weed challenges."
+  },
+  "2546": {
+    "id": 2546,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question regarding animal feeding habits (browsing vs grazing)."
+  },
+  "2547": {
+    "id": 2547,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Standard multi-crop seasonal classification identifying Rabi crops."
+  },
+  "2548": {
+    "id": 2548,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishing exclusively Rabi crops from dual-season or Kharif crops under Indian agro-climatic conditions."
+  },
+  "2549": {
+    "id": 2549,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic grouping of major crops into their respective seasonal agricultural categories (Rabi vs Kharif)."
+  },
+  "2550": {
+    "id": 2550,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "HARD",
+    "reasoning": "Complex multi-statement evaluation requiring detailed up-to-date data knowledge from the Economic Survey."
+  },
+  "2551": {
+    "id": 2551,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Sectoral economic performance evaluation identifying the dominant growth driver within allied agricultural sectors from current economic data."
+  },
+  "2552": {
+    "id": 2552,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "MEDIUM",
+    "reasoning": "Distinguishing between in-situ and ex-situ green manuring practices and associated plant species."
+  },
+  "2553": {
+    "id": 2553,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific numerical meteorological threshold used by the India Meteorological Department (IMD) to define a rainy day."
+  },
+  "2554": {
+    "id": 2554,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "HARD",
+    "reasoning": "Multi-statement evaluation requiring specific analytical insights from the Economic Survey regarding global yield gaps across multiple crops."
+  },
+  "2555": {
+    "id": 2555,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "HARD",
+    "reasoning": "Requires analytical knowledge of India's crop productivity benchmarks relative to global standards for specific oilseeds."
+  },
+  "2556": {
+    "id": 2556,
+    "topic": "Tillage Systems, Seedbed Preparation & Conservation Agriculture",
+    "difficulty": "EASY",
+    "reasoning": "Direct conceptual question about the primary benefits of zero or no-tillage agriculture."
+  },
+  "2557": {
+    "id": 2557,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves macroeconomic policy findings related to agricultural growth trends and diversification from economic surveys."
+  },
+  "2558": {
+    "id": 2558,
+    "topic": "Harvesting, Post-Harvest Processing & Grain Storage Standards",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific post-harvest processing terminology related to rice milling stages."
+  },
+  "2559": {
+    "id": 2559,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Tests definitions of basic agricultural and allied sector scientific nomenclature."
+  },
+  "2560": {
+    "id": 2560,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Multiple-statement evaluation question regarding the climatic adaptation and distribution of tropical crops."
+  },
+  "2561": {
+    "id": 2561,
+    "topic": "Commercial, Cash & Fiber Crops (Sugarcane, Cotton & Jute)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Multiple-statement classification of tropical plantation and cash crops based on agro-climatic requirements."
+  },
+  "2562": {
+    "id": 2562,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Requires correct sequencing of crops based on their specific climatic zones (tropical, subtropical, temperate)."
+  },
+  "2563": {
+    "id": 2563,
+    "topic": "Commercial, Cash & Fiber Crops (Sugarcane, Cotton & Jute)",
+    "difficulty": "HARD",
+    "reasoning": "Multi-item evaluation requiring identification of all crops under the economic classification of fiber crops."
+  },
+  "2564": {
+    "id": 2564,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question regarding the biological basis of plant classification into annuals, biennials, and perennials."
+  },
+  "2565": {
+    "id": 2565,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "EASY",
+    "reasoning": "Direct identification of the scientific name of an important Indian pulse (Horse gram)."
+  },
+  "2566": {
+    "id": 2566,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "EASY",
+    "reasoning": "Basic nutritional and biochemical composition question regarding gluten in wheat."
+  },
+  "2567": {
+    "id": 2567,
+    "topic": "Harvesting, Post-Harvest Processing & Grain Storage Standards",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific numerical safe storage moisture percentage range for cereal grains like paddy."
+  },
+  "2568": {
+    "id": 2568,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "HARD",
+    "reasoning": "Complex matching question associating multiple crops with their specific botanical plant parts."
+  },
+  "2569": {
+    "id": 2569,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "HARD",
+    "reasoning": "Tricky multi-statement evaluation mapping specific field crops to their respective inflorescence or structural terms."
+  },
+  "2570": {
+    "id": 2570,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific statistical and numerical question about global millet production percentages and FAO data."
+  },
+  "2571": {
+    "id": 2571,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specialized agronomic technique question identifying the crop associated with double transplanting."
+  },
+  "2572": {
+    "id": 2572,
+    "topic": "Commercial, Cash & Fiber Crops (Sugarcane, Cotton & Jute)",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific botanical classification question identifying a plant fiber derived from a fruit source."
+  },
+  "2573": {
+    "id": 2573,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "HARD",
+    "reasoning": "Scenario-based practical agronomy question requiring decision-making for delayed monsoon adaptation in paddy."
+  },
+  "2574": {
+    "id": 2574,
+    "topic": "Pulse & Oilseed Crops Production",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates detailed botanical and physiological properties of Moringa, including family classification."
+  },
+  "2575": {
+    "id": 2575,
+    "topic": "Agronomy Principles, Crop Classification & Plant Morphology",
+    "difficulty": "MEDIUM",
+    "reasoning": "Photoperiodic classification question identifying the response type of carrots."
+  },
+  "2576": {
+    "id": 2576,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "EASY",
+    "reasoning": "Standard agronomic fact identifying the most critical irrigation stage for wheat."
+  },
+  "2577": {
+    "id": 2577,
+    "topic": "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)",
+    "difficulty": "EASY",
+    "reasoning": "Basic general knowledge question identifying the common moniker for maize in the US."
+  }
+}

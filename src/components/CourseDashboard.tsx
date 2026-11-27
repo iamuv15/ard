@@ -319,6 +319,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "National Forest Policy target percentages & DBH standard height (1.37m / 4.5 ft)",
     medDesc: "Quarter girth formula, Indian State of Forest Report (ISFR) biennial metrics & JFM rules",
     hardDesc: "Form factor calculations, tree volume estimations & CAMPA fund statutory compliance"
+  },
+  // ─── Agronomy ───
+  "Agronomy Principles, Crop Classification & Plant Morphology": {
+    desc: "Agronomy definition, history, classification by ontogeny (annual, biennial, perennial), taxonomy/families (Poaceae, Fabaceae), photosynthetic pathways (C3, C4, CAM) & morphology.",
+    easyDesc: "Agronomy definitions, pioneer founders & basic plant lifecycle classifications",
+    medDesc: "C3 vs C4 photosynthetic features & botanical family diagnostic traits (caryopsis)",
+    hardDesc: "Rubisco vs PEP carboxylase kinetics, light saturation points & carbon flux physiology"
+  },
+  "Cereal Crops Cultivation (Rice, Wheat, Maize & Millets)": {
+    desc: "Cereal production: Rice (puddled, DSR, SRI, aerobic rice), Wheat (dwarf genes Norin-10, crown roots), Maize (hybrids vs composites) & Millets / Shree Anna (Jowar, Bajra, Ragi).",
+    easyDesc: "Cereal common names, Shree Anna millets & standard cultivation terms",
+    medDesc: "Seed rates (kg/ha), nursery bed areas, SRI spacing (25x25cm) & critical irrigation stages",
+    hardDesc: "Aerobic rice nitrogen dynamics, lodging biomechanics & heterosis breeding equations"
+  },
+  "Pulse & Oilseed Crops Production": {
+    desc: "Pulses (Chickpea, Pigeonpea, Green gram, Black gram) & Oilseeds (Mustard, Groundnut, Soybean, Sunflower) - seed rates, inoculation, shelling % & quality factors.",
+    easyDesc: "Major pulse and oilseed names, edible vs non-edible oils & basic legume nitrogen fixation",
+    medDesc: "Groundnut shelling percentage (70%), Mustard erucic acid limits & Soybean protein (40-42%)",
+    hardDesc: "Rhizobium strain specificity, oil synthesis biochemistry & pegging calcium nutrition"
+  },
+  "Commercial, Cash & Fiber Crops (Sugarcane, Cotton & Jute)": {
+    desc: "Sugarcane (planting methods, sett rates, brix 18-20%, arrowing, ratooning), Cotton (ginning outturn, lint/fuzz, Bt cotton) & Jute (retting, ribboning, golden fiber).",
+    easyDesc: "Definitions of ginning, retting, sett rates & cash crop states",
+    medDesc: "Brix refractometer ranges (18-20%), ginning percentage (30-35%) & fiber quality grades",
+    hardDesc: "Sucrose accumulation enzymology in sugarcane, cotton boll shedding physiology & retting microbiology"
+  },
+  "Tillage Systems, Seedbed Preparation & Conservation Agriculture": {
+    desc: "Primary vs secondary tillage, zero/no-tillage, minimum tillage, stubble mulching, deep tillage & Conservation Agriculture (CA) three pillars (zero tillage, cover, rotation).",
+    easyDesc: "Tillage definitions, implements used & primary vs secondary tillage",
+    medDesc: "Conservation agriculture requirements, tilth criteria & residue retention percentages",
+    hardDesc: "Soil aggregate stability mechanics, draft resistance formulas & carbon sequestration indices"
+  },
+  "Weed Science, Weed Biology & Chemical Weed Control": {
+    desc: "Weed biology, dispersal, parasitic weeds (Cuscuta, Loranthus, Orobanche, Striga - CLOPS), critical period of competition & herbicides (2,4-D, Pendimethalin, Atrazine, Glyphosate).",
+    easyDesc: "Weed definitions, parasitic weed host crops & common weed names",
+    medDesc: "Herbicide timings (pre-plant, pre-emergence, post-emergence) & active ingredient doses (kg a.i./ha)",
+    hardDesc: "Herbicide mode of action (ALS, EPSPS, PSII inhibitors) & resistance management genetics"
+  },
+  "Harvesting, Post-Harvest Processing & Grain Storage Standards": {
+    desc: "Physiological vs harvest maturity, Harvest Index (HI), safe storage moisture contents (10-12% cereals, 8-9% oilseeds), grain storage structures (Pusa bin, silos) & threshing.",
+    easyDesc: "Definitions of harvest index & basic harvesting tools",
+    medDesc: "Safe storage moisture percentages (10-12% cereals, 8-9% oilseeds) & drying standards",
+    hardDesc: "Harvest Index mathematical problems, equilibrium relative humidity & respiration thermodynamics"
   }
 }
 
