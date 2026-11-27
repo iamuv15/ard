@@ -1,0 +1,236 @@
+{
+  "2055": {
+    "id": 2055,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers the precise definition of agricultural seeds encompassing both zygotic seeds and vegetative propagules."
+  },
+  "2056": {
+    "id": 2056,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "EASY",
+    "reasoning": "Basic identification of crop propagation methods using true seeds vs vegetative parts."
+  },
+  "2057": {
+    "id": 2057,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "EASY",
+    "reasoning": "Defines the specific term 'setts' used for sugarcane stem cuttings."
+  },
+  "2058": {
+    "id": 2058,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "MEDIUM",
+    "reasoning": "Identifies the specific vegetative propagation structure (rooted slips) for grasses like Napier grass."
+  },
+  "2059": {
+    "id": 2059,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "EASY",
+    "reasoning": "Simple identification of the planting material (tubers) used for potatoes."
+  },
+  "2060": {
+    "id": 2060,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "MEDIUM",
+    "reasoning": "Defines seed vigour as the sum total of attributes contributing to effective field stand."
+  },
+  "2061": {
+    "id": 2061,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "EASY",
+    "reasoning": "Standard quality attributes required for selecting optimum seeds for planting."
+  },
+  "2062": {
+    "id": 2062,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Basic definitional question on the purpose of nucleus seed."
+  },
+  "2063": {
+    "id": 2063,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Direct factual question on the genetic purity percentage (100%) of nucleus seed."
+  },
+  "2064": {
+    "id": 2064,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Basic seed multiplication hierarchy regarding the progeny of nucleus seed."
+  },
+  "2065": {
+    "id": 2065,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specifies the germination percentage threshold (>85%) associated with good seed vigour."
+  },
+  "2066": {
+    "id": 2066,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall question on the tag color of Truthfully Labelled seeds (opal green)."
+  },
+  "2067": {
+    "id": 2067,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of breeder seed tag color (golden yellow/buff)."
+  },
+  "2068": {
+    "id": 2068,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Basic question on the source/progeny relationship for breeder seeds."
+  },
+  "2069": {
+    "id": 2069,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific factual question on the exact genetic purity standard (99.9%) for breeder seed."
+  },
+  "2070": {
+    "id": 2070,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Basic seed multiplication step identifying the progeny of breeder seed."
+  },
+  "2071": {
+    "id": 2071,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific genetic purity percentage requirement (99.5%) for foundation seed."
+  },
+  "2072": {
+    "id": 2072,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of foundation seed tag color (white)."
+  },
+  "2073": {
+    "id": 2073,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Basic seed generation hierarchy regarding the origin of foundation seed."
+  },
+  "2074": {
+    "id": 2074,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Identifies certified seed as the progeny of foundation seed."
+  },
+  "2075": {
+    "id": 2075,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific genetic purity standard requirement (99%) for certified seed."
+  },
+  "2076": {
+    "id": 2076,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall of certified seed tag color (azure blue)."
+  },
+  "2077": {
+    "id": 2077,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers the specific source class (foundation seed) used to produce registered seeds."
+  },
+  "2078": {
+    "id": 2078,
+    "topic": "Classes of Seed & Certification Tag Colors",
+    "difficulty": "EASY",
+    "reasoning": "Direct recall question for the tag color of registered seeds (purple)."
+  },
+  "2079": {
+    "id": 2079,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "EASY",
+    "reasoning": "General agronomic principles regarding optimal crop timing and yield factors."
+  },
+  "2080": {
+    "id": 2080,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "MEDIUM",
+    "reasoning": "Covers specific sowing depth requirement for a specific crop (tobacco), fitting into seed biology/establishment concepts."
+  },
+  "2081": {
+    "id": 2081,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "EASY",
+    "reasoning": "Basic agronomical knowledge regarding optimum sowing depth for general field crops."
+  },
+  "2082": {
+    "id": 2082,
+    "topic": "Seed Biology, Morphology & Quality Attributes",
+    "difficulty": "EASY",
+    "reasoning": "Fundamental definition and identification of standard sowing methods."
+  },
+  "2083": {
+    "id": 2083,
+    "topic": "Seed Dormancy, Germination & Seed Treatments",
+    "difficulty": "MEDIUM",
+    "reasoning": "Involves technical parameters of dry sowing in clayey soils regarding days before rainfall onset."
+  },
+  "2084": {
+    "id": 2084,
+    "topic": "Seed Dormancy, Germination & Seed Treatments",
+    "difficulty": "MEDIUM",
+    "reasoning": "Evaluates understanding of dormancy-breaking methods and why scarification is least effective for internal physiological inhibitors."
+  },
+  "2085": {
+    "id": 2085,
+    "topic": "Seed Dormancy, Germination & Seed Treatments",
+    "difficulty": "EASY",
+    "reasoning": "Direct identification of the primary hormone (GA3) used to break physiological dormancy."
+  },
+  "2086": {
+    "id": 2086,
+    "topic": "Seed Dormancy, Germination & Seed Treatments",
+    "difficulty": "EASY",
+    "reasoning": "Direct listing of standard methods used to break seed dormancy."
+  },
+  "2087": {
+    "id": 2087,
+    "topic": "Seed Dormancy, Germination & Seed Treatments",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific chemical treatments (thiourea, potassium nitrate) used for stimulating germination."
+  },
+  "2088": {
+    "id": 2088,
+    "topic": "Seed Legislation, Acts & Schemes in India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific numerical financial assistance limits for SC/ST farmers under the Seed Village Scheme."
+  },
+  "2089": {
+    "id": 2089,
+    "topic": "Seed Legislation, Acts & Schemes in India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific percentage of financial assistance for SC/ST farmers under the Seed Village Scheme."
+  },
+  "2090": {
+    "id": 2090,
+    "topic": "Seed Legislation, Acts & Schemes in India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific numerical subsidy limits for other farmers for seed storage bin under the Seed Village Programme."
+  },
+  "2091": {
+    "id": 2091,
+    "topic": "Seed Legislation, Acts & Schemes in India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific assistance percentage for other farmers under the Seed Village Scheme."
+  },
+  "2092": {
+    "id": 2092,
+    "topic": "Seed Legislation, Acts & Schemes in India",
+    "difficulty": "EASY",
+    "reasoning": "Core objective and purpose of the Seed Village Programme (Beej Gram Yojana)."
+  },
+  "2093": {
+    "id": 2093,
+    "topic": "Seed Legislation, Acts & Schemes in India",
+    "difficulty": "MEDIUM",
+    "reasoning": "Specific launch year of the Seed Village Programme (Beej Gram Yojana)."
+  }
+}

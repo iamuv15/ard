@@ -448,6 +448,49 @@ const TOPIC_METADATA: Record<string, { desc: string; easyDesc: string; medDesc: 
     easyDesc: "Biofertilizer definitions, Rhizobium legume association & Azolla in paddy",
     medDesc: "Free living vs symbiotic nitrogen fixers, VAM phosphorus mobilization & foliar spray rates",
     hardDesc: "Nitrogenase enzyme acetylene reduction biochemistry & mycorrhizal hyphal phosphorus uptake kinetics"
+  },
+  // ─── Seed ───
+  "Seed Biology, Morphology & Quality Attributes": {
+    desc: "Seed biology, botanical seed vs grain, parts of seed (embryo, endosperm, testa), seed vigour, viability, physical & genetic purity standards.",
+    easyDesc: "Seed vs grain definitions, seed parts & physical/genetic purity concepts",
+    medDesc: "Minimum genetic purity standards (99-100%) & seed vigour test parameters",
+    hardDesc: "Embryogenesis morphology, seed deterioration energetics & biochemical vigour indices"
+  },
+  "Classes of Seed & Certification Tag Colors": {
+    desc: "Hierarchy of seed classes: Nucleus (100% purity, no tag), Breeder (golden yellow), Foundation (white), Registered (purple) & Certified (azure blue), TL seed (opal green).",
+    easyDesc: "Tag colors (Breeder = Golden yellow, Foundation = White, Certified = Blue, TL = Opal green)",
+    medDesc: "Progeny relationships (Breeder -> Foundation -> Certified) & purity requirements",
+    hardDesc: "Dual stage foundation seed standards, field rogue inspection & certification protocols"
+  },
+  "Seed Dormancy, Germination & Seed Treatments": {
+    desc: "Seed dormancy mechanisms (innate, induced, enforced), breaking dormancy (scarification, stratification, GA3, KNO3, thiourea), priming, pelleting & chemical treatments.",
+    easyDesc: "Definitions of dormancy, scarification, stratification & fungicidal seed dressings",
+    medDesc: "Chemical concentrations (KNO3 2%, GA3 ppm, thiourea) & soaking hours for seed priming",
+    hardDesc: "Abscisic acid (ABA) vs Gibberellin (GA) balance biochemistry & hard seededness genetics"
+  },
+  "Seed Production, Isolation Distances & Roguing": {
+    desc: "Quality seed production principles, spatial isolation distances (self vs cross pollinated crops), roguing off-types & field inspection procedures.",
+    easyDesc: "Definitions of isolation distance, roguing & off-types",
+    medDesc: "Crop isolation distances in meters (foundation vs certified for maize, bajra, wheat)",
+    hardDesc: "Cytoplasmic male sterility (CMS) maintainer/restorer lines & hybrid seed production mechanics"
+  },
+  "Seed Testing, Viability Indices & Purity Analysis": {
+    desc: "Seed testing procedures, standard germination tests, Tetrazolium test (TTC 2,3,5-triphenyl tetrazolium chloride) for living tissues, Real Value of seed & ISTA protocols.",
+    easyDesc: "Tetrazolium (TZ) test staining color (red) & standard germination percentage basics",
+    medDesc: "Real Value formula calculation (% purity x % germination / 100) & ISTA sample weights",
+    hardDesc: "Tetrazolium dehydrogenase enzymatic reduction pathways & vigour index mathematical formulas"
+  },
+  "Seed Replacement Rate (SRR), Multiplication & Storage": {
+    desc: "Seed Replacement Rate (SRR), Seed Multiplication Ratio (SMR) for field crops, orthodox vs recalcitrant seeds, Harrington's rule & safe storage moisture limits.",
+    easyDesc: "SRR and SMR definitions, orthodox vs recalcitrant seed differences",
+    medDesc: "Specific crop SMRs (Wheat 1:20, Paddy 1:80, Groundnut 1:8) & safe storage moisture percentages",
+    hardDesc: "Harrington's thumb rules mathematics & seed equilibrium moisture isotherms"
+  },
+  "Seed Legislation, Acts & Schemes in India": {
+    desc: "Seeds Act 1966, Seeds Rules 1968, Seed Control Order 1983, PPV&FR Act 2001, National Seeds Corporation (NSC) & Seed Village Programme.",
+    easyDesc: "Seeds Act year (1966), NSC establishment & Seed Village Programme objectives",
+    medDesc: "Seed village scheme storage bin subsidy percentages (10 qtl capacity) & PPV&FR rights",
+    hardDesc: "Compulsory licensing, DUS testing parameters & farmers' rights under PPV&FR statutory law"
   }
 }
 
