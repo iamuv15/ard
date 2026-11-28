@@ -549,6 +549,15 @@ export default function CourseDashboard({
   userName 
 }: CourseDashboardProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [isWeekendIst, setIsWeekendIst] = useState(false)
+
+  useEffect(() => {
+    const wd = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Kolkata',
+      weekday: 'short',
+    }).format(new Date())
+    setIsWeekendIst(wd === 'Sat' || wd === 'Sun')
+  }, [])
 
   // Default to Chapter 16 (Soil) if present, or first available chapter
   const defaultChapter = chapters.find(c => c.name.toLowerCase().includes('soil')) || chapters[0]
@@ -876,10 +885,10 @@ export default function CourseDashboard({
             <Link
               href="/daily-quiz"
               className="flex items-center gap-1.5 text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3 py-1.5 rounded-lg hover:bg-indigo-100 transition-colors shadow-2xs"
-              title="Today's personalized 20Q retention quiz"
+              title={isWeekendIst ? "This weekend's 100Q mega retention quiz" : "Today's personalized 20Q retention quiz"}
             >
               <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-              <span>Daily 20Q</span>
+              <span>{isWeekendIst ? 'Weekend 100Q' : 'Daily 20Q'}</span>
             </Link>
             <Link
               href="/bookmarks"

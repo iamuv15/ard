@@ -264,7 +264,8 @@ model QuestionAttemptLog {
 model DailyRetentionQuiz {
   id                  String                   @id @default(uuid()) @db.Uuid
   userId              Int
-  periodKey           String                   // IST YYYY-MM-DD
+  periodKey           String                   // IST YYYY-MM-DD (daily) or YYYY-Www (weekend)
+  quizType            String                   @default("daily") // "daily" | "weekend"
   status              String                   @default("generating") // "generating", "pending", "in_progress", "completed"
   generationStartedAt DateTime                 @default(now())
   focusChapters       String[]                 @default([])

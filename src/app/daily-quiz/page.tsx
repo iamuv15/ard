@@ -72,6 +72,7 @@ type DailyQuestionItem = {
 type DailyQuizData = {
   id: string
   periodKey: string
+  quizType?: 'daily' | 'weekend'
   status: 'generating' | 'pending' | 'in_progress' | 'completed'
   focusChapters: string[]
   totalQuestions: number
@@ -96,12 +97,14 @@ type StreakStats = {
   totalAttempted: number
   averageAccuracy: number
   bestScore: number | null
+  bestScoreTotal: number | null
   todayCompleted: boolean
 }
 
 type DailyHistoryEntry = {
   id: string
   periodKey: string
+  quizType?: 'daily' | 'weekend'
   status: string
   score: number | null
   totalQuestions: number
@@ -119,7 +122,36 @@ type CalendarDay = {
   isToday: boolean
 }
 
+function isIstWeekendNow(): boolean {
+  const wd = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Kolkata',
+    weekday: 'short',
+  }).format(new Date())
+  return wd === 'Sat' || wd === 'Sun'
+}
+
+function isWeekendPeriodKey(periodKey: string): boolean {
+  return /^\d{4}-W\d{2}$/.test(periodKey)
+}
+
 function formatFriendlyDate(periodKey: string, todayKey: string): string {
+  const weekMatch = periodKey.match(/^(\d{4})-W(\d{2})$/)
+  if (weekMatch) {
+    if (periodKey === todayKey) return 'This Weekend (Sat–Sun)'
+    const isoYear = Number(weekMatch[1])
+    const weekNo = Number(weekMatch[2])
+    const jan4 = new Date(Date.UTC(isoYear, 0, 4))
+    const jan4IsoDow = jan4.getUTCDay() === 0 ? 7 : jan4.getUTCDay()
+    const week1Monday = new Date(jan4.getTime())
+    week1Monday.setUTCDate(jan4.getUTCDate() - (jan4IsoDow - 1))
+    const sat = new Date(week1Monday.getTime())
+    sat.setUTCDate(week1Monday.getUTCDate() + (weekNo - 1) * 7 + 5)
+    const sun = new Date(sat.getTime())
+    sun.setUTCDate(sat.getUTCDate() + 1)
+    const satLabel = sat.toLocaleDateString('en-IN', { timeZone: 'UTC', day: 'numeric', month: 'short' })
+    const sunLabel = sun.toLocaleDateString('en-IN', { timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric' })
+    return `Weekend • ${satLabel}–${sunLabel}`
+  }
   if (periodKey === todayKey) return 'Today'
   const [y, m, d] = periodKey.split('-').map(Number)
   const dt = new Date(Date.UTC(y, m - 1, d))
@@ -151,6 +183,12 @@ export default function DailyQuizPage() {
   const [unlocked, setUnlocked] = useState<boolean>(true)
   const [eligibility, setEligibility] = useState<EligibilityInfo | null>(null)
   const [periodKey, setPeriodKey] = useState<string>('')
+  const [quizType, setQuizType] = useState<'daily' | 'weekend'>(() =>
+    isIstWeekendNow() ? 'weekend' : 'daily'
+  )
+  const [targetTotal, setTargetTotal] = useState<number>(() =>
+    isIstWeekendNow() ? 100 : 20
+  )
   const [quiz, setQuiz] = useState<DailyQuizData | null>(null)
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const [submitting, setSubmitting] = useState<boolean>(false)
@@ -179,6 +217,12 @@ export default function DailyQuizPage() {
       }
 
       setPeriodKey(data.periodKey || '')
+      if (data.quizType === 'weekend' || data.quizType === 'daily') {
+        setQuizType(data.quizType)
+      }
+      if (typeof data.targetTotal === 'number') {
+        setTargetTotal(data.targetTotal)
+      }
       setEligibility(data.eligibility || null)
       setUnlocked(Boolean(data.unlocked))
       if (data.streakStats) setStreakStats(data.streakStats)
@@ -392,6 +436,12 @@ export default function DailyQuizPage() {
     }
   }
 
+  const isWeekendMode =
+    quiz?.quizType === 'weekend' ||
+    quizType === 'weekend' ||
+    isWeekendPeriodKey(periodKey)
+  const displayTotalQs = quiz?.totalQuestions || targetTotal || (isWeekendMode ? 100 : 20)
+
   // Shared Top Navigation Header
   const renderHeader = () => (
     <header className="h-16 bg-white border-b border-stone-200 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-20">
@@ -405,7 +455,9 @@ export default function DailyQuizPage() {
         <span className="hidden sm:inline text-stone-300">|</span>
         <div className="hidden sm:flex items-center gap-2 min-w-0">
           <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
-          <span className="text-sm font-black text-stone-900 truncate">Daily Retention Quiz</span>
+          <span className="text-sm font-black text-stone-900 truncate">
+            {isWeekendMode ? `Weekend ${displayTotalQs}Q Mega Quiz` : 'Daily Retention Quiz'}
+          </span>
           {periodKey && (
             <span className="text-[11px] font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-md border border-stone-200">
               {periodKey}
@@ -487,11 +539,13 @@ export default function DailyQuizPage() {
           <div className="w-14 h-14 rounded-2xl bg-white border border-stone-200 shadow-xs flex items-center justify-center mb-4">
             <Loader2 className="w-7 h-7 animate-spin text-stone-800" />
           </div>
-          <h2 className="text-lg font-black text-stone-900 mb-1">
-            Preparing Your Daily 20Q Retention Quiz...
+          <h2 className="text-lg font-black text-stone-900 mb-1" suppressHydrationWarning>
+            {isWeekendMode
+              ? 'Preparing Your Weekend 100Q Mega Quiz...'
+              : 'Preparing Your Daily 20Q Retention Quiz...'}
           </h2>
           <p className="text-sm text-stone-500 max-w-md">
-            Analyzing your recent 7-day chapter activity, unresolved mistakes, and spaced-repetition priorities.
+            Analyzing your previous sessions, chapter activity, unresolved mistakes, and spaced-repetition priorities.
           </p>
         </div>
       </div>
@@ -554,7 +608,7 @@ export default function DailyQuizPage() {
                 Attempt Your First Chapter Quiz
               </h1>
               <p className="text-sm text-stone-600 leading-relaxed">
-                Your Daily 20Q Retention Quiz adapts automatically to the chapters you practice and mistakes you make. Complete at least <strong>{threshold} chapter quiz</strong> (or answer <strong>15+ questions</strong>) in ARDShala to unlock it.
+                Your {isWeekendMode ? 'Weekend 100Q Mega Quiz' : 'Daily 20Q Retention Quiz'} adapts automatically to the chapters you practice and mistakes you make. Complete at least <strong>{threshold} chapter quiz</strong> (or answer <strong>15+ questions</strong>) in ARDShala to unlock it.
               </p>
             </div>
 
@@ -640,7 +694,12 @@ export default function DailyQuizPage() {
                   <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
                     <Trophy className="w-3.5 h-3.5" />
                     <span>
-                      {targetQuiz.status === 'completed' ? 'Daily Retention Complete' : 'Partial / Past Attempt'} • {targetQuiz.periodKey}
+                      {targetQuiz.status === 'completed'
+                        ? targetQuiz.quizType === 'weekend' || isWeekendPeriodKey(targetQuiz.periodKey)
+                          ? 'Weekend 100Q Complete'
+                          : 'Daily Retention Complete'
+                        : 'Partial / Past Attempt'}{' '}
+                      • {targetQuiz.periodKey}
                     </span>
                   </div>
                   {!isPastReview && streakStats && streakStats.currentStreak > 0 && (
@@ -916,10 +975,10 @@ export default function DailyQuizPage() {
               </div>
               <div className="text-2xl sm:text-3xl font-black text-stone-900">
                 {streakStats?.bestScore !== null && streakStats?.bestScore !== undefined
-                  ? `${streakStats.bestScore}/20`
+                  ? `${streakStats.bestScore}/${streakStats.bestScoreTotal ?? 20}`
                   : '—'}
               </div>
-              <p className="text-[11px] text-stone-500 mt-1">Personal daily high</p>
+              <p className="text-[11px] text-stone-500 mt-1">Personal retention high</p>
             </div>
           </div>
 
@@ -1002,7 +1061,7 @@ export default function DailyQuizPage() {
                   onClick={() => setActiveTab('TODAY')}
                   className="px-5 py-2.5 rounded-xl bg-stone-900 text-white text-xs font-bold cursor-pointer"
                 >
-                  Start Today&apos;s 20Q Quiz
+                  Start {isWeekendMode ? "This Weekend's 100Q Quiz" : "Today's 20Q Quiz"}
                 </button>
               </div>
             ) : (
@@ -1114,7 +1173,7 @@ export default function DailyQuizPage() {
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-600">
                 <Calendar className="w-3.5 h-3.5 text-stone-400" />
-                <span>Today&apos;s Focus:</span>
+                <span>{isWeekendMode ? 'Weekend Focus (Previous Sessions):' : "Today's Focus:"}</span>
               </span>
               {quiz.focusChapters.map((ch) => (
                 <span
@@ -1131,7 +1190,7 @@ export default function DailyQuizPage() {
             </div>
           </div>
 
-          {/* 20 Question Number Pills */}
+          {/* Question Number Pills */}
           <div className="flex flex-wrap gap-1.5">
             {quiz.questions.map((q, idx) => {
               const active = idx === currentIndex
@@ -1144,12 +1203,13 @@ export default function DailyQuizPage() {
               if (active) {
                 pillCls = 'bg-stone-900 text-white border-stone-900 shadow-xs'
               }
+              const sizeCls = quiz.questions.length > 30 ? 'w-7 h-7 text-[11px]' : 'w-8 h-8 text-xs'
 
               return (
                 <button
                   key={q.dailyQuestionId}
                   onClick={() => navigateTo(idx)}
-                  className={`relative w-8 h-8 rounded-lg border text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${pillCls}`}
+                  className={`relative rounded-lg border font-bold transition-all cursor-pointer flex items-center justify-center ${sizeCls} ${pillCls}`}
                 >
                   {idx + 1}
                   {q.isFlagged && (
@@ -1406,7 +1466,7 @@ export default function DailyQuizPage() {
                 ) : (
                   <>
                     <Trophy className="w-4 h-4" />
-                    <span>Complete Daily Quiz</span>
+                    <span>{isWeekendMode ? 'Complete Weekend Quiz' : 'Complete Daily Quiz'}</span>
                   </>
                 )}
               </button>

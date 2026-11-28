@@ -2,7 +2,20 @@ import prisma from '@/lib/prisma'
 
 export const DAILY_QUIZ_TOTAL = 20
 export const DAILY_MISTAKE_CAP = 6
+export const WEEKEND_QUIZ_TOTAL = 100
+export const WEEKEND_MISTAKE_CAP = 25
 export const STALE_GENERATING_MS = 3 * 60 * 1000 // 3 minutes
+
+export type QuizType = 'daily' | 'weekend'
+
+export type IstPeriodInfo = {
+  istDateKey: string
+  isWeekend: boolean
+  quizType: QuizType
+  periodKey: string
+  targetTotal: number
+  mistakeCap: number
+}
 
 let geminiKeyIdx = 0
 
@@ -12,13 +25,79 @@ function getGeminiKeys(): string[] {
   )
 }
 
-export function getIstPeriodKey(date = new Date()): string {
+export function getIstDateKey(date = new Date()): string {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Kolkata',
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
   }).format(date)
+}
+
+export function isWeekendDateKey(dateKey: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateKey)) return false
+  const [y, m, d] = dateKey.split('-').map(Number)
+  const day = new Date(Date.UTC(y, m - 1, d)).getUTCDay()
+  return day === 0 || day === 6
+}
+
+export function getIsoWeekKeyForDateStr(dateKey: string): string {
+  const [y, m, d] = dateKey.split('-').map(Number)
+  const dt = new Date(Date.UTC(y, m - 1, d))
+  const isoDow = dt.getUTCDay() === 0 ? 7 : dt.getUTCDay()
+  dt.setUTCDate(dt.getUTCDate() + 4 - isoDow)
+  const isoYear = dt.getUTCFullYear()
+  const yearStart = new Date(Date.UTC(isoYear, 0, 1))
+  const weekNo = Math.ceil(((dt.getTime() - yearStart.getTime()) / 86_400_000 + 1) / 7)
+  return `${isoYear}-W${String(weekNo).padStart(2, '0')}`
+}
+
+export function getPeriodKeyForDateKey(dateKey: string): string {
+  return isWeekendDateKey(dateKey) ? getIsoWeekKeyForDateStr(dateKey) : dateKey
+}
+
+export function getIstPeriodInfo(date = new Date()): IstPeriodInfo {
+  const istDateKey = getIstDateKey(date)
+  const isWeekend = isWeekendDateKey(istDateKey)
+  if (isWeekend) {
+    return {
+      istDateKey,
+      isWeekend: true,
+      quizType: 'weekend',
+      periodKey: getIsoWeekKeyForDateStr(istDateKey),
+      targetTotal: WEEKEND_QUIZ_TOTAL,
+      mistakeCap: WEEKEND_MISTAKE_CAP,
+    }
+  }
+  return {
+    istDateKey,
+    isWeekend: false,
+    quizType: 'daily',
+    periodKey: istDateKey,
+    targetTotal: DAILY_QUIZ_TOTAL,
+    mistakeCap: DAILY_MISTAKE_CAP,
+  }
+}
+
+export function getIstPeriodKey(date = new Date()): string {
+  return getIstPeriodInfo(date).periodKey
+}
+
+export function expandPeriodKeyToDateKeys(periodKey: string): string[] {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(periodKey)) return [periodKey]
+  const match = periodKey.match(/^(\d{4})-W(\d{2})$/)
+  if (!match) return []
+  const isoYear = Number(match[1])
+  const weekNo = Number(match[2])
+  const jan4 = new Date(Date.UTC(isoYear, 0, 4))
+  const jan4IsoDow = jan4.getUTCDay() === 0 ? 7 : jan4.getUTCDay()
+  const week1Monday = new Date(jan4.getTime())
+  week1Monday.setUTCDate(jan4.getUTCDate() - (jan4IsoDow - 1))
+  const sat = new Date(week1Monday.getTime())
+  sat.setUTCDate(week1Monday.getUTCDate() + (weekNo - 1) * 7 + 5)
+  const sun = new Date(sat.getTime())
+  sun.setUTCDate(sat.getUTCDate() + 1)
+  return [sat.toISOString().slice(0, 10), sun.toISOString().slice(0, 10)]
 }
 
 export function getDaysAgoDate(days: number): Date {
@@ -46,7 +125,7 @@ export async function getUserDailyEligibility(userId: number): Promise<Eligibili
   ])
 
   const mistakeDays = new Set(
-    userMistakes.map((m) => getIstPeriodKey(m.createdAt))
+    userMistakes.map((m) => getIstDateKey(m.createdAt))
   ).size
 
   const unlocked =
@@ -212,14 +291,23 @@ Return a strict JSON array matching the input length, each item having:
 }
 
 export async function generateOrFetchDailyQuiz(userId: number) {
-  const periodKey = getIstPeriodKey()
+  const period = getIstPeriodInfo()
+  const { periodKey, quizType, targetTotal, mistakeCap } = period
+  const isWeekend = quizType === 'weekend'
   const eligibility = await getUserDailyEligibility(userId)
 
   if (!eligibility.unlocked) {
-    return { unlocked: false as const, eligibility, periodKey, quiz: null }
+    return {
+      unlocked: false as const,
+      eligibility,
+      periodKey,
+      quizType,
+      targetTotal,
+      quiz: null,
+    }
   }
 
-  // Check if today's quiz already exists
+  // Check if today's (or this weekend's) quiz already exists
   const existing = await prisma.dailyRetentionQuiz.findUnique({
     where: { userId_periodKey: { userId, periodKey } },
   })
@@ -232,10 +320,25 @@ export async function generateOrFetchDailyQuiz(userId: number) {
     if (isStaleGenerating) {
       await prisma.dailyRetentionQuiz.delete({ where: { id: existing.id } })
     } else if (existing.status === 'generating') {
-      return { unlocked: true as const, eligibility, periodKey, quiz: existing, generating: true }
+      return {
+        unlocked: true as const,
+        eligibility,
+        periodKey,
+        quizType,
+        targetTotal,
+        quiz: existing,
+        generating: true,
+      }
     } else {
       const fullQuiz = await loadFullDailyQuiz(existing.id)
-      return { unlocked: true as const, eligibility, periodKey, quiz: fullQuiz }
+      return {
+        unlocked: true as const,
+        eligibility,
+        periodKey,
+        quizType,
+        targetTotal: existing.totalQuestions || targetTotal,
+        quiz: fullQuiz,
+      }
     }
   }
 
@@ -246,9 +349,10 @@ export async function generateOrFetchDailyQuiz(userId: number) {
       data: {
         userId,
         periodKey,
+        quizType,
         status: 'generating',
         generationStartedAt: new Date(),
-        totalQuestions: DAILY_QUIZ_TOTAL,
+        totalQuestions: targetTotal,
       },
       select: { id: true },
     })
@@ -260,7 +364,14 @@ export async function generateOrFetchDailyQuiz(userId: number) {
       })
       if (concurrent) {
         const fullQuiz = await loadFullDailyQuiz(concurrent.id)
-        return { unlocked: true as const, eligibility, periodKey, quiz: fullQuiz }
+        return {
+          unlocked: true as const,
+          eligibility,
+          periodKey,
+          quizType,
+          targetTotal: concurrent.totalQuestions || targetTotal,
+          quiz: fullQuiz,
+        }
       }
     }
     throw err
@@ -373,7 +484,7 @@ export async function generateOrFetchDailyQuiz(userId: number) {
       if (dq.questionId) seenRecentlyIds.add(dq.questionId)
     }
 
-    // Track already picked question IDs to avoid duplicates within today's 20Q quiz
+    // Track already picked question IDs to avoid duplicates within this quiz
     const pickedIds = new Set<number>()
     const pickedSlots: PickedSlot[] = []
     let totalMistakesPicked = 0
@@ -413,6 +524,7 @@ export async function generateOrFetchDailyQuiz(userId: number) {
     }
 
     // Identify up to 2 repeat-wrong questions (>= 2 failures) for optional AI reframing
+    const maxReframeCount = 2
     const repeatMistakesToReframe: { q: CandidateQuestion; chapterId: number; chapterName: string }[] = []
 
     const pickMistakes = (
@@ -422,7 +534,7 @@ export async function generateOrFetchDailyQuiz(userId: number) {
     ) => {
       let count = 0
       for (const item of pool) {
-        if (count >= maxCount || totalMistakesPicked >= DAILY_MISTAKE_CAP || pickedSlots.length >= DAILY_QUIZ_TOTAL) {
+        if (count >= maxCount || totalMistakesPicked >= mistakeCap || pickedSlots.length >= targetTotal) {
           break
         }
         if (pickedIds.has(item.q.id)) continue
@@ -430,7 +542,7 @@ export async function generateOrFetchDailyQuiz(userId: number) {
         totalMistakesPicked++
         count++
 
-        if (item.repeatCount >= 2 && repeatMistakesToReframe.length < 2) {
+        if (item.repeatCount >= 2 && repeatMistakesToReframe.length < maxReframeCount) {
           repeatMistakesToReframe.push({
             q: item.q,
             chapterId: item.chapterId,
@@ -467,7 +579,7 @@ export async function generateOrFetchDailyQuiz(userId: number) {
           id: true,
           quiz: { select: { chapterId: true, chapter: { select: { name: true } } } },
         },
-        take: 150,
+        take: isWeekend ? 1200 : 300,
       })
 
       // Group by chapterId so we spread selections fairly across chapters
@@ -498,16 +610,19 @@ export async function generateOrFetchDailyQuiz(userId: number) {
     }
 
     // Reserve slots for reframed repeat-wrong questions if any
-    const reservedReframeSlots = Math.min(2, repeatMistakesToReframe.length)
+    const reservedReframeSlots = Math.min(maxReframeCount, repeatMistakesToReframe.length)
 
-    // PRIMARY QUOTA: Up to 14 Qs from Last 7 Days chapters
-    const primaryTarget = 14
-    pickMistakes(recentMistakePool, 4, 'RECENT_WRONG')
+    // PRIMARY QUOTA: ~70% from Last 7 Days session chapters (14 for 20Q daily, 70 for 100Q weekend)
+    const primaryTarget = isWeekend ? 70 : 14
+    const recentMistakeQuota = isWeekend ? 16 : 4
+    const olderMistakeQuota = isWeekend ? 9 : 2
+
+    pickMistakes(recentMistakePool, recentMistakeQuota, 'RECENT_WRONG')
     const recentFreshNeeded = Math.max(0, primaryTarget - (pickedSlots.length + reservedReframeSlots))
     if (recentChapterIds.length > 0 && recentFreshNeeded > 0) {
       const freshRecent = await fetchChapterPool(recentChapterIds, false)
       for (const q of freshRecent.slice(0, recentFreshNeeded)) {
-        if (pickedSlots.length + reservedReframeSlots >= DAILY_QUIZ_TOTAL) break
+        if (pickedSlots.length + reservedReframeSlots >= targetTotal) break
         if (pickedIds.has(q.id)) continue
         pickedIds.add(q.id)
         pickedSlots.push({
@@ -519,13 +634,13 @@ export async function generateOrFetchDailyQuiz(userId: number) {
       }
     }
 
-    // SECONDARY QUOTA: Up to 6 Qs (plus any thin-week backfill!) from Older Attempted Chapters
-    pickMistakes(olderMistakePool, 2, 'OLDER_WRONG')
-    const remainingAfterPrimary = Math.max(0, DAILY_QUIZ_TOTAL - (pickedSlots.length + reservedReframeSlots))
+    // SECONDARY QUOTA: ~30% (plus any thin-week backfill!) from Older Attempted Chapters
+    pickMistakes(olderMistakePool, olderMistakeQuota, 'OLDER_WRONG')
+    const remainingAfterPrimary = Math.max(0, targetTotal - (pickedSlots.length + reservedReframeSlots))
     if (olderChapterIds.length > 0 && remainingAfterPrimary > 0) {
       const freshOlder = await fetchChapterPool(olderChapterIds, false)
       for (const q of freshOlder.slice(0, remainingAfterPrimary)) {
-        if (pickedSlots.length + reservedReframeSlots >= DAILY_QUIZ_TOTAL) break
+        if (pickedSlots.length + reservedReframeSlots >= targetTotal) break
         if (pickedIds.has(q.id)) continue
         pickedIds.add(q.id)
         pickedSlots.push({
@@ -538,11 +653,11 @@ export async function generateOrFetchDailyQuiz(userId: number) {
     }
 
     // BACKFILL 1: If Secondary was thin (e.g. user has only recent chapters), backfill with more Recent Fresh
-    const stillNeeded1 = Math.max(0, DAILY_QUIZ_TOTAL - (pickedSlots.length + reservedReframeSlots))
+    const stillNeeded1 = Math.max(0, targetTotal - (pickedSlots.length + reservedReframeSlots))
     if (stillNeeded1 > 0 && recentChapterIds.length > 0) {
       const moreRecent = await fetchChapterPool(recentChapterIds, false)
       for (const q of moreRecent.slice(0, stillNeeded1)) {
-        if (pickedSlots.length + reservedReframeSlots >= DAILY_QUIZ_TOTAL) break
+        if (pickedSlots.length + reservedReframeSlots >= targetTotal) break
         if (pickedIds.has(q.id)) continue
         pickedIds.add(q.id)
         pickedSlots.push({
@@ -556,11 +671,11 @@ export async function generateOrFetchDailyQuiz(userId: number) {
 
     // BACKFILL 2: If unseen questions in attempted chapters are exhausted, allow least-recently-seen from attempted chapters
     const attemptedChaptersAll = [...recentChapterIds, ...olderChapterIds]
-    const stillNeeded2 = Math.max(0, DAILY_QUIZ_TOTAL - (pickedSlots.length + reservedReframeSlots))
+    const stillNeeded2 = Math.max(0, targetTotal - (pickedSlots.length + reservedReframeSlots))
     if (stillNeeded2 > 0 && attemptedChaptersAll.length > 0) {
       const seenFallback = await fetchChapterPool(attemptedChaptersAll, true)
       for (const q of seenFallback.slice(0, stillNeeded2)) {
-        if (pickedSlots.length + reservedReframeSlots >= DAILY_QUIZ_TOTAL) break
+        if (pickedSlots.length + reservedReframeSlots >= targetTotal) break
         if (pickedIds.has(q.id)) continue
         pickedIds.add(q.id)
         pickedSlots.push({
@@ -572,15 +687,15 @@ export async function generateOrFetchDailyQuiz(userId: number) {
       }
     }
 
-    // BACKFILL 3: If attempted chapters total < 20 questions overall (very small chapter), pull from remaining course chapters
-    const stillNeeded3 = Math.max(0, DAILY_QUIZ_TOTAL - (pickedSlots.length + reservedReframeSlots))
+    // BACKFILL 3: If attempted chapters total < targetTotal questions overall, pull from remaining course chapters
+    const stillNeeded3 = Math.max(0, targetTotal - (pickedSlots.length + reservedReframeSlots))
     if (stillNeeded3 > 0) {
       const otherChapters = allowedChapters
         .map((c) => c.id)
         .filter((id) => !attemptedChaptersAll.includes(id))
       const courseFallback = await fetchChapterPool(otherChapters, false)
       for (const q of courseFallback.slice(0, stillNeeded3)) {
-        if (pickedSlots.length + reservedReframeSlots >= DAILY_QUIZ_TOTAL) break
+        if (pickedSlots.length + reservedReframeSlots >= targetTotal) break
         if (pickedIds.has(q.id)) continue
         pickedIds.add(q.id)
         pickedSlots.push({
@@ -600,7 +715,7 @@ export async function generateOrFetchDailyQuiz(userId: number) {
         if (r.questionId) reframedMap.set(r.questionId, r)
       }
       for (const orig of repeatMistakesToReframe) {
-        if (pickedSlots.length >= DAILY_QUIZ_TOTAL) break
+        if (pickedSlots.length >= targetTotal) break
         const aiSlot = reframedMap.get(orig.q.id)
         if (aiSlot) {
           pickedSlots.push(aiSlot)
@@ -615,7 +730,7 @@ export async function generateOrFetchDailyQuiz(userId: number) {
       }
     }
 
-    // Shuffle final 20 slots cleanly so mistakes and chapters are interspersed
+    // Shuffle final slots cleanly so mistakes and chapters are interspersed
     shuffleInPlace(pickedSlots)
 
     // Compute top 2-3 focus_chapters from selected questions
@@ -646,6 +761,7 @@ export async function generateOrFetchDailyQuiz(userId: number) {
         where: { id: createdHeader!.id },
         data: {
           status: 'pending',
+          quizType,
           totalQuestions: pickedSlots.length,
           focusChapters,
         },
@@ -653,7 +769,14 @@ export async function generateOrFetchDailyQuiz(userId: number) {
     })
 
     const fullQuiz = await loadFullDailyQuiz(createdHeader.id)
-    return { unlocked: true as const, eligibility, periodKey, quiz: fullQuiz }
+    return {
+      unlocked: true as const,
+      eligibility,
+      periodKey,
+      quizType,
+      targetTotal: pickedSlots.length,
+      quiz: fullQuiz,
+    }
   } catch (err) {
     // Clean up failed/partial 'generating' row so user is never locked out
     if (createdHeader?.id) {
@@ -684,8 +807,8 @@ export async function loadFullDailyQuiz(dailyQuizId: string) {
   })
 }
 
-export function shiftIstPeriodKey(periodKey: string, deltaDays: number): string {
-  const [y, m, d] = periodKey.split('-').map(Number)
+export function shiftIstPeriodKey(dateKey: string, deltaDays: number): string {
+  const [y, m, d] = dateKey.split('-').map(Number)
   const dt = new Date(Date.UTC(y, m - 1, d + deltaDays))
   return dt.toISOString().slice(0, 10)
 }
@@ -697,12 +820,14 @@ export type StreakStats = {
   totalAttempted: number
   averageAccuracy: number
   bestScore: number | null
+  bestScoreTotal: number | null
   todayCompleted: boolean
 }
 
 export type DailyHistoryEntry = {
   id: string
   periodKey: string
+  quizType: QuizType
   status: string
   score: number | null
   totalQuestions: number
@@ -713,12 +838,13 @@ export type DailyHistoryEntry = {
 }
 
 export async function getUserDailyHistoryAndStreaks(userId: number) {
-  const todayKey = getIstPeriodKey()
-  const yesterdayKey = shiftIstPeriodKey(todayKey, -1)
+  const todayDateKey = getIstDateKey()
+  const yesterdayDateKey = shiftIstPeriodKey(todayDateKey, -1)
+  const todayPeriodKey = getPeriodKeyForDateKey(todayDateKey)
 
   const rows = await prisma.dailyRetentionQuiz.findMany({
     where: { userId },
-    orderBy: { periodKey: 'desc' },
+    orderBy: { createdAt: 'desc' },
     include: {
       questions: {
         select: { selectedOption: true, isCorrect: true },
@@ -732,10 +858,13 @@ export async function getUserDailyHistoryAndStreaks(userId: number) {
       r.status === 'completed'
         ? (r.score ?? r.questions.filter((q) => q.isCorrect === true).length)
         : r.score
+    const quizType: QuizType =
+      r.quizType === 'weekend' || /^\d{4}-W\d{2}$/.test(r.periodKey) ? 'weekend' : 'daily'
 
     return {
       id: r.id,
       periodKey: r.periodKey,
+      quizType,
       status: r.status,
       score: calculatedScore,
       totalQuestions: r.totalQuestions,
@@ -747,41 +876,61 @@ export async function getUserDailyHistoryAndStreaks(userId: number) {
   })
 
   const completedEntries = history.filter((h) => h.status === 'completed')
-  const completedKeys = new Set(completedEntries.map((h) => h.periodKey))
-  const todayCompleted = completedKeys.has(todayKey)
+  const completedPeriodKeys = new Set(completedEntries.map((h) => h.periodKey))
+  const completedDateKeys = new Set<string>()
+  for (const entry of completedEntries) {
+    for (const d of expandPeriodKeyToDateKeys(entry.periodKey)) {
+      completedDateKeys.add(d)
+    }
+  }
 
-  // Current streak: counts consecutive days ending today OR yesterday (if today hasn't been completed yet)
+  const todayCompleted =
+    completedPeriodKeys.has(todayPeriodKey) || completedDateKeys.has(todayDateKey)
+
+  // Current streak: counts consecutive IST calendar days covered by daily/weekend completions
   let currentStreak = 0
-  let cursor = todayCompleted ? todayKey : completedKeys.has(yesterdayKey) ? yesterdayKey : null
-  while (cursor && completedKeys.has(cursor)) {
+  let cursor = todayCompleted
+    ? todayDateKey
+    : completedDateKeys.has(yesterdayDateKey)
+    ? yesterdayDateKey
+    : null
+  while (cursor && completedDateKeys.has(cursor)) {
     currentStreak++
     cursor = shiftIstPeriodKey(cursor, -1)
   }
 
   // Longest streak across all historical completed dates
   let longestStreak = 0
-  const sortedAsc = Array.from(completedKeys).sort()
+  const sortedDatesAsc = Array.from(completedDateKeys).sort()
   let run = 0
-  let prevKey: string | null = null
-  for (const key of sortedAsc) {
-    if (prevKey && shiftIstPeriodKey(prevKey, 1) === key) {
+  let prevDate: string | null = null
+  for (const dateKey of sortedDatesAsc) {
+    if (prevDate && shiftIstPeriodKey(prevDate, 1) === dateKey) {
       run++
     } else {
       run = 1
     }
     if (run > longestStreak) longestStreak = run
-    prevKey = key
+    prevDate = dateKey
   }
 
-  // Average accuracy & best score
+  // Average accuracy & best score (by highest accuracy, tie-break by score)
   let totalScoreSum = 0
   let totalQuestionsSum = 0
   let bestScore: number | null = null
+  let bestScoreTotal: number | null = null
+  let bestAccuracy = -1
   for (const h of completedEntries) {
     const s = h.score ?? 0
+    const tot = h.totalQuestions || (h.quizType === 'weekend' ? 100 : 20)
     totalScoreSum += s
-    totalQuestionsSum += h.totalQuestions || 20
-    if (bestScore === null || s > bestScore) bestScore = s
+    totalQuestionsSum += tot
+    const acc = tot > 0 ? s / tot : 0
+    if (acc > bestAccuracy || (acc === bestAccuracy && (bestScore === null || s > bestScore))) {
+      bestAccuracy = acc
+      bestScore = s
+      bestScoreTotal = tot
+    }
   }
   const averageAccuracy =
     totalQuestionsSum > 0 ? Math.round((totalScoreSum / totalQuestionsSum) * 100) : 0
@@ -797,18 +946,19 @@ export async function getUserDailyHistoryAndStreaks(userId: number) {
   }[] = []
 
   for (let offset = -13; offset <= 0; offset++) {
-    const key = shiftIstPeriodKey(todayKey, offset)
-    const entry = byKey.get(key)
+    const dateKey = shiftIstPeriodKey(todayDateKey, offset)
+    const mappedKey = getPeriodKeyForDateKey(dateKey)
+    const entry = byKey.get(dateKey) ?? byKey.get(mappedKey)
     let calStatus: 'completed' | 'in_progress' | 'none' = 'none'
     if (entry?.status === 'completed') calStatus = 'completed'
     else if (entry && (entry.answeredCount > 0 || entry.status === 'in_progress')) calStatus = 'in_progress'
 
     activityCalendar.push({
-      periodKey: key,
+      periodKey: dateKey,
       status: calStatus,
       score: entry?.score ?? null,
-      totalQuestions: entry?.totalQuestions ?? 20,
-      isToday: key === todayKey,
+      totalQuestions: entry?.totalQuestions ?? (isWeekendDateKey(dateKey) ? 100 : 20),
+      isToday: dateKey === todayDateKey,
     })
   }
 
@@ -819,6 +969,7 @@ export async function getUserDailyHistoryAndStreaks(userId: number) {
     totalAttempted: history.length,
     averageAccuracy,
     bestScore,
+    bestScoreTotal,
     todayCompleted,
   }
 

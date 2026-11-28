@@ -11,9 +11,15 @@ import {
 function serializeDailyQuiz(quiz: Awaited<ReturnType<typeof loadFullDailyQuiz>>) {
   if (!quiz) return null
 
+  const quizType: 'daily' | 'weekend' =
+    quiz.quizType === 'weekend' || /^\d{4}-W\d{2}$/.test(quiz.periodKey)
+      ? 'weekend'
+      : 'daily'
+
   return {
     id: quiz.id,
     periodKey: quiz.periodKey,
+    quizType,
     status: quiz.status,
     focusChapters: quiz.focusChapters,
     totalQuestions: quiz.totalQuestions,
@@ -97,6 +103,8 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({
         unlocked: false,
         periodKey: result.periodKey,
+        quizType: result.quizType,
+        targetTotal: result.targetTotal,
         eligibility: result.eligibility,
         streakStats: historyData.stats,
         activityCalendar: historyData.activityCalendar,
@@ -109,6 +117,8 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({
         unlocked: true,
         periodKey: result.periodKey,
+        quizType: result.quizType,
+        targetTotal: result.targetTotal,
         eligibility: result.eligibility,
         streakStats: historyData.stats,
         activityCalendar: historyData.activityCalendar,
@@ -121,6 +131,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       unlocked: true,
       periodKey: result.periodKey,
+      quizType: result.quizType,
+      targetTotal: result.targetTotal,
       eligibility: result.eligibility,
       streakStats: historyData.stats,
       activityCalendar: historyData.activityCalendar,

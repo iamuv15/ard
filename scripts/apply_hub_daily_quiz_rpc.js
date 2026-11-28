@@ -29,7 +29,11 @@ async function main() {
     DECLARE
       v_db_user_id integer;
       v_email text;
+      v_ist_date date;
+      v_dow integer;
+      v_quiz_type text;
       v_period_key text;
+      v_default_total integer;
       v_completed_quizzes integer := 0;
       v_logged_answers integer := 0;
       v_mistake_count integer := 0;
@@ -41,7 +45,18 @@ async function main() {
       v_answered_count integer := 0;
       v_focus_chapters jsonb := '[]'::jsonb;
     BEGIN
-      v_period_key := to_char((now() AT TIME ZONE 'Asia/Kolkata')::date, 'YYYY-MM-DD');
+      v_ist_date := (now() AT TIME ZONE 'Asia/Kolkata')::date;
+      v_dow := EXTRACT(ISODOW FROM v_ist_date)::integer;
+
+      IF v_dow IN (6, 7) THEN
+        v_quiz_type := 'weekend';
+        v_period_key := to_char(v_ist_date, 'IYYY-"W"IW');
+        v_default_total := 100;
+      ELSE
+        v_quiz_type := 'daily';
+        v_period_key := to_char(v_ist_date, 'YYYY-MM-DD');
+        v_default_total := 20;
+      END IF;
 
       -- 1. Resolve Supabase auth.users UUID -> public."User".id
       SELECT u.id INTO v_db_user_id
@@ -69,11 +84,11 @@ async function main() {
           'unlocked', false,
           'completed_source_quizzes', 0,
           'unlock_threshold', 1,
-          'quiz_type', 'daily',
+          'quiz_type', v_quiz_type,
           'period_key', v_period_key,
           'quiz_id', NULL,
           'status', 'not_generated',
-          'total_questions', 20,
+          'total_questions', v_default_total,
           'answered_count', 0,
           'score', NULL,
           'focus_chapters', '[]'::jsonb,
@@ -110,11 +125,11 @@ async function main() {
           'unlocked', false,
           'completed_source_quizzes', v_effective_completed,
           'unlock_threshold', 1,
-          'quiz_type', 'daily',
+          'quiz_type', v_quiz_type,
           'period_key', v_period_key,
           'quiz_id', NULL,
           'status', 'not_generated',
-          'total_questions', 20,
+          'total_questions', v_default_total,
           'answered_count', 0,
           'score', NULL,
           'focus_chapters', '[]'::jsonb,
@@ -122,7 +137,7 @@ async function main() {
         );
       END IF;
 
-      -- 3. Check if today's DailyRetentionQuiz exists (ignore stale 'generating' > 3 min)
+      -- 3. Check if today's (or this weekend's) DailyRetentionQuiz exists (ignore stale 'generating' > 3 min)
       SELECT * INTO v_quiz
       FROM public."DailyRetentionQuiz"
       WHERE "userId" = v_db_user_id
@@ -149,7 +164,7 @@ async function main() {
           'unlocked', true,
           'completed_source_quizzes', v_effective_completed,
           'unlock_threshold', 1,
-          'quiz_type', 'daily',
+          'quiz_type', COALESCE(NULLIF(v_quiz."quizType", ''), v_quiz_type),
           'period_key', v_period_key,
           'quiz_id', v_quiz.id::text,
           'status', v_quiz.status,
@@ -161,25 +176,35 @@ async function main() {
         );
       END IF;
 
-      -- 4. Not generated yet: preview top 2-3 recent chapters as focus_chapters
+      -- 4. Not generated yet: preview top 2-3 chapters from previous sessions (prioritizing last 7 days)
       WITH chapter_activity AS (
-        SELECT c.name, COUNT(*) AS cnt, MAX(qal."createdAt") AS last_seen
+        SELECT
+          c.name,
+          COUNT(*) AS cnt,
+          MAX(qal."createdAt") AS last_seen,
+          MAX(CASE WHEN qal."createdAt" >= (now() - interval '7 days') THEN 1 ELSE 0 END) AS is_recent
         FROM public."QuestionAttemptLog" qal
         JOIN public."Chapter" c ON c.id = qal."chapterId"
         WHERE qal."userId" = v_db_user_id
           AND qal."sourceType" <> 'DAILY_QUIZ'
-          AND qal."createdAt" >= (now() - interval '7 days')
         GROUP BY c.name
         UNION ALL
-        SELECT c.name, COUNT(*) AS cnt, MAX(qa."createdAt") AS last_seen
+        SELECT
+          c.name,
+          COUNT(*) AS cnt,
+          MAX(qa."createdAt") AS last_seen,
+          MAX(CASE WHEN qa."createdAt" >= (now() - interval '7 days') THEN 1 ELSE 0 END) AS is_recent
         FROM public."QuizAttempt" qa
         JOIN public."Quiz" q ON q.id = qa."quizId"
         JOIN public."Chapter" c ON c.id = q."chapterId"
         WHERE qa."userId" = v_db_user_id
-          AND qa."createdAt" >= (now() - interval '7 days')
         GROUP BY c.name
         UNION ALL
-        SELECT c.name, COUNT(*) AS cnt, MAX(um."createdAt") AS last_seen
+        SELECT
+          c.name,
+          COUNT(*) AS cnt,
+          MAX(um."createdAt") AS last_seen,
+          MAX(CASE WHEN um."createdAt" >= (now() - interval '7 days') THEN 1 ELSE 0 END) AS is_recent
         FROM public."UserMistake" um
         JOIN public."Question" qs ON qs.id = um."questionId"
         JOIN public."Quiz" q ON q.id = qs."quizId"
@@ -188,10 +213,14 @@ async function main() {
         GROUP BY c.name
       ),
       ranked_chapters AS (
-        SELECT name, SUM(cnt) AS total_cnt, MAX(last_seen) AS latest
+        SELECT
+          name,
+          SUM(cnt) AS total_cnt,
+          MAX(last_seen) AS latest,
+          MAX(is_recent) AS has_recent
         FROM chapter_activity
         GROUP BY name
-        ORDER BY MAX(last_seen) DESC, SUM(cnt) DESC
+        ORDER BY MAX(is_recent) DESC, MAX(last_seen) DESC, SUM(cnt) DESC
         LIMIT 3
       )
       SELECT COALESCE(jsonb_agg(name), '[]'::jsonb) INTO v_focus_chapters
@@ -201,11 +230,11 @@ async function main() {
         'unlocked', true,
         'completed_source_quizzes', v_effective_completed,
         'unlock_threshold', 1,
-        'quiz_type', 'daily',
+        'quiz_type', v_quiz_type,
         'period_key', v_period_key,
         'quiz_id', NULL,
         'status', 'not_generated',
-        'total_questions', 20,
+        'total_questions', v_default_total,
         'answered_count', 0,
         'score', NULL,
         'focus_chapters', v_focus_chapters,

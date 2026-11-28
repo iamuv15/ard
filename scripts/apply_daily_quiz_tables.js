@@ -49,6 +49,7 @@ async function main() {
       "id" UUID PRIMARY KEY DEFAULT gen_random_uuid(),
       "userId" INTEGER NOT NULL REFERENCES public."User"("id") ON DELETE CASCADE,
       "periodKey" TEXT NOT NULL,
+      "quizType" TEXT NOT NULL DEFAULT 'daily',
       "status" TEXT NOT NULL DEFAULT 'generating',
       "generationStartedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
       "focusChapters" TEXT[] NOT NULL DEFAULT ARRAY[]::TEXT[],
@@ -59,6 +60,10 @@ async function main() {
       "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
       "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
+  `);
+  await prisma.$executeRawUnsafe(`
+    ALTER TABLE public."DailyRetentionQuiz"
+    ADD COLUMN IF NOT EXISTS "quizType" TEXT NOT NULL DEFAULT 'daily';
   `);
   await prisma.$executeRawUnsafe(`
     CREATE UNIQUE INDEX IF NOT EXISTS "DailyRetentionQuiz_userId_periodKey_key"
